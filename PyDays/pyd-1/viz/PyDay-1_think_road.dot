@@ -1,0 +1,57 @@
+digraph G {
+/*命令执行 dot -Tpng PyDay-1_think_road.dot -o PyDay-1_think_road.png*/
+    /*全局设定*/
+    graph [label="LovelyPython \n Py日故事 \n -1天 问题解决思路图谱",
+        fontsize=12.0,
+        fontname="VeraSansYuanTi-Regular.ttf",
+        ratio=compress,
+        size="8,14",
+        rankdir=TB,
+        ];
+    node[fontsize=10.0,
+        fontname="VeraSansYuanTi-Regular.ttf",
+        style=filled,
+        fillcolor=snow,
+        color=darkolivegreen,
+        fontcolor=darkolivegreen,
+        shape=ellipse,
+        ];
+    edge [fontsize=9.0,
+        fontname="VeraSansYuanTi-Regular.ttf",
+        fontcolor=yellowgreen,
+   		arrowhead=vee,
+        ];
+
+    /*图例关系*/
+    req0->search->szh;
+    szh->recordmix;
+    recordmix->zhcode;
+    zhcode->trydecode       [label="1.0 对己有文本 ",];
+    trydecode->guess        [label="1.1 自创函式 ",];
+    trydecode->chardet      [label="1.2 专用包 ",];
+    
+    zhcode->tryread         [label="2.0 对光盘信息 ",];
+    tryread->chardet        [label="2.1 专用包 ",];
+    tryread->mount          [label="2.2 换个思路 ",];
+    mount->tryread          [label="2.3 指定文件系统编码 ",];
+    tryread->zhcode         [label="2.4 自然正确读取 ",];
+    
+    zhcode->szh             [label="解决核心问题 ",];
+    szh->formattxt;
+    
+    /*图元声明*/
+    
+    req0        [label="需求分析"];
+    search      [label="完善搜索"];
+    szh         [label="中文搜索"];
+    recordmix   [label="扫描记录 \n 文本错乱"];
+    zhcode      [label="中文编码问题"];
+    trydecode   [label="尝试解码"];
+    guess       [label="猜测编码"];
+    tryread     [label="尝试重读"];
+    mount       [label="光盘文件系统 \n 重新挂接"];
+    chardet     [label="chardet \n 专用编码探测工具包"];
+    
+    formattxt     [label="重构记录文本"];
+    
+}

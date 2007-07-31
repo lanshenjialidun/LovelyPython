@@ -1,0 +1,17 @@
+/media/cdrom0/EVA/Death-Rebirth;[];['eva8-01.Mp3', 'eva8-02.Mp3',...]
+    ^                          ^ ^  ^ 
+    |                          | |  +- files列表，此目录的文件名 
+    |                          | +- 各个数据段使用";" 分隔
+    |                          +- dirs列表，子目录名，如果没有就为空
+    +- 当前目录
+
+
+ unicode(原始文本,   'utf8'   ).encode('utf8')
+文本 ==decode()--> [unicode] ==>encode()--> utf-8文本
+ ^      ^             ^         ^            ^
+ |      |             |         |            +- 最终的渴求
+ |      |             |         +- 是为编码过程;可以从unicode 输出为任意编码
+ |      |             +- Python 内置支持的unicode 格式数据
+ |      +- 是为解码过程,将已知编码的文本编译成宇宙通用的unicode数据
+ +- 原始文本信息,是什么编码你得知道!
+
