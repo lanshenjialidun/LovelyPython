@@ -1,0 +1,35 @@
+##language:zh
+#pragma section-numbers on
+||'''status'''|| 草稿  || ZoomQuiet || 完成度~10%||
+
+
+[[TableOfContents]]
+
+= PyDay 2 界面!不应该是难事儿 =
+## 一句话本章精要精神
+`网站软件化绝对不是空话!`
+
+== GUI有必要嘛?冇必要嘛? ==
+
+=== 浏览器也是GUI ===
+
+
+
+== Web应用框架 ==
+
+
+=== Karrigell ===
+
+=== web.py ===
+
+
+== 小结 ==
+## 总体语法等等叙述,注意给出相关知识的阅读指导
+
+== 练习 ==
+## 设计实用练习,确保体例代码可以自由扩展出各种实用应用!
+
+----
+::-- ZoomQuiet [[[DateTime(2007-04-13T16:29:37Z)]]]
+[[PageComment2]]
+
