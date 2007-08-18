@@ -1,18 +1,31 @@
-2007-02-21 14:08 Zoom.Quiet <Zoom.Quiet@gmail.com>
+2007-06-29 23:19 Zoom.Quiet <Zoom.Quiet@gmail.com>
+    * 变更许可为 GPL v3
+    
+2007-06-29 23:19 Zoom.Quiet <Zoom.Quiet@gmail.com>
 
-	* PyDay-4-1.py: 初始化:
-	  演示基本Python 脚本组成
-
-2007-02-23 21:15 Zoom.Quiet <Zoom.Quiet@gmail.com>
-
-	* pycdc-v0.2.py: v0.2
-
-	  [BIG]
-	  函式化所有执行
-
+    * cdctools.py: v0.6
+    
 	  [MODERATE]
-	  使用中文注释关键点
-	
+	  使用文档化注释说明,重构核心函式名称
+
+	* pycdc.py: v0.6
+    
+	  [MODERATE]
+	  使用文档化注释说明, 规范化脚本命名
+
+
+2007-05-14 22:13 Zoom.Quiet <Zoom.Quiet@gmail.com>
+
+    * cdctools.py: v0.5
+    
+	  [MODERATE]
+	  创立编码处置辅助函式 `_smartcode()`
+
+	* pycdc-v0.6.py: v0.6
+    
+	  [SMALL]
+	  配合 `cdctools.py` 调整了输出提示
+
 2007-02-24 16:33 Zoom.Quiet <Zoom.Quiet@gmail.com>
 
     * cdctools.py: v0.1
@@ -28,27 +41,20 @@
 	  [SMALL]
 	  利用 `self.intro` 进行使用帮助的组织
 
-2007-05-14 22:13 Zoom.Quiet <Zoom.Quiet@gmail.com>
+2007-02-23 21:15 Zoom.Quiet <Zoom.Quiet@gmail.com>
 
-    * cdctools.py: v0.5
-    
+	* pycdc-v0.2.py: v0.2
+
+	  [BIG]
+	  函式化所有执行
+
 	  [MODERATE]
-	  创立编码处置辅助函式 `_smartcode()`
+	  使用中文注释关键点
+	
 
-	* pycdc-v0.6.py: v0.6
-    
-	  [SMALL]
-	  配合 `cdctools.py` 调整了输出提示
+2007-02-21 14:08 Zoom.Quiet <Zoom.Quiet@gmail.com>
 
-2007-06-29 23:19 Zoom.Quiet <Zoom.Quiet@gmail.com>
+	* PyDay-4-1.py: 初始化:
+	  演示基本Python 脚本组成
 
-    * cdctools.py: v0.6
-    
-	  [MODERATE]
-	  使用文档化注释说明,重构核心函式名称
-
-	* pycdc.py: v0.6
-    
-	  [MODERATE]
-	  使用文档化注释说明, 规范化脚本命名
 

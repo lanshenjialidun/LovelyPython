@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>pycdc</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://wiki.woodpecker.org.cn/moin/ObpLovelyPython">PyCDC</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Module&nbsp;pycdc
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="pycdc-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="pycdc-module.html">Module pycdc</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-comment"># -*- coding: utf-8 -*-</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-docstring">''''pycdc.py' is part of PyCDC.</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-docstring">    PyCDC is free software; you can redistribute it and/or modify</tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-docstring">    it under the terms of the GNU General Public License as published by</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-docstring">    the Free Software Foundation; either version 3 of the License, or</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-docstring">    (at your option) any later version.</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-docstring">    PyCDC is distributed in the hope that it will be useful,</tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-docstring">    but WITHOUT ANY WARRANTY; without even the implied warranty of</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-docstring">    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-docstring">    GNU General Public License for more details.</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"><tt class="py-docstring">    You should have received a copy of the GNU General Public License</tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"><tt class="py-docstring">    along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"><tt class="py-docstring">'''</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">sys</tt><tt class="py-op">,</tt> <tt class="py-name">cmd</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Module cdctools=cdctools-module.html"><a title="cdctools" class="py-name" href="#" onclick="return doclink('link-0', 'cdctools', 'link-0');">cdctools</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"> </tt>
+<a name="PyCDC"></a><div id="PyCDC-def"><a name="L20"></a><tt class="py-lineno">20</tt> <a class="py-toggle" href="#" id="PyCDC-toggle" onclick="return toggle('PyCDC');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="pycdc.PyCDC-class.html">PyCDC</a><tt class="py-op">(</tt><tt class="py-base-class">cmd</tt><tt class="py-op">.</tt><tt class="py-base-class">Cmd</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PyCDC-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="PyCDC-expanded"><a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line">    <tt class="py-docstring">'''PyCDC &#20027;&#31243;&#24207;</tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line"><tt class="py-docstring">    @author: U{Zoom.Quiet&lt;mailto:Zoom.Quiet@gmail.com&gt;}</tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line"><tt class="py-docstring">    @todo: &#26356;&#21152;&#20016;&#23500;&#30340;&#34920;&#29616;&#65311;</tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line"><tt class="py-docstring">    '''</tt> </tt>
+<a name="PyCDC.__init__"></a><div id="PyCDC.__init__-def"><a name="L25"></a><tt class="py-lineno">25</tt> <a class="py-toggle" href="#" id="PyCDC.__init__-toggle" onclick="return toggle('PyCDC.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pycdc.PyCDC-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PyCDC.__init__-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="PyCDC.__init__-expanded"><a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line">        <tt class="py-docstring">'''class PyCDC &#21021;&#22987;&#21270;&#20989;&#24335;</tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line"><tt class="py-docstring">        - &#35774;&#23450;&#40664;&#35748;&#20809;&#30424;&#20301;&#32622;</tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line"><tt class="py-docstring">        - &#35774;&#23450;&#21629;&#20196;&#20132;&#20114;&#25552;&#31034;&#23383;&#20018;</tt> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line"><tt class="py-docstring">        - &#35774;&#23450;&#20351;&#29992;&#35828;&#26126;</tt> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line">        <tt class="py-name">cmd</tt><tt class="py-op">.</tt><tt class="py-name">Cmd</tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Method pycdc.PyCDC.__init__()=pycdc.PyCDC-class.html#__init__"><a title="pycdc.PyCDC.__init__" class="py-name" href="#" onclick="return doclink('link-1', '__init__', 'link-1');">__init__</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">)</tt>                <tt class="py-comment"># initialize the base class</tt> </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">CDROM</tt> <tt class="py-op">=</tt> <tt class="py-string">'/media/cdrom0'</tt> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">CDDIR</tt> <tt class="py-op">=</tt> <tt class="py-string">'cdc/'</tt> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">prompt</tt><tt class="py-op">=</tt><tt class="py-string">"(PyCDC)&gt;"</tt> </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">intro</tt> <tt class="py-op">=</tt> <tt class="py-string">'''PyCDC0.5 &#20351;&#29992;&#35828;&#26126;:</tt> </tt>
+<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line"><tt class="py-string">    dir &#30446;&#24405;&#21517;     #&#25351;&#23450;&#20445;&#23384;&#21644;&#25628;&#32034;&#30446;&#24405;&#65292;&#40664;&#35748;&#26159; "cdc"</tt> </tt>
+<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line"><tt class="py-string">    walk &#25991;&#20214;&#21517;    #&#25351;&#23450;&#20809;&#30424;&#20449;&#24687;&#25991;&#20214;&#21517;&#65292;&#20351;&#29992; "*.cdc"</tt> </tt>
+<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line"><tt class="py-string">    find &#20851;&#38190;&#35789;    #&#36941;&#21382;&#25628;&#32034;&#30446;&#24405;&#20013;&#25152;&#26377;.cdc&#25991;&#20214;&#65292;&#36755;&#20986;&#21547;&#26377;&#20851;&#38190;&#35789;&#30340;&#34892;</tt> </tt>
+<a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line"><tt class="py-string">    ?           # &#26597;&#35810;</tt> </tt>
+<a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line"><tt class="py-string">    EOF         # &#36864;&#20986;&#31995;&#32479;&#65292;&#20063;&#21487;&#20197;&#20351;&#29992;Crtl+D(Unix)|Ctrl+Z(dos/windows)</tt> </tt>
+<a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line"><tt class="py-string">        '''</tt> </tt>
+</div><a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line"> </tt>
+<a name="PyCDC.help_EOF"></a><div id="PyCDC.help_EOF-def"><a name="L43"></a><tt class="py-lineno">43</tt> <a class="py-toggle" href="#" id="PyCDC.help_EOF-toggle" onclick="return toggle('PyCDC.help_EOF');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pycdc.PyCDC-class.html#help_EOF">help_EOF</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PyCDC.help_EOF-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="PyCDC.help_EOF-expanded"><a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line">        <tt class="py-docstring">'''PyCDC &#36864;&#20986;&#24110;&#21161;&#20449;&#24687;&#36755;&#20986;&#20989;&#24335;</tt> </tt>
+<a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">"&#36864;&#20986;&#31243;&#24207; Quits the program"</tt> </tt>
+</div><a name="PyCDC.do_EOF"></a><div id="PyCDC.do_EOF-def"><a name="L47"></a><tt class="py-lineno">47</tt> <a class="py-toggle" href="#" id="PyCDC.do_EOF-toggle" onclick="return toggle('PyCDC.do_EOF');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pycdc.PyCDC-class.html#do_EOF">do_EOF</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">line</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PyCDC.do_EOF-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="PyCDC.do_EOF-expanded"><a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line">        <tt class="py-docstring">'''PyCDC &#36864;&#20986;&#25191;&#34892;&#20989;&#24335;</tt> </tt>
+<a name="L49"></a><tt class="py-lineno">49</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L50"></a><tt class="py-lineno">50</tt>  <tt class="py-line">        <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">exit</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L51"></a><tt class="py-lineno">51</tt>  <tt class="py-line"> </tt>
+<a name="PyCDC.help_walk"></a><div id="PyCDC.help_walk-def"><a name="L52"></a><tt class="py-lineno">52</tt> <a class="py-toggle" href="#" id="PyCDC.help_walk-toggle" onclick="return toggle('PyCDC.help_walk');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pycdc.PyCDC-class.html#help_walk">help_walk</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PyCDC.help_walk-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="PyCDC.help_walk-expanded"><a name="L53"></a><tt class="py-lineno">53</tt>  <tt class="py-line">        <tt class="py-docstring">'''PyCDC &#25195;&#25551;&#20809;&#30424;&#24110;&#21161;&#20449;&#24687;&#36755;&#20986;&#20989;&#24335;</tt> </tt>
+<a name="L54"></a><tt class="py-lineno">54</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L55"></a><tt class="py-lineno">55</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">"&#25195;&#25551;&#20809;&#30424;&#20869;&#23481; walk cd and export into *.cdc"</tt> </tt>
+</div><a name="PyCDC.do_walk"></a><div id="PyCDC.do_walk-def"><a name="L56"></a><tt class="py-lineno">56</tt> <a class="py-toggle" href="#" id="PyCDC.do_walk-toggle" onclick="return toggle('PyCDC.do_walk');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pycdc.PyCDC-class.html#do_walk">do_walk</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">filename</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PyCDC.do_walk-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="PyCDC.do_walk-expanded"><a name="L57"></a><tt class="py-lineno">57</tt>  <tt class="py-line">        <tt class="py-docstring">'''PyCDC &#25195;&#25551;&#20809;&#30424;&#25191;&#34892;&#20989;&#24335;</tt> </tt>
+<a name="L58"></a><tt class="py-lineno">58</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L59"></a><tt class="py-lineno">59</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">filename</tt> <tt class="py-op">==</tt> <tt class="py-string">""</tt><tt class="py-op">:</tt><tt class="py-name">filename</tt> <tt class="py-op">=</tt> <tt class="py-name">raw_input</tt><tt class="py-op">(</tt><tt class="py-string">"&#36755;&#20837;cdc&#25991;&#20214;&#21517;:: "</tt><tt class="py-op">)</tt> </tt>
+<a name="L60"></a><tt class="py-lineno">60</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">"&#25195;&#25551;&#20809;&#30424;&#20869;&#23481;&#20445;&#23384;&#21040;:'%s'"</tt> <tt class="py-op">%</tt> <tt class="py-name">filename</tt> </tt>
+<a name="L61"></a><tt class="py-lineno">61</tt>  <tt class="py-line">        <tt id="link-2" class="py-name" targets="Function cdctools.cdWalker()=cdctools-module.html#cdWalker"><a title="cdctools.cdWalker" class="py-name" href="#" onclick="return doclink('link-2', 'cdWalker', 'link-2');">cdWalker</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">CDROM</tt><tt class="py-op">,</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">CDDIR</tt><tt class="py-op">+</tt><tt class="py-name">filename</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L62"></a><tt class="py-lineno">62</tt>  <tt class="py-line"> </tt>
+<a name="PyCDC.help_dir"></a><div id="PyCDC.help_dir-def"><a name="L63"></a><tt class="py-lineno">63</tt> <a class="py-toggle" href="#" id="PyCDC.help_dir-toggle" onclick="return toggle('PyCDC.help_dir');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pycdc.PyCDC-class.html#help_dir">help_dir</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PyCDC.help_dir-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="PyCDC.help_dir-expanded"><a name="L64"></a><tt class="py-lineno">64</tt>  <tt class="py-line">        <tt class="py-docstring">'''PyCDC &#25351;&#23450;&#30446;&#24405;&#25191;&#34892;&#20989;&#24335;</tt> </tt>
+<a name="L65"></a><tt class="py-lineno">65</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L66"></a><tt class="py-lineno">66</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">"&#25351;&#23450;&#20445;&#23384;/&#25628;&#32034;&#30446;&#24405;"</tt> </tt>
+</div><a name="PyCDC.do_dir"></a><div id="PyCDC.do_dir-def"><a name="L67"></a><tt class="py-lineno">67</tt> <a class="py-toggle" href="#" id="PyCDC.do_dir-toggle" onclick="return toggle('PyCDC.do_dir');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pycdc.PyCDC-class.html#do_dir">do_dir</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">pathname</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PyCDC.do_dir-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="PyCDC.do_dir-expanded"><a name="L68"></a><tt class="py-lineno">68</tt>  <tt class="py-line">        <tt class="py-docstring">'''PyCDC &#25351;&#23450;&#30446;&#24405;&#24110;&#21161;&#20449;&#24687;&#36755;&#20986;&#20989;&#24335;</tt> </tt>
+<a name="L69"></a><tt class="py-lineno">69</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L70"></a><tt class="py-lineno">70</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">pathname</tt> <tt class="py-op">==</tt> <tt class="py-string">""</tt><tt class="py-op">:</tt> <tt class="py-name">pathname</tt> <tt class="py-op">=</tt> <tt class="py-name">raw_input</tt><tt class="py-op">(</tt><tt class="py-string">"&#36755;&#20837;&#25351;&#23450;&#20445;&#23384;/&#25628;&#32034;&#30446;&#24405;: "</tt><tt class="py-op">)</tt> </tt>
+<a name="L71"></a><tt class="py-lineno">71</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">CDDIR</tt> <tt class="py-op">=</tt> <tt class="py-name">pathname</tt> </tt>
+<a name="L72"></a><tt class="py-lineno">72</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">"&#25351;&#23450;&#20445;&#23384;/&#25628;&#32034;&#30446;&#24405;:'%s' ;&#40664;&#35748;&#26159;:'%s'"</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-name">pathname</tt><tt class="py-op">,</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">CDDIR</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L73"></a><tt class="py-lineno">73</tt>  <tt class="py-line"> </tt>
+<a name="PyCDC.help_find"></a><div id="PyCDC.help_find-def"><a name="L74"></a><tt class="py-lineno">74</tt> <a class="py-toggle" href="#" id="PyCDC.help_find-toggle" onclick="return toggle('PyCDC.help_find');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pycdc.PyCDC-class.html#help_find">help_find</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PyCDC.help_find-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="PyCDC.help_find-expanded"><a name="L75"></a><tt class="py-lineno">75</tt>  <tt class="py-line">        <tt class="py-docstring">'''PyCDC &#20851;&#38190;&#35789;&#25628;&#32034;&#25191;&#34892;&#20989;&#24335;</tt> </tt>
+<a name="L76"></a><tt class="py-lineno">76</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L77"></a><tt class="py-lineno">77</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">"&#25628;&#32034;&#20851;&#38190;&#35789;"</tt> </tt>
+</div><a name="PyCDC.do_find"></a><div id="PyCDC.do_find-def"><a name="L78"></a><tt class="py-lineno">78</tt> <a class="py-toggle" href="#" id="PyCDC.do_find-toggle" onclick="return toggle('PyCDC.do_find');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="pycdc.PyCDC-class.html#do_find">do_find</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">keyword</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PyCDC.do_find-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="PyCDC.do_find-expanded"><a name="L79"></a><tt class="py-lineno">79</tt>  <tt class="py-line">        <tt class="py-docstring">'''PyCDC &#20851;&#38190;&#35789;&#25628;&#32034;&#24110;&#21161;&#20449;&#24687;&#36755;&#20986;&#20989;&#24335;</tt> </tt>
+<a name="L80"></a><tt class="py-lineno">80</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L81"></a><tt class="py-lineno">81</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">keyword</tt> <tt class="py-op">==</tt> <tt class="py-string">""</tt><tt class="py-op">:</tt> <tt class="py-name">keyword</tt> <tt class="py-op">=</tt> <tt class="py-name">raw_input</tt><tt class="py-op">(</tt><tt class="py-string">"&#36755;&#20837;&#25628;&#32034;&#20851;&#38190;&#23383;: "</tt><tt class="py-op">)</tt> </tt>
+<a name="L82"></a><tt class="py-lineno">82</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">"&#25628;&#32034;&#20851;&#38190;&#35789;:'%s'"</tt> <tt class="py-op">%</tt> <tt class="py-name">keyword</tt> </tt>
+<a name="L83"></a><tt class="py-lineno">83</tt>  <tt class="py-line">        <tt id="link-3" class="py-name" targets="Function cdctools.cdcGrep()=cdctools-module.html#cdcGrep"><a title="cdctools.cdcGrep" class="py-name" href="#" onclick="return doclink('link-3', 'cdcGrep', 'link-3');">cdcGrep</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">CDDIR</tt><tt class="py-op">,</tt><tt class="py-name">keyword</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L84"></a><tt class="py-lineno">84</tt>  <tt class="py-line"> </tt>
+<a name="L85"></a><tt class="py-lineno">85</tt>  <tt class="py-line"><tt class="py-keyword">if</tt> <tt class="py-name">__name__</tt> <tt class="py-op">==</tt> <tt class="py-string">'__main__'</tt><tt class="py-op">:</tt>      <tt class="py-comment"># this way the module can be</tt> </tt>
+<a name="L86"></a><tt class="py-lineno">86</tt>  <tt class="py-line">    <tt class="py-string">'''PyCDC &#33258;&#27979;,&#21450;&#35843;&#29992;&#20027;&#21709;&#24212;&#22788;&#29702;</tt> </tt>
+<a name="L87"></a><tt class="py-lineno">87</tt>  <tt class="py-line"><tt class="py-string">    '''</tt> </tt>
+<a name="L88"></a><tt class="py-lineno">88</tt>  <tt class="py-line">    <tt class="py-name">cdc</tt> <tt class="py-op">=</tt> <tt id="link-4" class="py-name" targets="Class pycdc.PyCDC=pycdc.PyCDC-class.html"><a title="pycdc.PyCDC" class="py-name" href="#" onclick="return doclink('link-4', 'PyCDC', 'link-4');">PyCDC</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt>            <tt class="py-comment"># imported by other programs as well</tt> </tt>
+<a name="L89"></a><tt class="py-lineno">89</tt>  <tt class="py-line">    <tt class="py-name">cdc</tt><tt class="py-op">.</tt><tt class="py-name">cmdloop</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L90"></a><tt class="py-lineno">90</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://wiki.woodpecker.org.cn/moin/ObpLovelyPython">PyCDC</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Sat Aug 18 22:42:52 2007
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>
