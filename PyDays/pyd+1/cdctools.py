@@ -42,6 +42,7 @@ def cdWalker(cdrom,cdcfile):
     @param cdrom: 光盘访问路径
     @param cdcfile: 输出的光盘信息记录文件(包含路径,绝对,相对都可以)
     @return: 无,直接输出成*.cdc 文件
+    @attention: 从v0.7 开始不使用此扫描函式,使用 iniCDinfo()
     '''
     export = ""
     for root, dirs, files in os.walk(cdrom):
