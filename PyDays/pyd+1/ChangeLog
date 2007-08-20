@@ -1,5 +1,13 @@
 2007-08-20 23:19 Zoom.Quiet <Zoom.Quiet@gmail.com>
-    * 变更许可为 GPL v3
+    * cdctools.py: v0.7
+    
+	  [BIG]
+	  创建 iniCDinfo() 进行 .ini 化光盘信息摘要;简化文件声明，使用链接说明版权
+
+	* pycdc.py: v0.7
+    
+	  [SMALL]
+	  更改walk 的实际行动函式;简化文件声明，使用链接说明版权
 
 2007-08-19 13:19 Zoom.Quiet <Zoom.Quiet@gmail.com>
     * 变更许可为 GPL v3
@@ -15,7 +23,6 @@
     
 	  [MODERATE]
 	  使用文档化注释说明, 规范化脚本命名
-
 
 2007-05-14 22:13 Zoom.Quiet <Zoom.Quiet@gmail.com>
 
