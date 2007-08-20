@@ -73,6 +73,32 @@
 ==== epydoc ====
 '''Easy Py Documentor ''' -- 轻松的Py文档生成器! 
  * http://wiki.woodpecker.org.cn/moin/CodeCommentingRule
+ * http://epydoc.sourceforge.net/api/epydoc-module.html epydoc 自个儿的文档输出，是多么专业和规范哪
+ * 简要的学习后,发觉只要起草一个简单的配置文件{{{
+##可以命名为epydoc.cfg
+[epydoc]
+# 项目信息
+name: PyCDC
+url: http://wiki.woodpecker.org.cn/moin/ObpLovelyPython
+
+# 想进行处理的文件或是模块,一般指定目录即可
+modules: /pat/to/pycdc.py,/pat/to/cdctools.py
+
+# 使用html 格式,输出文档到 apidoc/ 目录中
+output: html
+target: apidocs/
+
+# 指定 Graphviz dot.所在位置,可以生成各种UML关系图谱!(又一项自由环境中的福利!)
+graph: all
+dotpath: /usr/bin/dot
+}}}
+
+ * 这样一来小白可以随时使用类似命令
+{{{$ epydoc --config epydoc.cfg}}}获得最新的 API文档
+ * 效果类似:
+ 
+attachment:070818_epydoc_682X364_scrot.png
+  * 是非常类似 JAVA DOC 的带框架的综合视图的文档站点!
 
 
 == 引发的改进 ==
@@ -105,8 +131,6 @@ def doInsert(arg):
 所以，小小修订一些变量／函式的命名更加贴切是作者在发布前的礼貌！？
  * `cdctools._smartcode(stream)`-> `cdctools._smartcode(ustring)`
  * `codedetect = chardet.detect(ustring)["encoding"]`->`codename`
-
-=== 搜索输出文本的改进 ===
 
 
 == 小结 ==

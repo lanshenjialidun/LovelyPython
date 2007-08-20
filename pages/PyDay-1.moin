@@ -175,8 +175,18 @@ $ sudo mount -o ro,norock,iocharset=utf8 /dev/scd0 /media/cdrom0
 
 == 改善数据结构 ==
 查询是可以了,但是,使用默认的列表打印格式来存储和汇报实在不乍的, 想修改就修改
-{{{改进的记录格式控制片段
+{{{#!python
+#cdctools.py...
+def formatCDinfo(root,dirs,files):
+    export = "\n"+root+"\n"
+    for d in dirs:
+        export+= "-d "+root+_smartcode(d)+"\n"
+    for f in files:
+        export+= "-f %s %s \n" % (root,_smartcode(f))
+    export+= "="*70
+    return export
 }}}
+
  * 存储下来的 .cdc 片段{{{
 ...
 -f /media/cdrom0/RyokoHirosue/Ryoko Hirosue-files.files  title.gif 
