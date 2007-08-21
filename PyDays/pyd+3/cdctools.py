@@ -150,16 +150,12 @@ def markIni(cdcfile,keyword):
     '''
     report = ""
     keyw = keyword.upper()
-    skipnodes = ["Info","Comment"]
     cfg = rcp()
     cfg.read(cdcfile)
-    if 0 == len(cfg.items("Comment")):
-        nodelist = cfg.sections()
-        nodelist.remove("Comment")
-        nodelist.remove("Info")
-    else:
-        nodelist = [i[1] for i in cfg.items("Comment")]
-    #print nodelist
+    nodelist = cfg.sections()
+    nodelist.remove("Comment")
+    nodelist.remove("Info")
+    
     for node in nodelist:
         #print type(node)
         if keyw in node.upper():
