@@ -4,6 +4,7 @@ cdctools.cdcGrep	cdctools-module.html#cdcGrep
 cdctools.grpSearch	cdctools-module.html#grpSearch
 cdctools.formatCDinfo	cdctools-module.html#formatCDinfo
 cdctools.cdWalker	cdctools-module.html#cdWalker
+cdctools.markIni	cdctools-module.html#markIni
 cdctools._smartcode	cdctools-module.html#_smartcode
 cdctools.iniCDinfo	cdctools-module.html#iniCDinfo
 pycdc	pycdc-module.html
