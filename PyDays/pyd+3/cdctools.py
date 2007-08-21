@@ -117,7 +117,8 @@ class grepIt(Thread):
         @note: 各个线程的实际动作的定义
         '''
         if ".cdc" in self.cdcf:
-            self.report = markLine(self.cdcf,self.keyw)
+            self.report = markIni(self.cdcf,self.keyw)
+            #self.report = markLine(self.cdcf,self.keyw)
         '''重构前的当地匹配处置::
             for line in open(self.cdcf).readlines():    # 打开文件,读取文件每一行，并循环
                 if self.keyw in line.upper():             # 判定是否有关键词在行中
@@ -148,9 +149,28 @@ def markIni(cdcfile,keyword):
         - 如果在文件名上有匹配,则前缀目录名记录
     '''
     report = ""
-    for line in open(cdcfile).readlines():    # 打开文件,读取文件每一行，并循环
-        if keyword in line.upper():             # 判定是否有关键词在行中
-            report += line
+    keyw = keyword.upper()
+    skipnodes = ["Info","Comment"]
+    cfg = rcp()
+    cfg.read(cdcfile)
+    if 0 == len(cfg.items("Comment")):
+        nodelist = cfg.sections()
+        nodelist.remove("Comment")
+        nodelist.remove("Info")
+    else:
+        nodelist = [i[1] for i in cfg.items("Comment")]
+    #print nodelist
+    for node in nodelist:
+        #print type(node)
+        if keyw in node.upper():
+            report += node
+            continue
+        else:
+            for item in cfg.items(node):
+                #print item[0].upper()
+                if keyw in item[0].upper():
+                    report += "%s/%s"%(node,item)
+    #print keyw
     return report
     
 def grpSearch(cdcpath,keyword):
@@ -179,6 +199,8 @@ if __name__ == '__main__':      # this way the module can be
     #cdWalker(CDROM,"cdctools-utf8-beautify.cdc")
     #cdcGrep("cdc/","EVA")
     grpSearch("cdc/","忆莲")
+    #markLine("cdc/z.MFC.pop.02.cdc","忆莲")
+    #markIni("cdc/z.MFC.pop.02.cdc","忆莲")
 
 '''
 自动时: /dev/scd0 /media/cdrom0 iso9660 ro,noexec,nosuid,nodev,user=zoomq 0 0
