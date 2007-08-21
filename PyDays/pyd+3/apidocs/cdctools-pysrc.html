@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>cdctools</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://wiki.woodpecker.org.cn/moin/ObpLovelyPython">PyCDC</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Module&nbsp;cdctools
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="cdctools-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="cdctools-module.html">Module cdctools</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-comment"># -*- coding: utf-8 -*-</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-docstring">''''cdctools.py' is part of PyCDC.</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-docstring">    @author: U{Zoom.Quiet&lt;mailto:Zoom.Quiet@gmail.com&gt;}</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-docstring">    @license:GPL v3 U{http://www.gnu.org/licenses/}</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-docstring">    @version:0.9</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-docstring">    @note: &#20316;&#20026;&#20027;&#31243;&#24207;&#35843;&#29992;&#30340;&#24120;&#29992;&#22788;&#29702;&#20989;&#24335;&#38598;&#21512;,&#27809;&#26377;&#31867;&#23450;&#20041;</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-docstring">    @todo: &#26356;&#21152;&#26234;&#33021;&#30340;&#20013;&#25991;&#32534;&#30721;&#21028;&#23450;&#25110;&#26159;&#25552;&#31034;</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-docstring">'''</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">os</tt>                                       <tt class="py-comment"># &#23548;&#20837;&#25805;&#20316;&#31995;&#32479;&#25903;&#25345;&#27169;&#22359;</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">ConfigParser</tt> <tt class="py-keyword">import</tt> <tt class="py-name">RawConfigParser</tt> <tt class="py-keyword">as</tt> <tt class="py-name">rcp</tt>  <tt class="py-comment"># &#23548;&#20837;&#22522;&#30784;&#37197;&#32622;&#22788;&#29702;&#26426;&#20026; rcp</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">time</tt>                                     <tt class="py-comment"># &#23548;&#20837;&#26102;&#38388;&#22788;&#29702;&#25903;&#25345;&#27169;&#22359;</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">threading</tt> <tt class="py-keyword">import</tt> <tt class="py-name">Thread</tt>                    <tt class="py-comment"># &#23548;&#20837;&#32447;&#31243;&#25903;&#25345;&#27169;&#22359;</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"> </tt>
+<a name="iniCDinfo"></a><div id="iniCDinfo-def"><a name="L14"></a><tt class="py-lineno"> 14</tt> <a class="py-toggle" href="#" id="iniCDinfo-toggle" onclick="return toggle('iniCDinfo');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="cdctools-module.html#iniCDinfo">iniCDinfo</a><tt class="py-op">(</tt><tt class="py-param">cdrom</tt><tt class="py-op">,</tt><tt class="py-param">cdcfile</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="iniCDinfo-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="iniCDinfo-expanded"><a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line">    <tt class="py-docstring">'''&#20809;&#30424;&#20449;&#24687;.ini&#26684;&#24335;&#21270;&#20989;&#24335;</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-docstring">    @note: &#30452;&#25509;&#21033;&#29992; os.walk() &#20989;&#24335;&#30340;&#36755;&#20986;&#20449;&#24687;&#30001;ConfigParser.RawConfigParser&#36827;&#34892;&#37325;&#32452;&#22788;&#29702;&#25104; .ini &#26684;&#24335;&#25991;&#26412;&#36755;&#20986;&#24182;&#35760;&#24405;</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-docstring">    @param cdrom: &#20809;&#30424;&#35775;&#38382;&#36335;&#24452;</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"><tt class="py-docstring">    @param cdcfile: &#36755;&#20986;&#30340;&#20809;&#30424;&#20449;&#24687;&#35760;&#24405;&#25991;&#20214;(&#21253;&#21547;&#36335;&#24452;,&#32477;&#23545;,&#30456;&#23545;&#37117;&#21487;&#20197;)</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"><tt class="py-docstring">    @return: &#26080;,&#30452;&#25509;&#36755;&#20986;&#25104;&#32452;&#32455;&#22909;&#30340;&#31867;.ini &#30340;*.cdc &#25991;&#20214;</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"><tt class="py-docstring">    '''</tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line">    <tt class="py-name">walker</tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-op">}</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">root</tt><tt class="py-op">,</tt> <tt class="py-name">dirs</tt><tt class="py-op">,</tt> <tt class="py-name">files</tt> <tt class="py-keyword">in</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">walk</tt><tt class="py-op">(</tt><tt class="py-name">cdrom</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line">        <tt class="py-name">walker</tt><tt class="py-op">[</tt><tt class="py-name">root</tt><tt class="py-op">]</tt><tt class="py-op">=</tt><tt class="py-op">(</tt><tt class="py-name">dirs</tt><tt class="py-op">,</tt><tt class="py-name">files</tt><tt class="py-op">)</tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line">    <tt class="py-name">cfg</tt> <tt class="py-op">=</tt> <tt class="py-name">rcp</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line">    <tt class="py-name">cfg</tt><tt class="py-op">.</tt><tt class="py-name">add_section</tt><tt class="py-op">(</tt><tt class="py-string">"Info"</tt><tt class="py-op">)</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line">    <tt class="py-name">cfg</tt><tt class="py-op">.</tt><tt class="py-name">add_section</tt><tt class="py-op">(</tt><tt class="py-string">"Comment"</tt><tt class="py-op">)</tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line">    <tt class="py-name">cfg</tt><tt class="py-op">.</tt><tt class="py-name">set</tt><tt class="py-op">(</tt><tt class="py-string">"Info"</tt><tt class="py-op">,</tt> <tt class="py-string">'ImagePath'</tt><tt class="py-op">,</tt> <tt class="py-name">cdrom</tt><tt class="py-op">)</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line">    <tt class="py-name">cfg</tt><tt class="py-op">.</tt><tt class="py-name">set</tt><tt class="py-op">(</tt><tt class="py-string">"Info"</tt><tt class="py-op">,</tt> <tt class="py-string">'Volume'</tt><tt class="py-op">,</tt> <tt class="py-name">cdcfile</tt><tt class="py-op">)</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line">    <tt class="py-name">cfg</tt><tt class="py-op">.</tt><tt class="py-name">set</tt><tt class="py-op">(</tt><tt class="py-string">"Info"</tt><tt class="py-op">,</tt> <tt class="py-string">'FAT'</tt><tt class="py-op">,</tt> <tt class="py-string">'CDFS'</tt><tt class="py-op">)</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line">    <tt class="py-name">dirs</tt> <tt class="py-op">=</tt> <tt class="py-name">walker</tt><tt class="py-op">.</tt><tt class="py-name">keys</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line">    <tt class="py-name">i</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">d</tt> <tt class="py-keyword">in</tt> <tt class="py-name">dirs</tt><tt class="py-op">:</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line">        <tt class="py-name">i</tt><tt class="py-op">+=</tt><tt class="py-number">1</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line">        <tt class="py-name">cfg</tt><tt class="py-op">.</tt><tt class="py-name">set</tt><tt class="py-op">(</tt><tt class="py-string">"Comment"</tt><tt class="py-op">,</tt> <tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">i</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-name">d</tt><tt class="py-op">)</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line">         </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">p</tt> <tt class="py-keyword">in</tt> <tt class="py-name">walker</tt><tt class="py-op">:</tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line">        <tt class="py-name">cfg</tt><tt class="py-op">.</tt><tt class="py-name">add_section</tt><tt class="py-op">(</tt><tt class="py-name">p</tt><tt class="py-op">)</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">f</tt> <tt class="py-keyword">in</tt> <tt class="py-name">walker</tt><tt class="py-op">[</tt><tt class="py-name">p</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">:</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line">            <tt class="py-name">cfg</tt><tt class="py-op">.</tt><tt class="py-name">set</tt><tt class="py-op">(</tt><tt class="py-name">p</tt><tt class="py-op">,</tt> <tt class="py-name">f</tt><tt class="py-op">,</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">stat</tt><tt class="py-op">(</tt><tt class="py-string">"%s/%s"</tt><tt class="py-op">%</tt><tt class="py-op">(</tt><tt class="py-name">p</tt><tt class="py-op">,</tt><tt class="py-name">f</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">st_size</tt><tt class="py-op">)</tt>     </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line">    <tt class="py-name">cfg</tt><tt class="py-op">.</tt><tt class="py-name">write</tt><tt class="py-op">(</tt><tt class="py-name">open</tt><tt class="py-op">(</tt><tt class="py-name">cdcfile</tt><tt class="py-op">,</tt><tt class="py-string">"w"</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line">     </tt>
+<a name="cdWalker"></a><div id="cdWalker-def"><a name="L42"></a><tt class="py-lineno"> 42</tt> <a class="py-toggle" href="#" id="cdWalker-toggle" onclick="return toggle('cdWalker');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="cdctools-module.html#cdWalker">cdWalker</a><tt class="py-op">(</tt><tt class="py-param">cdrom</tt><tt class="py-op">,</tt><tt class="py-param">cdcfile</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="cdWalker-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="cdWalker-expanded"><a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line">    <tt class="py-docstring">'''&#20809;&#30424;&#25195;&#25551;&#20027;&#20989;&#24335;</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line"><tt class="py-docstring">    @param cdrom: &#20809;&#30424;&#35775;&#38382;&#36335;&#24452;</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line"><tt class="py-docstring">    @param cdcfile: &#36755;&#20986;&#30340;&#20809;&#30424;&#20449;&#24687;&#35760;&#24405;&#25991;&#20214;(&#21253;&#21547;&#36335;&#24452;,&#32477;&#23545;,&#30456;&#23545;&#37117;&#21487;&#20197;)</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line"><tt class="py-docstring">    @return: &#26080;,&#30452;&#25509;&#36755;&#20986;&#25104;*.cdc &#25991;&#20214;</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line"><tt class="py-docstring">    @attention: &#20174;v0.7 &#24320;&#22987;&#19981;&#20351;&#29992;&#27492;&#25195;&#25551;&#20989;&#24335;,&#20351;&#29992; iniCDinfo()</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line"><tt class="py-docstring">    '''</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line">    <tt class="py-name">export</tt> <tt class="py-op">=</tt> <tt class="py-string">""</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">root</tt><tt class="py-op">,</tt> <tt class="py-name">dirs</tt><tt class="py-op">,</tt> <tt class="py-name">files</tt> <tt class="py-keyword">in</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">walk</tt><tt class="py-op">(</tt><tt class="py-name">cdrom</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt id="link-0" class="py-name" targets="Function cdctools.formatCDinfo()=cdctools-module.html#formatCDinfo"><a title="cdctools.formatCDinfo" class="py-name" href="#" onclick="return doclink('link-0', 'formatCDinfo', 'link-0');">formatCDinfo</a></tt><tt class="py-op">(</tt><tt class="py-name">root</tt><tt class="py-op">,</tt><tt class="py-name">dirs</tt><tt class="py-op">,</tt><tt class="py-name">files</tt><tt class="py-op">)</tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line">        <tt class="py-name">export</tt><tt class="py-op">+=</tt> <tt id="link-1" class="py-name"><a title="cdctools.formatCDinfo" class="py-name" href="#" onclick="return doclink('link-1', 'formatCDinfo', 'link-0');">formatCDinfo</a></tt><tt class="py-op">(</tt><tt class="py-name">root</tt><tt class="py-op">,</tt><tt class="py-name">dirs</tt><tt class="py-op">,</tt><tt class="py-name">files</tt><tt class="py-op">)</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line">    <tt class="py-name">open</tt><tt class="py-op">(</tt><tt class="py-name">cdcfile</tt><tt class="py-op">,</tt> <tt class="py-string">'w'</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">write</tt><tt class="py-op">(</tt><tt class="py-name">export</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line"> </tt>
+<a name="formatCDinfo"></a><div id="formatCDinfo-def"><a name="L55"></a><tt class="py-lineno"> 55</tt> <a class="py-toggle" href="#" id="formatCDinfo-toggle" onclick="return toggle('formatCDinfo');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="cdctools-module.html#formatCDinfo">formatCDinfo</a><tt class="py-op">(</tt><tt class="py-param">root</tt><tt class="py-op">,</tt><tt class="py-param">dirs</tt><tt class="py-op">,</tt><tt class="py-param">files</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="formatCDinfo-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="formatCDinfo-expanded"><a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line">    <tt class="py-docstring">'''&#20809;&#30424;&#20449;&#24687;&#35760;&#24405;&#26684;&#24335;&#21270;&#20989;&#24335;</tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line"><tt class="py-docstring">    @note: &#30452;&#25509;&#21033;&#29992; os.walk() &#20989;&#24335;&#30340;&#36755;&#20986;&#20449;&#24687;&#36827;&#34892;&#37325;&#32452;</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line"><tt class="py-docstring">    @param root: &#24403;&#21069;&#26681;</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line"><tt class="py-docstring">    @param dirs: &#24403;&#21069;&#26681;&#20013;&#30340;&#25152;&#26377;&#30446;&#24405;</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line"><tt class="py-docstring">    @param files: &#24403;&#21069;&#26681;&#20013;&#30340;&#25152;&#26377;&#25991;&#20214;</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line"><tt class="py-docstring">    @return: &#23383;&#20018;,&#32452;&#32455;&#22909;&#30340;&#24403;&#21069;&#30446;&#24405;&#20449;&#24687;</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line"><tt class="py-docstring">    '''</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">    <tt class="py-name">export</tt> <tt class="py-op">=</tt> <tt class="py-string">"\n"</tt><tt class="py-op">+</tt><tt class="py-name">root</tt><tt class="py-op">+</tt><tt class="py-string">"\n"</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">d</tt> <tt class="py-keyword">in</tt> <tt class="py-name">dirs</tt><tt class="py-op">:</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">        <tt class="py-name">export</tt><tt class="py-op">+=</tt> <tt class="py-string">"-d "</tt><tt class="py-op">+</tt><tt class="py-name">root</tt><tt class="py-op">+</tt><tt id="link-2" class="py-name" targets="Function cdctools._smartcode()=cdctools-module.html#_smartcode"><a title="cdctools._smartcode" class="py-name" href="#" onclick="return doclink('link-2', '_smartcode', 'link-2');">_smartcode</a></tt><tt class="py-op">(</tt><tt class="py-name">d</tt><tt class="py-op">)</tt><tt class="py-op">+</tt><tt class="py-string">"\n"</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">f</tt> <tt class="py-keyword">in</tt> <tt class="py-name">files</tt><tt class="py-op">:</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">        <tt class="py-name">export</tt><tt class="py-op">+=</tt> <tt class="py-string">"-f %s %s \n"</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt class="py-name">root</tt><tt class="py-op">,</tt><tt id="link-3" class="py-name"><a title="cdctools._smartcode" class="py-name" href="#" onclick="return doclink('link-3', '_smartcode', 'link-2');">_smartcode</a></tt><tt class="py-op">(</tt><tt class="py-name">f</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">    <tt class="py-name">export</tt><tt class="py-op">+=</tt> <tt class="py-string">"="</tt><tt class="py-op">*</tt><tt class="py-number">70</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">export</tt> </tt>
+</div><a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line"> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">chardet</tt> </tt>
+<a name="_smartcode"></a><div id="_smartcode-def"><a name="L72"></a><tt class="py-lineno"> 72</tt> <a class="py-toggle" href="#" id="_smartcode-toggle" onclick="return toggle('_smartcode');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="cdctools-module.html#_smartcode">_smartcode</a><tt class="py-op">(</tt><tt class="py-param">ustring</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="_smartcode-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="_smartcode-expanded"><a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">    <tt class="py-docstring">'''&#26234;&#33021;&#23383;&#20018;&#32534;&#30721;&#36716;&#25442;&#20989;&#24335;</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line"><tt class="py-docstring">    @note: &#21033;&#29992;chardet.detect() &#29468;&#27979;&#23383;&#20018;&#30340;&#32534;&#30721;&#20540;,&#28982;&#21518;&#32479;&#19968;&#36716;&#25442;&#20026;utf8</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line"><tt class="py-docstring">    @param ustring: &#26377;&#27491;&#30830;&#32534;&#30721;&#30340;&#20013;&#25991;&#23383;&#20018;</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line"><tt class="py-docstring">    @todo: &#26356;&#21152;&#31934;&#30830;&#30340;&#29468;&#27979;&#22788;&#29702;</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line"><tt class="py-docstring">    '''</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">    <tt class="py-name">codename</tt> <tt class="py-op">=</tt> <tt class="py-name">chardet</tt><tt class="py-op">.</tt><tt class="py-name">detect</tt><tt class="py-op">(</tt><tt class="py-name">ustring</tt><tt class="py-op">)</tt><tt class="py-op">[</tt><tt class="py-string">"encoding"</tt><tt class="py-op">]</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">    <tt class="py-keyword">print</tt> <tt class="py-name">codename</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line">    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-name">ustring</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line">        <tt class="py-name">ustring</tt> <tt class="py-op">=</tt> <tt class="py-name">unicode</tt><tt class="py-op">(</tt><tt class="py-name">ustring</tt><tt class="py-op">,</tt> <tt class="py-name">codename</tt><tt class="py-op">)</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-name">ustring</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-string">"%s %s"</tt><tt class="py-op">%</tt><tt class="py-op">(</tt><tt class="py-string">""</tt><tt class="py-op">,</tt><tt class="py-name">ustring</tt><tt class="py-op">.</tt><tt class="py-name">encode</tt><tt class="py-op">(</tt><tt class="py-string">'utf8'</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">    <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-string">u"bad unicode encode try!"</tt> </tt>
+</div><a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line"> </tt>
+<a name="cdcGrep"></a><div id="cdcGrep-def"><a name="L88"></a><tt class="py-lineno"> 88</tt> <a class="py-toggle" href="#" id="cdcGrep-toggle" onclick="return toggle('cdcGrep');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="cdctools-module.html#cdcGrep">cdcGrep</a><tt class="py-op">(</tt><tt class="py-param">cdcpath</tt><tt class="py-op">,</tt><tt class="py-param">keyword</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="cdcGrep-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="cdcGrep-expanded"><a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">    <tt class="py-docstring">'''&#20809;&#30424;&#20449;&#24687;&#25991;&#26412;&#20851;&#38190;&#35789;&#25628;&#32034;&#20989;&#24335;</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line"><tt class="py-docstring">    @note: &#20351;&#29992;&#26368;&#31616;&#21333;&#30340;&#20869;&#32622;&#23383;&#20018;&#21305;&#37197;&#22788;&#29702;&#26469;&#21028;&#23450;&#26159;&#21542;&#26377;&#20851;&#38190;&#35789;&#21253;&#21547;</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line"><tt class="py-docstring">    @param cdcpath: &#21253;&#21547;*.cdc &#25991;&#20214;&#30340;&#30446;&#24405;</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line"><tt class="py-docstring">    @param keyword: &#25628;&#32034;&#30340;&#20851;&#38190;&#35789;</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line"><tt class="py-docstring">    @todo: &#21487;&#32467;&#21512;&#25628;&#32034;&#24341;&#25806;&#36827;&#34892;&#27169;&#31946;&#25628;&#32034;!</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line"><tt class="py-docstring">    '''</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">    <tt class="py-name">filelist</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">listdir</tt><tt class="py-op">(</tt><tt class="py-name">cdcpath</tt><tt class="py-op">)</tt>          <tt class="py-comment"># &#25628;&#32034;&#30446;&#24405;&#20013;&#30340;&#25991;&#20214;</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">cdc</tt> <tt class="py-keyword">in</tt> <tt class="py-name">filelist</tt><tt class="py-op">:</tt>                    <tt class="py-comment"># &#24490;&#29615;&#25991;&#20214;&#21015;&#34920;</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-string">".cdc"</tt> <tt class="py-keyword">in</tt> <tt class="py-name">cdc</tt><tt class="py-op">:</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">            <tt class="py-name">cdcfile</tt> <tt class="py-op">=</tt> <tt class="py-name">open</tt><tt class="py-op">(</tt><tt class="py-name">cdcpath</tt><tt class="py-op">+</tt><tt class="py-name">cdc</tt><tt class="py-op">)</tt>         <tt class="py-comment"># &#25340;&#21512;&#25991;&#20214;&#36335;&#24452;&#65292;&#24182;&#25171;&#24320;&#25991;&#20214;</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">            <tt class="py-keyword">for</tt> <tt class="py-name">line</tt> <tt class="py-keyword">in</tt> <tt class="py-name">cdcfile</tt><tt class="py-op">.</tt><tt class="py-name">readlines</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt>    <tt class="py-comment"># &#35835;&#21462;&#25991;&#20214;&#27599;&#19968;&#34892;&#65292;&#24182;&#24490;&#29615;</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">keyword</tt> <tt class="py-keyword">in</tt> <tt class="py-name">line</tt><tt class="py-op">:</tt>             <tt class="py-comment"># &#21028;&#23450;&#26159;&#21542;&#26377;&#20851;&#38190;&#35789;&#22312;&#34892;&#20013;</tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">                    <tt class="py-keyword">print</tt> <tt class="py-name">line</tt>                  <tt class="py-comment"># &#25171;&#21360;&#36755;&#20986;</tt> </tt>
+</div><a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line"> </tt>
+<a name="grepIt"></a><div id="grepIt-def"><a name="L103"></a><tt class="py-lineno">103</tt> <a class="py-toggle" href="#" id="grepIt-toggle" onclick="return toggle('grepIt');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="cdctools.grepIt-class.html">grepIt</a><tt class="py-op">(</tt><tt class="py-base-class">Thread</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="grepIt-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="grepIt-expanded"><a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">    <tt class="py-docstring">'''&#32487;&#25215;&#33258;threading.Thread &#30340;&#32447;&#31243;&#23545;&#35937;&#31867;</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line"><tt class="py-docstring">    '''</tt> </tt>
+<a name="grepIt.__init__"></a><div id="grepIt.__init__-def"><a name="L106"></a><tt class="py-lineno">106</tt> <a class="py-toggle" href="#" id="grepIt.__init__-toggle" onclick="return toggle('grepIt.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="cdctools.grepIt-class.html#__init__">__init__</a> <tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt><tt class="py-param">cdcfile</tt><tt class="py-op">,</tt><tt class="py-param">keyword</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="grepIt.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="grepIt.__init__-expanded"><a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">        <tt class="py-docstring">'''&#31867;&#21021;&#22987;&#21270;&#20989;&#24335;:</tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line"><tt class="py-docstring">        @param cdcfile: *.cdc&#25991;&#20214;&#21517;&#65292;&#21547;&#36335;&#24452;</tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line"><tt class="py-docstring">        @param keyword: &#25628;&#32034;&#20851;&#38190;&#35789;&#65292;&#24212;&#35813;&#26159;utf-8 &#32534;&#30721;</tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line">        <tt class="py-name">Thread</tt><tt class="py-op">.</tt><tt id="link-4" class="py-name" targets="Method cdctools.grepIt.__init__()=cdctools.grepIt-class.html#__init__,Method pycdc.PyCDC.__init__()=pycdc.PyCDC-class.html#__init__"><a title="cdctools.grepIt.__init__
+pycdc.PyCDC.__init__" class="py-name" href="#" onclick="return doclink('link-4', '__init__', 'link-4');">__init__</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">)</tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">cdcf</tt> <tt class="py-op">=</tt> <tt class="py-name">cdcfile</tt> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">keyw</tt> <tt class="py-op">=</tt> <tt class="py-name">keyword</tt><tt class="py-op">.</tt><tt class="py-name">upper</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">report</tt> <tt class="py-op">=</tt> <tt class="py-string">""</tt> </tt>
+</div><a name="grepIt.run"></a><div id="grepIt.run-def"><a name="L115"></a><tt class="py-lineno">115</tt> <a class="py-toggle" href="#" id="grepIt.run-toggle" onclick="return toggle('grepIt.run');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="cdctools.grepIt-class.html#run">run</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="grepIt.run-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="grepIt.run-expanded"><a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line">        <tt class="py-docstring">'''&#32447;&#31243;&#34892;&#20026;&#22768;&#26126;&#20989;&#24335;:</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line"><tt class="py-docstring">        @note: &#21508;&#20010;&#32447;&#31243;&#30340;&#23454;&#38469;&#21160;&#20316;&#30340;&#23450;&#20041;</tt> </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-string">".cdc"</tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">cdcf</tt><tt class="py-op">:</tt> </tt>
+<a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">report</tt> <tt class="py-op">=</tt> <tt id="link-5" class="py-name" targets="Function cdctools.markLine()=cdctools-module.html#markLine"><a title="cdctools.markLine" class="py-name" href="#" onclick="return doclink('link-5', 'markLine', 'link-5');">markLine</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">cdcf</tt><tt class="py-op">,</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">keyw</tt><tt class="py-op">)</tt> </tt>
+<a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line">        <tt class="py-string">'''&#37325;&#26500;&#21069;&#30340;&#24403;&#22320;&#21305;&#37197;&#22788;&#32622;::</tt> </tt>
+<a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line"><tt class="py-string">            for line in open(self.cdcf).readlines():    # &#25171;&#24320;&#25991;&#20214;,&#35835;&#21462;&#25991;&#20214;&#27599;&#19968;&#34892;&#65292;&#24182;&#24490;&#29615;</tt> </tt>
+<a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line"><tt class="py-string">                if self.keyw in line.upper():             # &#21028;&#23450;&#26159;&#21542;&#26377;&#20851;&#38190;&#35789;&#22312;&#34892;&#20013;</tt> </tt>
+<a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line"><tt class="py-string">                    #print line                  # &#25171;&#21360;&#36755;&#20986;</tt> </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line"><tt class="py-string">                    self.report += line</tt> </tt>
+<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line"><tt class="py-string">        '''</tt> </tt>
+</div></div><a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line">         </tt>
+<a name="markLine"></a><div id="markLine-def"><a name="L128"></a><tt class="py-lineno">128</tt> <a class="py-toggle" href="#" id="markLine-toggle" onclick="return toggle('markLine');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="cdctools-module.html#markLine">markLine</a><tt class="py-op">(</tt><tt class="py-param">cdcfile</tt><tt class="py-op">,</tt><tt class="py-param">keyword</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="markLine-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="markLine-expanded"><a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line">    <tt class="py-docstring">'''&#25628;&#32034;&#21305;&#37197;&#20989;&#24335;:</tt> </tt>
+<a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line"><tt class="py-docstring">    @param cdcfile: *.cdc&#25991;&#20214;&#21517;&#65292;&#21547;&#36335;&#24452;</tt> </tt>
+<a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line"><tt class="py-docstring">    @param keyword: &#25628;&#32034;&#20851;&#38190;&#35789;&#65292;&#24212;&#35813;&#26159;utf-8 &#32534;&#30721;</tt> </tt>
+<a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line"><tt class="py-docstring">    @return:&#23558;&#25152;&#26377;&#21305;&#37197;&#30340;&#34892;&#32452;&#32455;&#25104; report &#36820;&#22238;</tt> </tt>
+<a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line"><tt class="py-docstring">    @note: &#31895;&#30053;&#30340;&#22312;&#25688;&#35201;&#25991;&#20214;&#34892;&#20013;&#21305;&#37197;&#65292;&#24182;&#30452;&#25509;&#36755;&#20986;&#35813;&#34892;;&#20026;&#20102;E&#25991;&#30340;&#36890;&#29992;&#21305;&#37197;&#65292;&#39044;&#20808;&#23558;&#20851;&#38190;&#35789;&#21644;&#34892;&#25991;&#23383;&#37117;&#21464;&#25104;&#22823;&#20889;&#30340;</tt> </tt>
+<a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line"><tt class="py-docstring">    '''</tt> </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line">    <tt class="py-name">report</tt> <tt class="py-op">=</tt> <tt class="py-string">""</tt> </tt>
+<a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">line</tt> <tt class="py-keyword">in</tt> <tt class="py-name">open</tt><tt class="py-op">(</tt><tt class="py-name">cdcfile</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">readlines</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt>    <tt class="py-comment"># &#25171;&#24320;&#25991;&#20214;,&#35835;&#21462;&#25991;&#20214;&#27599;&#19968;&#34892;&#65292;&#24182;&#24490;&#29615;</tt> </tt>
+<a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">keyword</tt> <tt class="py-keyword">in</tt> <tt class="py-name">line</tt><tt class="py-op">.</tt><tt class="py-name">upper</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt>             <tt class="py-comment"># &#21028;&#23450;&#26159;&#21542;&#26377;&#20851;&#38190;&#35789;&#22312;&#34892;&#20013;</tt> </tt>
+<a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line">            <tt class="py-name">report</tt> <tt class="py-op">+=</tt> <tt class="py-name">line</tt> </tt>
+<a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">report</tt> </tt>
+</div><a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line">     </tt>
+<a name="grpSearch"></a><div id="grpSearch-def"><a name="L141"></a><tt class="py-lineno">141</tt> <a class="py-toggle" href="#" id="grpSearch-toggle" onclick="return toggle('grpSearch');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="cdctools-module.html#grpSearch">grpSearch</a><tt class="py-op">(</tt><tt class="py-param">cdcpath</tt><tt class="py-op">,</tt><tt class="py-param">keyword</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="grpSearch-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="grpSearch-expanded"><a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line">    <tt class="py-docstring">'''&#22810;&#32447;&#31243;&#32676;&#20307;&#25628;&#32034;&#20989;&#24335;:</tt> </tt>
+<a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line"><tt class="py-docstring">        @param cdcpath: *.cdc&#25991;&#20214;&#25152;&#22312; &#36335;&#24452;</tt> </tt>
+<a name="L144"></a><tt class="py-lineno">144</tt>  <tt class="py-line"><tt class="py-docstring">        @param keyword: &#25628;&#32034;&#20851;&#38190;&#35789;&#65292;&#24212;&#35813;&#26159;utf-8 &#32534;&#30721;</tt> </tt>
+<a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line"><tt class="py-docstring">    '''</tt> </tt>
+<a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line">    <tt class="py-keyword">print</tt> <tt class="py-name">time</tt><tt class="py-op">.</tt><tt class="py-name">ctime</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L147"></a><tt class="py-lineno">147</tt>  <tt class="py-line">    <tt class="py-name">filelist</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">listdir</tt><tt class="py-op">(</tt><tt class="py-name">cdcpath</tt><tt class="py-op">)</tt>          <tt class="py-comment"># &#25628;&#32034;&#30446;&#24405;&#20013;&#30340;&#25991;&#20214;</tt> </tt>
+<a name="L148"></a><tt class="py-lineno">148</tt>  <tt class="py-line">    <tt class="py-name">searchlist</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt>                         <tt class="py-comment"># &#35760;&#24405;&#21457;&#36215;&#30340;&#25628;&#32034;&#32534;&#31243;</tt> </tt>
+<a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">cdcf</tt> <tt class="py-keyword">in</tt> <tt class="py-name">filelist</tt><tt class="py-op">:</tt> </tt>
+<a name="L150"></a><tt class="py-lineno">150</tt>  <tt class="py-line">        <tt class="py-name">pathcdcf</tt> <tt class="py-op">=</tt> <tt class="py-string">"%s/%s"</tt><tt class="py-op">%</tt><tt class="py-op">(</tt><tt class="py-name">cdcpath</tt><tt class="py-op">,</tt><tt class="py-name">cdcf</tt><tt class="py-op">)</tt> </tt>
+<a name="L151"></a><tt class="py-lineno">151</tt>  <tt class="py-line">        <tt class="py-name">current</tt> <tt class="py-op">=</tt> <tt id="link-6" class="py-name" targets="Class cdctools.grepIt=cdctools.grepIt-class.html"><a title="cdctools.grepIt" class="py-name" href="#" onclick="return doclink('link-6', 'grepIt', 'link-6');">grepIt</a></tt><tt class="py-op">(</tt><tt class="py-name">pathcdcf</tt><tt class="py-op">,</tt><tt class="py-name">keyword</tt><tt class="py-op">)</tt>  <tt class="py-comment"># &#21021;&#22987;&#21270;&#32447;&#31243;&#23545;&#35937;</tt> </tt>
+<a name="L152"></a><tt class="py-lineno">152</tt>  <tt class="py-line">        <tt class="py-name">searchlist</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-name">current</tt><tt class="py-op">)</tt>          <tt class="py-comment"># &#36861;&#21152;&#35760;&#24405;&#32447;&#31243;&#38431;&#21015;</tt> </tt>
+<a name="L153"></a><tt class="py-lineno">153</tt>  <tt class="py-line">        <tt class="py-name">current</tt><tt class="py-op">.</tt><tt class="py-name">start</tt><tt class="py-op">(</tt><tt class="py-op">)</tt>                     <tt class="py-comment"># &#21457;&#21160;&#32447;&#31243;&#22788;&#29702;</tt> </tt>
+<a name="L154"></a><tt class="py-lineno">154</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">searcher</tt> <tt class="py-keyword">in</tt> <tt class="py-name">searchlist</tt><tt class="py-op">:</tt> </tt>
+<a name="L155"></a><tt class="py-lineno">155</tt>  <tt class="py-line">        <tt class="py-name">searcher</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L156"></a><tt class="py-lineno">156</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">"Search from "</tt><tt class="py-op">,</tt><tt class="py-name">searcher</tt><tt class="py-op">.</tt><tt class="py-name">cdcf</tt><tt class="py-op">,</tt><tt class="py-string">" out "</tt><tt class="py-op">,</tt><tt class="py-name">searcher</tt><tt class="py-op">.</tt><tt class="py-name">report</tt>      </tt>
+<a name="L157"></a><tt class="py-lineno">157</tt>  <tt class="py-line">    <tt class="py-keyword">print</tt> <tt class="py-name">time</tt><tt class="py-op">.</tt><tt class="py-name">ctime</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L158"></a><tt class="py-lineno">158</tt>  <tt class="py-line"> </tt>
+<a name="L159"></a><tt class="py-lineno">159</tt>  <tt class="py-line"><tt class="py-keyword">if</tt> <tt class="py-name">__name__</tt> <tt class="py-op">==</tt> <tt class="py-string">'__main__'</tt><tt class="py-op">:</tt>      <tt class="py-comment"># this way the module can be</tt> </tt>
+<a name="L160"></a><tt class="py-lineno">160</tt>  <tt class="py-line">    <tt class="py-string">'''cdctools &#33258;&#27979;&#21709;&#24212;&#22788;&#29702;</tt> </tt>
+<a name="L161"></a><tt class="py-lineno">161</tt>  <tt class="py-line"><tt class="py-string">    '''</tt> </tt>
+<a name="L162"></a><tt class="py-lineno">162</tt>  <tt class="py-line">    <tt class="py-name">CDROM</tt> <tt class="py-op">=</tt> <tt class="py-string">'/media/cdrom0'</tt> </tt>
+<a name="L163"></a><tt class="py-lineno">163</tt>  <tt class="py-line">    <tt class="py-comment">#iniCDinfo(CDROM,"cdctools-utf8-beautify.cdc")</tt> </tt>
+<a name="L164"></a><tt class="py-lineno">164</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment">#cdWalker(CDROM,"cdctools-utf8-beautify.cdc")</tt> </tt>
+<a name="L165"></a><tt class="py-lineno">165</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt class="py-comment">#cdcGrep("cdc/","EVA")</tt> </tt>
+<a name="L166"></a><tt class="py-lineno">166</tt>  <tt class="py-line"><tt class="py-comment"></tt>    <tt id="link-7" class="py-name" targets="Function cdctools.grpSearch()=cdctools-module.html#grpSearch"><a title="cdctools.grpSearch" class="py-name" href="#" onclick="return doclink('link-7', 'grpSearch', 'link-7');">grpSearch</a></tt><tt class="py-op">(</tt><tt class="py-string">"cdc/"</tt><tt class="py-op">,</tt><tt class="py-string">"&#24518;&#33714;"</tt><tt class="py-op">)</tt> </tt>
+<a name="L167"></a><tt class="py-lineno">167</tt>  <tt class="py-line"> </tt>
+<a name="L168"></a><tt class="py-lineno">168</tt>  <tt class="py-line"><tt class="py-string">'''</tt> </tt>
+<a name="L169"></a><tt class="py-lineno">169</tt>  <tt class="py-line"><tt class="py-string">&#33258;&#21160;&#26102;: /dev/scd0 /media/cdrom0 iso9660 ro,noexec,nosuid,nodev,user=zoomq 0 0</tt> </tt>
+<a name="L170"></a><tt class="py-lineno">170</tt>  <tt class="py-line"><tt class="py-string">GBK$ sudo mount -o ro,norock,iocharset=cp936 /dev/scd0 /media/cdrom0</tt> </tt>
+<a name="L171"></a><tt class="py-lineno">171</tt>  <tt class="py-line"><tt class="py-string">UTF8$ sudo mount -o ro,norock,iocharset=utf8 /dev/scd0 /media/cdrom0</tt> </tt>
+<a name="L172"></a><tt class="py-lineno">172</tt>  <tt class="py-line"><tt class="py-string">'''</tt> </tt>
+<a name="L173"></a><tt class="py-lineno">173</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://wiki.woodpecker.org.cn/moin/ObpLovelyPython">PyCDC</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Tue Aug 21 22:36:48 2007
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>
