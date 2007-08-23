@@ -18,7 +18,7 @@ def iniCDinfo(cdrom,cdcfile):
     '''
     walker = {}
     for root, dirs, files in os.walk(cdrom):
-        walker[root]=(dirs,files)
+        walker[root]=(dirs,files)          # 这里是个需要理解的地方
     cfg = rcp()
     cfg.add_section("Info")
     cfg.add_section("Comment")

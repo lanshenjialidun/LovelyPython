@@ -1,6 +1,6 @@
 ##language:zh
 #pragma section-numbers on
-||'''status'''|| 草稿  || ZoomQuiet || 完成度~10%||
+||'''status'''|| 草稿  || ZoomQuiet || 完成度~30%；完成思路阐述.过渡||
 
 
 [[TableOfContents]]
@@ -9,18 +9,91 @@
 ## 一句话本章精要精神
 `网站软件化绝对不是空话!`
 
+== 清点需求 ==
+
+小白开始自豪的清点在到现在已经自主实现的功能:
+ 1. 扫描光盘内容并存储为硬盘上的文本文件
+  * 存储成*.cdc 的文本文件 `cdctools.cdWalker()`
+  * 可以快速指定保存目录 `PyCDC.do_dir()`
+  * 可以快速指定保存的文件名 `PyCDC.do_walk()`
+ 1. 根据储存到硬盘上的光盘信息计件进行搜索
+  * 可以搜索指定目录中所有*.cdc文件  `cdctools.cdcGrep()`
+  * 可以指定关键字进行搜索 `PyCDC.do_find()`
+   * 列出所有含有关键字的信息行
+
 == GUI有必要嘛?冇必要嘛? ==
+"能不能给个界面哪？每次都要输入命令，很麻烦的说..."
+
+呜乎矣哉，果然！果然有这种主流反馈汹涌而来了!
+
+小白一边腹诽，一边也在憧憬:"不习惯使用命令行的都是初级用户！咳，但是俺也喜欢图形界面哪……但是好难的！"
+
+不用去列表询问，小白也知道Python 无所不能，一搜索也知道至少有:
+ 1. Tk
+ 1. wxPython
+ 1. Qt
+3大GUI 框架可以快速组织桌面软件界面出来，但是！
+
+就算是写出来，也没无法简单的发布成友好的坚固的稳定的傻瓜化的安装程序哪...
+
+列表中一问才知道,虽然有N多发布打包框架,但是都至少得包含完整的Python 虚拟机环境,这一项就是5Mb,想来核心代码不超过200行的东西,发布成过Mb大小的东西,小白就感觉脸红...这不白玩Python 了?一点也不 Cool!
+
+乍办咧...?
+ 
+倒个苦水先...
 
 === 浏览器也是GUI ===
+'''一句话惊醒梦里人!'''
 
+现在不都流行网站软件化嘛? HTML+浏览器,可不就是用户最熟悉,而且最有宽容心理准备的界面嘛?!
 
+好哪!就整个本地站点式的界面出来就好,要求用户先安装好Python 环境,然后,也不用安装,解开压缩包,运行一条命令,就可以通过浏览器看到一个本地功能网站来使用 `PyCDC` 就好!
 
 == Web应用框架 ==
+'''有时候选择太多,也是种痛苦...'''
 
+再次呜乎矣哉! 小白这刚刚一动念头就搜索到这种页面:
+ * [http://wiki.python.org/moin/WebFrameworks WebFrameworks]
+ * [http://wiki.woodpecker.org.cn/moin/PyWebFrameList Python WEB应用框架纵览]
+密密麻麻一大片应用框架...
+
+还有人站着说话不腰痛的分析"[http://xlp223.yculblog.com/post.1634226.html 为何有如此多的python web 框架?]"
+ * E文出处:[http://bitworking.org/news/Why_so_many_Python_web_frameworks Why so many Python web frameworks?]
+ * 不过看在人家用60行代码就完成了个 web 框架,小白实在是无话可说了 -- "这Python 不服不成哪!"
+
+"俺不想整个复杂的强大的有DB支持等等高级特性的网站,就是想用Python 快速完成一个有限功能的本地网站哪!" -- 小白在列表中吼到
+
+很快,行者给出了回应...
 
 === Karrigell ===
+'''最简单和省心的Web 应用框架,就是Karrigell 了...不强大,但是实在是听话哪...'''
+
 
 === web.py ===
+'''web.py 则是绝对简单直接的应用框架,但是同样拥有各种高级特性!'''
+
+原先就两个文件的完整最精简框架,现在虽然也发展到有十来个文件,但是也包含了从DB到模板到web服务林林总总所有高级web 应用的特性.
+
+不过坚持了最Pythonic 的直接表述原则,小白看到的完整功能网站实例就8行:
+{{{#!python
+import web
+urls = ('/(.*)', 'hello')
+class hello:        
+    def GET(self, name):
+        i = web.input(times=1)
+        if not name: name = 'world'
+        for c in xrange(int(i.times)): print 'Hello,', name+'!'
+if __name__ == "__main__": 
+    web.run(urls, globals())
+}}}
+
+直接调用:`python tryweb.py`
+
+attachment:070823_web.py_850X115_scrot.png
+
+就会在本地 8080 端口发布一个可以响应用户URL 输入的网站来!
+
+不过,实在太简单,什么都要自个儿来,不如 Karrigell 作的舒服呢... ;)
 
 
 == 小结 ==

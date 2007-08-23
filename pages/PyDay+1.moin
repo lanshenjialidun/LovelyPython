@@ -1,6 +1,6 @@
 ##language:zh
 #pragma section-numbers on
-||'''status'''|| 草稿  || ZoomQuiet || 完成度::80%;完成代码以及模块引入||
+||'''status'''|| 草稿  || ZoomQuiet || 完成度::95%;完成！ 缺少小结和练习||
 
 
 [[TableOfContents]]
@@ -175,8 +175,14 @@ attachment:070820_os.stat_896X358_scrot.png
 
 === 完成重构 ===
 
+简单的说就是将原先 `oa.walk()` 生成的信息利用 基础配置处理机模块，组织成类ini 的文本保存下来：
 
+||<^>[[Include(/old)]]||<^>[[Include(/new)]]||
 
+ * done! 当然还有连带的其它改动:
+  1. 命令行相关响应的实际处理更新
+  1. 搜索的相应升级
+ * 嗬嗬嗬，都是小改动了，随手就得 ;)
 
 == 小结 ==
 ## 总体语法等等叙述,注意给出相关知识的阅读指导
