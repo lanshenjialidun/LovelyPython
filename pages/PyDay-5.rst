@@ -31,6 +31,13 @@
   嗯嗯嗯!啄木鸟社区的一个或是一群热心的先行学习过Python 的好人,说话可能有些颠三倒四,但是绝对是好心人哪
 
 
+专用语
+````````````````````
+列表:
+  指 **邮件列表** -- 一种仅仅通过邮件进行群体异步交流的服务形式,是比BBS 更加古老和有效的沟通方式(`邮件列表的规范和礼节`_ `CPyUG社区列表资源`_ )
+
+
+
 事件
 ````````````````````
 小白忽然间厌烦了不断的下载安装，破解，却总是找不到称心的软件的生活：“MD!怒了! 什么破软件这么不好使，还要150$!!! 我自个儿写! 用一个丢一个!”
@@ -124,7 +131,8 @@ OK!轻松的开始,但是,你知道,你同时获得了免费的绝对强大的�
 
 
 
-
+.. 邮件列表的规范和礼节:http://www.woodpecker.org.cn:9081/classes/050730-CPUG/usMaillist/
+.. CPyUG社区列表资源:http://wiki.woodpecker.org.cn/moin/CPUGres
 .. ActivePython:http://www.activestate.com/Products/ActivePython/
 .. python.org:http://www.python.org/download/
 .. Dive Into Python:http://www.woodpecker.org.cn/diveintopython/index.html
