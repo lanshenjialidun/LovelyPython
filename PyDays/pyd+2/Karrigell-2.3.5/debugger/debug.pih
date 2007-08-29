@@ -1,0 +1,162 @@
+<%
+import debugger.k_debugger, inspect, k_utils, k_config
+try:
+    error=debugger.k_debugger.Errors[_key]
+    errs=error.namespace
+except NameError:
+    import copy
+    class Dummy: pass
+    
+    error=Dummy()
+    error.script=THIS
+    namespace=copy.copy(globals())
+    error.namespace={0:id(namespace),
+            id(namespace):k_utils.Node(None,"namespace",namespace)}
+    errs=error.namespace
+    error.initialNs=errs
+    _key=k_utils.generateRandom(8)
+    debugger.k_debugger.Errors[_key]=error
+%>
+
+<head>
+<link rel="stylesheet" type="text/css" HREF="debugger.css">
+<style type="text/css">
+TD {vertical-align: top}
+</style>
+<title>Debugging script <%= error.script.basename %></title>
+</head>
+
+<body>
+<h3>Debugging script <%= error.script.basename %></h3>
+<indent>
+<%
+import HTML, copy, types
+
+simpleTypes=[types.StringType,types.IntType,
+        types.FloatType,types.LongType,types.BooleanType,
+        types.ComplexType,types.UnicodeType,types.NoneType]
+
+def cmpAlpha(x1,x2):
+    try:
+        return cmp(x1[0].lower(),x2[0].lower())
+    except AttributeError:
+        return cmp(x1[0],x2[0])
+
+def showFunction(func): 
+    if type(func) is types.MethodType:
+        f=func.im_func
+    else:
+        f=func
+    source,lineNum=inspect.getsourcelines(f.func_code)
+    source="".join(source).replace("<","&lt;")
+    source=source.replace("\t"," "*4)
+    %>
+    <table class="errors" cellpadding="3">
+    <tr class="even">
+    <td>Module</td>
+    <td><%= f.__module__ %></td>
+    </tr>
+    <tr class="odd">
+    <td>Source</td>
+    <td><pre><%= source %></pre></td>
+    </tr>
+    </table>
+
+<%
+def showSubList(anObject,elts):
+    elts.sort(cmpAlpha)
+    for i in range(len(elts)):
+        (itemKey,itemValue)=elts[i]
+        if i % 2: %>
+            <tr class="odd">
+        <% else: %>
+            <tr class="even">
+        <td>
+        <% if not type(itemValue) in simpleTypes: %>
+            <a href="<%= THIS.url %>?key=<%= _key %>&object=<%= id(itemValue) %>">
+            <%= itemKey %>
+            </a>
+        <% else : %>
+            <%= itemKey %>
+        </td>
+        <td>
+        <%= str(type(itemValue)).replace('<','&lt;') %>     
+        </td>
+        <td>
+        <% if type(itemValue) in simpleTypes:
+            if isinstance(itemValue,unicode):
+                itemValue = itemValue.encode(k_config.outputEncoding)
+            printable=str(itemValue).replace("<","&lt;")
+            print '<pre>%s</pre>' %printable
+        else:
+            print "&nbsp;" %>
+        </td>
+        </tr>
+        <% errs[id(itemValue)]=k_utils.Node(anObject,itemKey,itemValue) %>
+
+<% def showItems(anObject,elts): %>
+    <table class="errors" cellpadding="3">
+    <tr>
+    <th align="left">Name</th>
+    <th align="left">Type</th>
+    <th align="left">Value</th>
+    </tr>
+    <%
+    if anObject.parent is None:
+        # for script namespace, show two categories
+        # elements unmodified by script execution
+        elts1=[ elt for elt in elts if elt[0] in error.initialNs.keys() \
+            and elt[1] is error.initialNs[elt[0]] ]
+        # elements modified by script
+        elts2 = [ elt for elt in elts if not elt in elts1 ]
+        %>
+        <tr><td colspan="3">Elements modified by script</td></tr>
+        <% showSubList(anObject,elts2) %>
+        <tr><td colspan="3">Elements unmodified by script</td></tr>
+        <% showSubList(anObject,elts1) %>
+    <% else:
+        showSubList(anObject,elts) %>   
+    </table>
+<%
+def showObject(anObject):
+    objName,obj=anObject.name,anObject.value
+    parents=[]
+    p=anObject.parent
+    while p:
+        parents.append(p)
+        p=p.parent
+    print '<font size="-1">\n'
+    for p in parents[::-1]: %>
+        <a href="<%= THIS.url %>?key=<%= _key %>&object=<%= id(p.value) %>">
+        <%= p.name %>
+        </a>
+        >
+    </font>
+    <%
+    print "%s %s<p>" %(objName,str(type(obj)).replace("<","&lt;"))
+    if type(obj) in [types.InstanceType, types.ModuleType,
+        types.ClassType]:
+        elts=[ (attribute,getattr(obj,attribute)) for attribute in obj.__dict__.keys() ]
+        showItems(anObject,elts)
+    elif type(obj) is types.DictType:
+        elts=[ (key,obj[key]) for key in obj.keys() ]
+        showItems(anObject,elts)
+    elif type(obj) in [types.ListType, types.TupleType]:
+        elts=[ (i,obj[i]) for i in range(len(obj)) ]
+        showItems(anObject,elts)
+    elif type(obj) in [types.FunctionType, types.MethodType]:
+        showFunction(obj)
+    elif type(obj) in simpleTypes:
+        print "Value : %s" %obj
+
+if QUERY.has_key("object"):
+    obj=errs[long(_object)]
+else:
+    namespaceId=errs[0]
+    obj=errs[namespaceId]
+showObject(obj)
+%>
+
+</indent>
+
+</body>

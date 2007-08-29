@@ -1,0 +1,59 @@
+<!-- Show information about the error or exception,
+the original script with coloured syntax and the erroneous line highlighted,
+the translation into Python code if the script is a PIH script -->
+
+<HTML>
+<head>
+<link rel="STYLESHEET" href="errors.css">
+<style>
+td.filecontent {  font-size:70%; background-color: #FFFFCC; border-width: 1; border-style:solid;}
+</style>
+</head>
+
+<body>
+
+<% 
+import URLResolution, debugger.k_debugger, re, pythonParser, cStringIO, cgi
+error=debugger.k_debugger.Errors[_key]
+print error.errorText()
+%>
+<%_ "Contents of file" %> <b><%= error.script.basename %></b>
+
+<%
+import format
+path_without_qs,qs=URLResolution.split_query(error.script.url)
+fileName=URLResolution.translate_path(path_without_qs)
+data = open(fileName).read()
+line=error.originLineNum
+code = format.format(fileName, data, line)
+%>
+
+<table class="errors" cellpadding="0" cellspacing="0">
+<% 
+t=[]
+for (l_num,l_code) in enumerate(code) : 
+    t.append('<span class="num"> '+'%4s' %(l_num+1)+'</span> '+l_code)
+%>
+<tr>
+<td class="normal"><pre><%= '\n'.join(t) %></pre></td>
+</tr>
+</table>
+
+<%
+if fileName.endswith(".pih"): %>
+    <b>Translation into Python code</b>
+    <% 
+    data = error.script.pythonCode()
+    code = format.format(fileName, data, error.pythonLine-1)
+    t=[]
+    for (l_num,l_code) in enumerate(code) : 
+        t.append('<span class="num"> '+'%4s' %(l_num+1)+'</span> '+l_code)
+    %>
+    <table class="errors" cellpadding="0" cellspacing="0">
+    <tr>
+    <td class="normal"><pre><%= '\n'.join(t) %></pre></td>
+    </tr>
+    </table>
+<% end %>
+</body>
+</html>

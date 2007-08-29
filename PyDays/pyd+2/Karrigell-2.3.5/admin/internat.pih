@@ -1,0 +1,19 @@
+<% Include("header.pih") %>
+
+<TABLE>
+ <tr>
+
+  <td valign="top" class="dirlist">
+   <% Include("adminMenu.pih") %>
+  </td>
+  <td><tt>&nbsp;</tt></td>
+  <td valign="top">
+<% 
+if not QUERY:
+    Include("hollow.htm")
+else:
+    Include(_script)
+%>
+  </td>
+ </tr>
+</TABLE>

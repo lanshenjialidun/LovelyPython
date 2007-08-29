@@ -1,0 +1,10 @@
+div.slider { position: absolute;
+	font-size:1px;
+	line-height:0;
+	background-color: #888 }
+
+span.slider { position: absolute;
+	font-size:1px;
+	line-height:0;
+	background-color: #888 }
+	

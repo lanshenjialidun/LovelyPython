@@ -1,0 +1,6 @@
+/demo/myScript.py?aValue=blablaaValue blabla
+animal ['dog']
+spam re
+
+/index.html
+/ASPN/Cookbook/Python/Recipe/511454/index_txt

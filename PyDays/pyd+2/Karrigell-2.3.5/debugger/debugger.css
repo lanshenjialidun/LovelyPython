@@ -1,0 +1,13 @@
+body {font-family: sans-serif}
+
+table.errors {border-style:solid;
+	border-width=1; 
+	border-color=#88CCFF;
+	BORDER-COLOR-LIGHT=#88CCFF;
+	BORDER-COLOR-DARK=#0000CC; 
+	font-family:sans-serif;
+	font-size: 8pt;
+}
+th {background-color:#cecece; align=left;}
+tr.even {background-color:#AACCFF; height:18px;}
+tr.odd {background-color:#99BBF0; height:18px;}

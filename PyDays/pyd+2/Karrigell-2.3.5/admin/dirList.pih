@@ -1,0 +1,52 @@
+<% Include("header.htm") %>
+
+<body>
+<%_ "Translation of files in" %> <b><%= _alias %></b>
+
+<%
+import urllib # os already imported
+
+thisdir=_dir
+
+def alphaSort(s1,s2):
+    return cmp(s1[0].lower(),s2[0].lower())
+
+files=[]
+dirs=[]
+for item in os.listdir(thisdir):
+    path=os.path.join(thisdir,item)
+    if os.path.isdir(path):
+        dirs.append((item,path))
+    elif os.path.isfile(path):
+        if os.path.splitext(item)[1] in [".py",".pih",".hip",".ks"]:
+            files.append((item,path))
+files.sort(alphaSort)
+dirs.sort(alphaSort)
+%>
+<table border=0 cellpadding=1 cellspacing=0>
+<tr>
+<td>&nbsp;</td>
+<td class="dirlist">
+<%
+print '<a href="internat.pih?script=gettext.hip&fullname=%s&shortname=%s">' %(urllib.quote_plus(thisdir),_alias)
+%>
+<%_ "(whole dictionary)" %></a>
+</td>
+</tr>
+<%
+for dir in dirs:
+    print """<TR><td align="right"><img src="images/folder.gif" border="0"></td>"""
+    print """<td class="dirlist"><A HREF="internat.pih?script=dirList.pih&dir=%s&alias=%s/%s">%s</A></td></tr>""" \
+        % (urllib.quote_plus(dir[1]),_alias,dir[0],dir[0])
+
+for file in files:
+    print '<TR><td>&nbsp</td><td class="dirlist">'
+    print '<a href="internat.pih?script=gettext.hip&fullname=%s&shortname=%s">%s</a>' \
+            %(urllib.quote_plus(file[1]),file[0],file[0])
+    print "</td></tr>"
+
+%>
+</table>
+
+</body>
+</html>

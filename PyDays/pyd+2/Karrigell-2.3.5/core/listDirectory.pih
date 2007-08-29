@@ -1,0 +1,74 @@
+<HTML>
+<head>
+<style>
+body {font-family: sans-serif}
+
+td.footer {  font-size:70%; background-color: #CCFFFF; border-width: 1; border-style:solid;}
+</style>
+
+<%
+import os,cgi,urlparse,datetime
+
+try:
+    fileList = os.listdir(dirName)
+except os.error:
+    print "No permission to list directory"
+    raise SCRIPT_END
+
+%>
+<title>Directory listing for <%= path %></title>
+</head>
+
+<body>
+<h2>Directory listing for <%= path %></h2>
+
+<%
+files=[]
+dirs=[]
+
+# remove trailing forward slashes
+while path and path.endswith('/'):
+    path = path[:-1]
+    
+for fileName in fileList:
+    fullname = os.path.join(dirName, fileName)
+    displayname = cgi.escape(fileName)
+    linkname=cgi.escape(urlparse.urljoin(path+"/",fileName))
+    if os.path.isdir(fullname):
+        displayname = fileName + "/"
+        dirs.append((linkname,displayname))
+    elif os.path.islink(fullname):
+        displayname = fileName + "@"
+        dirs.append((linkname,displayname))
+    else:
+        files.append((linkname,displayname))
+dirs.sort(lambda a,b: cmp(a[1].lower(),b[1].lower()))
+files.sort(lambda a,b: cmp(a[1].lower(),b[1].lower()))
+%>
+<TABLE>
+<% for d in dirs: %>
+    <tr>
+    <td>+</td>
+    <td><a href="<%= d[0] %>"><%= d[1] %></a></td>
+    </tr>
+    <% end %>
+
+<% for f in files: %>
+    <tr>
+    <td>&nbsp;</td>
+    <td><%= f[1] %></td>
+    </tr>
+    <% end %>
+<hr>
+
+<p>
+<table>
+<tr>
+<td class="footer">
+<%= "Karrigell "%>
+&nbsp;<%= datetime.datetime.today() %>
+</td>
+</tr>
+</table>
+</body>
+</html>

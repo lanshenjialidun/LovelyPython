@@ -1,0 +1,29 @@
+<HTML>
+<head>
+<link rel="STYLESHEET" href="errors.css">
+</head>
+<body>
+<%
+import format, k_config, cgi
+if not _name.startswith('demo/'):
+    print "Can't show files outside the demo directory"
+    raise SCRIPT_END
+print _("Contents of file <b>%s</b><p>" %_name)
+fileName = os.path.join(k_config.serverDir,"webapps",_name)
+data = open(fileName).read()
+_line = QUERY.get("line",-1)
+code = format.format(fileName, data, _line)
+%>
+
+<table class="errors" cellpadding="0" cellspacing="0">
+<% 
+t=[]
+for (l_num,l_code) in enumerate(code) :
+    t.append('<span class="num"> '+'%4s' %(l_num+1)+'</span> '+l_code)
+%>
+<tr>
+<td class="normal"><pre><%= '\n'.join(t) %></pre></td>
+</tr>
+</table>
+</body>
+</html>

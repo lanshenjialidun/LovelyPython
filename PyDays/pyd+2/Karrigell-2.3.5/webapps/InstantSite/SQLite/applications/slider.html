@@ -1,0 +1,12 @@
+<head>
+<link rel="stylesheet" href="slider.css">
+</head>
+<body>
+<script src="slider.js"></script>
+<script>
+function draw(elt){
+document.getElementById(elt).innerHTML = draw_slider("hours",24)
+}
+</script>
+<div id="hrs"></div>
+<a href="javascript:draw('hrs');">draw</a>
