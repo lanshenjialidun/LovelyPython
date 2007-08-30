@@ -8,6 +8,7 @@
 '''
 import os
 from ConfigParser import RawConfigParser as rcp
+import pickle
 
 def iniCDinfo(cdrom,cdcfile):
     '''光盘信息.ini格式化函式
@@ -71,21 +72,21 @@ def cdcGrep(cdcpath,keyword):
     @note: 使用最简单的内置字串匹配处理来判定是否有关键词包含
     @param cdcpath: 包含*.cdc 文件的目录
     @param keyword: 搜索的关键词
-    @return: 组合匹配行，返回字串
+    @return: 组织匹配好的信息到字典中导出成 searched.dump 文件
     @todo: 可结合搜索引擎进行模糊搜索!
     '''
-    export = ""
+    expDict = {}
     filelist = os.listdir(cdcpath)          # 搜索目录中的文件
     for cdc in filelist:                    # 循环文件列表
         if ".cdc" in cdc:
             cdcfile = open(cdcpath+cdc)         # 拼合文件路径，并打开文件
-            export += cdc
-            print cdc,"<hr/>"
+            expDict[cdc]=[]
             for line in cdcfile.readlines():    # 读取文件每一行，并循环
                 if keyword in line:             # 判定是否有关键词在行中
-                    print line                  # 打印输出
-                    export += line
-    return export
+                    #print line                  # 打印输出
+                    expDict[cdc].append(line)
+    #print expDict
+    pickle.dump(expDict,open("searched.dump","w"))
     
 import chardet
 def _smartcode(ustring):
@@ -108,9 +109,10 @@ if __name__ == '__main__':      # this way the module can be
     '''cdctools 自测响应处理
     '''
     CDROM = '/media/cdrom0'
-    iniCDinfo(CDROM,"cdctools-utf8-beautify.cdc")
+    CDCPATH = "/home/zoomq/workspace/obp/trunk/LovelyPython/PyDays/pyd+2/cdc/"
+    #iniCDinfo(CDROM,"cdctools-utf8-beautify.cdc")
     #cdWalker(CDROM,"cdctools-utf8-beautify.cdc")
-    #cdcGrep("cdc/","EVA")
+    cdcGrep(CDCPATH,"EVA")
 
 '''
 自动时: /dev/scd0 /media/cdrom0 iso9660 ro,noexec,nosuid,nodev,user=zoomq 0 0

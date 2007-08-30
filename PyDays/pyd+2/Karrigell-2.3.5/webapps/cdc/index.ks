@@ -6,15 +6,10 @@
     @note: 作为WEB界面主程序，使用Karrigell 框架
     @todo: 通过CSS美化界面表现
 '''
-import os,sys,fnmatch,time,pickle
-#页面间传递对象 ,base64
-#import base64
-import ConfigParser as cfger
-# Karrigell 提供页面输出支持模块
-from HTMLTags import *
+import os,sys,fnmatch,time
+import pickle   # 神奇的序列化模块
+from HTMLTags import * # Karrigell 提供页面输出支持模块
 from Karrigell_QuickForm import Karrigell_QuickForm as KQF
-# 编码支持模块
-import chardet
 # 自制CDC工具模块
 from cdctools import *
 #print dir()    #通过检查名称空间进行测试
@@ -75,7 +70,13 @@ def index(**args):
                 print H3("pls import SearchKey!")
             else:
                 print I("try search *.cdc for KEY:%s"%QUERY['keywd'])
-                print BR(),cdcGrep("%s/"%CDCPATH,QUERY['keywd'])
+                print BR()#,cdcGrep("%s/"%CDCPATH,QUERY['keywd'])
+                cdcGrep("%s/"%CDCPATH,QUERY['keywd'])
+                searcheDict = pickle.load(open("searched.dump"))
+                for cdc in searcheDict.keys():
+                    print H5(cdc)
+                    for line in searcheDict[cdc]:
+                        print BR(line)
         elif "Walk" in QUERY['btn_submit']:
             print I("try walk CD for:%s ..."%QUERY['keywd'])
             iniCDinfo(CDROM,"%s/%s"%(CDCPATH,QUERY['keywd']))
