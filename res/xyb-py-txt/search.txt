@@ -1,0 +1,67 @@
+读取google搜索信息
+
+互联网已经成为我们生活中必不可少的一部分，它提供的海量资料是我们在日常工作经常会接触和使用的。这里简单介绍有如何处理html格式数据。
+
+import urllib2
+from urllib import quote
+
+def search(keyword):
+    request = urllib2.Request('http://www.google.com/custom?q=' + quote(keyword))
+    request.add_header('User-Agent', 'Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.1.6) Gecko/20061201 Firefox/2.0.0.6 (Ubuntu-feisty)')
+    opener = urllib2.build_opener()
+    html = opener.open(request).read()
+
+    html = html.replace('<div class=g', '\n<div class=g')
+    html = html.replace('</h2>', '</h2>\n')
+    results = [s for s in html.split('\n') if s.startswith('<div class=g')]
+    for s in results:
+        s = s[s.find('href="'):]
+        s = s.replace('href="', '')
+        link = s[:s.find('"')]
+        t = s[s.find('>')+1:]
+        t = t[:t.find('</a>')]
+        t = t.replace('<b>', '')
+        t = t.replace('</b>', '')
+        title = t[t.rfind('>')+1:]
+        yield link, title
+
+程序首先从google上按照指定的关键字检索，并读取搜索结果，存入html变量。通过认真观察google的结果页面，可以找到一个规律，每个结果项都在一个class=g的div中；找到'<div class=g'，也就找到了一个搜索结果的起始位置。不过糟糕的是，所有搜索结果都挤在一行文本中，所以我们先找到'<div class=g'，在前面增加换行符，把它分成多行。每个搜索结果包括标题、链接，还有部分摘要。这个程序里，我们只取每个检索结果的标题和链接，所以在标题结束部分'</h2>'的后面，也增加一个换行符，把我们关心的这部分代码单独放到一行里。这时，每个检索结果就变成了这个样子：
+
+<div class=g><link rel="prefetch" href="http://www.python.org/"><h2 class=r><a href="http://www.python.org/" target=_blank class=l onmousedown="return clk(0,'','','cres','1','')"><b>Python</b> Programming Language -- Official Website</a></h2>
+
+准备好数据以后，按照换行符把html分割成字符串的列表，并且过滤出是以'<div class=g'开始的字符串，存入results列表。下面的处理就是我们不需要的字符去掉，并切分离出网址链接和标题。首先查找链接：s.find('href="')，并把它后面的字符串保留下来，然后就可以把网址分离出来，存入link变量。与此类似，我们可以得到标题部分的字符串。
+
+if __name__ == '__main__':
+    import sys
+    for link, title in search(sys.argv[1]):
+        print link, title
+
+程序的运行，传入的第一个参数作为检索的关键字。
+
+大家看起来上面的代码，有没有觉得即繁琐，又不容易一眼看懂？也就是说，这种方法虽然简单，但可读性并不好。下面我介绍一种更简洁、同时也很易读懂的方法：使用正则表达式。
+
+正则表达式是一种匹配及处理特定字符串的专门格式。如果用正则表达式来编写同样的功能，上面的函数就可以写成：
+
+RE_LINK = r'<div class=g[^>]*>(?:<link [^>]*>)?<h2 class=r><a href="([^"]+)"[^>]*>(.+?)</a></h2>'
+
+def search(keyword):
+    request = urllib2.Request('http://www.google.com/custom?q=' + quote(keyword))
+    request.add_header('User-Agent', 'Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.1.6) Gecko/20061201 Firefox/2.0.0.6 (Ubuntu-feisty)')
+    opener = urllib2.build_opener()
+    html = opener.open(request).read()
+
+    for link, title in re.findall(RE_LINK, html):
+        title = re.sub('</?b>', '', title)
+        yield link, title
+
+RE_LINK是关键的正则表达式，它的含义为：
+<div class=g[^>]*>：匹配以<div class=g开始，中间有零个或多个任意非'>'的字符，后跟一个>的字符串
+(?:<link [^>]*>)?：匹配一组字符串：以'<link '开始，中间有零个或多个任意非'>'字符，后跟一个'>'字符。这组字符串可能出现一次或零次，其中问号后的冒号表示这个group表达式只匹配，但不计入group检索结果中。
+<h2 class=r>：简单的匹配这个字符串
+<a href="([^"]+)"[^>]*>(.+?)</a>：匹配以'<a href="'开始，中间是至少一个非双引号的字符（网址部分，group匹配），后面是零个或多个非'>'的字符；再后面是至少一个字符（标题部分，group匹配），最后是'</a></h2>'字符。(.+?)中的问号表示非贪婪匹配，也就是只要发现一个后面跟着'</a></h2>'的结果，就不再继续往下查找。
+
+group匹配是我们从大量信息中挑出自己需要的数据的一种方法，也是用来组织复杂的、嵌套的正则表达式的有力工具。在这个正则表达式中，共出现三次group匹配，第一个(?:...)，是因为有多个表达式要绑定成一组，所以要用括号()把它们绑在一起之后，才能用后面带的问号?来修饰它，告知正则表达式处理引擎，它们或者一起出现一次，或者一起都不出现。由于这个匹配并不是我们需要的数据，不需要他出现在最终的结果中，所以我们用(?:...)类型，这样就可以把它从结果中忽略掉了。第二个和第三个(...)，是我们要命中匹配的链接地址和标题，这是两个普通类型的gorup匹配。
+
+通过re.findall，就可以把文本中所有符合规则的信息一起全部提取出来。然后再稍作处理，用re.sub过滤掉标题中可能存在的'<b>'或者'</b>'，就得到最终的检索结果了。
+
+

@@ -1,0 +1,224 @@
+这段程序用于从 whois 信息中提取网段信息，并保存为 nc 格式的 tiny dns 配置文件。它可以针对来访者网段，为一个域名分配不同的ip。
+
+我们先来看一段文本：
+
+inetnum:      202.96.63.97 - 202.96.63.127
+netname:      CAIMARNET
+
+domain:       123.93.203.in-addr.arpa
+descr:        Reverse zone for 203.93.123.0/24
+
+domain:       140.4.221.in-addr.arpa
+descr:        reverse delegation for 221.4.140/24
+
+domain:       250.5.221.in-addr.arpa
+descr:        China Network Communications Group Co. ChongQing
+
+这是一段whois3程序生成的输出例子，其中保存的是中国网通使用的的部分IP网段信息。这里编写的这段程序将对他们进行处理，得到我们需要的结果。
+
+whois3程序可以从
+http://ftp.apnic.net/apnic/dbase/tools/ripe-dbase-client-v3.tar.gz
+下载并编译生成。用
+./whois3 -h whois.apnic.net -l -i mb MAINT-CNCGROUP > cnc.txt
+./whois3 -h whois.apnic.net -l -i ml MAINT-CNCGROUP >> cnc.txt
+./whois3 -h whois.apnic.net -l -i mu MAINT-CNCGROUP >> cnc.txt
+./whois3 -h whois.apnic.net -l -i mb MAINT-CHINANET > chinanet.txt
+./whois3 -h whois.apnic.net -l -i mb MAINT-CN-CRTC > crtc.txt
+可以获得类似上面的结果文件。
+
+
+_sample_whois = """
+inetnum:      202.96.63.97 - 202.96.63.127
+netname:      CAIMARNET
+
+domain:       123.93.203.in-addr.arpa
+descr:        Reverse zone for 203.93.123.0/24
+
+domain:       140.4.221.in-addr.arpa
+descr:        reverse delegation for 221.4.140/24
+
+domain:       250.5.221.in-addr.arpa
+descr:        China Network Communications Group Co. ChongQing
+"""
+
+从示例的数据中可以看出，数据的格式一共有4类，read_chunk从输入中分析出这四类格式，并读取相应的有用信息。
+
+def read_chunk(whois_file):
+    """read one chunk from whois file once
+
+    >>> from StringIO import StringIO
+    >>> list(read_chunk(StringIO(_sample_whois)))
+    [('inetnum', ['202.96.63.97', '202.96.63.127']), ('descr', '203.93.123.0/24'), ('descr', '221.4.140/24'), ('domain', '250.5.221')]
+    """
+    while True:
+        line = whois_file.readline()
+        if not line:
+            break
+        if line == '\n':
+            line = whois_file.readline()
+            if line.startswith('inetnum:'):
+                inetnum = line[len('inetnum:'):].strip()
+                inetnum = inetnum.replace(' ', '').split('-')
+                yield ('inetnum', inetnum)
+            elif line.startswith('domain:'):
+                domain = line[len('domain:'):].strip()
+                domain = domain.replace('.in-addr.arpa', '')
+                line = whois_file.readline()
+                if line.startswith('descr:'):
+                    descr = line[len('descr:'):].strip()
+                    segm = re.findall('[0-9.]+/[0-9]+', descr)
+                    if segm and len(segm) == 1:
+                        segm = segm[0]
+                        yield('descr', segm)
+                        continue
+                yield ('domain', domain)
+
+
+用三个双引号括起来的，叫做__doc__，是python语言中函数等对象的特殊属性。其中，可以保存对该代码的描述等信息。关于__doc__的更多信息，请参考...。这段代码里，也包含doctest的测试代码，它看起来就像是我们在python中执行函数时的输入和输出，供 doctest 读取和验证函数的行为是否符合要求。随时编写测试代码是一个非常好的习惯，一旦养成，会终生受益。采用doctest书写的测试用例，在文件中添加如下语句，就可以作为一个单独的程序来执行：
+
+if __name__ == '__main___':
+    import doctest
+    doctest.testmod()
+
+如果文件的名字是 net_segm.py，则执行 python net_segm.py；如果没有看到任何输出，那么恭喜你，所有测试用例均已通过。作为UNIX哲学的一部分，像测试程序这样的一类程序的原则是：没有消息（输出）就是好消息。如果你想了解更多信息，可以输入：python net_segm.py -v，就可以看到每个测试用例执行的情况了。
+
+这个函数首先以一个循环开始，从已经打开的文件中一行行读取数据，放到line变量中。从函数名可以知道，这个函数每次从文件中读取“一片”数据。只有一个换行符'\n'的空行就是标志，表示下面一个新的片断开始。根据四种数据格式的不同，程序判断逻辑为：
+
+如果第一行以 'inetnum:' 开始：
+    （那么它是用两个ip标识一个网段）
+    把第一行的后面数据从'-'字符切开，返回 'inetnum' 和两个ip
+如果第一行以 'domain:' 开始：
+   （那么是另外三种格式）
+   先把第一行中倒排的arp地址保存到domain变量中
+   读取第二行
+   如果第二行以'descr:'开始：
+       取 'descr:' 后面的数据中符合网段写法的部分
+       如果取得网段：
+           返回 'descr' 和网段
+    其他所有情况返回 'domain' 和 domain 变量内容
+
+请对照以上伪代码描述阅读 read_chunk 函数。获取类似 '192.168.1/24' 的网段字符的代码，使用了正则表达式模块 re，关于这个模块的更详细介绍，请参考...。在该函数中，返回数据使用 yield 而不是 return，它使我们不须从函数退出即可返回数据给调用者，这个特性给我们的编程带来了极大的便利。包含yield的函数被称作生成器（generator），它是python在函数式编程方面引入的一个重要特性。这些名词看起来很深奥，但yield使用起来其实很简单：用yield返回数据，用for来遍历从函数返回的数据，这样立刻可以用起来了。关于yield的更多信息，请参考...。
+
+下面是read_chunk的调用者network_segment函数，从中可以看到一行'for chunk in read_chunk(whois):'即可使用read_chunk读取信息，使用起来很是方便。
+
+def network_segment(whois_file):
+    """read network segments from whois file
+
+    >>> from StringIO import StringIO
+    >>> list(network_segment(StringIO(_sample_whois)))
+    ['202.96.63.0/24', '203.93.123.0/24', '221.4.140.0/24', '221.5.250.0/24']
+    """
+    if isinstance(whois_file, str):
+        whois = file(whois_file)
+    else:
+        whois = whois_file
+    for chunk in read_chunk(whois):
+        name, segment = chunk
+        if name=='descr':
+            yield fix_segment(segment)
+        elif name=='domain':
+            inverted_network = segment
+            yield reverse_segment(inverted_network)
+        elif name=='inetnum':
+            ip1, ip2 = segment
+            yield max_mask24(get_network(ip1, ip2))
+        else:
+            yield chunk
+
+这个函数根据每个片断的类型--变量"name"，分别使用不同的函数进行处理网段信息--变量segment，最后生成型如'202.96.63.0/24'这样我们需要的标准格式：后面的/24是这个网段的掩码的缩写方式，表示掩码中为1的比特共24位--这个例子是一个C类子网。函数开始部分是一段判断输入参数的代码，如果传入的参数是一个字符串，那么就把它作为一个文件名来打开；否则默认传入的是一个file类型的对象，从中读取每行数据。下面是不同类型数据的几个处理函数代码。
+
+
+def fix_segment(segment):
+    """
+    >>> fix_segment('221.4.140/24')
+    '221.4.140.0/24'
+    >>> fix_segment('127/8')
+    '127.0.0.0/8'
+    """
+    list_segm = segment.split('/')[0].split('.')
+    if len(list_segm) < 4:
+        segment = "%s%s/%s" % (
+                segment.split('/')[0],
+                '.0' * (4-len(list_segm)),
+                segment.split('/')[1],
+                )
+    return segment
+
+第一种格式，从descr中获得的信息，它的网段是缩写格式，例如： '221.4.140/24'。我们需要进行修复，扩展成 '221.4.140.0/24' 这样。首先，用split按照'/'字符把信息切开，前面的子网地址部分再用'.'字符切开；如果子网地址部分切开后少于4段，则说明这是个缩写格式，需要补全。把失掉的几段'.0'部分、缩写部分、'/'后的子网掩码部分统统合在一起，就可以得到完全格式的网段。
+
+def reverse_segment(inverted_network):
+    """
+    >>> reverse_segment('250.5.221')
+    '221.5.250.0/24'
+    >>> reverse_segment('127')
+    '127.0.0.0/8'
+    """
+    segment = inverted_network.split('.')[::-1]
+    lr = len(segment)
+    segment = '.'.join(segment) + '.0'*(4-lr) + '/' + str(lr*8)
+    return segment
+
+第二种格式，是arp的倒排的网段，例如：'250.5.221'。首先把地址用'.'字符切开，然后倒序排列。这里倒排是利用了列表类型的切片（slice）功能的第三个参数：如果该值为-1，则返回列表为倒序方式。这样修改并补全网段地址和子网掩码后，倒排格式就被修复为标准格式：'221.5.250.0/24'。
+
+def get_network(ip1, ip2):
+    """
+    >>> get_network('218.106.0.0', '218.106.255.255')
+    '218.106.0.0/16'
+    >>> get_network('218.106.1.0', '218.106.1.255')
+    '218.106.1.0/24'
+    >>> get_network('219.158.32.0', '219.158.63.255')
+    '219.158.32.0/19'
+    >>> get_network('218.106.96.0', '218.106.99.255')
+    '218.106.96.0/22'
+    >>> get_network('218.106.208.0', '218.106.223.255')
+    '218.106.208.0/20'
+    >>> get_network('202.96.63.97', '202.96.63.127')
+    '202.96.63.96/28'
+    """
+
+    ip1 = [int(i) for i in ip1.split('.')]
+    ip2 = [int(i) for i in ip2.split('.')]
+
+    def same_bit_length(i1, i2):
+        return int(log((i2-i1+1), 2))
+
+    same = 0
+    for i1, i2 in zip(ip1, ip2):
+        if i1==i2:
+            same += 1
+        else:
+            break
+
+    same_bit = same_bit_length(ip1[same], ip2[same])
+    bit_mask_len = 2**same_bit
+    mask_len = 8*same+(8-same_bit)
+
+    ip = '.'.join([str(i) for i in ip1[:same]])
+    ip += '.' + str(ip1[same]/(bit_mask_len)*(bit_mask_len))
+    ip += '.0' * (4-same-1)
+    return ip + '/' + str(mask_len)
+
+第三种格式，数据中只有该网段的起始和结束ip地址。这段转换代码稍微复杂一些，它的逻辑是以二进制方式比较两个ip数字，找到它们相同部分的最大比特长度，从而得到标准写法。首先，把每个ip地址都以'.'字符切分成四个整形数字；然后从前往后挨个比较对应的数字，把相同数字的个数存入变量same。用内嵌的函数same_bit_length来计算第一对不相等的两个数字中，相同部分的比特个数，存入same_bit变量。这样，通过这两个数字，就可以得到这个网段地址的子网掩码mask_len。在函数的最后，变量ip中保存网段地址，和子网掩码连接在一起就是我们需要的标准格式了。
+
+def max_mask24(segment):
+    """
+    >>> max_mask24('202.96.63.96/28')
+    '202.96.63.0/24'
+    """
+    network, mask = segment.split('/')
+    if int(mask) > 24:
+        return '%s.0/24' % '.'.join(network.split('.')[:3])
+    else:
+        return segment
+
+最后，我们希望网段最小的单位是C类。这个函数用来修正网段数据，如果不足一个C类的网段则补足。逻辑很简单，如果子网掩码小于24，则把网段第四部分置为零，并直接把掩码修改为24--也就是把它扩大到一个C类网段。
+
+最后，下面的代码调用network_segment，从命令行输入的参数中读取一个文件，并把最终转换成的标准格式打印出来：
+
+if __name__ == '__main__':
+    import sys
+    whois_filename = sys.argv[1]
+    for segm in network_segment(whois_filename):
+        print segm
+
+
