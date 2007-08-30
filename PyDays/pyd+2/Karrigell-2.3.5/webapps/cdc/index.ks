@@ -44,21 +44,12 @@ def index(**args):
     @return: 标准的HTML页面
     '''
     print _htmhead("PyCDC WEB")
-    p = KQF('fm_cdwalk'
-            ,'POST'
-            ,"index"
-            ,"CD Walk")
-    p.addHtmNode('text',"keywd","文件名"
-        ,{'size':20,'maxlength':50})
+    p = KQF('fm_cdwalk','POST',"index","CD Walk")
+    p.addHtmNode('text',"keywd","文件名",{'size':20,'maxlength':50})
     p.addGroup(["submit","btn_submit","Walk it!","btn"])
-    p.display()    
-        
-    p = KQF('fm_cdsearch'
-            ,'POST'
-            ,"index"
-            ,"CD Search")
-    p.addHtmNode('text',"keywd","关键字"
-        ,{'size':20,'maxlength':50})
+    p.display()
+    p = KQF('fm_cdwalk','POST',"index","CD Walk")
+    p.addHtmNode('text',"keywd","关键字",{'size':20,'maxlength':50})
     p.addGroup(["submit","btn_submit","Search It!","btn"])
     p.display()    
     

@@ -113,6 +113,7 @@ if __name__ == '__main__':      # this way the module can be
     #iniCDinfo(CDROM,"cdctools-utf8-beautify.cdc")
     #cdWalker(CDROM,"cdctools-utf8-beautify.cdc")
     cdcGrep(CDCPATH,"EVA")
+    print pickle.load(open("searched.dump"))
 
 '''
 自动时: /dev/scd0 /media/cdrom0 iso9660 ro,noexec,nosuid,nodev,user=zoomq 0 0
