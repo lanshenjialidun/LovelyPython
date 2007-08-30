@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>core.HTMLTags</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://wiki.woodpecker.org.cn/moin/ObpLovelyPython">PyCDC</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Package&nbsp;core ::
+        Module&nbsp;HTMLTags
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="core.HTMLTags-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="core.HTMLTags-module.html">Module core.HTMLTags</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-docstring">"""Classes to generate HTML in Python</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-docstring">The HTMLTags module defines a class for all the valid HTML tags, written in</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-docstring"> uppercase letters. To create a piece of HTML, the general syntax is :</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-docstring">    t = TAG(innerHTML, key1=val1,key2=val2,...)</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-docstring">so that "print t" results in :</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-docstring">    &lt;TAG key1="val1" key2="val2" ...&gt;innerHTML&lt;/TAG&gt;</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-docstring">For instance :</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-docstring">    print A('bar', href="foo") ==&gt; &lt;A href="foo"&gt;bar&lt;/A&gt;</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-docstring">To generate HTML attributes without value, give them the value True :</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"><tt class="py-docstring">    print OPTION('foo',SELECTED=True,value=5) ==&gt; </tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"><tt class="py-docstring">            &lt;OPTION value="5" SELECTED&gt;</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"><tt class="py-docstring">For non-closing tags such as &lt;IMG&gt; or &lt;BR&gt;, the print statement does not </tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"><tt class="py-docstring">generate the closing tag</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"><tt class="py-docstring">The innerHTML argument can be an instance of an HTML class, so that you can nest </tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"><tt class="py-docstring">tags, like this :</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"><tt class="py-docstring">    print B(I('foo')) ==&gt; &lt;B&gt;&lt;I&gt;foo&lt;/I&gt;&lt;/B&gt;</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"><tt class="py-docstring">Instances of the HTML classes support the addition :</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"><tt class="py-docstring">    print B('bar')+INPUT(name="bar") ==&gt; &lt;B&gt;bar&lt;/B&gt;&lt;INPUT name="bar"&gt;</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line"><tt class="py-docstring">and also repetition :</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"><tt class="py-docstring">    print TH('&amp;nbsp')*3 ==&gt; &lt;TD&gt;&amp;nbsp;&lt;/TD&gt;&lt;TD&gt;&amp;nbsp;&lt;/TD&gt;&lt;TD&gt;&amp;nbsp;&lt;/TD&gt;</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line"><tt class="py-docstring">If you have a list (or any iterable) of instances, you can't concatenate the items with </tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line"><tt class="py-docstring">sum(instanceList) because sum takes only numbers as arguments. So there is a </tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line"><tt class="py-docstring">function called Sum which will do the job :</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line"><tt class="py-docstring">    Sum( TR(TD(i)+TD(i*i)) for i in range(100) )</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line"><tt class="py-docstring">generates the rows of a table showing the squares of integers from 0 to 99</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line"><tt class="py-docstring">The innerHTML argument can be a string, but you can't concatenate a string and </tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line"><tt class="py-docstring">an instance of an HTML class, like in :</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line"><tt class="py-docstring">    H1('To be or ' + B('not to be'))</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line"><tt class="py-docstring">For this, use a class called TEXT, which will not generate any tag :</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line"><tt class="py-docstring">    H1(TEXT('To be or ') + B('not to be'))</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line"><tt class="py-docstring">A simple document can be produced by :</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line"><tt class="py-docstring">    print HTML( HEAD(TITLE('Test document')) +</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line"><tt class="py-docstring">        BODY(H1('This is a test document')+</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line"><tt class="py-docstring">             TEXT('First line')+BR()+</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line"><tt class="py-docstring">             TEXT('Second line')))</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line"><tt class="py-docstring">This will produce :</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line"><tt class="py-docstring">    &lt;HTML&gt;</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line"><tt class="py-docstring">    &lt;HEAD&gt;</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line"><tt class="py-docstring">    &lt;TITLE&gt;Test document&lt;/TITLE&gt;</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line"><tt class="py-docstring">    &lt;/HEAD&gt;</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line"><tt class="py-docstring">    &lt;BODY&gt;</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line"><tt class="py-docstring">    &lt;H1&gt;This is a test document&lt;/H1&gt;</tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line"><tt class="py-docstring">    First line</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line"><tt class="py-docstring">    &lt;BR&gt;</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line"><tt class="py-docstring">    Second line</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line"><tt class="py-docstring">    &lt;/BODY&gt;</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line"><tt class="py-docstring">    &lt;/HTML&gt;</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line"><tt class="py-docstring">If the document is more complex it is more readable to create the elements </tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line"><tt class="py-docstring">first, then to print the whole result in one instruction. For example :</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line"><tt class="py-docstring">stylesheet = LINK(rel="Stylesheet",href="doc.css")</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line"><tt class="py-docstring">head= HEAD(TITLE('Record collection')+stylesheet)</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line"><tt class="py-docstring">title = H1('My record collection')</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line"><tt class="py-docstring">rows = Sum ([TR(TD(rec.title,Class="title")+TD(rec.artist,Class="Artist")) </tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line"><tt class="py-docstring">    for rec in records])</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line"><tt class="py-docstring">table = TABLE(TR(TH('Title')+TH('Artist')) + rows)</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line"><tt class="py-docstring">print HTML(head + BODY(title + table))</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line"> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">cStringIO</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line"> </tt>
+<a name="TAG"></a><div id="TAG-def"><a name="L92"></a><tt class="py-lineno"> 92</tt> <a class="py-toggle" href="#" id="TAG-toggle" onclick="return toggle('TAG');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="core.HTMLTags.TAG-class.html">TAG</a><tt class="py-op">:</tt> </tt>
+</div><div id="TAG-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="TAG-expanded"><a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line">    <tt class="py-docstring">"""Generic class for tags"""</tt> </tt>
+<a name="TAG.__init__"></a><div id="TAG.__init__-def"><a name="L94"></a><tt class="py-lineno"> 94</tt> <a class="py-toggle" href="#" id="TAG.__init__-toggle" onclick="return toggle('TAG.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="core.HTMLTags.TAG-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">innerHTML</tt><tt class="py-op">=</tt><tt class="py-string">""</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-param">attrs</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TAG.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="TAG.__init__-expanded"><a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-0" class="py-name" targets="Variable core.HTMLTags.tag=core.HTMLTags-module.html#tag"><a title="core.HTMLTags.tag" class="py-name" href="#" onclick="return doclink('link-0', 'tag', 'link-0');">tag</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">__class__</tt><tt class="py-op">.</tt><tt class="py-name">__name__</tt><tt class="py-op">]</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">innerHTML</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-name">innerHTML</tt><tt class="py-op">]</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">attrs</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-name">attrs</tt><tt class="py-op">]</tt> </tt>
+</div><a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">     </tt>
+<a name="TAG.__str__"></a><div id="TAG.__str__-def"><a name="L99"></a><tt class="py-lineno"> 99</tt> <a class="py-toggle" href="#" id="TAG.__str__-toggle" onclick="return toggle('TAG.__str__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="core.HTMLTags.TAG-class.html#__str__">__str__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TAG.__str__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="TAG.__str__-expanded"><a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">        <tt class="py-name">res</tt><tt class="py-op">=</tt><tt class="py-name">cStringIO</tt><tt class="py-op">.</tt><tt class="py-name">StringIO</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">        <tt class="py-name">w</tt><tt class="py-op">=</tt><tt class="py-name">res</tt><tt class="py-op">.</tt><tt class="py-name">write</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt id="link-1" class="py-name"><a title="core.HTMLTags.tag" class="py-name" href="#" onclick="return doclink('link-1', 'tag', 'link-0');">tag</a></tt><tt class="py-op">,</tt> <tt class="py-name">innerHTML</tt><tt class="py-op">,</tt> <tt class="py-name">attrs</tt> <tt class="py-keyword">in</tt> <tt class="py-name">zip</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-2" class="py-name"><a title="core.HTMLTags.tag" class="py-name" href="#" onclick="return doclink('link-2', 'tag', 'link-0');">tag</a></tt><tt class="py-op">,</tt>  </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">innerHTML</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">attrs</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt id="link-3" class="py-name"><a title="core.HTMLTags.tag" class="py-name" href="#" onclick="return doclink('link-3', 'tag', 'link-0');">tag</a></tt><tt class="py-op">==</tt><tt class="py-string">'TEXT'</tt><tt class="py-op">:</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt id="link-4" class="py-name"><a title="core.HTMLTags.tag" class="py-name" href="#" onclick="return doclink('link-4', 'tag', 'link-0');">tag</a></tt> <tt class="py-keyword">in</tt> <tt id="link-5" class="py-name" targets="Variable core.HTMLTags._WS_INSENSITIVE=core.HTMLTags-module.html#_WS_INSENSITIVE"><a title="core.HTMLTags._WS_INSENSITIVE" class="py-name" href="#" onclick="return doclink('link-5', '_WS_INSENSITIVE', 'link-5');">_WS_INSENSITIVE</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">                    <tt class="py-name">w</tt><tt class="py-op">(</tt><tt class="py-string">'\n'</tt><tt class="py-op">)</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">                <tt class="py-name">w</tt><tt class="py-op">(</tt><tt class="py-string">"&lt;%s"</tt> <tt class="py-op">%</tt><tt id="link-6" class="py-name"><a title="core.HTMLTags.tag" class="py-name" href="#" onclick="return doclink('link-6', 'tag', 'link-0');">tag</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line">                <tt class="py-comment"># attributes which will produce arg = "val"</tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line"><tt class="py-comment"></tt>                <tt class="py-name">attr1</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt> <tt class="py-name">k</tt> <tt class="py-keyword">for</tt> <tt class="py-name">k</tt> <tt class="py-keyword">in</tt> <tt class="py-name">attrs</tt> <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt class="py-name">attrs</tt><tt class="py-op">[</tt><tt class="py-name">k</tt><tt class="py-op">]</tt><tt class="py-op">,</tt><tt class="py-name">bool</tt><tt class="py-op">)</tt> <tt class="py-op">]</tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line">                <tt class="py-name">w</tt><tt class="py-op">(</tt><tt class="py-string">""</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt class="py-string">' %s="%s"'</tt> <tt class="py-op">%</tt><tt class="py-op">(</tt><tt class="py-name">k</tt><tt class="py-op">,</tt><tt class="py-name">attrs</tt><tt class="py-op">[</tt><tt class="py-name">k</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> <tt class="py-keyword">for</tt> <tt class="py-name">k</tt> <tt class="py-keyword">in</tt> <tt class="py-name">attr1</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line">                <tt class="py-comment"># attributes with no argument</tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line"><tt class="py-comment"></tt>                <tt class="py-comment"># if value is False, don't generate anything</tt> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line"><tt class="py-comment"></tt>                <tt class="py-name">attr2</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt> <tt class="py-name">k</tt> <tt class="py-keyword">for</tt> <tt class="py-name">k</tt> <tt class="py-keyword">in</tt> <tt class="py-name">attrs</tt> <tt class="py-keyword">if</tt> <tt class="py-name">attrs</tt><tt class="py-op">[</tt><tt class="py-name">k</tt><tt class="py-op">]</tt> <tt class="py-keyword">is</tt> <tt class="py-name">True</tt> <tt class="py-op">]</tt> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line">                <tt class="py-name">w</tt><tt class="py-op">(</tt><tt class="py-string">""</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt class="py-string">' %s'</tt> <tt class="py-op">%</tt><tt class="py-name">k</tt> <tt class="py-keyword">for</tt> <tt class="py-name">k</tt> <tt class="py-keyword">in</tt> <tt class="py-name">attr2</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line">                <tt class="py-name">w</tt><tt class="py-op">(</tt><tt class="py-string">"&gt;"</tt><tt class="py-op">)</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line">            <tt class="py-name">w</tt><tt class="py-op">(</tt><tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">innerHTML</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt id="link-7" class="py-name"><a title="core.HTMLTags.tag" class="py-name" href="#" onclick="return doclink('link-7', 'tag', 'link-0');">tag</a></tt> <tt class="py-keyword">in</tt> <tt id="link-8" class="py-name" targets="Variable core.HTMLTags.ClosingTags=core.HTMLTags-module.html#ClosingTags"><a title="core.HTMLTags.ClosingTags" class="py-name" href="#" onclick="return doclink('link-8', 'ClosingTags', 'link-8');">ClosingTags</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line">                <tt class="py-name">w</tt><tt class="py-op">(</tt><tt class="py-string">"&lt;/%s&gt;"</tt> <tt class="py-op">%</tt><tt id="link-9" class="py-name"><a title="core.HTMLTags.tag" class="py-name" href="#" onclick="return doclink('link-9', 'tag', 'link-0');">tag</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">res</tt><tt class="py-op">.</tt><tt class="py-name">getvalue</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line"> </tt>
+<a name="TAG.__add__"></a><div id="TAG.__add__-def"><a name="L121"></a><tt class="py-lineno">121</tt> <a class="py-toggle" href="#" id="TAG.__add__-toggle" onclick="return toggle('TAG.__add__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="core.HTMLTags.TAG-class.html#__add__">__add__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt><tt class="py-param">other</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TAG.__add__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="TAG.__add__-expanded"><a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line">        <tt class="py-docstring">"""Concatenate another tag to self"""</tt> </tt>
+<a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-10" class="py-name"><a title="core.HTMLTags.tag" class="py-name" href="#" onclick="return doclink('link-10', 'tag', 'link-0');">tag</a></tt> <tt class="py-op">+=</tt> <tt class="py-name">other</tt><tt class="py-op">.</tt><tt id="link-11" class="py-name"><a title="core.HTMLTags.tag" class="py-name" href="#" onclick="return doclink('link-11', 'tag', 'link-0');">tag</a></tt> </tt>
+<a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">innerHTML</tt> <tt class="py-op">+=</tt> <tt class="py-name">other</tt><tt class="py-op">.</tt><tt class="py-name">innerHTML</tt> </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">attrs</tt> <tt class="py-op">+=</tt> <tt class="py-name">other</tt><tt class="py-op">.</tt><tt class="py-name">attrs</tt> </tt>
+<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">self</tt> </tt>
+</div><a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line"> </tt>
+<a name="TAG.__mul__"></a><div id="TAG.__mul__-def"><a name="L128"></a><tt class="py-lineno">128</tt> <a class="py-toggle" href="#" id="TAG.__mul__-toggle" onclick="return toggle('TAG.__mul__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="core.HTMLTags.TAG-class.html#__mul__">__mul__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt><tt class="py-param">n</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TAG.__mul__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="TAG.__mul__-expanded"><a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line">        <tt class="py-docstring">"""Replicate self n times"""</tt> </tt>
+<a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-12" class="py-name" targets="Function core.HTMLTags.Sum()=core.HTMLTags-module.html#Sum"><a title="core.HTMLTags.Sum" class="py-name" href="#" onclick="return doclink('link-12', 'Sum', 'link-12');">Sum</a></tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt class="py-name">self</tt><tt class="py-op">]</tt><tt class="py-op">*</tt><tt class="py-name">n</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line"> </tt>
+<a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line"><tt class="py-comment"># list of tags, from the HTML 4.01 specification</tt> </tt>
+<a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line"><tt class="py-comment"></tt> </tt>
+<a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line"><tt id="link-13" class="py-name"><a title="core.HTMLTags.ClosingTags" class="py-name" href="#" onclick="return doclink('link-13', 'ClosingTags', 'link-8');">ClosingTags</a></tt> <tt class="py-op">=</tt>  <tt class="py-op">[</tt><tt class="py-string">'A'</tt><tt class="py-op">,</tt> <tt class="py-string">'ABBR'</tt><tt class="py-op">,</tt> <tt class="py-string">'ACRONYM'</tt><tt class="py-op">,</tt> <tt class="py-string">'ADDRESS'</tt><tt class="py-op">,</tt> <tt class="py-string">'APPLET'</tt><tt class="py-op">,</tt> </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line">            <tt class="py-string">'B'</tt><tt class="py-op">,</tt> <tt class="py-string">'BDO'</tt><tt class="py-op">,</tt> <tt class="py-string">'BIG'</tt><tt class="py-op">,</tt> <tt class="py-string">'BLOCKQUOTE'</tt><tt class="py-op">,</tt> <tt class="py-string">'BUTTON'</tt><tt class="py-op">,</tt> </tt>
+<a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line">            <tt class="py-string">'CAPTION'</tt><tt class="py-op">,</tt> <tt class="py-string">'CENTER'</tt><tt class="py-op">,</tt> <tt class="py-string">'CITE'</tt><tt class="py-op">,</tt> <tt class="py-string">'CODE'</tt><tt class="py-op">,</tt> </tt>
+<a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line">            <tt class="py-string">'DEL'</tt><tt class="py-op">,</tt> <tt class="py-string">'DFN'</tt><tt class="py-op">,</tt> <tt class="py-string">'DIR'</tt><tt class="py-op">,</tt> <tt class="py-string">'DIV'</tt><tt class="py-op">,</tt> <tt class="py-string">'DL'</tt><tt class="py-op">,</tt> </tt>
+<a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line">            <tt class="py-string">'EM'</tt><tt class="py-op">,</tt> <tt class="py-string">'FIELDSET'</tt><tt class="py-op">,</tt> <tt class="py-string">'FONT'</tt><tt class="py-op">,</tt> <tt class="py-string">'FORM'</tt><tt class="py-op">,</tt> <tt class="py-string">'FRAMESET'</tt><tt class="py-op">,</tt> </tt>
+<a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line">            <tt class="py-string">'H1'</tt><tt class="py-op">,</tt> <tt class="py-string">'H2'</tt><tt class="py-op">,</tt> <tt class="py-string">'H3'</tt><tt class="py-op">,</tt> <tt class="py-string">'H4'</tt><tt class="py-op">,</tt> <tt class="py-string">'H5'</tt><tt class="py-op">,</tt> <tt class="py-string">'H6'</tt><tt class="py-op">,</tt> </tt>
+<a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line">            <tt class="py-string">'I'</tt><tt class="py-op">,</tt> <tt class="py-string">'IFRAME'</tt><tt class="py-op">,</tt> <tt class="py-string">'INS'</tt><tt class="py-op">,</tt> <tt class="py-string">'KBD'</tt><tt class="py-op">,</tt> <tt class="py-string">'LABEL'</tt><tt class="py-op">,</tt> <tt class="py-string">'LEGEND'</tt><tt class="py-op">,</tt> </tt>
+<a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line">            <tt class="py-string">'MAP'</tt><tt class="py-op">,</tt> <tt class="py-string">'MENU'</tt><tt class="py-op">,</tt> <tt class="py-string">'NOFRAMES'</tt><tt class="py-op">,</tt> <tt class="py-string">'NOSCRIPT'</tt><tt class="py-op">,</tt> <tt class="py-string">'OBJECT'</tt><tt class="py-op">,</tt> </tt>
+<a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line">            <tt class="py-string">'OL'</tt><tt class="py-op">,</tt> <tt class="py-string">'OPTGROUP'</tt><tt class="py-op">,</tt> <tt class="py-string">'PRE'</tt><tt class="py-op">,</tt> <tt class="py-string">'Q'</tt><tt class="py-op">,</tt> <tt class="py-string">'S'</tt><tt class="py-op">,</tt> <tt class="py-string">'SAMP'</tt><tt class="py-op">,</tt> </tt>
+<a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line">            <tt class="py-string">'SCRIPT'</tt><tt class="py-op">,</tt> <tt class="py-string">'SELECT'</tt><tt class="py-op">,</tt> <tt class="py-string">'SMALL'</tt><tt class="py-op">,</tt> <tt class="py-string">'SPAN'</tt><tt class="py-op">,</tt> <tt class="py-string">'STRIKE'</tt><tt class="py-op">,</tt> </tt>
+<a name="L144"></a><tt class="py-lineno">144</tt>  <tt class="py-line">            <tt class="py-string">'STRONG'</tt><tt class="py-op">,</tt> <tt class="py-string">'STYLE'</tt><tt class="py-op">,</tt> <tt class="py-string">'SUB'</tt><tt class="py-op">,</tt> <tt class="py-string">'SUP'</tt><tt class="py-op">,</tt> <tt class="py-string">'TABLE'</tt><tt class="py-op">,</tt> </tt>
+<a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line">            <tt class="py-string">'TEXTAREA'</tt><tt class="py-op">,</tt> <tt class="py-string">'TITLE'</tt><tt class="py-op">,</tt> <tt class="py-string">'TT'</tt><tt class="py-op">,</tt> <tt class="py-string">'U'</tt><tt class="py-op">,</tt> <tt class="py-string">'UL'</tt><tt class="py-op">,</tt> </tt>
+<a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line">            <tt class="py-string">'VAR'</tt><tt class="py-op">,</tt> <tt class="py-string">'BODY'</tt><tt class="py-op">,</tt> <tt class="py-string">'COLGROUP'</tt><tt class="py-op">,</tt> <tt class="py-string">'DD'</tt><tt class="py-op">,</tt> <tt class="py-string">'DT'</tt><tt class="py-op">,</tt> <tt class="py-string">'HEAD'</tt><tt class="py-op">,</tt> </tt>
+<a name="L147"></a><tt class="py-lineno">147</tt>  <tt class="py-line">            <tt class="py-string">'HTML'</tt><tt class="py-op">,</tt> <tt class="py-string">'LI'</tt><tt class="py-op">,</tt> <tt class="py-string">'OPTION'</tt><tt class="py-op">,</tt> <tt class="py-string">'P'</tt><tt class="py-op">,</tt> <tt class="py-string">'TBODY'</tt><tt class="py-op">,</tt> </tt>
+<a name="L148"></a><tt class="py-lineno">148</tt>  <tt class="py-line">            <tt class="py-string">'TD'</tt><tt class="py-op">,</tt> <tt class="py-string">'TFOOT'</tt><tt class="py-op">,</tt> <tt class="py-string">'TH'</tt><tt class="py-op">,</tt> <tt class="py-string">'THEAD'</tt><tt class="py-op">,</tt> <tt class="py-string">'TR'</tt><tt class="py-op">]</tt> </tt>
+<a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line"> </tt>
+<a name="L150"></a><tt class="py-lineno">150</tt>  <tt class="py-line"><tt id="link-14" class="py-name" targets="Variable core.HTMLTags.NonClosingTags=core.HTMLTags-module.html#NonClosingTags"><a title="core.HTMLTags.NonClosingTags" class="py-name" href="#" onclick="return doclink('link-14', 'NonClosingTags', 'link-14');">NonClosingTags</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-string">'AREA'</tt><tt class="py-op">,</tt> <tt class="py-string">'BASE'</tt><tt class="py-op">,</tt> <tt class="py-string">'BASEFONT'</tt><tt class="py-op">,</tt> <tt class="py-string">'BR'</tt><tt class="py-op">,</tt> <tt class="py-string">'COL'</tt><tt class="py-op">,</tt> <tt class="py-string">'FRAME'</tt><tt class="py-op">,</tt> </tt>
+<a name="L151"></a><tt class="py-lineno">151</tt>  <tt class="py-line">            <tt class="py-string">'HR'</tt><tt class="py-op">,</tt> <tt class="py-string">'IMG'</tt><tt class="py-op">,</tt> <tt class="py-string">'INPUT'</tt><tt class="py-op">,</tt> <tt class="py-string">'ISINDEX'</tt><tt class="py-op">,</tt> <tt class="py-string">'LINK'</tt><tt class="py-op">,</tt> </tt>
+<a name="L152"></a><tt class="py-lineno">152</tt>  <tt class="py-line">            <tt class="py-string">'META'</tt><tt class="py-op">,</tt> <tt class="py-string">'PARAM'</tt><tt class="py-op">]</tt> </tt>
+<a name="L153"></a><tt class="py-lineno">153</tt>  <tt class="py-line"> </tt>
+<a name="L154"></a><tt class="py-lineno">154</tt>  <tt class="py-line"><tt class="py-comment"># create the classes</tt> </tt>
+<a name="L155"></a><tt class="py-lineno">155</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt class="py-keyword">for</tt> <tt id="link-15" class="py-name"><a title="core.HTMLTags.tag" class="py-name" href="#" onclick="return doclink('link-15', 'tag', 'link-0');">tag</a></tt> <tt class="py-keyword">in</tt> <tt id="link-16" class="py-name"><a title="core.HTMLTags.ClosingTags" class="py-name" href="#" onclick="return doclink('link-16', 'ClosingTags', 'link-8');">ClosingTags</a></tt> <tt class="py-op">+</tt> <tt id="link-17" class="py-name"><a title="core.HTMLTags.NonClosingTags" class="py-name" href="#" onclick="return doclink('link-17', 'NonClosingTags', 'link-14');">NonClosingTags</a></tt> <tt class="py-op">+</tt> <tt class="py-op">[</tt><tt class="py-string">'TEXT'</tt><tt class="py-op">]</tt><tt class="py-op">:</tt> </tt>
+<a name="L156"></a><tt class="py-lineno">156</tt>  <tt class="py-line">    <tt class="py-keyword">exec</tt><tt class="py-op">(</tt><tt class="py-string">"class %s(TAG): pass"</tt> <tt class="py-op">%</tt><tt id="link-18" class="py-name"><a title="core.HTMLTags.tag" class="py-name" href="#" onclick="return doclink('link-18', 'tag', 'link-0');">tag</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L157"></a><tt class="py-lineno">157</tt>  <tt class="py-line">     </tt>
+<a name="Sum"></a><div id="Sum-def"><a name="L158"></a><tt class="py-lineno">158</tt> <a class="py-toggle" href="#" id="Sum-toggle" onclick="return toggle('Sum');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="core.HTMLTags-module.html#Sum">Sum</a><tt class="py-op">(</tt><tt class="py-param">iterable</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Sum-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="Sum-expanded"><a name="L159"></a><tt class="py-lineno">159</tt>  <tt class="py-line">    <tt class="py-docstring">"""Return the concatenation of the instances in the iterable</tt> </tt>
+<a name="L160"></a><tt class="py-lineno">160</tt>  <tt class="py-line"><tt class="py-docstring">    Can't use the built-in sum() on non-integers"""</tt> </tt>
+<a name="L161"></a><tt class="py-lineno">161</tt>  <tt class="py-line">    <tt class="py-name">it</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt> <tt class="py-name">item</tt> <tt class="py-keyword">for</tt> <tt class="py-name">item</tt> <tt class="py-keyword">in</tt> <tt class="py-name">iterable</tt> <tt class="py-op">]</tt> </tt>
+<a name="L162"></a><tt class="py-lineno">162</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">it</tt><tt class="py-op">:</tt> </tt>
+<a name="L163"></a><tt class="py-lineno">163</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">reduce</tt><tt class="py-op">(</tt><tt class="py-keyword">lambda</tt> <tt class="py-name">x</tt><tt class="py-op">,</tt><tt class="py-name">y</tt><tt class="py-op">:</tt><tt class="py-name">x</tt><tt class="py-op">+</tt><tt class="py-name">y</tt><tt class="py-op">,</tt> <tt class="py-name">it</tt><tt class="py-op">)</tt> </tt>
+<a name="L164"></a><tt class="py-lineno">164</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L165"></a><tt class="py-lineno">165</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-string">''</tt> </tt>
+</div><a name="L166"></a><tt class="py-lineno">166</tt>  <tt class="py-line"> </tt>
+<a name="L167"></a><tt class="py-lineno">167</tt>  <tt class="py-line"><tt class="py-comment"># whitespace-insensitive tags, determines pretty-print rendering</tt> </tt>
+<a name="L168"></a><tt class="py-lineno">168</tt>  <tt class="py-line"><tt class="py-comment"></tt><tt id="link-19" class="py-name"><a title="core.HTMLTags._WS_INSENSITIVE" class="py-name" href="#" onclick="return doclink('link-19', '_WS_INSENSITIVE', 'link-5');">_WS_INSENSITIVE</a></tt> <tt class="py-op">=</tt> <tt id="link-20" class="py-name"><a title="core.HTMLTags.NonClosingTags" class="py-name" href="#" onclick="return doclink('link-20', 'NonClosingTags', 'link-14');">NonClosingTags</a></tt> <tt class="py-op">+</tt> <tt class="py-op">[</tt><tt class="py-string">'HTML'</tt><tt class="py-op">,</tt><tt class="py-string">'HEAD'</tt><tt class="py-op">,</tt><tt class="py-string">'BODY'</tt><tt class="py-op">,</tt> </tt>
+<a name="L169"></a><tt class="py-lineno">169</tt>  <tt class="py-line">    <tt class="py-string">'FRAMESET'</tt><tt class="py-op">,</tt><tt class="py-string">'FRAME'</tt><tt class="py-op">,</tt> </tt>
+<a name="L170"></a><tt class="py-lineno">170</tt>  <tt class="py-line">    <tt class="py-string">'TITLE'</tt><tt class="py-op">,</tt><tt class="py-string">'SCRIPT'</tt><tt class="py-op">,</tt> </tt>
+<a name="L171"></a><tt class="py-lineno">171</tt>  <tt class="py-line">    <tt class="py-string">'TABLE'</tt><tt class="py-op">,</tt><tt class="py-string">'TR'</tt><tt class="py-op">,</tt><tt class="py-string">'TD'</tt><tt class="py-op">,</tt><tt class="py-string">'TH'</tt><tt class="py-op">,</tt><tt class="py-string">'SELECT'</tt><tt class="py-op">,</tt><tt class="py-string">'OPTION'</tt><tt class="py-op">,</tt> </tt>
+<a name="L172"></a><tt class="py-lineno">172</tt>  <tt class="py-line">    <tt class="py-string">'FORM'</tt><tt class="py-op">]</tt> </tt>
+<a name="L173"></a><tt class="py-lineno">173</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://wiki.woodpecker.org.cn/moin/ObpLovelyPython">PyCDC</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0beta1 on Thu Aug 30 17:39:38 2007
+    </td>
+    <td align="right" class="footer">
+      <a href="http://epydoc.sourceforge.net">http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie()
+  // -->
+</script>
+  
+</body>
+</html>
