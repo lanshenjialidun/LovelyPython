@@ -9,7 +9,33 @@
 import os                                       # 导入操作系统支持模块
 from ConfigParser import RawConfigParser as rcp  # 导入基础配置处理机为 rcp
 import time                                     # 导入时间处理支持模块
+
 from threading import Thread                    # 导入线程支持模块
+class grepIt(Thread):
+    '''继承自threading.Thread 的线程对象类
+    '''
+    def __init__ (self,cdcfile,keyword):
+        '''类初始化函式:
+        @param cdcfile: *.cdc文件名，含路径
+        @param keyword: 搜索关键词，应该是utf-8 编码
+        '''
+        Thread.__init__(self)
+        self.cdcf = cdcfile
+        self.keyw = keyword.upper()
+        self.report = ""
+    def run(self):
+        '''线程行为声明函式:
+        @note: 各个线程的实际动作的定义
+        '''
+        if ".cdc" in self.cdcf:
+            self.report = markIni(self.cdcf,self.keyw)
+            #self.report = markLine(self.cdcf,self.keyw)
+        '''重构前的当地匹配处置::
+            for line in open(self.cdcf).readlines():    # 打开文件,读取文件每一行，并循环
+                if self.keyw in line.upper():             # 判定是否有关键词在行中
+                    #print line                  # 打印输出
+                    self.report += line
+        '''
 
 def iniCDinfo(cdrom,cdcfile):
     '''光盘信息.ini格式化函式
@@ -100,31 +126,6 @@ def cdcGrep(cdcpath,keyword):
                 if keyword in line:             # 判定是否有关键词在行中
                     print line                  # 打印输出
 
-class grepIt(Thread):
-    '''继承自threading.Thread 的线程对象类
-    '''
-    def __init__ (self,cdcfile,keyword):
-        '''类初始化函式:
-        @param cdcfile: *.cdc文件名，含路径
-        @param keyword: 搜索关键词，应该是utf-8 编码
-        '''
-        Thread.__init__(self)
-        self.cdcf = cdcfile
-        self.keyw = keyword.upper()
-        self.report = ""
-    def run(self):
-        '''线程行为声明函式:
-        @note: 各个线程的实际动作的定义
-        '''
-        if ".cdc" in self.cdcf:
-            self.report = markIni(self.cdcf,self.keyw)
-            #self.report = markLine(self.cdcf,self.keyw)
-        '''重构前的当地匹配处置::
-            for line in open(self.cdcf).readlines():    # 打开文件,读取文件每一行，并循环
-                if self.keyw in line.upper():             # 判定是否有关键词在行中
-                    #print line                  # 打印输出
-                    self.report += line
-        '''
         
 def markLine(cdcfile,keyword):
     '''搜索匹配函式:
@@ -164,9 +165,11 @@ def markIni(cdcfile,keyword):
             continue
         else:
             for item in cfg.items(node):
-                #print item[0].upper()
-                if keyw in item[0].upper():
-                    report += "\n","%s/%s "%(node,item)
+                try:
+                    if keyw in item[0].upper():
+                        report += "\n","%s/%s "%(node,item)
+                except:
+                    pass
     #print keyw
     return report
     
@@ -175,7 +178,7 @@ def grpSearch(cdcpath,keyword):
         @param cdcpath: *.cdc文件所在 路径
         @param keyword: 搜索关键词，应该是utf-8 编码
     '''
-    print time.ctime()
+    begin = time.time()
     filelist = os.listdir(cdcpath)          # 搜索目录中的文件
     searchlist = []                         # 记录发起的搜索编程
     for cdcf in filelist:
@@ -186,7 +189,7 @@ def grpSearch(cdcpath,keyword):
     for searcher in searchlist:
         searcher.join()
         print "Search from ",searcher.cdcf," out ",searcher.report     
-    print time.ctime()
+    print "usage %s s"%(time.time()-begin)
 
 if __name__ == '__main__':      # this way the module can be
     '''cdctools 自测响应处理
@@ -195,7 +198,7 @@ if __name__ == '__main__':      # this way the module can be
     #iniCDinfo(CDROM,"cdctools-utf8-beautify.cdc")
     #cdWalker(CDROM,"cdctools-utf8-beautify.cdc")
     #cdcGrep("cdc/","EVA")
-    grpSearch("cdc/","忆莲")
+    grpSearch("cdc/","EVE")
     #markLine("cdc/z.MFC.pop.02.cdc","忆莲")
     #markIni("cdc/z.MFC.pop.02.cdc","忆莲")
 
