@@ -1,0 +1,810 @@
+##language:zh
+#pragma section-numbers on
+||'''status'''|| 草稿  || ZoomQuiet,xyb || 完成度~40%||
+
+
+[[TableOfContents]]
+
+= 文本处理实感 =
+
+== 读取google搜索信息 ==
+读取google搜索信息
+
+互联网已经成为我们生活中必不可少的一部分，它提供的海量资料是我们在日常工作经常会接触和使用的。这里简单介绍有如何处理html格式数据。
+{{{#!python
+import urllib2
+from urllib import quote
+
+def search(keyword):
+    request = urllib2.Request('http://www.google.com/custom?q=' + quote(keyword))
+    request.add_header('User-Agent', 'Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.1.6) Gecko/20061201 Firefox/2.0.0.6 (Ubuntu-feisty)')
+    opener = urllib2.build_opener()
+    html = opener.open(request).read()
+
+    html = html.replace('<div class=g', '\n<div class=g')
+    html = html.replace('</h2>', '</h2>\n')
+    results = [s for s in html.split('\n') if s.startswith('<div class=g')]
+    for s in results:
+        s = s[s.find('href="'):]
+        s = s.replace('href="', '')
+        link = s[:s.find('"')]
+        t = s[s.find('>')+1:]
+        t = t[:t.find('</a>')]
+        t = t.replace('<b>', '')
+        t = t.replace('</b>', '')
+        title = t[t.rfind('>')+1:]
+        yield link, title
+}}}
+程序首先从google上按照指定的关键字检索，并读取搜索结果，存入html变量。通过认真观察google的结果页面，可以找到一个规律，每个结果项都在一个class=g的div中；找到'<div class=g'，也就找到了一个搜索结果的起始位置。不过糟糕的是，所有搜索结果都挤在一行文本中，所以我们先找到'<div class=g'，在前面增加换行符，把它分成多行。每个搜索结果包括标题、链接，还有部分摘要。这个程序里，我们只取每个检索结果的标题和链接，所以在标题结束部分'</h2>'的后面，也增加一个换行符，把我们关心的这部分代码单独放到一行里。这时，每个检索结果就变成了这个样子：
+{{{
+<div class=g><link rel="prefetch" href="http://www.python.org/"><h2 class=r><a href="http://www.python.org/" target=_blank class=l onmousedown="return clk(0,'','','cres','1','')"><b>Python</b> Programming Language -- Official Website</a></h2>
+}}}
+准备好数据以后，按照换行符把html分割成字符串的列表，并且过滤出是以'<div class=g'开始的字符串，存入results列表。下面的处理就是我们不需要的字符去掉，并切分离出网址链接和标题。首先查找链接：s.find('href="')，并把它后面的字符串保留下来，然后就可以把网址分离出来，存入link变量。与此类似，我们可以得到标题部分的字符串。
+{{{
+if __name__ == '__main__':
+    import sys
+    for link, title in search(sys.argv[1]):
+        print link, title
+}}}
+程序的运行，传入的第一个参数作为检索的关键字。
+
+大家看起来上面的代码，有没有觉得即繁琐，又不容易一眼看懂？也就是说，这种方法虽然简单，但可读性并不好。下面我介绍一种更简洁、同时也很易读懂的方法：使用正则表达式。
+
+正则表达式是一种匹配及处理特定字符串的专门格式。如果用正则表达式来编写同样的功能，上面的函数就可以写成：
+{{{
+RE_LINK = r'<div class=g[^>]*>(?:<link [^>]*>)?<h2 class=r><a href="([^"]+)"[^>]*>(.+?)</a></h2>'
+
+def search(keyword):
+    request = urllib2.Request('http://www.google.com/custom?q=' + quote(keyword))
+    request.add_header('User-Agent', 'Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.1.6) Gecko/20061201 Firefox/2.0.0.6 (Ubuntu-feisty)')
+    opener = urllib2.build_opener()
+    html = opener.open(request).read()
+
+    for link, title in re.findall(RE_LINK, html):
+        title = re.sub('</?b>', '', title)
+        yield link, title
+}}}
+RE_LINK是关键的正则表达式，它的含义为：
+ * `<div class=g[^>]*>`：匹配以<div class=g开始，中间有零个或多个任意非'>'的字符，后跟一个>的字符串
+ * `(?:<link [^>]*>)?`：匹配一组字符串：以'<link '开始，中间有零个或多个任意非'>'字符，后跟一个'>'字符。这组字符串可能出现一次或零次，其中问号后的冒号表示这个group表达式只匹配，但不计入group检索结果中。
+ * `<h2 class=r>`：简单的匹配这个字符串
+ * `<a href="([^"]+)"[^>]*>(.+?)</a>`：匹配以'<a href="'开始，中间是至少一个非双引号的字符（网址部分，group匹配），后面是零个或多个非'>'的字符；再后面是至少一个字符（标题部分，group匹配），最后是'</a></h2>'字符。(.+?)中的问号表示非贪婪匹配，也就是只要发现一个后面跟着'</a></h2>'的结果，就不再继续往下查找。
+
+group匹配是我们从大量信息中挑出自己需要的数据的一种方法，也是用来组织复杂的、嵌套的正则表达式的有力工具。在这个正则表达式中，共出现三次group匹配，第一个(?:...)，是因为有多个表达式要绑定成一组，所以要用括号()把它们绑在一起之后，才能用后面带的问号?来修饰它，告知正则表达式处理引擎，它们或者一起出现一次，或者一起都不出现。由于这个匹配并不是我们需要的数据，不需要他出现在最终的结果中，所以我们用(?:...)类型，这样就可以把它从结果中忽略掉了。第二个和第三个(...)，是我们要命中匹配的链接地址和标题，这是两个普通类型的gorup匹配。
+
+通过re.findall，就可以把文本中所有符合规则的信息一起全部提取出来。然后再稍作处理，用re.sub过滤掉标题中可能存在的'<b>'或者'</b>'，就得到最终的检索结果了。
+
+=== search.py ===
+{{{#!python
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import urllib2
+from urllib import quote
+import re
+
+RE_LINK = r'<div class=g[^>]*>(?:<link [^>]*>)?<h2 class=r><a href="([^"]+)"[^>]*>(.+?)</a></h2>'
+
+def search(keyword):
+    request = urllib2.Request('http://www.google.com/custom?q=' + quote(keyword))
+    request.add_header('User-Agent', 'Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.1.6) Gecko/20061201 Firefox/2.0.0.6 (Ubuntu-feisty)')
+    opener = urllib2.build_opener()
+    html = opener.open(request).read()
+
+    for link, title in re.findall(RE_LINK, html):
+        title = re.sub('</?b>', '', title)
+        yield link, title
+
+def search2(keyword):
+    request = urllib2.Request('http://www.google.com/custom?q=' + quote(keyword))
+    request.add_header('User-Agent', 'Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.8.1.6) Gecko/20061201 Firefox/2.0.0.6 (Ubuntu-feisty)')
+    opener = urllib2.build_opener()
+    html = opener.open(request).read()
+
+    html = html.replace('<div class=g', '\n<div class=g')
+    html = html.replace('</h2>', '</h2>\n')
+    results = [s for s in html.split('\n') if s.startswith('<div class=g')]
+    for s in results:
+        s = s[s.find('href="'):]
+        s = s.replace('href="', '')
+        link = s[:s.find('"')]
+        t = s[s.find('>')+1:]
+        t = t[:t.find('</a>')]
+        t = t.replace('<b>', '')
+        t = t.replace('</b>', '')
+        title = t[t.rfind('>')+1:]
+        yield link, title
+
+if __name__ == '__main__':
+    import sys
+    for link, title in search(sys.argv[1]):
+        print link, title
+}}}
+
+
+== 从 whois 信息中提取网段信息 ==
+这段程序用于从 whois 信息中提取网段信息，并保存为 nc 格式的 tiny dns 配置文件。它可以针对来访者网段，为一个域名分配不同的ip。
+
+我们先来看一段文本：
+{{{
+inetnum:      202.96.63.97 - 202.96.63.127
+netname:      CAIMARNET
+
+domain:       123.93.203.in-addr.arpa
+descr:        Reverse zone for 203.93.123.0/24
+
+domain:       140.4.221.in-addr.arpa
+descr:        reverse delegation for 221.4.140/24
+
+domain:       250.5.221.in-addr.arpa
+descr:        China Network Communications Group Co. ChongQing
+}}}
+这是一段whois3程序生成的输出例子，其中保存的是中国网通使用的的部分IP网段信息。这里编写的这段程序将对他们进行处理，得到我们需要的结果。
+
+whois3程序可以从
+ * http://ftp.apnic.net/apnic/dbase/tools/ripe-dbase-client-v3.tar.gz
+下载并编译生成。用{{{
+./whois3 -h whois.apnic.net -l -i mb MAINT-CNCGROUP > cnc.txt
+./whois3 -h whois.apnic.net -l -i ml MAINT-CNCGROUP >> cnc.txt
+./whois3 -h whois.apnic.net -l -i mu MAINT-CNCGROUP >> cnc.txt
+./whois3 -h whois.apnic.net -l -i mb MAINT-CHINANET > chinanet.txt
+./whois3 -h whois.apnic.net -l -i mb MAINT-CN-CRTC > crtc.txt
+}}}
+可以获得类似上面的结果文件。
+
+{{{
+_sample_whois = """
+inetnum:      202.96.63.97 - 202.96.63.127
+netname:      CAIMARNET
+
+domain:       123.93.203.in-addr.arpa
+descr:        Reverse zone for 203.93.123.0/24
+
+domain:       140.4.221.in-addr.arpa
+descr:        reverse delegation for 221.4.140/24
+
+domain:       250.5.221.in-addr.arpa
+descr:        China Network Communications Group Co. ChongQing
+"""
+}}}
+从示例的数据中可以看出，数据的格式一共有4类，read_chunk从输入中分析出这四类格式，并读取相应的有用信息。
+{{#!python
+def read_chunk(whois_file):
+    """read one chunk from whois file once
+
+    >>> from StringIO import StringIO
+    >>> list(read_chunk(StringIO(_sample_whois)))
+    [('inetnum', ['202.96.63.97', '202.96.63.127']), ('descr', '203.93.123.0/24'), ('descr', '221.4.140/24'), ('domain', '250.5.221')]
+    """
+    while True:
+        line = whois_file.readline()
+        if not line:
+            break
+        if line == '\n':
+            line = whois_file.readline()
+            if line.startswith('inetnum:'):
+                inetnum = line[len('inetnum:'):].strip()
+                inetnum = inetnum.replace(' ', '').split('-')
+                yield ('inetnum', inetnum)
+            elif line.startswith('domain:'):
+                domain = line[len('domain:'):].strip()
+                domain = domain.replace('.in-addr.arpa', '')
+                line = whois_file.readline()
+                if line.startswith('descr:'):
+                    descr = line[len('descr:'):].strip()
+                    segm = re.findall('[0-9.]+/[0-9]+', descr)
+                    if segm and len(segm) == 1:
+                        segm = segm[0]
+                        yield('descr', segm)
+                        continue
+                yield ('domain', domain)
+
+}}}
+用三个双引号括起来的，叫做__doc__，是python语言中函数等对象的特殊属性。其中，可以保存对该代码的描述等信息。关于__doc__的更多信息，请参考...。这段代码里，也包含doctest的测试代码，它看起来就像是我们在python中执行函数时的输入和输出，供 doctest 读取和验证函数的行为是否符合要求。随时编写测试代码是一个非常好的习惯，一旦养成，会终生受益。采用doctest书写的测试用例，在文件中添加如下语句，就可以作为一个单独的程序来执行：
+{{{
+if __name__ == '__main___':
+    import doctest
+    doctest.testmod()
+}}}
+如果文件的名字是 net_segm.py，则执行 python net_segm.py；如果没有看到任何输出，那么恭喜你，所有测试用例均已通过。作为UNIX哲学的一部分，像测试程序这样的一类程序的原则是：没有消息（输出）就是好消息。如果你想了解更多信息，可以输入：python net_segm.py -v，就可以看到每个测试用例执行的情况了。
+
+这个函数首先以一个循环开始，从已经打开的文件中一行行读取数据，放到line变量中。从函数名可以知道，这个函数每次从文件中读取“一片”数据。只有一个换行符'\n'的空行就是标志，表示下面一个新的片断开始。根据四种数据格式的不同，程序判断逻辑为：
+{{{
+如果第一行以 'inetnum:' 开始：
+    （那么它是用两个ip标识一个网段）
+    把第一行的后面数据从'-'字符切开，返回 'inetnum' 和两个ip
+如果第一行以 'domain:' 开始：
+   （那么是另外三种格式）
+   先把第一行中倒排的arp地址保存到domain变量中
+   读取第二行
+   如果第二行以'descr:'开始：
+       取 'descr:' 后面的数据中符合网段写法的部分
+       如果取得网段：
+           返回 'descr' 和网段
+    其他所有情况返回 'domain' 和 domain 变量内容
+}}}
+请对照以上伪代码描述阅读 read_chunk 函数。获取类似 '192.168.1/24' 的网段字符的代码，使用了正则表达式模块 re，关于这个模块的更详细介绍，请参考...。在该函数中，返回数据使用 yield 而不是 return，它使我们不须从函数退出即可返回数据给调用者，这个特性给我们的编程带来了极大的便利。包含yield的函数被称作生成器（generator），它是python在函数式编程方面引入的一个重要特性。这些名词看起来很深奥，但yield使用起来其实很简单：用yield返回数据，用for来遍历从函数返回的数据，这样立刻可以用起来了。关于yield的更多信息，请参考...。
+
+下面是read_chunk的调用者network_segment函数，从中可以看到一行'for chunk in read_chunk(whois):'即可使用read_chunk读取信息，使用起来很是方便。
+{{{#!python
+def network_segment(whois_file):
+    """read network segments from whois file
+
+    >>> from StringIO import StringIO
+    >>> list(network_segment(StringIO(_sample_whois)))
+    ['202.96.63.0/24', '203.93.123.0/24', '221.4.140.0/24', '221.5.250.0/24']
+    """
+    if isinstance(whois_file, str):
+        whois = file(whois_file)
+    else:
+        whois = whois_file
+    for chunk in read_chunk(whois):
+        name, segment = chunk
+        if name=='descr':
+            yield fix_segment(segment)
+        elif name=='domain':
+            inverted_network = segment
+            yield reverse_segment(inverted_network)
+        elif name=='inetnum':
+            ip1, ip2 = segment
+            yield max_mask24(get_network(ip1, ip2))
+        else:
+            yield chunk
+}}}
+这个函数根据每个片断的类型--变量"name"，分别使用不同的函数进行处理网段信息--变量segment，最后生成型如'202.96.63.0/24'这样我们需要的标准格式：后面的/24是这个网段的掩码的缩写方式，表示掩码中为1的比特共24位--这个例子是一个C类子网。函数开始部分是一段判断输入参数的代码，如果传入的参数是一个字符串，那么就把它作为一个文件名来打开；否则默认传入的是一个file类型的对象，从中读取每行数据。下面是不同类型数据的几个处理函数代码。
+
+{{{#!python
+def fix_segment(segment):
+    """
+    >>> fix_segment('221.4.140/24')
+    '221.4.140.0/24'
+    >>> fix_segment('127/8')
+    '127.0.0.0/8'
+    """
+    list_segm = segment.split('/')[0].split('.')
+    if len(list_segm) < 4:
+        segment = "%s%s/%s" % (
+                segment.split('/')[0],
+                '.0' * (4-len(list_segm)),
+                segment.split('/')[1],
+                )
+    return segment
+}}}
+第一种格式，从descr中获得的信息，它的网段是缩写格式，例如： '221.4.140/24'。我们需要进行修复，扩展成 '221.4.140.0/24' 这样。首先，用split按照'/'字符把信息切开，前面的子网地址部分再用'.'字符切开；如果子网地址部分切开后少于4段，则说明这是个缩写格式，需要补全。把失掉的几段'.0'部分、缩写部分、'/'后的子网掩码部分统统合在一起，就可以得到完全格式的网段。
+{{{#!python
+def reverse_segment(inverted_network):
+    """
+    >>> reverse_segment('250.5.221')
+    '221.5.250.0/24'
+    >>> reverse_segment('127')
+    '127.0.0.0/8'
+    """
+    segment = inverted_network.split('.')[::-1]
+    lr = len(segment)
+    segment = '.'.join(segment) + '.0'*(4-lr) + '/' + str(lr*8)
+    return segment
+}}}
+第二种格式，是arp的倒排的网段，例如：'250.5.221'。首先把地址用'.'字符切开，然后倒序排列。这里倒排是利用了列表类型的切片（slice）功能的第三个参数：如果该值为-1，则返回列表为倒序方式。这样修改并补全网段地址和子网掩码后，倒排格式就被修复为标准格式：'221.5.250.0/24'。
+{{{#!python
+def get_network(ip1, ip2):
+    """
+    >>> get_network('218.106.0.0', '218.106.255.255')
+    '218.106.0.0/16'
+    >>> get_network('218.106.1.0', '218.106.1.255')
+    '218.106.1.0/24'
+    >>> get_network('219.158.32.0', '219.158.63.255')
+    '219.158.32.0/19'
+    >>> get_network('218.106.96.0', '218.106.99.255')
+    '218.106.96.0/22'
+    >>> get_network('218.106.208.0', '218.106.223.255')
+    '218.106.208.0/20'
+    >>> get_network('202.96.63.97', '202.96.63.127')
+    '202.96.63.96/28'
+    """
+
+    ip1 = [int(i) for i in ip1.split('.')]
+    ip2 = [int(i) for i in ip2.split('.')]
+
+    def same_bit_length(i1, i2):
+        return int(log((i2-i1+1), 2))
+
+    same = 0
+    for i1, i2 in zip(ip1, ip2):
+        if i1==i2:
+            same += 1
+        else:
+            break
+
+    same_bit = same_bit_length(ip1[same], ip2[same])
+    bit_mask_len = 2**same_bit
+    mask_len = 8*same+(8-same_bit)
+
+    ip = '.'.join([str(i) for i in ip1[:same]])
+    ip += '.' + str(ip1[same]/(bit_mask_len)*(bit_mask_len))
+    ip += '.0' * (4-same-1)
+    return ip + '/' + str(mask_len)
+}}}
+第三种格式，数据中只有该网段的起始和结束ip地址。这段转换代码稍微复杂一些，它的逻辑是以二进制方式比较两个ip数字，找到它们相同部分的最大比特长度，从而得到标准写法。首先，把每个ip地址都以'.'字符切分成四个整形数字；然后从前往后挨个比较对应的数字，把相同数字的个数存入变量same。用内嵌的函数same_bit_length来计算第一对不相等的两个数字中，相同部分的比特个数，存入same_bit变量。这样，通过这两个数字，就可以得到这个网段地址的子网掩码mask_len。在函数的最后，变量ip中保存网段地址，和子网掩码连接在一起就是我们需要的标准格式了。
+{{{#!python
+def max_mask24(segment):
+    """
+    >>> max_mask24('202.96.63.96/28')
+    '202.96.63.0/24'
+    """
+    network, mask = segment.split('/')
+    if int(mask) > 24:
+        return '%s.0/24' % '.'.join(network.split('.')[:3])
+    else:
+        return segment
+}}}
+最后，我们希望网段最小的单位是C类。这个函数用来修正网段数据，如果不足一个C类的网段则补足。逻辑很简单，如果子网掩码小于24，则把网段第四部分置为零，并直接把掩码修改为24--也就是把它扩大到一个C类网段。
+
+最后，下面的代码调用network_segment，从命令行输入的参数中读取一个文件，并把最终转换成的标准格式打印出来：
+{{{
+if __name__ == '__main__':
+    import sys
+    whois_filename = sys.argv[1]
+    for segm in network_segment(whois_filename):
+        print segm
+}}}
+
+=== netsegm.py ===
+{{{#!python
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+from math import log
+import re
+import sys
+
+_sample_whois = """
+inetnum:      202.96.63.97 - 202.96.63.127
+netname:      CAIMARNET
+
+domain:       123.93.203.in-addr.arpa
+descr:        Reverse zone for 203.93.123.0/24
+
+domain:       140.4.221.in-addr.arpa
+descr:        reverse delegation for 221.4.140/24
+
+domain:       250.5.221.in-addr.arpa
+descr:        China Network Communications Group Co. ChongQing
+"""
+
+def read_chunk(whois_file):
+    """read one chunk from whois file once
+
+    >>> from StringIO import StringIO
+    >>> list(read_chunk(StringIO(_sample_whois)))
+    [('inetnum', ['202.96.63.97', '202.96.63.127']), ('descr', '203.93.123.0/24'), ('descr', '221.4.140/24'), ('domain', '250.5.221')]
+    """
+    while True:
+        line = whois_file.readline()
+        if not line:
+            break
+        if line == '\n':
+            line = whois_file.readline()
+            if line.startswith('inetnum:'):
+                inetnum = line[len('inetnum:'):].strip()
+                inetnum = inetnum.replace(' ', '').split('-')
+                yield ('inetnum', inetnum)
+            elif line.startswith('domain:'):
+                domain = line[len('domain:'):].strip()
+                domain = domain.replace('.in-addr.arpa', '')
+                line = whois_file.readline()
+                if line.startswith('descr:'):
+                    descr = line[len('descr:'):].strip()
+                    segm = re.findall('[0-9.]+/[0-9]+', descr)
+                    if segm and len(segm) == 1:
+                        segm = segm[0]
+                        yield('descr', segm)
+                        continue
+                yield ('domain', domain)
+
+def network_segment(whois_file):
+    """read network segments from whois file
+
+    >>> from StringIO import StringIO
+    >>> list(network_segment(StringIO(_sample_whois)))
+    ['202.96.63.0/24', '203.93.123.0/24', '221.4.140.0/24', '221.5.250.0/24']
+    """
+    if isinstance(whois_file, str):
+        whois = file(whois_file)
+    else:
+        whois = whois_file
+    for chunk in read_chunk(whois):
+        name, segment = chunk
+        if name=='descr':
+            yield fix_segment(segment)
+        elif name=='domain':
+            yield reverse_segment(segment)
+        elif name=='inetnum':
+            ip1, ip2 = segment
+            yield max_mask24(get_network(ip1, ip2))
+        else:
+            yield chunk
+
+def fix_segment(segment):
+    """
+    >>> fix_segment('221.4.140/24')
+    '221.4.140.0/24'
+    >>> fix_segment('127/8')
+    '127.0.0.0/8'
+    """
+    list_segm = segment.split('/')[0].split('.')
+    if len(list_segm) < 4:
+        segment = "%s%s/%s" % (
+                segment.split('/')[0],
+                '.0' * (4-len(list_segm)),
+                segment.split('/')[1],
+                )
+    return segment
+
+def reverse_segment(inverted_network):
+    """
+    >>> reverse_segment('250.5.221')
+    '221.5.250.0/24'
+    >>> reverse_segment('127')
+    '127.0.0.0/8'
+    """
+    segment = inverted_network.split('.')[::-1]
+    lr = len(segment)
+    segment = '.'.join(segment) + '.0'*(4-lr) + '/' + str(lr*8)
+    return segment
+
+def get_network(ip1, ip2):
+    """
+    >>> get_network('218.106.0.0', '218.106.255.255')
+    '218.106.0.0/16'
+    >>> get_network('218.106.1.0', '218.106.1.255')
+    '218.106.1.0/24'
+    >>> get_network('219.158.32.0', '219.158.63.255')
+    '219.158.32.0/19'
+    >>> get_network('218.106.96.0', '218.106.99.255')
+    '218.106.96.0/22'
+    >>> get_network('218.106.208.0', '218.106.223.255')
+    '218.106.208.0/20'
+    >>> get_network('202.96.63.97', '202.96.63.127')
+    '202.96.63.96/28'
+    """
+
+    ip1 = [int(i) for i in ip1.split('.')]
+    ip2 = [int(i) for i in ip2.split('.')]
+
+    def same_bit_length(i1, i2):
+        return int(log((i2-i1+1), 2))
+
+    same = 0
+    for i1, i2 in zip(ip1, ip2):
+        if i1==i2:
+            same += 1
+        else:
+            break
+
+    same_bit = same_bit_length(ip1[same], ip2[same])
+    bit_mask_len = 2**same_bit
+    mask_len = 8*same+(8-same_bit)
+
+    ip = '.'.join([str(i) for i in ip1[:same]])
+    ip += '.' + str(ip1[same]/(bit_mask_len)*(bit_mask_len))
+    ip += '.0' * (4-same-1)
+    return ip + '/' + str(mask_len)
+
+def max_mask24(segment):
+    """
+    >>> max_mask24('202.96.63.96/28')
+    '202.96.63.0/24'
+    """
+    network, mask = segment.split('/')
+    if int(mask) > 24:
+        return '%s.0/24' % '.'.join(network.split('.')[:3])
+    else:
+        return segment
+
+def test():
+    import doctest
+    doctest.testmod()
+
+if __name__ == '__main__':
+    import sys
+    if sys.argv[1] == 'test':
+        test()
+        sys.exit()
+    whois_filename = sys.argv[1]
+    for segm in network_segment(whois_filename):
+        print segm
+}}}
+
+
+== 找出两个文件中不同部分 ==
+
+文件A和文件B是两组人名单，每行是一个人的名字。这里我们要完成一个任务，把在文件A中出现，但没有在文件B中的人都找出来。
+
+
+首先读取文件内容：{{{
+>>> a = file('a.txt').readlines()
+>>> b = file('b.txt').readlines()
+>>> a
+['a\n', 'b\n', 'd\n', 'f\n', 'g\n', 'h\n']
+>>> b
+['b\n', 'c\n', 'e\n', 'f\n']
+}}}
+然后是比较过程：{{{
+>>> for i in a:
+...     if i not in b:
+...         print i.rstrip('\n')
+... 
+a
+d
+g
+h
+>>> 
+}}}
+甚至连写程序都不用，我们就可以在python命令行里直接快速完成。file.readlines可以把文件中所有内容一次读取出来，放到内存中来处理。只有小文件才可以这样用，如果文件过大，内存就会被文件内容吃光，这样程序执行效率返回会下降。然后对文件a中的每一行内容，检查是否在文件b中存在，不存在就直接打印到屏幕上。
+
+如果两个文件的数据量多起来的时候，用list的in操作来判断a里的一个名字在b里是否存在，效率就太差了；这时可以引进一个数据结构：集合(set)。读取文件内容的部分就变成了这样：
+{{{
+>>> a = set(file('a'))
+>>> b = set(file('b'))
+>>> a
+set(['d\n', 'a\n', 'b\n', 'h\n', 'f\n', 'g\n'])
+>>> b
+set(['c\n', 'f\n', 'b\n', 'e\n'])
+}}}
+这样，比较的部分还是可以继续使用in操作符。读取文件的部分省略了readlines函数，set会自动从文件中读取所有数据。
+
+数据多了，输出也可能会变得多起来，直接打印到屏幕已经不够用了，需要保存到文件中：
+{{{
+>>> f = file('output.txt', 'w')
+>>> for i in a:
+...     if i not in b:
+...         print >>> f, i.rstrip('\n')
+>>>
+}}}
+但是，当文件内容大到超出内存的大小时，上面的方法就无法使用了。这时怎么办呢？我们可以先排序，再比较。一旦两个文件被以相同的顺序排列好了，我们就可以“顺流而下”，逐行比较，而不用一次全部装载到内存来了。
+
+=== 大文件排序 ===
+
+一般情况下，我们可以使用系统的sort命令对文件进行排序，但使用python排序文件也是很方便的：{{{
+>>> file('sorted.txt', 'w').writelines(sorted(file('filename.txt')))
+}}}
+这一行命令就可以按照升序对文件排序，并保存在一个新文件中。
+
+但对于超大文件，受限于内存的大小，不论是系统提供的sort命令，还是上面使用的python函数，处理起来效率都非常差，甚至因为需要的内存超出系统内存大小无法完成任务。不过不用担心，我们还是有办法来解决的。通过化整为零，把大文件的排序降低难度为多个小文件的排序，然后通过合并算法就可把组合成一个完整的结果了。只要每个小文件足够放到内存中，再加上合并算法对内存的占用也很少，如此一来，大文件处理遇到的内存限制也就迎刃而解。
+{{{#!python
+LINES = 10000
+def split_sort(filename):
+    f = file(filename)
+    num = 0
+    while True:
+        lines = []
+        for i in range(LINES):
+            line = f.readline()
+            if not line:
+                break
+            lines.append(line)
+        if not lines:
+            break
+        lines.sort()
+        num += 1
+        file(filename + '.%d'%num, 'w').writelines(lines)
+    return num
+}}}
+这段代码把文件分割成多个排好序的小文件。返回值是文件的个数。首先打开文件，在while循环读取每行数据，直到再没有任何数据，退出循环。在循环中，每读取10000行，就把它们排序，并写入到一个新的文件中，文件名是原名后缀文件序号数字。
+{{{#!python
+from heapq import heappop, heappush
+
+def merge_sorted(filename, num):
+    lines = []
+    for i in range(num):
+        f = file(filename + '.%d'%(i+1))
+        line = f.readline()
+        if line:
+            heappush(lines, (line, f))
+    while lines:
+        line, f = heappop(lines)
+        yield line
+        line = f.readline()
+        if line:
+            heappush(lines, (line, f))
+}}}
+这段代码是把多个排好序的小文件合并成一个文件。首先，从每个文件中读取第一行，把数据和打开的文件一起存入列表lines。while循环把列表当成一个自动排序的队列，每次从里面取第一个元素（也是最小的一个元素），然后返回该值并从这个数据所在的文件中取下一个数据，重新放入队列中。这个过程保证了每次得到的都是当前几个文件中数据里最小的一个，当遍历完所有的已排序文件，这个函数返回的也就是所有数据按照顺序合后的结果。
+
+这个过程使用到了一个特殊的模块：heapq。它是一个把列表当做特殊的队列使用，用heappush把新元素存入队列，用heappop从队列中取出第一个元素；通过这种方法操作，它就可以自动保持队列中的最小值始终排在队列的最前面，这样我们逐个取出的数据就可以保证是顺序排序的。实际上，把heappush的代码替换为：
+{{{
+lines.append((line, f))
+lines.sort()
+把heappop替换为：
+lines.pop(0)
+}}}
+也可以完成同样的功能，但列表排序的执行效率很一般，这在我们处理大数据量时会多花很多不必要的时间，所以我们采用heapq来优化代码、提高执行效率、节省运行时间。
+{{{
+if __name__ == '__main__':
+    import sys
+    num = split_sort(sys.argv[1])
+    output = file(sys.argv[2])
+    for line in merge_sorted(sys.argv[1], num):
+        outputu.write(line)
+}}}
+这段是把第一个参数的文件进行排序，并把结果保存到第二个参数的文件中。
+
+上面的代码中还缺少一部分功能。看出来了吗？排序过程中生成了许多临时的小文件，但在程序里并没有及时删除。如果读者您有兴趣，不妨试试亲自修改一下这段程序，给它增加删除临时文件的功能。
+
+=== 大文件比较 ===
+{{{#!python
+import sys
+
+def notin(sorted_file_a, sorted_file_b):
+    r"""compare two file
+
+    >>> from StringIO import StringIO
+    >>>
+    >>> a = '\n'.join('abdfgh')
+    >>> b = '\n'.join('bcef')
+    >>> list(notin(StringIO(a), StringIO(b)))
+    ['a', 'd', 'g', 'h']
+    """
+    fa = sorted_file_a
+    fb = sorted_file_b
+    fa = isinstance(fa, str) and open(fa) or fa
+    fb = isinstance(fb, str) and open(fb) or fb
+
+    sa = fa.readline()
+    sb = fb.readline()
+    while True:
+        if not sa: break
+        if not sb: break
+        sa = sa.rstrip('\n')
+        sb = sb.rstrip('\n')
+
+        compare = cmp(sa, sb)
+        if (compare < 0):
+            # FILE A only
+            yield sa
+            sa = fa.readline()
+        elif (compare == 0):
+            # both
+            sa = fa.readline()
+            sb = fb.readline()
+        else:
+            # FILE B only
+            sb = fb.readline()
+
+    # print more FILEA
+    if sa:
+        yield sa.rstrip('\n')
+        for sa in fa:
+            yield sa
+}}}
+把大文件排好顺序以后，我们就可以按照顺序来逐行读取两个文件；这样，只需顺序读取一次，我们就可以找出A文件中哪些行在B文件中从来没有出现过。在函数的开头，打开两个文件，并读取第一行数据。在下面的while循环中，如果任何一个文件中没有更多数据了，就退出循环。然后用python自带的cmp函数比较两个文件中的当前数据。根据cmp的返回值，如果A的数据小于B的数据，则说明这行数据只在A中存在，它就是我们的目标，把它返回，并读取A中的下一个数据。如果A和B的数据相等，那么这个数据恰好在两个文件中都存在，那么跳过它们，并从A和B两个文件中读取下一个数据，用于下一轮比较。如果A的数据大于B，那么说明这个数据是只有B中存在的，则忽略它，并从B中读取下一个数据。经过这样的循环和比较，大部分的数据就被筛选了出来；但有可能当B中已经读完数据了，而A中还有多余的数据，那么我们就可以肯定，剩下的肯定全部都是A中所特有的，那么就需要把它们依次读取，全部返回。
+{{{
+if __name__ == '__main__':
+    notin(sys.argv[1], sys.argv[2])
+}}}
+
+=== notin.py ===
+{{{#!python
+#!/usr/bin/env python
+# -*- coding: GB2312 -*-
+
+"""Print the lines in FILEA and not in FILEB.
+
+notin.py FILEA FILEB
+FILEA and FILEB must be sorted
+"""
+
+__revision__ = '1.0'
+
+import sys
+
+def notin(sorted_file_a, sorted_file_b):
+    r"""compare two file
+
+    >>> from StringIO import StringIO
+    >>>
+    >>> a = '\n'.join('abdfgh')
+    >>> b = '\n'.join('bcef')
+    >>> list(notin(StringIO(a), StringIO(b)))
+    ['a', 'd', 'g', 'h']
+    """
+    fa = sorted_file_a
+    fb = sorted_file_b
+    fa = isinstance(fa, str) and open(fa) or fa
+    fb = isinstance(fb, str) and open(fb) or fb
+
+    sa = fa.readline()
+    sb = fb.readline()
+    while True:
+        if not sa: break
+        if not sb: break
+        sa = sa.rstrip('\n')
+        sb = sb.rstrip('\n')
+
+        compare = cmp(sa, sb)
+        if (compare < 0):
+            # FILE A only
+            yield sa
+            sa = fa.readline()
+        elif (compare == 0):
+            # both
+            sa = fa.readline()
+            sb = fb.readline()
+        else:
+            # FILE B only
+            sb = fb.readline()
+
+    # print more FILEA
+    if sa:
+        yield sa.rstrip('\n')
+        for sa in fa:
+            yield sa
+
+def test():
+    import doctest
+    doctest.testmod()
+
+if __name__ == '__main__':
+    import sys
+    if sys.argv[1] == 'test':
+        test()
+        sys.exit()
+    for i in notin(sys.argv[1], sys.argv[2]):
+        print i
+
+}}}
+
+=== sortfile.py ===
+{{{#!python
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+from heapq import heappop, heappush
+LINES = 2
+
+def split_sort(filename):
+    f = file(filename)
+    num = 0
+    while True:
+        lines = []
+        for i in range(LINES):
+            line = f.readline()
+            if not line:
+                break
+            lines.append(line)
+        if not lines:
+            break
+        lines.sort()
+        num += 1
+        file(filename + '.%d'%num, 'w').writelines(lines)
+    return num
+
+def merge_sorted(filename, num):
+    lines = []
+    for i in range(num):
+        f = file(filename + '.%d'%(i+1))
+        line = f.readline()
+        if line:
+            heappush(lines, (line, f))
+    while lines:
+        line, f = heappop(lines)
+        yield line
+        line = f.readline()
+        if line:
+            heappush(lines, (line, f))
+
+if __name__ == '__main__':
+    import sys
+    num = split_sort(sys.argv[1])
+    for line in merge_sorted(sys.argv[1], num):
+        sys.stdout.write(line)
+}}}
+= 小结 =
+## 总体语法等等叙述,注意给出相关知识的阅读指导
+
+== 练习 ==
+## 设计实用练习,确保体例代码可以自由扩展出各种实用应用!
+
+----
+[[PageComment2]]
+::-- ZoomQuiet [[[DateTime(2007-09-01T04:13:30Z)]]]
+
