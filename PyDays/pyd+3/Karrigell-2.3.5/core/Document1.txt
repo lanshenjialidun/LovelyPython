@@ -1,0 +1,4 @@
+Ok. I have configured outputEncoding to latin-1. In a form, I enter the value 'dédé' (the bytestring 'd\x82d\x82') in the field 'name'. With the current version of Karrigell, this is converted into the Unicode string whose encoding in latin-1 is this bytestring :
+QUERY['name'] = unicode('dédé','latin-1')
+If I enter it in a TEXT field of an SQLite database, then retrieve it with a select, I get the same Unicode object. If I want to print it I need a bytestring (print unicode('dédé','latin-1') raises an exception), but how is the program supposed to know that it must use 'latin-1' for encoding ? Hopefully not by testing outputEncoding ! If it uses utf-8 to encode, the bytestring is : 'd\xc2\x82d\xc2\x82', obviously not what I want...
+

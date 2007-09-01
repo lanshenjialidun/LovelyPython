@@ -1,0 +1,60 @@
+body,td { font-family: verdana, sans-serif;
+    font-size: 12px;
+    }
+
+th { font-family: verdana, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    }
+
+table.main { border-width: 0px 0px 1px 1px;
+    border-color: #000000;
+    border-style: solid;
+    }
+
+th.main { border-width: 1px 1px 0px 0px;
+    border-color: #000000;
+    border-style: solid;
+    }
+
+#tblist
+{
+border-width: 0px 1px 0px 0px;
+border-color: #000000;
+border-style: solid;
+}
+#tblist ul
+{
+padding: 0px 20px;
+margin-left: 0;
+}
+
+#tblist li a
+{
+text-decoration: none;
+}
+
+#tblist li a:link { color: #000; }
+#tblist li a:visited { color: #000; }
+
+#tblist li a:hover
+{
+color: #000;
+background: #AAE;
+border-color: #227;
+}
+
+#tblist li
+{
+list-style: none;
+padding-top: 4px;
+}
+
+span.fold
+{
+border-width: 1px;
+padding: 0px 1px 0px 1px;
+border-color: #000000;
+border-style: solid;
+font-family: courier;
+}

@@ -1,0 +1,17 @@
+body {font-family: sans-serif}
+
+table.errors {font-family:sans-serif;
+	font-size: 10pt;
+}
+td.lineNum {background-color: #C0C0C0; 
+	font-family: Courier; 
+	}
+td.normal {background-color:#FFFFCC; font-family: courier;}
+
+span.error {background-color:#CCFFFF; }
+
+.num { 
+	font-family: Courier; 
+	color: #0000FF;
+	font-style: normal;
+	}

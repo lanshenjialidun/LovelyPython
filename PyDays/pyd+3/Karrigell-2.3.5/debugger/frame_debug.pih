@@ -1,0 +1,14 @@
+<%
+import k_config
+if k_config.debug is False:
+    raise SCRIPT_END
+import debugger.k_debugger
+error=debugger.k_debugger.Errors[_key]
+%>
+<head>
+<title>Debugging <%= error.script.basename %></title>
+</head>
+<frameset cols="50%,*">
+    <frame src="/debugger/fileShow?key=<%= _key %>">
+    <frame src="/debugger/debug?key=<%= _key %>">
+</frameset>

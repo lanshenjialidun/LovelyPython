@@ -1,0 +1,11 @@
+2007-05-07 22:00:19.890000
+Traceback (most recent call last):
+  File "C:\cygwin\home\Karrigell\KarrigellRequestHandler.py", line 294, in handle_data
+    self.try_handle_data()
+  File "C:\cygwin\home\Karrigell\KarrigellRequestHandler.py", line 540, in try_handle_data
+    self.execute(script)
+  File "C:\cygwin\home\Karrigell\KarrigellRequestHandler.py", line 682, in execute
+    k_session.store(self.sessionId,self.sessionObject)
+  File "C:\cygwin\home\Karrigell\core\k_session.py", line 138, in store
+    obj = sessionDb._sessionId[sessionId][0]
+IndexError: list index out of range

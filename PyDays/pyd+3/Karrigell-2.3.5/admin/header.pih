@@ -1,0 +1,7 @@
+<HTML>
+<head>
+<% import k_config %>
+	<meta http-equiv="Content-Type" content="text/html; charset="<%= k_config.outputEncoding %>">
+<% end %>
+<link rel="STYLESHEET" href="../karrigell.css">
+</head>

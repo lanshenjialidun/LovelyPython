@@ -1,0 +1,27 @@
+
+<body>
+<H4><%_ "Folder list" %></H4>
+
+<%
+import urllib,k_config,URLResolution # os is already in namespace
+
+dirs={'server':os.path.dirname(os.getcwd()),'root':k_config.rootDir}
+
+def alphaSort(s1,s2):
+    return cmp(s1[0].lower(),s2[0].lower())
+
+for directory in dirs.keys():
+    print """<A HREF="internat.pih?script=dirList.pih&dir=%s&alias=%s">%s</A><br>""" \
+        % (urllib.quote_plus(dirs[directory]),directory,directory)
+
+print "<br><i>Alias</i><br>"
+
+k=URLResolution.alias.keys()
+k.sort(alphaSort)
+
+for directory in k:
+    print """<A HREF="internat.pih?script=dirList.pih&dir=%s&alias=%s">%s</A><br>""" \
+        % (urllib.quote_plus(URLResolution.alias[directory]),directory,directory)
+%>
+</body>
+</html>
