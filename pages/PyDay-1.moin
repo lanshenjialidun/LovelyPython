@@ -115,6 +115,14 @@ def _smartcode(stream):
 
 === chardet ===
 这么一项项猜,还是显的很惾哪,万一有些字的高位在不同编码中是相同的,那真的是只能撞大运了!
+ * 尤其是对可怜的难兄难弟: `gbk和big5`.
+  * 比如:{{{
+>>> print '变巨'.decode('big5')
+曹操
+>>> print '变巨'.decode('gbk')
+变巨
+}}}
+
  * 问吧...
  * http://chardet.feedparser.org/ -- Character encoding auto-detection 自动字符探测器!
  * 呃真的有哪! 而且是 Mozilla 使用的! 立用不疑!
