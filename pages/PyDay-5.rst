@@ -1,13 +1,13 @@
 ##language:zh
 ##OBP项目图书reST通用文章模板
 #format rst
-:status: 草稿 ;ZoomQuiet; 90%;
+:status: 草稿 ;ZoomQuiet; 95%;完成并调整章节标题
 
 .. contents::
   :depth: 3
 
 
--5 PyDay 目标和初次体验
+-5 PyDay 初体验和原始需求
 ===============================
 **Use it! do not learnning** -- 用之,不学!
 
@@ -38,12 +38,13 @@
 
 
 
+
 事件
 ````````````````````
 小白忽然间厌烦了不断的下载安装，破解，却总是找不到称心的软件的生活：“MD!怒了! 什么破软件这么不好使，还要150$!!! 我自个儿写! 用一个丢一个!”
 
 
-需求开始
+触发事件
 --------------------
 怎么回事儿呢? 小白到列表中一说,原来是买了台刻录机,这一下, eMule 的下载更加是没日没夜了,但是才一个月刻录出来的光盘就有上百张了,结果想找回一个专辑的MP3,简直不可能了...
 
@@ -93,7 +94,7 @@ Hello World!
 * `woodpecker.org.cn doc`_ -- 啄木鸟社区分享文档库
 
 
-需求继续
+原始需求
 --------------------
 
 嗯嗯嗯!安装好了Python环境,在行者的指点下又收集了一批资料的链接,那么小白想真正开始软件的创造了,
@@ -110,6 +111,8 @@ Hello World!
 
  - 可以将光盘内容索引自动储存到硬盘上
  - 可以根据储存到硬盘上的光盘信息进行搜索
+
+仅仅就这两点，也仅此两点的需求，可以?如何?以及怎样通过Python 实现?小白和读者一同期待...
 
 
 -5 PyDay 小结 
@@ -131,8 +134,7 @@ OK!轻松的开始,但是,你知道,你同时获得了免费的绝对强大的�
 
 
 
-.. 邮件列表的规范和礼节:http://www.woodpecker.org.cn:9081/classes/050730-CPUG/usMaillist/
-.. CPyUG社区列表资源:http://wiki.woodpecker.org.cn/moin/CPUGres
+
 .. ActivePython:http://www.activestate.com/Products/ActivePython/
 .. python.org:http://www.python.org/download/
 .. Dive Into Python:http://www.woodpecker.org.cn/diveintopython/index.html
