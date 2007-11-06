@@ -1,0 +1,1229 @@
+##language:zh
+#pragma section-numbers on
+''' Python 绝对简明手册 '''-- zsp007@gmail.com ::-- ZoomQuiet [[[DateTime(2006-09-15T04:35:33Z)]]] [[TableOfContents]]
+
+## 默许导航,请保留
+##[[Include(CPUGnav)]]
+
+
+= Py2.5 绝对简明手册 =
+''简述''
+
+##下载本手册:attachment:Python2.5%20绝对简明手册-张沈鹏.7z
+
+
+学而易忘,需时速查.
+
+深入学习请下载 attachment:diveintopython%2Dpdf%2D%35.%34.zip
+
+
+  -- For Python2.5
+作者:[wiki:zsp 张沈鹏]  电子科大大三  生物医学工程
+{{{
+版本:0.3 beta	2007-5-18
+参考:python2.5中文教程
+感谢:Zoom.Quiet limodou
+}}}
+[http://zsp.javaeye.com 我的Blog]
+
+ . -- 欢迎指出错误和遗漏,提出建议和意见, 请发信到zsp007@gmail.com
+== 阅读须知 ==
+
+文中使用
+{{{
+>>>
+}}}
+作为会命令行中的输出信息的前缀
+
+对于不清楚用用途的函数可以在解释器下面输入
+{{{
+help(函数名)
+}}}
+来获取相关信息
+
+另外,自带的文档和google也是不可少的
+
+
+== 语法 ==
+=== if / elif / else ===
+{{{
+
+#获取行输入
+x=int(raw_input("Please enter an integer:"))
+
+if x<0:
+    print 'Negative Number'
+elif x==0:
+    print 'Zero'
+else:
+    print 'Positive Number'
+}}}
+
+===  in / for ... in / range() ===
+
+in和javascript中的in类似
+{{{
+if 'yes' in  ('y','ye','yes'):print  'ok'
+}}}
+
+python中没有类似C中的for循环,而是使用for...in来对集合中的每一个元素进行操作
+{{{
+a=['cat','door','example']
+for x in a:
+    print x
+}}}
+
+如果要修改a的内容，则用a的副本循环，如：
+{{{
+for x in a[:] :
+    .....................
+}}}
+
+如果想循环指定的次数就要使用range,先看看range的用法
+{{{
+range(10,0,-3)#参数的含义为起点(默认为0),终点(不含终点),步长(默认为1)
+>>>[10,7,4,1]
+}}}
+
+{{{
+a=['cat','door','example']
+for i in range(len(a)):#len()函数为求序列的长度
+    print i,a[i]
+}}}
+
+=== while / 函数定义  ===
+{{{
+
+def fib(n=1000):#参数可以有默认值，多个可选参数赋值可以直接写"参数变量名＝值"来快速赋值
+    """这里给函数写文档注释"""
+    a,b=0,1
+    while b<n:
+       print b
+       a,b=b,a+b
+}}}
+#函数可以重命名,如
+
+{{{
+f=fib
+f(223)
+}}}
+
+=== break / continue / pass / None ===
+ break / continue用法和C中相同
+
+{{{
+while True:
+    pass #忽略，什么也不做
+}}}
+
+None	表示该值不存在
+
+=== 参数格式 **para ===
+参数格式为 *para 表示接受一个元组,为 **para 表示接受一个字典,*para要在**para之前
+
+{{{
+
+def test(*args,**dic):
+    for arg in args : print arg
+
+    keys=dic.keys()
+    for key in keys:print key ,':',dic[key]
+
+}}}
+=== Lambda函数 ===
+一种无名函数的速写方法
+
+{{{
+
+def make_incrementor(n):
+    return lambda x: x+n
+
+f=make_incrementor(n)
+#等价于
+#def f(x):
+#	return x+n
+
+}}}
+
+=== List的函数 ===
+
+append(x)    追加到链尾
+
+extend(L)    追加一个列表
+
+insert(i,x)   在位置i插入x
+
+remove(x)   删除第一个值为x的元素,如果不存在会抛出异常
+
+pop([i])   返回并删除位置为i的元素,i默认为最后一个元素(i两边的[]表示i为可选的,实际不用输入)
+
+index(x)    返回第一个值为x的元素,不存在则抛出异常
+
+count(x)   返回x出现的次数
+
+sort()   排序
+
+reverse()   翻转,反转
+
+
+=== 序列常用辅助函数 ===
+
+function表示用函数作为参数(类似C++的函数指针)
+
+sequence 表示参数序列
+
+==== filter ====
+
+filter(function , sequence)
+
+返回序列,为原序列中能使function返回true的值
+
+==== map ====
+
+map(function,sequence,[sequence...])
+
+返回序列,为对原序列每个元素分别调用function获得的值.
+
+可以传入多个序列,但function也要有相应多的参数,如
+
+map(lambda x,y,z:x+y+z,range(1,3),range(3,5),range(5,7))
+
+计算过程为
+
+1+3+5=9
+
+2+4+6=12
+
+返回[9,12]
+
+==== reduce ====
+
+reduce(function,sequence,[init]) 
+
+返回一个单值为,计算步骤为 :
+ * 第1个结果=function(sequence[0],sequence[1])
+ * 第2个结果=function(第1个结果,sequence[2])
+ * 返回最后一个计算得值
+ * 如果有init,则先调用{{{function(init,sequence[0]) }}} 
+ * sequence只有一个元素时,返回该元素,为空时抛出异常.
+如
+{{{reduce(lambda x,y:x+y,range(3),99)}}}
+的计算为
+
+99+0=99 => 99+1=100 => 100+2=102
+
+返回102
+
+注:实际使用中用内建函数sum来完成这个累加更合适,如这里等价sum(range(3),99)
+
+=== 列表推导式 ===
+{{{
+freshfruit=['  banana  ','   loganberry  ']
+[weapon.strip() for weapon in freshfruit]
+>>>['banana', 'loganberry']
+}}}
+
+
+
+说明:strip()是去除字符串两端多于空格,该句是去除序列中的所有字串两端多余的空格
+
+{{{
+vec=[2,4,6]
+[3*x for x in vec if x>3]
+>>>[12, 18]
+}}}
+
+
+
+{{{
+[(x,x**2) for x in vec]
+#循环变量要是一个sequence,而[x,x**2 for x in vec]是错误的
+>>>[(2,4),(4,16),(6,36)]
+}}}
+
+
+{{{
+vec2=[4,3,-9]
+
+[x*y for x in vec for y in vec2]
+>>>[8, 6, -18, 16, 12, -36, 24, 18, -54]
+
+[vec[i]+vec2[i] for i in range(len(vec))]
+>>>[6, 7, -3]
+}}}
+
+{{{
+[str(round(355/113.0,i)) for i in range(1,6)]
+#str()是转换类型为可以打印的字符
+#round(x,n)表示对x保留n位小数(四舍五入)
+>>>['3.1', '3.14', '3.142', '3.1416', '3.14159']
+}}}
+
+
+=== del ===
+{{{
+
+a=[1,2,3,4,5,6]
+
+del a[0]
+a
+>>>[2,3,4,5,6]
+
+del a[2:4]
+a
+>>>[2,3,6]
+
+del a[:]
+a
+>>>[]
+
+del a
+a
+#抛出异常
+>>>NameError: name 'a' is not defined
+}}}
+
+
+=== 元组 ===
+{{{
+t=1234,5567,'hello'
+
+x,y,z=t    #拆分操作可以应用于所有sequence
+x
+>>>1234
+
+u=t,(1,2,3)
+u
+>>>((1234,5567,'hello'),(1,2,3))
+
+empty=() #空元组
+singleton='hi', #单个元素的元组,注意逗号
+}}}
+=== set ===
+set（集合）：无序不重复的元素集
+
+{{{
+
+basket = ['apple','orange','apple','pear','apple','banana']
+
+fruit=set(basket)
+
+fruit
+>>>set(['orange', 'pear', 'apple', 'banana'])
+
+'orange' in fruit
+>>>True
+
+a=set('abracadabew')
+a
+>>>set(['a', 'c', 'b', 'e', 'd', 'r', 'w'])
+
+b=set('wajgwaoihwb')
+b
+>>>set(['a', 'b', 'g', 'i', 'h', 'j', 'o', 'w'])
+ 
+a-b    #差
+>>>set(['c', 'r', 'e', 'd'])
+
+a|b   #并
+>>>set(['a', 'c', 'b', 'e', 'd', 'g', 'i', 'h', 'j', 'o', 'r', 'w'])
+
+a&b   #交
+>>>set(['a', 'b', 'w'])
+
+a^b   #(并-交)
+>>>set(['c', 'e', 'd', 'g', 'i', 'h', 'j', 'o', 'r'])
+}}}
+=== dict ===
+
+字典:关键字为不可变类型,如字符串,整数,只包含不可变对象的元组.列表等不可以作为关键字.如果列表中存在关键字对,可以用dict()直接构造字典.而这样的列表对通常是由列表推导式生成的.
+
+{{{
+
+tel={'jack':4098,'sape':4139}
+
+tel['guido']=4127
+
+tel
+>>>{'sape': 4139, 'jack': 4098, 'guido': 4127}
+
+tel['jack']
+>>>4098
+
+del tel['sape']
+tel.keys()
+>>>['jack', 'guido']
+
+tel.has_key('jack')
+>>>True
+
+knight={'gallahad':'the pure','robin':'the brave'}
+for k,v in knight.iteritems():
+    print k,v
+
+>>>gallahad the pure
+>>>robin the brave
+
+}}}
+
+enumerate()返回索引位置和对应的值
+
+{{{
+
+for i,v in enumerate(['tic','tac','toe'])
+    print i,v
+}}}
+输出:
+0 tic
+
+1 tac
+
+2 toe
+
+
+
+=== zip ===
+zip用于多个sequence的循环
+
+{{{
+
+questions=['name','quest','favorite color']
+answers=['lancelot','the holy grail','blue']
+
+for q,a in zip(questions,answers):
+    print 'What is your %s ? It is %s.'%(q,a)
+}}}
+
+输出:
+
+{{{
+What is your name ? It is lancelot.
+What is your quest ? It is the holy grail.
+What is your favorite color ? It is blue.
+}}}
+
+=== reversed反向循环 ===
+{{{
+
+for i in reversed(range(1,4)):
+    print i
+
+}}}
+输出:
+
+{{{
+3
+2
+1
+}}}
+=== sorted排序 ===
+返回一个有序的新序列
+
+=== sequence比大小 ===
+list<string<tuple(因为字母表中l在s前...)
+
+同类比大小按照字典序
+
+=== 导入模块 ===
+模块的查找路径
+
+1.当前的目录
+
+2.环境变量PYTHONPATH所指的目录列表
+
+3.python解释器的安装目录
+
+如将代码保存上述的一个目录中的的fibo.py文件中,便可以
+
+{{{
+
+import fibo
+fibo.function().............
+}}}
+如果想直接使用fibo.function可以重命名这个函数,如
+
+{{{
+
+f=fibo.function
+f()
+}}}
+也可以
+
+{{{
+
+form fibo import function
+function()
+}}}
+甚至可以{{{form fibo import * }}}
+
+可以 {{{form 包.子包.模块 imort 函数 }}}
+
+然后就直接使用该函数,不需要加前缀
+
+=== 包 ===
+引用推荐写法为
+
+{{{form 包 import 模块}}}
+
+几个功能类似的模块可以组合成一个包,
+
+比如一个可以处理.wav,.mp3,.wma等音频文件的有类似如下结构:
+
+{{{
+Sound/
+        __init__.py
+        Formats/
+                __init__.py
+                wavread.py
+                wavwrite.py
+                mp3read.py
+                mp3write.py
+                wmaread.py
+                wmawrite.py
+        Effects/
+                __init__.py
+                echo.py
+                surround.py
+                reverse.py
+}}}
+
+只有当__init__.py存在时python才将该文件夹视为一个包.
+
+该文件可以为空文件 一般在__init__.py文件中定义一个__all__列表,包含要import *时要导入的模块. 如Sound/Effects/__init__.py可以有如下内容
+
+{{{__all__=["echo","surround","reverse"]}}}
+
+包的作者在发布包时可以更新这个列表,也可以根据需要让某个模块不支持import *
+
+对于包中同一个文件夹下的模块可以把
+
+{{{form 包.子包 imort 模块}}}
+
+简写为 {{{imort 模块}}}
+
+=== 格式化输出 ===
+{{{
+for x in xrange(1,11):
+    print repr(x).rjust(2),repr(x*x).rjust(3)
+    #repr是将变量类型转换为可以被编译器处理的文字格式
+    #rjust是调整宽度为参数个字符,r表示右对齐;ljust为左对齐,ljust(n)[:n]可以截断输出;center为居中
+    #zfill()可以向数值表达式的左侧填充0
+ }}}
+=== 等效代码 ===
+{{{
+for x in xrange(1,11):
+    print '%2d %3d' % (x,x*x)
+#%10s 表示用str转化为字符串
+#小数输出如   %5.3f
+}}}
+对于字典可以用变量名来直接格式化,如:
+
+{{{
+>>>table={'Sjoerd':4127,'Jack':4098,'Dcab':8637678}
+>>>print 'Jack:%(Jack)d; Sjoerd:%(Sjoerd)d; Dcab:%(Dcab)d' %
+table
+Jack:4098; Sjoerd:4127; Dcab:8637678
+}}}
+同时,函数vars()返回包含所有变量的字典,配合使用,无坚不摧!
+
+=== 读写文件: ===
+f=open('/tmp/hello','w')
+
+#open(路径+文件名,读写模式)
+
+#读写模式:r只读,r+读写,w新建(会覆盖原有文件),a追加,b二进制文件.常用模式
+
+如:'rb','wb','r+b'等等
+
+f.read([size])    size未指定则返回整个文件,如果文件大小>2倍内存则有问题.f.read()读到文件尾时返回""(空字串)
+
+file.readline()   返回一行
+
+file.readline([size])    返回包含size行的列表,size 未指定则返回全部行
+
+for line in f:   #交换通道
+
+ . print line
+f.write("hello\n")    #如果要写入字符串以外的数据,先将他转换为字符串.
+
+f.tell()   返回一个整数,表示当前文件指针的位置(就是到文件头的比特数).
+
+f.seek(偏移量,[起始位置])
+
+用来移动文件指针
+
+偏移量:单位:比特,可正可负
+
+起始位置:0-文件头,默认值;1-当前位置;2-文件尾
+
+f.close()    关闭文件
+
+----------
+
+=== pickle ===
+pickle 序列化/保存对象/封装
+
+pickle.dump(x,f)    #把文件对象f保存到x变量中
+
+x=pickle.load(f)   #还原这个对象
+
+----------
+try:
+
+ . .............
+except 异常类型:
+
+#如果有多个异常类型,可以将他们放在括号()中
+
+#如except(RuntimeError,TypeError,NameError):
+
+ . ..............
+最后一个异常名可以省略异常类型,作为通配项将所有异常pass.慎用!!!
+
+在except后可以包含一个else
+
+raise可以抛出异常,同时可以附带异常参数
+
+try:
+
+ . rasie Exception('message1','message2')   #只有一个参数时也可以这样写rasie Exception,'message1'
+except Exception,inst:
+
+ . #inst是该异常类的一个实例  print inst.args  #打印出参数名
+ print inst    #直接打印__str__属性  x,y=inst  print 'x=',x  print 'y=',y
+如果抛出异常没有指定参数,则捕获异常时的参数包含的是该异常的默认信息
+
+>>>try:
+
+ . 1/0
+ . except    ZeroDivisionError,detail:
+  . print    'Handling run-time error:',detail
+Handling run-time error:integer division or modulo by zero
+
+----------
+自定义异常:惯例是以Error结尾的类，同类的异常一般派生自同一个基类,基类异常可以匹配派生类异常
+
+class MyError(Exception):
+
+ . def __init__(self,value):
+  . self.value=value
+ def __str__(self):
+  . return reper(self.value)
+try:
+
+ . raise MyError(2,2)
+except MyError,e:
+
+ . print 'My exeception occurred,value',e.value
+>>>
+
+My exeception occurred,value 4
+
+----------
+finally：和C＋＋中类似,即使是break，continue或return后一样会执行。一般用于释放资源，如文件，网络连接。
+
+def divide(x,y):
+
+ . try:
+  . try:
+   . result=x/y
+  except ZeroDivisionError:
+   . print "zero"
+  else:
+   . print 'result=',result
+ finally:
+  . print 'finish'
+----------
+with    #with可以帮助你自动释放资源,下一个版本可用
+
+with open('myfile.txt') as f:
+
+ . for line in f:
+  . print line
+#该文件会自动被释放
+
+----------
+
+=== 初识类 ===
+class ClassName:
+
+ . "类文档,可以通过类名.__doc__访问"
+ #类的私有变量是至少以双下划线开头,最多以单下划线结尾的类变量,调用时会变量名会被混淆成 _ClassName__变量名 __
+ i=12345  def f(self)
+  . return "hello world"
+ . def __init(self)__:
+  . "构造函数,可以初始化变量,可以有参数" #可以通过self调用当前类的函数和数据 self.data=[]
+#创建类实例
+
+x=ClassName()
+
+#给类的方法重命名
+
+xf=ClassName.f
+
+----------
+
+==== 类继承 ====
+class DerivedClassName(BassClassName):
+
+ . ...................................
+如果基类定义在另一个模块中, 要写成
+
+modname.BaseClassName
+
+派生类的函数会覆盖基类的同名函数,如果想扩充而不是改写基类的函数,可以这样调用基类函数
+
+BaseClassName.methodname(self,arguments)
+
+注意:该基类要在当前全局域或被导入
+
+----------
+
+==== 多重继承 ====
+类多继承//小心使用
+
+class DerivedClassName(Base1,Base2,Base3):
+
+.................
+
+对于一个函数的解析规则是深度优先,先是Base1,然后是Base1的基类,诸如此类.
+
+----------
+
+=== Iterators 迭代器 ===
+for element in [1,2,3]:
+
+ . print element
+for key in {'one':1,'two':2}:
+
+ . print key
+for line in open("my.txt"):
+
+ . print line
+在容器中定义next()逐一返回元素,并在迭代完成时抛出StopIteration异常,然后定义__iter__()返回self,便可以for...in循环
+
+用Generators(生成器)可以快速生成一个序列,在调用next()时依次返回序列中的值.
+
+def reverse(data):
+
+ . for index in range(len(data)-1,-1,-1):
+  . yield data[index]
+#yield会自动创建next()和__iter__(),每次调用next()时yield会进行下一步循环,并在yield处返回值
+
+----------
+
+=== 生成器表达式 ===
+生成器表达式:类似于没有中括号的列表推导式,可用在参数中
+
+>>>sum(i*i for i in range(10))
+
+285
+
+>>>xvec=[10,20,30]
+
+>>>yvec=[7,5,3]
+
+>>>sum(x*y for x,y in zip(xvec,yvec))
+
+ . 260
+>>>from math import pi,sin
+
+>>>sine_table=dict((x,sin(x*pi/180) for x in range(1,91))
+
+>>>unique_words=set(word for line in page for word in line.split())
+
+>>>data='golf'
+
+>>>list(data[i] for i in range(len (data)-1,-1,-1))
+
+['f','l','o','g']
+
+----------
+
+== 常用函数不完全手册 ==
+dir(模块) #来获取模块的函数/变量列表
+
+help(模块/函数) #获取相关的帮助
+
+----------
+模块:os
+
+ . 与操作系统相关的函数
+例:
+
+import os
+
+os.getcwd() #当前脚本的工作目录
+
+os.chidr()      #改变当前工作目录
+
+----------
+模块:shutil
+
+ . 目录和文件管理的接口
+例:
+
+import shutil
+
+shutil.copyfile('data.txt','archive.txt')
+
+shutil.move('/build/a.txt','b.txt')
+
+----------
+模块:glob
+
+生成文件列表,支持通配符
+
+例:
+
+import glob
+
+>>>glob.glob('*.py')
+
+['primes.py','random.py','quote.py']
+
+----------
+模块:sys
+
+提供命令行参数,错误输出重定向和脚本终止
+
+例:
+
+命令行参数
+
+如执行python demo.py one,two,three后
+
+import sys
+
+print sys.argv
+
+会输出
+
+['demo.py','one','two','three']
+
+终止脚本
+
+sys.exit()
+
+错误输出重定向,可以在stdout被重定向时显示错误信息
+
+>>>sys.stderr.write('Warning , log file not found starting a new one\n')
+
+Warning , log file not found starting a new one
+
+----------
+模块:re
+
+字符正值表达式匹配
+
+例:
+
+import re
+
+>>>re.findall(r'\bf[a-z]*','which foot or hand fell fastest')
+
+['foot','fell','fastest']
+
+>>>re.sub(r'(\b[a-z]+)\l',r'\l','cat in the hat')
+
+'cat in the hat
+
+----------
+模块:math
+
+为浮点运算提供了底层C函数库的访问
+
+例:
+
+>>>math.cos(math.pi/4.0)
+
+0.70710678118654757
+
+>>>math.log(1024,2)
+
+10.0
+
+----------
+模块:random
+
+生成随机数
+
+例:
+
+import random
+
+>>>random.choice(['apple','pear','banana'])
+
+'apple'
+
+>>> random.sample(xrange(100),10)       #随机值不会重复
+
+[20,42,12,44,57,88,93,80,75,56]
+
+>>>random.random()
+
+0.26676389968666669
+
+>>> random.randrange(10)
+
+7
+
+----------
+模块:urblib2
+
+打开url地址
+
+例:
+
+for line in urllib2.urlopen('http:\\www.python.org\')
+
+ . print line
+----------
+模块:smtplib
+
+发送电子邮件
+
+例:
+
+sever=smtplib.smtp('localhost')
+
+sever.sendmail(' zsp007@gmail.com ',' zuroc@163.com ')
+
+"""TO:zsp007@gmail.com
+
+From:zuroc@163.com
+
+"""
+
+sever.quit()
+
+----------
+模块:datetime
+
+时间日期相关算法以及格式化输出
+
+例:
+
+from datetime import date
+
+now=date.today
+
+>>>now
+
+datetime.date(2006, 9, 13)
+
+>>>now.strftime("%m-%d-%y . %d %b %Y is a %A on the %d day of %B . ")
+
+'09-13-06 . 13 Sep 2006 is a Wednesday on the 13 day of September . '
+
+birthday=date(1986,6,30)
+
+age=now-birthday
+
+>>> age.days
+
+7380
+
+----------
+模块:zipfile / tarfile
+
+数据打包和压缩,支持格式:zlib,gzip,bz2,zipfile和tarfile
+
+例:
+
+import zlib
+
+s="which which which which"
+
+ . t=zlib.compress(s)
+>>>len(s)
+
+23
+
+>>>len(t)
+
+16
+
+>>>zlib.decompress(t)
+
+"which which which which"
+
+>>>zilb.crc(32)
+
+-487390043
+
+----------
+模块:timeit
+
+性能测试
+
+例:
+
+from timeit import Timer
+
+#Timer的第一个参数是要测试时间的语句,第二个参数是初始化
+
+#timeit的参数是测试语句的执行次数,默认执行1000000次
+
+>>> Timer('t=a;a=b;b=t','a=1;b=2').timeit()
+
+0.31399409701512582
+
+>>> Timer('a,b=b,a','a=1;b=2').timeit()
+
+0.247945758469313663
+
+模块:profile和pstats提供了对更大代码块的测量工具
+
+----------
+模块:doctest
+
+质量测试,测试代码.
+
+他将对函数文档中的测试代码进行测试,他使文档的撰写和软件的测试融合了起来
+
+例:
+
+def average(values):
+
+ . """Computer average
+#注意>>> 和测试代码之间要空一格,测试结果前面不要有空格
+
+>>> print average([10,90,53])
+
+51.0
+
+ . """ return sum(values,0.0)/len(values)
+import doctest
+
+doctest.testmod()
+
+----------
+模块:unittest
+
+可以在一个独立的文件中提供一个更全面的代码测试.
+
+例:
+
+import unittest
+
+class TestStatisticalFunctions(unittest.TestCase):
+
+ . def test_average(self):
+  . self.assertEqual(average([20,30,70]),40.0) self.assertEqual(round([1,5,7]),1)
+  self.assertRaises(ZeroDivisionError,average,[])
+  self.assertRaises(TypeError,average,20,30,70)
+unittest.main()
+
+----------
+其他一些常用模块
+
+xmlrpclib和SimpleXMLRPCServer可以在琐碎的任务中调用远程过程
+
+email可以构建和解析复杂的消息结构,包括附件,文字编码和头协议等等
+
+xml.dom和xml.sax
+
+csv通用数据库中直接读写
+
+gettext,locale,codecs国际化(i18n)支持
+
+----------
+模块:pprint
+
+美化打印(pretty printer)
+
+例:
+
+import pprint
+
+t=[[ ['blue','cyan'] ,['green','red'],'yellow' ],'while']
+
+>>> pprint.pprint(t,width=30)
+
+[[['blue', 'cyan'],
+
+ . ['green', 'red'], 'yellow'],
+ . 'while']
+----------
+模块:textwrap
+
+格式化段落来适应行宽
+
+例:
+
+import textwrap
+
+doc="""Object for wrapping/filling text.  The public interface consists of the wrap() and fill() methods; the other methods are just there for subclasses to override in order to tweak the default behaviour. If you want to completely replace the main wrapping algorithm, you'll probably have to override _wrap_chunks()."""
+
+>>> print textwrap.fill(doc,width=40)
+
+Object for wrapping/filling text.  The
+
+public interface consists of the wrap()
+
+and fill() methods; the other methods
+
+are just there for subclasses to
+
+override in order to tweak the default
+
+behaviour. If you want to completely
+
+replace the main wrapping algorithm,
+
+you'll probably have to override
+
+_wrap_chunks().
+
+----------
+模块:locale
+
+国际化
+
+例:
+
+import locale
+
+locale.setlocale(locale.LC_ALL,'English_United States.1252')
+
+x=1234567.8
+
+>>>locale.format("%d",x,grouping=True)
+
+'1,234,567'
+
+conv=locale.localeconv()
+
+>>> locale.format("%s%.*f",(conv['currency_symbol'],conv['frac_digits'],x),grouping=True)
+
+'$1,234,567.80'
+
+----------
+模块:string.template
+
+生成句子的模版,输入"张沈鹏",生成"大家好,我的名字是张沈鹏."
+
+例:
+
+from string import Template
+
+t=Template('${village}flok send $$10 to $cause')
+
+t.substitute(village='Nottingham',cause='the ditch fund')
+
+'Nottinghamflok send $10 to the ditch fund'
+
+当占位符没有提供时substitute会抛出KeyError的异常
+
+而safe_substitute可以在占位符提供不完整时保留占位符,而不抛出异常
+
+----------
+模块:struct
+
+用于读取二进制格式的文件
+
+例:#H 代表unsigned short ， read(2)因为unsigned short占2个bytes
+
+#L 代表4字节的无符号整数
+
+data=open('myfile.zip','rb').read()
+
+start=0
+
+for i in xrange(3):
+
+ . start+=14 fields=struct.unpack('LLLHH',data[start:start+16]) crc32,comp_size,uncompsize,filenamesize,extra_size=fields start+=16 filename=data[start:start+filenamesize] start+=filenamesize extra=data[start:start+extra_size] print filename,hex(crc32),comp_size,uncomp_size start+=extra_size+comp_size     #下一个头文件
+----------
+模块:threading
+
+线程
+
+例:
+
+import threading,zipfile
+
+class AsyncZip(threading.Thread)
+
+ . def __init__(self , infile , outfile):
+  . self.infile=infile self.outfile=outfile
+ def run(self):
+  . f=zipfile.ZipFile(self.outfile , 'w' , zipfile.DEFLATED) f.write(self.infile) f.close() print 'Finished background zip of: ', self.infile
+background=AsyncZip('mydata.txt','myarchive.zip')
+
+background.start()
+
+print 'The main program continues to run in foreground'
+
+background.join()       #Wait for the background task finish
+
+print 'Main program waitwd until background was done .'
+
+----------
+ . 模块:Queue 协多线程的资源调用
+----------
+模块:logging
+
+日志
+
+例:
+
+import logging
+
+logging.debug('Debugging information')
+
+logging.info('Information message')
+
+logging.warning('Warning:coinfig file %s not found','server.conf')
+
+logging.error('Error occurred')
+
+logging.critical('Critical error -- shutting down')
+
+输出:
+
+WARNING:root:Warning:config file server.conf not found
+
+ERROR:root:Error occurred
+
+CRITICAL:root:Critical error -- shutting down
+
+----------
+模块:wearef
+
+不创建引用来跟踪对象
+
+例:
+
+>>>import weakref,gc
+
+>>>class A :
+
+...def __init__ (self,value):
+
+...     self.value=value
+
+...def __repr__(self):
+
+...     return str(self.value)
+
+...
+
+>>>a=A(10)      #create a reference
+
+>>>d=weakref.WeakValueDictionary()
+
+>>>d[’primary’]=a       #does not create a reference
+
+>>>d[’primary’] #fetch the object if it is still alive
+
+10
+
+>>>del a        #remove the one reference
+
+>>>gc.collect()  #run garbage collection right away
+
+0
+
+>>>d[’primary’] #entry was automatically re
+
