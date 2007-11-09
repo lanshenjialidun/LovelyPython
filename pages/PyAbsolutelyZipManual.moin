@@ -4,9 +4,6 @@
 
 ## 默许导航,请保留
 ##[[Include(CPUGnav)]]
-
-
-= Py2.5 绝对简明手册 =
 ''简述''
 
 ##下载本手册:attachment:Python2.5%20绝对简明手册-张沈鹏.7z
@@ -14,11 +11,9 @@
 
 学而易忘,需时速查.
 
-深入学习请下载 attachment:diveintopython%2Dpdf%2D%35.%34.zip
-
 
   -- For Python2.5
-作者:[wiki:zsp 张沈鹏]  电子科大大三  生物医学工程
+作者:[wiki:zsp 张沈鹏]  电子科大
 {{{
 版本:0.3 beta	2007-5-18
 参考:python2.5中文教程
@@ -26,8 +21,9 @@
 }}}
 [http://zsp.javaeye.com 我的Blog]
 
- . -- 欢迎指出错误和遗漏,提出建议和意见, 请发信到zsp007@gmail.com
-== 阅读须知 ==
+-- 欢迎指出错误和遗漏,提出建议和意见, 请发信到zsp007@gmail.com
+
+= 阅读须知 =
 
 文中使用
 {{{
@@ -43,29 +39,34 @@ help(函数名)
 
 另外,自带的文档和google也是不可少的
 
-
-== 语法 ==
-=== if / elif / else ===
+= 基本语法 =
+== if / elif / else ==
 {{{
 
-#获取行输入
-x=int(raw_input("Please enter an integer:"))
+x=int(raw_input("Please enter an integer:"))#获取行输入
 
 if x<0:
-    print 'Negative Number'
+    print '正数'
 elif x==0:
-    print 'Zero'
+    print '零'
 else:
-    print 'Positive Number'
+    print '负数'
+}}}
+此外C语言中类似"xxx?xxx:xxx"在Python中可以这样写
+{{{
+>>>number=8
+>>>print "good" if 8==number else "bad" #当满足if条件时返回"good",否则返回"bad"
+good
 }}}
 
-===  in / for ... in / range() ===
+==  in ==
+in判断 一个数 是否在 一个集合(如:元组,列表等) 中
 
-in和javascript中的in类似
 {{{
 if 'yes' in  ('y','ye','yes'):print  'ok'
 }}}
 
+== for ... in ==
 python中没有类似C中的for循环,而是使用for...in来对集合中的每一个元素进行操作
 {{{
 a=['cat','door','example']
@@ -73,194 +74,53 @@ for x in a:
     print x
 }}}
 
-如果要修改a的内容，则用a的副本循环，如：
+如果要修改a的内容，请用a的副本循环(否则不安全)，如：
 {{{
-for x in a[:] :
-    .....................
+a=["cat","zsp007@gmail.com"]
+for x in a[:]:
+    if len(x)>6:a.insert(0,x)
+>>>a
+['zsp007@gmail.com', 'cat', 'zsp007@gmail.com']
 }}}
 
-如果想循环指定的次数就要使用range,先看看range的用法
+若需要得到循环的次数,参见 函数 range 的用法
+
+== break / continue ==
+这两个的用法和C中相同
 {{{
-range(10,0,-3)#参数的含义为起点(默认为0),终点(不含终点),步长(默认为1)
->>>[10,7,4,1]
+for i in range(10):
+    if 2==i:continue #结束当前循环,进入下一步循环
+    if 6==i:break #跳出循环
+    print i
 }}}
-
+输出
 {{{
-a=['cat','door','example']
-for i in range(len(a)):#len()函数为求序列的长度
-    print i,a[i]
+0
+1
+3
+4
+5
 }}}
-
-=== while / 函数定义  ===
-{{{
-
-def fib(n=1000):#参数可以有默认值，多个可选参数赋值可以直接写"参数变量名＝值"来快速赋值
-    """这里给函数写文档注释"""
-    a,b=0,1
-    while b<n:
-       print b
-       a,b=b,a+b
-}}}
-#函数可以重命名,如
-
-{{{
-f=fib
-f(223)
-}}}
-
-=== break / continue / pass / None ===
- break / continue用法和C中相同
-
+== while / pass ==
 {{{
 while True:
-    pass #忽略，什么也不做
+    pass #什么也不做
 }}}
 
-None	表示该值不存在
-
-=== 参数格式 **para ===
-参数格式为 *para 表示接受一个元组,为 **para 表示接受一个字典,*para要在**para之前
-
+== is ==
+用来比较两个变量是否指向同一内存地址(也就是两个变量是否等价)
+而 == 是用来比较两个变量是否逻辑相等
 {{{
-
-def test(*args,**dic):
-    for arg in args : print arg
-
-    keys=dic.keys()
-    for key in keys:print key ,':',dic[key]
-
-}}}
-=== Lambda函数 ===
-一种无名函数的速写方法
-
-{{{
-
-def make_incrementor(n):
-    return lambda x: x+n
-
-f=make_incrementor(n)
-#等价于
-#def f(x):
-#	return x+n
-
+a=[1,2]
+b=[1,2]
+>>> a is b
+False
+>>> a == b
+True
 }}}
 
-=== List的函数 ===
-
-append(x)    追加到链尾
-
-extend(L)    追加一个列表
-
-insert(i,x)   在位置i插入x
-
-remove(x)   删除第一个值为x的元素,如果不存在会抛出异常
-
-pop([i])   返回并删除位置为i的元素,i默认为最后一个元素(i两边的[]表示i为可选的,实际不用输入)
-
-index(x)    返回第一个值为x的元素,不存在则抛出异常
-
-count(x)   返回x出现的次数
-
-sort()   排序
-
-reverse()   翻转,反转
-
-
-=== 序列常用辅助函数 ===
-
-function表示用函数作为参数(类似C++的函数指针)
-
-sequence 表示参数序列
-
-==== filter ====
-
-filter(function , sequence)
-
-返回序列,为原序列中能使function返回true的值
-
-==== map ====
-
-map(function,sequence,[sequence...])
-
-返回序列,为对原序列每个元素分别调用function获得的值.
-
-可以传入多个序列,但function也要有相应多的参数,如
-
-map(lambda x,y,z:x+y+z,range(1,3),range(3,5),range(5,7))
-
-计算过程为
-
-1+3+5=9
-
-2+4+6=12
-
-返回[9,12]
-
-==== reduce ====
-
-reduce(function,sequence,[init]) 
-
-返回一个单值为,计算步骤为 :
- * 第1个结果=function(sequence[0],sequence[1])
- * 第2个结果=function(第1个结果,sequence[2])
- * 返回最后一个计算得值
- * 如果有init,则先调用{{{function(init,sequence[0]) }}} 
- * sequence只有一个元素时,返回该元素,为空时抛出异常.
-如
-{{{reduce(lambda x,y:x+y,range(3),99)}}}
-的计算为
-
-99+0=99 => 99+1=100 => 100+2=102
-
-返回102
-
-注:实际使用中用内建函数sum来完成这个累加更合适,如这里等价sum(range(3),99)
-
-=== 列表推导式 ===
-{{{
-freshfruit=['  banana  ','   loganberry  ']
-[weapon.strip() for weapon in freshfruit]
->>>['banana', 'loganberry']
-}}}
-
-
-
-说明:strip()是去除字符串两端多于空格,该句是去除序列中的所有字串两端多余的空格
-
-{{{
-vec=[2,4,6]
-[3*x for x in vec if x>3]
->>>[12, 18]
-}}}
-
-
-
-{{{
-[(x,x**2) for x in vec]
-#循环变量要是一个sequence,而[x,x**2 for x in vec]是错误的
->>>[(2,4),(4,16),(6,36)]
-}}}
-
-
-{{{
-vec2=[4,3,-9]
-
-[x*y for x in vec for y in vec2]
->>>[8, 6, -18, 16, 12, -36, 24, 18, -54]
-
-[vec[i]+vec2[i] for i in range(len(vec))]
->>>[6, 7, -3]
-}}}
-
-{{{
-[str(round(355/113.0,i)) for i in range(1,6)]
-#str()是转换类型为可以打印的字符
-#round(x,n)表示对x保留n位小数(四舍五入)
->>>['3.1', '3.14', '3.142', '3.1416', '3.14159']
-}}}
-
-
-=== del ===
+== del ==
+用于删除元素
 {{{
 
 a=[1,2,3,4,5,6]
@@ -283,110 +143,522 @@ a
 >>>NameError: name 'a' is not defined
 }}}
 
-
-=== 元组 ===
+== try ... except ... finally / raise ==
+try ... except用于异常处理
 {{{
-t=1234,5567,'hello'
-
-x,y,z=t    #拆分操作可以应用于所有sequence
-x
->>>1234
-
-u=t,(1,2,3)
-u
->>>((1234,5567,'hello'),(1,2,3))
-
-empty=() #空元组
-singleton='hi', #单个元素的元组,注意逗号
+try:
+    x=int(raw_input("请输入数字:"))
+except ValueError: #可以同时捕获多个异常,写法如except(RuntimeError,ValueError):
+    #当输入非数字时
+    print"您输入不是数字"
+except: #省略异常名,可以匹配所有异常,慎用
+    pass
+else:#当没有异常时
+    print 'result=',result
+finally:#和Java中类似。一般用于释放资源，如文件，网络连接。
+   print 'finish'
 }}}
-=== set ===
+
+raise用于抛出异常,可以为自定义的异常类
+
+惯例是以Error结尾的类，同类的异常一般派生自同一个基类(如Exception)
+{{{
+class MyError(Exception):
+    def __init__(self,value):
+        self.value=value
+    def __str__(self):
+        return reper(self.value)
+}}}
+
+基类异常可以匹配派生类异常
+
+{{{
+try:
+    raise Exception("spam","egg")
+except Exception,inst:#inst为该异常类的实例,为可选项
+    print type(inst) #异常的类型
+    print inst
+}}}
+
+= 内建类型 =
+
+== None  ==
+None	表示该值不存在,比如 没有定义返回值 的函数就 返回None
+
+== Ture / False ==
+布尔类型,Ture等价于1,False等价于0
+
+== List ==
+{{{
+>>>test=[1,2,"yes"]
+}}}
+=== 内建函数 ===
+append(x)    追加到链尾 
+
+extend(L)    追加一个列表,等价于+=
+
+insert(i,x)   在位置i插入x
+
+remove(x)   删除第一个值为x的元素,如果不存在会抛出异常
+
+reverse()   反转序列
+
+pop([i])   返回并删除位置为i的元素,i默认为最后一个元素(i两边的[]表示i为可选的,实际不用输入)
+
+index(x)    返回第一个值为x的元素,不存在则抛出异常
+
+count(x)   返回x出现的次数
+
+sort()   排序
+
+
+例子:
+{{{
+>>>test=[1,2,"yes"]
+
+>>>test.append(1) #追加到链尾
+>>>test
+[1, 2, 'yes', 1]
+
+>>>test.extend([ 'no','maybe']) #追加一个列表
+>>>test
+[1, 2, 'yes', 1, 'no', 'maybe']
+
+>>> test.insert(0,'never') #在位置0插入'never'
+>>> test
+['never', 1, 2, 'yes', 1, 'no', 'maybe']
+
+>>> test.remove('no') #删除第一个值为"no"的元素,如果不存在会抛出异常
+>>> test
+['never', 1, 2, 'yes', 1, 'maybe']
+
+>>> test.reverse() #反转序列
+>>> test
+['maybe', 1, 'yes', 2, 1, 'never']
+
+>>> test.pop() #返回并删除位置为i的元素,i默认为最后一个元素
+'never'
+>>> test
+['maybe', 1, 'yes', 2, 1]
+
+>>> test.index('yes') #返回第一个值为'yes'的元素,不存在则抛出异常
+2
+
+>>> test.count(1) #返回1出现的次数
+2
+
+>>>test.sort() #排序
+>>> test
+[1, 1, 2, 'maybe', 'yes']
+}}}
+=== 切片 ===
+从序列中抽取一部分
+{{{
+>>> test=['never', 1, 2, 'yes', 1, 'no', 'maybe']
+
+>>> test[0:3] #包括test[0],不包括test[3]
+['never', 1, 2]
+
+>>> test[0:6:2] #包括test[0],不包括test[6],而且步长为2
+['never', 2, 1]
+
+>>> test[:-1] #包括开始,不包括最后一个
+['never', 1, 2, 'yes', 1, 'no']
+
+>>> test[-3:] #抽取最后3个
+[1, 'no', 'maybe']
+
+>>>test[::-1] #倒序排列
+['maybe', 'no', 1, 'yes', 2, 1, 'never']
+}}}
+=== 列表推导式 ===
+可以直接通过for循环生成一个list
+
+{{{
+>>>freshfruit=['  banana  ','   loganberry  ']
+>>>[weapon.strip() for weapon in freshfruit]
+['banana', 'loganberry']
+}}}
+
+说明:strip()是去除字符串两端多于空格,该句是去除序列中的所有字串两端多余的空格
+
+{{{
+>>>vec=[2,4,6]
+>>>[3*x for x in vec if x>3]
+[12, 18]
+}}}
+
+{{{
+>>>[(x,x**2) for x in vec]
+#循环变量要是一个sequence,而[x,x**2 for x in vec]是错误的
+[(2,4),(4,16),(6,36)]
+}}}
+
+{{{
+>>>vec2=[4,3,-9]
+
+>>>[x*y for x in vec for y in vec2]
+[8, 6, -18, 16, 12, -36, 24, 18, -54]
+
+>>>[vec[i]+vec2[i] for i in range(len(vec))]
+[6, 7, -3]
+}}}
+
+{{{
+>>>[str(round(355/113.0,i)) for i in range(1,6)]
+#str()是转换类型为可以打印的字符
+#round(x,n)表示对x保留n位小数(四舍五入)
+['3.1', '3.14', '3.142', '3.1416', '3.14159']
+}}}
+
+== 元组 ==
+一旦初始化便不能更改的数据结构,速度比list快
+
+{{{
+>>>t=1234,5567,'hello' #t=(1234,5567,'hello')的简写
+
+>>>x,y,z=t    #拆分操作可以应用于所有sequence
+>>>x
+1234
+
+>>>u=t,(1,2,3)
+>>>u
+((1234,5567,'hello'),(1,2,3))
+
+>>>empty=() #空元组
+>>>singleton='hi', #单个元素的元组,注意逗号
+}}}
+
+通过元组可以很简单的进行数据交换.
+比如:
+{{{
+a=1
+b=2
+a,b=b,a
+}}}
+
+== set ==
 set（集合）：无序不重复的元素集
 
 {{{
 
-basket = ['apple','orange','apple','pear','apple','banana']
+>>>basket = ['apple','orange','apple','pear','apple','banana']
 
-fruit=set(basket)
+>>>fruit=set(basket)
 
-fruit
->>>set(['orange', 'pear', 'apple', 'banana'])
+>>>fruit
+set(['orange', 'pear', 'apple', 'banana'])
 
-'orange' in fruit
->>>True
+>>>'orange' in fruit
+True
 
-a=set('abracadabew')
-a
->>>set(['a', 'c', 'b', 'e', 'd', 'r', 'w'])
+>>>a=set('abracadabew')
+>>>a
+set(['a', 'c', 'b', 'e', 'd', 'r', 'w'])
 
-b=set('wajgwaoihwb')
-b
->>>set(['a', 'b', 'g', 'i', 'h', 'j', 'o', 'w'])
+>>>b=set('wajgwaoihwb')
+>>>b
+set(['a', 'b', 'g', 'i', 'h', 'j', 'o', 'w'])
  
-a-b    #差
->>>set(['c', 'r', 'e', 'd'])
+>>>a-b    #差
+set(['c', 'r', 'e', 'd'])
 
-a|b   #并
->>>set(['a', 'c', 'b', 'e', 'd', 'g', 'i', 'h', 'j', 'o', 'r', 'w'])
+>>>a|b   #并
+set(['a', 'c', 'b', 'e', 'd', 'g', 'i', 'h', 'j', 'o', 'r', 'w'])
 
-a&b   #交
->>>set(['a', 'b', 'w'])
+>>>a&b   #交
+set(['a', 'b', 'w'])
 
-a^b   #(并-交)
->>>set(['c', 'e', 'd', 'g', 'i', 'h', 'j', 'o', 'r'])
+>>>a^b   #(并-交)
+set(['c', 'e', 'd', 'g', 'i', 'h', 'j', 'o', 'r'])
 }}}
-=== dict ===
+== dict ==
 
-字典:关键字为不可变类型,如字符串,整数,只包含不可变对象的元组.列表等不可以作为关键字.如果列表中存在关键字对,可以用dict()直接构造字典.而这样的列表对通常是由列表推导式生成的.
+字典:关键字为不可变类型,如字符串,整数,只包含不可变对象的元组.
+
+列表等不可以作为关键字.
+
+如果列表中存在关键字对,可以用dict()直接构造字典.而这样的列表对通常是由列表推导式生成的.
 
 {{{
 
-tel={'jack':4098,'sape':4139}
+>>>tel={'jack':4098,'sape':4139}
 
-tel['guido']=4127
+>>>tel['guido']=4127
 
-tel
->>>{'sape': 4139, 'jack': 4098, 'guido': 4127}
+>>>tel
+{'sape': 4139, 'jack': 4098, 'guido': 4127}
 
-tel['jack']
->>>4098
+>>>tel['jack'] #如果jack不存在,会抛出KeyError
+4098
+>>>a.get("zsp",5000) #如果"zsp"为tel的键则返回其值,否则返回5000
 
-del tel['sape']
-tel.keys()
->>>['jack', 'guido']
+>>>del tel['sape'] #删除键'sape'和其对应的值
+>>>tel.keys() #复制一份键的副本,同理tel.items()为值的副本
+['jack', 'guido']
 
-tel.has_key('jack')
->>>True
+>>>"jack" in tel #判断"jack"是否tel的键
+True
+>>>"zsp" not in tel
+True
 
-knight={'gallahad':'the pure','robin':'the brave'}
-for k,v in knight.iteritems():
-    print k,v
+>>>for k,v in tel.iteritems():print k,v  #同理tel.iterkeys()为键的迭代器,tel.itervalues()为值的迭代器
+jack 4098
+guido 4127
 
->>>gallahad the pure
->>>robin the brave
+>>>tel.copy() #复制一份tel
+{'jack': 4098, 'guido': 4127}
+
+>>> tel.fromkeys([1,2],0) #从序列生成并返回一个字典,其值为第二个参数(默认为None),不改变当前字典
+{1: 0, 2: 0}
+
+>>>tel.popitem() #弹出一项
+('jack', 4098)
 
 }}}
 
-enumerate()返回索引位置和对应的值
+= 函数相关 =
+
+== 函数定义 / 参数默认值 ==
+{{{
+
+def fib(n=2,a=1):#参数可以有默认值
+    """这里给函数写文档注释"""
+    for i in range(n):
+        print a
+
+
+>>>f=fib #可以用一个变量表示函数
+>>>f(3)
+1
+1
+1
+
+>>>fib(a=2) #多个可选参数赋值可以直接写"参数变量名＝值"来快速赋值
+2
+2
+}}}
+
+== Lambda函数 ==
+一种无名函数的速写法
+{{{
+
+def make_incrementor(n):
+    return lambda x: x+n
+
+f=make_incrementor(n)
+#f等价于
+#def f(x):
+#	return x+n
+
+}}}
+
+== 不定长参数 *para,**para ==
+参数格式为 *para 表示接受一个元组
+
+为 **para 表示接受一个字典
+
+*para要在**para之前
 
 {{{
 
-for i,v in enumerate(['tic','tac','toe'])
-    print i,v
+def test(*args,**dic):
+    for arg in args :
+        print arg
+    for k,v in dic.iteritems():
+        print k ,':',v
+
+>>> test("yes",1,2,me="张沈鹏",where="中国") #"yes",1,2传递给元组;me="张沈鹏",where="中国"传递给字典
+yes
+1
+2
+me : 张沈鹏
+where : 中国
 }}}
-输出:
-0 tic
 
-1 tac
+== @ 装饰器 ==
+@A
+def B:pass
+等价于
+def B:pass
+B=A(B)
+即将函数B作为参数传给参数A
+{{{
+from time import time
+#测试运行时间
+def cost_time(func):
+    def result(*args,**dic):
+        beign=time()
+        func(*args,**dic)
+        print "cost time : ",time()-beign
+    return result
 
-2 toe
+@cost_time
+def show(n):
+    for x in range(n):print x
+
+>>> show(10)
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+cost time :  0.0469999313354
+}}}
+
+== 生成器表达式 ==
+生成器表达式:类似于没有中括号的列表推导式,可用在参数中
+{{{
+>>>sum(i*i for i in range(10))
+285
+
+>>>unique_words=set(word for line in page for word in line.split())#page为打开的文件
+
+>>>data='golf'
+
+>>>list(data[i] for i in range(len (data)-1,-1,-1))
+['f','l','o','g']
+
+}}}
+== yield ==
+每次调用返回一个值,并记录当前执行位置所有的变量
+{{{
+def reverse(data):
+    for index in range(len(data)-1,-1,-1):
+        yield data[index]
+
+for char in reverse("golf"):
+    print char,
+}}}
+输出
+{{{
+f l o g
+}}}
+
+= 常用函数 =
+== dir ==
+显示对象的所有属性(即可以用"."操作直接访问)
+{{{
+>>> dir([])
+['__add__', '__class__', '__contains__', '__delattr__', '__delitem__', '__delslice__', '__doc__', '__eq__', '__ge__', '__getattribute__', '__getitem__', '__getslice__', '__gt__', '__hash__', '__iadd__', '__imul__', '__init__', '__iter__', '__le__', '__len__', '__lt__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__reversed__', '__rmul__', '__setattr__', '__setitem__', '__setslice__', '__str__', 'append', 'count', 'extend', 'index', 'insert', 'pop', 'remove', 'reverse', 'sort']
+}}}
+== help ==
+help(类/函数) 返回相应对象的文档字符串
+{{{
+>>> help(vars)
+Help on built-in function vars in module __builtin__:
+
+vars(...)
+    vars([object]) -> dictionary
+    
+    Without arguments, equivalent to locals().
+    With an argument, equivalent to object.__dict__.
+}}}
+
+== len ==
+返回序列/字典的长度
+{{{
+>>> len([1,2,3])
+3
+}}}
+
+== print ==
+输出字符串
+用法演示:
+{{{
+print "Today ", #加逗号,输出后不换行
+
+name="ZSP"
+
+print name,"cost $",10 #输出多个变量
+
+print "hello,%s!"%name #%s 表示用str转化为字符串
+
+for x in xrange(1,11):
+    print '%2d %3d' % (x,x*x) #小数输出如   %5.3f
+}}}
+对于字典可以用变量名来直接格式化,如:
+{{{
+>>>table={'Sjoerd':4127,'Jack':4098,'Dcab':8637678}
+>>>print 'Jack:%(Jack)d; Sjoerd:%(Sjoerd)d; Dcab:%(Dcab)d' %
+table
+Jack:4098; Sjoerd:4127; Dcab:8637678
+}}}
+同时,函数vars()返回包含所有变量的字典,配合使用,无坚不摧!
+
+== raw_input ==
+{{{
+x=raw_input("Please enter an sentence:") #将输入的内容赋值给x
+}}}
+== range ==
+{{{
+range(10,0,-3)#参数的含义为起点(默认为0),终点(不含终点),步长(默认为1)
+>>>[10,7,4,1]
+}}}
+
+和for...in配合使用
+{{{
+a=['cat','door','example']
+for i in range(len(a)):#len()函数为求序列的长度
+    print i,a[i]
+}}}
 
 
+== filter ==
+filter(function , sequence)
+返回序列,为原序列中能使function返回true的值
+{{{
+>>>a=[1,2,3,4]
+>>>filter(lambda x:x%2,a)
+[1, 3]
+}}}
 
-=== zip ===
+== map ==
+
+map(function,sequence,[sequence...])
+
+返回序列,为对原序列每个元素分别调用function获得的值.
+
+可以传入多个序列,但function也要有相应多的参数,如
+
+map(lambda x,y,z:x+y+z,range(1,3),range(3,5),range(5,7))
+
+计算过程为
+
+1+3+5=9
+
+2+4+6=12
+
+返回[9,12]
+
+== reduce ==
+
+reduce(function,sequence,[init]) 
+
+返回一个单值为,计算步骤为 :
+ * 第1个结果=function(sequence[0],sequence[1])
+ * 第2个结果=function(第1个结果,sequence[2])
+ * 返回最后一个计算得值
+ * 如果有init,则先调用{{{function(init,sequence[0]) }}} 
+ * sequence只有一个元素时,返回该元素,为空时抛出异常.
+如
+{{{reduce(lambda x,y:x+y,range(3),99)}}}
+的计算为
+
+99+0=99 => 99+1=100 => 100+2=102
+
+返回102
+
+注:实际使用中用内建函数sum来完成这个累加更合适,如这里等价sum(range(3),99)
+
+== zip ==
 zip用于多个sequence的循环
-
 {{{
-
 questions=['name','quest','favorite color']
 answers=['lancelot','the holy grail','blue']
 
@@ -395,14 +667,13 @@ for q,a in zip(questions,answers):
 }}}
 
 输出:
-
 {{{
 What is your name ? It is lancelot.
 What is your quest ? It is the holy grail.
 What is your favorite color ? It is blue.
 }}}
 
-=== reversed反向循环 ===
+== reversed反向循环 ==
 {{{
 
 for i in reversed(range(1,4)):
@@ -410,21 +681,62 @@ for i in reversed(range(1,4)):
 
 }}}
 输出:
-
 {{{
 3
 2
 1
 }}}
-=== sorted排序 ===
+== sorted排序 ==
 返回一个有序的新序列
+{{{
+>>>sorted([2,5,1,4])
+[1, 2, 4, 5]
+}}}
+== enumerate 返回索引位置和对应的值 ==
+{{{
+for i,v in enumerate(['tic','tac','toe'])
+    print i,v
+}}}
+输出:
+{{{
+0 tic
+1 tac
+2 toe
+}}}
+== open/文件操作 ==
+f=open('/tmp/hello','w')
 
-=== sequence比大小 ===
-list<string<tuple(因为字母表中l在s前...)
+#open(路径+文件名,读写模式)
 
-同类比大小按照字典序
+#读写模式:r只读,r+读写,w新建(会覆盖原有文件),a追加,b二进制文件.常用模式
 
-=== 导入模块 ===
+如:'rb','wb','r+b'等等
+
+f.read([size])    size未指定则返回整个文件,如果文件大小>2倍内存则有问题.f.read()读到文件尾时返回""(空字串)
+
+file.readline()   返回一行
+
+file.readline([size])    返回包含size行的列表,size 未指定则返回全部行
+
+for line in f: print line #通过迭代器访问
+
+f.write("hello\n")    #如果要写入字符串以外的数据,先将他转换为字符串.
+
+f.tell()   返回一个整数,表示当前文件指针的位置(就是到文件头的比特数).
+
+f.seek(偏移量,[起始位置])
+
+用来移动文件指针
+
+偏移量:单位:比特,可正可负
+
+起始位置:0-文件头,默认值;1-当前位置;2-文件尾
+
+f.close()    关闭文件
+
+= 模块化 =
+
+== 导入模块 ==
 模块的查找路径
 
 1.当前的目录
@@ -436,21 +748,18 @@ list<string<tuple(因为字母表中l在s前...)
 如将代码保存上述的一个目录中的的fibo.py文件中,便可以
 
 {{{
-
 import fibo
-fibo.function().............
+fibo.function()
 }}}
 如果想直接使用fibo.function可以重命名这个函数,如
 
 {{{
-
 f=fibo.function
 f()
 }}}
 也可以
 
 {{{
-
 form fibo import function
 function()
 }}}
@@ -460,7 +769,7 @@ function()
 
 然后就直接使用该函数,不需要加前缀
 
-=== 包 ===
+== 包 ==
 引用推荐写法为
 
 {{{form 包 import 模块}}}
@@ -501,249 +810,278 @@ Sound/
 
 简写为 {{{imort 模块}}}
 
-=== 格式化输出 ===
+== 面向对象 ==
+=== 概要 ===
 {{{
-for x in xrange(1,11):
-    print repr(x).rjust(2),repr(x*x).rjust(3)
-    #repr是将变量类型转换为可以被编译器处理的文字格式
-    #rjust是调整宽度为参数个字符,r表示右对齐;ljust为左对齐,ljust(n)[:n]可以截断输出;center为居中
-    #zfill()可以向数值表达式的左侧填充0
- }}}
-=== 等效代码 ===
-{{{
-for x in xrange(1,11):
-    print '%2d %3d' % (x,x*x)
-#%10s 表示用str转化为字符串
-#小数输出如   %5.3f
-}}}
-对于字典可以用变量名来直接格式化,如:
-
-{{{
->>>table={'Sjoerd':4127,'Jack':4098,'Dcab':8637678}
->>>print 'Jack:%(Jack)d; Sjoerd:%(Sjoerd)d; Dcab:%(Dcab)d' %
-table
-Jack:4098; Sjoerd:4127; Dcab:8637678
-}}}
-同时,函数vars()返回包含所有变量的字典,配合使用,无坚不摧!
-
-=== 读写文件: ===
-f=open('/tmp/hello','w')
-
-#open(路径+文件名,读写模式)
-
-#读写模式:r只读,r+读写,w新建(会覆盖原有文件),a追加,b二进制文件.常用模式
-
-如:'rb','wb','r+b'等等
-
-f.read([size])    size未指定则返回整个文件,如果文件大小>2倍内存则有问题.f.read()读到文件尾时返回""(空字串)
-
-file.readline()   返回一行
-
-file.readline([size])    返回包含size行的列表,size 未指定则返回全部行
-
-for line in f:   #交换通道
-
- . print line
-f.write("hello\n")    #如果要写入字符串以外的数据,先将他转换为字符串.
-
-f.tell()   返回一个整数,表示当前文件指针的位置(就是到文件头的比特数).
-
-f.seek(偏移量,[起始位置])
-
-用来移动文件指针
-
-偏移量:单位:比特,可正可负
-
-起始位置:0-文件头,默认值;1-当前位置;2-文件尾
-
-f.close()    关闭文件
-
-----------
-
-=== pickle ===
-pickle 序列化/保存对象/封装
-
-pickle.dump(x,f)    #把文件对象f保存到x变量中
-
-x=pickle.load(f)   #还原这个对象
-
-----------
-try:
-
- . .............
-except 异常类型:
-
-#如果有多个异常类型,可以将他们放在括号()中
-
-#如except(RuntimeError,TypeError,NameError):
-
- . ..............
-最后一个异常名可以省略异常类型,作为通配项将所有异常pass.慎用!!!
-
-在except后可以包含一个else
-
-raise可以抛出异常,同时可以附带异常参数
-
-try:
-
- . rasie Exception('message1','message2')   #只有一个参数时也可以这样写rasie Exception,'message1'
-except Exception,inst:
-
- . #inst是该异常类的一个实例  print inst.args  #打印出参数名
- print inst    #直接打印__str__属性  x,y=inst  print 'x=',x  print 'y=',y
-如果抛出异常没有指定参数,则捕获异常时的参数包含的是该异常的默认信息
-
->>>try:
-
- . 1/0
- . except    ZeroDivisionError,detail:
-  . print    'Handling run-time error:',detail
-Handling run-time error:integer division or modulo by zero
-
-----------
-自定义异常:惯例是以Error结尾的类，同类的异常一般派生自同一个基类,基类异常可以匹配派生类异常
-
-class MyError(Exception):
-
- . def __init__(self,value):
-  . self.value=value
- def __str__(self):
-  . return reper(self.value)
-try:
-
- . raise MyError(2,2)
-except MyError,e:
-
- . print 'My exeception occurred,value',e.value
->>>
-
-My exeception occurred,value 4
-
-----------
-finally：和C＋＋中类似,即使是break，continue或return后一样会执行。一般用于释放资源，如文件，网络连接。
-
-def divide(x,y):
-
- . try:
-  . try:
-   . result=x/y
-  except ZeroDivisionError:
-   . print "zero"
-  else:
-   . print 'result=',result
- finally:
-  . print 'finish'
-----------
-with    #with可以帮助你自动释放资源,下一个版本可用
-
-with open('myfile.txt') as f:
-
- . for line in f:
-  . print line
-#该文件会自动被释放
-
-----------
-
-=== 初识类 ===
 class ClassName:
+    "类文档,可以通过类名.__doc__访问"
+    def f(self):#self为每个类函数的必要的一个参数,可以通过它来访问当前实例
+        return self.content
 
- . "类文档,可以通过类名.__doc__访问"
- #类的私有变量是至少以双下划线开头,最多以单下划线结尾的类变量,调用时会变量名会被混淆成 _ClassName__变量名 __
- i=12345  def f(self)
-  . return "hello world"
- . def __init(self)__:
-  . "构造函数,可以初始化变量,可以有参数" #可以通过self调用当前类的函数和数据 self.data=[]
-#创建类实例
+    def __init__(self,word=''):#构造函数
+        #构造函数,可以初始化变量,可以有参数"
+        self.content=word
+        self.__name=word #私有变量,以"__"开头,不以"__"结尾的变量
+}}}
+创建类实例
+{{{x=ClassName("good")}}}
 
-x=ClassName()
-
-#给类的方法重命名
-
-xf=ClassName.f
-
-----------
-
-==== 类继承 ====
+=== 类继承 ===
 class DerivedClassName(BassClassName):
+    pass
 
- . ...................................
 如果基类定义在另一个模块中, 要写成
 
 modname.BaseClassName
 
-派生类的函数会覆盖基类的同名函数,如果想扩充而不是改写基类的函数,可以这样调用基类函数
+派生类的函数会覆盖基类的同名函数
+
+如果想扩充而不是改写基类的函数,可以这样调用基类函数
 
 BaseClassName.methodname(self,arguments)
 
 注意:该基类要在当前全局域或被导入
+{{{
+class A:
+    def hi(self):
+        print "A"
+class B:
+    def hi(self):
+        A.hi(self)
+        super(B).hi() #通过super关键字可以获得当前类的基类
+        print "B"
 
-----------
+B().hi()
+}}}
+输出
+{{{
+A
+B
+}}}
 
-==== 多重继承 ====
-类多继承//小心使用
-
+=== 多重继承 ===
+类多继承
+{{{
 class DerivedClassName(Base1,Base2,Base3):
+    pass
+}}}
+对于该类函数的解析规则是深度优先,先是Base1,然后是Base1的基类,诸如此类.
+{{{
+class A:
+    def hi(self):
+        print "A"
 
-.................
+class B:
+    def hi(self):
+        print "B"
+        
+class C(A,B):
+    pass
 
-对于一个函数的解析规则是深度优先,先是Base1,然后是Base1的基类,诸如此类.
+C().hi()
+}}}
+输出:
+{{{
+A
+}}}
+== 操作符重载 ==
+通过定义类的一些约定的以"__"开头并结尾的函数,可以到达重载一些特定操作的目的,下面是是一些常用的重载
 
-----------
+=== __str__ / __unicode__ ===
+当print一个对象实例时,实际是print该实例__str__()函数的返回值.
+{{{
+class A:
+    def __str__(self):
+        return "A"
+    def __unicode__(self):
+        return "uA"
 
-=== Iterators 迭代器 ===
-for element in [1,2,3]:
+print A()
+print unicode(A())
+}}}
+输出
+{{{
+A
+uA
+}}}
 
- . print element
-for key in {'one':1,'two':2}:
+__unicode__和__str__类似,不过返回Unicode字符串.
 
- . print key
-for line in open("my.txt"):
+=== 比较操作 ===
+x<y     x.__lt__(y)
 
- . print line
-在容器中定义next()逐一返回元素,并在迭代完成时抛出StopIteration异常,然后定义__iter__()返回self,便可以for...in循环
+x<=y    x.__le__(y)
 
-用Generators(生成器)可以快速生成一个序列,在调用next()时依次返回序列中的值.
+x==y    x.__eq__(y)
 
-def reverse(data):
+x!=y 或 x<>y    x.__ne__(y)
 
- . for index in range(len(data)-1,-1,-1):
-  . yield data[index]
-#yield会自动创建next()和__iter__(),每次调用next()时yield会进行下一步循环,并在yield处返回值
+x>y     x.__gt__(y)
 
-----------
+x>=y    x.__ge__(y)
 
-=== 生成器表达式 ===
-生成器表达式:类似于没有中括号的列表推导式,可用在参数中
+__cmp__( self, other)
+用来简化比较函数的定义
+self < other返回负数,相等时返回0,self>other时返回正数
 
->>>sum(i*i for i in range(10))
+{{{
+class A:
+    def __init__(self,i):
+        self.i=i
+    def __cmp__(self,other):
+        return self.i-other.i
 
-285
+print A(1)>A(2)
+}}}
+输出
+{{{
+False
+}}}
+=== __iter__ ===
+for ... in 循环即就是通过这个函数遍历当前容器的对象实例
+可配合yield方便的编写这个函数(参见基本语法yield)
+{{{
+class A:
+   def __init__(self,n):
+       self.n=n
+   def __iter__(self):
+       n=self.n
+       while n:
+           m=n%2
+           n/=2
+           yield m
 
->>>xvec=[10,20,30]
+for i in A(5):
+    print i,
+}}}
+输出
+{{{
+1 0 1 
+}}}
 
->>>yvec=[7,5,3]
+另有一种繁琐的实现:
+返回一个可以通过next()函数遍历的对象,当结束时抛出StopIteration异常
 
->>>sum(x*y for x,y in zip(xvec,yvec))
+== 类相关函数 ==
+=== type ===
+返回对象的类型
+{{{
+>>> type("")
+<type 'str'>
+>>> type("")==str
+True
 
- . 260
->>>from math import pi,sin
+>>> type([])
+<type 'list'>
+>>> type([])==list
+True
 
->>>sine_table=dict((x,sin(x*pi/180) for x in range(1,91))
+>>> type({})
+<type 'dict'>
 
->>>unique_words=set(word for line in page for word in line.split())
+>>> type(())
+<type 'tuple'>
 
->>>data='golf'
+>>> class A:pass
 
->>>list(data[i] for i in range(len (data)-1,-1,-1))
+>>> type(A)
+<type 'classobj'>
 
-['f','l','o','g']
+>>> type(A())
+<type 'instance'>
 
-----------
+>>> import types #在types模块中有许多类型的定义
 
-== 常用函数不完全手册 ==
-dir(模块) #来获取模块的函数/变量列表
+>>> type(A)==types.ClassType
+True
 
-help(模块/函数) #获取相关的帮助
+}}}
+
+=== getattr / hasattr /delattr ===
+getattr:通过类实例和一个字符串动态的调用类函数/属性
+{{{
+class A:
+    def name(self):
+        return "ZSP"
+    def hello(self):
+        return "nice to meet me ."
+
+def say(obj,attr):
+    print getattr(obj,attr)()
+
+a=A()
+say(a,"name")
+say(a,"hello")
+}}}
+输出
+{{{
+ZSP
+nice to meet me .
+}}}
+hasattr 用来判断实例有无该函数/属性
+
+delattr 用来删除实例的函数/属性
+=== property ===
+通过值的方式调用实例无参函数
+{{{
+class A(object):
+    def __init__(self): self._x = None
+    def getx(self): return self._x
+    def setx(self, value): self._x = value
+    def delx(self): self._x=None
+    x = property(getx, setx, delx, "I'm the 'x' property.")
+a=A()
+print a.x
+
+a.x="ZSP"
+print a.x
+
+del a.x
+print a.x
+}}}
+输出
+{{{
+None
+ZSP
+None
+}}}
+可以方便的定义一个只读属性
+{{{
+class A(object):
+    @property
+    def x(self): return "Property"
+}}}
+调用
+{{{
+>>>a=A()
+
+>>>print a.x
+Property
+
+>>>a.x="ZSP" #只读属性,不能更改
+Traceback (most recent call last):
+  File "D:\Profile\Untitled 2.py", line 9, in <module>
+    a.x="ZSP"
+AttributeError: can't set attribute
+}}}
+
+=== isinstance( object, classinfo) ===
+判断一个对象是否是一个类的实例
+{{{
+>>>class A:pass
+
+>>>class B:pass
+
+>>>a=A()
+
+>>>isinstance(a,A)
+True
+
+>>>isinstance(a,B)
+False
+}}}
+
+== 更多函数不完全手册 ==
 
 ----------
 模块:os
