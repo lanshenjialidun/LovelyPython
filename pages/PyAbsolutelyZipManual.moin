@@ -1,27 +1,6 @@
 ##language:zh
 #pragma section-numbers on
-''' Python 绝对简明手册 '''-- zsp007@gmail.com ::-- ZoomQuiet [[[DateTime(2006-09-15T04:35:33Z)]]] [[TableOfContents]]
-
-## 默许导航,请保留
-##[[Include(CPUGnav)]]
-''简述''
-
-##下载本手册:attachment:Python2.5%20绝对简明手册-张沈鹏.7z
-
-
-学而易忘,需时速查.
-
-
-  -- For Python2.5
-作者:[wiki:zsp 张沈鹏]  电子科大
-{{{
-版本:0.3 beta	2007-5-18
-参考:python2.5中文教程
-感谢:Zoom.Quiet limodou
-}}}
-[http://zsp.javaeye.com 我的Blog]
-
--- 欢迎指出错误和遗漏,提出建议和意见, 请发信到zsp007@gmail.com
+||'''status'''|| 草稿  || Zsp || 完成度 80%;||
 
 = 阅读须知 =
 
@@ -541,6 +520,25 @@ f l o g
 }}}
 
 = 常用函数 =
+== eval ==
+对字符串参数运算,求值
+{{{
+>>> eval("1 + 2*3") #可以方便的用来做四则运算
+7
+>>> a=1
+>>> eval('a+1') #可以访问变量
+2
+}}}
+== exec ==
+将字符串参数作为python脚本执行
+{{{
+>>> exec('a="Zsp"')
+>>> a
+'Zsp'
+}}}
+== execfile ==
+和exec类似,不过是用来打开一个文件,并作为python脚本执行
+
 == dir ==
 显示对象的所有属性(即可以用"."操作直接访问)
 {{{
