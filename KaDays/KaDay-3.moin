@@ -1,0 +1,256 @@
+## page was renamed from zhArticleTemplate
+##language:zh
+#pragma section-numbers on
+
+::-- ZoomQuiet [[[DateTime(2005-12-11T04:50:15Z)]]]
+[[TableOfContents]]
+
+= K3日:发现！ =
+'''Cheetah 只能组织有模板的页面输出，但是……'''
+ * 对于动态变化的表单，有什么更好的方式来组织？
+== Karrigell_QuickForm  ==
+'''[http://www.orionlab.net/karrigell_quickform/Karrigell_QuickForm.html Karrigell_QuickForm]''' 真的是想要什么就来什么！
+ * 刚刚从订阅的[http://sourceforge.net/mailarchive/forum.php?forum=karrigell-main karrigell-main 列表]中看到有人完成了一个 Pear 中 quickform的Karrigell 实现
+ * 即有之，则用之！
+ * 示例：
+{{{#!python
+from Karrigell_QuickForm import Karrigell_QuickForm
+
+p = Karrigell_QuickForm('teste','POST','foo.py','Authentication')
+p.addElement('text','login')
+p.addElement('text','password')
+p.addRule('login','required',"Login is required!")
+p.addGroup(["submit","botao_enviar","submit","Send"]
+           ,["reset","botao_limpar","reset","Clear"])
+"""根据习惯hack! 原先的自动生成 value 的为指定按钮文字。
+p.addGroup(["submit","botao_enviar","Send"]
+           ,["reset","botao_limpar","Clear"])
+"""
+p.display()
+}}} 6行完成一个标准的登录表单！！！哈哈哈！赞！
+attachment:snap-KwDay30.png
+
+=== 改造 ===
+'''毕竟是 alpha 版本，居然还是全面的table 结构！'''
+ * 代码也很ugly 哪！使用["Leo"]整理后
+ attachment:snap-KwDay3Leo.png
+ 
+ * 立即改造！
+{{{#!python
+def addRadioGroup(self,name,value):
+	"""add a radio element - addRadioGroup('genre',{'male':'Male','female':'Female'})"""
+        self.form_list.append("<tr><td align='right' valign='top'><b>"+name.title().replace('_',' ')+":</b></td> <td valign='top' align='left'>")
+	radio = ""
+        t = value.items()
+	for a,b in t:
+	    radio = radio + "<input type='radio' name='"+name+"' value='"+a+"'>"+"<label><font face=verdana size=2>"+b+"</font></label><br>"
+        self.form_list.append(radio+"</td>")
+	self.form_list.append("</tr>")
+}}} 増补为:
+{{{#!python
+def addRadioList(self,name,desc,value,id=""):
+    """add a radio element export as UL LI group
+    """
+    htm = """
+        <li id='%s'><b>%s:</b>
+            <ul>"""
+    self.form_list.append(htm%(id,desc))
+    radio = ""
+    t = value.items()
+    tmpl = """<li>
+        <input type='radio' 
+        name='%s' 
+        value='%s'>  
+        <label>%s</label>      
+        """        
+    for a,b in t:
+        radio = radio + tmpl%(name,a,b)
+    self.form_list.append(radio+"</ul></li>")
+}}}
+
+=== 利用 ===
+'''直接将昨天的展示函式修改一下子就应该好用的！'''
+ * `def expage(dict):` 对应的修改为:
+{{{#!python
+def qpubish(dict):
+    exp = ""
+    p = Karrigell_QuickForm('fm_kq','POST','#',dict.desc.desc)
+    
+    p.addElement('node','<ul>','')
+    # 深入数据 基本和昨天的一样，仅仅是输出时使用 Karrigell_QuickForm 对象而已
+    qli = {}
+    k = [int(i) for i in dict.ask.keys()]
+    k.sort()
+    for i in k:
+        ask = dict.ask[str(i)]
+        qk = [j for j in ask.keys()]
+        qk.sort()
+        for q in qk:
+            if 1==len(q):
+                qli[q] = ask[q]
+            else:
+                pass        
+        p.addRadioList("cr_ask%s"%i
+                   ,ask["question"]
+                   ,qli)
+    p.addElement('node','</ul>','')
+    p.addGroup(["submit","btn_submit","提交"]
+               ,["reset","btn_reset","重写"])
+}}}
+ * 注意到原先的 Karrigell_QuickForm 只有display()，要求直接输出，但是你需要进一步的HTML 处理
+ * 所以有了{{{#!python
+def export(self):
+    """ export the html form code so people can do something for them self
+    """
+    exp = ""
+    ...
+    for c in self.css_list:
+        exp += c+"\n"
+    for i in self.form_list:
+        exp += i+"\n"
+    return exp
+    }}} 基本上就是将原先的 `print` 替换为 `exp+=` 记录为字串对象然后返回
+ * 还有`def addElement(self,element,name,options=None):` 中追加更自由的任何HTML 节点输出:{{{        
+        elif element == 'node':
+            self.form_list.append(name)
+}}}
+
+== JS 问题 ==
+'''一切顺心，表单正确生成了，但是，Karrigell_QuickForm 提供的JS检验不支持Radio列表的！'''
+ * 呜乎哀哉！！这是个问题哪！如果不是所有问题回答完就提交的话
+  * 交给服务端检验，浪费带宽！你还要记录上次的问题情况，返回/提示/重答
+  * 不检验，则没有办法进行统计
+=== 继续发现！ ===
+'''现在的问题是有什么现成的可以模式化的定义表单测验的JS组件？'''
+ *  TiosnG ![ti'aosn'gu]
+  * There is one site named Google! -- 哈哈哈！！
+  * '''[http://www.amowa.net/jsvalidation/ JavaScript Validation Framework]''' 国人作品！
+
+## mechiland@gmail.com jzchen80@hotmail.com
+attachment:snap-KwDay30JVF.png
+
+  * 致力于 Python 的Ajax框架开发的 [http://www.amowa.net AMOWA]团队作品，值得期待！使用之！
+
+=== 迁就,先！ ===
+ * 与KarriGell 配合[[FootNote(测试JS 成功引用否的小技巧:`alert("Include KO!");` JS 中加入强制提示看刷页面见分晓！)]]，当前需要:
+     1. `jvf=%(base)s/karriweb/questionnaire/js` 这样的专门虚拟目录发布，以便，其它各种应用也可以享受
+     1. `var ValidationRoot = "/jvf/";` JVF 实际运行的 validation-framework.js 本身也要声明所在目录
+     1. {{{
+ValidateMethodFactory.validateRequired = function(field, params) {
+	...
+	window.location.replace("#errorDiv");
+}}} 使用replace 来减少不必要的页面刷新
+     1. 使用`p.saveJSRule("../js/validation-config.xml")` 时要对应的修正写入的正确目标文件 
+ * KQF 对JVF 的迁就:
+
+
+==== 关键代码 ====
+'''JVF的使用很有个性，使用外部的XML 文件进行设置，标准的J2EE行为哪！'''
+ * 所以，对应的增补Karrigell_QuickForm
+  1. addJSRule() 追加专门的JVF 规则{{{#!python
+    def addJSRule(self,name,message):
+        """add a xml rule for javascript checking
+        """
+        exp = self.JSvMXLnode%(name,message)
+        self.JSvRules.append(exp)
+}}}
+  1. addJSValidation() 追加调用JVF的页面行为{{{#!python    
+    def addJSValidation(self):
+        """add a javascript rule in order to validate a form field  
+        - addRule('elem_name','required','Name is required!')
+        """
+        orig = "enctype='multipart/form-data'"
+        repl = """
+            onsubmit='return doValidate("%s");'
+            """ 
+        begin_form=self.form_list[0].replace(orig
+                                     ,repl%self.name) 
+        self.form_list[0] = begin_form
+}}}
+  1. saveJSRule() 记录规则集合为JVF需要的XML{{{#!python
+    def saveJSRule(self,xml):
+        """exp and save a xml rule for javascript checking
+        """
+        exp = ""
+        for node in self.JSvRules:
+            exp+= node
+        #exp = self.JSvXMLtmpl%(form,exp)
+        open(xml,'w').write(self.JSvXMLtmpl%(self.name
+                                             ,exp)
+                                             )
+}}}
+  1. 对应的KQF中有预设对象{{{
+self.JSvXMLtmpl="""<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE validation-config SYSTEM "validation-config.dtd">
+<validation-config lang="auto">	
+	<form id="%s" show-error="errorMessage" onfail="" 
+	show-type="first">
+    %s
+	</form>
+</validation-config>
+"""
+self.JSvMXLnode = """
+		<field name="%s" 
+		display-name="%s" onfail="">
+			<depend name="required" />
+		</field>
+"""
+self.JSvRules = []
+}}}
+
+=== 果然不出所料 ===
+'''仅仅追加少量代码就完成所想的客户端JS验证功能'''
+{{{
+def qpubish(dict):
+    ...
+    ## 具体问题解析
+    k.sort()
+    for i in k:
+        ...
+        p.addJSRule("cr_ask%s"%i,"问题%s "%i)
+    ## 整体行为处理
+    p.addJSValidation()
+    p.saveJSRule("js/validation-config.xml")
+    
+    p.addElement('node','</ul>','')
+}}}
+ * 果然不出所料 没有任何悬念的完成任务！
+
+##attachment:snap-KwDay31.png 
+
+== 滥用Leo ==
+'''到现在页面都是白丁！不能忍了！加载CSS！'''
+ * 不清楚KarriGell 的页面引用效率，直接将CSS，写入页面好了，反正有["Leo"]来维护
+
+=== CSS设计技巧 ===
+'''复用以前自个儿的积累是非常好的事儿！'''
+ * 颜色的设计是个问题，不过有好工具来偷！
+ '''[http://www.redalt.com/Tools/ilyc.php Red Alt - I Like Your Colors]'''
+attachment:snap-KwDay3color.png
+
+=== CSS ===
+  * 每一需要CSS美化的页面都加`<<k_base>>` 引用，
+  * 引用都是从`复用代码` 中clone 过来的同一节点
+  * 包含的就是`k_base.css` 你以往积累的一个通用的CSS整体设计,少量修改后，套用中意的颜色系统
+attachment:snap-KwDay3css.png
+ 
+== 小节 ==
+'''今天发现并引入了 [http://www.orionlab.net/karrigell_quickform/Karrigell_QuickForm.html KQF]和 [http://www.amowa.net/jsvalidation/ JVF]好象有点复杂的样子……'''
+attachment:snap-KwDay3done.png
+ * 当然在故事中,这不是最终接受的方案，精彩还要继续……
+ * 现在所有的基本功能都有了，接下来的就是要实用化:
+     1. 有用户验证，要登录
+     1. 多问卷选择/回答/编辑
+     
+
+== 实例下载 ==
+使用 [wiki:self/AllAboutSubversion SVN 下载]:
+  1. [wiki:selfsvn/zqlib/trunk/zqlib/tangle/zoomq/Karrigell/obpKWD/KwDay3/ KwDay3实例]
+  1. 注意有在外部安置的 [wiki:selfsvn/zqlib/tangle/zoomq/Karrigell/obpKWD/js/ JS-JVF 目录]
+== 讨论 ==
+[[Include(/Discuss)]]
+
+
+----
+返回 KarrigellWebDev -- 快速体验K开发
+

@@ -1,0 +1,219 @@
+## page was renamed from zhArticleTemplate
+##language:zh
+#pragma section-numbers on
+::-- ZoomQuiet [[[DateTime(2005-12-11T04:51:41Z)]]]
+[[TableOfContents]]
+
+= K6日:统计！mm的 =
+'''快速扩展一个页面适应所有情况！'''
+ * 此mm 非彼 mm 哪! 乃FreeMind 思维图谱文件 `.mm`
+== FreeMind的另类使用 ==
+'''要想进行问卷回答的统计,首先要有手段知道现在组织内成员信息,以便对应统计'''
+ * 为什么想到了 FreeMind? 
+  * 以往使用DB,怎么样都要立成员表和组织表然后还有这那儿的对应选择关系什么的
+  * 还是 FreeMind 直观,操作也非常快捷,复制,移动太爽直了!
+  * 而且是XML的数据文件!
+ * 曾经依照提供的`freemind.xsl`+`freemind.mm` 输出了加个xml头说明的自定 mm 文件
+ 
+"attachment:snap-KwDay60.png
+
+ * 哈哈哈!大致知道 FreeMind 的数据格式:
+     1. 所有节点是统一的 `<node>` 
+     1. 属性和值,全部是UTF8编码的字串
+ * 所以,只要有简单的约定,就可以作为 Xpath 的过滤参数来理解真正的数据意义了
+ * 以上的组织成员信息就是有个小小的约定:
+     1. 一级节点都是部门描述,中文
+     1. 二级节点是属性描述:
+         1. dept 说明部门的整体信息
+         1. staff 汇集成员信息,类似部门的节点组织
+         1. total 成员总数
+"attachment:snap-KwDay6mm.png
+ * 这样就令 XSLT 有基础原则可以进行数据组织了
+ * 同理,也可以让Python 快速理解了...
+ 
+
+== ElementTree,当然的！ ==
+'''处理XML Python 有丰富的模块,你知道其中 ElementTree 最方便支持部分Xpath 的搜索'''
+ * 其实从使用方面也是 ElementTree 最PythyonIc 了
+ * `deptorg.py` mm专用理解脚本中:{{{#!python
+from elementtree import ElementTree
+print open(xmlFileName,"r").read()
+tree = ElementTree.parse(xmlFileName)
+elem = tree.getroot()
+dept = elem.findall("node/node")
+for d in dept:
+    print d
+    print LI(d.attrib["TEXT"].encode("utf8"))
+
+}}}
+
+
+  1. 引入 ElementTree
+  1. 处理XML为 ElementTree 对象
+  1. 找到根
+  1. 从根找到所有第二级的`<node>`节点对象列表
+  1. 已经可以通过 `.attrib["TEXT"]` 来获得内容了!
+
+"attachment:snap-KwDay61.png
+ * 就使用 `findall()` 和 `attrib["TEXT"]` 便可以判定/获取足够的信息,输出成以上的页面从 mm 中!!!
+ * 哈哈哈!具体的就看代码吧……
+ 
+== Karrigell 的对象混合 ==
+'''但是！怎么样可以使用这种mm 的理解成果？'''
+ * 麻烦在于 `ElementTree.parse(xml文件)` 要可以直接访问的文件名
+ * 你不想在程序中包含太多系统的路径信息
+  1. 反复尝试，发现从相对路径偏移还是从URL 来访问都不稳定，也麻烦
+  1. 最简单的就是理解脚本和mm 文件在一起
+ * 问题就来了，各种事务页面如何快捷直观的使用理解成果？
+  * 自然的，就想到了 `Include()` KarriGell 中到处都可以进行的基础操作 -- '''包含'''
+{{{Include("../xslmm/deptorg.py") 
+            ^
+            |
+            +- 因为是从index.ks/login 之类下级行动函式页面访问}}}
+            
+  * 有MoinMoin 的经验，你就想这样一来应该能将字典对象混人当前名称空间??
+   * 在专门mm 理解脚本-- '''deptorg.py''' 中 `print dir()`
+
+"attachment:snap-KwDay62.png
+
+   * 不会这么简单吧！你发现了 `index.ks` 事务页面中才有的对象 '''sess''' —— 对话容器
+   * 尝试的赋值一下子？{{{
+#deptorg.py 中最后..
+sess.usr["dept"]=deptall
+sess.usr["deptree"]=deptree
+}}}
+   * KAO！ 真的好用！ 在`index.ks/stat` 统计页面，包含 `deptorg.py` mm专用理解脚本 再打印 '''sess.usr''' 看一下子，唉呀呀！真的有了！
+
+"attachment:snap-KwDay63.png
+== 回答验证 ==
+'''进行回答统计前，有一个先决重构'''
+ * 有效的答案是全部问题都回答了，不然的话统计很麻烦的说……
+ * 但是曾经令你激动的 '''[http://www.amowa.net/jsvalidation/ JavaScript Validation Framework]''' 国人作品…… 忽然间再也不好用了？！
+  * 不得以，仔细看了一下子代码，才发现，有好几点是不能忍的:
+      1. 所有表单都要读取同一配置XML，不论访问者想回答哪个问卷，导致动态生成配置文件时有争用问题
+      1. 同样的原因，导致每次读取配置文件，可能要读入相对无用的几倍信息(别的表单的检验策略也被迫读取了)
+      1. {{{		...
+            try {
+			var prefix = ["MSXML2", "MSXML", "Microsoft", "MSXML3"];
+			for (var i = 0; i < prefix.length; i++) {
+				//return new ActiveXObject(prefix[i] + ".DomDocument"); 
+				var obj = new ActiveXObject(prefix[i] + ".DomDocument"); 
+				if (obj == null || typeof(obj) == 'undefined') {
+					continue;
+				} else {
+					return obj;
+				}
+			}
+		} catch (e) {
+			//^_^
+			throw new Error("My God, What version of IE are you using? IE5&+ is requiered.");
+		}
+}}}咔...'''BS'''!居然不能支持 FireFox 的,怎么以前成功的是灵异现象?!
+
+ * 怕了!直接使用服务端的判定吧!
+ * 创立 `bye()` 判别处理页面 并在失败时输出{{{
+<input type="button"
+    value="点击返回重新回答"
+    class="btn"
+    onClick="history.back();"/>
+    }}} 这样的JS 行动按钮, 快捷完成想要的完全问答检验处理
+    
+"attachment:snap-KwDay6bye.png
+ * 好了基本可用了,只是这样一来,加重了服务端的压力,也难以进行页面的友好提醒...
+  * 嗯嗯,自古忠孝难全,先这么着,以后再想了....
+ 
+== 统计汇报 ==
+ * 接下来就简单了:
+     1. 所有人的回答输出为简单的文件，比如说： 每个题目的回答为一行
+     1. 套用问卷列表的技巧，可以搜索出对应问卷的所有回答文件
+     1. 批量读到列表中，和成员信息字典匹配一下子，就可以人性化的输出了
+{{{#!python
+ali = fnmatch.filter(os.listdir(conf.qpage.apath), '%s.*.aq'%qpname)
+aed = []
+for f in ali:
+    a = open(conf.qpage.apath+f,"r").read()
+    aed.append(f.split(".")[-2])
+done = []
+unknow = []
+for a in aed:
+    if a in sess.usr["dept"].keys():
+        done.append(a)
+    else:
+        unknow.append(a)
+}}}
+ * 先要预备处理一下子，过滤出不知道的人
+  1. 明显的你约定回答文件的命名格式是 `问卷名.成员帐号名.aq`
+  1. 所以可以根据文件名快速整理出名单列表 `aed`
+  1. 然后，就有了已知合理成员回答列表 `done` 和 `unknow` 未知成员列表
+
+attachment:snap-KwDay6stat.png 
+
+ * 最后就是个显示问题了:
+     1. 要有回答时间的信息?{{{
+fn = conf.qpage.apath+'%s.%s.aq'%(qpname,a)
+...
+time.strftime("%y/%m/%d %H:%M:%S",time.localtime(os.path.getmtime(fn)
+}}}
+     1. 要有 百分制 的成绩?{{{#!python
+def _grade(right,answer):
+    """根据问卷答案自动计算分数
+    """
+    grade = 0
+    for i in range(0,len(right)):
+        if right[i]==answer[i]:
+            grade +=1
+        else:
+            pass
+    return 100*(float(grade)/len(right))
+}}}
+     1. 唉呀呀??为什么不许怎么回答都是0分?
+      * 发现问题..字典的无序和回答的有序!间的矛盾
+     {{{
+print crtqp.ask.keys()
+crtright = [crtqp.ask[i]["key"] for i in crtqp.ask.keys()]
+print crtright
+}}}
+"attachment:snap-KwDay6dict.png 
+
+      * 知道症结就好修改了{{{#!python
+#字典排序技巧
+ak = crtqp.ask.keys()
+ak.sort()
+print ak
+crtright = [crtqp.ask[i]["key"] for i in ak]
+print crtright
+}}}
+
+"attachment:snap-KwDay6sort.png 
+
+     1. 要有总平均成绩?{{{
+#使用stat 列表收集所有有效成绩
+stat = []
+...
+stat.append(_grade(crtright,open(fn,"r").read().split()))
+...
+sum(stat)/len(stat)) 就出来了
+reduce(lambda a,b:a+b, stat)/len(stat) 更加cool
+}}}
+ * 哈哈哈！！什么也难不住你！
+"attachment:snap-KwDay6done.png 
+
+
+== 事务测试 ==
+'''不用想什么黑/白盒；边界，点击就成！'''
+ * 好了！所有功能都实现了，你现在非常成就感的一路点击一下子
+ * 感觉哪里不好，随手就修正它！
+ * 溜个几回，功能测试基本也就了了…………
+     
+== 实例下载 ==
+使用 [wiki:self/AllAboutSubversion SVN 下载]:
+    [wiki:selfsvn/zqlib/tangle/zoomq/Karrigell/obpKWD/KwDay6/ KwDay6实例]
+
+
+== 讨论 ==
+[[Include(/Discuss)]]
+
+
+----
+返回 KarrigellWebDev -- 快速体验K开发
+

@@ -1,0 +1,151 @@
+
+##language:zh
+#pragma section-numbers on
+
+::-- ZoomQuiet [[[DateTime(2005-12-11T04:45:50Z)]]]
+[[TableOfContents]]
+= K2日:直接完成功能！ =
+'''不管37 21 直接完成心目中的功能先！'''
+ * 计划是这样的，要可以直接读取原先的问卷设计 ini 文本，到页面的 TEXTAREA 中，然后可以提交并保存到指定目录中！
+
+== 规划 ==
+ * [wiki:self/RocketyKarrigell Rockety 对KarriGell 的设置有很好的介绍]
+  * 为了统一组织好你功能站点的开发{{{
+[Alias]
+..
+obp=%(base)s/karriweb/obp
+}}} 在`Karrigell.ini` 有进行如此设置，这样一来，就可以通过
+ http://localhost/obp/ 来访问了[[FootNote("当然没有在 obp 目录中安置index.htm/index.pih 之类的脚本是不会让你看的说……")]]
+ 
+ * 简单点儿吧！{{{# 约定以下全局性变量
+qpath = "q/"
+pubq = qpath+"easy051201.cfg"
+}}}
+  * 使用这样的全局变量定义下来，使用 Leo 快速的将所有的文件控制起来
+
+ * 计划就是这样的:
+     http://localhost/obp/KwDay2/mana.pih 看到并可以编辑 ini 问卷设计文稿
+     点击提交后 到
+     http://localhost/obp/KwDay2/qpage.pih
+     可以看到真正保存下来的问卷设计内容
+== Cheetah ==
+''' 道听途说 各种模板系统中 Cheetah 非常的好和稳定，就用它了！'''
+ * 小小看一下子示例，知道 [wiki:self/CheetahTemplateOrg Cheetah] 的基本使用是这样的:
+     1. 引入模板`from Cheetah.Template import Template`
+     1. 加载模板`page = open("你的模板文件.tmpl","r").read()`
+     1. 加载数据`vPool = {'cfgtxt':随便什么字串的值就成}`
+     1. 渲染输出`print Template(page, searchList=[vPool])`
+     * 则模板中有`$cfgtxt` 的地方就会替换为实际数据
+== Leo 组织实现 ==
+'''可以在一个统一界面中把握全部章节/元素哪！'''
+ * 可以使用中文作章节名目:
+     * `问卷`来组织设计文案
+     * 就是`@nosent easy051201.cfg`
+     * 当然要使用`@path q` 来配合，这样你对 easy051201.cfg 的修改可以立即输出为具体的文件
+ * `Ctrl+Alt+c`和`Ctrl+Alt+v` 是 ["Leo"] 中的复制和粘贴操作:
+     * 快速从原先的 `@nosent index.pih` 复制整个节点为
+     * `@nosent  mana.pih` 管理页面入口
+     * `@nosent  questionnaire.tmpl` 修改问卷模板，["Cheetah"]的
+=== 干净的处理脚本 ===
+'''MVC?尝试一下子'''
+ * `@nosent  mana.pih` 是纯HTML页面了！ 算表现？
+ * `<%Include("qdesign.py")%>` 来包含一个纯操作脚本，算模式了
+ * `@nosent  questionnaire.tmpl` 模板，算数据控制？
+
+=== 八股文样 ===
+'''模式化的处理脚本'''
+ * 从文学化编程角度看，web 应用的脚本，应该说都一个样儿！
+ attachment:snap-KwDay10.png
+ 
+ * 即:
+     1. 脚本说明 `@...@c` 部分
+     1. 脚本声明 `<< page declarations >>`  引用部分
+     1. 行为定义 `@others` 包含的所有下级节点
+     1. 实际尝试 `<<try>>` 引用的部分
+
+== 编辑实现 ==
+'''其实就是将指定的文件内容读出来发布到页面的TEXTARE 中'''
+ * 模板中先准备{{{<textarea NAME="cfgfile" rows="27" >
+$cfgtxt
+</textarea>}}}
+ * 处理脚本中{{{#!python
+#简化引用对象名
+from Cheetah.Template import Template as ctTpl
+vPool = {}
+vPool['cfgtxt'] = open(pubq,"r").read()
+page = open("questionnaire.tmpl","r").read()
+txp = ctTpl(page, searchList=[vPool])
+print txp
+}}}
+ * bingo! 完成！
+ attachment:snap-KwDay21.png
+ 
+== 实现展现 ==
+'''就是将ini 的内容整理为HTML的页面展示'''
+ * 同样的快速组织一下子:
+     1. `@nosent  qpage.pih` 访问的页面
+     http://localhost/obp/KwDay2/qpage.pih
+     
+     1. `@nosent  qpage.py` 实际的数据重组
+=== 关键代码 ===
+ * `from dict4ini import DictIni` 当然的要从 NewEdit 中扒出 dict4ini.py 安装到当前目录中
+ * 创建`def expage(dict):` 问卷输出函式，来将ini 内容整理为相应的页面
+ {{{#!python
+exp +="<ul>"
+# 将字串的字典键值依照数字方式排序
+k = [int(i) for i in dict.ask.keys()]
+k.sort() # 没有回传的数组重整处理
+for i in k:
+    ask = dict.ask[str(i)]
+    exp +="<li>%s"%ask["question"]
+    exp +="<ul>"
+    qk = [j for j in ask.keys()]
+    qk.sort()
+    for q in qk:
+        if 1==len(q):
+            exp +="<li>%s"%ask[q]
+        else:
+            pass    
+    exp +="<p>正确答案::%s</p>"%ask["key"]
+    exp +="</ul>"
+    exp +="</li>"
+exp +="</ul>"
+return exp
+    }}} 双重循环就可以对应的将类似`[ask/1]` 一节中的所有
+    类似`a = 赞！` 的选择项按照列表的形式输出了！
+attachment:snap-KwDay22.png
+
+== 串联页面 ==
+'''将编辑页面和展现页面串联起来'''
+ * 当然的要使用 FORM:
+{{{<FORM ENCTYPE="multipart/form-data" 
+    ACTION="qpage.pih" 
+    METHOD=POST>
+    }}} 在模板中声明一下子
+ * 测试为先！！！在 qpage.py 中加入`print QUERY` 确认倒底传送了什么
+ * OK！ 一切吻合想象`open(qpath+pubq,"w").write(QUERY["cfgfile"])`
+  * 将传送来的编辑成果先写回文件，再整理展现！
+
+== 明日目标 ==
+'''实现了最基本的编辑到保守，还有问卷展示的脚本那未自然的：'''
+ * 实现可以真实使用的问卷表单哪！
+
+
+== 实例下载 ==
+使用 [wiki:self/AllAboutSubversion SVN 下载]:
+    [wiki:selfsvn/zqlib/tangle/zoomq/Karrigell/obpKWD/KwDay2/ KwDay2实例]
+
+今日成果：
+attachment:snap-KwDay2Leo.png
+
+
+== 讨论 ==
+[[Include(/Discuss)]]
+
+----
+返回 KarrigellWebDev -- 快速体验K开发
+
+
+
+
+

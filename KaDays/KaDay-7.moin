@@ -1,0 +1,93 @@
+## page was renamed from zhArticleTemplate
+##language:zh
+#pragma section-numbers on
+
+::-- ZoomQuiet [[[DateTime(2005-12-11T04:52:04Z)]]]
+[[TableOfContents]]
+
+= K日继续:跟自个儿较劲 =
+'''提出自个儿的建议，为社区贡献'''
+ * 应该说，到这会儿，你就要考虑将体验中爽的整理为文章分享，不爽的汇报社区以支持改进……
+
+[[Include(ZoomqKdaysWay)]]
+
+== 优化 ==
+ 1. 减少硬盘的读取次数
+ 1. 减少内存占用空间
+ 1. 加速响应处理
+ 1. 增加并发响应能力
+ * 等等，是任何功能站点毕定要面对的优化难关…………
+ 
+== 经验总结 ==
+'''在KarriGell 中摸爬滚打几日，也算体会到一些所谓经验'''
+ * '''教程要多看！'''
+  * 开始在 pure pih 中纠缠，想来真的累哪！要是早点对 KS 的方便有所体验，就可以节省不少时间
+  * Cheetah 模板系统，已经在 KarriGell 2.2 系统中内含了，没有注意才使用了原始的方式来使用
+  * 不过，后来充分信任 '''HTMLTags''' 函式化的NHML 生成，感受就非常好也……！
+ * 勇于尝试,接受不同的思路
+ * 同时也要勇于抛弃不好的代码
+ * '''只有更好,没有最好!!'''
+  * 但是,保证当前够用最重要`^__^`
+ 
+=== 有关KarriGell 调试 ===
+ 1. 页面空白，源代码都为空时，一定是Python 崩溃，或是不吻合语法规则，根本没有运行起来！
+  * 不过，KarriGell 足够皮实，不会崩溃的，马上`Ctrl+z` 几次，就可以知道哪少括号什么的了
+ 1. 有时候 `print object` 页面没有任何变化，不要担心
+  * 看一下子HTML 的源代码吧！
+  * 类似`<mod_ks.Script instance at 0x00E56DF0>` 这样的Python 对象属性输出，在页面中会被浏览器处理为非法HTML节点而不显示的！
+ 1.  作为一个快捷开发为豪的人，一定要不求甚解……
+  * 好使就成，至于到底为什么，先别想，将来自然会明白的，
+  * 要知道人脑有下意识的，你的所有疑问会在后台进程中一直运算到解答为止，即所谓`灵感是也乎`
+  * 有时候，明明白白是个字典，但是就不让你使用看到的键值来调用内容，那未就使用`.keys()[]`的方便来调用，反正，你只是要内容，不管键名的小脾气的
+  
+=== 有关站点组织 ===
+ * 重构是自然的
+ * 设计不如实现
+  * 开始一定是模糊的遐想，只有快速变为可接触的功能，才可以进行改善
+  * 这样的开发才是最自然的  {{{
+冲动->弱功能->利用已有的模块->可用->优化->如果牵连出多于三个以上的大问题的修改,立即换个方法
+ ^                                  |
+ |                                  |
+ +----------------------------------+
+  }}}
+ * 面向数据是核心……在理性用户面前
+ * 要连续作业！！不然的话的随意定的变量是干什么的，你明天一定想不起来
+  * 所以，也只有 Python 才有可能在少量的变量和代码中，实现你的想象
+
+=== 有关CSS设计 ===
+'''CSS提供了标准快捷的外观控制的同时也是有问题的...'''
+ * 在敏捷开发中,你可以利用 CSS 快速改变外观,
+ * 但是与语言不同的在于,CSS 不能进行编辑判别,你只能 为不同的情况设立专用的ID或是类来协助命中
+  * 导致,CSS的设定增长的速度可以比你使用的函式还要快
+  * 可惜,现在没有什么好的想法来进行有效,聪明的控制
+ 
+== TODO ==
+ * 利用几天空闲时间，快速将原来的 数据库为 基础，PHP版本的简单问卷系统重构为纯Python的
+ * 大多数功能都是随想随实现的，没有进行规划，要进一步开发的话:
+     1. 增加，删除问卷
+     1. 丰富问卷形式，可以多选，填写信息
+     1. 问卷的 slide 方式，一页接一页的回答
+     1. 丰富[http://www.amowa.net/jsvalidation/ JVF] 的规则集合
+     1. 优化[http://www.amowa.net/jsvalidation/ JVF] 的配置文件处理,嵌入到HTML的 `<XML>` 数据岛中
+     1. 优化[http://www.orionlab.net/karrigell_quickform/Karrigell_QuickForm.html KQF] 与 [http://www.amowa.net/jsvalidation/ JVF] 配合起来,更加方便好用
+      * 经沟通，获准开辟 JsValidationFramework -- 表单验证框架 [http://www.amowa.net/jsvalidation/ JVF] 的啄木鸟再次开发项目
+      * 非常诡异,Mozilla 的 xml dom 处理非常的有问题哪!
+      * 没有找到很好的兼容性DOM处理机,计划还是使用字串来进行约定
+      
+     1. 问卷风格的快速切换,实现皮肤功能
+     1. ………… 需求是变化莫测的，人的欲望也是无常的…………
+   
+== 实例下载 ==
+ * 使用 [wiki:self/AllAboutSubversion SVN 下载]:
+    [wiki:selfsvn/zqlib/tangle/zoomq/Karrigell/obpKWD/KwDays/ KwDays实例]
+ * '''[http://pythonic.zoomquiet.org/index.html 在线实例]'''
+  * [http://pythonic.zoomquiet.org/demo/tour.htm 教程]
+  * '''[http://pythonic.zoomquiet.org/z/index.ks/index 体验中心]''' -- 完整版的问卷管理系统
+
+== 讨论 ==
+[[Include(/Discuss)]]
+
+
+----
+返回 KarrigellWebDev -- 快速体验K开发
+

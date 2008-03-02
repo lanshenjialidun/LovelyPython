@@ -1,0 +1,248 @@
+## page was renamed from zhArticleTemplate
+##language:zh
+#pragma section-numbers on
+
+::-- ZoomQuiet [[[DateTime(2005-12-11T04:51:21Z)]]]
+[[TableOfContents]]
+= K5日:随时重构 =
+'''快速利用已有的所有技巧，重构功能实现'''
+ * 让原先分散的.pih 们也整合到一个 '''mana.ks''' 事务页面中吧！
+ 
+== 悠然 Leo ==
+{{{
+   Ctrl+`
+}}}从来没有如此让你放心过……
+
+"attachment:snap-KwDay50.png
+
+ * 只要保证，所有.ks 中有 clone 的`<< htmlcode >>`
+  * 所有.ks 中的响应函式中有 clone 的`<< pagehead >>`及`<< pagefoot >>`
+  * 就等于随时控制了所有页面的外观！
+
+== 调整事务响应 ==
+'''将问卷的使用和管理拆分为专门的两个事务页面'''
+ * `index.ks` 作为默许访问的页面是问卷回答/统计的使用事务页面
+ * `mana.ks` 作为权限用户的问卷设计事务页面
+ * 那未，首先，用户从`/index.ks/login` 登录后记录的信息，怎么样传递到 `mana.ks`
+ 
+=== 页面间传递对象 ===
+'''当然的，你期望是完整的对象传递，而不用又要判别，记载……'''
+ * 不是有 `pickle` 序列化模块嘛！
+ * 尝试将对象序列化为字串作为页面间的参数捅过去就好哪！
+  * 打印当前的会话容器序列化字串看一看:{{{
+print pickle.dumps(sess.usr)
+}}}
+
+"attachment:snap-KwDay51.png
+
+  * 唉呀呀……有空格，以及其它符号的！一定会被误解为不同参数的……
+  * 找呀找呀，找朋友，找到一个`urlsafe_b64encode(s) ` 是 '''base64''' 模块中的
+  * OK 组织测试一下子:{{{#!python    
+v = base64.urlsafe_b64encode(pickle.dumps(sess.usr))
+print v
+print "<br/>"
+print pickle.loads(base64.urlsafe_b64decode(v))
+}}}
+
+"attachment:snap-KwDay52.png  
+
+  * 非常理想！就用之了！
+{{{#!python   
+print SPAN(A('> 编辑管理问卷'
+        ,href="../mana.ks/edit?qp=%s&obj=%s"%(
+            qpname
+            ,base64.urlsafe_b64encode(
+                pickle.dumps(sess.usr))
+                )
+            )
+        ,id="mana")
+}}} 在 问卷回答界面中追加一个编辑的链接就好
+ * 注意:
+  1. 使用 `../mana.ks`  是因为 .ks 事务页面实际都是进一层的`*.ks/action`访问，所以要链接到另外的事务页面，要使用相对路径修正的
+  1. 对`<A>` 追加了一个 `id="mana"` 的属性是为了让CSS 击中，进行显示的处理,对应的CSS定义是:{{{
+SPAN#mana{border-bottom: 2px solid #778;
+    border-left: 2px solid #778;
+    float:right;color: #930; 
+    background-color: whitesmoke; padding: 2px;}
+}}}效果如下:
+
+"attachment:snap-KwDay5css.png  
+  
+ * 当然的，应该只有权限用户才会看到此链接
+ * 不过，开发阶段完全开放——反正要实现版本管理不用怕的说;-)
+ 
+ 
+== 重构编辑流程 ==
+'''当然的所谓 mana.ks 事务页面就是要代替以前使用7个文件完成的问卷编辑流程'''
+ * 二话不说先将成功运行的 `index.ks` 节点 clone 成 `mana.ks` 然后快速的修剪
+ * 将原先`qpage.py` 的 '''expage(dict)''' 重构为  `index.ks` 的 '''_qshow(dict,aim)'''
+  * 99% 的代码都不变，仅仅是传入的参数重新命名而已{{{#!python
+def _qshow(dict,aim):
+    """将dict 内容输出为回答问卷
+    """
+    exp = ""
+    p = Karrigell_QuickForm('fm_kq','POST',aim,dict.desc.desc)
+    p.addElement('node','<ul>','')
+    # 深入数据
+    qli = {}
+    k = [int(i) for i in dict.ask.keys()]
+    k.sort()
+    for i in k:
+        ask = dict.ask[str(i)]
+        qk = [j for j in ask.keys()]
+        qk.sort()
+        for q in qk:
+            if 1==len(q):
+                qli[q] = ask[q]
+            else:
+                pass
+        question = ask["question"]+"<sup>答案::%s</sup>"%ask["key"]
+        ## 这里美化一下子，奇偶行使用不同的CSS来控制
+        if i%2 == 0:
+            p.addRadioList("cr_ask%s"%i
+                   ,question
+                   ,qli
+                   ,"even")
+        else:
+            p.addRadioList("cr_ask%s"%i
+                   ,question
+                   ,qli)
+        p.addJSRule("cr_ask%s"%i,"问题%s "%i)
+
+    p.addJSValidation()
+    p.saveJSRule("js/validation-config.xml")
+    p.addElement('node','</ul>','')
+    p.addGroup(["submit","btn_submit","提交","btn"]
+               ,["reset","btn_reset","重写","btn"])
+    exp += p.export()   
+    return exp
+}}}
+
+ * 同理，使用原先十分之一的时间，快速将一连串的 .pih 动态页面，改写为 .ks 事务页面
+ * 只是为了增加版本管理的功能，追加了一个操作{{{
+# 先复制一下子
+shutil.copy2(qpage,qpage+".%s"%time.strftime("%y%m%d%H%M%S"
+                                             , time.localtime())
+             )
+}}}
+  * 使用 '''shutil'''高级文件处理模块，在问卷提交后，先复制一份历史版本
+  
+
+== 历史版本 ==
+'''习惯的Wiki的反悔模式，当然的也想自个儿弄一个'''
+
+"attachment:snap-KwDay53.png  
+
+ * 几次小的尝试性修改，在 `/q` 中聚集了一批命名有模式可寻的问卷设计稿
+ * 直接利用问卷列表的处理代码，小修改一下子，就成为历史版本列表的实现，归到{{{#!python
+def historic(**var):
+    << pagehead >>
+    @others   
+    << pagefoot >>
+}}}
+ * 可以看到现在连事务页面中的具体请求也可以八股化了
+  1. `<< pagehead >>` 标准的页头 信息
+   * 不过是一个`print _htmhead("标题文字")` 将预定HTML 代码少量处理后输出的小函式
+  1. `@others`  包含所有具体行为的章节脚本
+  1. `<< pagefoot >>` 标准的页底 信息
+   * 更加简单的 `print htmfoot` 打印行为，将 `Powered by:...`什么的广告全都统一而已
+=== 关键代码 ===
+{{{#!python
+qnow = fnmatch.filter(os.listdir(conf.qpage.qpath)
+                       , '%s.cfg.*'%sess.usr["qp"])
+print "<UL>"
+qnow.reverse()
+for l in qnow:
+    s = l.split(".")
+    print LI(A("""%s 
+             <sup>%s/%s/%s %s:%s:%s 版本</sup>"""%(s[0]
+             ,s[-1][:2]
+             ,s[-1][2:4]
+             ,s[-1][4:6]
+             ,s[-1][6:8]
+             ,s[-1][8:10]
+             ,s[-1][10:]
+             ),href="edit?his=%s"%s[-1]
+                )
+             )
+print "</UL>"
+}}} 老技巧，使用 `fnmatch` 模块将吻合模式的文件搜索为一个列表对象
+ * 现在的 模式:`'%s.cfg.*'%sess.usr["qp"]`
+  * 即，当然要看的问卷名+".cfg"+".其它什么的" 
+  * ".其它什么的"就是之前你随手复制了一下子先时定的{{{
+time.strftime("%y%m%d%H%M%S", time.localtime())
+}}} 时间字串
+  * 那未知道是 `年月日时分秒`  的组合，使用字串的切片操作，一下子就重新组织输出好了
+
+attachment:snap-KwDay54.png
+
+ * 再随手加个链接，给个`?his=` 的历史版本标识
+
+ * 回头修改一下子 {{{#!python
+def edit(**var):
+    #...
+    if "his" in QUERY.keys():
+        #进入历史版本编辑
+        qpage = "%s%s.cfg%s"%(conf.qpage.qpath
+                    ,sess.usr["qp"]
+                    ,"."+QUERY["his"])
+    else:        
+        qpage = "%s%s.cfg%s"%(conf.qpage.qpath
+                    ,sess.usr["qp"]
+                    ,"")
+    #...
+}}}  
+  * 作个小判定，令编辑处理，知道什么时候读要求的历史版本
+==== 进一步的 ====
+'''突然你想列出各版本的内容多少差异……'''
+ * 搜索一下子手册，发现了 `os.stat()`{{{
+<sub>大小:%sb</sub>
+...
+,os.stat(conf.qpage.qpath+l)
+}}}
+attachment:snap-KwDay5ST.png
+
+  * 返回元组有文件对象的: 
+   1. st_mode (protection bits), 
+   1. st_ino (inode number), 
+   1. st_dev (device), 
+   1. st_nlink (number of hard links), 
+   1. st_uid (user ID of owner), 
+   1. st_gid (group ID of owner), 
+   1. '''st_size''' (size of file, in bytes), 
+   1. st_atime (time of most recent access), 
+   1. st_mtime (time of most recent content modification), 
+   1. st_ctime (platform dependent; time of most recent metadata change on Unix, or the time of creation on Windows). 
+  * `ST_SIZE` 是我要的
+
+  * 但是具体是哪个？咳咳咳，看标识，只有两个是`L`长整,有变化的就倒数第四个,所以:{{{
+
+<sub>大小:%sb</sub>
+...
+,os.stat(conf.qpage.qpath+l)[-4]
+}}}
+attachment:snap-KwDay5his.png
+
+
+=== 可变参数的意义 ===
+ * 现在你可是对Python 函式的可变参数深以为然了
+ * 本来按照PHP 的习惯，传递的页面参数自然会变成内存对象，
+ * 但是在KarriGell 中如果不严格匹配
+"attachment:snap-KwDay5errorVar.png 这总是会出参数不匹配的错误
+ * 有了万能的'''(**var)''' 声明，一切都总能兼容！
+
+== 明日任务 ==
+'''哇呀呀！没有想到再古怪的想象，KarriGell 都支持！接下来……'''
+ * 就是要根据有效的成员信息来进行成绩的统计汇报了
+
+== 实例下载 ==
+使用 [wiki:self/AllAboutSubversion SVN 下载]:
+    [wiki:selfsvn/zqlib/tangle/zoomq/Karrigell/obpKWD/KwDay5/ KwDay5实例]
+
+== 讨论 ==
+[[Include(/Discuss)]]
+
+
+----
+返回 KarrigellWebDev -- 快速体验K开发
+
