@@ -1,0 +1,81 @@
+##language:zh
+#pragma section-numbers off
+##含有章节索引导航的 ZPyUG 文章通用模板
+[[TableOfContents]]
+## 默许导航,请保留
+[[Include(ZPyUGnav)]]
+
+
+= 可爱的Python编辑约定 =
+`2008-05-04 青年节前必须完成所有撰写工作!`
+
+##startInc
+
+== 分析 ==
+感谢新摧生婆的认真:
+ * [http://docs.google.com/Doc?id=ah9sz7kfxfhz_272b9rvdk 图书体例分析报告]
+  * [http://docs.google.com/Doc?id=ah9sz7kfxfhz_30cv8mt6hm 回复080222 ZoomQuiet编辑意见]
+ * [http://docs.google.com/Doc?id=ah9sz7kfxfhz_34gqzhwcgt -5 PyDay 初体验和原始需求修改版]
+
+== 对策 ==
+根据过往的修订,和几届编辑的沟通,基本清楚了
+ 技术入门图书的要点::
+  1. 中心内容明确
+  1. 整体内容足够
+  1. 各章内容完备
+
+ 可爱的Python成书要求::
+  1. 以实例故事为核心,展示社区体验,传达 Pythonic 思想
+  1. 选择和统一体例后半的 作弊条 形成呼应
+  1. 使用边条和书眉,将前后内容统一起来
+
+
+=== 追加书眉 ===
+建议根据'''[http://www.douban.com/subject/1395497/ MIND HACKS]''' 的设计给图书的3大部分追加书眉
+
+ CDay*::
+  * 将原先的 `PyDays` 修订成 `CDay` ~ 光盘故事
+  * 每天的进度故事 使用统一的 `CDay*` 来标定,以便其它章节统一使用
+
+ KSay*::
+  * 将原先的 `KsDays` 修订成 `KDay` ~ Karrigell故事
+  * 每天的进度故事 使用统一的 `KDay*` 来标定,以便其它章节统一使用
+
+ PCS*::
+  * `Python Cheat Sheet` ~ Python 作弊条
+  * 将`Py初学者作弊条汇集`;`常见任务处理`;`Py2.5 绝对简明手册` 合成为 `Python 作弊条`!
+  * 根据前述两个实例故事 的内容,选择相关知识点,统一体例成 `PCS*` 来标定,以便其它章节统一使用
+  * 建议由 清风和张沋鹏協同快速完成; 并特邀 现在 ZEUUX 成员的前博文编辑,方舟掺合!
+  * 同时参考好书 '''[http://www.lightbird.net/py-by-example/ Python by Example]'''
+
+
+=== 图例追加 ===
+似在故事各个章节尾部追加 内容图谱 标定出读者在整个图书内容的阅读位置
+ attachment:CDay-3.png
+
+=== 体例追加 ===
+`为将实例故事中涉及知识点在不打断叙述的前提下进行友好提示,约定以下行文体例`:
+
+{{{详细::
+表示以下内容出现在边条中
+将涉及内容指向后面的 `PCS*`
+请编辑设计明确的图标来引导
+}}}
+
+{{{注意::
+表示以下内容出现在边条中
+包含警告事项,可能涉及内容会指向后面的 `PCS*`
+请编辑设计明确的图标来引导
+}}}
+
+== 目录调整  ==
+
+[[Include(/TreeOfBook,,from="^##startInc$",to="^##endInc$")]]
+
+##endInc
+
+----
+'''反馈'''
+
+创建 by -- ZoomQuiet [[[DateTime(2008-03-30T14:01:36Z)]]]
+||<^>[[PageComment2]]||<^>[:/PageCommentData:PageCommentData]''||

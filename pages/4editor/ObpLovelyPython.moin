@@ -1,0 +1,100 @@
+## page was renamed from ObpBroadview/ContributionV0.4
+##language:zh
+#pragma section-numbers off
+||<|3>attachment:LovelyPython.png '''[[BR]]--初学者极速入门故事'''[[BR]]^2008-02-14  v0.6版本^ || ^2007-10-30^''[http://groups.google.com/group/openbookproject/browse_thread/thread/d8c3f54ed7b1be25  可愛的Py 图书工程重启倡议]''; ^2008-03-30^'''[:ObpLovelyPyEditorRule:可爱的Python编辑约定]''' [[BR]] [[Include(ObpRelating)]] ||
+||[[Include(ObpFocusLevels)]]||
+[[TableOfContents]]
+
+[[Include(ObpLovelyPyResList)]]
+
+
+## 默许导航,请保留 -test
+
+= 可爱的Python =
+根据ZoomQuiet个人想法,组织书的大致结构,设计由实例故事组成的自学体验过程;
+
+ 1. pyDay 实例故事,可以抽样阅读的章节实例学习;每节都可以独立使用,有友好知识点指引
+ 1. 初学者作弊条汇集,[:PyCookbook:CookBook] 样的速查手册;包含对应的练习;
+
+== 引言 ==
+||<#8080FF>||   '''[:/Lpy-Beginning:“ 启 章 ”]''' || ZoomQuiet ; 95%--主要内容完成,需要补充体例方面的约定 ||
+
+
+
+== 实例故事 ==
+
+=== CDays ～ 光盘故事 ===
+##||'''关注级别颜色系统''||<: #dedede>^大纲^||<: #FF8080>^初撰^||<: #8080FF>^再稿^||<: #80FF80>^校订^||
+
+[[Include(/PyDays)]]
+
+=== KDays ~ WEB应用故事 ===
+
+||<#80FF80>  || [:KarrigellWebDev:快速体验Karrigell web 开发] ^从无到有的创建一个问卷系统^  || ZoomQuiet 99%,旧内容完成，需要重新归整内容，进行行文统一   ||
+
+||<^>全文阅读::[[Include(KarrigellWebDev,'Zoomq's K体验',4,sort=descending,items=27,titlesonly)]]||章节阅读::[[Include(^KwDay.*,'KWF's 日子',4,items=27,titlesonly)]]||
+
+
+== Py作弊条 ==
+ * [:/LpyQLearn-0:作弊条汇集简述]
+
+'''对应 Py日 ,以速查条目的形式组织；进行最精要的点抜，配合练习，以便Py日内容中进行引用'''
+
+''可以使用 [wiki:localshare/doc/abyteofpython_cn/chinese/  简明 Python 教程] 的内容组织''
+
+ 素材::
+    * [:/LpyQLearn-1-env:Py运行环境] --  HuangYi ; 20%;
+    * [:/LpyQLearn-2-data:内置数据类型] --  HuangYi ; 100% ;
+    * [:/LpyQLearn-3-process:过程控制] --  HuangYi ; 100% ;
+    * [:/LpyQLearn-4-func:函式] --  HuangYi ; 99% ;
+    * [:/LpyQLearn-5-object:类与实例] -- HuangYi;完成度60%;
+    * [:/LpyQLearn-6-model:模块与包] -- HuangYi;完成度30%;
+    * [:/LpyQLearn-7-task:Py常见任务处理] -- 清风 80%;
+     * [http://docs.google.com/Doc?id=ah9h7dpwtkb_330g5n84tfh 常见任务CDays 故事配合更新]
+    * [:/LpyAttach-CookBook:实例CookBook索引] ~ xyb 90% 文本处理部分;
+
+=== 环境篇 ===
+
+=== 语法篇 ===
+
+=== 模块篇 ===
+
+=== 实作篇 ===
+
+
+== 附录 ==
+ * [:/LpyAttach-appendix:Py附录] ~ ZoomQuiet/90%
+
+=== 行者箴言 ===
+ * [:/LpyAttach-motto:Py箴言]
+  * 汇集书中劝人向靠谱的程序员成长的经典论调
+  * Kaopulity ~ 靠谱！
+
+===  资源索引 ===
+ * [:/LpyAttach-index:Py资源索引]
+'''以系统的知识体系方法组织所有中文Python为主的资料'''
+ * 使用 [:swordsp/COTW:啄木鸟维基条目质量提升计划] 成果
+
+===  术语索引 ===
+||<#80FF80>||   [:PyAbsolutelyZipManual: Py2.5 绝对简明手册] ^Py 语言类^|| zsp 95% 补充实例片段;||
+||<#8080FF>|| [:/LpyAttach-Glossary:术语索引] ^应用技术类^ || ZoomQuiet 20%;组织体例 ||
+
+=== 后记 ===
+ * [:/BackGround:后记故事] -- ZoomQuiet 0%
+
+
+
+
+
+
+
+
+
+= 反馈 =
+[[PageComment2]]
+[[Include(ObpStepLevels)]]
+
+== 参考资料整备 ==
+ * http://mcsp.wartburg.edu/zelle/python/small_cover.png '''[http://mcsp.wartburg.edu/zelle/python/ Teaching with Python]''' -- 比较成熟的正规教育内容
+
+--::-- ZoomQuiet [[[DateTime(2007-02-19T07:29:00Z)]]]
