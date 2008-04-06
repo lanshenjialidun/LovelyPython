@@ -36,11 +36,11 @@
 
 
 == Py作弊条 ==
- * [:/LpyQLearn-0:作弊条汇集简述]
+`Python Cheat Sheet`
 
-'''对应 Py日 ,以速查条目的形式组织；进行最精要的点抜，配合练习，以便Py日内容中进行引用'''
-
-''可以使用 [wiki:localshare/doc/abyteofpython_cn/chinese/  简明 Python 教程] 的内容组织''
+ * [:/PCS:作弊条汇集简述]
+  * '''对应 Py日 ,以速查条目的形式组织；进行最精要的点抜，配合练习，以便Py日内容中进行引用'''
+  * ''可以使用 [wiki:localshare/doc/abyteofpython_cn/chinese/  简明 Python 教程] 的内容组织''
 
  素材::
     * [:/LpyQLearn-1-env:Py运行环境] --  HuangYi ; 20%;
@@ -54,13 +54,26 @@
     * [:/LpyAttach-CookBook:实例CookBook索引] ~ xyb 90% 文本处理部分;
 
 === 环境篇 ===
+ * [:/PCS0:PCS0]
+ * [:/PCS1:PCS1]
+ * [:/PCS2:PCS2]
+ * ..
 
 === 语法篇 ===
 
+ * [:/PCS100:PCS100]
+ * [:/PCS101:PCS101]
+ * ..
 === 模块篇 ===
 
+ * [:/PCS200:PCS200]
+ * [:/PCS201:PCS201]
+ * ..
 === 实作篇 ===
 
+ * [:/PCS300:PCS300]
+ * [:/PCS301:PCS301]
+ * ..
 
 == 附录 ==
  * [:/LpyAttach-appendix:Py附录] ~ ZoomQuiet/90%
