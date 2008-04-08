@@ -26,17 +26,66 @@
   `-- KDay N 经验总结畅想web应用
 +-- PCS
   +-- 环境篇 (运行Python 的最基础 PCS 0~10)
-  |  +-- PCS0 命令行交互
+  |  +-- PCS0 如何安装Python
+  |  +-- PCS1 交互环境之命令行
+  |  +-- PCS2 交互环境之iPython
+  |  +-- PCS3 交互环境之winpy
+  |  +-- PCS4 常用自省
+  |  +-- PCS5 Python脚本文件
+  |  +-- PCS6 Python与中文
+  |  `-- PCS7 Python编码规范
   +-- 语法篇 (Python 的基础实用语法 PCS 100~199)
-  |  +-- PCS100 函式
+  |  +-- PCS100 import
+  |  +-- PCS101 内建数据类型
+  |  +-- PCS102 for 循环
+  |  +-- PCS103 缩进
+  |  +-- PCS104 注释
+  |  +-- PCS105 对象
+  |  +-- PCS106 文件对象
+  |  +-- PCS107 字串格式化
+  |  +-- PCS108 函式
+  |  +-- PCS109 系统参数
+  |  +-- PCS110 逻辑分支
+  |  +-- PCS111 类
+  |  +-- PCS112 判别式(动态)
+  |  +-- PCS113 异常
+  |  +-- PCS114 交互参数
+  |  `-- PCS115 FP初体验
   +-- 模块篇 (Python 的常用模块介绍 PCS 200~299)
-  |  +-- PCS200 os
-  +-- 实作篇 (实际运用Python的小实作 PCS 300~399)
-     +-- PCS300 读取google搜索信息
-     +-- PCS301 从 whois 信息中提取网段信息
-     +-- PCS303 找出两个文件中不同部分
-     +-- PCS304 大文件排序
-     `-- PCS305 大文件比较
+  |  +-- PCS200 os(.stat;.path)
+  |  +-- PCS201 cmd
+  |  +-- PCS202 chardet
+  |  +-- PCS203 epydoc
+  |  +-- PCS204 ConfigParser
+  |  +-- PCS205 内建函式(enumerate)
+  |  +-- PCS206 thread
+  |  +-- PCS207 threading
+  |  +-- PCS208 dict4ini
+  |  +-- PCS209 fnmatch
+  |  +-- PCS210 pickle
+  |  +-- PCS211 base64
+  |  +-- PCS212 shutil
+  |  +-- PCS213 time
+  |  `-- PCS214 ElementTree
+  +-- 框架篇 (Python 的应用框架介绍 PCS 300~399)
+  |  +-- PCS300 CherryPy
+  |  +-- PCS301 Karrigell
+  |  +-- PCS302 Web.py
+  |  +-- PCS303 web2py
+  |  +-- PCS304 Django
+  |  +-- PCS305 TurboGears
+  |  +-- PCS306 PyLons
+  |  +-- PCS307 Quixote
+  |  +-- PCS308 Zope
+  |  +-- PCS309 Cheetah
+  |  `-- PCS309 LEO
+  +-- 实作篇 (实际运用Python的小实作 PCS 400~499)
+  [http://wiki.woodpecker.org.cn/moin/MicroProj 中挑选]
+     +-- PCS400 读取google搜索信息
+     +-- PCS401 从 whois 信息中提取网段信息
+     +-- PCS403 找出两个文件中不同部分
+     +-- PCS404 大文件排序
+     `-- PCS405 大文件比较
 +-- 附录
   +-- 行者箴言
   +-- 资源索引
