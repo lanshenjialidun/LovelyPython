@@ -1,7 +1,4 @@
 # coding : utf-8
-''' PyDay-3-1.py
-    Lovely Python -3 PyDay;
-'''
 import os
 def cdWalker(cdrom,cdcfile):
     export = ""
