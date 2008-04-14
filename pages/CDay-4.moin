@@ -7,7 +7,7 @@
 [[TableOfContents]]
 
 
-= -4 CDay 可用的首个脚本 =
+= CDay -4 可用的首个脚本 =
 
 '''寻找吧!不要先想着创造--Python 是自足的'''
 
@@ -72,12 +72,12 @@ print os.listdir("/media/cdrom0")
 
  运行结果类似:
 
-截屏2-1
+图 CDay-4-1
 attachment:snap_example1.png
 
 当然在 `iPython`  环境下，逐步运行也一样
 
-截屏2-2
+图 CDay-4-2
 attachment:snap_exampleipy1.png
 
 {{{详细:
@@ -173,7 +173,7 @@ http://www.woodpecker.org.cn/diveintopython/file_handling/file_objects.html
 
 执行尝试 `$python CDay-4-3.py`
 
-截屏2-3 
+图 CDay-4-3 
 attachment:snap_4-3.png
 
 完了!报错!...嗬嗬嗬,行者说,不用担心,在Python 中的解决bug 是非常轻松的,因为完善的回溯能力,Python 可以非常精确的汇报小白错误的时间,地点,原因,我们只要对应修订就好.
@@ -215,7 +215,7 @@ for root, dirs, files in os.walk('/media/cdrom0'):
 不用怀疑,执行没有报错,而且文件也生成,但是为什么打不开? ... 嗬嗬嗬,那是另一个问题了...
 
 
-= -4 CDay小结 =
+= CDay -4 小结 =
 
 
 通过指点,在文档中狂乱的搜寻,今天小白顺利的将光盘信息全部扫描出来,并存储成了文件!
