@@ -2,7 +2,6 @@
 #pragma section-numbers on
 
 
-
 [[TableOfContents]]
 
 = CDay 1 优化!对自个儿的反省 =
@@ -160,7 +159,10 @@ South Park - Uncle Fucker.mp3=1056768
 attachment:070820_ini_596X391_scrot.png
 
  * 果然好使!
- 
+{{{详细::
+PCS204 ConfigParser
+进一步详细的分享了使用这一常用内建模块的技巧
+}}} 
 
 ==== 文件?是os 的 ====
  * 文件大小信息... f开头的模块都不象哪...
@@ -172,7 +174,11 @@ attachment:070820_os.stat_896X358_scrot.png
 
  * Bingo! 就它了!
 
-
+{{{详细::
+PCS200 os
+名为os 的内建模块中不仅仅有 stat()
+还有其它大量的有关操作系统的好用工具!
+}}}
 === 完成重构 ===
 
 简单的说就是将原先 `oa.walk()` 生成的信息利用 基础配置处理机模块，组织成类ini 的文本保存下来：

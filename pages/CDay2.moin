@@ -70,6 +70,15 @@
 
 好吧，那就尝试使用Karrigell 来整个桌面网站型的界面！
 
+{{{详细::
+PCS301 Karrigell
+精要的介绍了这一web应用框架的主要特性
+}}}
+
+{{{注意::
+PCS300 CherryPy
+另外介绍了这一历史悠久思想独到的web 应用框架
+}}}
 
 === 介绍 ===
 '''http://karrigell.sourceforge.net/''' 主站 的介绍也是非常的精妙
@@ -189,7 +198,7 @@ def index(**args):
 ==== 导入 ====
 好了,将原先的 工具脚本导入进来就可以通过网页调用原先的功能了,但是...
 
-怎么从 `PyDays/pyd+2/Karrigell-2.3.5/webapps/cdc/index.ks` 可以`import` 到 `PyDays/pyd+2/cdctools.py`???
+怎么从 `CDays/cday2/Karrigell-2.3.5/webapps/cdc/index.ks` 可以`import` 到 `CDays/cday2/cdctools.py`???
 
 好象,貌似, `import` 操作不象网页的包含动作有相对路径可以玩的?
 
@@ -273,7 +282,7 @@ http://karrigell.sourceforge.net/en/programming.htm -- 有说:
 
 {{{
 ## 全局变量
-CDCPATH = "/path/to/LovelyPython/PyDays/pyd+2/cdc"
+CDCPATH = "/path/to/LovelyPython/CDays/cday2/cdc"
 CDROM = '/media/cdrom0'
 ...
     if 0 == len(QUERY):
@@ -330,6 +339,12 @@ cdcGrep(cdcpath,keyword):
 
 因为,想用一超级 cool 的模块 `pickle` -- 序列化! 对象腌制器！ -- 据说可以将Python 的数据对象输出成文本文件，而且导入时直接转化成自然的对象！！！
 
+{{{详细::
+PCS210 pickle
+进一步分享了这一常用模块的特性;
+最可爱的,就是这个模块支持自然的对象到文件对象的双向转换!
+}}}
+
 {{{#!python
 def cdcGrep(cdcpath,keyword):
     expDict = {}
@@ -348,7 +363,7 @@ if __name__ == '__main__':      # this way the module can be
     '''cdctools 自测响应处理
     '''
     CDROM = '/media/cdrom0'
-    CDCPATH = "/path/to/LovelyPython/PyDays/pyd+2/cdc/"
+    CDCPATH = "/path/to/LovelyPython/CDays/cday2/cdc/"
     cdcGrep(CDCPATH,"EVA")
     print pickle.load(open("searched.dump"))
 }}}
