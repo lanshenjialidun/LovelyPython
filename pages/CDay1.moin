@@ -1,0 +1,196 @@
+##language:zh
+#pragma section-numbers on
+
+
+
+[[TableOfContents]]
+
+= CDay 1 优化!对自个儿的反省 =
+## 一句话本章精要精神
+`没有最好,只有更合理!`
+
+== 扩展需求 ==
+
+小白在到现在已经实现的功能:
+ 1. 扫描光盘内容并存储为硬盘上的文本文件
+  * 存储成*.cdc 的文本文件 `cdctools.cdWalker()`
+  * 可以快速指定保存目录 `PyCDC.do_dir()`
+  * 可以快速指定保存的文件名 `PyCDC.do_walk()`
+ 1. 根据储存到硬盘上的光盘信息计件进行搜索
+  * 可以搜索指定目录中所有*.cdc文件  `cdctools.cdcGrep()`
+  * 可以指定关键字进行搜索 `PyCDC.do_find()`
+   * 列出所有含有关键字的信息行
+
+而且，组织好了文档化的注释，足以让有心人快速了解整体程序结构，复用相关函式，或是掺合持续改进，这不真有另外的小白有了反馈
+
+== 问一声 ==
+'''为什么叫 PyCDC ? 和CD Catalog Expert 有关系嘛?'''
+ * 有好事者先置疑了名称...
+ * 原先随便起的名字,含义应该是 "CD Collector" 或是 "CD Commander",没有想到原来已经有同类甚至同名的软件了?
+ * 搜索一下 .... http://www.zero2000.com/cd-catalog-expert/index.html
+ * 嗯嗯嗯,还有 '''CD Collection''' http://www.nicomsoft.com/cdc/
+ * 甚至于,原来类似通过抓取指定介质的信息进行外部管理的软件是一个大类,叫...
+ 
+=== Disk Catalog ===
+'''磁盘分类'''
+ * 找到的其中评比文章 http://tech.sina.com.cn/c/2003-12-05/25149.html
+ * 而小白拍脑袋想出来的文本格式的光盘信息摘要形式,也是历史悠久:
+  * 完全类似象Total Commander的[http://www.totalcmd.net/plugring/diskdir_extended.html DiskDir], [http://www.totalcmd.net/plugring/catalogmaker.html CatalogMaker] 等插件生成的 Catalog摘要 一样
+  * 而在Linux 下面,自古FTP 服务器就提供通过`ls -lR` 生成的文本摘要
+
+=== 对比及推导 ===
+那么哪种比较好?
+ * 小白当然原意令自个儿的小工具发扬光大下去
+ * 那么改进不可避免!
+ * 其实记录的摘要文本已经升级过一次级
+  * 从{{{{{{
+/media/cdrom0/EVA/Death-Rebirth;[];['eva8-01.Mp3', 'eva8-02.Mp3',...]
+    ^                          ^ ^  ^ 
+    |                          | |  +- files列表，此目录的文件名 
+    |                          | +- 各个数据段使用";" 分隔
+    |                          +- dirs列表，子目录名，如果没有就为空
+    +- 当前目录
+}}} `os.walk()` 输出的自然结构格式
+  * 使用专门的`formatCDinfo()` 函式格式化为{{{
+...
+-f /media/cdrom0/RyokoHirosue/Ryoko Hirosue-files.files  title.gif 
+======================================================================
+/media/cdrom0/RyokoHirosue/成长物语
+-d /media/cdrom0/RyokoHirosue/成长物语 音乐极限--成长物语.files
+-f /media/cdrom0/RyokoHirosue/成长物语  RH991101.mp3 
+-f /media/cdrom0/RyokoHirosue/成长物语  RH991102.mp3 
+}}}其中 `d`代表目录;`f`代表文件
+
+  * 虽然是自个儿随意设计的格式,但是小白可以体会出有以下好处:
+   1. 格式自然,可以直接人工查阅
+   1. 每行包含绝对必要的信息: 对象类型(目录?文件?), 所在目录,文件名
+   1. 搜索匹配后输出行就是自然行,并包含必要信息
+
+ * 那么其它数据格式快速考查一下:
+ * `lslR` 的Linux 目录命令摘要:{{{
+/workspace/obp/trunk/LovelyPython/PyDays/pyd-0$ ls -lR
+.:
+drwxr-xr-x 3 zoomq zoomq  4096 2007-08-18 22:43 apidocs
+-rwxr-xr-x 1 zoomq zoomq    87 2007-07-31 14:58 AUTHORS
+drwxr-xr-x 3 zoomq zoomq  4096 2007-07-31 14:58 cdc
+-rwxr-xr-x 1 zoomq zoomq  3874 2007-08-18 22:42 cdctools.py
+-rw-r--r-- 1 zoomq zoomq  3758 2007-08-18 22:42 cdctools.pyc
+-rwxr-xr-x 1 zoomq zoomq  1152 2007-08-18 22:02 ChangeLog
+-rw-r--r-- 1 zoomq zoomq   694 2007-08-18 22:30 epydoc.cfg
+-rwxr-xr-x 1 zoomq zoomq 35148 2007-08-18 22:00 LICENSE
+-rwxr-xr-x 1 zoomq zoomq   246 2007-08-18 22:01 PKG-INFO
+-rwxr-xr-x 1 zoomq zoomq  3273 2007-08-18 22:28 pycdc.py
+-rw-r--r-- 1 zoomq zoomq  4634 2007-08-18 22:28 pycdc.pyc
+-rwxr-xr-x 1 zoomq zoomq  1082 2007-07-31 14:58 README
+
+./apidocs:
+-rw-r--r-- 1 zoomq zoomq   760 2007-08-18 22:52 api-objects.txt
+-rw-r--r-- 1 zoomq zoomq 15247 2007-08-18 22:52 cdctools-module.html
+-rw-r--r-- 1 zoomq zoomq 26380 2007-08-18 22:52 cdctools-pysrc.html
+-rw-r--r-- 1 zoomq zoomq  4139 2007-08-18 22:52 class-tree.html
+-rw-r--r-- 1 zoomq zoomq   340 2007-08-18 22:52 crarr.png
+...
+}}}
+  * 是以空行来区分不同目录下的信息
+  * 每节是固定顺序的信息:{{{
+./apidocs:  <-- 当前目录
+-rw-r--r-- 1 zoomq zoomq   760 2007-08-18 22:52 api-objects.txt
+^   ^           ^   ^       ^   ^                   ^
+|   |           |   |       |   |                   +- 文件/目录名
+|   |           |   |       |   +- 创建/修订时间
+|   |           |   |       +- 体积
+|   |           |   +- 用户组
+|   |           +- 用户
+|   +- 权限组
++- 文件(-)或是目录(d)
+}}}
+   * 包含了丰富且规范的信息,但是作为 PyCDC 其中有关时间/权限的信息都是不必要的,而且不是跨平台兼容的,在M$平台中,权限信息就根本用不上..
+
+ * '''CD Catalog Expert'''的文本数据格式{{{
+[Info]
+DriveType=5
+ImagePath=L:
+Volume=MCollec.39
+Serial=723840260
+FAT=CDFS
+DiskSize=676020224
+DiskFree=0
+
+[Comment]
+0= South Park(南方公园)
+1= 可儿乐队精选The Corrs Greathits
+2= 林忆莲
+3= 瘐澄庆《哈林天堂》Harlem'm 
+4=Heaven
+
+[L:]
+
+[L:\South Park(南方公园)]
+South Park - Merry Fucking Xmas.mp3=1986560
+South Park - Uncle Fucker.mp3=1056768
+
+...
+ }}}
+  * 嗬嗬嗬,这样儿的,小白也看明白了,完全是标准的.ini 配置文本格式哪!
+  * [Info] 一节是软件和光盘整体信息
+  * [Comment] 一节的是根目录列表
+  * [目录] 各节是各个目录的文件信息
+  * 和自创的文本格式相比是更加规范了些,而且可以直接由成熟的己有软件解读哪!
+  * 小白突然开窃... 这等于是直接利用有己有客户群哪! 有兼容性的话,原先使用 '''CD Catalog Expert''' 的人不也更加有可能使用 PyCDC 了?
+  * 至于其它的使用数据库或是自创二进制文件的软件,小白没有精力和兴趣研究了,就这么着!
+
+== 快速重构 ==
+
+'''将PyCDC 的光盘摘要文本格式,直接向己有软件的数据格式看齐!'''
+
+=== 问题探索 ===
+'''嗯嗯嗯，有了目标就有了研究的动力！'''
+ * 小白立即根据分析结果确定了代码难点:
+  1. 怎么处理 .ini 文件?
+  1. 怎么获得文件的大小?
+ * 老规矩,在列表中吼!
+ * 结果,行者们给出来的答案是一致的:"内置模块有支持!"
+ * 呜乎矣哉... 看来范了信赖病,小白重新拿起 '''[http://wiki.woodpecker.org.cn/moin/AskForHelp 提问的智慧]''' BS一下自个儿,
+ * 然后,翻开[http://aspn.activestate.com/ASPN/docs/ActivePython/2.4/python/modindex.html Global Module Index] -- 全局模块索引 ... 这通找哪...
+
+==== ConfigParser ====
+ * '''[http://aspn.activestate.com/ASPN/docs/ActivePython/2.4/python/lib/module-ConfigParser.html ConfigParser]'''--配置处理机?! 这也忒直白了吧!
+ * 粗略的看了一下,也就[http://aspn.activestate.com/ASPN/docs/ActivePython/2.4/python/lib/RawConfigParser-objects.html RawConfigParser-objects] -- 原始配置处理机对象 有写出到文件的函式,就它了!
+ * 在iPython 中快速尝试一下
+attachment:070820_ini_596X391_scrot.png
+
+ * 果然好使!
+ 
+
+==== 文件?是os 的 ====
+ * 文件大小信息... f开头的模块都不象哪...
+ * 突然小白想起来,这文件和目录可都是文件系统,操作系统管理的哪
+ * 光盘扫描的 walk() 函式就是在os 模块中的,文件这个信息也应该在的说?
+ * [http://aspn.activestate.com/ASPN/docs/ActivePython/2.4/python/lib/os-file-dir.html Files and Directories] -- 文及目录 ;果然! 有个 `os.stat()` 系统状态函式!
+ * 照例 在 iPython 中快速尝试一下
+attachment:070820_os.stat_896X358_scrot.png
+
+ * Bingo! 就它了!
+
+
+=== 完成重构 ===
+
+简单的说就是将原先 `oa.walk()` 生成的信息利用 基础配置处理机模块，组织成类ini 的文本保存下来：
+
+||<^>[[Include(/old)]]||<^>[[Include(/new)]]||
+
+ * done! 当然还有连带的其它改动:
+  1. 命令行相关响应的实际处理更新
+  1. 搜索的相应升级
+ * 嗬嗬嗬，都是小改动了，随手就得 ;)
+
+== 小结 ==
+## 总体语法等等叙述,注意给出相关知识的阅读指导
+
+== 练习 ==
+## 设计实用练习,确保体例代码可以自由扩展出各种实用应用!
+
+----
+::-- ZoomQuiet [[[DateTime(2007-04-13T16:17:50Z)]]]
+[[PageComment2]]
+
