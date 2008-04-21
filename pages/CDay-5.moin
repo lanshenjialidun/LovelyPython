@@ -6,7 +6,7 @@
 [[TableOfContents]]
 
 
-= CDay -5 初体验和原始需求 =
+= CDay -5 Python初体验和原始需求 =
 
 `Just use it! don't learn!` -- 用之,不学!
 
@@ -146,7 +146,7 @@ attachment:snapiPyHolleWorld.png
 仅仅就这两点，也仅此两点的需求，可以?如何?以及怎样通过Python 实现?小白和读者一同期待...
 
 
-= CDay -5 小结 =
+= 小结 =
 
 
 作为开始,今天小白决定使用Python 来解决光盘内容管理,这一实际问题;
