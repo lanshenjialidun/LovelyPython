@@ -1,0 +1,41 @@
+(lp1
+S'title'
+p2
+aS'artist'
+p3
+a.I3
+.(dp1
+I0
+(dp2
+S'title'
+p3
+S'Favourite Worst Nightmare'
+p4
+sS'__version__'
+p5
+I0
+sS'__id__'
+p6
+I0
+sS'artist'
+p7
+S'Arctic Monkeys'
+p8
+ssI1
+(dp9
+S'artist'
+p10
+S'Radiohead'
+p11
+sS'__version__'
+p12
+I0
+sS'__id__'
+p13
+I1
+sS'title'
+p14
+S'Ok Computer'
+p15
+ss.(dp1
+.

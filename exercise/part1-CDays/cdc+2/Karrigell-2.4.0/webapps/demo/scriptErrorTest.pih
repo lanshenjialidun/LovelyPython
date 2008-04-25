@@ -1,0 +1,10 @@
+<html>
+<head>
+<title>Checking message error</title>
+</head>
+
+<body>
+
+<%
+    print bonjour
+%>

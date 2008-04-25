@@ -1,0 +1,75 @@
+<!-- Show information about the error or exception,
+the original script with coloured syntax and the erroneous line highlighted,
+the translation into Python code if the script is a PIH script -->
+
+<HTML>
+<head>
+<link rel="STYLESHEET" href="errors.css">
+<style>
+td.filecontent {  font-size:70%; background-color: #FFFFCC; border-width: 1; border-style:solid;}
+</style>
+</head>
+
+<body>
+
+<% 
+import re, pythonParser, cStringIO, cgi, os
+[path,fileName,tb,originLineNum] = error_info
+originLineNum-=1
+%>
+<%_ "Contents of file" %> <b><%= os.path.basename(fileName) %></b>
+
+<pre><%= tb %></pre>
+
+<% 
+
+def addTag(match):
+    chunk=data[match.start()+2:match.end()-1]
+    outStream=cStringIO.StringIO()
+    pythonParser.Parser(chunk,None,out=outStream).format(None)
+    return "<i>&lt;%"+outStream.getvalue()+"></i>"
+
+def render(in_data,showLine):
+    output=[]
+    lineNums=[]
+    for lineNum,line in enumerate(in_data.split('\n')):
+        if lineNum==showLine:
+            output.append('<span class="error">%s</span>' %line)
+        else:
+            output.append(line)
+        lineNums.append('%3d ' %(lineNum+1))
+    output="\n".join(output)
+    lineNums="\n".join(lineNums)
+    return output,lineNums
+
+data=file(fileName,'rb').read()
+
+pythonLine=1
+
+if fileName.endswith(".pih"):
+    print '<br>Python chunks are in <i>italic</i>'
+    # replace all < by &lt; except if followed by %
+    data=re.sub("<(?!%)","&lt;",data)
+    # regular expression for Python chunks. Cannot be written directly with
+    # < followed by % because of parsing rules of this pih file...
+    pyChunkRE=re.compile("<"+"%.*?%"+">",re.DOTALL)
+    data=pyChunkRE.sub(addTag,data)
+    code,lineNums=render(data,originLineNum)
+else:
+    outStream=cStringIO.StringIO()
+    p=pythonParser.Parser(cgi.escape(data),None,out=outStream)
+    p.format(showLineNums=1)
+    lineNums=p.lineNums.getvalue()
+    data=outStream.getvalue()
+    code,lineNums=render(data,pythonLine-1)
+
+%>
+<table class="errors" cellpadding="0" cellspacing="0">
+<tr>
+<td class="lineNum" valign="top"><pre><%= lineNums %></pre></td>
+<td class="normal" valign="top"><pre><%= code %></pre></td>
+</tr>
+</table>
+
+</body>
+</html>

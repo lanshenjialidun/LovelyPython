@@ -1,0 +1,14 @@
+<!-- Home page for Association -->
+
+<head>
+    <title>Association</title>
+    <link rel="stylesheet" type="text/css" HREF="k_base.css">
+</head>
+<h3>Tabs Demo</h3>
+
+<% 
+Include("k_tabs.hip",
+    labels=["A","B","C"],
+    urls=["tabsA.htm","tabsB.htm","tabsC.htm"],
+    targetUrl="tabsDemo.pih")
+%>

@@ -1,0 +1,29 @@
+<%
+# default values for newsTitle and newsBody
+if _id!=-1:
+    newsTitle=news["title"]
+    newsBody=news["body"]
+else:
+    newsTitle=""
+    newsBody=""
+%>
+
+<form action="<%= action %>" method="post">
+<input type="hidden" name="id" value="<%= _id %>">
+<table>
+<tr>
+<td>Title</td>
+<td><input name="newsTitle" value="<%= newsTitle%>"></td>
+</tr>
+<tr>
+<td>Body</td>
+<td>
+<textarea name="newsBody" rows="10" cols="30">
+<%= newsBody%>
+</textarea>
+</td>
+</tr>
+<tr>
+<td colspan="2" align="center"><input type="submit" value="Ok"></td>
+</tr>
+</table>

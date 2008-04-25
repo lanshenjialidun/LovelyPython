@@ -1,0 +1,19 @@
+INSTRUCTIONS POUR FAIRE FONCTIONNER KARRIGELL SUR OVH
+
+Les sites OVH fournissent plusieurs répertoires, dont "www" et "cgi-bin"
+
+Pour faire fonctionner Karrigell sur ce serveur :
+
+1. Dans le répertoire www
+- créer un répertoire "karrigell"
+- y télécharger la distribution Karrigell (le fichier Karrigell.py doit se trouver dans ce répertoire) sauf le répertoire "webapps"
+- télécharger le répertoire webapps dans www
+- copier le fichier htaccess_OVH.txt dans www
+- le renommer en .htaccess
+
+2. Dans le répertoire cgi-bin
+- copier le fichier ApacheHandler_OVH.cgi
+- rendre ce fichier exécutable (chmod 777)
+
+3. pour tester, appeler l'URL http://(votre site ovh)/karrigell/webapps/demo/hello.py
+Vous devriez voir le message "Hello Karrigell!"

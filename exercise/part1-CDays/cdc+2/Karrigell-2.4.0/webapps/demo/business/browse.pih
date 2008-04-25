@@ -1,0 +1,20 @@
+<% Include("header.pih") %>
+
+<%
+# choose a category of songs
+# receives a _key variable : recueils, genres or dialectes
+from songDb import db
+
+d={"recueils":"par recueil","genres":"par genre","dialectes":"par dialecte"}
+%>
+
+<% _("Parcourir") %><% _(d[_key]) %>
+<p>
+<%
+dbase = db[_key]
+elts=[ (r['__id__'],r['nom']) for r in dbase ]
+elts.sort(lambda x,y: cmp(x[1].lower(),y[1].lower()))
+for elt in elts: %>
+    <a href="songList.pih?key=<%= _key %>&value=<%= elt[0] %>">
+    <%= elt[1] %></a><br>
+<% end %>

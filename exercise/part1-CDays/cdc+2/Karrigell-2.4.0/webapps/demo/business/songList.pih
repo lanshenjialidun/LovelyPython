@@ -1,0 +1,46 @@
+<% Include("header.pih")%>
+
+<indent>
+<% 
+from songDb import db
+import re
+
+if QUERY.has_key("key"):
+    rec = db[_key][int(_value)]
+    title = rec['nom']
+    rec_id = rec['__id__']
+    if _key=="genres":
+        songs = [ r for r in db['chansons'] if r['genre'] == rec_id ]
+    elif _key in ['dialectes','recueils']:
+        rec_id = db[_key][int(_value)]['__id__']
+        songs = [ db['chansons'][r['chanson']]
+            for r in db['chansons_par_%s' %_key[:-1]] 
+            if r[_key[:-1]] == rec_id ]
+    songs.sort(lambda x,y : cmp(x['breton'].lower(),y['breton'].lower()))
+
+elif QUERY.has_key("words"):
+    # find songs with _words in title
+    title = 'Songs with "%s"' %_words
+    # pattern for case-insensitive search begins with (?i)
+    songs=[ r for r in db['chansons'] if re.search('(?i)%s' %_words,r['breton']) ]
+else:
+    title = _("All the songs")
+    songs=[ r for r in db['chansons'] ]
+    songs.sort(lambda x,y:cmp(x['breton'].lower(),y['breton'].lower()))
+%>
+
+<h2><%= title %> (<%= len(songs) %>&nbsp;<%_ "songs" %>)</h2>
+<table border="1">
+<tr class="song">
+<th><%_ "Song" %></th>
+<th><%_ "Price" %> (&euro;)</th>
+</tr>
+<% for s in songs: %>
+    <tr class="song">
+    <td><a href="details.pih?song=<%= s['__id__'] %>"><%= s['breton'] %></a></td>
+    <td><%= round(float(s['prix'])/100,2) %></td>
+    </tr>
+    <% end %>
+</table>
+</form>
+</indent>

@@ -1,0 +1,12 @@
+<html>
+<body>
+
+<h3>Session test goes on</h3>
+<%
+session=Session()
+print session.firstname
+session.close()
+%>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<head>
+<title>CD Cover</title>
+<style type="text/css">
+td.side {writing-mode:tb-rl; border-style:none;}
+td.front {border-style:none;}
+h2 {font-family: verdana; font-size:30px}
+</style>
+</head>
+
+<body>
+
+<H2>CD Cover creation</h2>
+
+<form action="cd_cover.pih" method="post" target="dehou">
+<table>
+<tr>
+<td>Font family</td>
+<td>
+<select name="font">
+<% for family in ["serif", "sans-serif", "cursive", "fantasy", "monospace",
+	"Times", "TimesNR", "New Century Schoolbook","Helvetica", "Arial", "Verdana",
+	"Courier","Mistral", "Author" ]: %>
+	<option value="<%= family %>"><%= family %>
+<% end %>
+</td>
+</tr>
+
+<% for line in range(1,7): %>
+	<tr>
+	<td>Line <%= line %></td>
+	<td><input name="line<%= line %>">
+	&nbsp;
+	<select name="header<%= line %>">
+	<% for i in range(1,7): %>
+		<option value="<%= i %>">H<%= i %>
+	<% end %>
+
+	</td>
+	</tr>
+<% end %>
+
+<tr>
+<td>Side text</td>
+<td><input name="side" size="40"></td>
+</tr>
+</table>
+<br>Song list
+<br>
+<textarea rows="12" cols="40" name="song_list">
+</textarea>
+<br><input type="submit" value="Ok">
+</form>
+
+
+</body>

@@ -1,0 +1,15 @@
+<head>
+<title>Login</title>
+</head>
+<body>
+<h1>Connection</h1>
+<form action="check_login.py" method="post">
+<table>
+<input type="hidden" name="path" value="<%= _path %>">
+<input type="hidden" name="baseurl" value="<%= "/"+_baseurl.rstrip('/') %>">
+<tr><td>Identifiant</td><td><input name="login"></td></tr>
+<tr><td>Mot de passe</td><td><input name="passwd" type="password"></td></tr>
+<tr><td><input type="submit" value="Ok"></td><td>&nbsp;</td></tr>
+</table>
+</form>
+</body>

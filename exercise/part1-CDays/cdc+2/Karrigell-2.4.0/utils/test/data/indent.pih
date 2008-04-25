@@ -1,0 +1,24 @@
+<% hour = _hour %>
+<% if hour<12: %>
+    Good morning
+    <% end %>
+<% elif hour<18: %>
+    Good afternoon
+    <% end %>
+<% else: %>
+    Good evening
+<% end %>
+ Ladies and Gentlemen
+
+<table border=1>
+  <tr>
+    <th>Number</th>
+    <th>Square</th>
+  </tr>
+  <% for i in range(10): %>
+    <tr>
+      <td><% print i %></td>
+      <td><% print i**2 %></td>
+    </tr>
+  <% end %>
+</table>

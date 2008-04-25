@@ -1,0 +1,101 @@
+body {font: bold 10px Verdana, sans-serif}
+table {border-style:solid;
+	border-width=0; 
+	border-color=blue;
+	BORDER-COLOR-LIGHT=#88CCFF;
+	BORDER-COLOR-DARK=#0000CC; 
+	border-collapse: collapse;
+	border-spacing:0; 
+	border-padding:0;
+	font: 12px Verdana, sans-serif;
+}
+
+table.base {border-style:solid;
+	border-width=1; 
+	border-color=#778;
+	BORDER-COLOR-LIGHT=#88CCFF;
+	BORDER-COLOR-DARK=#0000CC; 
+	border-collapse: collapse;
+	border-spacing:0; 
+	border-padding:0;
+	font: 12px Verdana, sans-serif;
+	width=100%;
+}
+table.base td {border-right: 1px solid #778; 
+	border-bottom: 1px solid #cccccc; 
+	border-padding: 5px;}
+table.base th {border-right: 1px solid #778; 
+	border-bottom: 1px solid #cccccc; 
+	border-padding: 5px;}
+
+
+tr.title {background-color:#f4f4f4; height=25px;}
+td.title {font-weight:bold; }
+tr.even {background-color:#AACCFF; }
+tr.odd {background-color:#99BBF0; }
+
+table.selection { background-color: #ffffcc;
+	border-style:solid;
+	border-width=1; 
+	border-color=#778;
+	BORDER-COLOR-LIGHT=#88CCFF;
+	BORDER-COLOR-DARK=#0000CC; 
+	border-collapse: collapse;
+	border-spacing:0; 
+	border-padding:0;
+	font: 10px Verdana, sans-serif;
+}
+table.selection td {border-right: 1px solid #778; 
+	border-bottom: 1px solid #cccccc; 
+	border-padding: 5px;}
+
+table.selection th {border-right: 1px solid #778; 
+	border-bottom: 1px solid #cccccc; 
+	border-padding: 5px;
+	font-weight: bold;}
+
+td.white {background-color: #ffffff}
+
+/* Eric Meyer's navbar */
+/* http://www.meyerweb.com/eric/talks/2003/commug/commug.html */
+#navlist
+{
+padding: 3px 0;
+margin-left: 0;
+border-bottom: 1px solid #778;
+font: bold 14px Verdana, sans-serif;
+}
+
+#navlist li
+{
+list-style: none;
+margin: 0;
+display: inline;
+}
+
+#navlist li a
+{
+padding: 3px 0.5em;
+margin-left: 3px;
+border: 1px solid #778;
+border-bottom: none;
+background: #DDE;
+text-decoration: none;
+}
+
+#navlist li a:link { color: #448; }
+#navlist li a:visited { color: #667; }
+
+#navlist li a:hover
+{
+color: #000;
+background: #AAE;
+border-color: #227;
+}
+
+#navlist li a#current
+{
+background: white;
+border-bottom: 1px solid white;
+color: #000
+}

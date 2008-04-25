@@ -1,0 +1,3 @@
+This page has a counter
+<br>
+<% Include('counter.py',counter_file="counter.txt") %>

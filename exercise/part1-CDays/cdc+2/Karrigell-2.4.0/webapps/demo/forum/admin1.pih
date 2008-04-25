@@ -1,0 +1,12 @@
+<% if not hasattr(Session(),'forum_admin'): %>
+    Forum administration
+    <p>
+    <form action="AuthenticationTest.py" method="post">
+    login <input name="login"> password <input type="password" name="password">
+    <input type="submit" value="Ok">
+    </form>
+<% end %>
+<% else:
+    del Session().forum_admin
+    raise HTTP_REDIRECTION,'index.ks'
+%>

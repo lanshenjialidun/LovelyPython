@@ -1,0 +1,55 @@
+<% Include("header.pih") %>
+
+<h2><%_ "Situation of your cart" %></h2>
+
+<%
+# if action=add, add the specified file
+# if action=remove, remove the specified file
+# in all cases, show the cart
+
+so=Session()
+from songDb import db
+if not hasattr(so,"order"):
+    so.order=[]
+
+if QUERY.has_key("song"):
+    song_id = int(_song)
+    song=db['chansons'][song_id]
+
+    if _action=="add":
+        if not song_id in so.order:
+            so.order.append(song_id)
+            print "<i>"+song['breton']+"</i>&nbsp;"+_("added to your cart")
+        else:
+            print "<i>"+song['breton']+"</i>&nbsp;"+_("was already in your cart")
+    elif _action=="remove":
+        if song_id in so.order:
+            print "<i>"+song['breton']+"</i>&nbsp;"+_("removed from your cart")
+            so.order.remove(song_id)
+
+# show cart
+%>
+<p>
+<indent>
+<% if not len(so.order):
+    print _("Your cart is empty")
+    raise SCRIPT_END
+%>
+<table border="1" cellpadding="5">
+<tr><th><%_ "Song" %></th><th><%_ "Price" %></th><th>&nbsp</th></tr>
+<%
+total=0
+songs = [ db['chansons'][_id] for _id in so.order ]
+for song in songs: %>
+    <tr>
+    <td><%= song['breton'] %></td>
+    <td><%= round(float(song['prix'])/100,2) %></td>
+    <td><font size="-2">
+    <a href="<%= THIS.url %>?action=remove&song=<%= song['__id__'] %>"><%_ "Remove" %></a>
+    </font></td>
+    </tr>
+    <% total+=song['prix'] %>
+</indent>
+<tr><th>Total</th><th><%= round(float(total)/100,2) %></th><th>&nbsp</th></tr>
+</table>
+

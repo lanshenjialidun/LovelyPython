@@ -1,0 +1,32 @@
+<!-- edit preferences of a user -->
+
+<% Include ("header.hip") %>
+
+<form action="setPreferences.py">
+<center>
+<table>
+<tr>
+<td><%_ "Background color" %></td>
+<td><input name="bgcolor" value="<%= user["bgcolor"]%>"></td>
+</tr>
+<tr>
+<td><%_ "Font family" %></td>
+<td>
+<select name="fontfamily">
+<%
+families=["sans-serif","times","courier"]
+for i in range(len(families)):
+    family=families[i]
+    if family==user["fontfamily"]:
+        print '<option value="%s" selected>%s' %(family,family)
+    else:
+        print '<option value="%s">%s' %(family,family)
+%>
+</select>
+</td>
+</tr>
+<tr>
+<td colspan="2" align="center"><input type="submit" value="Ok"></td>
+</tr>
+</table>
+</center>

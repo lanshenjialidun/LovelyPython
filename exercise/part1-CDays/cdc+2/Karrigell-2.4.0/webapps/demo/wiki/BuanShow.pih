@@ -1,0 +1,43 @@
+<% 
+import datetime
+import BuanBuan
+from wikiBase import db
+
+page = db._name[_pageName][0]
+# increment number of visits
+page['nbvisits'] += 1
+
+b=BuanBuan.BuanDoc(_pageName, page['content'])
+html = b.text
+wikiNames=b.wikiNames
+
+# insert new pages in the base
+for w_name in wikiNames:
+    if not db._name[w_name]:
+        insertTime = datetime.datetime.now()
+        db.insert(w_name,'New page',page['admin'], 0, insertTime,1,insertTime)
+db.commit()
+%>
+<html>
+<head>
+<link rel="stylesheet" href="wiki.css">
+</head>
+<body>
+<table width="100%"><tr><td align="left">
+<a href="index.pih"><img src="home.gif" border="0" alt="Home"></a></td></tr></table>
+<%= html %>
+
+<HR>
+<%
+link = "BuanEdit.pih?pageName=%s" %_pageName
+if page['admin']:
+    link += "&admin=on"
+%>
+<a href="<%= link %>">Edit this document</a>
+<br><i>Version : <%= page['version'] %> </i> - 
+<i>Last modified : 
+<%= page['lastmodif'].strftime("%d/%m/%y %H:%M") %>
+&nbsp;Visited <%= page['nbvisits'] %> times
+</i>
+</html>
+</body>

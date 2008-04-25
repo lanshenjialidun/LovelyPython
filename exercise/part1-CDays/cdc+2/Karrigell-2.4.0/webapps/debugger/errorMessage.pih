@@ -1,0 +1,23 @@
+<HTML>
+<head>
+<style>
+td.footer {  font-size:70%; background-color: #CCFFFF; border-width: 1; border-style:solid;}
+</style>
+</head>
+
+<body>
+
+<h1><%_ "Error in" %>&nbsp;<a href="<%= path %>"><%= path %></a></h1>
+<%= msg %>
+
+<p>
+<table>
+<tr>
+<td class="footer">
+<%= REQUEST_HANDLER.server_version %>
+&nbsp;<%= REQUEST_HANDLER.date_time_string() %>
+</td>
+</tr>
+</table>
+</body>
+</html>

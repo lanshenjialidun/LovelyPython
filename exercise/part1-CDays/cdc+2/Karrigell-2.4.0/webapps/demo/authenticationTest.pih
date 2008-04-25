@@ -1,0 +1,15 @@
+<html>
+
+<body>
+
+<%
+def authTest():
+    return (AUTH_USER=="holden" and AUTH_PASSWORD=="caulfield")
+
+Authentication(authTest,realm="The catcher in the rye",errorMessage="Sorry, you are not allowed to access this page")
+%>
+You killed me, authenticated user !
+
+</body>
+
+</html>

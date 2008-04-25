@@ -1,0 +1,393 @@
+<html>
+<head>
+<title>Python Inside HTML
+</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="STYLESHEET" href="../doc.css">
+</head>
+<BODY bgcolor="#71B559" LINK="#FFFFCC" VLINK="#FFFFCC" LEFTMARGIN="0" TOPMARGIN="0">
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td class="side">&nbsp;</td>
+<td>
+    <table class="header" cellpadding="0" cellspacing="0">
+    <tr>
+        <td>
+            <a href="../../index.pih"><img src="../images/karrigell_skeudenn.png" border="0"></a>
+        </td>
+        <td class="headertext">
+            <td class="headertext1">
+                <center>
+                <font size="+2"><b>Karrigell Documentation</b></font>
+                <p>
+                <table width="70%" cellpadding="0" cellspacing="0"><tr>
+                <td class="info" align="left"><strong>Version 2.4.0</strong></td>
+                <td class="info" align="right">12 04 08</td>
+                </tr></table>
+                </center>
+            </td>
+            <td class="headertext2">
+                <a class="header" href="../fr/pythoninsidehtml.htm">Fran&ccedil;ais</a>
+            </td>
+        </td>
+    </tr>
+    </table>
+</td>
+</tr>
+<tr><td class="menu" valign="top"><a class="menu" href="front.htm">
+1. Introduction
+</a><br><a class="menu" href="install.htm">
+2. Installing Karrigell
+</a><br><a class="menu" href="webserveroptions.htm">
+3. The Web server
+</a><br><a class="menu" href="configuration.htm">
+4. Configuration options
+</a><br><a class="menu" href="apache.htm">
+5. Working with Apache, LightTPD or Xitami
+</a><br><a class="menu" href="programming.htm">
+6. Programming
+</a><br><a class="menu" href="debugging.htm">
+7. Debugging
+</a><br><a class="menu" href="pythonscripts.htm">
+8. Python scripts
+</a><br><a class="menu" href="cgi.htm">
+9. CGI scripts
+</a><br><a class="menu" href="karrigellservices.htm">
+10. Karrigell Services
+</a><br><span class="sel">
+11. Python Inside HTML
+</span><br><span class="sel">
+&nbsp;&nbsp;<small>11.1 Python variables</small></span><br><span class="sel">
+&nbsp;&nbsp;<small>11.2 Strings for translation</small></span><br><span class="sel">
+&nbsp;&nbsp;<small>11.3 Indentation</small></span><br><span class="sel">
+&nbsp;&nbsp;<small>11.4 PIH as a templating system</small></span><br><span class="sel">
+&nbsp;&nbsp;<small>11.5 Debugging</small></span><br><a class="menu" href="htmlinsidepython.htm">
+12. HTML Inside Python
+</a><br><a class="menu" href="htmltags.htm">
+13. HTMLTags - generate HTML in Python
+</a><br><a class="menu" href="include.htm">
+14. Including documents
+</a><br><a class="menu" href="sessions.htm">
+15. Sessions
+</a><br><a class="menu" href="authentication.htm">
+16. Authentication and users management
+</a><br><a class="menu" href="internationalization.htm">
+17. Translation and Unicode
+</a><br><a class="menu" href="namespace.htm">
+18. Summary of built-in names</a><br></td>
+<td class="content">
+<h1>11. Python Inside HTML</h1>
+<p>Python Inside HTML behaves much like Microsoft's Active Server Pages, Sun's
+Java Server Pages and PHP : it's basically a HTML document, in which you insert
+portions of code written in a programming language - here Python</p>
+<p>In Python Inside HTML, these portions of code are separated from the HTML
+code inside special tags : &lt;% and %&gt;</p>
+<p>Suppose you want to display the current date, you'll mix html and Python
+code this way :
+<dl><dd><pre class="verbatim">
+The current date is
+&lt;% import time
+print time.strftime("%d:%m:%y",time.localtime(time.time()))
+%&gt;
+</pre></dl>
+<p>With a text editor, write the code above and save it under
+<span class="file">time.pih</span> in
+your <a href="webserveroptions.htm#root">Root Directory</a>. Enter
+<span class="url">http://localhost/time.pih</span> and see what happens
+<p>You'll notice that the code inside the <code>&lt;%</code> and
+<code>%&gt;</code> tags is ordinary Python code, in which you can import
+modules, create and instanciate classes, use variables, read or write to
+the file system, etc.  Access to HTTP environment, to form fields, to the
+exceptions defined by Karrigell are made the same way as in
+<a href="pythonscripts.htm">Python scripts</a>
+<h2>11.1 Python variables</h2>
+When you only want to print a variable's value, instead of
+<code>&lt;% print var %&gt;</code> you can use the shortcut
+<code>&lt;%= var %&gt;</code> :
+<dl><dd><pre class="verbatim">
+  Current directory &lt;%= os.getcwd() %>
+</pre></dl>
+In this example you'll notice that you don't have to explicitely import
+the <code>os</code> module : for convenience, it is already in the namespace
+when you execute the script ; so are two other modules,
+<code>string</code> and <code>Cookie</code>, because they will probably be
+used in many scripts (but of course, if you explicitely write <code>import
+string</code> your script will work as well)
+</p>
+<h2>11.2 Strings for translation</h2>
+Since internationalization is important in Karrigell, there is a shortcut
+for the strings or string variables you'll want to be translated according
+to user preferences : use <code>&lt;%_ string %&gt;</code>
+<dl><dd><pre class="verbatim">
+  &lt;% import time %&gt;
+  &lt;%_ "Current directory is " %&gt; &lt;%= os.getcwd() %>
+  &lt;%_ "Current day " %&gt; &lt;%_ time.strftime("%a",time.localtime()) %&gt;
+</pre></dl>
+<p>If you have prepared a translation for the string <code>Current directory is
+</code>, when the user calls the script and his language preference is French,
+his browser will display <code>Le répertoire courant est </code>
+<p>See Karrigell support for <a href="internationalization.htm">
+internationalization</a>
+<h2>11.3 Indentation</h2>
+<p>The result of processing a PIH file is Python code ; this code must be
+indented. Since a PIH script is a mixture of HTML, in which indentation has no
+other meaning than readability, and of chunks of Python code, it may be difficult
+to produce a code that is easily readable and correctly indented
+<h3>11.3.1 Basics</h3>
+PythonInsideHTML follows simple rules :
+<ul>
+<li>at the start of the script, indentation is zero
+<li>every part is indented according to the current indentation
+<li>this current indentation can be modified by two means :
+<ol>
+<li>when a Python code part ends with a colon (:) the indentation of what
+follows is incremented by 1
+<li>to decrement indentation use <code>&lt;% end %&gt;</code>
+</ol>
+</ul>
+<p>A simple condition example :
+<dl><dd><pre class="verbatim">
+<TABLE cellspacing="5">
+<tr>
+<td>&nbsp;</td>
+<td><pre class="verbatim"># indentation</td>
+</tr>
+<tr>
+<td><pre class="verbatim">
+&lt;% if hour<12: %>
+    Good morning
+    &lt;% end>
+&lt;% elif hour<18: %>
+    Good afternoon
+    &lt;% end>
+&lt;% else: %>
+    Good evening
+&lt;% end>
+&nbsp;Ladies and Gentlemen
+</td>
+<td><pre class="verbatim">
+# 0 - next one : 1
+# 1
+# 1 - next one : 0
+# 0 - next one : 1
+# 1
+# 1 - next one : 0
+# 0 - next one : 1
+# 1
+# 1 - next one : 0
+# 0
+</td>
+</tr>
+</table>
+</pre></dl>
+<p>and a <code>for</code> loop :
+<dl><dd><pre class="verbatim">
+<TABLE cellspacing="5">
+<tr>
+<td>&nbsp;</td>
+<td><pre class="verbatim"># indentation</td>
+</tr>
+<tr>
+<td><pre class="verbatim">
+&lt;table border=1>
+  &lt;tr>
+    &lt;th>Number&lt;/th>
+    &lt;th>Square&lt;/th>
+  &lt;/tr>
+  &lt;% for i in range(10): %>
+    &lt;tr>
+      &lt;td>&lt;% print i %>&lt;/td>
+      &lt;td>&lt;% print i**2 %>&lt;/td>
+    &lt;/tr>
+  &lt;% end %>
+&lt;/table>
+</td>
+<td><pre class="verbatim">
+# 0
+# 0
+# 0
+# 0
+# 0
+# 0 - next one : 1
+# 1
+# 1
+# 1
+# 1
+# 1 - next one 0
+# 0
+</td>
+</tr>
+</table>
+</pre></dl>
+<p>Without this <code>&lt;% end %&gt;</code> tag the
+<code>&lt;/table&gt;</code> tag would have been inserted in the loop
+<p>A last one with two levels of indentation
+<dl><dd><pre class="verbatim">
+<TABLE cellspacing="5">
+<tr>
+<td>&nbsp;</td>
+<td><pre class="verbatim"># indentation</td>
+</tr>
+<tr>
+<td><pre class="verbatim">
+&lt;% for i in range(10): %>
+    &lt;% if i % 2: %>
+        &lt;td class="odd">&lt;%= i %>&lt;/td>
+        &lt;% end %>
+    &lt;% else: %>
+        &lt;td class="even">&lt;%= i %>&lt;/td>
+        &lt;% end %>
+    &lt;% end %>
+End of table
+</pre>
+</td>
+<td><pre class="verbatim">
+# 0 - next one : 1
+# 1 - next one : 2
+# 2
+# 2 - next one : 1
+# 1 - next one : 2
+# 2
+# 2 - next one : 1
+# 1 - next one : 0
+# 0
+</pre>
+</td>
+</tr>
+</table>
+</pre></dl>
+<p>Note that after the 1st line the tag must be closed by %>, if not, the
+indentation after the second line will be only 1
+<h3>11.3.3 The <code>&lt;indent&gt;</code> tag</h3>
+For longer or more complex code the repetitive use of <code>&lt;% end %&gt;</code> may become
+tedious. If
+you want some parts of your code to be indented in Python as it is in the
+PIH code, embed it with the <code>&lt;indent&gt;</code> tag
+<p>First example :
+<dl><dd><pre class="verbatim">
+<TABLE cellspacing="5">
+<tr>
+<td>&nbsp;</td>
+<td><pre class="verbatim"># indentation</td>
+</tr>
+<tr>
+<td><pre class="verbatim">
+&lt;indent&gt;
+&lt;% if hour<12: %>
+    Good morning
+&lt;% elif hour<18: %>
+    Good afternoon
+&lt;% else: %>
+    Good evening
+Ladies and Gentlemen
+&lt;/indent&gt;
+</td>
+<td><pre class="verbatim">
+# 0
+# 0
+# 1
+# 0
+# 1
+# 0
+# 1
+# 0
+&nbsp;
+</td>
+</tr>
+</table>
+</pre></dl>
+<p>Second one :
+<dl><dd><pre class="verbatim">
+<TABLE cellspacing="5">
+<tr>
+<td>&nbsp;</td>
+<td><pre class="verbatim"># indentation</td>
+</tr>
+<tr>
+<td><pre class="verbatim">
+&lt;table border=1>
+  &lt;tr>
+    &lt;th>Number&lt;/th>
+    &lt;th>Square&lt;/th>
+  &lt;/tr>
+  &lt;indent&gt;
+  &lt;% for i in range(10): %>
+    &lt;tr>
+    &lt;td>&lt;% print i %>&lt;/td>
+    &lt;td>&lt;% print i**2 %>&lt;/td>
+    &lt;/tr>
+  &lt;/indent&gt;
+&lt;/table>
+</td>
+<td><pre class="verbatim">
+# 0
+# 0
+# 0
+# 0
+# 0
+# 0
+# 0 (A)
+# 1
+# 1
+# 1
+# 1
+# next one : 0
+# 0
+</td>
+</tr>
+</table>
+</pre></dl>
+<p>On the line noted (A) above you see that the indentation of the line
+is relative to the indentation of the <code>&lt;indent&gt;</code> tag
+<p>Also note that after an indented part (after the
+<code>&lt;/indent&gt;</code> tag) indentation returns to zero
+<p>An example with embedded loops :
+<dl><dd><pre class="verbatim">
+&lt;indent&gt;
+&lt;table border=1&gt;
+&lt;% for i in ['h']+range(10): %&gt;
+    &lt;tr&gt;
+    &lt;% for j in ['h']+range(10): %&gt;
+        &lt;% if i!='h' and j!='h': %&gt;
+            &lt;td&gt;&lt;%= i*j %&gt;&lt;/td&gt;
+        &lt;% elif i!='h': %&gt;
+            &lt;th&gt;&lt;%= i %&gt;&lt;/th&gt;
+        &lt;% elif j!='h': %&gt;
+            &lt;th&gt;&lt;%= j %&gt;&lt;/th&gt;
+        &lt;% else: %&gt;
+            &lt;td&gt;*&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;/indent&gt;
+</pre></dl>
+</body>
+</html>
+<h2>11.4 PIH as a templating system</h2>
+PIH scripts can be used to create HTML files outside of the Karrigell server, 
+making them a "templating system"
+<p>For instance, this HTML documentation is produced from PIH scripts. The
+chapter number is not fixed but inserted like this :
+<dl><dd><pre class="verbatim">
+&lt;h1>&lt;%= chapter %>. Python Inside HTML&lt;/h1>
+</pre></dl>
+<p>To produce HTML from a PIH script, use the <code>Template</code> module, 
+create a Script instance with the function <code>getScript(<var>fileName</var>)
+</code>, then apply its method <code>render(<var>nameSpace</var>)</code>, 
+passing it the namespace in which it will find the required variables
+(generally <code>globals()</code> or <code>locals()</code>). <code>render
+</code> returns an Output instance, whose attribute <code>value</code> gives 
+the resulting HTML. Here :
+<p>
+<dl><dd><pre class="verbatim">
+import Template
+pihIn=Template.getScript("pythoninsidehtml.pih")
+chapter=5
+htmlOutput=pihIn.render(globals()).value
+</pre></dl>
+<h2>11.5 Debugging</h2>
+<br>For debugging purposes start the <code>PIHapp.py</code> script. It is a small GUI application
+that shows how PIH files are translated into Python scripts. The result of the script can be saved
+to an HTML file and shown on a browser, if it does not call outer variables. The syntax is
+highlighted
+</td>
+</tr></table>

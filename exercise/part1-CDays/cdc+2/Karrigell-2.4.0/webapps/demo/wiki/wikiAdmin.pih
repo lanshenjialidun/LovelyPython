@@ -1,0 +1,25 @@
+<% Include("wikiAuthent.py") %>
+
+<h2>Administration</h2>
+
+<%
+from wikiBase import db
+    
+records = [ (r['__id__'],r['name']) for r in db ]
+
+if not records:
+    print "No page to remove"
+    print '<p><a href="index.pih">Back</a>'
+    raise SCRIPT_END
+%>
+<form action="wikiRemove.py">
+<table border="1">
+<tr><th>&nbsp;</th><th>Page</th></tr>
+<%
+for (_id,name) in records:
+    print '<tr><td><input type="checkbox" name="remove[]" value="%s"">' %_id
+    print '&nbsp;</td><td>%s</td></tr>' %name
+%>
+</table>
+<input type="submit" value="Remove selected pages">
+</form>

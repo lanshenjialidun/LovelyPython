@@ -1,0 +1,267 @@
+<html>
+<head>
+<title>Options de configuration
+</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="STYLESHEET" href="../doc.css">
+</head>
+<BODY bgcolor="#71B559" LINK="#FFFFCC" VLINK="#FFFFCC" LEFTMARGIN="0" TOPMARGIN="0">
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td class="side">&nbsp;</td>
+<td>
+    <table class="header" cellpadding="0" cellspacing="0">
+    <tr>
+        <td>
+            <a href="../../index.pih"><img src="../images/karrigell_skeudenn.png" border="0"></a>
+        </td>
+        <td class="headertext">
+            <td class="headertext1">
+                <center>
+                <font size="+2"><b>Karrigell Documentation</b></font>
+                <p>
+                <table width="70%" cellpadding="0" cellspacing="0"><tr>
+                <td class="info" align="left"><strong>Version 2.4.0</strong></td>
+                <td class="info" align="right">12 04 08</td>
+                </tr></table>
+                </center>
+            </td>
+            <td class="headertext2">
+                <a class="header" href="../en/configuration.htm">English</a>
+            </td>
+        </td>
+    </tr>
+    </table>
+</td>
+</tr>
+<tr><td class="menu" valign="top"><a class="menu" href="front.htm">
+1. Introduction
+</a><br><a class="menu" href="install.htm">
+2. Installation
+</a><br><a class="menu" href="webserveroptions.htm">
+3. Le serveur Web
+</a><br><span class="sel">
+4. Options de configuration
+</span><br><a class="menu" href="apache.htm">
+5. Travailler avec Apache, LightTPD ou Xitami
+</a><br><a class="menu" href="programming.htm">
+6. Programmation
+</a><br><a class="menu" href="debugging.htm">
+7. Debogage
+</a><br><a class="menu" href="pythonscripts.htm">
+8. Scripts Python
+</a><br><a class="menu" href="cgi.htm">
+9. Scripts CGI
+</a><br><a class="menu" href="karrigellservices.htm">
+10. Services Karrigell
+</a><br><a class="menu" href="pythoninsidehtml.htm">
+11. Python Inside HTML
+</a><br><a class="menu" href="htmlinsidepython.htm">
+12. HTML Inside Python
+</a><br><a class="menu" href="htmltags.htm">
+13. HTMLTags - génère du HTML en Python
+</a><br><a class="menu" href="include.htm">
+14. Inclure des documents
+</a><br><a class="menu" href="sessions.htm">
+15. Sessions
+</a><br><a class="menu" href="authentication.htm">
+16. Authentification et gestion des utilisateurs
+</a><br><a class="menu" href="internationalization.htm">
+17. Traduction et Unicode
+</a><br><a class="menu" href="namespace.htm">
+18. Résumé des noms intégrés</a><br></td>
+<td class="content">
+<script src="../pf_test.js"></script>
+<h1>4. Options de configuration</h1>
+Les options de configuration sont définies dans un fichier de configuration. Par défaut il 
+s'agit du fichier <code>Karrigell.ini</code> dans le répertoire <code>data</code>. On peut 
+définir un autre fichier dans la ligne de commande
+<p>Une variable <code>base</code> est initialisée par Karrigell avant le chargement du fichier
+de configuration, sa valeur est le répertoire serveur. Voir un exemple de son utilisation par
+<code>%(base)s/</code> dans le fichier par défaut <span class="file">Karrigell.ini</span>
+<p>Le fichier de configuration est divisé en plusieurs sections
+<p>
+<code>[Directories]</code>
+<blockquote><code>root</code>
+    <blockquote>
+    Donnez à l'option <code>root</code> le nom du répertoire depuis lequel vous voulez servir des
+    fichiers. Par défaut il s'agit du sous-répertoire <code>webapps</code> du répertoire serveur.
+    Dans le reste de cette documentation ce répertoire sera appelé le 
+    <a name="root"><b>Répertoire Racine</b></a>
+    </blockquote>
+</blockquote>
+<blockquote><code>cgi</code>
+    <blockquote>
+    La liste des répertoires pour les <a href="cgi.htm">scripts cgi</a>
+    <br>Valeur par défaut : <code>webapps/cgi-bin</code> dans le répertoire serveur
+    </blockquote>
+</blockquote>
+<blockquote><code>protected</code>
+    <blockquote>
+    une liste de répertoires "protégés" : pour chaque script dans ces
+    répertoires, un test est réalisé avec la fonction intégrée <code>Login()</code>
+    pour vérifier que l'utilisateur est enregistré comme administrateur
+    <br>Par défaut, seul le répertoire <code>webapps/admin</code> est protégé. 
+    Utilisez ";" pour en ajouter d'autres
+    </blockquote>
+</blockquote>
+<blockquote><code>allow_directory_listing</code>
+    <blockquote>
+    Si une url correspond à un répertoire dans lequel on ne trouve aucun fichier
+    index, cette option détermine s'il faut imprimer le contenu du répertoire
+    ou retourner un message d'erreur
+    <br>La valeur par défaut est 1 (imprimer le contenu du répertoire)
+    </blockquote>
+</blockquote>
+<blockquote><code>hide_extensions</code>
+    <blockquote>
+    Une liste d'extension de fichiers qui seront cachés (renverront une erreur 403)
+    </blockquote>
+</blockquote>
+<blockquote><code>hide_paths</code>
+    <blockquote>
+    Une liste d'expressions régulières qui seront appliquées à des chemins d'url ;
+    si une correspondance est trouvée le serveur renverra une erreur 403
+    <br>Vous pouvez utiliser ceci pour interdire l'accès à un ensemble de
+    répertoires. Par exemple si vous avez un système de gestion de versions qui
+    crée des répertoires appelés <code>cvs</code> vous pouvez interdire d'y
+    accéder par cette ligne :
+    <br><code>hide_paths = .*/cvs/.*
+    </blockquote>
+</blockquote>
+<blockquote><code>loggingFile</code>
+    <blockquote>
+    Le nom du fichier de logs. S'il n'est pas défini, aucune trace n'est conservée
+    </blockquote>
+</blockquote>
+<blockquote><code>loggingParameters</code>
+    <blockquote>
+    Paramètres des gestionnaires de trace ; voir la documentation du module <CODE>logging</CODE> 
+    dans la documentation standard de Python
+    <br>Les paramètres suivants s'appliquent à un RotatingFileHandler:
+    <CODE>mode="a", maxBytes=1000000, backupCount=10</CODE>
+    </blockquote>
+</blockquote>
+<code>[Applications]</code>
+<BLOCKQUOTE>
+Fait correspondre à des extensions de fichiers des types MIME ; autant que je sache ceci
+fonctionne avec Netscape, mais Internet Explorer écrase ces correspondances avec ses propres
+paramètres
+</BLOCKQUOTE>
+<code>[Alias]</code>
+<BLOCKQUOTE>
+On peut associer un alias à un chemin dans le système de fichier.
+Par exemple, si vous créez cet alias : 
+<blockquote>
+<code>scripts=
+<script>
+if (pf == 'w')
+{ document.write('c:\\Mes&nbsp;Documents\\Scripts&nbsp;Karrigell') }
+else
+{ document.write('home/mesprogs/scripts_Karrigell') }
+</script>
+</code>
+</blockquote>
+alors l'url <span class="url">htpp://localhost/scripts/index.htm</span> cherchera le fichier 
+<code><script>
+if (pf == 'w')
+{ document.write('c:\\Mes&nbsp;Documents\\Scripts&nbsp;Karrigell\\index.html') }
+else
+{ document.write('home/mesprogs/scripts_Karrigell/index.html') }
+</script>
+</code>
+</BLOCKQUOTE>
+<p>
+<code>[Server]</code>
+<BLOCKQUOTE>
+<code>port</code>
+    <BLOCKQUOTE>
+    L'option <code>port</code> permet de changer le port HTTP (80 par défaut)
+    </BLOCKQUOTE>
+</BLOCKQUOTE>
+<code>reload_modules</code>
+    <BLOCKQUOTE>
+    Si cette option est à 1, les modules importés sont rechargés à chaque 
+    <code>import</code>. Ceci évite d'avoir à relancer le serveur à chaque fois 
+    qu'une modification est apportée à un script importé
+    </BLOCKQUOTE>
+</BLOCKQUOTE>
+<BLOCKQUOTE>
+<code>show_trace</code>
+    <BLOCKQUOTE>
+    <CODE>show_trace</CODE> indique si vous voulez que des informations détaillées,
+    avec la trace d'erreur, soit affichée en cas d'erreur ou d'exception pendant
+    l'exécution d'un script. Vaut 1 par défaut (le bouton est affiché). Si la valeur
+    est 0, seul un message du type "Le serveur n'a pas pu exécuter la requête" sera
+    affiché, sans plus de précision
+    </BLOCKQUOTE>
+</BLOCKQUOTE>
+<BLOCKQUOTE>
+<code>debug</code>
+    <BLOCKQUOTE>
+    <CODE>debug</CODE> indique si vous voulez que le bouton "Debug" apparaisse sur
+    les pages d'erreur. Vous pouvez être amenés à le mettre à 0 pour des raisons
+    de sécurité. Vaut 1 par défaut (le bouton est affiché)
+    </BLOCKQUOTE>
+</BLOCKQUOTE>
+<BLOCKQUOTE>
+<code>silent</code>
+    <BLOCKQUOTE>
+    Si on donne la valeur 1 à l'option <code>silent</code>, rien n'est imprimé sur la
+    fenêtre de console
+    </BLOCKQUOTE>
+</BLOCKQUOTE>
+<BLOCKQUOTE>
+<code>gzip</code>
+    <BLOCKQUOTE>
+    Si l'option <code>gzip</code> a la valeur 1, et que le client supporte l'encodage
+    gzip (c'est le cas de la plupart des navigateurs), le serveur comprime les données
+    envoyées au client. ceci réduit l'occupation du réseau, mais ralentit un peu le
+    serveur
+    </BLOCKQUOTE>
+</BLOCKQUOTE>
+<BLOCKQUOTE>
+<code>global</code>
+    <BLOCKQUOTE>
+    Dans l'option <code>global</code>, vous pouvez spécifier le chemin des modules qui
+    doivent être importées dans chaque script exécuté par Karrigell. Si vous avez une ligne
+    comme
+    <blockquote><pre>global=%(base)s/monScript.py;%(base)s/monScript1.py</blockquote>
+    alors les modules <span class="file">monScript</span> et <span class="file">monScript1</span> 
+    seront disponibles dans l'espace de noms de tous les scripts
+    </BLOCKQUOTE>
+</BLOCKQUOTE>
+<BLOCKQUOTE>
+<code>ignore</code>
+    <BLOCKQUOTE>
+    Une liste d'urls à ignorer si elles ne sont pas trouvées (renvoie le code HTTP 204 
+    au lieu de 404). Sert par défaut à ignorer l'url <CODE>/favicon.ico</CODE>, 
+    recherchée par la plupart des navigateurs
+    </BLOCKQUOTE>
+</BLOCKQUOTE>
+<code>[Translation]</code>
+<blockquote>
+Specifie la langue utilisée dans l'application, indépendamment des options définies dans
+le navigateur. Faites <code>lang=default</code> si vous ne voulez pas de traduction, 
+<code>lang=en</code> si vous voulez une traduction en anglais, etc
+</blockquote>
+<p>
+<code>[VirtualHost nom]</code>
+<blockquote>
+Karrigell prend en charge la notion d'hôte virtuel, qui permet de servir
+plusieurs hôtes de noms différents sur le même serveur
+<p>Pour spécifier un hôte virtuel vous devez ajouter une ligne comme celle-ci
+dans le fichier de configuration :
+<blockquote><code>[VirtualHost nom]</code></blockquote>
+où <CODE>nom</CODE> est le nom de l'hôte (comme <CODE>www.test.org</CODE>) 
+<p>Dans cette section, vous devez spécifier un répertoire depuis lequel les 
+requêtes à cet hôte seront servies :
+<BLOCKQUOTE>
+<code>root = /web/monrep</code>
+</BLOCKQUOTE>
+</blockquote>
+</small>
+</body>
+</html>
+</td>
+</tr></table>

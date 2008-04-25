@@ -1,0 +1,74 @@
+<%
+# show a table with the month specified in date
+# parameters :
+# - b_date     : the datetime.date instance
+# - thisDate   : a datetime.date instance, if thisdate is
+#              inside the month, display it in a specific style
+# - markedDays : a list of the days to display in another
+#              specific style (for instance days with an event)
+
+# compute next and previous months
+nextyear=prevyear=b_year
+nextmonth=b_month+1
+if nextmonth>12:
+    nextmonth=1
+    nextyear+=1
+prevmonth=b_month-1
+if prevmonth<1:
+    prevmonth=12
+    prevyear-=1
+
+weeks=calendar.monthcalendar(b_year,b_month)
+header = calendar.month(b_year,b_month).split('\n')[:2]
+%>
+
+<table class="month" cellpadding="0" cellspacing="0">
+ <tr class="title">
+  <td>
+   <table width="100%">
+    <tr>
+     <td align="left">
+     <% print A(B("<"),
+            href='index.pih?b_year=%s&b_month=%s' %(prevyear,prevmonth)) %>
+     </td>
+    
+     <td align="center" class="current"><%= header[0] %></td>
+     
+     <td align="right">
+        <% print A(B(">"),
+            href='index.pih?b_year=%s&b_month=%s' %(nextyear,nextmonth)) %>
+     </td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+
+<indent>
+<tr><td><table width="100%" clas="month" cellpadding="0" cellspacing="0">
+<tr class="title">
+<% for weekday in header[1].split(): %>
+    <td align="center"><%= weekday[0].upper() %></td>
+</tr>
+<% for weeknum,week in enumerate(weeks): %>
+    <tr class="days">
+    <% for w_day in week:
+        if w_day: 
+            thisDate=datetime.date(b_year,b_month,int(w_day))
+            lnk = 'index.pih?day=%s&month=%s&year=%s' %(thisDate.day,
+                thisDate.month,thisDate.year)
+            if date==thisDate :%>
+                <td align="center" bgcolor="<%= selected_color %>">
+            <% else: %>
+                <td align="center">
+            <a href="<%= lnk %>" class="month">
+            <% if w_day in evtsByDay: %>
+                <b><%= w_day %></b>
+            <% else: %>
+                <%= w_day %>
+            </a></td>           
+        <% else : %>
+            <td>&nbsp;</td>
+    </tr>
+</table></td></tr>
+</indent>
+</table>

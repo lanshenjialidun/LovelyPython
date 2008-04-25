@@ -1,0 +1,94 @@
+<html>
+<head>
+<title>Karrigell calendar demo</title>
+<link rel="stylesheet" type="text/css" HREF="calendar.css">
+<script src="calendar.js"></script>
+</head>
+
+<body>
+<a href="../../">
+<img src="../../doc/images/karrigell_skeudenn.png" border="0" width="100">
+</a>
+
+<%
+import calendar, datetime, traceback, sys
+import locale
+locale.setlocale(locale.LC_ALL,'')
+from HTMLTags import *
+
+from agendaDb import db
+
+header_color="#D0D0D0"
+selected_color="#C0C0C0"
+
+now=datetime.date.today()
+so=Session()
+
+# set day, month and year
+try:
+    # if provided in the query string
+    year, month, day = (int(_year),int(_month),int(_day))
+    b_year, b_month = int(_year),int(_month)
+except NameError:
+    # if date is in the session object
+    if hasattr(so,"day"):
+        day, month, year = so.day, so.month, so.year
+    else:
+        day, month, year = now.day, now.month, now.year
+    # the month to show
+    try:
+        b_year,b_month=int(_b_year),int(_b_month)
+    except NameError:
+        b_year,b_month = year, month
+
+so.day, so.month, so.year = day, month, year
+current_date = datetime.date(year,month,day)
+%>
+
+<table width="100%">
+<tr>
+<td width="18%" valign="top">
+<%
+# calendar of currently browsed month
+# searches for days with entries in browsed month
+
+from sets import Set
+evtsByDay=Set()
+startDay=datetime.datetime(b_year,b_month,1)
+if b_month<12:
+    endDay=datetime.datetime(b_year,b_month+1,1)-datetime.timedelta(days=1)
+else:
+    endDay=datetime.datetime(b_year+1,1,1)-datetime.timedelta(days=1)
+evtsOfBrowsedMonth=[ r for r in db if startDay <= r['begin_time'] < endDay ]
+
+for evt in evtsOfBrowsedMonth:
+    evtsByDay.add(evt['begin_time'].day)
+
+Include("showMonth.pih", date=datetime.date(year, month, day),
+    b_year=b_year, b_month=b_month, evtsByDay = evtsByDay) 
+
+# links for previous and next days
+prev_day = current_date - datetime.timedelta(1)
+prev_day_button = INPUT(Type="button",value="<",onclick="location.href='index.pih?day=%s&month=%s&year=%s'" 
+    %(prev_day.day,prev_day.month,prev_day.year))
+next_day = current_date + datetime.timedelta(1)
+next_day_button= INPUT(Type="button",value=">",onclick="location.href='index.pih?day=%s&month=%s&year=%s'" 
+    %(next_day.day,next_day.month,next_day.year))
+
+# link for today
+today_button= INPUT(Type="button",value=_("Today"),onclick="location.href='index.pih?day=%s&month=%s&year=%s'" 
+    %(now.day,now.month,now.year))
+
+%>
+
+</td>
+<td width="100%" class="current">
+<%= prev_day_button+next_day_button+today_button %>
+&nbsp;&nbsp; <b><%= current_date.strftime('%A %x') %></b>
+
+<iframe src="dayFrame.pih" width="100%" height="500"></iframe>
+</td>
+</tr>
+</table>
+</body>
+</html>

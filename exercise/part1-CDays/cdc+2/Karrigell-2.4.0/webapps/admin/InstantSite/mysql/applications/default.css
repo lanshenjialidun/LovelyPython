@@ -1,0 +1,24 @@
+body { font-family: verdana, sans-serif;
+    font-size: 12px;
+    }
+
+table.main { border-width: 0px 0px 1px 1px;
+    border-color: #000000;
+    border-style: solid;
+    }
+
+th.main { border-width: 1px 1px 0px 0px;
+    border-color: #000000;
+    border-style: solid;
+    }
+
+td.main { font-family: verdana, sans-serif;
+    font-size: 12px;
+    border-width: 1px 1px 0px 0px;
+    border-color: #000000;
+    border-style: solid;
+    }
+
+tr.even {background-color:#AACCFF; height:18px;}
+
+tr.odd {background-color:#99BBF0; height:18px;}

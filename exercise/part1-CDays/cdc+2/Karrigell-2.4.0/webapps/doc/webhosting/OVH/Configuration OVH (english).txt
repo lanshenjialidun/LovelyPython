@@ -1,0 +1,19 @@
+INSTRUCTIONS TO USE KARRIGELL ON OVH
+
+OVH sites provide several folder, including "www" and "cgi-bin"
+
+To use Karrigell with this webhost :
+
+1. In folder www
+- create a folder "karrigell"
+- upload the Karrigell distribution in it (the file Karrigell.py must be in this folder) except folder "webapps"
+- upload folder webapps in www
+- copy the file htaccess_OVH.txt in folder www
+- rename it .htaccess
+
+2. In folder cgi-bin
+- copy the file ApacheHandler_OVH.cgi
+- make this file executable (chmod 777)
+
+3. to test, call URL http://(your OVH site)/karrigell/webapps/demo/hello.py
+You should see the message "Hello Karrigell!"

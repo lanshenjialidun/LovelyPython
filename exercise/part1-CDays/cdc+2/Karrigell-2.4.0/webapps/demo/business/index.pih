@@ -1,0 +1,28 @@
+<% Include ("header.pih") %>
+
+<%
+# import createSongBase to create the song database
+# if not created yet
+import createSongBase
+%>
+
+<form action="songList.pih">
+<%_ "Search" %>&nbsp;
+<input name="words">
+<input type="submit" value="Ok">
+</form>
+
+<p>
+<%_ "Browse" %>
+<blockquote>
+<table>
+<tr><td><a href="browse.pih?key=recueils"><%_ "by collection" %></a></td></tr>
+<tr><td><a href="browse.pih?key=genres"><%_ "by type" %></a></td></tr>
+<tr><td><a href="browse.pih?key=dialectes"><%_ "by dialect" %></a></td></tr>
+<tr><td><a href="songList.pih"><%_ "whole list" %></a></td></tr>
+</table>
+</blockquote>
+
+<font size="-2">
+<a href="clearSession.py"><%_ "Clear session" %></a>
+</font>

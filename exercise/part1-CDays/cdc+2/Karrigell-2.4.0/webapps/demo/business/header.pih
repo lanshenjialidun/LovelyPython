@@ -1,0 +1,34 @@
+<html>
+<head>
+<title><%_ "Breton songs scores" %></title>
+<link rel="stylesheet" type="text/css" HREF="business.css">
+</head>
+
+<body>
+<center>
+<table bgcolor="#E0E0E0" cellpadding="0" cellspacing="0" width="70%">
+<tr>
+<td>
+<a href="../../"><img src="../../doc/images/karrigell_skeudenn.png" border="0"></a>
+</td>
+<td>
+<h2><%_ "Breton songs scores" %></h2>
+</td>
+
+<td>
+    <table>
+    <%
+    so=Session()
+
+    if hasattr(so,"order"):%>
+        <tr><td><a href="handleCart.pih"><%_ "See cart" %></a></td></tr>
+        <% end %>
+
+    <tr><td><a href="index.pih"><%_ "Home" %></a></td></tr>
+    </table>
+
+</td>
+</tr>
+</table>
+</center>
+<p>

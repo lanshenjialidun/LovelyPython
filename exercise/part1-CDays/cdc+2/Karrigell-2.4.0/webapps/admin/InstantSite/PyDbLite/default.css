@@ -1,0 +1,16 @@
+body,td,th { font-family: verdana, sans-serif;
+    font-size: 13px;
+    }
+
+table.main { border-width: 0px 0px 1px 1px;
+    border-color: #000000;
+    border-style: solid;
+    }
+
+th { font-weight: bold; 
+    background-color: #D0D0D0;
+}
+
+tr.even {background-color:#AACCFF; height:18px;}
+
+tr.odd {background-color:#99BBF0; height:18px;}

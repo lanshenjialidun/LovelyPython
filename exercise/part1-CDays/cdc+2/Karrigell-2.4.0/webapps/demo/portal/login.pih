@@ -1,0 +1,34 @@
+<!-- login for old or new users -->
+
+<% Include ("header.hip") %>
+
+<%
+if _user=="old":
+    action="authenticate.hip"
+elif _user=="new":
+    action="newuser.hip"
+%>
+
+<form action="<%=action%>" method="post">
+<center>
+<table>
+<tr>
+<td><%_ "Login " %></td>
+<td><input name="login"></td>
+</tr>
+<tr>
+<td><%_ "Password" %></td>
+<td><input type="password" name="password"></td>
+</tr>
+<%
+if _user=="new": 
+    print """<tr>
+    <td>%s</td>
+    <td><input type="password" name="password2"></td>
+    </tr>""" %_("Confirm password")
+%>
+<tr>
+<td colspan="2" align="center"><input type="submit" value="Ok"></td>
+</tr>
+</table>
+</center>

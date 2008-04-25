@@ -1,0 +1,2 @@
+print "COOKIE",COOKIE
+print '<br>',"SET_COOKIE",SET_COOKIE

@@ -1,0 +1,25 @@
+<!-- A portal demo -->
+<%
+# initiates the session, opens database
+
+so=Session()
+
+if not hasattr(so,"user"):
+    so.user=None
+%>
+
+<!-- Includes components -->
+<% Include ("header.hip") %>
+
+<table width="100%">
+<tr>
+<td valign="top">
+<% Include ("poems.py") %>
+</td>
+<td valign="top" width="20%"><% Include("showNews.hip") %></td>
+</tr>
+</table>
+
+<% Include("footer.pih") %>
+
+

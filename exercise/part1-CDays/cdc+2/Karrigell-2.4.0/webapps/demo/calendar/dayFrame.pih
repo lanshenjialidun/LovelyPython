@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>Karrigell calendar demo</title>
+<link rel="stylesheet" type="text/css" HREF="calendar.css">
+<script src="calendar.js"></script>
+</head>
+
+<body onLoad="scroll8()">
+<%import datetime
+import agendaDb
+
+db=agendaDb.db
+evtsByHour={}
+startTime=datetime.datetime(Session().year,Session().month,Session().day)
+endTime=startTime + datetime.timedelta(days=1)
+
+evtsOfTheDay= [ r for r in db if startTime <= r['begin_time'] < endTime ]
+
+hgt = 40
+w1=40
+%>
+<indent>
+<% for h in range(0,24):
+    t = h*hgt %>
+    <div class="h1" style="position:absolute;top:<%=t%>;left:0;width:<%=w1%>;height:<%=hgt-1%>"><%= h %>:00</div>    
+    <div class="h2" id="hour<%=h%>00" style="position:absolute;top:<%=t%>;left:<%=w1%>;height:<%=(hgt/2)-1%>" onclick="edit_entry(-1,<%=h%>,0,<%=h+1%>,0,this)"></div>
+    <div class="h3" id="hour<%=h%>30" style="position:absolute;top:<%=t+1+hgt/2%>;left:<%=w1%>;height:<%=(hgt/2)-1%>" onclick="edit_entry(-1,<%=h%>,30,<%=h+1%>,30,this)"></div>    
+
+<% for evt in evtsOfTheDay:
+    bh = evt['begin_time'].hour
+    bm = evt['begin_time'].minute
+    eh = evt['end_time'].hour
+    em = evt['end_time'].minute
+    entry_height = hgt * (60*(eh-bh)+em-bm) / 60
+    %>
+    <div class="evt" style="position:absolute;top:<%=bh*hgt + (bm*hgt/60)%>;left:<%=w1+10%>;width:100;height:<%=entry_height-6%>"  onClick="edit_entry(<%=evt['__id__']%>,<%=bh%>,<%=bm%>,<%=eh%>,<%=em%>,this)">
+    <%= evt['content'] %>
+    </div>
+
+</indent>
+<div class="entry" id="d_entry"></div>

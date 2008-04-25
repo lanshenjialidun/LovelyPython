@@ -1,0 +1,17 @@
+# configuration for OVH web hosting
+# put this file in folder www of your site and rename it to .htaccess
+
+Options FollowSymLinks
+Order allow,deny
+Allow from all
+
+# list of files to search if url matches a directory
+DirectoryIndex index.html index.htm index.py index.pih index.hip index.ks
+
+RewriteEngine on
+# rewrite urls so that Karrigell manages scripts with
+# extensions py,pih,hip and ks
+RewriteRule ^(.*)\.(py|pih|hip|ks)$ /cgi-bin/ApacheHandler_OVH.cgi
+# and ks scripts with a function name
+RewriteRule ^(.*)\.ks/.* /cgi-bin/ApacheHandler_OVH.cgi
+

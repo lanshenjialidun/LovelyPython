@@ -1,0 +1,13 @@
+<html>
+<body>
+<h3>Begin session</h3>
+<%
+sessionObj=Session()
+sessionObj.name=_myname
+sessionObj.firstname=_firstname
+print sessionObj.name
+%>
+
+<a href="sessionTestFollow.pih">Next...</a>
+</body>
+</html>

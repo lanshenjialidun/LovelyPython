@@ -1,0 +1,16 @@
+<indent>
+<table border=1>
+<% for i in ['h']+range(10): %>
+    <tr>
+    <% for j in ['h']+range(10): %>
+        <% if i!='h' and j!='h': %>
+            <td><%= i*j %></td>
+        <% elif i!='h': %>
+            <th><%= i %></th>
+        <% elif j!='h': %>
+            <th><%= j %></th>
+        <% else: %>
+            <td>*</td>
+    </tr>
+</table>
+</indent>

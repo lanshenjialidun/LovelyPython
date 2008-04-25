@@ -1,0 +1,13 @@
+body, td { font-family: verdana, sans-serif;
+    font-size: 12px;
+    }
+
+table.main { border-width: 0px 0px 1px 1px;
+    border-color: #000000;
+    border-style: solid;
+    }
+
+td.main,th { border-width: 1px 1px 0px 0px;
+    border-color: #000000;
+    border-style: solid;
+    }

@@ -1,0 +1,30 @@
+<!-- edit existing news or publish a new one -->
+
+<% Include ("header.hip") %>
+
+<%
+from portalDb import db
+
+# gets cursor of news table, or create the base and table
+so=Session()
+# looks for news published by user
+user_news=[]
+
+user_news = [ news for news in db['news'] if news["login"] == so.login ]
+
+if user_news:
+    print "<h3>%s</h3>" %_("Edit existing news")
+    print '<table cellpadding="5" border="1">'
+    for item in user_news:
+        print '<tr><td>%s</td>' %item["title"]
+        print '<td><a href="editNews.hip?id=%s">%s</a></td>' %(item["__id__"],_("Edit"))
+        print '<td><a href="removeNews.hip?id=%s">%s</a></td>' %(item["__id__"],_("Remove"))
+        print "</tr>"
+    print "</table>"
+%>
+
+<h3><%_ "Add fresh news" %></h3>
+
+<% Include("newsForm.pih",action="insertNews.py",_id=-1) %>
+
+</center>

@@ -1,0 +1,22 @@
+<html>
+
+<body>
+
+unicode string, with unicode characters in utf-8 encoding  <br>
+<% print u"Μπορώ να φάω σπασμένα γυαλιά χωρίς να πάθω τίποτα." %>
+
+<p>
+<br>
+plain 8-bit string in utf-8 <br>
+this will display properly only if outputEncoding is utf-8 <br>
+<% print "Aš galiu valgyti stiklą ir jis manęs nežeidžia" %>
+
+<p>
+<br>
+
+unicode string with unicode escape sequences <br>
+
+<% print u"Cette phrase contient le caract\u00e8re \u00e8" %>
+
+</body>
+</html>

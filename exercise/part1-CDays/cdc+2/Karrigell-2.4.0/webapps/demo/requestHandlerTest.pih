@@ -1,0 +1,17 @@
+<html>
+<body>
+<h2>Data available in REQUEST_HANDLER</h2>
+<indent>
+<table border="1">
+<% ks=REQUEST_HANDLER.__dict__.keys()
+ks.sort()
+for k in ks:%>
+    <tr>
+    <td valign="top"><pre><b><%= k %></b></pre></td>
+    <% v=str(REQUEST_HANDLER.__dict__[k]) or "&nbsp;"
+    v=v.replace("<","&lt;") %>
+    <td valign="top"><pre><%= v %></pre></td>
+</indent>
+</table>
+</body>
+</html>

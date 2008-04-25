@@ -1,0 +1,2 @@
+import KarrigellRequestHandler
+KarrigellRequestHandler.reset_config()

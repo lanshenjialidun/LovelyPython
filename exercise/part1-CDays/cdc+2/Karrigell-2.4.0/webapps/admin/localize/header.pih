@@ -1,0 +1,6 @@
+<HTML>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset="<%= CONFIG.output_encoding %>">
+<% end %>
+<link rel="STYLESHEET" href="/karrigell.css">
+</head>

@@ -1,0 +1,51 @@
+<html>
+<head>
+<link rel="stylesheet" href="../doc.css">
+</head>
+<body>
+
+<a href="tut2.html">Previous</a>
+&nbsp;<a href="../../index.html">Top</a>
+&nbsp;<a href="tut4.html">Next</a>
+
+<h1>Adding user management</h1>
+
+In the web site we have created, anybody can add, edit and remove items. Obviously this is not the expected behaviour in many situations : generally, all visitors will be able to see the records in the base, but only the administrator of the site, and perhaps some selected users, will be able to add, edit and remove records
+
+<p>If the administrator allows selected users to manage the database, he will have to manage the users database, which will store at least the login and password of the users
+
+<p>How do we add these functions to our web site ? Just by adding another line, to specify the security level. Go back to the configuration file (<CODE>booksConfig.py</CODE>) and add this third line :
+
+<p>
+<dl class="editor">
+ <dt>name = "books"
+ <dt>fields = ["title:str","year:int","author:str"]
+ <dt>security = 'standard'
+</dl>
+
+<p>Once you have saved this new version of <CODE>booksConfig.py</CODE>, follow the same steps as previously with <CODE>makeScript.py</CODE>. The program will ask you to choose the configuration file as before, but it will then ask you to enter a login and a password for the site administrator
+
+<p><center><img src="images/makeScriptLoginPassword.PNG"></center>
+
+<p>Once this is done (you must enter a login, and the password must have at least 6 characters), in your web browser, reload the page <CODE>http://localhost/instant_site/books.ks</CODE>
+
+<p><center><iframe src="pages/books4.html" width="60%" height="200"></iframe></center>
+
+<p>There are two differences with the previous version : the links "Edit" and "Remove" have disappeared, and there is a link called "Login". Click on it and you will be asked to enter a login and a password. At this stage, if you enter any value you like, you will get an error message : no user has been defined so far
+
+<p>So, how do you manage the users base ? In the address bar, replace the end of the url, <CODE>index</CODE>, by <CODE>admin</CODE>. This will open a dialog box asking you to enter a login and a password
+
+<p>Enter the data you have chosen previously (<CODE>homer / simpson</CODE> in my example). This allows you access to the same interface as for the books page, but here you can enter users with their login and password. The users base is empty, add a record with a login and password of your choice, for instance :
+
+<p><center><iframe src="pages/books6.html" width="60%" height="200"></iframe></center>
+
+<p>Now back to the books page (<CODE>http://localhost/instant_site/books.ks</CODE>), log in with the values you have just entered and you will see this page :
+
+<p><center><iframe src="pages/books7.html" width="60%" height="200"></iframe></center>
+
+<p>Now you can manage the books database as you like. If you log out, you go back to the visitor status, only able to see the books list
+
+<p>In the <a href="tut4.html">next step</a> we'll add more options to the configuration file
+
+</body>
+</html>

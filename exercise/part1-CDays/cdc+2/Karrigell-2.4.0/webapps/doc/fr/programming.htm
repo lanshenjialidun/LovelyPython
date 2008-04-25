@@ -1,0 +1,330 @@
+<html>
+<head>
+<title>Programmation
+</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="STYLESHEET" href="../doc.css">
+</head>
+<BODY bgcolor="#71B559" LINK="#FFFFCC" VLINK="#FFFFCC" LEFTMARGIN="0" TOPMARGIN="0">
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td class="side">&nbsp;</td>
+<td>
+    <table class="header" cellpadding="0" cellspacing="0">
+    <tr>
+        <td>
+            <a href="../../index.pih"><img src="../images/karrigell_skeudenn.png" border="0"></a>
+        </td>
+        <td class="headertext">
+            <td class="headertext1">
+                <center>
+                <font size="+2"><b>Karrigell Documentation</b></font>
+                <p>
+                <table width="70%" cellpadding="0" cellspacing="0"><tr>
+                <td class="info" align="left"><strong>Version 2.4.0</strong></td>
+                <td class="info" align="right">12 04 08</td>
+                </tr></table>
+                </center>
+            </td>
+            <td class="headertext2">
+                <a class="header" href="../en/programming.htm">English</a>
+            </td>
+        </td>
+    </tr>
+    </table>
+</td>
+</tr>
+<tr><td class="menu" valign="top"><a class="menu" href="front.htm">
+1. Introduction
+</a><br><a class="menu" href="install.htm">
+2. Installation
+</a><br><a class="menu" href="webserveroptions.htm">
+3. Le serveur Web
+</a><br><a class="menu" href="configuration.htm">
+4. Options de configuration
+</a><br><a class="menu" href="apache.htm">
+5. Travailler avec Apache, LightTPD ou Xitami
+</a><br><span class="sel">
+6. Programmation
+</span><br><span class="sel">
+&nbsp;&nbsp;<small>6.1 Accès à l'environnement HTTP</small></span><br><span class="sel">
+&nbsp;&nbsp;<small>6.2 Champs de formulaires</small></span><br><span class="sel">
+&nbsp;&nbsp;<small>6.3 Sous-chemin</small></span><br><span class="sel">
+&nbsp;&nbsp;<small>6.4 Téléchargement de fichier</small></span><br><span class="sel">
+&nbsp;&nbsp;<small>6.5 Exceptions</small></span><br><span class="sel">
+&nbsp;&nbsp;<small>6.6 HTMLStream</small></span><br><span class="sel">
+&nbsp;&nbsp;<small>6.6 Gestion des erreurs et débogueur</small></span><br><a class="menu" href="debugging.htm">
+7. Debogage
+</a><br><a class="menu" href="pythonscripts.htm">
+8. Scripts Python
+</a><br><a class="menu" href="cgi.htm">
+9. Scripts CGI
+</a><br><a class="menu" href="karrigellservices.htm">
+10. Services Karrigell
+</a><br><a class="menu" href="pythoninsidehtml.htm">
+11. Python Inside HTML
+</a><br><a class="menu" href="htmlinsidepython.htm">
+12. HTML Inside Python
+</a><br><a class="menu" href="htmltags.htm">
+13. HTMLTags - génère du HTML en Python
+</a><br><a class="menu" href="include.htm">
+14. Inclure des documents
+</a><br><a class="menu" href="sessions.htm">
+15. Sessions
+</a><br><a class="menu" href="authentication.htm">
+16. Authentification et gestion des utilisateurs
+</a><br><a class="menu" href="internationalization.htm">
+17. Traduction et Unicode
+</a><br><a class="menu" href="namespace.htm">
+18. Résumé des noms intégrés</a><br></td>
+<td class="content">
+<h1>6. Programmation</h1>
+<p>Karrigell propose plusieurs styles de programmation : 
+<ul>
+<li>des scripts en <a href="pythonscripts.htm">pur Python</a>, avec une variante simplifiée, 
+<a href="htmlinsidepython.htm">HTML Inside Python</a>
+<li>les <a href="karrigellservices.htm">services Karrigell</a>, qui sont des scripts Python 
+qui peuvent gérer un site complet (plusieurs pages)
+<li>pour ceux qui préfèrent le mélange de HTML et de programmes à la PHP, voyez 
+<a href="pythoninsidehtml.htm">Python Inside HTML</a>
+</ul>
+Ces différents styles sont décrits dans la documentation. Vous pouvez aussi ajouter la 
+prise en charge d'autres types de scripts : si vous
+voulez gérer les scripts qui ont l'extension <CODE>.foo</CODE>, vous devez écrire un
+module appelé <CODE>mod_foo</CODE>. Voir l'exemple de <CODE>mod_tmpl.py</CODE> pour
+gérer le système de template Cheetah
+<p>Le principe de la programmation avec Karrigell est simple : <p>
+<b><i>Toutes les données nécessaires sont disponibles dans l'espace de nom dans lequel
+le script est exécuté</i></b>
+<p>Cet espace de noms est préparé par Karrigell avant l'exécution du script. Par exemple,
+le script peut utiliser le nom intégré <code>HEADERS</code> pour avoir accèes aux
+entêtes HTTP
+<h2>6.1 Accès à l'environnement HTTP</h2>
+L'accès à l'environnement HTTP est fourni par des variables globales disponibles dans l'espace de
+noms du script :
+<ul>
+<li><code>HEADERS</code> est un dictionnaire avec les en-têtes HTTP : la clé est le nom de l'en-
+tête, la valeur est la valeur de l'en-tête. Par exemple <code>HEADERS["accept-language"]</code>
+donne la valeur de l'en-tête <var>accept-language</var>
+<li><code>RESPONSE</code> est un dictionnaire dans lequel on peut définir des valeurs pour l'en-tête
+de réponse qui sera envoyé au serveur. Ce dictionnaire ne tient pas compte de la casse des clés : 
+RESPONSE['Content-type'] et RESPONSE['CONTENT-type'] donnent le même résultat
+<li><CODE>Role()</CODE> est une fonction qui retourne le rôle de l'utilisateur tel que défini
+dans le cadre du système intégré de gestion des utilisateurs (voir le chapitre sur l'<a href=
+"authentication.htm">authentification</a>)
+<li><code>COOKIE</code> est une instance de SimpleCookie (dans le module <code>Cookie</code>) qui
+stocke les cookies envoyés par le navigateur web avec la requête HTTP
+<li><code>SET_COOKIE</code> est un objet SimpleCookie qui se comporte comme un dictionnaire, 
+et auquel on peut affecter des valeurs qui seront stockées par le navigateur sous forme de cookies
+<li>Pour une utilation plus avancée, <code>REQUEST_HANDLER</code> représente l'instance courante
+de RequestHandler (gestionnaire de requête). Il expose des attributs tels que
+<code>client_address</code>, un couple constitué de l'adresse IP et du port du client. Voyez la
+documentation de <code>BaseHTTPServer</code> et de <code>SimpleHTTPServer</code> dans la
+distribution standard de Python
+<li><code>THIS</code> est une instance de la classe Script (dans Template.py) représentant le script
+courant
+</ul>
+<h2>6.2 Champs de formulaires</h2>
+La variable <code>QUERY</code> est un dictionnaire qui représente la chaîne de requête si le script
+est appelé par la méthode HTTP <code>GET</code>, ou les champs d'un formulaire soumis par la méthode
+HTTP <code>POST</code>. Les clés de <code>QUERY</code> sont les noms des champs, et les valeurs sont
+soit la valeur du champ sous forme de chaîne, soit une liste contenant les valeurs si le nom du
+champ se termine par <code>[]</code> (s'il vient d'un champ de formulaire <code>&lt;SELECT
+MULTIPLE&gt;</code> par exemple)
+<p>Supposons que vous ayez un formulaire HTML comme celui-ci :
+<p>
+<dl><dd><pre class="verbatim">
+&lt;form action="monScript.py"&gt;
+  Spam &lt;input name="spam"&gt;
+  &lt;br&gt;&lt;select multiple name="animal[]"&gt;
+  &lt;option value="chien"&gt;Chien
+  &lt;option value="chat"&gt;Chat
+  &lt;option value="grenouille"&gt;Grenouille
+  &lt;/select&gt;
+  &lt;br&gt;&lt;input type="submit" value="Ok"&gt;
+&lt;/form&gt;
+</pre></dl>
+<p>Dans <code>monScript.py</code> vous afficherez les valeurs d'entrée avec :
+<p>
+<dl><dd><pre class="verbatim">
+print "&lt;br&gt;Spam est ",QUERY["spam"]
+if QUERY.has_key("animal"):
+    print "&lt;br&gt;Animal est",str(QUERY["animal"])
+</pre></dl>
+<p>
+<p>L'accès à ces données est disponible sous forme d'un raccourci, constitué du caractère de
+soulignement <code>_</code> suivi du nom du champ. Ainsi, le code ci-dessus pourrait s'écrire plus
+simplement :
+<p>
+<dl><dd><pre class="verbatim">
+print "&lt;br&gt;Spam est ",_spam
+if QUERY.has_key("animal"):
+    print "&lt;br&gt;Animal est",str(_animal)
+</pre></dl>
+<p>
+Ce caractère de soulignement est introduit pour limiter les risques de conflits avec des noms
+réservés de Python ou avec des noms de module fréquemment employés
+<h2>6.3 Sous-chemin</h2>
+La façon normale de passer des paramètres à un script est d'utiliser la query string
+dans l'url, ou des données dans une requête POST. Une autre possibilité est de passer
+des paramètres comme une partie de l'url, comme dans <code>
+http://host/path/script.py/foo/bar</code> ; ici les paramètres du script sont
+<CODE>foo</CODE> et <CODE>bar</CODE>
+<p>Dans le script vous pouvez accéder aux paramètres sous forme de liste ; c'est un
+attribut de THIS, THIS.subpath :
+<p>
+<dl><dd><pre class="verbatim">
+print "Les paramètres sont %s" %THIS.subpath
+</pre></dl>
+<p>
+Un problème avec ces url est que si vous voulez utiliser Include(), ou écrire un
+lien ou insérer une image ou un JavaScript avec une url relative, l'url doit être
+différente selon que le script a été appelé sans paramètres ou avec un nombre
+quelconque de paramètres
+<p>Par exemple si vous écrivez cette url relative dans le script :
+<p>
+<dl><dd><pre class="verbatim">
+print '&lt;IMG SRC="images/pic.png"&gt;'
+</pre></dl>
+<p>
+et que vous appelez le script par <CODE>http://host/path/script.py/foo/bar</CODE>, 
+le navigateur calculera l'url absolue <code>http://host/path/script.py/foo/images/pic.png</code>,
+et exécutera le même script avec les paramètres <CODE>foo,images,pic.png</CODE> - ce
+n'est pas ce que vous voulez !
+<p>Donc si vous avez l'intention de passer des paramètres dans un sous-chemin, vous devez
+écrire l'url relative de la façon suivante :
+<p>
+<dl><dd><pre class="verbatim">
+print '&lt;IMG SRC="%s"&gt;' %THIS.rel("images/pic.png")
+</pre></dl>
+<p>
+<CODE>THIS.rel</CODE> fait précéder l'url relative fournie en argument d'autant de 
+<code>'../'</code> qu'il y a de paramètres
+<h2>6.4 Téléchargement de fichier</h2>
+Pour télécharger un fichier depuis le client vers le serveur, la balise input doit avoir
+le type "file". Par exemple, le formulaire HTML sera de la forme suivante :
+<p>
+<dl><dd><pre class="verbatim">
+&lt;FORM ENCTYPE="multipart/form-data" ACTION="fileUpload.py" METHOD=POST&gt;
+Fichier à charger: &lt;INPUT NAME="monfichier" TYPE="file"&gt;
+&lt;INPUT TYPE="submit" VALUE="Envoyer"&gt;
+&lt;/FORM&gt;
+</pre></dl>
+<p>Le script qui doit traiter le téléchargment utilisera la variable
+<CODE>QUERY['myfile']</CODE> ou <CODE>_myfile</CODE>, qui est une instance de la
+classe <CODE>FieldStorage</CODE> dans le module intégré <CODE>cgi</CODE>. Cet
+objet a deux attributs utiles :
+<ul>
+<li><CODE>filename</CODE> : le nom du fichier
+<li><CODE>file</CODE> : un objet de type fichier depuis lequel on peut lire le contenu
+du fichier
+</ul>
+<p>Par exemple si vous voulez stocker le fichier dans le système de fichiers du
+serveur, en conservant le nom du fichier d'origine :
+<p>
+<dl><dd><pre class="verbatim">
+import os
+f = _monfichier.file # objet de type fichier
+nom_dest = os.path.basename(_monfichier.filename)
+out = open(nom_dest,'wb')
+# copier le fichier
+import shutil
+shutil.copyfileobj(f,out)
+out.close()
+</pre></dl>
+<h2>6.5 Exceptions</h2>
+Dans les scripts Python on peut lever des exceptions spéciales qui sont gérées par Karrigell
+<ul>
+<li><code>SCRIPT_END</code>
+<br>A utiliser pour cesser d'envoyer des données de sortie au navigateur sans avoir à aller jusqu'à
+la fin du fichier. Ceci peut être utile si vous êtes en train de déboguer un script et que vous
+vouliez arrêter son exécution à un endroit dans votre script pour voir l'état de certaines variables
+<p>
+<dl><dd><pre class="verbatim">
+maVar=10
+...
+print maVar
+raise SCRIPT_END
+... (reste du code - ne sera pas exécuté)
+</pre></dl>
+<p>
+<li><code>SCRIPT_ERROR</code>
+<br>Faites <CODE>raise SCRIPT_ERROR,msg</CODE> pour arrêter l'exécution du script et écrire le message
+<p>
+<li><code>HTTP_ERROR</code>
+<br><code>raise HTTP_ERROR,(codeErreur,messageErreur)</code> a pour effet d'envoyer un message
+d'erreur HTTP avec les codes et message d'erreur spécifiés
+<p>
+<li><code>HTTP_REDIRECTION</code>
+<br><code>raise HTTP_REDIRECTION,uri</code> fait que Karrigell redirigera la requête vers l'URI
+indiquée
+</ul>
+<h2>6.6 HTMLStream </h2>
+<code>HTMLStream</code> est une classe du module HIP qui rend l'affichage de données plus
+facile qu'avec une suite de <code>print</code>. C'est la même idée que 
+<a href="htmlinsidepython.htm">HTML Inside Python</a> mais implémentée différemment
+<p>Créez une instance de cette classe :
+<p>
+<dl><dd><pre class="verbatim">
+import HIP
+H = HIP.HTMLStream()
+</pre></dl>
+<p>
+Ensuite utilisez "+" et "-" pour envoyer des données sur la sortie standard : avec "+"
+la representation en chaîne de caractère de la donnée est imprimée ; avec "-", la fonction
+<code>cgi.escape</code> est exécutée sur cette chaîne
+<p>
+<dl><dd><pre class="verbatim">
+dico={"un":"unan","deux":"daou","trois":"tri"}
+H + dico - type(dico)
+</pre></dl>
+<p>revient au même que :
+<p>
+<dl><dd><pre class="verbatim">
+dico={"un":"unan","deux":"daou","trois":"tri"}
+print str(dico),cgi.escape(type(dico))
+</pre></dl>
+<h2>6.6 Gestion des erreurs et débogueur</h2>
+<p>Si une erreur survient quand on appelle une URL, une trace est affichée dans le navigateur
+<p>L'information fournie consiste en :
+<ul>
+<li>l'url appelée
+<li>une table relative au script dans lequel l'erreur s'est produite : il se peut que ce ne soit pas
+celui dont le nom correspond à l'URL, si l'erreur est survenue dans un script inclus par la fonction
+Include(). La table montre le nom du script, le nom de l'exception, le numéro et le texte de la
+ligne dans le script erronné
+<li>la trace Python brute
+<li>un bouton "debug"
+</ul>
+Par exemple :
+<p>
+<dl><dd><pre class="verbatim">
+<font face="verdana" color="red"><b>Error in /demo/errors/ErrorInIncludedTest1.py</b></font><p>
+<p><pre>/demo/errors/ErrorInIncludedTest1.py
+ includes /demo/errors/ErrorInIncludedTest2.py</pre>
+<table border="1">
+<tr><td bgColor="#FFFFCC">
+<pre>Script <b>/demo/errors/ErrorInIncludedTest1.py</b><hr>NameError: name 'bonjour' is not defined
+Line 1&nbsp;&nbsp;&nbsp;&nbsp;
+print 'Script 1'</pre></td></tr></table>
+<pre>
+Traceback (most recent call last):
+  File "C:\cygwin\home\Karrigell\Template.py", line 153, in render
+    exec self.pythonCode() in ns
+  File "&lt;string&gt;", line 1, in ?
+NameError: name 'bonjour' is not defined
+</pre><form><input type="hidden" name="key" value="8wGQuLOc">
+        <input type="submit" value="Debug"></form></pre></dl>
+Avec ce bouton "Debug" on accède à plus d'informations au sujet de l'erreur :
+<ul>
+<li>le code source, avec syntaxe colorée et la ligne où s'est produite l'erreur mise
+en évidence
+<li>une vue de l'environnement, dans laquelle on peut naviguer pour trouver la valeur
+des variables, le code source des fonctions et méthodes, etc
+</ul>
+<p>Aperçu :
+<p><img src="../images/debugger.png">
+</body>
+</html>
+</td>
+</tr></table>

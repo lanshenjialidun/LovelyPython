@@ -1,0 +1,101 @@
+<html>
+<head>
+<title>Karrigell forum demo</title>
+<link rel="stylesheet" type="text/css" HREF="forum.css">
+<script>
+function showMsg(msgid)
+{
+if (selectedMsg != null)
+    {
+    document.getElementById(selectedMsg).style.backgroundColor="#ffffff"
+    }
+document.getElementById("msg"+msgid).style.backgroundColor="#ffcc77"
+selectedMsg = "msg"+msgid
+}
+
+function writeAnswer(msgid,title)
+{
+    selectedMsg = msgid
+    elt = document.getElementById("msg"+msgid)
+    save_html = elt.innerHTML
+    enterMessage = '<form action="index.ks/save_message" method="POST" target="_top">'
+    enterMessage += '<input type="hidden" name="parent" value="'+msgid+'">'
+    enterMessage += 'Name <input name="author">'
+    enterMessage += 'Title <input name="title" size="40" value="RE:'+title+'"><br>'
+    enterMessage += '<textarea name="content" rows=10 cols=80></textarea><br>'
+    enterMessage += '<input type="submit" value="Ok">'
+    enterMessage += '<input type="button" value="<%_ "Cancel"%>"'
+    enterMessage += 'onClick="removeForm('+msgid+')"><br>'
+    enterMessage += '</form>'
+    elt.innerHTML += enterMessage
+}
+
+function removeForm(msgid)
+{
+    elt = document.getElementById("msg"+msgid)
+    elt.innerHTML = save_html
+}
+
+</script>
+</head>
+
+<body>
+<script>
+selectedMsg = null
+save_html = ''
+title = ''
+</script>
+<%
+import time,cStringIO, k_utils,urllib, textwrap
+from forumDb import db
+
+def display_full(msg):
+    raw_content = msg["content"]
+    paragraphs = raw_content.split('\n')
+    text = ''
+    for p in paragraphs:
+        text += '\n'+'\n'.join(textwrap.wrap(p,80))
+    res="""
+<div id="msg%s">
+<a name="%s">
+<div style="background-color:#F0F0F0">
+<b>%s</b><br>%s %s
+</div>
+<p>
+<pre>
+%s
+</pre>
+<p>
+<a href="javascript:writeAnswer(%s,'%s')">%s</a><p>
+</div>
+""" %(msg["__id__"],msg["__id__"],msg["title"],msg["author"],msg["date"].strftime('%x %H:%M'),
+            text,msg["__id__"],msg["title"].replace("'"," "),_("Answer"))
+    return res
+
+def compDate(msg1,msg2):
+    return cmp(msg2["date"],msg1["date"])
+
+def showThread(msg):
+    # shows the thread beginning at msg
+    # only one line per message, indented
+    all.write(display_full(msg))
+    res=[]
+    res=[ m for m in threadMsgs if m["parent"]==msg["__id__"] ]   
+    res.sort(compDate)
+    for childmsg in res:
+        showThread(childmsg)
+
+# retrieves all messages of the thread
+threadMsgs=db._thread[int(_thread)]
+
+# root of the thread
+for msg in threadMsgs:
+    if msg["parent"]==-1:
+        break
+rootMsg=msg
+
+all=cStringIO.StringIO()
+showThread(rootMsg)
+print all.getvalue()
+%>
+

@@ -1,0 +1,18 @@
+<font face="verdana" color="red"><b>Error in /script_error.py</b></font><p>
+<table border="1">
+<tr><td bgColor="#FFFFCC">
+<pre>Script <b>/script_error.py</b><hr>IndexError: string index out of range
+
+Line 2&nbsp;&nbsp;&nbsp;&nbsp;
+print a[5]</pre></td></tr></table><pre>
+Traceback (most recent call last):
+  File "C:\cygwin\home\Karrigell\Template.py", line 164, in render
+    exec pythonCode in ns
+  File "&lt;string&gt;", line 2, in ?
+IndexError: string index out of range
+
+</pre>
+<form action="/debugger/frame_debug.pih" target="_blank">
+        <input type="hidden" name="key" value="78BJdLzh">
+        <input type="submit" value="Debug">
+        </form>

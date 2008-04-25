@@ -1,0 +1,55 @@
+/*
+ * FCKeditor - The text editor for internet
+ * Copyright (C) 2003-2004 Frederico Caldeira Knabben
+ * 
+ * Licensed under the terms of the GNU Lesser General Public License:
+ * 		http://www.opensource.org/licenses/lgpl-license.php
+ * 
+ * For further information visit:
+ * 		http://www.fckeditor.net/
+ * 
+ * Version:  2.0 Beta 2
+ * Modified: 2004-05-28 18:27:57
+ */
+
+body
+{
+	font-size: 1em;
+	font-family: 'Times New Roman';
+}
+
+p
+{
+	margin-left: 20px;
+}
+
+code
+{
+	padding-right: 10px;
+	display: block;
+	padding-left: 10px;
+	padding-bottom: 5px;
+	margin: 10px 20px;
+	padding-top: 5px;
+	background-color: #dcdcdc;
+}
+
+.classPropMeth
+{
+	margin-top: 10px;
+	font-weight: bold;
+	font-size: 0.8em;
+	margin-left: 0px;
+	font-family: 'Courier New' , Monospace;
+}
+
+.paramsDefinition
+{
+	margin-left: 20px;
+}
+
+.classDefinition *
+{
+	margin-top: 0px;
+	margin-bottom: 0px;
+}

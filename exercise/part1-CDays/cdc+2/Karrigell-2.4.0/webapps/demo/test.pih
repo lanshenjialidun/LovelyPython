@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>Python Inside HTML test</title>
+<style type="text/css">
+th {background-color : #A0A0A0}
+</style>
+</head>
+
+<body>
+
+<h2>HTTP headers</h2>
+
+<table border="1">
+	<tr>
+		<th>Key</th>
+		<th>Value</th>
+	</tr>
+<% for item in HEADERS.keys(): 
+	print "<tr><td>%s</td><td>%s</td></tr>\n" % (item,HEADERS[item])
+%>
+</table>
+
+<h4>Current directory : <%= os.getcwd() %></h4>
+
+<% def square(x):
+	return x*x %>
+
+<% for i in range(10): %>
+	<%= i %> * <%= i %> : <b> <%= square(i) %> </b> 
+	<br>
+<% end %>
+
+<p>
+<h4>Namespace</h4>
+<% print dir() %>
+
+<h4>Available modules</h4>
+<%
+import types
+for item in globals().keys():
+	if type(globals()[item]) is types.ModuleType:
+		print item,'<br>'
+%>
+
+</body>
+
+</html>
+

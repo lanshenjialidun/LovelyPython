@@ -1,0 +1,61 @@
+<HTML>
+<head>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+<link rel="STYLESHEET" href="errors.css">
+</head>
+<body>
+文件 <b>demo/tour/test.pih</b> 的内容::<p>
+<br>Python chunks are in <i>italic</i>
+<table class="errors" cellpadding="0" cellspacing="0">
+<tr>
+<td class="normal"><pre><span class="num">    1</span> &lt;html>
+<span class="num">    2</span> &lt;head>
+<span class="num">    3</span> &lt;title>Python Inside HTML test&lt;/title>
+<span class="num">    4</span> &lt;style type="text/css">
+<span class="num">    5</span> th {background-color : #A0A0A0}
+<span class="num">    6</span> &lt;/style>
+<span class="num">    7</span> &lt;/head>
+<span class="num">    8</span> 
+<span class="num">    9</span> &lt;body>
+<span class="num">   10</span> 
+<span class="num">   11</span> &lt;h2>HTTP headers&lt;/h2>
+<span class="num">   12</span> 
+<span class="num">   13</span> &lt;table border="1">
+<span class="num">   14</span> 	&lt;tr>
+<span class="num">   15</span> 		&lt;th>Key&lt;/th>
+<span class="num">   16</span> 		&lt;th>Value&lt;/th>
+<span class="num">   17</span> 	&lt;/tr>
+<span class="num">   18</span> <i>&lt;% <font color="#C00000">for</font> <font color="#000000">item</font> <font color="#C00000">in</font> <font color="#000000">HEADERS</font><font color="#0000C0">.</font><font color="#000000">keys</font><font color="#0000C0">(</font><font color="#0000C0">)</font><font color="#0000C0">:</font>
+<span class="num">   19</span>         <font color="#C00000">print</font> <font color="#004080">"&lt;tr>&lt;td>%s&lt;/td>&lt;td>%s&lt;/td>&lt;/tr>\n"</font> <font color="#0000C0">%</font> <font color="#0000C0">(</font><font color="#000000">item</font><font color="#0000C0">,</font><font color="#000000">HEADERS</font><font color="#0000C0">[</font><font color="#000000">item</font><font color="#0000C0">]</font><font color="#0000C0">)</font><font color="#000000"></font>%&gt;</i>
+<span class="num">   20</span> &lt;/table>
+<span class="num">   21</span> 
+<span class="num">   22</span> &lt;h4>Current directory : <i>&lt;%<font color="#0000C0">=</font> <font color="#000000">os</font><font color="#0000C0">.</font><font color="#000000">getcwd</font><font color="#0000C0">(</font><font color="#0000C0">)</font><font color="#000000"></font>%&gt;</i>&lt;/h4>
+<span class="num">   23</span> 
+<span class="num">   24</span> <i>&lt;% <font color="#C00000">def</font> <font color="#000000">square</font><font color="#0000C0">(</font><font color="#000000">x</font><font color="#0000C0">)</font><font color="#0000C0">:</font>
+<span class="num">   25</span>         <font color="#C00000">return</font> <font color="#000000">x</font><font color="#0000C0">*</font><font color="#000000">x</font><font color="#000000"></font>%&gt;</i>
+<span class="num">   26</span> 
+<span class="num">   27</span> <i>&lt;% <font color="#C00000">for</font> <font color="#000000">i</font> <font color="#C00000">in</font> <font color="#000000">range</font><font color="#0000C0">(</font><font color="#0080C0">10</font><font color="#0000C0">)</font><font color="#0000C0">:</font><font color="#000000"></font>%&gt;</i>
+<span class="num">   28</span> 	<i>&lt;%<font color="#0000C0">=</font> <font color="#000000">i</font><font color="#000000"></font>%&gt;</i> * <i>&lt;%<font color="#0000C0">=</font> <font color="#000000">i</font><font color="#000000"></font>%&gt;</i> : &lt;b> <i>&lt;%<font color="#0000C0">=</font> <font color="#000000">square</font><font color="#0000C0">(</font><font color="#000000">i</font><font color="#0000C0">)</font><font color="#000000"></font>%&gt;</i> &lt;/b> 
+<span class="num">   29</span> 	&lt;br>
+<span class="num">   30</span> <i>&lt;% <font color="#000000">end</font><font color="#000000"></font>%&gt;</i>
+<span class="num">   31</span> 
+<span class="num">   32</span> &lt;p>
+<span class="num">   33</span> &lt;h4>Namespace&lt;/h4>
+<span class="num">   34</span> <i>&lt;% <font color="#C00000">print</font> <font color="#000000">dir</font><font color="#0000C0">(</font><font color="#0000C0">)</font><font color="#000000"></font>%&gt;</i>
+<span class="num">   35</span> 
+<span class="num">   36</span> &lt;h4>Available modules&lt;/h4>
+<span class="num">   37</span> <i>&lt;%
+<span class="num">   38</span> <font color="#C00000">import</font> <font color="#000000">types</font>
+<span class="num">   39</span> <font color="#C00000">for</font> <font color="#000000">item</font> <font color="#C00000">in</font> <font color="#000000">globals</font><font color="#0000C0">(</font><font color="#0000C0">)</font><font color="#0000C0">.</font><font color="#000000">keys</font><font color="#0000C0">(</font><font color="#0000C0">)</font><font color="#0000C0">:</font>
+<span class="num">   40</span>         <font color="#C00000">if</font> <font color="#000000">type</font><font color="#0000C0">(</font><font color="#000000">globals</font><font color="#0000C0">(</font><font color="#0000C0">)</font><font color="#0000C0">[</font><font color="#000000">item</font><font color="#0000C0">]</font><font color="#0000C0">)</font> <font color="#C00000">is</font> <font color="#000000">types</font><font color="#0000C0">.</font><font color="#000000">ModuleType</font><font color="#0000C0">:</font>
+<span class="num">   41</span>                 <font color="#C00000">print</font> <font color="#000000">item</font><font color="#0000C0">,</font><font color="#004080">'&lt;br>'</font><font color="#000000"></font>%&gt;</i>
+<span class="num">   42</span> 
+<span class="num">   43</span> &lt;/body>
+<span class="num">   44</span> 
+<span class="num">   45</span> &lt;/html>
+<span class="num">   46</span> 
+<span class="num">   47</span> </pre></td>
+</tr>
+</table>
+</body>
+</html>

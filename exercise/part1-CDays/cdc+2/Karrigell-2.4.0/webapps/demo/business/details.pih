@@ -1,0 +1,42 @@
+<%
+Include("header.pih")
+
+from songDb import db
+
+id_chanson = int(_song)
+song=db['chansons'][id_chanson]
+
+# recueils et dialectes dans lesquels on trouve la chanson
+recueils = [ db['recueils'][r['recueil']]
+    for r in db['chansons_par_recueil'] if r['chanson'] == id_chanson ]
+dialectes = [ db['dialectes'][r['dialecte']]
+    for r in db['chansons_par_dialecte'] if r['chanson'] == id_chanson ]
+%>
+<h2><%= song['breton'] %></h2>
+<h4>(<%= song['francais'] %>)</h4>
+
+<table cellpadding="5" border="1">
+<tr>
+    <td>Recueil</td>
+    <td><%= ", ".join([r['nom'] for r in recueils]) %></td>
+</tr>
+<tr>
+    <td>Dialecte</td>
+    <td><%= ", ".join([d['nom'] for d in dialectes]) %></td>
+</tr>
+<tr>
+    <td>Genre</td>
+    <td><%= db['genres'][song['genre']]['nom'] %></td>
+</tr>
+<tr>
+    <td>Prix</td>
+    <td><%= round(float(song['prix'])/100,2) %>&nbsp;&euro;</td>
+</tr>
+
+</table>
+
+<form action="handleCart.pih">
+<input type="hidden" name="action" value="add">
+<input type="hidden" name="song" value="<%= _song %>">
+<input type="submit" value="<%_ "Add to your cart" %>">
+</form>

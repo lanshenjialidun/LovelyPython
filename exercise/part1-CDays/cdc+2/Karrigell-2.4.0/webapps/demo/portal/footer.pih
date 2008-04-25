@@ -1,0 +1,6 @@
+<% import time %>
+<p>
+<hr width="33%" align="left">
+<i>
+<%_ "Powered by Karrigell" %> - <%= time.strftime("%d/%m/%y %H:%M",time.localtime()) %>
+</i>

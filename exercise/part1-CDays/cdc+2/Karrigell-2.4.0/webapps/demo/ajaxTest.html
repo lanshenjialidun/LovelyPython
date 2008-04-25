@@ -1,0 +1,54 @@
+<html>
+<head>
+<script>
+
+function getHTTPObject() {
+  var xmlhttp;
+  /*@cc_on
+  @if (@_jscript_version >= 5)
+    try {
+      xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");
+      } catch (e) {
+      try {
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        } catch (E) {
+        xmlhttp = false;
+        }
+      }
+  @else
+  xmlhttp = false;
+  @end @*/
+  if (!xmlhttp && typeof XMLHttpRequest != 'undefined') {
+    try {
+      xmlhttp = new XMLHttpRequest();
+      } catch (e) {
+      xmlhttp = false;
+      }
+    }
+  return xmlhttp;
+  }
+var http = getHTTPObject();
+var url = "../cgi-bin/serv.py?val=";
+function go() {
+  var v = document.getElementById("val").value;
+  http.open("GET", url + escape(v), true);
+  http.onreadystatechange = handleHttpResponse;
+  http.send(null);
+  }
+function handleHttpResponse() {
+  if (http.readyState == 4) {
+    md = document.getElementById('mondiv');
+    md.innerHTML = http.responseText;
+    }
+  }
+</script>
+</head>
+<body>
+
+  largeur, hauteur : <input type="text" name="val" id="val" /> <button onclick="javascript:go()">GO</button><br />
+
+<hr>
+<div id="mondiv">
+</div>
+</body>
+</html>

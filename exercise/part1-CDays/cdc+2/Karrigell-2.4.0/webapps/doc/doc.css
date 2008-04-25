@@ -1,0 +1,141 @@
+body {font-family: verdana,sans-serif, arial, ;
+	background-color: #DDFFDD;
+	font-size: 10pt;
+	color: #000000;}
+
+td {font-family: verdana,sans-serif, arial, ;
+	font-size: 10pt;
+	}
+
+dl { position: relative;
+	left: 5%;
+	width: 90%;
+	background-color: #FFFFCC; 
+	color:black;
+	border-width: 1; 
+	border-style:dotted;
+	border-color:black;
+	padding-left: 5px;
+	padding-bottom: 5px;
+	padding-top: 5px;
+	}
+
+dl.tour { position: relative;
+	left: 5%;
+	width: 90%;
+	background-color: #71B559; 
+	color:black;
+	border-width: 0; 
+	padding-bottom: 0px;
+	padding-top: 0px;
+	}
+
+
+dl.console { position: relative;
+	left: 5%;
+	width: 60%;
+	background-color: #000000; 
+	color: white;
+	font-family: "Courier New";
+	border-width: 4; 
+	border-style:ridge;
+	border-color:#E0E0E0;
+	padding-bottom: 12px;
+	padding-top: 12px;
+	padding-left: 12px;
+	}
+
+dt { position: relative; margin-left: 0 }
+dd { position: relative; margin-left: 5 }
+
+pre.html { position: relative;
+	background-color: #D0D0D0; 
+	border-width: 1; 
+	border-style:dotted;
+	border-color:black;
+	padding-bottom: 0px;
+	padding-top: 12px;
+	}
+
+pre.conf { position: relative;
+	left: 5%;
+	width: 75%;
+	background-color: #D0D0D0; 
+	color: black;
+	font-family: "Courier New";
+	border-width: 2; 
+	border-style:ridge;
+	border-color:#E0E0E0;
+	padding-bottom: 12px;
+	padding-top: 12px;
+	padding-left: 12px;
+	}
+
+table.header { 
+    width: 100%;
+    background-color: #34941E;
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+    }
+
+td.headertext { 
+    background-color:#404040;
+    }
+
+td.headertext1 { text-align: center;
+    width: 70%;
+    background-color:#34941E;
+    color:#FFFFFF;
+    }
+
+td.headertext2 {  text-align: center;
+    width: 30%;
+    background-color:#34941E;
+    color:#FFFFFF;
+    }
+
+td.info { color: #FFFFFF; 
+    background-color:#34941E;
+	}
+
+td.menu { width:18%;
+    padding-left:5px;
+    font-size:11px;
+    }
+
+td.side { width:12%;
+    padding-left:5px;
+    font-size:11px;
+    }
+
+td.content { 
+    background-color:#FFFFFF;
+    color:#000000;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 30px;
+    padding-top:20px;
+    }
+
+td.header { color: #FFFFFF;
+    background-color: #404040;
+    }
+
+td.code {
+	font-family: courier;
+	background-color: #FFFFCC; 
+	}
+
+a:link {color: #000000}
+a:visited {color: #000000 }
+
+a.header:link { color: #FFFFFF; }
+a.header:visited { color: #FFFFFF; }
+
+a.menu:link {color: #404040; text-decoration:none}
+a.menu:visited {color: #404040; text-decoration:none}
+
+.url                    { font-family: courier; }
+.file                   { font-family: courier; }
+.sel {font-weight: bold; color: black}

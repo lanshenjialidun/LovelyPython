@@ -1,0 +1,151 @@
+False
+[09-04-07 08:47:23] False
+[09-04-07 10:34:38] True
+[09-04-07 10:34:38] storing session object
+[09-04-07 10:35:20] True
+[09-04-07 10:35:20] storing session object
+[09-04-07 10:35:23] True
+[09-04-07 10:35:23] storing session object
+[09-04-07 10:36:19] True
+[09-04-07 10:36:19] storing session object
+[09-04-07 10:36:21] True
+[09-04-07 10:36:21] storing session object
+[09-04-07 10:37:16] True
+[09-04-07 10:37:16] storing session object
+[09-04-07 10:37:18] True
+[09-04-07 10:37:18] storing session object
+[09-04-07 10:38:24] True
+[09-04-07 10:38:24] storing session object
+[09-04-07 10:40:24] True
+[09-04-07 10:40:24] storing session object
+[09-04-07 10:40:26] True
+[09-04-07 10:40:26] storing session object
+[09-04-07 10:42:28] True
+[09-04-07 10:42:28] storing session object
+[09-04-07 10:42:31] True
+[09-04-07 10:42:31] storing session object
+[09-04-07 10:43:44] True
+[09-04-07 10:43:44] storing session object
+[09-04-07 10:48:54] False
+[09-04-07 10:53:19] True
+[09-04-07 10:53:19] storing session object
+[09-04-07 10:54:39] True
+[09-04-07 10:54:39] storing session object
+[09-04-07 10:54:40] True
+[09-04-07 10:54:40] storing session object
+[09-04-07 10:57:10] True
+[09-04-07 10:57:10] storing session object
+[09-04-07 10:57:12] True
+[09-04-07 10:57:12] storing session object
+[09-04-07 10:57:12] True
+[09-04-07 10:57:12] storing session object
+[09-04-07 10:57:13] True
+[09-04-07 10:57:13] storing session object
+[09-04-07 10:57:14] True
+[09-04-07 10:57:14] storing session object
+[09-04-07 10:57:15] True
+[09-04-07 10:57:15] storing session object
+[09-04-07 10:57:15] True
+[09-04-07 10:57:15] storing session object
+[09-04-07 10:57:16] True
+[09-04-07 10:57:16] storing session object
+[09-04-07 10:57:17] True
+[09-04-07 10:57:17] storing session object
+[09-04-07 10:57:17] True
+[09-04-07 10:57:18] storing session object
+[09-04-07 10:57:18] True
+[09-04-07 10:57:18] storing session object
+[09-04-07 10:57:19] True
+[09-04-07 10:57:19] storing session object
+[09-04-07 10:57:19] True
+[09-04-07 10:57:19] storing session object
+[09-04-07 11:07:56] False
+[09-04-07 11:12:38] False
+[09-04-07 11:13:03] True
+[09-04-07 11:13:03] storing session object
+[09-04-07 11:13:58] True
+[09-04-07 11:13:58] storing session object
+[09-04-07 11:14:22] True
+[09-04-07 11:14:22] storing session object
+[09-04-07 11:14:24] True
+[09-04-07 11:14:24] storing session object
+[09-04-07 11:14:24] True
+[09-04-07 11:14:24] storing session object
+[09-04-07 11:14:25] True
+[09-04-07 11:14:25] storing session object
+[09-04-07 11:14:25] True
+[09-04-07 11:14:25] storing session object
+[09-04-07 11:14:26] True
+[09-04-07 11:14:26] storing session object
+[09-04-07 11:14:27] True
+[09-04-07 11:14:27] storing session object
+[09-04-07 11:14:31] True
+[09-04-07 11:14:31] storing session object
+[09-04-07 11:14:31] True
+[09-04-07 11:14:31] storing session object
+[09-04-07 11:15:13] True
+[09-04-07 11:15:13] storing session object
+[09-04-07 11:18:52] True
+[09-04-07 11:18:52] storing session object
+[09-04-07 11:18:55] True
+[09-04-07 11:18:55] storing session object
+[09-04-07 11:18:56] True
+[09-04-07 11:18:56] storing session object
+[09-04-07 11:18:57] True
+[09-04-07 11:18:57] storing session object
+[09-04-07 11:18:57] True
+[09-04-07 11:18:57] storing session object
+[09-04-07 11:18:58] True
+[09-04-07 11:18:58] storing session object
+[09-04-07 11:18:59] True
+[09-04-07 11:18:59] storing session object
+[09-04-07 11:19:00] True
+[09-04-07 11:19:00] storing session object
+[09-04-07 11:19:02] True
+[09-04-07 11:19:02] storing session object
+[09-04-07 11:19:02] True
+[09-04-07 11:19:02] storing session object
+[09-04-07 11:19:35] True
+[09-04-07 11:19:35] storing session object
+[09-04-07 11:19:37] False
+[09-04-07 11:20:24] True
+[09-04-07 11:20:24] storing session object
+[09-04-07 11:22:59] True
+[09-04-07 11:22:59] storing session object
+[09-04-07 11:23:24] True
+[09-04-07 11:23:24] storing session object
+[09-04-07 11:26:28] False
+[09-04-07 11:26:59] True
+[09-04-07 11:26:59] storing session object
+[09-04-07 11:27:32] True
+[09-04-07 11:27:32] storing session object
+[09-04-07 11:27:34] True
+[09-04-07 11:27:34] storing session object
+[09-04-07 11:27:34] True
+[09-04-07 11:27:34] storing session object
+[09-04-07 11:27:35] True
+[09-04-07 11:27:35] storing session object
+[09-04-07 11:27:35] True
+[09-04-07 11:27:35] storing session object
+[09-04-07 11:27:36] True
+[09-04-07 11:27:36] storing session object
+[09-04-07 11:27:36] True
+[09-04-07 11:27:36] storing session object
+[09-04-07 11:27:38] True
+[09-04-07 11:27:38] storing session object
+[09-04-07 11:27:38] True
+[09-04-07 11:27:38] storing session object
+[09-04-07 11:27:43] True
+[09-04-07 11:27:44] storing session object
+[09-04-07 11:27:44] True
+[09-04-07 11:27:44] storing session object
+2007-04-29 18:06:46 ok 
+2007-04-29 18:07:22 end headers 
+2007-04-29 18:07:22 ok 
+2007-04-29 18:07:57 send headers 
+2007-04-29 18:07:57 ok 
+2007-04-29 18:08:59 ok 
+2007-04-29 18:09:29 ok 
+2007-04-29 18:09:51 ok 
+2007-04-29 18:11:56 ok 
+2007-04-29 18:12:55 ok 

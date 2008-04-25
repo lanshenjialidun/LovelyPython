@@ -1,0 +1,12 @@
+# example configuration for Karrigell with Apache and mod_wsgi
+# replace /usr/local/karrigell/Karrigell-2.3.5 with the actual path
+
+WSGIDaemonProcess karrigell processes=5 threads=1
+
+WSGIScriptAlias / /usr/local/karrigell/Karrigell-2.3.5/apache/modwsgi.py
+
+<Directory /usr/local/karrigell/Karrigell-2.3.5/apache>
+WSGIProcessGroup karrigell
+Order deny,allow
+Allow from all
+</Directory>

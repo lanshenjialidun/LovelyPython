@@ -1,0 +1,32 @@
+<HTML>
+<head>
+<link rel="STYLESHEET" href="/karrigell.css">
+<style>
+td.filecontent {  background-color: #FFFFCC; border-width: 1; border-style:solid;}
+</style>
+</head>
+ 
+<body>
+
+<% if _name[0]==".":
+    print _("Error - Can only show files in the demo directory")
+    raise SCRIPT_END %>
+    <% end %>
+<%_ "Content of file" %> <b><%= _name %></b>
+<table width="100%">
+<tr>
+<td class="filecontent">
+<pre>
+<% 
+import cgi
+text=open(_name).read()
+text=cgi.escape(text)
+space="&nbsp;"*4
+text=text.replace("\t",space)
+print text
+%>
+</pre>
+</td></tr>
+</table>
+</body>
+</html>

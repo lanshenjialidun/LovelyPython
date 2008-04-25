@@ -1,0 +1,171 @@
+<html>
+<head>
+<title>Authentication and users management
+</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="STYLESHEET" href="../doc.css">
+</head>
+<BODY bgcolor="#71B559" LINK="#FFFFCC" VLINK="#FFFFCC" LEFTMARGIN="0" TOPMARGIN="0">
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td class="side">&nbsp;</td>
+<td>
+    <table class="header" cellpadding="0" cellspacing="0">
+    <tr>
+        <td>
+            <a href="../../index.pih"><img src="../images/karrigell_skeudenn.png" border="0"></a>
+        </td>
+        <td class="headertext">
+            <td class="headertext1">
+                <center>
+                <font size="+2"><b>Karrigell Documentation</b></font>
+                <p>
+                <table width="70%" cellpadding="0" cellspacing="0"><tr>
+                <td class="info" align="left"><strong>Version 2.4.0</strong></td>
+                <td class="info" align="right">12 04 08</td>
+                </tr></table>
+                </center>
+            </td>
+            <td class="headertext2">
+                <a class="header" href="../fr/authentication.htm">Fran&ccedil;ais</a>
+            </td>
+        </td>
+    </tr>
+    </table>
+</td>
+</tr>
+<tr><td class="menu" valign="top"><a class="menu" href="front.htm">
+1. Introduction
+</a><br><a class="menu" href="install.htm">
+2. Installing Karrigell
+</a><br><a class="menu" href="webserveroptions.htm">
+3. The Web server
+</a><br><a class="menu" href="configuration.htm">
+4. Configuration options
+</a><br><a class="menu" href="apache.htm">
+5. Working with Apache, LightTPD or Xitami
+</a><br><a class="menu" href="programming.htm">
+6. Programming
+</a><br><a class="menu" href="debugging.htm">
+7. Debugging
+</a><br><a class="menu" href="pythonscripts.htm">
+8. Python scripts
+</a><br><a class="menu" href="cgi.htm">
+9. CGI scripts
+</a><br><a class="menu" href="karrigellservices.htm">
+10. Karrigell Services
+</a><br><a class="menu" href="pythoninsidehtml.htm">
+11. Python Inside HTML
+</a><br><a class="menu" href="htmlinsidepython.htm">
+12. HTML Inside Python
+</a><br><a class="menu" href="htmltags.htm">
+13. HTMLTags - generate HTML in Python
+</a><br><a class="menu" href="include.htm">
+14. Including documents
+</a><br><a class="menu" href="sessions.htm">
+15. Sessions
+</a><br><span class="sel">
+16. Authentication and users management
+</span><br><span class="sel">
+&nbsp;&nbsp;<small>16.1 Login(), Logout() and Role()</small></span><br><span class="sel">
+&nbsp;&nbsp;<small>16.2 Example</small></span><br><span class="sel">
+&nbsp;&nbsp;<small>16.3 Basic HTTP authentication</small></span><br><a class="menu" href="internationalization.htm">
+17. Translation and Unicode
+</a><br><a class="menu" href="namespace.htm">
+18. Summary of built-in names</a><br></td>
+<td class="content">
+<h1>16. Authentication and user management</h1>
+<h2>16.1 Login(), Logout() and Role()</h2>
+For user authentication, Karrigell provides a framework using 3 built-in functions, 
+<code>Login()</code>, <code>Logout()</code> and <code>Role()</code>. The default 
+implementation relies on a users database managed by the script 
+<code>users.ks</code>, which is reserved to the site administrator. This script
+is available from the home page : Administration/Users management
+Users can have different roles, returned by function <code>Role()</code> :
+<ul>
+<li><code>None</code> if user is not logged in
+<li><code>visit</code> if user is logged as "visitor" : can only see pages, but not edit them
+<li><code>edit</code> if user is logged as "editor" : can edit data
+<li><code>admin</code> if user is logged as site administrator
+</ul>
+<p>The user management script allows you to create other roles (link "Manage user roles") ;
+you can add other roles and remove default roles, except <code>admin</code>
+<p>To restrict the access to a script to users who have a given role, use the function <code>Login(role=<i>list_of_roles</i>)</code>. When it is executed, it checks if the user is authenticated (using a cookie mechanism) ; if not :
+<ul>
+<li>a redirection is performed to a script (by default <code>/login.ks/login</code>) which prompts the user for a login and password
+<li>nother script checks if login and password are present in the users database and if the user with these login and password has the requested role
+<li>if so, a redirection is performed to the original script, or to another path which can be specified as argument to <code>Login()</code> : <code>Login(role=["admin"],path="/send_me_here_after_login")</code>
+</ul>
+<p>Another script than the default <code>/login.ks/login</code> can be specified as argument to the 
+<code>Login()</code> function : <code>Login("/utils/custom_login.py")</code> for instance
+<p><code>Logout()</code> writes a link to a logout script. The text of this link is "Logout" by default, it can be specified as argument : <code>Logout("Disconnect")</code>. If the user is not authenticated, the empty string is returned
+<h2>16.2 Example</h2>
+This is the script <code>loginTest.ks</code> in <code>webapps/demo</code>:
+<p>
+<pre class="verbatim">
+def index():
+    # check if user is the administrator
+    Login(role=["edit","admin"])
+    # only shows is Login successful
+    print "Logged in as ",Role()
+    print "&lt;br&gt;",Logout()
+</pre>
+<p>If user is not logged is as administrator or editor, <code>Login()</code> redirects to the page
+requesting login and password
+<p>If he is logged as "edit" or "admin", <code>Login()</code> doesn't do anything and the rest of the function <code>index()</code> is run : function <code>Role()</code> returns the current user role and presents a link to log out
+<p>If the user clicks on this link, after the logout script is run, a redirection is performed to the script. Since user is no more logged in, the <code>Login()</code> function redirects again to the login form
+<h2>16.3 Basic HTTP authentication</h2>
+<p>Karrigell supports basic HTTP authentication, a way to protect access to some files by requesting
+a user identifier and a password. The server receives user input and stores it in the global
+variables <code>AUTH_USER</code> and <code>AUTH_PASSWORD</code>. If the user enters a couple which
+is allowed by the server then the page is sent back ; if the couple is not allowed then the user is
+requested a new couple ; if the user cancels his request an error message is sent to him
+<p>In Karrigell, authentication is handled through the <code>Authentication</code> function ; call
+<code>Authentication(<var>testFunction</var><big>[,</big><var>realm</var><big>,</big><var>
+errorMessage</var><big>]</big>)</code> where <var>testFunction</var> is a user-defined function
+taking no argument, which returns true if the authentication test succeeds (depending on the values
+of <code>AUTH_USER</code> and <code>AUTH_PASSWORD</code>) and false otherwise, <var>realm</var> is a
+string with the name of the authentication domain (the one that will appear on the popup window) and
+<var>errorMessage</var> is a string displayed on the browser if the user cancels his authentication
+request. Both <var>realm</var> and <var>errorMessage</var> have default values
+<p>Here is an example with a very simple test function :
+<p>
+<dl><dd><pre class="verbatim">
+&lt;%
+def authTest():
+    return (AUTH_USER=="proust" and AUTH_PASSWORD=="marcel")
+Authentication(authTest,"Authentication test",\
+    "Sorry, you are not allowed to access this page")
+%&gt;
+Welcome, authenticated user !
+</pre></dl>
+<p>
+<p>With this test function, if a visitor finds a way to read the source code, he will easily
+discover a valid login/password couple. A better solution is to use md5 : it is a function which
+takes a string as argument, and returns a 16-bytes "digest". The digest is guaranteed to be
+different for two different strings, and it is impossible to find the string if you only know the
+digest
+<br>A good method is to compute the md5 digests of user and password and store them in a file. The
+authentication test will read this file, compute the digests of AUTH_USER and AUTH_PASSWORD, and
+return true if the digests match
+<p>
+<dl><dd><pre class="verbatim">
+&lt;%
+import md5
+digests=open("digest.ini","rb").read()
+userDigest=digests[:16]
+passwordDigest=digests[16:]
+def authTest():
+    return (md5.new(AUTH_USER).digest()==userDigest and \
+        md5.new(AUTH_PASSWORD).digest()==passwordDigest)
+Authentication(authTest,"Authentication test",\
+    "Sorry, you are not allowed to access this page")
+%&gt;
+Welcome, authenticated user !
+</pre></dl>
+<p>See the <code>k_password.py</code> script, in the <CODE>admin</CODE> directory, which 
+generates a file with the md5 digests of administrator's login and password
+<p>
+</html>
+</td>
+</tr></table>

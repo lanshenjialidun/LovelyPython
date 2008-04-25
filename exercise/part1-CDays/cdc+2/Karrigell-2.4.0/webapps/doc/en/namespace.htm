@@ -1,0 +1,280 @@
+<html>
+<head>
+<title>Summary of built-in names</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="STYLESHEET" href="../doc.css">
+</head>
+<BODY bgcolor="#71B559" LINK="#FFFFCC" VLINK="#FFFFCC" LEFTMARGIN="0" TOPMARGIN="0">
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td class="side">&nbsp;</td>
+<td>
+    <table class="header" cellpadding="0" cellspacing="0">
+    <tr>
+        <td>
+            <a href="../../index.pih"><img src="../images/karrigell_skeudenn.png" border="0"></a>
+        </td>
+        <td class="headertext">
+            <td class="headertext1">
+                <center>
+                <font size="+2"><b>Karrigell Documentation</b></font>
+                <p>
+                <table width="70%" cellpadding="0" cellspacing="0"><tr>
+                <td class="info" align="left"><strong>Version 2.4.0</strong></td>
+                <td class="info" align="right">12 04 08</td>
+                </tr></table>
+                </center>
+            </td>
+            <td class="headertext2">
+                <a class="header" href="../fr/namespace.htm">Fran&ccedil;ais</a>
+            </td>
+        </td>
+    </tr>
+    </table>
+</td>
+</tr>
+<tr><td class="menu" valign="top"><a class="menu" href="front.htm">
+1. Introduction
+</a><br><a class="menu" href="install.htm">
+2. Installing Karrigell
+</a><br><a class="menu" href="webserveroptions.htm">
+3. The Web server
+</a><br><a class="menu" href="configuration.htm">
+4. Configuration options
+</a><br><a class="menu" href="apache.htm">
+5. Working with Apache, LightTPD or Xitami
+</a><br><a class="menu" href="programming.htm">
+6. Programming
+</a><br><a class="menu" href="debugging.htm">
+7. Debugging
+</a><br><a class="menu" href="pythonscripts.htm">
+8. Python scripts
+</a><br><a class="menu" href="cgi.htm">
+9. CGI scripts
+</a><br><a class="menu" href="karrigellservices.htm">
+10. Karrigell Services
+</a><br><a class="menu" href="pythoninsidehtml.htm">
+11. Python Inside HTML
+</a><br><a class="menu" href="htmlinsidepython.htm">
+12. HTML Inside Python
+</a><br><a class="menu" href="htmltags.htm">
+13. HTMLTags - generate HTML in Python
+</a><br><a class="menu" href="include.htm">
+14. Including documents
+</a><br><a class="menu" href="sessions.htm">
+15. Sessions
+</a><br><a class="menu" href="authentication.htm">
+16. Authentication and users management
+</a><br><a class="menu" href="internationalization.htm">
+17. Translation and Unicode
+</a><br><span class="sel">
+18. Summary of built-in names</span><br></td>
+<td class="content">
+<h1>18. Karrigell namespace</h1>
+This page lists all the names available in Karrigell scripts
+<p>
+<table border="1">
+<tr>
+ <td class="name">ACCEPTED_LANGUAGES</td>
+ <td>The list of languages accepted by the client (they can be set in the browser)</td>
+</tr>
+<tr>
+ <td class="name">AUTH_USER</td>
+ <td>User name if <a href="authentication.htm">basic HTTP authentication</a> is used</td>
+</tr>
+<tr>
+ <td class="name">AUTH_PASSWORD</td>
+ <td>User password if <a href="authentication.htm">basic HTTP authentication</a> is used</td>
+</tr>
+<tr>
+ <td class="name">Authentication</td>
+ <td>Function used for <a href="authentication.htm">basic HTTP Authentication</a></td>
+</tr>
+<tr>
+ <td class="name">CONFIG</td>
+ <td>Configuration options, as set in the command line or in the configuration file
+  <p>Attributes
+  <table border="1">
+  <tr>
+   <td class="name">serverDir</td>
+   <td>Directory where the Karrigell.py script stands</td>
+  </tr>
+  <tr>
+   <td class="name">rootDir</td>
+   <td>Root directory, from where files and scripts are served</td>
+  </tr>
+  <tr>
+   <td class="name">outputEncoding</td>
+   <td>The encoding used for output</td>
+  </tr>
+  </table>
+ </td>
+</tr>
+<tr>
+ <td class="name">COOKIE</td>
+ <td>The cookies sent by the client to the server. Instance of the SimpleCookie class
+ in Python cookie module</td>
+</tr>
+<tr>
+ <td class="name">HEADERS</td>
+ <td>The request headers, sent by the user agent (browser) to the server</td>
+</tr>
+<tr>
+ <td class="name">HTTP_REDIRECTION</td>
+ <td><code>raise HTTP_REDIRECTION,url</code> performs an HTTP redirection (302) to the 
+ specified url</td>
+</tr>
+<tr>
+ <td class="name">Include()</td>
+ <td>Function used to include a file or a script in another script</td>
+</tr>
+<tr>
+ <td class="name">Login([script_url],[role=<i>list_of_roles</i>],
+    [path=<i>redirect_after_login</i>])</td>
+ <td>Function user to limit access to the script to authenticated users.
+ By default, if user is not yet logged in, redirects to the script 
+ <code>login.ks</code> in the root directory. Another script url can be 
+ specified to customize the authentication test. If user is already logged
+ in, the function does nothing
+ <br><CODE>role</CODE> is the list of roles accepted by the script. It defaults
+ to ["admin"] and can include "edit" and "visit" as other values
+ <br><CODE>path</CODE> is the path the user will be sent to after a successful
+ login. It defaults to the path of the original script
+</td>
+</tr>
+<tr>
+ <td class="name">PATH</td>
+ <td>Script path</td>
+</tr>
+<tr>
+ <td class="name">QUERY</td>
+ <td>When a script receives form data, QUERY is a dictionary mapping field names 
+ to field values</td>
+</tr>
+<tr>
+ <td class="name">REQUEST</td>
+ <td>When a script receives form data, REQUEST is a dictionary mapping field names 
+ to field values (same as QUERY)</td>
+</tr>
+<tr>
+ <td class="name">REQUEST_HANDLER</td>
+ <td>An object representing the current request handler
+ <p>Attributes
+ <p>
+<table border="1">
+    <tr>
+    <td class="name">client_address</td>
+    <td valign="top">A tuple with client IP address and port,
+    for example <code>('127.0.0.1', 1825)</code></td>
+    </tr>
+    <tr>
+    <td class="name">command</td>
+    <td valign="top">The HTTP command or method (usually <code>GET</code> or 
+    <code>POST</code>)
+    </tr>
+    <tr>
+    <td class="name">encoding</td>
+    <td valign="top">The encoding as returned by function guess_type in built-in
+    module <code>mimetypes</code></td>
+    </tr>
+  </table>
+<tr>
+ <td class="name">RESPONSE</td>
+ <td>The response headers sent by the server to the client, such as Content-type</td>
+</tr>
+<tr>
+ <td class="name">Role()</td>
+ <td>Indicates the user role. If he is not yet logged in (see <CODE>Login()</CODE>), 
+ value is <CODE>None</CODE> ; otherwise it is one of "visit", "edit" or "admin"
+</tr>
+<tr>
+ <td class="name">SCRIPT_END</td>
+ <td>Exception to stop the script execution</td>
+</tr>
+<tr>
+ <td class="name">SCRIPT_ERROR</td>
+ <td><code>raise SCRIPT_ERROR,msg</code> to stop the execution of script and write msg</td>
+</tr>
+<tr>
+ <td class="name">Session()</td>
+ <td>Function that returns the <a href="sessions.htm">session object</td>
+</tr>
+<tr>
+ <td class="name">SET_COOKIE</td>
+ <td>The Cookies sent by the server to the client. Instance of the SimpleCookie class in 
+ Python cookie module</td>
+</tr>
+<tr>
+ <td class="name">THIS</td>
+ <td>An object representing the current script. The examples suppose that the script
+ path in the filesystem is <code>C:\cygwin\home\Karrigell\webapps\demo</code>, 
+ and that it is called by the url <code>demo/thisTest.pih</code>
+ <p>Attributes
+ <p>
+ <table border="1">
+    <tr>
+        <td class="name">basename</td>
+        <td valign="top">Script base name (<code>thisTest.pih</code>)</td>
+    </tr>
+    
+    <tr>
+        <td class="name">baseurl</td>
+        <td valign="top">Part of the url before the script name (<code>demo/</code>)</td>
+    </tr>
+    
+    <tr>
+    <td class="name">code</td>
+    <td valign="top">The script source code (or the conversion into Python code for
+    pih scripts)
+    </td>
+    </tr>
+    
+    <tr>
+    <td class="name">dirname</td>
+    <td valign="top">Directory name (<code>C:\cygwin\home\Karrigell\webapps\demo</code>)</td>
+    </tr>
+    
+    <tr>
+    <td class="name">extension</td>
+    <td valign="top">Script extention (<code>pih</code>)</td>
+    </tr>
+    <tr>
+    <td class="name">name</td>
+    <td valign="top">Full name of the script in the file system 
+    (<code>C:\cygwin\home\Karrigell\webapps\demo\thisTest.pih</code>)</td>
+    </tr>
+    <tr>
+    <td class="name">parent</td>
+    <td valign="top">The script's parent if it was included by the Include() function,
+    or <code>None</code></td>
+    </tr>
+    <tr>
+    <td class="name">path</td>
+    <td valign="top">The path used by the client to request the script , including the
+    query string if there was one
+    (<code>/demo/thisTest.pih)</code></td>
+    </tr>
+    <tr>
+    <td class="name">rel()</td>
+    <td valign="top">A function used to build correct urls inside functions that receive
+    their arguments with the "smart url" feature (host/script/script.ks/foo/bar)
+    </tr>
+    <tr>
+    <td class="name">subpath</td>
+    <td valign="top">If the script is requested with additional arguments separated 
+    by /, subpath is the list of these argements (see <a href="programming.hm#smart">
+    "smart urls"</a>)</td>
+    </tr>
+    <tr>
+    <td class="name">url</td>
+    <td valign="top">The url used to request the script, stripped from the query string
+    if there was one (<code>/demo/thisTest.pih)</code></td>
+    </tr>
+</table> 
+ 
+ </td>
+</tr>
+</table>
+</html>
+</td>
+</tr></table>

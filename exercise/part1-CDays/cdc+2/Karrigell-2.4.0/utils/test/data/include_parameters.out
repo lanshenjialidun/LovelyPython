@@ -1,0 +1,14 @@
+<table>
+  <tr><td>
+    <a href='up.py' class='selected_item'>Up</a>
+  </tr></td>
+  <tr><td>
+    <a href='down.py' class='menu_item'>Down</a>
+  </tr></td>
+  <tr><td>
+    <a href='left.py' class='menu_item'>Left</a>
+  </tr></td>
+  <tr><td>
+    <a href='right.py' class='menu_item'>Right</a>
+  </tr></td>
+</table>

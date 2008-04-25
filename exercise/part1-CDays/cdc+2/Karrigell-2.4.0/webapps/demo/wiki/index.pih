@@ -1,0 +1,56 @@
+<html>
+<head>
+<title>Welcome to BuanBuan</title>
+<link rel="stylesheet" href="../../karrigell.css">
+</head>
+
+<body>
+
+<table>
+<tr>
+<td>
+<a href="../../"><img src="../../doc/images/karrigell_skeudenn.png" border="0" width="50%"></a>
+</td>
+<td>
+<h2><%_ "Welcome to BuanBuan" %></h2>
+</td>
+</tr>
+</table>
+
+<%_ "BuanBuan is a simple Wiki server" %>
+<p><%_ "Browse the existing pages" %> :
+<%  
+from wikiBase import db
+
+import traceback
+
+names=[ r['name'] for r in db ]
+names.sort()
+
+for name in names:
+    print '<br><a href="BuanShow.pih?pageName=%s">%s</a>' %(name,name)
+
+%>
+<p><h3><%_ "Add new page" %></h3>
+<form action="BuanEdit.pih">
+<input type="hidden" name="action" value="add">
+<%_ "Page name" %>&nbsp;<input size="20" name="pageName">
+&nbsp;<small>Admin</small>
+<input type="checkbox" name="admin">&nbsp;
+<input type="submit" value="Add">
+</form>
+<p><h3><%_ "Search" %></h3>
+<form action="search.py">
+<input size="20" name="words">
+<%_ "Case sensitive" %> <input type="checkbox" name="caseSensitive">
+<%_ "Full word" %> <input type="checkbox" name="fullWord">
+<br><input type="submit" value="Search words">
+</form>
+
+<p>
+<font size="-1">
+<a href="wikiAdmin.pih"><%_ "Administrator" %></a>
+</font>
+
+</body>
+</html>

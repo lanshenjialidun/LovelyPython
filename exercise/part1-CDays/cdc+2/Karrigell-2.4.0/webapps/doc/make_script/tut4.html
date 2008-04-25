@@ -1,0 +1,74 @@
+<html>
+<head>
+<link rel="stylesheet" href="../doc.css">
+</head>
+<body>
+<a href="tut3.html">Previous</a>
+&nbsp;<a href="../../index.html">Top</a>
+
+<h1>More options</h1>
+
+With only 3 lines of code we already have a useable tool to manage our database of books with a user login feature. To keep it simple, the program gives default values to many options
+<p>
+<table border = "1">
+<tr>
+<th>Option</th><th>Default</th>
+</tr>
+<tr>
+<td>which database will be used ?</td>
+<td>kirbybase</td>
+</tr>
+
+<tr>
+<td>where do the databases stand in the filesystem ?</td>
+<td>in the same directory as the configuration script</td>
+</tr>
+
+<tr>
+<td>how is the users database called ?</td>
+<td>the same as the main database + '_users'</td>
+</tr>
+
+<tr>
+<td>what are the fields in the users database ?</td>
+<td>['login:str','password:str']</td>
+</tr>
+
+</table>
+
+<p>If you want to change these options, you add new variables in the configuration file :
+
+<ul>
+<li><CODE>dbmodule</CODE> : a string to specify the module used for the database. Currently, must be one of <CODE>gadfly, kirbybase</CODE> or <CODE>sqlite</CODE>. Obviously, the matching modules and database engine must be installed on your machine
+<li><CODE>data_directory</CODE> : the directory where the databases will be stored. For security reasons it is a good idea to choose one that can't be accessed directly through Karrigell (the users database is stored in the clear)
+<li><CODE>users_name</CODE> : the name of the users database
+<li><CODE>users_fields</CODE> : the fields in the users database, with the same format as the <CODE>fields</CODE> for the main database. These fields <b>must</b> include <CODE>'login:str'</CODE> and <CODE>'password:str'</CODE>
+</ul>
+
+<p>Change the configuration file like this (you must change the <CODE>data_directory</CODE> to a valid path in your filesystem) :
+
+<p>
+<dl class="editor">
+ <dt>name = "books"
+ <dt>fields = ["title:str","year:int","author:str"]
+ <dt>security = 'standard'
+
+<script>
+if (window.navigator.platform == "Win32")
+{ document.write("<dt>data_directory = r'c:\\karrigell\\data'") }
+else
+{ document.write("<dt>data_directory = '/home/karrigell/data'") }
+</script>
+ <dt>users_name = 'students'
+ <dt>users_fields = ['login:str','password:str','email:str','klass:str']
+</dl>
+
+<p><I>Notice that the field for the student's class is written </I><CODE>klass</CODE><I> instead of </I><CODE>class</CODE><I>, because </I><CODE>class</CODE><I> is a Python keyword</I>
+<p>If you go back to the web site, you will notice that when you want to add a new user the form will have changed with the new fields you have specified :
+
+<p><center><iframe src="pages/books8.html" width="60%" height="200"></iframe></center>
+
+<p>That's all for the moment. You can now take a look at the complete <a href="front.htm">documentation</a> to know more about Karrigell
+
+</body>
+</html>

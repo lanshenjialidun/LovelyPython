@@ -1,0 +1,400 @@
+<html>
+<head>
+<title>Working with Apache, LightTPD or Xitami
+</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="STYLESHEET" href="../doc.css">
+</head>
+<BODY bgcolor="#71B559" LINK="#FFFFCC" VLINK="#FFFFCC" LEFTMARGIN="0" TOPMARGIN="0">
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td class="side">&nbsp;</td>
+<td>
+    <table class="header" cellpadding="0" cellspacing="0">
+    <tr>
+        <td>
+            <a href="../../index.pih"><img src="../images/karrigell_skeudenn.png" border="0"></a>
+        </td>
+        <td class="headertext">
+            <td class="headertext1">
+                <center>
+                <font size="+2"><b>Karrigell Documentation</b></font>
+                <p>
+                <table width="70%" cellpadding="0" cellspacing="0"><tr>
+                <td class="info" align="left"><strong>Version 2.4.0</strong></td>
+                <td class="info" align="right">12 04 08</td>
+                </tr></table>
+                </center>
+            </td>
+            <td class="headertext2">
+                <a class="header" href="../fr/apache.htm">Fran&ccedil;ais</a>
+            </td>
+        </td>
+    </tr>
+    </table>
+</td>
+</tr>
+<tr><td class="menu" valign="top"><a class="menu" href="front.htm">
+1. Introduction
+</a><br><a class="menu" href="install.htm">
+2. Installing Karrigell
+</a><br><a class="menu" href="webserveroptions.htm">
+3. The Web server
+</a><br><a class="menu" href="configuration.htm">
+4. Configuration options
+</a><br><span class="sel">
+5. Working with Apache, LightTPD or Xitami
+</span><br><span class="sel">
+&nbsp;&nbsp;<small>5.1 Apache on proxy mode</small></span><br><span class="sel">
+&nbsp;&nbsp;<small>5.2 Apache with mod_cgi</small></span><br><span class="sel">
+&nbsp;&nbsp;<small>5.3 Apache on shared web hosting</small></span><br><span class="sel">
+&nbsp;&nbsp;<small>5.4 lighttpd</small></span><br><span class="sel">
+&nbsp;&nbsp;<small>5.5 Xitami</small></span><br><a class="menu" href="programming.htm">
+6. Programming
+</a><br><a class="menu" href="debugging.htm">
+7. Debugging
+</a><br><a class="menu" href="pythonscripts.htm">
+8. Python scripts
+</a><br><a class="menu" href="cgi.htm">
+9. CGI scripts
+</a><br><a class="menu" href="karrigellservices.htm">
+10. Karrigell Services
+</a><br><a class="menu" href="pythoninsidehtml.htm">
+11. Python Inside HTML
+</a><br><a class="menu" href="htmlinsidepython.htm">
+12. HTML Inside Python
+</a><br><a class="menu" href="htmltags.htm">
+13. HTMLTags - generate HTML in Python
+</a><br><a class="menu" href="include.htm">
+14. Including documents
+</a><br><a class="menu" href="sessions.htm">
+15. Sessions
+</a><br><a class="menu" href="authentication.htm">
+16. Authentication and users management
+</a><br><a class="menu" href="internationalization.htm">
+17. Translation and Unicode
+</a><br><a class="menu" href="namespace.htm">
+18. Summary of built-in names</a><br></td>
+<td class="content">
+<h1>5. Karrigell with Apache, lighttpd and Xitami</h1>
+Although Karrigell can work stand-alone with the integrated web server,
+you may want to use it with an external server. Apache is the most
+widespread server in the world, it has excellent performance and
+stability, it can work on secure mode (SSL), offers log services, etc.
+<p>There are several ways to run Karrigell with Apache :
+<TABLE border="1">
+<tr><th>mode</th><th>description</th><th>pros</th><th>cons</th></tr>
+<tr>
+<td>Proxy mode</td>
+<td>The integrated web server runs in the background, the Apache server 
+sends all requests to it and returns the response to the client</td>
+<td>
+  <ul>
+  <li>best performance
+  <li>session object managed in memory (more flexible)
+  </ul>
+</td>
+<td>
+  <ul>
+  <li>requires permission to run a long-running process on the server
+  <li>not fit for long-running requests (the integrated web server will
+  block until the request is completed)
+  </ul>
+</td>
+</tr>
+<tr>
+<td>CGI mode</td>
+<td>Requests are processed by a CGI script</td>
+<td>
+  <ul>
+  <li>compatible with all web hosting providers
+  <li>doesn't block with long-running requests (each request runs in a different
+  process)
+  </ul>
+</td>
+<td>
+  <ul>
+  <li>the CGI overhead reduces performance
+  <li>session management less flexible (session data must be stored on disk)
+  </ul>
+</td>
+</tr>
+</table>
+</ul>
+<p>Graham Dumpleton wrote <a href="http://code.google.com/p/modwsgi/wiki/IntegrationWithKarrigell">
+instructions</a> for running Karrigell with WSGI
+<h2>5.1 Apache on proxy mode</h2>
+<h3>5.1.1 Introduction</h3>
+<p>To use Karrigell in Apache you'll need to download and install the following:</p>
+<ul>
+    <li><a href="http://httpd.apache.org">Apache</a> - Web server.</li>
+    <li><a href="http://www.python.org">Python</a> - Python.</li>
+    <li><a href="http://sourceforge.net/projects/karrigell/">Karrigell</a> - This!</li>
+</ul>
+<p>I recommend you install the latest, stable version of each of the above. Apache 
+will be used as a proxy between the client and the built-in server, so you have to 
+configure Apache so that it sends the requests to the built-in server. Suppose you 
+start Apache on port 80 and the built-in server on port 8081</p>
+<p>I copy most of this section from Remi Delon's CherryPy documentation : 
+http://www.cherrypy.org/wiki/BehindApache
+<p>For Apache, all you need to do now is add a few lines to Apache's config file 
+<code>httpd.conf</code> (should be under the menu item "configure Apache server" 
+on Windows)
+<p>In the Dynamic Shared Object (DSO) section, uncomment the lines
+<p><pre class="conf">LoadModule proxy_module modules/mod_proxy.so
+LoadModule proxy_http_module modules/mod_proxy_http.so
+LoadModule rewrite_module modules/mod_rewrite.so
+</pre>
+Somewhere else in the main server configuration section, add the following lines 
+to enable the proxy mode :
+<pre class="conf">ProxyRequests On
+&lt;Proxy *&gt;
+    Order allow,deny
+    Deny from none
+    Allow from all
+&lt;/Proxy&gt;
+</pre>
+<p>To ask Apache to send the requests to the built-in server, use mod_rewrite. This 
+module parses the original url and changes it according to regular expressions. Here 
+the lines to add are :
+<pre class="conf">RewriteEngine On
+RewriteCond  %{SCRIPT_FILENAME} !autostart\.cgi$
+RewriteRule ^(.*) http://localhost:8081$1 [P]
+ErrorDocument 502 /cgi-bin/autostart.cgi
+</pre>
+The main functionality is provided by the RewriteRule : it tells Apache to rewrite 
+all the urls to an absolute url corresponding to the built-in server running on port 
+8081 and use the proxy mode to pass the request
+<p>If the built-in server is not running, an HTTP error 502 is returned ; the last 
+line tells Apache to call the script <CODE>autostart.cgi</CODE> in this case. The 
+second line prevents Apache to use the RewriteRule for this specific script 
+(otherwise it would enter an infinite loop)
+<p>autoscript.cgi is a short script, looking like this on Linux/Unix :
+<dl><dd><pre class="verbatim">
+#!/usr/local/bin/python
+print "Content-type: text/html\r\n"
+print """&lt;html&gt;&lt;head&gt;&lt;META HTTP-EQUIV="Refresh" CONTENT="10; 
+      URL=/"&gt;&lt;/head&gt;&lt;body&gt;Restarting site ...&lt;a href="/"&gt;click 
+      here&lt;a&gt;&lt;/body&gt;&lt;/html&gt;"""
+import os
+import sys
+os.setpgid(os.getpid(), 0)
+os.system(sys.executable + \
+   ' /home/quentel/karrigell/Karrigell-2.2/Karrigell.py -P 8081 -S ' +\
+   '/home/quentel/karrigell/Karrigell-2.2/Karrigell.ini &')
+</pre></dl>
+<p>All you have to adapt is the location of python on the first line, and the 
+path to <CODE>Karrigell.py</CODE> and <CODE>Karrigell.ini</CODE> on the last one
+<p>Start the built-in web server on port 8081 and start Apache. This should be 
+enough to get it going. Depending on what <code>ServerName</code> is set to 
+(use 'localhost' for testing), enter the URL of your server into the URL bar 
+of a web browser and Karrigell/Apache should serve web pages like normal Karrigell.
+<p>For security reasons, on Linux Karrigell should be started on a port above 
+1024 and not as root
+<h3>5.1.2 Virtual Hosts</h3>
+Virtual hosts can be used with Apache to serve different hosts on the same
+machine with the same server. Since version 2.2, Karrigell has had support for
+virtual hosts, so that you can serve all the virtual hosts with the same
+instance of the built-in server
+<p>If you have configured <CODE>[VirtualHost karrigell:8081]</CODE> in 
+the Karrigell configuration file (see the page on
+<a href="webserveroptions.htm">web server options</a>) with the name
+karrigell and the port 8081 (on which the built-in web server runs),
+you add this VirtualHost section in the Apache configuration file :
+<p>
+<pre class="conf">
+NameVirtualHost 127.0.0.1:80
+&lt;VirtualHost 127.0.0.1:80&gt;
+        ServerName karrigell
+        # for use with Karrigell
+        RewriteEngine On
+        RewriteCond  %{SCRIPT_FILENAME} !autostart\.cgi$
+        RewriteRule ^(.*) http://karrigell:8081$1 [P]
+        ErrorDocument 502 /cgi-bin/autostart.cgi
+&lt;/VirtualHost&gt;
+</pre>
+<p>Of course you change the address and port in &lt;Virtual Host&gt; to the
+appropriate values
+<h2>5.2 Apache with mod_cgi</h2>
+<h3><i>New in version 2.3.5</i></h3>
+<p>In case you can't use the built-in server you can use another approach to run
+Karrigell behind an Apache server, simply using the mod_rewrite and mod_cgi modules
+<p>All the urls requesting a page in the Karrigell directory are "rewritten" by
+mod_rewrite to be processed by a single cgi script, <code>start.cgi</code>,
+located in folder <code>webapps/cgi-bin</code>
+<h3>5.2.1 Write and execute modes</h3>
+You must install the Karrigell package in a folder accessible to the Apache server,
+and set following permissions if the server is Unix/Linux :
+<ul>
+<li>"write" mode on folders <code>data</code> and <code>conf</code>
+<li>"execute" on script <code>start.cgi</code> in folder <code>webapps/cgi-bin</code>
+</ul>
+<h3>5.2.2 httpd.conf</h3>
+<p><i>Replace "C:/cygwin/home/Karrigell" by the path to the directory where the Karrigell
+package was extracted</i>
+<p>1. in the DSO section, make sure these lines are uncommented
+<br>
+<pre class="conf">
+LoadModule cgi_module modules/mod_cgi.so
+LoadModule rewrite_module modules/mod_rewrite.so
+</pre>
+<p>2. Replace DocumentRoot by the path to your webapps directory
+<pre class="conf">
+DocumentRoot "C:/cygwin/home/karrigell/webapps"
+</pre>
+<p>3. Aliases
+<br>Rewrite all the aliases defined in Karrigell.ini :
+<pre class="conf">
+Alias /admin "C:/cygwin/home/Karrigell/admin"
+</prE>
+<p>4. Uncomment the line 
+<pre class="conf">
+AddHandler cgi-script .cgi
+</pre>
+<p>5. Options for the root directory
+<p>Replace the section <code>&lt;Directory /&gt; (...) &lt;/Directory&gt;</code> by:
+<pre class="conf">
+&lt;Directory /&gt;
+    AllowOverride None
+    Options -Indexes FollowSymLinks ExecCGI
+    Order allow,deny
+    Allow from all
+    # manage urls matching folders
+    ErrorDocument 403 /cgi-bin/start.cgi
+    # rewrite urls to make Karrigell process the scripts 
+    # with extensions py,pih,hip and ks
+    RewriteEngine On
+    RewriteRule ^(.*)\.(py|pih|hip|ks)$ /cgi-bin/start.cgi
+    # ks scripts with function name
+    RewriteRule ^(.*)\.ks/.* /cgi-bin/start.cgi
+&lt;/Directory&gt;
+</pre>
+<p>6. Add configuration for the cgi-bin directory
+<pre class="conf">
+&lt;Directory /cgi-bin&gt;
+    AllowOverride None
+    Options ExecCGI
+    Order allow,deny
+    Allow from all
+&lt;/Directory&gt;
+</pre>
+<p>7. If necessary, modify the first line in start.cgi to specify the path to the Python
+interpreter on the server : for instance
+<pre class="conf">
+#!/usr/local/bin/python
+</pre>
+<h3>5.2.3 Karrigell configuration file</h3>
+<p>set [Server] persistentSession to 1 and debug to 0
+<p><b>Warning</b> On cgi mode, session data cannot be stored
+in memory. They are stored in a file on disk, which causes some limitations :
+<ul>
+<li>only built-in types can be set as attributes to the session object
+<li>performance is lower because of disk access time
+</ul>
+<h2>5.3 Apache on shared web hosting</h2>
+If you want to run Karrigell on a shared web hosting provider, you will probably not be able
+to run the built-in server, so you will use the cgi mode described above
+<p>Upload the Karrigell package on your site and set the permissions as described in section
+2.1 above with your FTP or SSH client
+<p>Suppose the directory where you can store files on the web host is
+<code>/var/www/html/MySite</code>. You will install Karrigell in the subfolder <code>/var/www/html/MySite/karrigell</code> (this means that the script <code>Karrigell.py</code> is in this folder)
+<p>You site will be configured as a Virtual Host ; the httpd.conf of the host will have a
+section &lt;VirtualHost&gt; dedicated to the site
+<p>It will look like this :
+<pre class="conf">
+&lt;VirtualHost 10.193.117.191:80&gt;
+    ServerAdmin john.doe@nowhere.org
+    ServerName MySite
+    DocumentRoot /var/www/html/MySite/karrigell/webapps
+    &lt;Directory /var/www/html/MySite/karrigell/webapps&gt;
+        AllowOverride None
+        Options -Indexes FollowSymLinks ExecCGI
+        Order allow,deny
+        Allow from all
+        # manage urls matching folders
+        ErrorDocument 403 /cgi-bin/start.cgi
+        # rewrite urls so that Karrigell manages scripts with
+        # extensions py,pih,hip and ks
+        RewriteEngine On
+        RewriteRule ^(.*)\.(py|pih|hip|ks)$ /cgi-bin/start.cgi
+        # and ks scripts with a function name
+        RewriteRule ^(.*)\.ks/.* /cgi-bin/start.cgi
+    &lt;/Directory&gt;
+    ScriptAlias /cgi-bin/ "/var/www/html/MySite/karrigell/webapps/cgi-bin/"
+    AddHandler   cgi-script  .cgi
+    &lt;Directory /var/www/html/MySite/karrigell/webapps/cgi-bin&gt;
+        AllowOverride None
+        Options FollowSymLinks ExecCGI
+        Order allow,deny
+        Allow from all
+    &lt;/Directory&gt;
+&lt;/VirtualHost&gt;
+</pre>
+<p>You will have to edit this template with the real IP address, port, server admin mail address,
+server name, and of course the path to your Karrigell installation
+<h2>5.4 lighttpd</h2>
+In their <a href="http://www.lighttpd.net/">own words</a> :
+<blockquote>
+Security, speed, compliance, and flexibility--all of these describe LightTPD which is 
+rapidly redefining efficiency of a webserver; as it is designed and optimized for high 
+performance environments. With a small memory footprint compared to other web-servers, 
+effective management of the cpu-load, and advanced feature set (FastCGI, CGI, Auth, 
+Output-Compression, URL-Rewriting and many more) LightTPD is the perfect solution for 
+every server that is suffering load problems. And best of all it's Open Source licensed 
+under the revised BSD license.
+</blockquote>
+<h4><i>Configuration for Karrigell by Laurent Pointal</i></h4>
+<ul>
+<li>Make your Karrigell site working, listening on a port (8082 for instance).
+<li> Enable mod_proxy in lighttpd
+<p>
+<pre class="conf">
+    cd /etc/lighttpd/conf-enabled
+    ln -s ../conf-available/10-proxy.conf 10-proxy.conf
+</pre>
+<li>Use a configuration like this one:
+<p>
+<pre class="conf">
+$HTTP["host"] == "my.virtual.host.com" {
+                proxy.server = ( "" =>
+                                   ((
+                                        "host" => "127.0.0.1",
+                                        "port" => 8082
+                                   ))
+                                )
+}
+</pre>
+<li>If you want to directly serve some files by lighttpd without going through 
+Karrigell (typically static content, pictures etc), you can make a 
+configuration like this:
+<p>
+<pre class="conf">
+$HTTP["host"] == "my.virtual.host.com" {
+        $HTTP["url"] !~ ".*/static/.*" {
+                proxy.server = ( "" =>
+                                   ((
+                                        "host" => "127.0.0.1",
+                                        "port" => 8082
+                                   ))
+                                )
+                }
+        else $HTTP["url"] =~ ".*/static/.*" {
+                server.document-root = "/path/to/my/karrigell/site"
+                dir-listing.activate = "enable"
+                }
+}
+</pre>
+<h2>5.5 Xitami</h2>
+<a href="http://www.xitami.com">Xitami</a> is a lightweight and fast web server, available for 
+free. Download the latest version and follow the installation instructions
+<p>Launch the server, then open a console window, go to the Karrigell directory and enter 
+<code>python Karrigell_xitami.py</code>. All the requests sent to an URL beginning with 
+<span class="url">http://localhost/karrigell</span> will be handled by Karrigell
+<p>Xitami and Karrigell are interfaced through the "Long Running Web Process", avoiding 
+the overhead of CGI
+<p>You can replace <code>karrigell</code> by another name by editing the file 
+<code>Karrigell_xitami.py</code> and changing the value of the variable 
+<code>karrigellUrl</code>
+</html>
+</td>
+</tr></table>

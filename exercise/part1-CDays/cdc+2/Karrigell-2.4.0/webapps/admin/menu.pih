@@ -1,0 +1,9 @@
+<%
+selected = int(QUERY.get("selected",0))
+urls = ["rights.ks","config.ks"]
+%>
+
+<frameset rows="10%,*" frameborder=0>
+<frame src="k_tabs.hip?selected=<%=selected%>">
+<frame src="<%=urls[selected]%>">
+</frameset>

@@ -1,0 +1,106 @@
+<HTML>
+<HEAD>
+<!-- Script to handle the tab key inside the textarea : instead of putting focus on the next widget, -->
+<!-- inserts a tab at the cursor position -->
+<!-- Written by Droby10 http://www.experts-exchange.com/Web/Web_Languages/JavaScript/memberProfile.jsp?mbr=Droby10 -->
+
+<script language=javascript>
+<!--
+
+function gereTab( txtObj)
+{
+   if (event.keyCode==9)
+   {
+    insertText(txtObj,'\t');
+    return false;
+   }
+}
+
+function markSelection ( txtObj ) {
+ if ( txtObj.createTextRange ) {
+   txtObj.caretPos = document.selection.createRange().duplicate();
+   isSelected = true;
+ }
+}
+
+function insertText ( txtObj, text ) {
+ if ( isSelected ) {
+   if (txtObj.createTextRange && txtObj.caretPos) {
+     var caretPos = txtObj.caretPos;
+     caretPos.text = ( text+caretPos.text );
+     markSelection ( txtObj );
+     if ( txtObj.caretPos.text=='' ) {
+       isSelected=false;
+    txtObj.focus();
+     }
+   }
+ } else {
+   // placeholder for loss of focus handler
+ }
+}
+
+
+//-->
+</script>
+</HEAD>
+
+<BODY>
+
+<% 
+import os,string
+import BuanBuan
+from wikiBase import db
+
+if not BuanBuan.isLinkName(_pageName):
+    print "<b>"+_pageName+"</b>&nbsp;"+_("is not a valid link name - ")
+    print _("Must begin with a Capital and have at least another one inside")
+    raise SCRIPT_END
+
+page = db._name[_pageName]
+if page:
+    text = page[0]['content']
+    admin = page[0]['admin']
+else:
+    text=""
+    admin = QUERY.get('admin',False)
+
+if admin:
+    Include('AuthenticationTest.py')
+
+print _("Editing file")
+%>
+<b><%= _pageName %></b>
+<FORM action="BuanSave.py" METHOD="POST">
+<INPUT TYPE="hidden" NAME="pageName" VALUE="<%= _pageName %>">
+<SMALL> Admin </SMALL>
+<% if admin:
+    print '<INPUT TYPE="checkbox" NAME="admin" CHECKED>'
+else:
+    print '<INPUT TYPE="checkbox" NAME="admin">'
+%>
+<INPUT TYPE="submit" VALUE="<%= _('Save changes') %>">
+<INPUT TYPE="button" VALUE="<%= _('Exit without saving') %>" onClick="history.back()">
+<br>
+<TEXTAREA COLS="120" ROWS="25" name="newText"  ONSELECT="markSelection(this);" ONCLICK="markSelection(this);" ONKEYDOWN="return gereTab(this);" ONKEYUP="markSelection(this)">
+<%
+sys.stdout.write(text)
+%>
+</TEXTAREA>
+<tt>
+<br>
+'''<%_ "bold" %>''' = <b><%_ "bold" %></b>&nbsp;&nbsp; 
+''<%_"italic" %>'' = <i><%_ "italic" %></i> &nbsp;&nbsp; 
+^superscript^ = <sup>superscript</sup>
+<br>
+* = <%_ "unordered list" %> &nbsp;&nbsp; 1. = <%_ "ordered list" %>
+<br>! = &lt;H1&gt; !! = &lt;H2&gt; etc.
+<br><%_ "line begins with ---- = horizontal rule" %>
+<br><%_ "line begins with { + name" %> = <%_ 'apply class "name" from wiki.css' %>
+<br><%_ "line begins with }" %> = <%_ 'stop using class' %>
+<br><%= _("TwoCapitals creates a link to the document called") %> <a href="javascript:alert('Link to TwoCapitals')"><%= _("TwoCapitals") %></a>
+<br>_ThisIsNotAWikiWord because it starts with _
+<br>[link target|http://host:service/home.html] creates a link to the specified url
+<br>[link target|WikiName] creates a link to the specified page in the wiki
+<br>http://host/path/index.htm, mailto:user@host, ftp://host&nbsp; <%= _("are converted to hyperlinks") %>
+</tt>
+</FORM>

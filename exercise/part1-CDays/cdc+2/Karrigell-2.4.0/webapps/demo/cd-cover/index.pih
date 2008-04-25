@@ -1,0 +1,4 @@
+<frameset cols="45%,*">
+<frame src="menu.pih">
+<frame src="empty.htm" name="dehou">
+</frameset>

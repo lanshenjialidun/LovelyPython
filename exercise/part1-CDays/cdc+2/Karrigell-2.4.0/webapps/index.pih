@@ -1,0 +1,88 @@
+<%
+# check if admin password is set
+import k_utils
+if not k_utils.has_admin(HOST):
+    raise HTTP_REDIRECTION,"set_admin.ks"
+%>
+
+<HTML><HEAD><TITLE>Karrigell</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<link rel="SHORTCUT ICON" href="/doc/images/karrigellfav.gif" >
+<link rel="stylesheet" href="doc/doc.css">
+</HEAD>
+
+<BODY>
+
+<table cellpadding="0" cellspacing="0">
+
+<tr>
+
+<td class="side">&nbsp;</td>
+
+<td>
+
+<table>
+<tr>
+<TD class="headertext1"><FONT size=+3>
+       <a href='msg/'> Message</a></FONT>
+</TD>
+</tr>
+<tr>
+<TD class="headertext1"><FONT size=+3>
+        Karrigell</FONT>
+</TD>
+</tr>
+
+<tr>
+<td class="content">
+
+    <p>Presentation
+    <blockquote>
+        <a href="/doc/en/front.htm">Documentation</a>
+        <br><a href="http://en.wikibooks.org/wiki/Karrigell_Tutorial">Tutorial</a>
+    </blockquote>
+
+    <a href="/admin">Administration</a>
+
+    <p><a href="/demo/tour.htm">Demo tour</a>
+
+    <p>Applications
+    <blockquote>
+    <a href="demo/wiki">Wiki</a>
+    <br><a href="demo/blog">Blog</a>
+    <br><a href="demo/forum">Forum</a>
+    <br><a href="demo/calendar">Calendar</a>
+    <br><a href="demo/portal">Portal</a>
+    <br><a href="demo/business">E-business</a>
+    <br><a href="demo/cd-cover">CD cover</a>
+    </blockquote>
+
+    <p>Karrigell is an Open Source software, published under the BSD licence
+
+    <hr>
+    <i>Karrigell v2.4.0 </i>
+
+    <p>
+    <a href="http://www.python.org/">
+        <img src="doc/images/PythonPowered.gif"
+            align=top width=110 height=44 alt="[Python Powered]" border=0>
+    </a>&nbsp;
+    <a href="http://sourceforge.net">
+        <img src="doc/images/sourceforge_logo.png"
+            align=top width=125 height=37 alt="[Hosted by Sourceforge]" border=0>
+    </a>
+
+</td>
+</tr>
+
+
+</table>
+</td>
+
+<td class="side" rowspan="3">&nbsp;</td>
+</tr>
+
+</table>
+
+</BODY>
+</HTML>

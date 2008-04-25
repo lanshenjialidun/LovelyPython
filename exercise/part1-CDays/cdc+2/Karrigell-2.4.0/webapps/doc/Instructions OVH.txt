@@ -1,0 +1,30 @@
+Etapes pour utiliser Karrigell sur OVH
+
+- se connecter par FTP sur le site
+- créer un répertoire karrigell
+- y transférer la distribution Karrigell (pas forcément tous les modules : Cheetah, FCKEditor etc)
+
+Le chemin vers la racine du site est home/login_ftp/www
+
+<Directory /var/www/html/MySite/karrigell/webapps>
+        AllowOverride None
+        Options Indexes FollowSymLinks ExecCGI
+        Order allow,deny
+        Allow from all
+        # list of files to search if url matches a directory
+        DirectoryIndex index.html index.htm index.py index.pih index.hip index.ks
+        # rewrite urls so that Karrigell manages scripts with
+        # extensions py,pih,hip and ks
+        RewriteEngine On
+        RewriteRule ^(.*)\.(py|pih|hip|ks)$ /cgi-bin/start.cgi
+        # and ks scripts with a function name
+        RewriteRule ^(.*)\.ks/.* /cgi-bin/start.cgi
+    </Directory>
+    ScriptAlias /cgi-bin/ "/var/www/html/MySite/karrigell/webapps/cgi-bin/"
+    AddHandler   cgi-script  .cgi
+    <Directory /var/www/html/MySite/karrigell/webapps/cgi-bin>
+        AllowOverride None
+        Options FollowSymLinks ExecCGI
+        Order allow,deny
+        Allow from all
+    </Directory>

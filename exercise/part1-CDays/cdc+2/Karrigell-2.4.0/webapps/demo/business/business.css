@@ -1,0 +1,16 @@
+body {font-family: sans-serif}
+table.forum {border-style:solid;
+	border-width=2; 
+	border-color=blue;
+	BORDER-COLOR-LIGHT=#88CCFF;
+	BORDER-COLOR-DARK=#0000CC; 
+	border-collapse: collapse;
+	border-spacing:0; 
+	border-padding:0;
+	font-family:sans-serif;
+	font-size: 8pt;
+	width=100%;
+}
+a {text-decoration:None; }
+a:hover {color: #505050 }
+tr.song {font-size: 12px; }
