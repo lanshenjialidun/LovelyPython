@@ -1,0 +1,38 @@
+##language:zh
+#pragma section-numbers on
+
+[[TableOfContents]]
+
+= Python编码规范 =
+实际是 Python 增进提案仓库 008 号文件的倡议:
+http://www.python.org/dev/peps/pep-0008/
+
+==  Python 八荣八耻 ==
+在线版本:
+    http://wiki.woodpecker.org.cn/moin/Py8Rong8Chi
+
+{{{
+以动手实践为荣 , 以只看不练为耻;
+以打印日志为荣 , 以单步跟踪为耻;
+以空格缩进为荣 , 以制表缩进为耻;
+以单元测试为荣 , 以人工测试为耻;
+
+以模块复用为荣 , 以复制粘贴为耻;
+以多态应用为荣 , 以分支判断为耻;
+以Pythonic为荣 , 以冗余拖沓为耻;
+以总结分享为荣 , 以跪求其解为耻;
+}}}
+
+
+== 中文翻译 ==
+http://wiki.woodpecker.org.cn/moin/PythonCodingRule
+
+
+== 小结 ==
+
+
+
+----
+::-- ZoomQuiet [[[DateTime(2007-04-13T16:36:52Z)]]]
+[[PageComment2]]
+
