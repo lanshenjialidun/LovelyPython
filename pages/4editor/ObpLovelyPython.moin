@@ -26,7 +26,9 @@
 === CDays ～ 光盘故事 ===
 ##||'''关注级别颜色系统''||<: #dedede>^大纲^||<: #FF8080>^初撰^||<: #8080FF>^再稿^||<: #80FF80>^校订^||
 
-[[Include(/PyDays)]]
+[[Include(/CDays)]]
+
+##[[Include(/PyDays)]]
 
 === KDays ~ WEB应用故事 ===
 
@@ -50,37 +52,85 @@
     * [:/LpyQLearn-5-object:类与实例] -- HuangYi;完成度60%;
     * [:/LpyQLearn-6-model:模块与包] -- HuangYi;完成度30%;
     * [:/LpyQLearn-7-task:Py常见任务处理] -- 清风 80%;
-     * [http://docs.google.com/Doc?id=ah9h7dpwtkb_330g5n84tfh 常见任务CDays 故事配合更新]
+     * [http://docs.google.com/Doc?id=ah9h7dpwtkb_330g5n84tfh 常见任务CDays 故事配合更新]^清风在线不断更新中^
     * [:/LpyAttach-CookBook:实例CookBook索引] ~ xyb 90% 文本处理部分;
+    * [:PyAbsolutelyZipManual: Py2.5 绝对简明手册] ^Py 语言类^;zsp 95% 补充实例片段;
 
+ 约定::
+  * 組織好文本和示例代码,都先检入工程环境的对应目录:
+   * `http://openbookproject.googlecode.com/svn/trunk/LovelyPython/PCS`
+  * 然后将结构化文本,在此页面对应链接页面中展示,注意使用标准模板
+  * 完成时,将 PCS* 章节入口链接后缀相关作者和主题信息,以便给编辑明显的提示
 
 === 环境篇 ===
  * [:/PCS0:PCS0]
  * [:/PCS1:PCS1]
  * [:/PCS2:PCS2]
- * ..
+ * [:/PCS3:PCS3]
+ * [:/PCS4:PCS4]
+ * [:/PCS5:PCS5]
+ * [:/PCS6:PCS6]
+ * [:/PCS7:PCS7]
+
 
 === 语法篇 ===
 
  * [:/PCS100:PCS100]
  * [:/PCS101:PCS101]
- * ..
+ * [:/PCS102:PCS102]
+ * [:/PCS103:PCS103]
+ * [:/PCS104:PCS104]
+ * [:/PCS105:PCS105]
+ * [:/PCS106:PCS106]
+ * [:/PCS107:PCS107]
+ * [:/PCS108:PCS108]
+ * [:/PCS109:PCS109]
+ * [:/PCS110:PCS110]
+ * [:/PCS111:PCS111]
+ * [:/PCS112:PCS112]
+ * [:/PCS113:PCS113]
+ * [:/PCS114:PCS114]
+ * [:/PCS115:PCS115]
+ 
 === 模块篇 ===
 
  * [:/PCS200:PCS200]
  * [:/PCS201:PCS201]
- * ..
+ * [:/PCS202:PCS202]
+ * [:/PCS203:PCS203]
+ * [:/PCS204:PCS204]
+ * [:/PCS205:PCS205]
+ * [:/PCS206:PCS206]
+ * [:/PCS207:PCS207]
+ * [:/PCS208:PCS208]
+ * [:/PCS209:PCS209]
+ * [:/PCS210:PCS210]
+ * [:/PCS211:PCS211]
+ * [:/PCS212:PCS212]
+ * [:/PCS213:PCS213]
+ * [:/PCS214:PCS214]
 
 === 框架篇 ===
 
- * [:/PCS300:PCS200]
- * [:/PCS301:PCS201]
- * ..
+ * [:/PCS300:PCS300]
+ * [:/PCS301:PCS301]
+ * [:/PCS302:PCS302]
+ * [:/PCS303:PCS303]
+ * [:/PCS304:PCS304]
+ * [:/PCS305:PCS305]
+ * [:/PCS306:PCS306]
+ * [:/PCS307:PCS307]
+ * [:/PCS308:PCS308]
+ * [:/PCS309:PCS309]
+ * [:/PCS310:PCS310]
+
 === 实作篇 ===
 
- * [:/PCS400:PCS300]
- * [:/PCS401:PCS301]
- * ..
+ * [:/PCS400:PCS400]
+ * [:/PCS401:PCS401]
+ * [:/PCS402:PCS402]
+ * [:/PCS403:PCS403]
+ * [:/PCS404:PCS404]
 
 == 附录 ==
  * [:/LpyAttach-appendix:Py附录] ~ ZoomQuiet/90%
@@ -96,8 +146,7 @@
  * 使用 [:swordsp/COTW:啄木鸟维基条目质量提升计划] 成果
 
 ===  术语索引 ===
-||<#80FF80>||   [:PyAbsolutelyZipManual: Py2.5 绝对简明手册] ^Py 语言类^|| zsp 95% 补充实例片段;||
-||<#8080FF>|| [:/LpyAttach-Glossary:术语索引] ^应用技术类^ || ZoomQuiet 20%;组织体例 ||
+[:/LpyAttach-Glossary:术语索引] :^应用技术类^  ZoomQuiet 20%;组织体例 
 
 === 后记 ===
  * [:/BackGround:后记故事] -- ZoomQuiet 0%
