@@ -4,7 +4,6 @@
 ##OBP项目图书reST通用文章模板
 ##format rst
 
-##:status: 修订;ZoomQuiet;98%--追加博文介紹,需要补充体例方面的约定
 ||'''status'''|| 修订||ZoomQuiet;99% ~ 调整格式成moin，追加体例说明||
 
 [[TableOfContents]]
@@ -90,10 +89,13 @@
    * 网址:www.broadview.com.cn
   * 啄木鸟Python社区
    * 我们都是来自五湖四海，为了一个共同的革命目标，走到一起来了。我们还要和全国大多数程序员走这一条路。我们今天已经领导着有超过5000人口的根据地，但是还不够，还要更大些，才能取得全编程界的解放。
+   * 在其基础上又形成了以 CPyUG(中国Python 用户组) 为首的一批区域性 PyUG,比较活跃的有:
+    * BPyUG ~ 北京Python 用户组,形成了良好的不定期会课制度,组织Python 行者们当面交流
+    * ZPyUG ~ 珠三角地区Python 用户组,由 Zoom.Quiet 南下发起,同样以会课为主要形式进行线下交流
    * 网址:www.woodpecker.org.cn
 
   * 新浪网
-   * 新浪在全球范围内注册用户超过2.3亿，各种付费服务的常用用户超过4200万，日浏览量超过7亿多次，是中国大陆及全球华人社群中最受推崇的互联网品牌。
+   * 新浪在全球范围内注册用户超过2.3亿，各种付费服务的常用用户超过4200万，日浏览量超过7亿多次，是中国大陆及全球华人社群中最受推崇的互联网品牌。是啄木鸟社区的主要赞助商.
    * 网址:www.sina.com.cn
    
   * CZUG.org
@@ -113,7 +115,11 @@
    * 中蟒和 Python 基本上是相容的,对象是电脑编程的初学者、 对编程概念不了解的人以及不打算以程序员为职业的人。
     对这些人来说, 能用中文来学习并完成简单的编程工作是一件很不错的事。
     对于英文基础不好的入门者来说, 以中文进行学习可以专注于编程的概念, 常用的算法, 程序的逻辑这些东西。
-   * 网址:www.chinesepython.org
+   * 网址:http://www.chinesepython.org
+  * 周蟒
+   * 周蟒是Python 的替身环境,完全利用Python 原生环境,包裹中文关键字替换模块形成的中文编程环境。
+    和中蟒不同在于:周蟒没有改动Python 本身任何代码,周蟒是个标准的Python 软件;
+   * 网址:http://code.google.com/p/zhpy
 
 
 == 内容简介 ==
@@ -159,10 +165,12 @@
     1.  PyDay 2 界面化;软件是不一定是给专业程序员使用的,普通用户的体验也要关注;
     1.  PyDay 3 线程化;高级特性粘边儿的优化;
     1.  PyDay N 无尽的探索;嗯嗯嗯!一切仅仅是开始....
-
+  * 代码下载: http://openbookproject.googlecode.com/svn/trunk/LovelyPython/CDays/
+  * 练习题解答: http://openbookproject.googlecode.com/svn/trunk/LovelyPython/exercise/
 
  第二部分 KDays 实用网站开发故事::
   * 讲述如何Pythonic 的使用即有框架在网络中解决问题
+  * 代码下载: http://openbookproject.googlecode.com/svn/trunk/LovelyPython/KDays/
 
  第三部分 Py初学者作弊条汇集::
     * 同Py日实例故事呼应,以精简模式讲述各个关键语言知识点;并提供各种实用代码片段;
@@ -172,8 +180,7 @@
      1.  模块篇 ; 分享故事中涉及的各种常用模块的使用;
      1.  框架篇 ; 介绍流行的几个Python Web应用框架;
      1.  实作篇 ; 分享几例在现实工作环境中实用的问题处理方式;
-
-
+    * 代码下载:http://openbookproject.googlecode.com/svn/trunk/LovelyPython/PCS/
 
  第四部分 附录::
     * 对以上所有内容的再组织,方便读者使用不同的顺序和逻辑进行快速查阅--不是骗稿费哪--补充大量的实用代码片段支撑快乐开发这一体验;-)
@@ -289,15 +296,13 @@ def foo():
 
 
 
-
-
 == 相关资源 ==
  * 邮件列表: http://groups.google.com/group/lovely-python
   * 订阅后,可以和所有本书的读者分享体验
- * 工程环境：http://code.google.com/p/openbookproject/issues/list
-  * 可以直接针对本书的各方面,提出自个儿的看法,我们会认真处理,在维基版本的图书中持续修订,看机会再版,将你的建议合并进来,谢先.
-
-
+ * 意见反馈：http://code.google.com/p/openbookproject/issues
+  * 反馈方式: 通过Google 公司提供的自由环境管理环境,直接通过提案的方式来提交意见
+   * How to ?
+  * 可以直接针对本书的各方面,提出自个儿的看法,我们会认真处理,同步在维基版本的图书中持续修订,看机会再版,将你的建议合并进来,谢先.
 
 
 
