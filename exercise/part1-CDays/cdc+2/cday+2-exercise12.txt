@@ -1,0 +1,17 @@
+
+(1) 不复制 cdctools.py 到webapp 目录中，也可以令 index.ks 引用到，可以通过以下方式：
+1、修改python的环境变量PYTHONPATH，把cdctools.py的所在目录路径加入
+2、在程序里动态的修改sys.path
+import sys
+# cdctools.py的路径添加到sys.path
+sys.path.append('/home/shengyan/workspace/obp/CDays/cdays2/')
+from cdctools import *
+即可
+
+(2) 步骤：
+1、下载karrigell，解压后，根据默认设置直接就可以运行了，但一般修改conf/下Karrigell.ini中的port=8081，表示使用端口8081，保存
+2、将msg拷贝至webapps/，并在index.pih中增加链接<a href='msg/'> Message</a>
+3、编辑msg中的index.ks，完成所需功能
+4、cd至karrigell所在目录，输入python Karrigell.py运行后，在浏览器地址栏中输入localhost:8081就可以看到页面，点击Message链接即可到达。
+
+ps: cdays+2-exercise-2.py是个模拟留言程序，真正实现是在msg的index.ks中。

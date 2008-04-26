@@ -1,0 +1,34 @@
+(1) os模块中还有很多功能，主要的有以下些：
+os.error, os.path, os.popen, os.stat_result, os.sys, os.system等等等
+详细可参见dir(os)和python帮助文档help(os)
+
+(2) open()有以下几种模式
+'r': 以只读方式打开已存在文件，若文件不存在则抛出异常。此方式是默认方式
+'U'或者'rU': python惯例构造了通用换行支持;提供'U'模式以文本方式打开一个文件,但是行可能随时结束:Unix的结束符规定为'\n',苹果系统则为'\r',还有windows规定为'\r\n',所有这些规定在python程序中统一为'\n'.如果python不构造一个通用换行支持模式'u'来用统一对待正常文本模式的话...不会翻.
+'w': 以可写方式打开存在或者不存在的文件，若文件不存在则先新建该文件，若文件存在则覆盖该文件
+'a': 用于追加，对unix系统而言,所有的内容都将追加到文件末尾而不管探针的当前位置如何
+'b': 以二进制方式打开。打开一个二进制文件必须用该模式。增加'b'模式是用来兼容系统对当二进制和文本文件的处理不同
+'r+','w+'和'a+'以更新方式打开文件(注意'w+'覆盖文件)
+
+(3) for..in循环对于任何序列（列表，元组，字符串）都适用。但从广义说来可以使用任何种类的由任何对象组成的序列
+
+(4) 格式化申明
+详细：http://docs.python.org/lib/typesseq-strings.html
+d  	Signed integer decimal.  	
+i 	Signed integer decimal. 	
+o 	Unsigned octal. 	
+u 	Unsigned decimal. 	
+x 	Unsigned hexadecimal (lowercase). 
+X 	Unsigned hexadecimal (uppercase). 	
+e 	Floating point exponential format (lowercase). 
+E 	Floating point exponential format (uppercase). 	
+f 	Floating point decimal format. 	
+F 	Floating point decimal format. 	
+g 	Floating point format. Uses exponential format if exponent is greater than -4 or less than precision, decimal format otherwise. 	
+G 	Floating point format. Uses exponential format if exponent is greater than -4 or less than precision, decimal format otherwise. 	
+c 	Single character (accepts integer or single character string). 	
+r 	String (converts any python object using repr()). 	
+s 	String (converts any python object using str()). 	
+% 	No argument is converted, results in a "%" character in the result.
+
+(5) 字符串的join要比'+'操作效率来的高。对象的反复+，比一次性内建处理，要浪费更多的资源

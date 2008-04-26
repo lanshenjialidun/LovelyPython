@@ -1,0 +1,32 @@
+== 练习 ==
+
+(1) os 模块中还有哪些功能可以使用? -- 提示使用 `dir()` `help()`
+
+(2) `open()` 还有哪些模式可以使用?
+
+(3) 尝试`for .. in ..` 循环可以对哪些数据类型进行操作?
+
+(4) 格式化声明,还有哪些格式可以进行约定?
+
+(5) 现在的写入文件模式好嘛? 有改进的余地?
+'''CDay-4-5.py''' 好在哪里? :
+{{{#!python
+# coding : utf-8
+import os
+export = ""
+for root, dirs, files in os.walk('/media/cdrom0'):
+  export+="\n %s;%s;%s" % (root,dirs,files)
+open('mycd2.cdc', 'w').write(export)
+}}}
+
+'''CDay-4-6.py''' 又更加好在哪里? :
+{{{#!python
+# coding : utf-8
+import os
+export = []
+for root, dirs, files in os.walk('/media/cdrom0'):
+    export.append("\n %s;%s;%s" % (root,dirs,files))
+open('mycd2.cdc', 'w').write(''.join(export))
+}}}
+
+(6) 读取文件cdays-4-test.txt内容，去除空行和注释行后，以行为单位进行排序，并将结果输出为cdays-4-result.txt。
