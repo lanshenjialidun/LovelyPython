@@ -1,6 +1,0 @@
-script-CDays0_1_py	script-CDays0_1_py-module.html
-script-CDays0_1_py.MyStack	script-CDays0_1_py.MyStack-class.html
-script-CDays0_1_py.MyStack.get	script-CDays0_1_py.MyStack-class.html#get
-script-CDays0_1_py.MyStack.isEmpty	script-CDays0_1_py.MyStack-class.html#isEmpty
-script-CDays0_1_py.MyStack.put	script-CDays0_1_py.MyStack-class.html#put
-script-CDays0_1_py.MyStack.__init__	script-CDays0_1_py.MyStack-class.html#__init__

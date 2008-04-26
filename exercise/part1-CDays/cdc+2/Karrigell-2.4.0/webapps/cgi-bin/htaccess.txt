@@ -1,3 +1,0 @@
-AddType text/x-python py
-AddHandler python-program .py
-

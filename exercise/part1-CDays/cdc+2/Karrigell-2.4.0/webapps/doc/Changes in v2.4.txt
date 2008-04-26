@@ -1,4 +1,0 @@
-- admin interface
-- built-in user management framework
-- THIS has an attribute rel : function used to build the URL inside functions of ks scripts that use the "smart url" mode
-- smart url arguments remain bytestrings (don't try to convert to Unicode)

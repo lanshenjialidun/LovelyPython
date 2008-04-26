@@ -1,1 +1,0 @@
-The strings to translate are inTranslation of strings inotherNo string marked for translationPas de chaîne à traduireString

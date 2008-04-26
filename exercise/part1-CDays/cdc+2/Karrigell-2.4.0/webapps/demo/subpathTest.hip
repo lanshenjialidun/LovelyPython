@@ -1,1 +1,0 @@
-"Subpath : %s " %THIS.subpath

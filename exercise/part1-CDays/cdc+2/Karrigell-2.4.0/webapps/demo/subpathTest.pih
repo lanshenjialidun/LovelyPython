@@ -1,2 +1,0 @@
-Subpath <%= THIS.subpath %>
-<br>Baseurl <%= THIS.baseurl %>

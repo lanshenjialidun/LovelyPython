@@ -1,8 +1,0 @@
-<h3>Begin session</h3>
-<%
-sessionObj=Session()
-sessionObj.name=_name
-sessionObj.firstname=_firstname
-%>
-
-<a href="session_use.pih">Next...</a>
