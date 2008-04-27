@@ -94,7 +94,7 @@ Python 语言本身的大本营
 
 === Hello World! ===
 
-灰常灰常,著名的,但凡是编程语言,第一课都要玩的例程,如果你也想看一看Python 的?
+灰常灰常著名的,但凡是编程语言,第一课都要玩的例程,如果你也想看一看Python 的?
 
 attachment:snapHolleWorld.png
 
@@ -116,9 +116,9 @@ attachment:snapiPyHolleWorld.png
 
 但是丰富的文档还是可以安抚我们面对未知的恐惧的*,推荐以下深入阅读资料,但是不推荐现在就全面阅读
 
- * DiPy -- `Dive Into Python` **深入Python5.4 中文版本**
+ * DiPy -- `Dive Into Python` 深入Python 中文版本
   * http://www.woodpecker.org.cn/diveintopython/index.html
- * `Abyte Of Python` -- **简明 Python 教程**
+ * `Abyte Of Python` -- 简明 Python 教程
   * http://www.woodpecker.org.cn/share/doc/abyteofpython_cn/chinese/index.html
  * ASPN -- `Python Reference`_ Python 参考资料汇编
   * http://aspn.activestate.com/ASPN/Python/Reference/
@@ -132,14 +132,13 @@ attachment:snapiPyHolleWorld.png
 嗯嗯嗯!安装好了Python环境,在行者的指点下又收集了一批资料的链接,那么小白想真正开始软件的创造了,
 但是,行者又告戒:
 
- * **明晰你的问题,当问题真正得到定义时,问题已经解决了一半**
+ * '''明晰你的问题,当问题真正得到定义时,问题已经解决了一半'''
   1. 因为,程序不过是将人的思想转述为机器可以理解的操作序列而已
   1. 对于寻求快速解决问题,而不是研究问题的小白和Pythoner们,精确,恰当的描述问题,就等于写好了程序框架,余下的不过是让程序可以运行罢了
 
-好的,于是小白将直觉的软件需求细化了一下:
+好的,于是小白直觉的将软件需求细化了一下:
 
-
- * *可以不用插入光盘就可以搜索所有光盘的内容*, 等于说...
+ * '''可以不用插入光盘就可以搜索所有光盘的内容''', 等于说...
   * 可以将光盘内容索引自动储存到硬盘上
   * 可以根据储存到硬盘上的光盘信息进行搜索
 
@@ -152,13 +151,20 @@ attachment:snapiPyHolleWorld.png
 作为开始,今天小白决定使用Python 来解决光盘内容管理,这一实际问题;
 安装了python 环境,运行了 "Hello World!" 实例.
 
-OK!轻松的开始,但是,你知道,你同时获得了免费的绝对强大的科学计算器?
+OK!轻松的开始,但是,你知道,你同时于获得了免费的绝对强大的科学计算器嘛?
 
 
 == 练习 ==
+(1) 计算今年是闰年嘛?
 
- * 计算今年是闰年嘛?
- * 计算...
+(2) 利用python作为科学计算器。熟悉Python中的常用运算符，并分别求出表达式12*34+78-132/6、(12*(34+78)-132)/6、(8.6/4)**5的值。并利用math模块进行数学计算，分别求出145/23的余数，0.5的sin和cos值等等，详细可参考help(math)。
+
+(3) 编写程序，在屏幕上打印出如下图案：{{{
+	     *
+	    ***
+	   *****
+	    ***
+	     *}}}
 
 
 -- ZoomQuiet  [[DateTime(2007-02-20T06:12:54Z)]] 
