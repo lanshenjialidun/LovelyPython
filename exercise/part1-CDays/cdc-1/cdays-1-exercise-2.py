@@ -1,6 +1,6 @@
 #!/bin/python
 #coding:utf-8
-'''cdays-1-exercise-2.py using chardet, urllib2
+'''cdays-1-exercise-2.py 熟悉chardet和urllib2
     @author: U{shengyan<mailto:shengyan1985@gmail.com>}
     @version:$Id$
 '''
@@ -10,8 +10,8 @@ import chardet
 
 def blog_detect(blogurl):
 	'''
-	detect the coding of blog and save the blog in utf-8
-	@param blogurl: some url string
+	检测blog的编码方式
+	@param blogurl: 要检测blog的url
 	'''
 	try:
 		fp = urllib2.urlopen(blogurl)							#尝试打开给定url
