@@ -1,6 +1,6 @@
 ##language:zh
 #pragma section-numbers on
-||'''status'''|| 完成 || ZoomQuiet;97%,完成PCS 嵌入等待补充习题 ||
+||'''status'''|| 校对 || ZoomQuiet;100% ||
 
 
 [[TableOfContents]]
@@ -26,7 +26,7 @@
 === 进一步 ===
 回想起来一直尝试搜索的都是E文关键字,中文的没有试过;
 
-来几下! ... 呜乎矣哉,什么也查不出来!
+尝试来几下! ... 呜乎矣哉,什么也查不出来!
 
 == 查阅记录文本 ==
 attachment:badcdc-chinese.png
@@ -49,7 +49,7 @@ attachment:badcdc-chinese.png
 
 == 中文!永远的痛 ==
 '''不问不知道,一把辛酸泪哪...'''
- * 在网络中一搜索才知道,只要是个中国人,不论整什么开发,中文!永远有问题的
+ * 在网络中一搜索才知道,只要是个中国人,不论整什么开发,中文!永远会遇到各种问题的
  * 幸好比小白勤劳的人海了去,有关中文的Python 处理也是一搜一大堆
  * 但是!`有时候,选择太多也是个问题;-)`
 
@@ -123,7 +123,7 @@ PCS6 Python与中文
 }}}
 
 === chardet ===
-这么一项项猜,还是显的很惾哪,万一有些字的高位在不同编码中是相同的,那真的是只能撞大运了!
+这么一项项猜,还是显的很傻的哪,万一有些字的高位在不同编码中是相同的,那真的是只能撞大运了!
  * 尤其是对可怜的难兄难弟: `gbk和big5`.
   * 比如:{{{
 >>> print '变巨'.decode('big5')
@@ -132,8 +132,8 @@ PCS6 Python与中文
 变巨
 }}}
 
- * 问吧...
- * http://chardet.feedparser.org/ -- Character encoding auto-detection 自动字符探测器!
+ * 问吧...行者们给出个地址:" http://chardet.feedparser.org/ "
+ * -- Character encoding auto-detection 自动字符探测器!
  * 呃真的有哪! 而且是 Mozilla 使用的! 立用不疑!
 
 {{{详细::
@@ -161,7 +161,7 @@ def _smartcode(stream):
 
 经过测试在各种情况下都可以正确识别!
 
-但是怎么尝试已经保存下来的 .cdc 文本依然是 `ASCII` 码!
+但是不论怎么尝试已经保存下来的 .cdc 文本依然是 `ASCII` 码!
 
 
 == 另外思路 ==
@@ -170,7 +170,9 @@ def _smartcode(stream):
 === 幸福的自由 ===
 
  * 冷静一下 -- "既然,文件没有编码都是二进制的,那么光盘文件是如何被系统认识的?!"
- * `iso9660` -- 嗯嗯嗯,所有光盘基本都是此文件格式的,同M$使用的 FAT32/ntfs,GNU/Liunx 使用的 ext2/3,Unix使用的nfs...各种文件系统都不同
+ * 在列表中吼了一下,行者们有点无奈的说:"TiosnG!"
+  ~ `There is one site named Google!`
+ * 好吧,小白老实的搜索了一番,发现了`iso9660` -- 嗯嗯嗯,所有光盘基本都是此文件格式的,同M$使用的 FAT32/ntfs,GNU/Liunx 使用的 ext2/3,Unix使用的UFS...一样,只是种文件系统
  * 则必然是通过某种软件进行转换从而可以访问的
  * 咳 -- Ubuntu 中当然是标准的调用 朴实强大的`mount`命令了
  {{{
