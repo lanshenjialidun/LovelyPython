@@ -1,0 +1,196 @@
+##language:zh
+##OBP项目图书reST通用文章模板
+###format rst
+||status|| 草稿 ||清风; 100%||
+
+[[TableOfContents]]
+
+== os.path ==
+
+PyDay-4 中小白学会了os.path的基本用法,让我们继续深入学习一下,这个模块的神奇的地方
+
+os.path是一个平台无关的文件路径处理模块.
+
+路径的处理是在程序处理中经常遇到的问题,你可以用简单的字符串拆分去做,但是通常会遇到以下几个问题:
+
+ * 代码不严谨,对于路径中可能出现的"/","//,"\","\\","."等路径中经常遇到的路径分隔符处理不全面
+ * 跨平台,最常见的操作,拿到用户的/home目录,在不同平台的表示方法差异很大,这些os.path都替你做好了
+ * 将一些零散的路径,组合成一个可用的跨平台的路径地址
+接下来,让我们看一些示例代码,更深的了解一下os.path
+
+os.path.split:拆分路径,返回一个tuple,第一个元素是文件所在路径,第二个元素是文件名
+{{{#!python
+import os.path
+
+for path in [ '/one/two/three', 
+              '/one/two/three/',
+              '/',
+              '.',
+              '']:
+    print '"%s" : "%s"' % (path, os.path.split(path))
+}}}
+{{{
+$ python ospath_split.py
+"/one/two/three" : "('/one/two', 'three')"
+"/one/two/three/" : "('/one/two/three', '')"
+"/" : "('/', '')"
+"." : "('', '.')"
+"" : "('', '')"
+}}}
+
+如果你不喜欢这个tuple的返回,只想要后面的文件名部分,你可以考虑使用os.path.basename
+{{{#!python
+import os.path
+
+for path in [ '/one/two/three', 
+              '/one/two/three/',
+              '/',
+              '.',
+              '']:
+    print '"%s" : "%s"' % (path, os.path.basename(path))
+}}}
+{{{
+$ python ospath_basename.py
+"/one/two/three" : "three"
+"/one/two/three/" : ""
+"/" : ""
+"." : "."
+"" : ""
+}}}
+
+如果你只想要,前面的路径,可以使用os.path.dirname
+{{{#!python
+import os.path
+
+for path in [ '/one/two/three', 
+              '/one/two/three/',
+              '/',
+              '.',
+              '']:
+    print '"%s" : "%s"' % (path, os.path.dirname(path))
+}}}
+{{{
+$ python ospath_dirname.py
+"/one/two/three" : "/one/two"
+"/one/two/three/" : "/one/two/three"
+"/" : "/"
+"." : ""
+"" : ""
+}}}
+
+你想将,路径,文件名,扩展名,都分开,已一个tuple的形式返回,你可以尝试os.path.splitext:
+{{{#!python
+import os.path
+
+for path in [ 'filename.txt', 'filename', '/path/to/filename.txt', '/', '' ]:
+    print '"%s" :' % path, os.path.splitext(path)
+}}}
+{{{
+$ python ospath_splitext.py
+"filename.txt" : ('filename', '.txt')
+"filename" : ('filename', '')
+"/path/to/filename.txt" : ('/path/to/filename', '.txt')
+"/" : ('/', '')
+"" : ('', '')
+}}}
+
+接下来,看一个比较cool的任务,在一组路径中,找到一个共同的前缀,我们使用os.path.commonprefix
+{{{#!python
+import os.path
+
+paths = ['/one/two/three/four',
+         '/one/two/threefold',
+         '/one/two/three/',
+         ]
+print paths
+print os.path.commonprefix(paths)
+}}}
+{{{
+$ python ospath_commonprefix.py
+['/one/two/three/four', '/one/two/threefold', '/one/two/three/']
+/one/two/three
+}}}
+
+接下来,我们将使用os.path.join组合一些零散的字符串,生成一个安全的路径表示:
+{{{
+import os.path
+
+for parts in [ ('one', 'two', 'three'),
+               ('/', 'one', 'two', 'three'),
+               ('/one', '/two', '/three'),
+               ]:
+    print parts, ':', os.path.join(*parts)
+}}}
+{{{
+$ python ospath_join.py
+('one', 'two', 'three') : one/two/three
+('/', 'one', 'two', 'three') : /one/two/three
+('/one', '/two', '/three') : /three
+}}}
+
+接下来,我们用os.path.expanduser寻找用户的/home目录
+{{{#!python
+import os.path
+
+for user in [ '', 'dhellmann', 'postgres' ]:
+    lookup = '~' + user
+    print lookup, ':', os.path.expanduser(lookup)
+}}}
+{{{
+$ python ospath_expanduser.py
+~ : /Users/dhellmann
+~dhellmann : /Users/dhellmann
+~postgres : /var/empty
+}}}
+
+还一个比较常见的操作是,某些路径信息被放在了系统环境变量中,我们用os.path.expandvars来处理
+{{{#!python
+import os.path
+import os
+
+os.environ['MYVAR'] = 'VALUE'
+
+print os.path.expandvars('/path/to/$MYVAR')
+}}}
+{{{
+$ python ospath_expandvars.py
+/path/to/VALUE
+}}}
+
+接下来,我们处理一些不规则路径字符串,看看os.path.normpath,是否能将这些路径信息,正确的处理
+{{{#!python
+import os.path
+
+for path in [ 'one//two//three', 
+              'one/./two/./three', 
+              'one/../one/two/three',
+              ]:
+    print path, ':', os.path.normpath(path)
+}}}
+{{{
+$ python ospath_normpath.py
+one//two//three : one/two/three
+one/./two/./three : one/two/three
+one/../one/two/three : one/two/three
+}}}
+
+接下来,我们用os.path.abspath,将相对路径转换为绝对路径
+{{{#!python
+import os.path
+
+for path in [ '.', '..', './one/two/three', '../one/two/three']:
+    print '"%s" : "%s"' % (path, os.path.abspath(path))
+}}}
+{{{
+$ python ospath_abspath.py
+"." : "/Users/dhellmann/Documents/PyMOTW/in_progress/ospath"
+".." : "/Users/dhellmann/Documents/PyMOTW/in_progress"
+"./one/two/three" : "/Users/dhellmann/Documents/PyMOTW/in_progress/ospath/one/two/three"
+"../one/two/three" : "/Users/dhellmann/Documents/PyMOTW/in_progress/one/two/three"
+}}}
+
+== 练习 ==
+
+ 
+
+-- 清风  [[DateTime(2008-04-25T14:33:00Z)]] 
