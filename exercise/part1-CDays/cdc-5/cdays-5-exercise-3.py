@@ -1,6 +1,6 @@
 #!/bin/python
 #coding:utf-8
-'''cdays-5-exercise-3.py print out and for expression
+'''cdays-5-exercise-3.py for语句的使用
     @author: U{shengyan<mailto:shengyan1985@gmail.com>}
     @version:$Id$
 '''

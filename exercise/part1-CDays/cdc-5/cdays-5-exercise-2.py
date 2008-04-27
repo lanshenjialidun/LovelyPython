@@ -1,6 +1,6 @@
 #!/bin/python
 #coding:utf-8
-'''cdays-5-exercise-2.py basic operation and math library
+'''cdays-5-exercise-2.py 基本表达式运算及使用math模块
     @author: U{shengyan<mailto:shengyan1985@gmail.com>}
     @version:$Id$
 '''

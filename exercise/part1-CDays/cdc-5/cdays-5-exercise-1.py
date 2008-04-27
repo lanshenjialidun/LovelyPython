@@ -1,6 +1,6 @@
 #!/bin/python
 #coding:utf-8
-'''cdays-5-exercise-1.py this year is a leap year or not
+'''cdays-5-exercise-1.py 判断今年是否是闰年
     @author: U{shengyan<mailto:shengyan1985@gmail.com>}
     @version:$Id$
 '''
