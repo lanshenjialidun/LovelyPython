@@ -86,6 +86,29 @@ Python code
   * 来自 [:ObpLovelyPython/PyDay1:PyDay+1]
   * 有关重构的进一步经验
 
+http://wiki.woodpecker.org.cn/moin/Py8Rong8Chi
+{{{Gerald Lee <leejd80@gmail.com>
+reply-to	python-cn@googlegroups.com,
+to	python-cn@googlegroups.com,
+date	Sat, Feb 23, 2008 at 11:28 AM
+}}}
+ * 原创:subject	[CPyUG:40912] [http://groups.google.com/group/python-cn/browse_thread/thread/71c74c4e77577365/a4940f98b59bde43  跟进学习八荣八耻]
+
+
+##startInc
+` Python 八荣八耻 `
+
+{{{
+以动手实践为荣 , 以只看不练为耻;
+以打印日志为荣 , 以单步跟踪为耻;
+以空格缩进为荣 , 以制表缩进为耻;
+以单元测试为荣 , 以人工测试为耻;
+
+以模块复用为荣 , 以复制粘贴为耻;
+以多态应用为荣 , 以分支判断为耻;
+以Pythonic为荣 , 以冗余拖沓为耻;
+以总结分享为荣 , 以跪求其解为耻;
+}}}
 
  背景故事::
 {{{
