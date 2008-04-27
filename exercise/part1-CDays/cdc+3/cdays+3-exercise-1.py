@@ -1,6 +1,6 @@
 #!/bin/python
 #coding:utf-8
-'''cdays+3-exercise-1.py using Thread and RLock
+'''cdays+3-exercise-1.py 使用Thread和RLock实现简单线程同步
     @author: U{shengyan<mailto:shengyan1985@gmail.com>}
     @version:$Id$
 '''
@@ -10,7 +10,7 @@ import time
 
 class myThread(Thread):
 	'''myThread
-		user-defined thread
+		自定义的线程，多个线程共同访问一个变量
 	'''
 	def __init__(self, threadname):
 		Thread.__init__(self, name = threadname)

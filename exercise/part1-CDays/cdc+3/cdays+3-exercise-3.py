@@ -1,6 +1,6 @@
 #!/bin/python
 #coding:utf-8
-'''cdays+3-exercise-3.py using Thread and Event
+'''cdays+3-exercise-3.py 使用Thread和Event实现简单的线程间通信
     @author: U{shengyan<mailto:shengyan1985@gmail.com>}
     @version:$Id$
 '''
@@ -10,7 +10,7 @@ import time
 
 class myThread(Thread):
 	'''myThread
-		user-defined thread
+		自定义线程
 	'''
 	def __init__(self, threadname):
 		Thread.__init__(self, name = threadname)

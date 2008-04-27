@@ -1,6 +1,6 @@
 #!/bin/python
 #coding:utf-8
-'''cdays+3-exercise-2.py using Thread and Queue
+'''cdays+3-exercise-2.py 使用Thread和Queue保持多线程间同步
     @author: U{shengyan<mailto:shengyan1985@gmail.com>}
     @version:$Id$
 '''
@@ -9,7 +9,7 @@ import Queue
 import time
 
 class Input(Thread):
-	'''Input Thread: read one string from stdio, then add this string into queue
+	'''输入线程： 从标准输入中读一个string，然后把该string加入到queue
 	'''
 	def __init__(self, threadname):
 		Thread.__init__(self, name = threadname)
@@ -20,7 +20,7 @@ class Input(Thread):
 		#time.sleep(5)																#延时一段时间
         
 class Output(Thread):
-	'''Output Thread: read one string from queue, then print it out
+	'''输出线程：从queue中得到一个string，并将它输出到屏幕
 	'''
 	def __init__(self, threadname):
 		Thread.__init__(self, name = threadname)
