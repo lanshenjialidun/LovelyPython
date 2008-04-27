@@ -1,18 +1,18 @@
 #!/bin/python
 #coding:utf-8
-'''cdays0-exercise-1.py using class and object
+'''cdays0-exercise-1.py 使用类和对象
     @author: U{shengyan<mailto:shengyan1985@gmail.com>}
     @version:$Id$
 '''
 
 class MyStack(object):
 	'''MyStack
-		user-defined stack, has basic stack operations, such as put(), get() and isEmpty()
+		自定义栈，主要操作有put(), get() and isEmpty()
 	'''
 	def __init__(self, max):
 		'''
-		init the stack: the head of stack and empty the stack
-		@param max: specify the max length of stack
+		初始化栈：初始栈头指针和清空栈
+		@param max: 指定栈的最大长度
 		'''
 		self.head = -1
 		self.stack = list()
@@ -22,8 +22,8 @@ class MyStack(object):
 	
 	def put(self, item):
 		'''
-		put item into the stack
-		@param item:  anything want to put the current stack
+		将item压入栈中
+		@param item: 所要入栈的项
 		'''
 		if self.head >= self.max:						#判断当前栈是否满了
 			return 'Put Error: The Stack is Overflow!'	#提示栈溢出
@@ -33,8 +33,8 @@ class MyStack(object):
 	
 	def get(self):
 		'''
-		get the top item of current stack
-		@return: the top item
+		获得当前栈顶item
+		@return: 栈顶item
 		'''
 		if self.head < 0:								#判断当前栈是否为空
 			return 'Get Error: The Stack is Empty!'		#提示栈空
@@ -44,8 +44,8 @@ class MyStack(object):
 	
 	def isEmpty(self):
 		'''
-		get the state of current stack
-		@return: True(the stack is empty) or False(else)
+		获得当前栈的状态，空或者非空
+		@return: True(栈空) or False(栈非空)
 		'''
 		if self.head < -1:
 			return True
