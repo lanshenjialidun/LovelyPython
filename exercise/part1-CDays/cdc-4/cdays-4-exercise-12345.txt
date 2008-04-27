@@ -4,9 +4,9 @@ os.error, os.path, os.popen, os.stat_result, os.sys, os.system等等等
 
 (2) open()有以下几种模式
 'r': 以只读方式打开已存在文件，若文件不存在则抛出异常。此方式是默认方式
-'U'或者'rU': python惯例构造了通用换行支持;提供'U'模式以文本方式打开一个文件,但是行可能随时结束:Unix的结束符规定为'\n',苹果系统则为'\r',还有windows规定为'\r\n',所有这些规定在python程序中统一为'\n'.如果python不构造一个通用换行支持模式'u'来用统一对待正常文本模式的话...不会翻.
+'U'或者'rU': python惯例构造了通用换行支持;提供'U'模式以文本方式打开一个文件,但是行可能随时结束:Unix的结束符规定为'\n',苹果系统则为'\r',还有windows规定为'\r\n',所有这些规定在python程序中统一为'\n'.
 'w': 以可写方式打开存在或者不存在的文件，若文件不存在则先新建该文件，若文件存在则覆盖该文件
-'a': 用于追加，对unix系统而言,所有的内容都将追加到文件末尾而不管探针的当前位置如何
+'a': 用于追加，对unix系统而言,所有的内容都将追加到文件末尾而不管指针的当前位置如何
 'b': 以二进制方式打开。打开一个二进制文件必须用该模式。增加'b'模式是用来兼容系统对当二进制和文本文件的处理不同
 'r+','w+'和'a+'以更新方式打开文件(注意'w+'覆盖文件)
 
@@ -31,4 +31,4 @@ r 	String (converts any python object using repr()).
 s 	String (converts any python object using str()). 	
 % 	No argument is converted, results in a "%" character in the result.
 
-(5) 字符串的join要比'+'操作效率来的高。对象的反复+，比一次性内建处理，要浪费更多的资源
+(5)  CDay-4-5.py中使用了字符串的+连接，而CDay-4-6.py中是利用join。字符串的join要比+操作效率高。因为对象的反复+，比一次性内建处理，要浪费更多的资源。

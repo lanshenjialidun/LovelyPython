@@ -1,6 +1,6 @@
 #!/bin/python
 #coding:utf-8
-'''cdays-4-exercise-6.py file operation
+'''cdays-4-exercise-6.py 文件操作
     @author: U{shengyan<mailto:shengyan1985@gmail.com>}
     @version:$Id$
 '''

@@ -1,15 +1,15 @@
 == 练习 ==
 
-(1) os 模块中还有哪些功能可以使用? -- 提示使用 `dir()` `help()`
+(1) os 模块中还有哪些功能可以使用? -- 提示使用 dir()和help()
 
-(2) `open()` 还有哪些模式可以使用?
+(2) open() 还有哪些模式可以使用?
 
-(3) 尝试`for .. in ..` 循环可以对哪些数据类型进行操作?
+(3) 尝试for .. in ..循环可以对哪些数据类型进行操作?
 
 (4) 格式化声明,还有哪些格式可以进行约定?
 
 (5) 现在的写入文件模式好嘛? 有改进的余地?
-'''CDay-4-5.py''' 好在哪里? :
+CDay-4-5.py 好在哪里? :
 {{{#!python
 # coding : utf-8
 import os
@@ -19,7 +19,7 @@ for root, dirs, files in os.walk('/media/cdrom0'):
 open('mycd2.cdc', 'w').write(export)
 }}}
 
-'''CDay-4-6.py''' 又更加好在哪里? :
+CDay-4-6.py又更加好在哪里? :
 {{{#!python
 # coding : utf-8
 import os
