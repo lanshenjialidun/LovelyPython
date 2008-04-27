@@ -143,7 +143,9 @@ OK，看起来，应该已经完成了功能1~2,但是实际运行时:
 
 attachment:snap-3-3.png
 
-... 尝试带目录的输出时:`IOError: [Errno 2] No such file or directory: 'cdc/mycd-1.cdc'` I/O -- 输入/出问题,嗯嗯嗯,当然了,`cdc` 目录不存在哪..
+... 尝试带目录的输出时:{{{
+IOError: [Errno 2] No such file or directory: 'cdc/mycd-1.cdc'
+}}} I/O -- 输入/出问题,嗯嗯嗯,当然了,`cdc` 目录不存在哪..
 
 手工建立`cdc`目录后,再运行就OK了,所以功能设计细化为:
 {{{
