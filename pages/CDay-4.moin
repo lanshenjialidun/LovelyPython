@@ -2,34 +2,34 @@
 ##OBP项目图书reST通用文章模板
 ##format rst
 
-||status|| 草稿||ZoomQuiet; 95% ; 重整为moin 格式,追加边注||
+||status|| 校对 ||ZoomQuiet; 100% ||
 
 [[TableOfContents]]
 
 
 = CDay -4 可用的首个Python脚本 =
 
-'''寻找吧!不要先想着创造--Python 是自足的'''
+'''寻找吧!不要先想着创造 -- Python 是自足的'''
 
 
 == 现在的需求 ==
 
 嗯嗯嗯! 小白根据曾经下载过的几个类似商业软件名称, 给自个儿的软件起个名字:  '''Python CDCategory''' -- Python制作的光盘分类库,简写 `PyCDC`
 
-再确认当前的需求 ::
-
+ 再确认当前的需求 ::
   1. 可以将光盘内容索引储存为硬盘上的文本文件
   2. 可以根据储存到硬盘上的光盘信息进行搜索
 
 
-第一需求是将光盘信息读取为文本文件,因为小白痛恨DB;-)
+第一需求是将光盘信息读取为文本文件,因为小白痛恨数据库
+(只能通过神奇的SQL语句才能调动数据库中的数据,太不直观,太不人性了!)
 
 
 == 文件是系统的事儿 ==
 
-现在首先的问题是 '''如何读取指定目录/分区中的文件列表信息?'''
+现在首先的问题是 '''如何读取指定光区中的文件列表信息?'''
 
-行者仅仅给了一点批示-- '''文件是系统的事儿'''
+行者仅仅给了一点批示--'''文件是系统的事儿'''
 
 
 === listdir() ===
@@ -51,12 +51,11 @@ os模块进一步细节,
 http://www.woodpecker.org.cn/share/doc/abyteofpython_cn/chinese/ch14s03.html
 
 }}}
-看起来可以使用,所以,创建我们第一个执行脚本 `CDay-4-1.py`:{{{#!python
-
+看起来可以使用,所以,创建我们第一个执行脚本 `CDay-4-1.py`:
+{{{#!python
 # coding : utf-8
 import os
 print os.listdir("/media/cdrom0")
-
 }}}
 
 {{{详细:
@@ -112,6 +111,16 @@ Windows 中最好使用 "d:\\" 进行分区的指定
 d:/tmp\something 的混合输出
 }}}
 
+当然自个儿写一个也是可以的,不过是根据每级目录的信息,再次不断调用 `os.listdir()` 将所有层次的目录信息都逐一汇报出来而已,但是!值得嘛?
+
+小白的热情是非常容易被貌似很麻烦的代码实现击碎的...于是热心的无所不能的行者们又提了句 
+''':"使用walk()"'''
+
+
+
+=== walk ===
+又一阵乱搜, 发现居然有个单独的模块 `os.path` 就是进行文件路径处理的!
+
 {{{详细:
 PCS200 含有
 os模块进一步细节,
@@ -120,19 +129,7 @@ http://aspn.activestate.com/ASPN/docs/ActivePython/2.4/python/lib/module-os.path
 }}}
 
 
-当然自个儿写一个也是可以的,不过是根据每级目录的信息,再次不断调用 `os.listdir()` 将所有层次的目录信息都逐一汇报出来而已,但是!值得嘛?
-
-小白的热情是非常容易被想起来比较麻烦的现实击碎的...于是热心的无所不能的行者又说了句 ''':"使用walk()"'''
-
-
-
-=== walk ===
-
-
-又一阵乱搜, 发现居然有个单独的模块 `os.path`_ 就是进行文件路径处理的!
-
-等等! 一通E文后:{{{
-
+再一通E文后发现:{{{
   Note: The newer os.walk() generator supplies similar functionality and can be easier to use.
 }}}
 
@@ -144,9 +141,8 @@ PCS4 常用自省
 }}}
 好象在我们的环境中有两个 `walk()` -- `os.path.walk()` 以及 `os.walk()` ,后一个更加新以及好用?
 
-按照 `os-file-dir` 的示例改造脚本尝试 '''CDay-4-2.py''' ::\
+按照 `os-file-dir` 的示例改造脚本尝试 '''CDay-4-2.py''' :
 {{{#!python
-
 # coding : utf-8
 import os
 for root, dirs, files in os.walk('/media/cdrom0'):
@@ -168,7 +164,7 @@ http://aspn.activestate.com/ASPN/docs/ActivePython/2.4/python/lib/os-file-dir.ht
 
 === 输出成文件 ===
 
-根据行者指引,或是搜索,都指向 `file_objects`文件对象操作, 加点儿想象就可以组成以下脚本 '''CDay-4-3.py''':
+小白,根据行者指引,或是搜索,都指向 `file_objects`文件对象操作, 加点儿想象就可以组成以下脚本 '''CDay-4-3.py''':
 {{{#!python
 # coding : utf-8
 import os
@@ -189,14 +185,16 @@ http://www.woodpecker.org.cn/diveintopython/file_handling/file_objects.html
 图 CDay-4-3 
 attachment:snap_4-3.png
 
-完了!报错!...嗬嗬嗬,行者说,不用担心,在Python 中的解决bug 是非常轻松的,因为完善的回溯能力,Python 可以非常精确的汇报小白错误的时间,地点,原因,我们只要对应修订就好.
+完了!报错!...小白感觉信心又降到冰点了;
+"嗬嗬嗬",行者说:"不用担心,在Python 中的解决bug 是非常轻松的,因为完善的回溯能力,Python 可以非常精确的汇报小白错误的时间,地点,原因,我们只要对应修订就好."
 
 现在的问题是:{{{
  `TypeError: cannot concatenate 'str' and 'list' objects` 
  -- 不能将 '''str''' 和 '''list''' 对象进行连接; 
 }}}嗯嗯嗯,非常直白的数据类型错误,
 
-什么是 '''数据类型'''? -- 嗯嗯嗯,这问题可以复杂说也可以简单说,复杂的说,并不能帮助小白们理解和记忆,简单的说也不一定可以加深印象,通俗的讲吧,就是计算机内存空间中不同的种族,好比鸡鸭同笼,长的都挻象,但是没有办法买相同的价钱,除非都剁碎了作成春卷 -- 也就是说只要发生类似数据类型不同的时候,转换成相同的类型就得!
+什么是 '''数据类型'''? -- 嗯嗯嗯,这问题可以复杂说也可以简单说,复杂的说,并不能帮助小白们理解和记忆,简单的说也不一定可以加深印象;
+通俗的讲呢,就是计算机内存空间中不同的种族,好比鸡鸭同笼,长的都挻象,但是没有办法买相同的价钱,除非都剁碎了作成春卷 -- 也就是说只要发生类似数据类型不同的时候,只要转换成相同的类型就得!
 
 
 这在其它语言可能会很麻烦但是在Python 中是再自然不过的了--因为,`Python 里一切都是对象` [[FootNote(转用脚注)]]
@@ -223,7 +221,7 @@ for root, dirs, files in os.walk('/media/cdrom0'):
   1. 声明是 utf-8 编码文本
   1. 引入 os 模块
   1. 使用 os.walk() 扫描光盘,并返回三个对象
-  1. 打开'mycd.cdc' 以追加模式,记录以上三个对象
+  1. 使用open()打开'mycd.cdc'文件对象,并声明成追加模式,逐行记录以上三个对象
 
 不用怀疑,执行没有报错,而且文件也生成,但是为什么打不开? ... 嗬嗬嗬,那是另一个问题了...
 
@@ -233,9 +231,9 @@ for root, dirs, files in os.walk('/media/cdrom0'):
 
 通过指点,在文档中狂乱的搜寻,今天小白顺利的将光盘信息全部扫描出来,并存储成了文件!
 
-最后得到的仅仅四行,其实真正运行使用的就两行代码,就可以作到想要的软件功能的50%...嗬嗬嗬,神奇的Python不是?
+最后得到的仅仅四行,真正运行可用的就两行代码,就居然已经可以达到想要的软件功能的50%...嗬嗬嗬,神奇的Python不是?
 
-不过小白接触到了一大批概念:
+小白其实已经接触到了一大批概念:
 
  1. '''模块''' -- `import os`
  2. '''内置函式''' -- `open()`
@@ -248,7 +246,7 @@ for root, dirs, files in os.walk('/media/cdrom0'):
  9. '''格式化声明''' -- `%s`
  10. '''数据类型'''
 
-但是我们的原则是,先用后学,快速获得体验,然后寻求理论支持,所以,先不求甚解,将目的达到,然后就自在了
+但是都包含在了四行代码中,而我们的原则是,先用后学,快速获得体验,然后寻求理论支持,所以,先不求甚解,将目的达到,然后就自在了
 
 {{{详细::
 涉及知识点的进一步信息请查阅对应作弊条:
@@ -265,13 +263,16 @@ PCS101 内建数据类型 介绍了动态语言的最大便利～自由类型转
 
 == 练习 ==
 
+(1) os 模块中还有哪些功能可以使用? -- 提示使用 dir()和help()
 
- 1.  os 模块中还有哪些功能可以使用? -- 提示使用 `dir()` `help()`
- 2. `open()` 还有哪些模式可以使用?
- 3. 尝试`for .. in ..` 循环可以对哪些数据类型进行操作?
- 4. 格式化声明,还有哪些格式可以进行约定?
- 5. 现在的写入文件模式好嘛? 有改进的余地?
-'''CDay-4-5.py''' 好在哪里? :
+(2) open() 还有哪些模式可以使用?
+
+(3) 尝试for .. in ..循环可以对哪些数据类型进行操作?
+
+(4) 格式化声明,还有哪些格式可以进行约定?
+
+(5) 现在的写入文件模式好嘛? 有改进的余地?
+CDay-4-5.py 好在哪里? :
 {{{#!python
 # coding : utf-8
 import os
@@ -281,7 +282,7 @@ for root, dirs, files in os.walk('/media/cdrom0'):
 open('mycd2.cdc', 'w').write(export)
 }}}
 
-'''CDay-4-6.py''' 又更加好在哪里? :
+CDay-4-6.py又更加好在哪里? :
 {{{#!python
 # coding : utf-8
 import os
@@ -291,8 +292,26 @@ for root, dirs, files in os.walk('/media/cdrom0'):
 open('mycd2.cdc', 'w').write(''.join(export))
 }}}
 
+(6) 读取文件cdays-4-test.txt内容，去除空行和注释行后，以行为单位进行排序，并将结果输出为cdays-4-result.txt。cdays-4-test.txt~{{{
+#some words
 
-
+Sometimes in life,
+You find a special friend;
+Someone who changes your life just by being part of it.
+Someone who makes you laugh until you can't stop;
+Someone who makes you believe that there really is good in the world.
+Someone who convinces you that there really is an unlocked door just waiting for you to open it.
+This is Forever Friendship.
+when you're down,
+and the world seems dark and empty,
+Your forever friend lifts you up in spirits and makes that dark and empty world
+suddenly seem bright and full.
+Your forever friend gets you through the hard times,the sad times,and the confused times.
+If you turn and walk away,
+Your forever friend follows,
+If you lose you way,
+Your forever friend guides you and cheers you on.
+Your forever friend holds your hand and tells you that everything is going to be okay. }}}
 
 
 [[PageComment2(nosmiley=1, notify=1)]]
