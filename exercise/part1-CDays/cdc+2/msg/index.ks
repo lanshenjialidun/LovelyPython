@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
 import os,sys
-import pickle   # 神奇的序列化模块
-from HTMLTags import * # Karrigell 提供页面输出支持模块
+import pickle  			 # 神奇的序列化模块
+from HTMLTags import * 	# Karrigell 提供页面输出支持模块
 from Karrigell_QuickForm import Karrigell_QuickForm as KQF
 
 def _htmhead(title):

@@ -9,9 +9,9 @@ import os
 import pickle
 
 def add(n, w):
-	''' add one message and save
-	@param n: user name
-	@param w: some words
+	'''增加并保存一条信息
+	@param n: 名字
+	@param w: 信息内容
 	'''
 	myMessage.append((n, w))						#增加一条消息
 	pickle.dump(myMessage,open("message.dump","w"))	#将myMessage对象保存
