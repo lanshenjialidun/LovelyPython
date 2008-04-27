@@ -28,10 +28,13 @@ Python code
 
 
  背景故事::
-{{{
-#!python
-Python code
-}}}
+  * attachment:batteries-included.jpg
+  * `Batteries Included`~是Python 的哲学之一!
+  * http://www.uselesspython.com/BatteriesIncluded.html 内置了足够多的模块,可以独立完成大多数常见任务的!
+  * 成功故事之一:
+  http://www.python.org/about/success/eztrip/
+  ...  
+
 
 == 不断的否定自己,但是要坚持最初的妄想 ==
  * '''不断的否定自己,但是要坚持最初的妄想'''^ --不论战术上如何变化,千万不要忘记战略目标^
