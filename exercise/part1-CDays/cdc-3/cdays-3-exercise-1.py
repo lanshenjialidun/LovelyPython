@@ -1,6 +1,7 @@
 # coding=utf-8
 '''Lovely Python -3 PyDay 
     PyCDC v0.3
+	参考：http://www.woodpecker.org.cn/diveintopython/scripts_and_streams/command_line_arguments.html 
 '''
 import os,sys
 import getopt

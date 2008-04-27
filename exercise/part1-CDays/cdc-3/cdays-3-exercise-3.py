@@ -1,6 +1,6 @@
 #!/bin/python
 #coding:utf-8
-'''cdays-3-exercise-3.py using global varibles, invoke function recursively 
+'''cdays-3-exercise-3.py 使用全局变量和函数递归调用 
     @author: U{shengyan<mailto:shengyan1985@gmail.com>}
     @version:$Id$
 '''
@@ -12,15 +12,15 @@ global nag_diag
 global count
 
 def output():	
-	''' function output: print out one state
+	''' 输出一种有效结果
 	'''
 	global count
 	print row
 	count += 1
 
 def do_queen(i):
-	''' function do_queen: generate all states of queens' position
-	@param i: the number of queen
+	''' 生成所有正确解
+	@param i: 皇后的数目
 	'''
 	for j in range(0, 8):						#依次尝试0～7位置
 		if col[j] == 1 and pos_diag[i-j+7] == 1 and nag_diag[i+j] == 1:	#若该行，正对角线，负对角线上都没有皇后，则放入i皇后

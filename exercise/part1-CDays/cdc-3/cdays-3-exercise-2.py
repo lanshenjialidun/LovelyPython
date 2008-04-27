@@ -1,6 +1,6 @@
 #!/bin/python
 #coding:utf-8
-'''cdays-3-exercise-2.py using sys.args, dict and function invoke
+'''cdays-3-exercise-2.py 使用sys.args, dict和函数调用
     @author: U{shengyan<mailto:shengyan1985@gmail.com>}
     @version:$Id$
 '''
@@ -8,9 +8,9 @@
 import sys										#导入sys模块
 
 def collect(file):
-	''' function collect: change the key-value to value-key
-	@param file: file object
-	@return: a dict type, get the value-key pairs
+	''' 改变 key-value对为value-key对
+	@param file: 文件对象
+	@return: 一个dict包含value-key对
 	'''
 	result = {}
 	for line in file.readlines():					#依次读取每行
