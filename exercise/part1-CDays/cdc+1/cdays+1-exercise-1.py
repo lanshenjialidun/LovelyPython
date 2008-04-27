@@ -1,6 +1,6 @@
 #!/bin/python
 #coding:utf-8
-'''cdays+1-exercise-1.py using os.stat
+'''cdays+1-exercise-1.py 使用os.stat获取相关信息
     @author: U{shengyan<mailto:shengyan1985@gmail.com>}
     @version:$Id$
 '''
@@ -8,9 +8,9 @@ import sys
 import os
 
 def get_top_three(path):
-	''' get the three big size of files in the path
-	@param path: specify the files of path
-	@return one list contains item like (size, filename)
+	''' 获取给定路径中文件大小最大的三个
+	@param path: 指定路径
+	@return 返回一个list，每项为 (size, filename)
 	'''
 	all_file = {}
 	for root, dirs, files in os.walk(path):				#遍历path

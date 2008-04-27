@@ -1,6 +1,6 @@
 #!/bin/python
 #coding:utf-8
-'''cdays+1-exercise-2.py using ConfigParser
+'''cdays+1-exercise-2.py 使用ConfigParser解析
     @author: U{shengyan<mailto:shengyan1985@gmail.com>}
     @version:$Id$
 '''
@@ -23,9 +23,9 @@ def iniTT(size_file):
 	cfg.write(open('cdays+1-result.txt',"w"))
 
 def gtt(path):
-	''' get the three big size of files in the path
-	@param path: specify the files of path
-	@return one list contains item like (size, filename)
+	''' 获取给定路径中文件大小最大的三个
+	@param path: 指定路径
+	@return 返回一个list，每项为 (size, filename)
 	'''
 	all_file = {}
 	for root, dirs, files in os.walk(path):				#遍历path
