@@ -1,5 +1,0 @@
-== 练习 ==
-
-(1) 如果在Karrigell 实例中，不复制 cdctools.py 到webapp 目录中，也可以令 index.ks 引用到？
-
-(2) 经过本章Karrigell的初步学习，实现一个简易的web留言系统。主要利用Karrigell_QuickForm实现提交留言并显示出来。
