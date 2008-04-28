@@ -2,6 +2,7 @@
 # coding= utf-8
 '''pycdc-v0.5.py
 Lovely Python -2 PyDay 
+@note: 将cdcGrep()嵌入 , 实现完成版本的 PyCDC
 '''
 import sys, cmd
 from cdctools import *
