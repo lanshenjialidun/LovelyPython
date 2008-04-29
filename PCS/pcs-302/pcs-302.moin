@@ -1,0 +1,35 @@
+##language:zh
+##OBP项目图书reST通用文章模板
+###format rst
+||status|| 草稿 ||清风; 100%||
+
+[[TableOfContents]]
+
+== web.py ==
+
+=== web.py 食谱 ===
+ * [http://webpy.org/cookbook web.py Cook Book] ~ 中文翻译
+
+=== Hello World! ===
+
+ 命题::
+ 怎么使用web.py 写个''hello world''?
+ 解决::
+{{{#!python
+import web
+
+urls = ("/.*", "hello")
+app = web.application(urls, globals())
+
+class hello:
+    def GET(self):
+        return 'Hello, world!'
+
+if __name__ == "__main__":
+    app.run()
+}}}
+
+== 练习 ==
+
+
+-- 清风  [[DateTime(2008-04-25T14:33:00Z)]] 
