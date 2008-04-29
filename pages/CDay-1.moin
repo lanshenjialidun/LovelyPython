@@ -138,8 +138,31 @@ PCS6 Python与中文
 
 嗯嗯嗯？！怎么安装外部模块的呢？软件包下载，解开压缩，嗯嗯嗯？没有INSTALL 说明文件，
 但是有个`setup.py` 尝试执行一下？
-attachment:2008-04-29-112533_install-py-packet_scrot.png
 
+attachment:2008-04-29-112533_install-py-packet_scrot.png
+{{{
+总用量 33
+drwxr-xr-x 3 zoomq zoomq    72 2008-04-29 11:25 build
+drwx------ 2 zoomq zoomq  1264 2006-01-11 01:34 chardet
+-rwx------ 1 zoomq zoomq 26432 2006-01-11 01:34 COPYING
+drwxrwxrwx 4 zoomq zoomq   296 2006-01-11 01:34 docs
+-rwx------ 1 zoomq zoomq  1981 2006-01-11 01:34 setup.py
+::$ python setup.py 
+usage: setup.py [global_opts] cmd1 [cmd1_opts] [cmd2 [cmd2_opts] ...]
+   or: setup.py --help [cmd1 cmd2 ...]
+   or: setup.py --help-commands
+   or: setup.py cmd --help
+
+error: no commands supplied
+::$ sudo python setup.py install
+running install
+running build
+running build_py
+running install_lib
+running install_egg_info
+Removing /usr/lib/python2.5/site-packages/chardet-1.0.egg-info
+Writing /usr/lib/python2.5/site-packages/chardet-1.0.egg-info
+}}}
 so easy! 好象使用了类似小白已经完成的交互式提醒哪！
 看来所有Python 的软件都可以通过`python setup.py install` 进行安装哪！
 
