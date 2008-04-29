@@ -136,6 +136,13 @@ PCS6 Python与中文
  * -- Character encoding auto-detection 自动字符探测器!
  * 呃真的有哪! 而且是 Mozilla 使用的! 立用不疑!
 
+嗯嗯嗯？！怎么安装外部模块的呢？软件包下载，解开压缩，嗯嗯嗯？没有INSTALL 说明文件，
+但是有个`setup.py` 尝试执行一下？
+attachment:2008-04-29-112533_install-py-packet_scrot.png
+
+so easy! 好象使用了类似小白已经完成的交互式提醒哪！
+看来所有Python 的软件都可以通过`python setup.py install` 进行安装哪！
+
 {{{详细::
 PCS202 chardet
 进一步说明了此外部模块的信息，
