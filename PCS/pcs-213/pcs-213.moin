@@ -1,0 +1,40 @@
+##language:zh
+##OBP项目图书reST通用文章模板
+###format rst
+||status|| 草稿 ||清风; 100%||
+
+[[TableOfContents]]
+
+== time ==
+打印时间戳:
+{{{#!python
+import time
+print 'The time is:', time.time()
+}}}
+运行结果:
+{{{
+>>> pcs-213-1.py
+The time is: 1209465739.3
+}}}
+
+
+打印15秒后的时间:
+{{{#!python
+import time
+
+print 'The time is      :', time.ctime()
+later = time.time() + 15
+print '15 secs from now :', time.ctime(later)
+}}}
+运行结果:
+{{{
+>>> pcs-213-2.py
+
+The time is      : Tue Apr 29 18:43:32 2008
+15 secs from now : Tue Apr 29 18:43:47 2008
+}}}
+
+== 练习 ==
+
+
+-- 清风  [[DateTime(2008-04-25T14:33:00Z)]] 
