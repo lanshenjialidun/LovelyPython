@@ -1,0 +1,29 @@
+##language:zh
+##OBP项目图书reST通用文章模板
+###format rst
+||status|| 草稿 ||清风; 100%||
+
+[[TableOfContents]]
+
+== shutil ==
+shutil的Copying Files
+{{{#!python
+import os
+from shutil import *
+
+print 'BEFORE:', os.listdir(os.getcwd())
+copyfile('shutil_copyfile.py', 'shutil_copyfile.py.copy')
+print 'AFTER:', os.listdir(os.getcwd())
+}}}
+运行结果:
+{{{
+$ python shutil_copyfile.py 
+BEFORE: ['__init__.py', 'shutil_copyfile.py']
+AFTER: ['__init__.py', 'shutil_copyfile.py', 'shutil_copyfile.py.copy']
+}}}
+
+
+== 练习 ==
+
+
+-- 清风  [[DateTime(2008-04-25T14:33:00Z)]] 
