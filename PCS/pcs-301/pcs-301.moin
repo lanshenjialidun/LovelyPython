@@ -1,0 +1,25 @@
+##language:zh
+##OBP项目图书reST通用文章模板
+###format rst
+||status|| 草稿 ||清风; 100%||
+
+[[TableOfContents]]
+
+== Karrigell ==
+
+=== 概述 ===
+'''Pure Python 实现的又一个 Web 应用平台！'''
+ * 但是 Karrigell 区别与其它平台的不同在于...
+  * [http://www.donews.net/limodou/archive/2005/03/14/302380.aspx Python 下的轻型web framework - limodou的学习记录]
+ * Limodou 先有体验 -- [http://www.donews.net/limodou/archive/2005/04/23/347349.aspx "Karrigell学习"我为什么选择了Karrigell - limodou的学习记录]
+  * 记录了一个系列的学习使用 Karrigell 时的发现，体会，感触……非常有指导意义！
+ * 来自ChumpKlutz(朽木)原创翻译:
+  * [http://blog.csdn.net/ChumpKlutz/category/243254.aspx Karrigell官方文档中文版]
+  * [http://blog.csdn.net/ChumpKlutz/archive/2007/09/12/1781990.aspx Karrigell Web 开发入门]
+  * 这两份翻译的PDF版可到这里下载：
+   * [http://code.google.com/p/gopython/downloads/list PDF下载页面]
+
+== 练习 ==
+
+
+-- 清风  [[DateTime(2008-04-25T14:33:00Z)]] 
