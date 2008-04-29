@@ -1,0 +1,36 @@
+##language:zh
+##OBP项目图书reST通用文章模板
+###format rst
+||status|| 草稿 ||清风; 100%||
+
+[[TableOfContents]]
+
+== ElementTree ==
+{{{#!python
+from xml.etree.ElementTree import Element, SubElement, dump
+
+window = Element("window")
+
+title = SubElement(window, "title", font="large")
+title.text = "A sample text window"
+
+text = SubElement(window, "text", wrap="word")
+
+box = SubElement(window, "buttonbox")
+SubElement(box, "button").text = "OK"
+SubElement(box, "button").text = "Cancel"
+
+dump(window)
+}}}
+运行结果:
+{{{
+$ python elementtree-example-1.py
+<window><title font="large">A sample text window</title><text wrap=
+"word" /><buttonbox><button>OK</button><button>Cancel</button></but
+tonbox></window>
+}}}
+
+== 练习 ==
+
+
+-- 清风  [[DateTime(2008-04-25T14:33:00Z)]] 
