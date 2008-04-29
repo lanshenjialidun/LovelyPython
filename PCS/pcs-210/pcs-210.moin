@@ -1,0 +1,54 @@
+##language:zh
+##OBP项目图书reST通用文章模板
+###format rst
+||status|| 草稿 ||清风; 100%||
+
+[[TableOfContents]]
+
+== pickle和cPickle ==
+推荐的引用方法:
+{{{#!python
+try:
+   import cPickle as pickle
+except:
+   import pickle
+}}}
+
+定义一个字典:
+{{{#!python
+data = [ { 'a':'A', 'b':2, 'c':3.0 } ]
+print 'DATA:',data
+}}}
+
+查看dump后的结果:
+{{{#!python
+data_string = pickle.dumps(data)
+print 'PICKLE:', data_string
+}}}
+
+{{{
+$ python pickle_string.py
+DATA:[{'a': 'A', 'b': 2, 'c': 3.0}]
+PICKLE: (lp1
+(dp2
+S'a'
+S'A'
+sS'c'
+F3
+sS'b'
+I2
+sa.
+}}}
+
+load为对象:
+{{{#!python
+print "LOAD",pickle.loads(data_string)
+}}}
+
+
+
+== 练习 ==
+
+ 
+
+-- 清风  [[DateTime(2008-04-25T14:33:00Z)]] 
