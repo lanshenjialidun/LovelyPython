@@ -1,0 +1,39 @@
+##language:zh
+##OBP项目图书reST通用文章模板
+###format rst
+||status|| 草稿 ||清风; 100%||
+
+[[TableOfContents]]
+
+== ConfigParse ==
+
+一个简单的小例子,我们需要在项目中引入配置文件,像这个格式:
+{{{
+[portal]
+url = http://%(host)s:%(port)s/Portal
+username = dhellmann
+host = localhost
+password = SECRET
+port = 8080
+}}}
+
+使用ConfigParse解析它
+{{{#!python
+from ConfigParser import ConfigParser
+import os
+
+filename = os.path.join('.', 'approachrc')
+#print filename
+
+config = ConfigParser()
+config.read(filename)
+
+url = config.get('portal', 'url')
+print url
+}}}
+
+== 练习 ==
+
+ 
+
+-- 清风  [[DateTime(2008-04-25T14:33:00Z)]] 
