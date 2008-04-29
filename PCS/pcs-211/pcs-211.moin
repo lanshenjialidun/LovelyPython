@@ -1,0 +1,21 @@
+##language:zh
+##OBP项目图书reST通用文章模板
+###format rst
+||status|| 草稿 ||清风; 100%||
+
+[[TableOfContents]]
+
+== base64 ==
+{{{#!python
+import base64
+
+basestr = base64.encodestring("yanxu 123")
+print "base64 encodestring:",basestr
+print "base64 decodestring:",base64.decodestring(basestr)
+}}}
+
+
+== 练习 ==
+
+
+-- 清风  [[DateTime(2008-04-25T14:33:00Z)]] 
