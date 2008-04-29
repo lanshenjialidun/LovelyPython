@@ -1,0 +1,16 @@
+<head>
+    <title>Mysite</title>
+</head>
+<body>
+<%
+#problem 1
+#print "Hello, Karrigell's world!"
+
+#problem 2
+#print QUERY
+if 'name' in QUERY:
+    print "Hello, %s's world!" % QUERY['name']
+else:
+    print 'Name is Empty!'
+%>
+</body>
