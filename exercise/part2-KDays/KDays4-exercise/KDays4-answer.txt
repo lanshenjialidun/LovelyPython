@@ -1,0 +1,7 @@
+== 解答 ==
+
+    (1) 将index.pih改写成index.ks, 并在index.ks完成edit, save功能, 具体可见源码;
+    (2) 增加登录login, 登出logout, 可以使用session;
+    (3) 这样我们就完成了之前分为几个pih页面, 现合并在一个ks页面中的功能;
+    (4) 使用多种HTMLTags美化显示;
+    (5) 详细请见代码.

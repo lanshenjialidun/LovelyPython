@@ -1,0 +1,53 @@
+<html>
+<head>
+    <title>Mysite</title>
+    <meta content="text/html; charset=utf-8" http-equiv=content-type>
+</head>
+<body>
+<%
+#如果是修改已有文章, 则先获得该文章的id, 如果是新建, 则id记为0
+id = QUERY.keys()
+entry_title = ''
+entry_content = ''
+if not id:
+    id = 0
+else:
+    id = id[0]
+    #导入RawConfigParser模块
+    from ConfigParser import RawConfigParser
+    cfg = RawConfigParser()
+
+    try:
+        #注意: 这边的entry.txt必须实现存在, 若不存在会出错, 可以通过判断文件是否存在来解决, 现未处理
+        entry_file = open('entry.txt', 'r')
+        #从文件中读取
+        cfg.readfp(entry_file)
+        #获得文章标题
+        entry_title = cfg.get(id, 'entry title')
+        #获得文章内容
+        entry_content = cfg.get(id, 'entry content')
+    except Exception, e:
+        raise HTTP_REDIRECTION,"error"
+#输出字串
+string = '''
+    <h1>Edit</h1>
+    <form action="save_entry.py" method="post">
+        <table>
+            <tr>
+                <td>Title</td><td><input name="entry_title" value="%s"></td>
+            </tr>
+            <tr>
+                <td>Content</td><td><textarea cols="50" rows="20" name="entry_content">%s</textarea></td>
+            </tr>
+            <tr>
+                <td><input type="Submit" value="Ok"></td><td><input type="Reset" value="Reset"></td>
+            </tr>
+            <tr>
+                <td><input type="Hidden" name="entry_id" value="%s"></td><td></td>
+            </tr>
+        </table>
+    </form>''' % (entry_title, entry_content, id)
+print string
+%>
+</body>
+</html>

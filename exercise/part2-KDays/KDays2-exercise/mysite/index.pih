@@ -1,0 +1,22 @@
+<head>
+    <title>Mysite</title>
+</head>
+<body>
+    <h1>Entry</h1>
+<%
+from ConfigParser import RawConfigParser
+cfg = RawConfigParser()
+
+try:
+    entry_file = open('entry.txt', 'r')
+    cfg.readfp(entry_file)
+    #依次输出各文章, 顺序不正确
+    for i in cfg.sections():
+        print '<h3>%s</h3><p>Title: %s</p><p>%s</p>' % (i, cfg.get(i, 'entry title'), cfg.get(i, 'entry content'))
+        print '<form action="edit" method="post"><input type="Submit" value="Edit" name="%s"></form>' % i
+        print '<hr/>'
+except Exception, e:
+    print e
+    raise HTTP_REDIRECTION,"error1"
+%>
+</body>

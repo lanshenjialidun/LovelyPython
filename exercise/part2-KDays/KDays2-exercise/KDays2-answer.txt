@@ -1,0 +1,6 @@
+== 解答 ==
+
+    (1) 在mysite下新建edit.pih, 增加页面编辑框, url为mysite/edit, 具体参见源码;
+    (2) 增加save_entry.py, 完成保存功能;
+    (3) 修改index.pih, 读取各个文章并显示, url为mysite/index;
+    (4) 详细见各源码文件.ConfigParser模块参考: http://docs.python.org/lib/RawConfigParser-objects.html

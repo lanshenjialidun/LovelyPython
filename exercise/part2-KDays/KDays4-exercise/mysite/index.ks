@@ -1,0 +1,187 @@
+# -*- coding: utf-8 -*-
+
+import pickle
+from Karrigell_QuickForm import Karrigell_QuickForm as KQF
+from entry import Entry
+from HTMLTags import *
+
+#使用 Session来记忆成员信息
+sess = Session()
+if not hasattr(sess, 'usr'):
+    sess.usr = {'name':None}
+
+#尝试load原有的文章列表对象, 若不存在则为空
+try:
+    entrylist = pickle.load(open("entry.dump"))
+except Exception, e:
+    entrylist = list()
+
+def print_head(type='Entry'):
+    #页面首部
+    print '''
+    <head>
+        <title>Mysite</title>
+    </head>
+    <body>
+        <h1>%s</h1>
+    ''' % type
+    
+    ##########
+    #print H1(type)
+    
+def print_foot():
+    #页面底部
+    print '''
+    </body>
+    '''
+
+def error(errmsg='ERROR'):
+    '''显示错误
+    '''
+    print_head(errmsg)
+    print '<a href= "http://localhost:8081/mysite/">Return</a>'
+    
+    ##########
+    #print SPAN(A('Return', href="http://localhost:8081/mysite/"), id='return')
+    
+    print_foot()
+    
+def index(**args):
+    '''显示首页
+    '''
+    #首先判断是否已经登录, 若未登录, 转入登录页面
+    if not sess.usr['name']:
+        raise HTTP_REDIRECTION,"login"
+    
+    #输出头部
+    print_head()
+    print 'login : ', sess.usr['name']
+    print '|'
+    print '<a href="logout">logout</a>'
+    
+    ##########
+    #print SPAN(A('logout', href="logout"),id="logout")
+    
+    print '|'
+    ##########
+    print SPAN(A('New', href="edit"),id="edit")
+    
+    #依次输出各个文章
+    entrylist.reverse()
+    for e in entrylist:
+        print '<h3>%s</h3><p>Title: %s</p><p>Tags: %s</p><p>%s</p>' % (e.id, e.title, ' '.join(e.tag), e.content)
+        print '<a href="edit?id=%s">Edit</a>' % e.id
+        print '<hr/>'
+        
+        ##########
+        #print H3(e.id)
+        #print H4('Title: %s' % e.title)
+        #print '<p>Tags: %s</p><p>%s</p>' % (' '.join(e.tag), e.content)
+        #print '<a href="edit?id=%s">Edit</a>' % e.id
+        #print '<hr/>'
+
+    #输出页面尾部
+    print_foot()
+    
+def save(**args):
+    '''保存修改
+    '''
+    #获得文章id
+    id = int(QUERY['entry_id'])
+
+    #获得文章title, 若为空, 则出错, 转入出错链接
+    title = QUERY['entry_title'].strip()
+    if not title or not len(title):
+        raise HTTP_REDIRECTION,"error?errmsg=%s" % 'Title is Empty'
+
+    #获得文章content, 若为空, 则出错, 转入出错链接
+    content = QUERY['entry_content']
+    if not content or not len(content):
+        raise HTTP_REDIRECTION,"error?errmsg=%s" % 'Content is Empty'
+
+    #获得文章tag, 以空格为分割
+    tag = QUERY['entry_tag'].split()
+
+    #id为0表示是新建的文章
+    if id == 0:
+        newentry = Entry(len(entrylist)+1, title, tag, content)
+        entrylist.append(newentry)
+    else:
+        #已存文章, 则对其修改, 注意因为列表是从0开始编号的, 而Entry的id是从1开始的, 所以这边需要调整id
+        entrylist[id-1].title = title
+        entrylist[id-1].tag = tag
+        entrylist[id-1].content = content
+    #保存更改后的新对象
+    pickle.dump(entrylist, open("entry.dump", "w"))
+
+    #最后页面跳转至首页
+    raise HTTP_REDIRECTION,"index"
+
+def edit(id=0):
+    '''编辑
+    '''
+    print_head('Edit')
+    
+    #初始化, 新建文章id为0, 已存文章为非0
+    entry_title = ''
+    entry_content = ''
+    entry_tag = ''
+    entry_id = 0
+    if id:
+        #获取已存文章id, 应该减1
+        id = int(id)-1
+        #获取对应id的文章
+        try:
+            entry_title = entrylist[id].title
+            entry_content = entrylist[id].content
+            entry_tag = ' '.join(entrylist[id].tag)
+            entry_id = entrylist[id].id
+        except:
+            raise HTTP_REDIRECTION,"error?errmsg=%s" % 'Get Entry Error'
+        
+    #使用Karrigell_QuickForm修改
+    p = KQF('fm_edit','POST',"save", '')
+    p.addHtmNode('text','entry_title','Title',{'size':20, 'maxlength':'40', "value":"%s" % entry_title})
+    p.addHtmNode('text','entry_tag','Tags',{'size':20, 'maxlength':'40', "value":"%s" % entry_tag})
+    p.addCntTextArea('entry_content', 'Content', '%s' % entry_content, '20','50')
+    p.addElement("reset", 'reset', {'value':"Reset"})
+    p.addGroup(["submit","btn_submit","Submit","btn"])
+    p.addElement("hidden", "entry_id", {"value":"%s" % entry_id})
+    p.display()
+    
+    print_foot()
+
+def login():
+    """登录页面
+    """
+    print_head("Login") 
+    string = '''
+    <form action="chkusr" method="post">
+        <table>
+            <tr>
+                <td>Name</td><td><input name="name" value=""></td>
+            </tr>
+            <tr>
+                <td>Password</td><td><input name="passwd" type="password" value=""></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Ok"></td><td>&nbsp;</td>
+            </tr>
+        </table>
+    </form>
+    '''
+    print string
+    print_foot()
+
+def chkusr(**args):
+    """从login 自然引发的页面
+        检查用户登录情况
+    """    
+    sess.usr["name"] = QUERY["name"]
+    raise HTTP_REDIRECTION,"index"
+
+def logout():
+    """登出
+    """
+    sess.close()    
+    raise HTTP_REDIRECTION,"index"

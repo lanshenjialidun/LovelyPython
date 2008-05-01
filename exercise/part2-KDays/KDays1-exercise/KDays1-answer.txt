@@ -1,0 +1,9 @@
+== 解答 ==
+
+    (1) 在Karrigell所在的webapps目录下新建mysite, 或者不在webapps中新建, 再设置.ini的Aliase, 在这略; 
+    (2) 在mysite下创建index.pih, 内容见源码, 主要是输出操作;
+    (3) 运行python Karrigell.py, 在浏览器中输入localhost:8081/mysite, 就可以看到我们的hello world了^-^
+    
+    (4) 改进, 在mysite下创建login.pih, 可以参考Karrigell/webapps下自带的login.pih, 其中使用到form, 采用post方式, 发送请求到index.pih页面;
+    (5) 修改index.pih, 接受login页面发送的Name, 判断并显示;
+    (6) 完毕, 输入localhost:8081/mysite/login, 输入姓名和密码提交后, 就可以看到自己的名字了;
