@@ -1,0 +1,56 @@
+BODY{
+    font-size: 92%; color: #333333; 
+    text-indent: 1em;  
+    margin: 0px;  padding: 0px;
+    font-family: Tahoma,SimSun;
+    background-color: #ffffff;
+}
+/*
+    border-collapse: collapse ;*/
+H1{ margin: 0px;  padding: 0px;
+}
+TABLE { 
+    width: 100%;
+    font-size: 96%; 
+    color: #444444;}
+    
+TH { 
+    background-color: #777777;
+    color: #efefef;}
+
+TABLE#dept{
+    background-color: #efefef;
+    }
+TABLE#staff TD{
+    font-size: 94%;
+    background-color: #ffffff;
+    }
+
+div.node { 
+  padding-bottom:     1ex;
+  padding-left:       2em;
+}
+
+div.cloud { 
+  padding-bottom:     1ex;
+  padding-left:       2em;
+  background-color:   #C0C0FF;
+  border-width:       2px;
+  border-style:       solid;
+  border-color:       #A0A0FF;
+}
+
+div.content { 
+  border-width:       1px;
+  border-style:   dashed;
+  border-color:       #C0C0C0;
+}
+
+img.hideshow { 
+  padding-right: 1ex;
+}
+
+img.ilink { 
+  border-width: 0px;
+  padding-left: 1ex;
+}

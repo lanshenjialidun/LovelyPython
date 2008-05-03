@@ -1,0 +1,324 @@
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv=content-type>
+<!--发现在IE中如果在中文出现后再声明就会有问题，BS哪！-->
+<title>
+
+<%
+print "自由问卷 之 啄木鸟基本知晓 - Powered by Karrigell"
+%>
+</title>
+
+<style>
+/* $Id: questionnaire.leo,v 1.9 2005/12/13 03:43:43 zhouqi Exp $
+Karrigell 使用的CSS
+Django 颜色！*/
+/*esp for 问卷::自动居中！margin: 0 auto;*/
+DIV#qpage{width: 700px;
+    font-size: 12px;
+    margin: 0 auto;}
+fieldset{background-color: #ffffff;
+    margin:.5em auto;}
+legend{font-size: 12px;}
+#qpage ul{width: 650px;}
+/*decimal; lower-alpha*/
+#qpage ul li{list-style-type :decimal;}
+#slide ul li{list-style-type :square;}
+DIV#qlist{}
+
+#qpage ul ul li{list-style-type :none;
+    display :inline ;
+    }
+LI UL#staff li{list-style-type :circle;}
+LI#even{BACKGROUND-COLOR: #EEF3F5;}
+DIV#mana {font-size: 12px;
+    float:right;text-align : center; 
+    BACKGROUND-COLOR: #930;
+    background-color: whitesmoke; 
+    border-bottom: 2px solid #234F32;
+    border-left: 2px solid #487858;
+    margin:0px;padding: 0px;}
+DIV#mana A{
+    padding: 2px 5px 0px 2px;}
+DIV#mana A:hover{background-color: #E0FFB8;}
+SPAN#title{font-size: 15px;}
+SPAN#sequence{font-size: 12px;
+    color: #930;
+    background-color: #FFFFE1;
+    border: 2px solid #94DA3A;
+    float:right;  
+    padding: 2px;}
+TEXTAREA#jsvalidation-framework{display:none;}
+
+DIV#errorMessage{font-size: 14px;color: #333;
+    font-weight: bold;border: 0px solid #930;
+    BACKGROUND-COLOR: #94DA3A}BODY{font-size: 10px; color: #333333; 
+    text-indent: 1em; 
+    background-color: whitesmoke; 
+    margin: .5em;    
+    font-family: Tahoma;
+    scrollbar-face-color:#99CC99;
+    scrollbar-shadow-color: #ffffff;
+    scrollbar-highlight-color: #99CC99;
+    scrollbar-3dlight-color: #ffffff; 
+    scrollbar-darkshadow-color:#99CC99; 
+    scrollbar-track-color: #E6E6E6;
+    scrollbar-arrow-color: #ffffff;
+}
+P,UL,OL,DL,TABLE,TR,TH,TD,A,FONT {font-family: Tahoma,Arial,Helvetica}
+HR {font-size: 1px; color: #99CC99}
+
+BODY A{color: #002000; text-decoration: none}
+A{font-size: 1em; }
+A:hover{color:#993300; text-decoration: underline;}
+
+HR{
+    margin: 0px;
+	padding: 0px;
+    }
+/*Dganjo green theater
+#092E20 #234F32 #99CC99 #487858  #E0FFB8
+亮边 #94DA3A*/
+H1{	font-size: 16px;font-family: SimHei,Arial,Helvetica;
+	font-weight: lighter;letter-spacing:4px;
+	color: #FFFFFF;
+	text-align: left;
+	background-color: #092E20;	
+	border: 2px solid #234F32;
+	margin: 0px;
+	padding: 6px;
+    }
+H1 A{color:#94DA3A;}
+H2{ font-size: 14px; font-family: SimHei,Arial,Helvetica;
+    font-weight: lighter; letter-spacing:4px;
+    color: whitesmoke;     
+    text-align: left;
+    background-color: #234F32;
+	border: 2px solid #487858;
+    margin: 0px;
+	padding: 5px;
+    }
+H2 A{ font-size: 14px;font-family: SimHei,Arial,Helvetica; 
+    font-weight: lighter; color: #FFCC80;
+    }
+H2 A:hover{ }	
+H3{ font-size: 14px; font-family: SimHei,Arial,Helvetica;
+    font-weight: lighter; letter-spacing:4px;
+    color:whitesmoke;    
+    text-align: left;
+    background-color: #326342;
+	border: 2px solid #234F32;    
+    margin: 0px;	
+	padding: 5px;
+    }
+    /*亮底#FDEACC 警边#FFCC80*/
+H4{ font-size: 14px; font-family: SimHei,Arial,Helvetica;
+    font-weight: lighter;letter-spacing:4px;
+    color: #406040;
+    text-align: left; 
+    background-color: #FFFFE1;
+    border: 2px solid #94DA3A;
+    margin: 0px;
+	padding: 5px;
+    }
+H5{ font-size: 12px; font-family: SimHei,Arial,Helvetica;
+    font-weight: lighter; 
+    color: whitesmoke; 
+    background-color: #487858;
+    border: 2px solid #234F32; 
+    margin: 0px;
+	padding: 4px;
+    }
+H5 A{color: #FFE761; }	
+H5 A:hover{color: #FFE761; }	
+
+H6{	font-size: 12px;	font-family: SimHei,Arial,Helvetica;
+	font-weight: lighter;
+	color: #FF6633;
+	background-color: #E0FFB8;
+	border: 2px solid #234F32;
+    margin: 0px;
+	padding: 2px;
+    }
+
+
+UL{ font-size: 13px;
+	color:#283E28;
+	list-style-position;
+	margin: 0px 0px 0px 25px;
+	padding: 0px 0px 10px 0px;
+	list-style-type: square;
+	line-height: 130%;		
+}
+LI A{font-weight: lighter;
+    color:#283E28;
+    }
+LI A:hover{}
+P{  font-size: 12px;  text-indent: 15px; 
+    word-wrap: break-word;
+    line-height: 120%;
+    margin: 5px 5px 5px 15px;
+	padding: 2px ;
+    }
+P A{}
+P A:hover{}
+
+/*表单设计*/
+
+TABLE { border-collapse: collapse ; font-size: 12px; color: #333333;}
+
+FORM{
+    margin: 0px;
+	padding: 0px;
+    }
+
+TEXTAREA { font-family: "Arial", "Helvetica";
+    font-size: 14px; font-weight: light; color: #993300; 
+	background-color: transparent; 
+	border-width: 1px;border-style: solid; border-color: #CCCCCC ;
+	width: 100%}
+SELECT{WIDTH: 100%;
+	font-size: 12px; font-weight: bold;color: #E0F3E0;
+	font-family: "Arial", "Helvetica", "sans-serif"; 
+	background-color: #8DB48D; 
+	border-width: 1px ;border-color: #CCCCCC;}
+	
+INPUT{ font-family: "Arial", "Helvetica";
+    font-size: 14px;font-weight: light; color: #993300; 
+	background-color: transparent; 
+	border: 1px solid #838A9E;}
+	
+INPUT.btn { font-size: 13px; 
+    font-weight: light; color: whitesmoke; 
+	background-color: #487858; 
+	border-width: 2px; 
+    border-color: #E0F3E0 #679265 #333333 #CCCCCC;
+	height: 20px;	
+	padding:0px 1em 2px 1em;}
+	
+INPUT.chkrd { background-color: transparent; border: 0px}
+/*颜色准备*/
+
+.deep0{
+    color: #E0F3E0;
+	background-color: #002000;
+	border: 1px solid #74BADC;
+}
+.deep1{
+    color: #E0F3E0;
+    background-color: #003300;
+    margin:0px 1px 1px 1px;
+    }
+.deep2{
+    color: #E0F3E0;
+    background-color: #283E28;
+    }
+.deep3{
+    color: #E0F3E0;
+    background-color: #314A31;
+    }
+
+.light0{
+    color: #406040;
+	background-color: #FFFFFF;
+	margin:0px 1px 1px 1px;
+}
+
+.light1{
+    color: #406040;
+    background-color: #E0F3E0;
+    }
+
+.light2{
+    color: #002000;
+    background-color: #FDEACC;
+    }
+.light2 A
+    { color: #679265;   }
+.light2 A:hover
+    {color: #FF6633;    }
+/*特殊效果*/
+
+.odd  {
+	font-size: 13px;
+	text-align: center;
+	color:#333333;
+	background-color: #FDEACC;
+
+    }
+.odd A{
+    font-size: 13px; text-align: center;
+    color:#333333;
+    background-color: #FDEACC;        
+    }
+.odd A:hover{color:#333333;}   
+
+.action {
+	font-size: 12px;
+	color:#E6E6E6;	
+}
+.action A{
+	font-size: 12px;
+	color: #406040;
+	
+}
+.action A:hover{
+	font-size: 12px;
+	color: #ffffff;
+	background-color: #CC0000;
+}
+
+
+.icon {
+	font-family: "Webdings";
+	font-size: 16px;
+	color:#C9E9C9;
+	background-color: #99CC99;
+	filter: glow(color=red,strength=5);
+	margin: 0px;
+	padding: 0px;
+	vertical-align: baseline;
+	cursor: hand;
+}
+
+
+.Webdings{
+	font-family: "Webdings";
+	
+}
+</style><script language="javascript" src="/q/js/validation-framework.js">
+</script>
+
+</head>
+<body>
+<div id='qpage'>
+
+
+<h4>
+ |> 
+<a href="mana.pih">
+返回
+[问卷设计页面] 修改试题
+</a>
+ |> 
+<a href="index.ks/logout">
+退出</a>
+</h4>
+<%
+Include("qprint.py")
+%>
+
+
+<h4>
+ |> 
+<a href="mana.pih">
+返回
+[问卷设计页面] 修改试题
+</a>
+ |> 
+<a href="index.ks/logout">
+退出</a>
+</h4><div>
+</body>
+
+</html>

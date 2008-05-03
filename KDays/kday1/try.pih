@@ -1,0 +1,15 @@
+<html><body>
+<%
+# 可以将Karrigell 看作使用 web 输出的Python 脚本环境！
+print dir()
+%>
+<!--
+喜欢 pih 自由的两类代码的自然组织！
+-->
+<hr/>
+<%
+a="Kariigell 是也乎！"
+print a # 没有对页面指定编码，默许的会有乱码现象……
+print dir(a)
+%>
+</body></html>

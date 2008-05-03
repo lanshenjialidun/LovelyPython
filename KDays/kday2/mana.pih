@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>
+<%
+print "自由问卷 之 啄木鸟基本知晓 - Powered by Karrigell"
+%>
+</title>
+<meta content="text/html; charset=utf-8" http-equiv=content-type>
+</head>
+<body>
+<h1>在线编辑问卷设计文案，自动解析为模拟问卷</h1>
+
+<%# 最简单的方式将实际处理脚本包含到页面中适当的位置
+Include("qdesign.py")
+%>
+
+<%"""
+#可以随意包含测试输出哪！
+# 嗬嗬也可以随时进行方便的多行注释
+print dir()
+"""
+%>
+
+</body>
+
+</html>
+
+
+

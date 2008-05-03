@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>
+<%
+print "自由问卷 之 啄木鸟基本知晓 - Powered by Karrigell"
+%>
+</title>
+<meta content="text/html; charset=utf-8" http-equiv=content-type>
+</head>
+<body>
+
+<h1>自动解析成的模拟问卷</h1>
+
+<!--
+# 咔咔咔！！Leo 支持中文节点定义的哪！
+-->
+
+<h5>
+ |> 
+<a href="mana.pih">
+返回
+[问卷设计页面]修改试题</a> 
+ |> 
+<a href="qprint.pih">
+ 查看最终效果</a>
+ |> 
+</h5>
+<%
+Include("qpage.py")
+%>
+
+
+<h5>
+ |> 
+<a href="mana.pih">
+返回
+[问卷设计页面]修改试题</a> 
+ |> 
+<a href="qprint.pih">
+ 查看最终效果</a>
+ |> 
+</h5>
+</body>
+
+</html>
+
