@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+        <!DOCTYPE validation-config SYSTEM "validation-config.dtd">
+        <validation-config lang="auto">	
+        	<form id="fm_kq" show-error="errorMessage" onfail="" 
+        	show-type="first">
+            
+        		<field name="cr_ask1" 
+        		display-name="问题1 " onfail="">
+        			<depend name="required" />
+        		</field>
+        
+        		<field name="cr_ask2" 
+        		display-name="问题2 " onfail="">
+        			<depend name="required" />
+        		</field>
+        
+        		<field name="cr_ask3" 
+        		display-name="问题3 " onfail="">
+        			<depend name="required" />
+        		</field>
+        
+        		<field name="cr_ask4" 
+        		display-name="问题4 " onfail="">
+        			<depend name="required" />
+        		</field>
+        
+        		<field name="cr_ask5" 
+        		display-name="问题5 " onfail="">
+        			<depend name="required" />
+        		</field>
+        
+        	</form>
+        </validation-config>
+        

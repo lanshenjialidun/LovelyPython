@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE validation-config SYSTEM "validation-config.dtd">
+<validation-config lang="auto">
+	
+	<form id="fm_kq" show-error="alert" onfail="" 
+	show-type="first">
+		<field name="cr_ask2" 
+		display-name="cr_ask2" onfail="">
+			<depend name="required" />
+		</field>
+	
+	</form>
+</validation-config>
