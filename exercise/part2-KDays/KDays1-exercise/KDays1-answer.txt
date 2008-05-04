@@ -7,3 +7,4 @@
     (4) 改进, 在mysite下创建login.pih, 可以参考Karrigell/webapps下自带的login.pih, 其中使用到form, 采用post方式, 发送请求到index.pih页面;
     (5) 修改index.pih, 接受login页面发送的Name, 判断并显示;
     (6) 完毕, 输入localhost:8081/mysite/login, 输入姓名和密码提交后, 就可以看到自己的名字了;
+    (7) 当然还能改进, 就留待读者慢慢尝试了.
