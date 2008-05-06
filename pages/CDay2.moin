@@ -132,16 +132,22 @@ def index():
 
 也不用问,看着简单的文档,一般就3板斧:
  1. 下载,安装:
-  * 晕!Karrigell 居然是 零安装~越级绿色的！解开压缩包,在任何地方都可以运行!
+  * 耶!Karrigell 居然是 零安装,超级绿色的！解开压缩包,在任何地方都可以运行!
   * 使用不包含demo 文档的核心版本`'Karrigell-core-2.3.5.tgz'`,解压缩了才800多K!
  1. 配置:
-  * 仅仅修订一行:{{{
-#path/to/Karrigell-2.3.5/Karrigell.ini
-...
+  * 在`Karrigell-2.3.5`目录中找到`Karrigell.ini`
+   * 注意在 Karrigell 2.4 版本之后，配置文件移动到 `conf`目录中了
+  * 找到:{{{...
 [Server]
+# set the port on which Karrigell will serve requests
+# default is 80
+# on Unix/Linux, if you are not logged as root you may not be able
+# to start on a port below 1024 for security reasons
+#port=8081
+}}}
+  * 仅仅修订一行:{{{
 port=8081
-...
-  }}}想将网站启动到 `:8081` 端口,避开用户可能的己有默认`:80`网站
+}}}去掉注释，声明将网站发布到 `:8081` 端口,避开用户可能的己有默认`:80`网站
  1. 运行{{{
 python Karrigell.py 
  }}} 完事儿! 网站已经启动,界面已经拥有!
@@ -482,7 +488,10 @@ attachment:070823_web.py_850X115_scrot.png
 
 (1) 如果在Karrigell 实例中，不复制 cdctools.py 到webapp 目录中，也可以令 index.ks 引用到？
 
+
+
 (2) 经过本章Karrigell的初步学习，实现一个简易的web留言系统。主要利用Karrigell_QuickForm实现提交留言并显示出来。
+
 
 
 ----
