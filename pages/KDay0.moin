@@ -1,4 +1,4 @@
-== K0日: 预定 ==
+== Kday 0: Web开发启航 ==
 '''定场诗'''{{{
 前有樱桃，后涡轮；还是推车最贴心。
 (CherryPy TurboGears KarriGell)
@@ -63,5 +63,12 @@ key		= a # 正确答案
 ...
 }}}
 
+= 练习 =
+初次尝试使用Karrigell(下载地址为: http://tinyurl.com/6bpc3f). 
+ * 下载Karrigell解压 
+ * 在终端中进入Karrigell所在目录
+ * 运行python Karrigell.py, 看看出现什么?
+ * 再在浏览器中输入localhost, 再看看出现什么?
+如果出现意外,尝试根据屏幕提示进行排除,书后详细的参考解说...
 
 

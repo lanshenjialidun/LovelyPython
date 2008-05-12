@@ -1,3 +1,3 @@
 == 问题描述 ==
 
-    初次尝试使用Karrigell(下载地址为: http://sourceforge.net/project/showfiles.php?group_id=67940&package_id=218276&release_id=591626). 下载Karrigell解压后, 在终端中进入Karrigell所在目录, 运行python Karrigell.py, 看看出现什么?再在浏览器中输入localhost, 再看看出现什么?
+    初次尝试使用Karrigell(下载地址为: http://tinyurl.com/6bpc3f). 下载Karrigell解压后, 在终端中进入Karrigell所在目录, 运行python Karrigell.py, 看看出现什么?再在浏览器中输入localhost, 再看看出现什么?
