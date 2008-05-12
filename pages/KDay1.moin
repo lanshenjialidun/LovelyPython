@@ -5,7 +5,7 @@
 ::-- ZoomQuiet [[[DateTime(2005-12-10T11:49:22Z)]]]
 [[TableOfContents]]
 
-= K1日:品尝KarriGell =
+= Kday 1:品尝KarriGell =
 '''快速根据PHP 的经验尝试Karrigell 的开发'''
  * 原先的问卷生成系统，其实就是利用从别处扒来的一组手工写的PHP 的问卷页面，利用Python 组织了一个从 ini 设置文本到PHP 页面的流程
  * 其实从txt -> Python -> PHP -> DB -> Python -> 回答统计，这样的数据流程够傻的

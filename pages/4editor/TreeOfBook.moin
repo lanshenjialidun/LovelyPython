@@ -77,21 +77,23 @@
   |  +-- PCS306 PyLons
   |  +-- PCS307 Quixote
   |  +-- PCS308 Zope
-  |  +-- PCS309 Cheetah
-  |  `-- PCS309 LEO
-  +-- 实作篇 (实际运用Python的小实作 PCS 400~499)
+  |  +-- PCS309 GAE
+  |  `-- PCS310 LEO
+  +-- 实作篇 (实际运用Python的小实作 PCS 400~499)<风格不合，图书不纳，网络分享>
   [http://wiki.woodpecker.org.cn/moin/MicroProj 中挑选]
      +-- PCS400 读取google搜索信息
      +-- PCS401 从 whois 信息中提取网段信息
-     +-- PCS403 找出两个文件中不同部分
-     +-- PCS404 大文件排序
-     `-- PCS405 大文件比较
+     +-- PCS402 找出两个文件中不同部分
+     +-- PCS403 大文件排序
+     `-- PCS404 大文件比较
 +-- 附录
   +-- 行者箴言
   +-- 资源索引
+  +-- 练习解答
   +-- 术语索引
   `-- 后记
 }}}
 ##endInc
 
 [[PageComment2]]
+
