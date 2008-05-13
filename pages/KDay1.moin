@@ -1,8 +1,9 @@
 ##language:zh
 #pragma section-numbers on
+##草稿|校对|正式
+||'''status'''|| 正式 || ZoomQuiet|| 完成度:98%||
 
 
-::-- ZoomQuiet [[[DateTime(2005-12-10T11:49:22Z)]]]
 [[TableOfContents]]
 
 = Kday 1:品尝KarriGell =
@@ -13,10 +14,17 @@
  
 == 准备环境 ==
 '''为什么选择KarriGell? 缘分吧…………哈哈哈！'''
+
+{{{详细:
+PCS301 Karrigell
+分享了被选中的号称最简易好用的应用框架；
+就在本书前一部分，CDays故事中，最后小白就是使用的这种框架;
+}}}
+
  * 看了KarriGell 的介绍，感觉可以快捷开始，就它了
- * 下载KarriGell[[FootNote(现在是[http://karrigell.sourceforge.net/ Karrigell-2.2] )]]
+ * 下载KarriGell
  * 解开，然后：`python Karrigell.py`
- * bing! 你有了一个展示了各种应用的 KarriGell 站点了！就在 http://localhost/
+ * bingo! 你有了一个展示了各种应用的 KarriGell 站点了！就在 http://localhost/
  attachment:snap-KwDay00.png
   * 尝试了一下子在 M$ 和 FreeBSD 平台中，是完全一样的反应！
   * 意味着，只要有Python环境，你随时可以获得一个全功能的Web 应用环境！
@@ -24,9 +32,12 @@
 == 动手动脚 ==
 '''跟着教程走，随便动一动'''
  * http://localhost/demo/frame_tour_en.htm 是基础入门的教程，展示了KarriGell 进行 web 开发中最经常要面对的应用实现
- * 你看的懂Python， 当然的，对于 hello 这样的示例已经没有兴趣了，
+ {{{截屏
+ }}}
+ 
+ * 小白看的懂Python， 当然的，对于 hello 这样的示例已经没有兴趣了，
  * 看过一些前人的体验文章，知道有种 `pih` 的页面交互方式，最象原先的 PHP 开发
- * 跟着教程，http://localhost/demo/test.pih 你直接修改了两下:{{{
+ * 跟着教程，http://localhost/demo/test.pih 小白直接修改了两下:{{{
 <h2>HTTP headers</h2>
 <%
 a="Karrigell"
@@ -37,7 +48,8 @@ print dir(a)
 
 == 组织开发环境 ==
 '''OK！要可以随时看到教程，同时又有独立的站点空间……'''
- * 你好容易学习，掌握了 Leo ，而且感觉一切都应该由 Leo 组织才自然
+
+ * 小白好容易学习，掌握了 Leo ，而且感觉一切都应该由 Leo 组织才自然
  * 那未就按照直觉来定制KarriGell 一下子:
      * 看了其它人的体验……
      * 其实 KarriGell 的设置非常的简单的，由统一的 ini 文件来设定整体行为
@@ -64,6 +76,14 @@ print dir(a)
 }}}
   * 嗯嗯……为了方便使用 `@nosent` 操作符 `Ctrl+S` 就在计划中的目录里生成了文件
   attachment:snap-KwDay01.png
+{{{详细::
+PCS310 LEO
+分享了什么是文学化编辑环境,
+以及利用文学化视角来组织软件工程时的最佳体验;
+这里的 @nosent 是指LEO中结点的特殊名称，
+可以引起不同的系统响应的名称，具体的参考
+PCS310 LEO
+}}}
   
   * 对应的，Karrigell.ini 中设定一下{{{
 [Alias]
@@ -87,12 +107,20 @@ attachment:snap-KwDay02.png
   * 最终目标是利用 limodou 的 Dict4Ini 类来理解问卷的设计，并将问答收集为一系列文件，最终仍由Python 进行统计成绩……
 
 == 实例下载 ==
-使用 [wiki:self/AllAboutSubversion SVN 下载]:
-    [wiki:selfsvn/zqlib/tangle/zoomq/Karrigell/obpKWD/KwDay1/ KwDay1实例]
+使用SVN下载地址:
+ * http://openbookproject.googlecode.com/svn/trunk/LovelyPython/KDays/kday1
 
-== 反馈 ==
-[[Include(/Discuss)]]
+= 练习 =
+    经过这一节的学习, 熟悉Karrigell.ini基本设置和基本环境部署后(可参考README.txt中), 创建一个自己的站点(mysite), 并依次实现以下功能: 
+  * (0) 将Karrigell 站配置成发布到 localhost:8081 端口来
+
+  * (1) 在首页(index.pih)中输出Hello, Karrigell's world! 即在地址栏中输入localhost:8081/mysite出现Hello, Karrigell's world! 
+
+  * (2) 添加一个登录页(login.pih), 用户输入姓名, 密码后进入首页, 并在首页中输出Hello, 姓名's world!即当输入localhost:8081/mysite后, 首先进行登录, 我们输入姓名和密码后, 转入首页, 其显示Hello, 姓名's world! 具体可参见png/中截图所示.
+
 
 ----
-返回 KarrigellWebDev -- 快速体验K开发
+::-- ZoomQuiet [[[DateTime(2005-12-10T11:49:22Z)]]]
+
+[[PageComment2]]
 

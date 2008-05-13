@@ -77,9 +77,14 @@
   |  +-- PCS306 PyLons
   |  +-- PCS307 Quixote
   |  +-- PCS308 Zope
-  |  +-- PCS309 GAE
   |  `-- PCS310 LEO
-  +-- 实作篇 (实际运用Python的小实作 PCS 400~499)<风格不合，图书不纳，网络分享>
+  +-- 友邻篇 (涉及的非Python 相关知识点 PCS 400~499)
+     +-- PCS400 GAE
+     +-- PCS401 DHTML
+     +-- PCS402 XML
+     +-- PCS403 思维导图
+     `-- PCS404 代码重构浅说
+  !-- 实作篇 (实际运用Python的小实作 PCS 400~499)<风格不合，图书不纳，网络分享>
   [http://wiki.woodpecker.org.cn/moin/MicroProj 中挑选]
      +-- PCS400 读取google搜索信息
      +-- PCS401 从 whois 信息中提取网段信息

@@ -1,5 +1,9 @@
 == 问题描述 ==
 
     经过这一节的学习, 熟悉Karrigell.ini基本设置和基本环境部署后(可参考README.txt中), 创建一个自己的站点(mysite), 并依次实现以下功能: 
-    (1) 在首页(index.pih)中输出Hello, Karrigell's world! 即在地址栏中输入localhost:8081/mysite出现Hello, Karrigell's world! 
-    (2) 添加一个登录页(login.pih), 用户输入姓名, 密码后进入首页, 并在首页中输出Hello, 姓名's world!即当输入localhost:8081/mysite后, 首先进行登录, 我们输入姓名和密码后, 转入首页, 其显示Hello, 姓名's world! 具体可参见png/中截图所示.
+  * (0) 将Karrigell 站配置成发布到 localhost:8081 端口来
+
+  * (1) 在首页(index.pih)中输出Hello, Karrigell's world! 即在地址栏中输入localhost:8081/mysite出现Hello, Karrigell's world! 
+
+  * (2) 添加一个登录页(login.pih), 用户输入姓名, 密码后进入首页, 并在首页中输出Hello, 姓名's world!即当输入localhost:8081/mysite后, 首先进行登录, 我们输入姓名和密码后, 转入首页, 其显示Hello, 姓名's world! 具体可参见png/中截图所示.
+
