@@ -159,6 +159,13 @@ os模块进一步细节,
 http://aspn.activestate.com/ASPN/docs/ActivePython/2.4/python/lib/os-file-dir.html
 }}}
 
+{{{详细:
+PCS102 for循环
+进一步说明小白首次遇见的新语法现象；
+也是一切程序中最基本的反复运行相似语句的技巧;
+}}}
+
+
 先不管三七二十一,保存为文件先!
 
 
