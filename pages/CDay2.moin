@@ -13,12 +13,12 @@
 
 == 清点需求 ==
 
-小白开始自豪的清点在到现在已经自主实现的功能:
+小白开始自豪的清点到现在已经自主实现的功能:
  1. 扫描光盘内容并存储为硬盘上的文本文件
   * 存储成*.cdc 的文本文件 `cdctools.cdWalker()`
   * 可以快速指定保存目录 `PyCDC.do_dir()`
   * 可以快速指定保存的文件名 `PyCDC.do_walk()`
- 1. 根据储存到硬盘上的光盘信息计件进行搜索
+ 1. 根据储存到硬盘上的光盘信息文件进行搜索
   * 可以搜索指定目录中所有*.cdc文件  `cdctools.cdcGrep()`
   * 可以指定关键字进行搜索 `PyCDC.do_find()`
    * 列出所有含有关键字的信息行
@@ -319,8 +319,8 @@ attachment:070830_k-search_483X435_scrot.png
 
 ==== 二传 ====
 不过...这搜索匹配结果的输出也忒糙了点儿,随手改进一下吧:
-{{{#!pythondef 
-cdcGrep(cdcpath,keyword):
+{{{#!python
+def cdcGrep(cdcpath,keyword):
     filelist = os.listdir(cdcpath)          # 搜索目录中的文件
     for cdc in filelist:                    # 循环文件列表
         if ".cdc" in cdc:
@@ -330,8 +330,8 @@ cdcGrep(cdcpath,keyword):
                     print "<br/>",line                  # 打印输出
 }}}唉呀呀? 好象没有反应?
 
-{{{#!pythondef 
-cdcGrep(cdcpath,keyword):
+{{{#!python
+def cdcGrep(cdcpath,keyword):
     export = ""
     filelist = os.listdir(cdcpath)          # 搜索目录中的文件
     for cdc in filelist:                    # 循环文件列表
@@ -346,12 +346,14 @@ cdcGrep(cdcpath,keyword):
 }}}呜乎矣哉...依然没有反应,页面居然输出是 `None`?!
 
 ...嗯嗯嗯...嗯嗯嗯?! 怎么意思? import 的函式不算Karrigell 体系里的,无法直接返回数据的?!
+又或是数据文件在 Karrigell 目录之外无法获取内容？
 
-那么... `二传`一个!
 
 小白没空深入研究Karrigell 和外部模块的交互原理,自然的决定使用第三方文件来进行数据传递...
 
-因为,想用一超级 cool 的模块 `pickle` -- 序列化! 对象腌制器！ -- 据说可以将Python 的数据对象输出成文本文件，而且导入时直接转化成自然的对象！！！
+那么... `二传`一个!
+
+其实因为,想用一超级 cool 的模块 `pickle` -- 序列化! 对象腌制器！ -- 据说可以将Python 的数据对象输出成文本文件，而且导入时直接转化成自然的对象！！！
 
 {{{详细::
 PCS210 pickle
