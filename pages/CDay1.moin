@@ -13,12 +13,12 @@
 
 == 扩展需求 ==
 
-小白在到现在已经实现的功能:
+小白到现在已经实现的功能:
  1. 扫描光盘内容并存储为硬盘上的文本文件
   * 存储成*.cdc 的文本文件 `cdctools.cdWalker()`
   * 可以快速指定保存目录 `PyCDC.do_dir()`
   * 可以快速指定保存的文件名 `PyCDC.do_walk()`
- 1. 根据储存到硬盘上的光盘信息计件进行搜索
+ 1. 根据储存到硬盘上的光盘信息文件进行搜索
   * 可以搜索指定目录中所有*.cdc文件  `cdctools.cdcGrep()`
   * 可以指定关键字进行搜索 `PyCDC.do_find()`
    * 列出所有含有关键字的信息行
@@ -138,7 +138,7 @@ South Park - Uncle Fucker.mp3=1056768
   * [Comment] 一节的是根目录列表
   * [目录] 各节是各个目录的文件信息
   * 和自创的文本格式相比是更加规范了些,而且可以直接由成熟的己有软件解读哪!
-  * 小白突然开窃... 这等于是直接利用有己有客户群哪! 有兼容性的话,原先使用 '''CD Catalog Expert''' 的人不也更加有可能使用 PyCDC 了?
+  * 小白突然开窃... 这等于是直接利用即有客户群哪! 有兼容性的话,原先使用 '''CD Catalog Expert''' 的人不也更加有可能使用 PyCDC 了?
   * 至于其它的使用数据库或是自创二进制文件的软件,小白没有精力和兴趣研究了,就这么着!
 
 == 快速重构 ==
@@ -153,7 +153,7 @@ South Park - Uncle Fucker.mp3=1056768
  * 老规矩,在列表中吼!
  * 结果,行者们给出来的答案是一致的:"内置模块有支持!"
  * 呜乎矣哉... 看来范了信赖病,小白重新拿起 '''[http://wiki.woodpecker.org.cn/moin/AskForHelp 提问的智慧]''' BS一下自个儿,
- * 然后,翻开[http://aspn.activestate.com/ASPN/docs/ActivePython/2.4/python/modindex.html Global Module Index] -- 全局模块索引 ... 这通找哪...
+ * 然后,翻开[http://aspn.activestate.com/ASPN/docs/ActivePython/2.4/python/modindex.html Global Module Index] -- 全局模块索引 ...这一大通乱找...果然！
 
 ==== ConfigParser ====
  * '''[http://aspn.activestate.com/ASPN/docs/ActivePython/2.4/python/lib/module-ConfigParser.html ConfigParser]'''--配置处理机?! 这也忒直白了吧!
@@ -185,7 +185,7 @@ PCS200 os
 
 === 完成重构 ===
 
-简单的说就是将原先 `oa.walk()` 生成的信息利用 基础配置处理机模块，组织成类ini 的文本保存下来：
+简单的说就是将原先 `os.walk()` 生成的信息利用 基础配置处理机模块，组织成类ini 的文本保存下来：
 
 ||<^>[[Include(/old)]]||<^>[[Include(/new)]]||
 
