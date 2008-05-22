@@ -20,14 +20,14 @@ Python是跨平台的动态脚本语言，可以运行在Windows、Linux/Unix、
 === 具体步骤 ===
  1. [http://www.python.org/download/releases/2.5.2/ 下载]。这里我们下载[http://www.python.org/ftp/python/2.5.2/python-2.5.2.msi for Windows x86的Python2.5.2版本]。
  1. 下载完毕后，双击python-2.5.2.msi这个安装包，运行这个安装程序。
- 1. 出现安装提示：“是为所有用户安装Python，还是只为我自己”，在这里使用系统默认选项：Install for all users，也就是为所有用户安装Python，直接点击下一步。attachment:PCS0-windows-step1.jpg
- 1. 选择安装目录，Python默认的安装目录是：“C:\Python25”，你可以直接使用他的默认目录安装，也可以安装到不同的目录。这里我们选择默认安装目录，直接点击Next继续下面的安装。当然读者可以根据需要安装到其他目录。attachment:PCS0-windows-step2.jpg
- 1. 接下来，选择的是需要安装的Python组件，我们使用系统默认选项全部安装，点击Next进入下一步。attachment:PCS0-windows-step3.jpg
- 1. 出现进度条了，就表示开始安装Python了，这边我们需要等待一小会儿。attachment:PCS0-windows-step4.jpg
- 1. 等待结束后，安装程序会提示Python安装完成，点击Finish来即可退出。attachment:PCS0-windows-step5.jpg
+ 1. 出现安装提示：“是为所有用户安装Python，还是只为我自己”，在这里使用系统默认选项：Install for all users，也就是为所有用户安装Python，直接点击下一步。attachment:PCS0-windows-step1.png
+ 1. 选择安装目录，Python默认的安装目录是：“C:\Python25”，你可以直接使用他的默认目录安装，也可以安装到不同的目录。这里我们选择默认安装目录，直接点击Next继续下面的安装。当然读者可以根据需要安装到其他目录。attachment:PCS0-windows-step2.png
+ 1. 接下来，选择的是需要安装的Python组件，我们使用系统默认选项全部安装，点击Next进入下一步。attachment:PCS0-windows-step3.png
+ 1. 出现进度条了，就表示开始安装Python了，这边我们需要等待一小会儿。attachment:PCS0-windows-step4.png
+ 1. 等待结束后，安装程序会提示Python安装完成，点击Finish来即可退出。attachment:PCS0-windows-step5.png
  1. 这样Windows下的Python安装完毕，在Windows的开始菜单->所有程序中即可找到Python25，启动他即可使用。
- 1. 若想在Windows下的命令行中使用python，则还需要设置Windows的环境变量Path。具体作如下设置：右击“我的电脑”->选择“属性”->选择“高级”->点击“环境变量”，弹出环境变量对话框->在系统变量中，双击“Path”条目，弹出对话框->在变量值中加入路径为“C:\Python25\Scripts”，注意这边的路径是之前安装Python时选择的安装目录。attachment:PCS0-windows-step6.jpg
- 1. 打开Windows的命令行，输入python，即可进入python交互环境。attachment:PCS0-windows-step7.jpg
+ 1. 若想在Windows下的命令行中使用python，则还需要设置Windows的环境变量Path。具体作如下设置：右击“我的电脑”->选择“属性”->选择“高级”->点击“环境变量”，弹出环境变量对话框->在系统变量中，双击“Path”条目，弹出对话框->在变量值中加入路径为“C:\Python25\Scripts”，注意这边的路径是之前安装Python时选择的安装目录。attachment:PCS0-windows-step6.png
+ 1. 打开Windows的命令行，输入python，即可进入python交互环境。attachment:PCS0-windows-step7.png
  1. 完毕。
 
 ==  Linux下安装Python ==
