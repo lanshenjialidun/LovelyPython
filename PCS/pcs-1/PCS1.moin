@@ -1,0 +1,49 @@
+##language:zh
+#pragma section-numbers on
+||'''status'''|| 校对 || ShengYan|| 完成度95%||
+
+[[TableOfContents]]
+
+= 交互环境之命令行 =
+本文将介绍如何使用Python命令行，又称为Python解释器，顾名思义，我们可以知道Python是解释执行的。
+
+== Python相关资源 ==
+ * [http://doc.chinahtml.com/Manual/Python/tut/node4.html 使用Python解释器]
+ 
+==  进入Python解释器 ==
+若在Windows下，假设我们已经安装好Python了，也设置好相应环境变量了，若没有的话，则参考PCS0的相应步骤。
+若在Linux下，通常情况是已经安装好Python，默认安装在/usr/bin/python下，因为该路径已经放进你的shell搜索路径里了。当然也可以安装在其他地方，具体也请参考PCS0中相应介绍。
+ 1. 打开Windows的命令行或Linux的终端，输入python，即可进入python交互式环境。
+  attachment:PCS1-1.png
+ 1. 进入后，可以编写代码，调试，测试及查看相关帮助。
+ 1. 若所做工作完成，退出命令行，可以使用Ctrl+z（Windows下）或Ctrl+D（Linux下）以0值退出（就是说，没有什么错误，正常退出）。如果这没有起作用，你可以输入以下命令退出：“import sys; sys.exit()”。
+
+== 交互模式 ==
+如上图所示，具体介绍该环境。
+ 1. Python解释器根据主提示符来执行，主提示符通常标识为三个大于号（“>>> ”）；继续的部分被称为从属提示符，由三个点标识（“... ”）。在第一行之前，解释器打印欢迎信息、版本号和授权提示：{{{
+Python 2.5.1 (r251:54863, Mar  7 2008, 04:10:12) 
+[GCC 4.1.3 20070929 (prerelease) (Ubuntu 4.1.2-16ubuntu2)] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> 
+}}}输入多行结构时需要从属提示符了。例如，下面这个 if 语句：{{{
+>>> sayhi = True
+>>> if sayhi:
+...     print 'hi~python!'
+... else:
+...     print 'say nothing!'
+... 
+hi~python!
+}}}
+ 1. 错误处理。若在调试使用过程中，有错误发生时，解释器打印一个错误信息，栈跟踪器及出错位置等，便于我们修改。
+  attachment:PCS1-2.png
+ 1. 在主提示符或附属提示符输入中断符（Control-c，抛出一个 keyboardinterrupt 异常，它可以被try句截获）就会取消当前输入，回到主命令行。
+ 
+== 小结 ==
+本文讲述了最基本的Python命令行使用方式，并描述了如何进入、使用、退出交互环境。这是非常简易的，很多情况下，我们可以先在这里做些代码测试，通过后再进行文本编辑。
+
+== 练习 ==
+## 设计实用练习,保证每个练习都可以扩展出去
+ 1. Python是解释执行的，那么什么是解释执行？和其他语言（Java，C等）的执行方式有什么区别？
+----
+-- shengyan  [[DateTime(2008-05-24T14:00:00Z)]] 
+[[PageComment2]]
