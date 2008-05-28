@@ -257,6 +257,11 @@ def formatCDinfo(root,dirs,files):
     export+= "="*70
     return export
 }}}
+{{{详细::
+PCS107 字串格式化 
+进一步介绍了这里用来快速重构 光盘信息文本格式的
+Python 内置的字符模板支持特性;
+}}}
 
  * 存储下来的 .cdc 片段{{{
 ...
