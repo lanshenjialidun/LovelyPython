@@ -1,21 +1,26 @@
 
 ##language:zh
 #pragma section-numbers on
+||'''status'''|| 正式 || ZoomQuiet|| 完成度:90%||
 
-::-- ZoomQuiet [[[DateTime(2005-12-11T04:45:50Z)]]]
+
 [[TableOfContents]]
-= K2日:直接完成功能！ =
+
+= K2日:~ 通过表单直接完成功能！ =
 '''不管37 21 直接完成心目中的功能先！'''
- * 计划是这样的，要可以直接读取原先的问卷设计 ini 文本，到页面的 TEXTAREA 中，然后可以提交并保存到指定目录中！
+ * 小白秉承之前的习惯，先计划这日的可达成目标:
+  * 可以直接读取原先的问卷设计 ini 文本，到页面的 TEXTAREA 中
+  * 然后可以提交单，并保存到服务器上的指定目录中！
 
 == 规划 ==
- * [wiki:self/RocketyKarrigell Rockety 对KarriGell 的设置有很好的介绍]
-  * 为了统一组织好你功能站点的开发{{{
+行者[:RocketyKarrigell:‘Rockety’ 对KarriGell 的设置有很好的介绍]
+  * 小白参考后， 认真规划了一下站点的开发{{{
 [Alias]
 ..
 obp=%(base)s/karriweb/obp
-}}} 在`Karrigell.ini` 有进行如此设置，这样一来，就可以通过
- http://localhost/obp/ 来访问了[[FootNote("当然没有在 obp 目录中安置index.htm/index.pih 之类的脚本是不会让你看的说……")]]
+}}} 在`Karrigell.ini` 中追加设置行，这样一来，就可以通过
+ http://localhost/obp/ 来访问了
+ ，当然没有在 obp 目录中安置index.htm/index.pih 之类的脚本是不会让小白看到什么的说……
  
  * 简单点儿吧！{{{# 约定以下全局性变量
 qpath = "q/"
@@ -28,15 +33,20 @@ pubq = qpath+"easy051201.cfg"
      点击提交后 到
      http://localhost/obp/KwDay2/qpage.pih
      可以看到真正保存下来的问卷设计内容
+     
 == Cheetah ==
 ''' 道听途说 各种模板系统中 Cheetah 非常的好和稳定，就用它了！'''
- * 小小看一下子示例，知道 [wiki:self/CheetahTemplateOrg Cheetah] 的基本使用是这样的:
+
+ * 小小看一下子示例，知道 [:CheetahTemplateOrg:Cheetah] 的基本使用是这样的:
      1. 引入模板`from Cheetah.Template import Template`
      1. 加载模板`page = open("你的模板文件.tmpl","r").read()`
      1. 加载数据`vPool = {'cfgtxt':随便什么字串的值就成}`
      1. 渲染输出`print Template(page, searchList=[vPool])`
      * 则模板中有`$cfgtxt` 的地方就会替换为实际数据
+
+
 == Leo 组织实现 ==
+
 '''可以在一个统一界面中把握全部章节/元素哪！'''
  * 可以使用中文作章节名目:
      * `问卷`来组织设计文案
@@ -46,11 +56,12 @@ pubq = qpath+"easy051201.cfg"
      * 快速从原先的 `@nosent index.pih` 复制整个节点为
      * `@nosent  mana.pih` 管理页面入口
      * `@nosent  questionnaire.tmpl` 修改问卷模板，["Cheetah"]的
+
 === 干净的处理脚本 ===
 '''MVC?尝试一下子'''
- * `@nosent  mana.pih` 是纯HTML页面了！ 算表现？
- * `<%Include("qdesign.py")%>` 来包含一个纯操作脚本，算模式了
- * `@nosent  questionnaire.tmpl` 模板，算数据控制？
+ * `@nosent  mana.pih` 是纯HTML页面了！ 算表现(View)？
+ * `<%Include("qdesign.py")%>` 来包含一个纯操作脚本，算模式了(Model)
+ * `@nosent  questionnaire.tmpl` 模板，算数据控制(Control)？
 
 === 八股文样 ===
 '''模式化的处理脚本'''
@@ -139,11 +150,21 @@ attachment:snap-KwDay22.png
 attachment:snap-KwDay2Leo.png
 
 
-== 讨论 ==
-[[Include(/Discuss)]]
+== 练习 ==
+    在前面章节练习mysite的基础上, 完成以下功能:  
+    
+ * (1) 增加编辑页面(edit.pih), 增加编辑输入框, 并保存入本地文件, 转入首页index.pih显示刚刚输入的内容, 类似于制作个人博客的编辑页面; 具体页面分布可参考png中截图;
+ * (2) 允许文章的多次修改及删除, 并能体现在首页index.pih中; 
+ * (3) 提示: 各个文章可以保存为.cfg格式, 该格式文件的处理可参见ConfigParser的使用.
+
 
 ----
-返回 KarrigellWebDev -- 快速体验K开发
+返回 [:ObpLovelyPython/KDays:KDays实例故事]
+
+
+::-- ZoomQuiet [[[DateTime(2005-12-11T04:45:50Z)]]]
+
+[[PageComment2]]
 
 
 

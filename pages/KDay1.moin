@@ -8,10 +8,20 @@
 
 = Kday 1:品尝KarriGell =
 '''快速根据PHP 的经验尝试Karrigell 的开发'''
- * 原先的问卷生成系统，其实就是利用从别处抓来的一组手工写的PHP 的问卷页面，利用Python 组织了一个从 ini 设置文本到PHP 页面的流程
- * 其实从txt -> Python -> PHP -> DB -> Python -> 回答统计，这样的数据流程够傻的
- * 总算有了点儿时间，你又听说Python 有N多好的Web 开发平台就要来使用纯Python 的环境重构出一个可以快捷修改，统计简单问卷的小系统。
+
+ * 原先的问卷生成系统，其实就是一组手工写成的PHP页面,可以将每个人的回答记录到数据库中,后来小白学习了Python 就写了个脚本,可以从 .ini 文本文件中自动批量生成相似的PHP页面,所以,现在的问卷生成流程是:
+  * .ini(txt) -> Python -> PHP -> DB -> Python -> 回答统计
+ * 这样的数据流程真够傻的
+ * 总算又有了点儿时间，小白就想尝试使用纯Python 的环境重构出一个可以快捷修改，统计问卷的简单系统。
  
+{{{注意::
+PHP ~ Personal Hypertext Preprocesser
+个人超文本解析语言
+是种专门针对互联网应用设计的快速功能型语言,
+对于网站开发有独到的处理思路,
+但是不属于本书分享的范畴,请读者自行搜集相关文档学习吧;
+TisonG!
+}}}
 == 准备环境 ==
 '''为什么选择KarriGell? 缘分吧…………哈哈哈！'''
 
@@ -21,10 +31,10 @@ PCS301 Karrigell
 就在本书前一部分，CDays故事中，最后小白就是使用的这种框架;
 }}}
 
- * 看了KarriGell 的介绍，感觉可以快捷开始，就它了
+ * 有了之前学习Python 时的体验,再复习一下 KarriGell 的教程,立即就可以开始了
  * 下载KarriGell
  * 解开，然后：`python Karrigell.py`
- * bingo! 你有了一个展示了各种应用的 KarriGell 站点了！就在 http://localhost/
+ * bingo! 你有了一个展示了各种应用的 KarriGell 站点了！ 就在 http://localhost/
  attachment:snap-KwDay00.png
   * 尝试了一下子在 M$ 和 FreeBSD 平台中，是完全一样的反应！
   * 意味着，只要有Python环境，你随时可以获得一个全功能的Web 应用环境！
@@ -65,7 +75,7 @@ doc=%(base)s/doc
 debugger=%(base)s/debugger
 }}}
   * Yeah! 就是这里，非常直观，那未定义一个你自个儿开发的站点目录在 KarriGell 系统目录中就好
-   * 嗯嗯……想念Unix 系统中的 link 了！M$ 中你只能真的在其中建立目录
+   * 嗯嗯……感谢Unix 系统中的 link 命令了！ 如果在 M$ 中就只能真的在其中建立目录
   * Leo 中快速设立好自个儿的工程，组织一个最简单的 index.pih:{{{
 <html><body>
 <%
@@ -103,7 +113,7 @@ attachment:snap-KwDay02.png
 == 规划目标 ==
  * 好了今天的任务，完成！'''评估KarriGell的可用性'''
   * 嗬嗬，其实就是简单的确定 KarriGell 的开发方式
-  * 对于简单问卷？ 明天，先要完成的是怎么在KarriGell 中读人外部文件，并可以在页面中修改，然后提交保存...
+  * 对于简单问卷本身, 明天，先要完成的是怎么在KarriGell 中读人外部文件，并可以在页面中修改，然后提交保存...
   * 最终目标是利用 limodou 的 Dict4Ini 类来理解问卷的设计，并将问答收集为一系列文件，最终仍由Python 进行统计成绩……
 
 == 实例下载 ==
@@ -120,7 +130,9 @@ attachment:snap-KwDay02.png
 
 
 ----
-::-- ZoomQuiet [[[DateTime(2005-12-10T11:49:22Z)]]]
+返回 [:ObpLovelyPython/KDays:KDays实例故事]
 
+----
+::-- ZoomQuiet [[[DateTime(2005-12-10T11:49:22Z)]]]
 [[PageComment2]]
 
