@@ -2,12 +2,13 @@
 ##language:zh
 #pragma section-numbers on
 
-::-- ZoomQuiet [[[DateTime(2005-12-11T04:50:15Z)]]]
+||'''status'''|| 正式 || ZoomQuiet|| 完成度:70%||
 [[TableOfContents]]
 
-= K3日:发现！ =
+= KDay 3:使用第3方模块规范化表单 =
 '''Cheetah 只能组织有模板的页面输出，但是……'''
  * 对于动态变化的表单，有什么更好的方式来组织？
+ 
 == Karrigell_QuickForm  ==
 '''[http://www.orionlab.net/karrigell_quickform/Karrigell_QuickForm.html Karrigell_QuickForm]''' 真的是想要什么就来什么！
  * 刚刚从订阅的[http://sourceforge.net/mailarchive/forum.php?forum=karrigell-main karrigell-main 列表]中看到有人完成了一个 Pear 中 quickform的Karrigell 实现
@@ -253,4 +254,7 @@ attachment:snap-KwDay3done.png
 
 ----
 返回 KarrigellWebDev -- 快速体验K开发
+::-- ZoomQuiet [[[DateTime(2005-12-11T04:50:15Z)]]]
+
+[[PageComment2]]
 

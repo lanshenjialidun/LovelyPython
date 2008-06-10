@@ -22,6 +22,7 @@
 
 
 == 实例故事 ==
+||<#80FF80>  参考:|| [:KarrigellWebDev:快速体验Karrigell web 开发] ^从无到有的创建一个问卷系统^  || ZoomQuiet 99%,旧内容完成，需要重新归整内容，进行行文统一   ||
 
 === CDays ～ 光盘故事 ===
 ##||'''关注级别颜色系统''||<: #dedede>^大纲^||<: #FF8080>^初撰^||<: #8080FF>^再稿^||<: #80FF80>^校订^||
@@ -32,9 +33,7 @@
 
 === KDays ~ WEB应用故事 ===
 
-||<#80FF80>  || [:KarrigellWebDev:快速体验Karrigell web 开发] ^从无到有的创建一个问卷系统^  || ZoomQuiet 99%,旧内容完成，需要重新归整内容，进行行文统一   ||
-
-||<^>全文阅读::[[Include(KarrigellWebDev,'Zoomq's K体验',4,sort=descending,items=27,titlesonly)]]||章节阅读::[[Include(^KwDay.*,'KWF's 日子',4,items=27,titlesonly)]]||
+[[Include(/KDays)]]
 
 
 == Py作弊条 ==
@@ -61,11 +60,12 @@
    * `http://openbookproject.googlecode.com/svn/trunk/LovelyPython/PCS`
   * 然后将结构化文本,在此页面对应链接页面中展示,注意使用标准模板
   * 完成时,将 PCS* 章节入口链接后缀相关作者和主题信息,以便给编辑明显的提示
+  * 行文格式参考 [:PyCookbook:Python CookBook] 以及 '''[http://blog.doughellmann.com/search/label/PyMOTW Python Module of the Week]''' ~ 模块学习体验
 
 === 环境篇 ===
- * [:/PCS0:PCS0]
- * [:/PCS1:PCS1]
- * [:/PCS2:PCS2]
+ * [:/PCS0:PCS0] 如何安装Python ~ lizzie(95%)
+ * [:/PCS1:PCS1] 交互环境之命令行 ~ lizzie(95%)
+ * [:/PCS2:PCS2] 交互环境之iPython ~ lizzie(95%)
  * [:/PCS3:PCS3]
  * [:/PCS4:PCS4]
  * [:/PCS5:PCS5]
@@ -94,29 +94,29 @@
  
 === 模块篇 ===
 
- * [:/PCS200:PCS200]
+ * [:/PCS200:PCS200] os(.stat;.path) ~ QingFeng(100%)
  * [:/PCS201:PCS201]
  * [:/PCS202:PCS202]
  * [:/PCS203:PCS203]
- * [:/PCS204:PCS204]
- * [:/PCS205:PCS205]
+ * [:/PCS204:PCS204] ConfigParser  ~ QingFeng(100%)
+ * [:/PCS205:PCS205] enumerate  ~ QingFeng(100%)
  * [:/PCS206:PCS206]
- * [:/PCS207:PCS207]
- * [:/PCS208:PCS208]
- * [:/PCS209:PCS209]
- * [:/PCS210:PCS210]
- * [:/PCS211:PCS211]
- * [:/PCS212:PCS212]
- * [:/PCS213:PCS213]
- * [:/PCS214:PCS214]
+ * [:/PCS207:PCS207] threading  ~ QingFeng(100%)
+ * [:/PCS208:PCS208] dict4ini ~ limodou/90% 可以校对
+ * [:/PCS209:PCS209] fnmatch  ~ QingFeng(100%)
+ * [:/PCS210:PCS210] pickle  ~ QingFeng(100%)
+ * [:/PCS211:PCS211] base64  ~ QingFeng(100%)
+ * [:/PCS212:PCS212] shutil  ~ QingFeng(100%)
+ * [:/PCS213:PCS213] time  ~ QingFeng(100%)
+ * [:/PCS214:PCS214] ElementTree  ~ QingFeng(100%)
 
 === 框架篇 ===
 
- * [:/PCS300:PCS300]
- * [:/PCS301:PCS301]
- * [:/PCS302:PCS302]
- * [:/PCS303:PCS303]
- * [:/PCS304:PCS304]
+ * [:/PCS300:PCS300] CherryPy  ~ QingFeng(95%)
+ * [:/PCS301:PCS301] Karrigell  ~ QingFeng(95%)
+ * [:/PCS302:PCS302] Web.py  ~ QingFeng(95%)
+ * [:/PCS303:PCS303] web2py  ~ QingFeng(95%)
+ * [:/PCS304:PCS304] Django  ~ QingFeng(95%)
  * [:/PCS305:PCS305]
  * [:/PCS306:PCS306]
  * [:/PCS307:PCS307]
@@ -124,8 +124,8 @@
  * [:/PCS309:PCS309]
  * [:/PCS310:PCS310]
 
-=== 实作篇 ===
-
+=== 友邻篇 ===
+`在 Pythonic 应用之路上其实是有N多友邻技术的`
  * [:/PCS400:PCS400]
  * [:/PCS401:PCS401]
  * [:/PCS402:PCS402]
@@ -141,22 +141,32 @@
   * Kaopulity ~ 靠谱！
 
 ===  资源索引 ===
- * [:/LpyAttach-index:Py资源索引]
+ * [:/LpyAttach-residx:Py资源索引]
 '''以系统的知识体系方法组织所有中文Python为主的资料'''
  * 使用 [:swordsp/COTW:啄木鸟维基条目质量提升计划] 成果
+
+=== 练习解答 ===
+`汇集故事章节的练习题解答`,是否包含在图书中有待讨论:
+
+'''[:/LpyAttach-answer:故事练习解答]'''
 
 ===  术语索引 ===
 [:/LpyAttach-Glossary:术语索引] :^应用技术类^  ZoomQuiet 20%;组织体例 
 
 === 后记 ===
- * [:/BackGround:后记故事] -- ZoomQuiet 0%
+ * [:/LpyAttach-BackGround:后记故事] -- ZoomQuiet 0%
 
 
 
-
-
-
-
+= 网络版本 =
+`以下内容仅作为网络版本的增补，不纳入出版物`
+== 追加PCS ==
+=== 实作篇 ===
+ * [:/PCS400:PCS400]
+ * [:/PCS401:PCS401]
+ * [:/PCS402:PCS402]
+ * [:/PCS403:PCS403]
+ * [:/PCS404:PCS404]
 
 
 = 反馈 =
@@ -167,3 +177,4 @@
  * http://mcsp.wartburg.edu/zelle/python/small_cover.png '''[http://mcsp.wartburg.edu/zelle/python/ Teaching with Python]''' -- 比较成熟的正规教育内容
 
 --::-- ZoomQuiet [[[DateTime(2007-02-19T07:29:00Z)]]]
+

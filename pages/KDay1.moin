@@ -6,7 +6,7 @@
 
 [[TableOfContents]]
 
-= Kday 1:品尝KarriGell =
+= KDay 1:品尝KarriGell =
 '''快速根据PHP 的经验尝试Karrigell 的开发'''
 
  * 原先的问卷生成系统，其实就是一组手工写成的PHP页面,可以将每个人的回答记录到数据库中,后来小白学习了Python 就写了个脚本,可以从 .ini 文本文件中自动批量生成相似的PHP页面,所以,现在的问卷生成流程是:
