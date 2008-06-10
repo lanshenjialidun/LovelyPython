@@ -248,12 +248,13 @@ attachment:snap-KwDay3done.png
 使用 [wiki:self/AllAboutSubversion SVN 下载]:
   1. [wiki:selfsvn/zqlib/trunk/zqlib/tangle/zoomq/Karrigell/obpKWD/KwDay3/ KwDay3实例]
   1. 注意有在外部安置的 [wiki:selfsvn/zqlib/tangle/zoomq/Karrigell/obpKWD/js/ JS-JVF 目录]
-== 讨论 ==
-[[Include(/Discuss)]]
 
+== 练习 ==
+??
 
 ----
-返回 KarrigellWebDev -- 快速体验K开发
+返回 [:ObpLovelyPython/KDays:KDays实例故事]
+
 ::-- ZoomQuiet [[[DateTime(2005-12-11T04:50:15Z)]]]
 
 [[PageComment2]]
