@@ -6,13 +6,15 @@
 [[TableOfContents]]
 
 == enumerate ==
-
-由于Python没有像
+小白:Python中的循环,想知道现在循环了几次好麻烦,总要在循环外定义一个变量,然后每次循环再加1,像这样:
 {{{
-for(int i=0;i<10;i++)
+i=0
+for obj in objlist:
+    i+=1
+    print i
 }}}
-这样的循环方式,所以我们要拿到循环的索引就需要用到enumerate:
 
+行者:..........请尝试enumerate
 {{{#!python
 mylist=["a","b","c"]
 for index,obj in enumerate(mylist):
@@ -26,6 +28,5 @@ for index,obj in enumerate(mylist):
 
 == 练习 ==
 
- 
 
 -- 清风  [[DateTime(2008-04-25T14:33:00Z)]] 

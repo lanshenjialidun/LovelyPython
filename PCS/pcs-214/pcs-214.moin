@@ -6,6 +6,9 @@
 [[TableOfContents]]
 
 == ElementTree ==
+ * 小白:Python是否有处理xml的模块呢?以dom的方式处理数据,而不用自己去分析文本?
+ * 行者:Python2.5之后内置了ElementTree,来处理xml
+
 {{{#!python
 from xml.etree.ElementTree import Element, SubElement, dump
 

@@ -6,6 +6,9 @@
 [[TableOfContents]]
 
 == base64 ==
+ * 小白:求救求救~,别的程序将数据做了base64编码,Python能否解码?
+ * 行者:import base64;help(base64)
+
 {{{#!python
 import base64
 

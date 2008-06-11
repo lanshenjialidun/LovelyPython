@@ -5,14 +5,9 @@
 
 [[TableOfContents]]
 
-== pickle和cPickle ==
-推荐的引用方法:
-{{{#!python
-try:
-   import cPickle as pickle
-except:
-   import pickle
-}}}
+== pickle ==
+ * 小白:像把现有的一些数据变量,直接保存到磁盘,下次用的时候再直接加载,但用数据库似乎又太麻烦了....
+ * 行者:你的这个需求叫做序列化和反序列化数据,试试pickle
 
 定义一个字典:
 {{{#!python
@@ -45,10 +40,17 @@ load为对象:
 print "LOAD",pickle.loads(data_string)
 }}}
 
+== pickle和cPickle ==
+在实际项目中为了提高序列化和反序列化的速度,可以改用cPickle:
+{{{#!python
+try:
+   import cPickle as pickle
+except:
+   import pickle
+}}}
 
 
 == 练习 ==
 
- 
 
 -- 清风  [[DateTime(2008-04-25T14:33:00Z)]] 
