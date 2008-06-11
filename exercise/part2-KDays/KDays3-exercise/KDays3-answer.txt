@@ -1,0 +1,8 @@
+== 解答 ==
+
+    (1) 修改edit.pih, 使用Karrigell_QuickForm组织页面元素, 这边只比以前增加了tag, 读者可以添加更多的东西, 另外注意, 应需要已修改原来的Karrigell_QuickForm.py;
+    (2) 新建entry.py, 编写自定义文章类Entry;
+    (3) 修改save_entry.py, 主要是对新建文章和修改文章两种情况进行处理;
+    (4) 修改index.pih, 主要用于显示所有文章, 详细可参考具体代码;
+    (5) ok, localhost:8081/mysite/查看首页, localhost:8081/mysite/edit为编辑页面;
+    (6) 进一步, 修改edit.pih, 增加js校验输入.
