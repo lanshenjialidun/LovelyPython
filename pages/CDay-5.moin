@@ -96,7 +96,10 @@ Python 语言本身的大本营
 
 灰常灰常著名的,但凡是编程语言,第一课都要玩的例程,如果你也想看一看Python 的?
 
-attachment:snapHolleWorld.png
+attachment:CDay-5-1.png
+
+图 CDay-5-1
+
 
 再Show 一个类似的,但是推荐的体验环境 iPython
 {{{详细::
@@ -106,7 +109,10 @@ http://ipython.scipy.org/
 ，推荐使用，你会爱上 TAB 键的;-)
 }}}
 
-attachment:snapiPyHolleWorld.png
+attachment:CDay-5-2.png
+
+图 CDay-5-2
+
 
 是也乎,就是这么简单,告诉Python 打印"Hello World!" 就好.
 

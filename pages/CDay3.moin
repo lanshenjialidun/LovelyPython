@@ -176,8 +176,8 @@ if __name__ == '__main__':
 这样就可以直接先在命令行中运行 `python cdctools.py` 测试是否可用了;
 而且随手根据看到过的代码追加了运行时间汇报,可以输出搜索总用时:
 
-attachment:070901_pyd.3-grepsearch_864X230_scrot.png
-
+attachment:CDay3-1.png
+图 CDay3-1
 
 == TODO ==
 呼!主体功能摸索完毕!

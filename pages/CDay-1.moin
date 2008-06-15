@@ -29,7 +29,8 @@
 尝试来几下! ... 呜乎矣哉,什么也查不出来!
 
 == 查阅记录文本 ==
-attachment:badcdc-chinese.png
+attachment:CDay-1-1.png
+图 CDay-1-1
 
 '''这种数据对嘛？'''
  * 当初为了简单使用文档中的基本型:{{{#'cdctools.py' 中 cdWalker(cdrom,cdcfile) 的动作
@@ -54,13 +55,21 @@ attachment:badcdc-chinese.png
  * 但是!`有时候,选择太多也是个问题;-)`
 
 === 编码问题 ===
-attachment:coding.png
+attachment:CDay-1-2.png
+
+图 CDay-1-2
 
  * 有行者给出如上[http://mindmap.fltrp.com/mind-1.htm 思维图谱(Mind Map)]
  * 理解过程中，先使用已知的方式测试本地硬盘文件目录情况
-attachment:ipy-try-walk.png
+
+attachment:CDay-1-3.png
+图 CDay-1-3
+
   * 嗯嗯嗯，看着就不同,根据理解继续尝试是否理解
-attachment:ipy-try-trans-utf8.png
+
+attachment:CDay-1-4.png
+CDay-1-4
+
 {{{ unicode(原始文本,   'utf8'   ).encode('utf8')
 文本 ==decode()--> [unicode] ==>encode()--> utf-8文本
  ^      ^             ^         ^            ^
@@ -139,7 +148,9 @@ PCS6 Python与中文
 嗯嗯嗯？！怎么安装外部模块的呢？软件包下载，解开压缩，嗯嗯嗯？没有INSTALL 说明文件，
 但是有个`setup.py` 尝试执行一下？
 
-attachment:2008-04-29-112533_install-py-packet_scrot.png
+attachment:CDay-1-5.png
+图 CDay-1-5
+
 {{{
 总用量 33
 drwxr-xr-x 3 zoomq zoomq    72 2008-04-29 11:25 build
@@ -275,7 +286,10 @@ Python 内置的字符模板支持特性;
  * `d`代表目录;`f`代表文件
  
 == 小结 ==
-attachment:PyDay-1_think_road.png
+attachment:CDay-1-6.png
+
+图 CDay-1-6
+
 
 这日,小白仅仅解决了一个问题 -- 中文搜索问题;解决尝试路途及相互关系如上图所示
 但是,实际上获得了两大方面的进步:

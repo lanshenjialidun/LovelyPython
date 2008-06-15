@@ -159,7 +159,8 @@ South Park - Uncle Fucker.mp3=1056768
  * '''[http://aspn.activestate.com/ASPN/docs/ActivePython/2.4/python/lib/module-ConfigParser.html ConfigParser]'''--配置处理机?! 这也忒直白了吧!
  * 粗略的看了一下,也就[http://aspn.activestate.com/ASPN/docs/ActivePython/2.4/python/lib/RawConfigParser-objects.html RawConfigParser-objects] -- 原始配置处理机对象 有写出到文件的函式,就它了!
  * 在iPython 中快速尝试一下
-attachment:070820_ini_596X391_scrot.png
+attachment:CDay1-1.png
+图 CDay1-1
 
  * 果然好使!
 {{{详细::
@@ -173,7 +174,9 @@ PCS204 ConfigParser
  * 光盘扫描的 walk() 函式就是在os 模块中的,文件这个信息也应该在的说?
  * [http://aspn.activestate.com/ASPN/docs/ActivePython/2.4/python/lib/os-file-dir.html Files and Directories] -- 文及目录 ;果然! 有个 `os.stat()` 系统状态函式!
  * 照例 在 iPython 中快速尝试一下
-attachment:070820_os.stat_896X358_scrot.png
+ 
+attachment:CDay1-2.png
+图 CDay1-2
 
  * Bingo! 就它了!
 

@@ -152,7 +152,8 @@ port=8081
 python Karrigell.py 
  }}} 完事儿! 网站已经启动,界面已经拥有!
 
-attachment:070830_k-0-run_857X108_scrot.png
+图 CDay2-1
+attachment:CDay2-1.png
 
 === 组织 ===
 前后看了看,发觉,默认的,Karrigell 发布 `Karrigell-2.3.5/webapps` 目录为网站根
@@ -163,7 +164,10 @@ attachment:070830_k-0-run_857X108_scrot.png
 <h1><a href="cdc/">PyCDC Web</a><h1>
 }}}
 
-刷个新: attachment:070830_k-0-idx_517X224_scrot.png 
+刷个新: attachment:CDay2-2.png 
+
+图 CDay2-2
+
 嗬嗬嗬,老实的显示出来,而且可以正常点击!
 
 然后就是想法儿,将 `cdc/index.html` 重构为 `cdc/index.ks` 并可以调用原先的 `cdctools.py` 中准备好的函式,完成同样的在命令行环境中可以干的活就得!
@@ -195,7 +199,8 @@ def index(**args):
     print htmfoot
 }}}
 
-刷个新: attachment:070830_k-0_512X97_scrot.png
+刷个新: attachment:CDay2-3.png
+图 CDay2-3
 
 真乖呢...小白参考网络中搜索出来的前辈的实例,一试即成! 感觉真是不一般的爽快!
 
@@ -220,13 +225,15 @@ PCS114 交互参数
 from cdctools import *
 print dir()    #通过检查名称空间进行测试
 }}}
-attachment:070830_k-1-cdctools_494X259_scrot.png
+attachment:CDay2-4.png
+图 CDay2-4
 
 咔咔咔,瞧见了熟悉的几个函式名称,DONE!
 
  PS:: 小白万分感动的看到Karrigell 提供了友好,丰富,明晰的网页调试信息汇报
- attachment:070830_k-2-debug_866X538_scrot.png
 
+ attachment:CDay2-5.png
+图 CDay2-5
 
 ==== 表单 ====
 好了,组织好了,接下来就是表单组织,最后连接上即有功能就得!
@@ -278,7 +285,8 @@ def index(**args):
     p.display()
 }}}得了您哪! 追加8行,完成两个功能针对性的表单
 
-attachment:070830_k-form_473X320_scrot.png
+attachment:CDay2-6.png
+图 CDay2-6
 
 ==== 功能 ====
 随便输入,提交,没有任何问题,但是怎么获得提交的信息?
@@ -312,7 +320,9 @@ CDROM = '/media/cdrom0'
 }}}追加6行,完成核心功能绑定!
 
 运行一下:
-attachment:070830_k-search_483X435_scrot.png
+
+attachment:CDay2-7.png
+图 CDay2-7
 
 成咧!! 嗬嗬嗬,一切太自然了...
 
@@ -384,7 +394,8 @@ if __name__ == '__main__':      # this way the module can be
     print pickle.load(open("searched.dump"))
 }}}
 
-attachment:070830_k-pickle_789X63_scrot.png
+attachment:CDay2-8.png
+图 CDay2-8
 
 对应的导出文件`searched.dump`:{{{
 (dp0
@@ -436,9 +447,11 @@ def index(**args):
     print htmfoot
 }}}
 
- 搜索时:: attachment:070830_k-search-good_422X546_scrot.png
+ 搜索时:: 图 CDay2-9
+ attachment:CDay2-9.png
 
- 记录时:: attachment:070830_k-walk_579X367_scrot.png
+ 记录时:: 图 CDay2-10
+ attachment:CDay2-10.png
 
 
 === TODO ===
@@ -467,7 +480,9 @@ if __name__ == "__main__":
 
 直接调用:`python tryweb.py`
 
-attachment:070823_web.py_850X115_scrot.png
+图 CDay2-11
+attachment:CDay2-11.png
+
 
 就会在本地 8080 端口发布一个可以响应用户URL 输入的网站来!
 
