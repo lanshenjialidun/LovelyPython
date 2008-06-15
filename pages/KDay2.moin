@@ -66,7 +66,8 @@ pubq = qpath+"easy051201.cfg"
 === 八股文样 ===
 '''模式化的处理脚本'''
  * 从文学化编程角度看，web 应用的脚本，应该说都一个样儿！
- attachment:snap-KwDay10.png
+图 KDay2-1
+ attachment:KDay2-1.png
  
  * 即:
      1. 脚本说明 `@...@c` 部分
@@ -89,7 +90,8 @@ txp = ctTpl(page, searchList=[vPool])
 print txp
 }}}
  * bingo! 完成！
- attachment:snap-KwDay21.png
+图 KDay2-2
+ attachment:KDay2-2.png
  
 == 实现展现 ==
 '''就是将ini 的内容整理为HTML的页面展示'''
@@ -124,7 +126,9 @@ exp +="</ul>"
 return exp
     }}} 双重循环就可以对应的将类似`[ask/1]` 一节中的所有
     类似`a = 赞！` 的选择项按照列表的形式输出了！
-attachment:snap-KwDay22.png
+
+图 KDay2-3
+attachment:KDay2-3.png
 
 == 串联页面 ==
 '''将编辑页面和展现页面串联起来'''
@@ -147,7 +151,8 @@ attachment:snap-KwDay22.png
     [wiki:selfsvn/zqlib/tangle/zoomq/Karrigell/obpKWD/KwDay2/ KwDay2实例]
 
 今日成果：
-attachment:snap-KwDay2Leo.png
+图 KDay2-4
+attachment:KDay2-4.png
 
 
 == 练习 ==

@@ -35,7 +35,10 @@ PCS301 Karrigell
  * 下载KarriGell
  * 解开，然后：`python Karrigell.py`
  * bingo! 你有了一个展示了各种应用的 KarriGell 站点了！ 就在 http://localhost/
- attachment:snap-KwDay00.png
+
+ 图 KDay1-1
+
+ attachment:KDay1-1.png
   * 尝试了一下子在 M$ 和 FreeBSD 平台中，是完全一样的反应！
   * 意味着，只要有Python环境，你随时可以获得一个全功能的Web 应用环境！
  
@@ -85,7 +88,9 @@ print dir(a)
 </body></html>
 }}}
   * 嗯嗯……为了方便使用 `@nosent` 操作符 `Ctrl+S` 就在计划中的目录里生成了文件
-  attachment:snap-KwDay01.png
+  图 KDay1-2
+  
+  attachment:KDay1-2.png
 {{{详细::
 PCS310 LEO
 分享了什么是文学化编辑环境,
@@ -108,7 +113,8 @@ q=%(base)s/karriweb/questionnaire
    * 嗬嗬，一切如愿！ KarriGell 正如你想象的有了实时的反应，不象CherryPy 你的每次修改，都要重启服务
    * 在KarriGell 中，就象PHP开发那样，每次修改好后，刷一下子页面，立即你的修改就能显示出来
 
-attachment:snap-KwDay02.png
+图 KDay1-3
+attachment:KDay1-3.png
 
 == 规划目标 ==
  * 好了今天的任务，完成！'''评估KarriGell的可用性'''

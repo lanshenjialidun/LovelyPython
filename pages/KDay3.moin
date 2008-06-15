@@ -29,12 +29,15 @@ p.addGroup(["submit","botao_enviar","Send"]
 """
 p.display()
 }}} 6行完成一个标准的登录表单！！！哈哈哈！赞！
-attachment:snap-KwDay30.png
+
+图 KDay3-1
+attachment:KDay3-1.png
 
 === 改造 ===
 '''毕竟是 alpha 版本，居然还是全面的table 结构！'''
  * 代码也很ugly 哪！使用["Leo"]整理后
- attachment:snap-KwDay3Leo.png
+ 图 KDay3-2
+ attachment:KDay3-2.png
  
  * 立即改造！
 {{{#!python
@@ -128,7 +131,10 @@ def export(self):
   * '''[http://www.amowa.net/jsvalidation/ JavaScript Validation Framework]''' 国人作品！
 
 ## mechiland@gmail.com jzchen80@hotmail.com
-attachment:snap-KwDay30JVF.png
+
+图 KDay3-3
+
+attachment:KDay3-3.png
 
   * 致力于 Python 的Ajax框架开发的 [http://www.amowa.net AMOWA]团队作品，值得期待！使用之！
 
@@ -227,17 +233,26 @@ def qpubish(dict):
 '''复用以前自个儿的积累是非常好的事儿！'''
  * 颜色的设计是个问题，不过有好工具来偷！
  '''[http://www.redalt.com/Tools/ilyc.php Red Alt - I Like Your Colors]'''
-attachment:snap-KwDay3color.png
+图 KDay3-4
+
+attachment:KDay3-4.png
 
 === CSS ===
   * 每一需要CSS美化的页面都加`<<k_base>>` 引用，
   * 引用都是从`复用代码` 中clone 过来的同一节点
   * 包含的就是`k_base.css` 你以往积累的一个通用的CSS整体设计,少量修改后，套用中意的颜色系统
-attachment:snap-KwDay3css.png
+
+图 KDay3-5
+
+attachment:KDay3-5.png
  
 == 小节 ==
 '''今天发现并引入了 [http://www.orionlab.net/karrigell_quickform/Karrigell_QuickForm.html KQF]和 [http://www.amowa.net/jsvalidation/ JVF]好象有点复杂的样子……'''
-attachment:snap-KwDay3done.png
+
+图 KDay3-6
+
+attachment:KDay3-6.png
+
  * 当然在故事中,这不是最终接受的方案，精彩还要继续……
  * 现在所有的基本功能都有了，接下来的就是要实用化:
      1. 有用户验证，要登录
@@ -250,7 +265,11 @@ attachment:snap-KwDay3done.png
   1. 注意有在外部安置的 [wiki:selfsvn/zqlib/tangle/zoomq/Karrigell/obpKWD/js/ JS-JVF 目录]
 
 == 练习 ==
-??
+    在前面章节练习mysite的基础上, 完成以下功能:  
+   * (1) 利用Karrigell_QuickForm改写编辑页面(edit), 增加更多的文章属性, 如日期, 标签, 引用链接等;
+   * (2) 实现了上述之后, 使用JVF, 依次校验用户输入的有效性;
+   * (3) 提示: 可以设计一个文章类, 多个文章对象可以利用pickle保存; 最终应该能够实现新建或修改文章并保存入本地文件的功能.
+    
 
 ----
 返回 [:ObpLovelyPython/KDays:KDays实例故事]
