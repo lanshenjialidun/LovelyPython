@@ -1,0 +1,113 @@
+##language:zh
+#pragma section-numbers on
+||'''status'''|| 草稿|校对|正式 || ShengYan || 完成度95%||
+
+
+[[TableOfContents]]
+
+= import =
+本文首先简要介绍模块和包，接着着重讲述import和from import 的知识。
+== 模块(module) 和包 ==
+参考：http://wiki.woodpecker.org.cn/moin/ObpLovelyPython/LpyQLearn-6-model
+ 1. 模块是包含Python定义和声明的文件，文件的名称就是模块名称加上.py后缀。
+ 1. 模块举例：fibo模块(fibo.py)是一个实现Fibonacci功能的模块。{{{#!python
+# Fibonacci numbers module
+def fib(n): # write Fibonacci series up to n
+    a, b = 0, 1
+    while b < n:
+        print b, a, b = b, a+b
+def fib2(n): # return Fibonacci series up to n
+    result = [] 
+    a, b = 0, 1
+    while b < n:
+         result.append(b) a, b = b, a+b
+    return result
+}}}在Python解释器中，使用import fibo导入fibo模块，使用fibo.fib(1000)来调用函数，也可以用fib = fibo.fib将模块函数赋值到本地函数。{{{
+>>> import fibo
+>>> fibo.fib(1000)
+1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987
+>>> fibo.fib2(100)
+[1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+>>> fibo.__name__
+'fibo'
+>>> fib = fibo.fib
+>>> fib(500)
+    1 1 2 3 5 8 13 21 34 55 89 144 233 377
+}}}
+ 1. 包是一种采用"."组织模块命名空间的方式。比如模块名称A.B表示是表示A 包中的模块B。这种命名空间的组织方式能够避免不同模块命名的冲突。
+ 1. 包举例：假设需要设计一组模块来处理声音文件和声音数据，就是如何组织一个包。由于存在多个不同声音格式的文件，需要一个随时能增加新模块的包来处理新增的声音格式。另外还需要对声音进行各种不同处理（例如混声、加回音、加入平衡、加入人工音效等），所以还需要另写一些模块来作这些处理。比如以下组织结构：{{{
+Sound/                          Top-level package
+      __init__.py               Initialize the sound package
+      Formats/                  Subpackage for file format conversions
+              __init__.py
+              wavread.py
+              wavwrite.py
+              aiffread.py
+              aiffwrite.py
+              auread.py
+              auwrite.py
+              ...
+      Effects/                  Subpackage for sound effects
+              __init__.py
+              echo.py
+              surround.py
+              reverse.py
+              ...
+      Filters/                  Subpackage for filters
+              __init__.py
+              equalizer.py
+              vocoder.py
+              karaoke.py
+              ...
+}}} __init__.py是必须的，帮助Python将该目录识别为包。在最简单的例子中，__init__.py是一个空文件。当然你也可以让__init__.py做一些包的初始化动作，或者设定__all__变量。
+
+== 模块和包的使用 ==
+要使用现有模块和包，就需要用到import和from import 
+ 1. 可以在package中import一个模块来使用。例如：{{{#!python
+import Sound.Effects.echo
+
+# 使用这个模块,必须使用完整的名字来调用
+Sound.Effects.echo.echofilter(input, output, delay=0.7, atten=4)
+# 另一种替代方法
+from Sound.Effects import echo
+# 不同的是，不需要包前缀
+echo.echofilter(input, output, delay=0.7, atten=4)
+# 另一种直接导入你需要的函数和变量的方法：
+from Sound.Effects.echo import echofilter
+# 其使用方法为
+ echofilter(input, output, delay=0.7, atten=4)
+}}}
+ 1. from Sound.Effects import * 会怎么样？ 理想情况下，我们可能期望会搜寻整个package目录，然后搜寻所有的module并且一一import。但是，在Mac以及Windows平台下，文件的名称大小写不一致，所以无法保证所有的module被import。所以唯一解决的方法就是package的作者，要提供一个明确索引给使用package的人。如果遵守该习惯的话，当用package的人在import的时候使用from Sound.Effects import *，就会查找package中的__init__.py中的__all__这个list变量，该list就包含所有应该被import进来的module名称。身为Package的作者有责任维护更新__init__.py。以Sounds/Effects/__init__.py为例：{{{#!python
+ __all__ = ["echo", "surround", "reverse"]
+# 表示from Sound.Effects import * 会import 这三个module。
+
+# 如果没有定义__all__，from Sound.Effects import *不会保证所有的子module被导入。所以要么通过__init__.py，要么显式地import保证子module被导入。如下：
+import Sound.Effects.echo
+import Sound.Effects.surround
+from Sound.Effects import *
+}}}值得注意的是import *不被鼓励，因为这样会降低程序的可读性，虽然有时会减少一些打字，而且有些module在设计时故意只让某些特别的名称可以被使用。
+ 1. 使用from Package import specific_submodule没有任何不对，除非你的module名称和其他名称冲突，将采用如下方式：{{{#!python
+ from Package import specific_submodule as specific_submodule_alias
+}}}
+ 1. 搜寻路径。当你import fibo，Python解释器先在当前目录下搜寻fibo.py文件，如果没有找到，会依次在$PYTHONPATH指示的所有路径中搜寻。$PYTHONPATH的设定方法与$PATH是一样的，即多个目录路径的字符串。事实上，模块的搜寻路径是依照sys.path变量（多个路径组成的list变量）。当Python解释器启动时，会将当前目录、$PYTHONPATH、以及按照安装时设定的一些目录加入到sys.path变量中。所以可以修改这些参数来控制搜寻模块的路径。例如：{{{#!python
+import sys
+
+# fibo.py的路径添加到sys.path
+
+sys.path.append('/home/shengyan/workspace/')
+
+from pcs import fibo
+}}}
+
+== 小结 ==
+## 总体回顾,给出相关阅读和思考指引
+本文简要介绍了模块、包的相关知识，同时介绍了import、from import的使用。详细的内容还要查阅更多资料：
+ *[http://effbot.org/zone/import-confusion.htm Importing Python Modules ]——很适合于初学者的一篇文章
+ *[http://docs.python.org/tut/node8.html Modules文档 ]
+ *[http://docs.python.org/ref/import.html import语句 ]
+== 练习 ==
+## 设计实用练习,保证每个练习都可以扩展出去
+
+----
+::ShengYan [2008/06/16 21:24:00]
+[[PageComment2]]
