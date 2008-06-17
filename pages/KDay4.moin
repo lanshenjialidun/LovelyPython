@@ -1,12 +1,17 @@
 ## page was renamed from zhArticleTemplate
 ##language:zh
 #pragma section-numbers on
+||'''status'''|| 正式 || ZoomQuiet|| 完成度:90%||
 
-::-- ZoomQuiet [[[DateTime(2005-12-11T04:45:50Z)]]]
 [[TableOfContents]]
 
-= K4日:KS =
-||attachment:snap-KwDay40-3Leo.png ||'''不爽直！使用新的KS 页面组织'''[[BR]]现在想来，你实现了三个小功能就用了7，8个文件……有些想念 CherryPy 的对象式网站发布了！||
+= KDay4: 使用KS模式重构代码 =
+图 KDay4-1
+attachment:KDay4-1.png 
+
+'''不爽直！使用新的KS 页面组织'''
+
+现在想来，小白仅仅实现了三个小功能就用了7，8个文件……有些想念 CherryPy 的对象式网站发布了..
 
 == lovely session ==
 '''学习一下子文档吧！'''
@@ -42,7 +47,7 @@ def _private(x):
 == HTMLTags ==
 '''函式化的HTML生成'''
  * http://localhost/doc/en/htmltags.htm
- * 唉呀呀！！还真的是心想事儿成！2.2 增加的新功能哪！
+ * 唉呀呀！！还真的是心想事儿成！ 从2.2 增加的新功能哪！
  {{{#!python
 stylesheet = LINK(rel="Stylesheet",href="doc.css")
 header = TITLE('Record collection')+stylesheet
@@ -55,8 +60,9 @@ print HTML(HEAD(header) + BODY(title + table))
 }}} 可以将一个标准的HTML页面由几行 Py脚本自然生成！
  * 那未，只要结合 KS 和 HTMLTags 功能就可以快速实现想要的复杂展示功能了！还可以方便的复用！
  * 当然的使用["Leo"] 八股化你所有的.KS
- 
-attachment:snap-KwDay40.png
+
+图 KDay4-2
+attachment:KDay4-2.png
 
   1. `<< page declarations >>` 同样是引用声明什么的
   1. `<< htmlcode >>` 就是利用["Leo"]来快速复用的各种 HTML 代码
@@ -109,7 +115,8 @@ def chkusr(**args):
     #raise HTTP_REDIRECTION,"index"
 }}}先别让页面自动跳走，看一看，是否随愿的将登录信息记录了？！
 
-attachment:snap-KwDay4sess.png 
+图 KDay4-3
+attachment:KDay4-3.png 
 
  * 问卷的使用原则是，任何人都可以登录，问答,但是:
   1. 只有有效的成员问答才会统计
@@ -119,7 +126,7 @@ attachment:snap-KwDay4sess.png
 == 多问卷选择 ==
 ''' 有了登录后的用户信息,就可以根据不同的角色进行处理了'''
 === fnmatch ===
- * 指定目录中某模式的所有文件的尋找…………
+ * 指定目录中某模式的所有文件的寻找…………
  * 有内置的处理模块哪！'''fnmatch'''
  * 配合统一设置进行搜索{{{#!python
 qcfglist = []
@@ -169,12 +176,13 @@ print UL("".join([str(LI(
                     )
 }}}     
 
-attachment:snap-KwDay4list.png
+图 KDay4-4
+attachment:KDay4-4.png
 
 == 小节 ==
- * 实际上，本日，你使用 .ks 体验了一把函式化的页面发布，成果就一个脚本'''index.ks'''
-  * 但是以前完成的`.pih` 依然好用，而你将趁兴将它们都重构为更加爽快的'''函式化页面发布'''
- * 而且，你忍不住对CSS进行了深入的定制，在输出代码的最简和页面表现丰富之间进行了有效的探索
+ * 实际上，本日，小白使用 .ks 体验了一把函式化的页面发布，成果就一个脚本'''index.ks'''
+  * 但是以前完成的`.pih` 依然好用，而小白将趁兴将它们都重构为更加爽快的'''函式化页面发布'''
+ * 而且，小白忍不住对CSS进行了深入的定制，在输出代码的最简和页面表现丰富之间进行了有效的探索
  
  
  
@@ -191,13 +199,22 @@ attachment:snap-KwDay4list.png
   1. .... 呜乎哀哉,好象越作越多了,任务…………
  
 == 实例下载 ==
-使用 [wiki:self/AllAboutSubversion SVN 下载]:
-    [wiki:selfsvn/zqlib/tangle/zoomq/Karrigell/obpKWD/KwDay4/ KwDay4实例]
 
-== 讨论 ==
-[[Include(/Discuss)]]
+使用SVN下载地址:
+ * http://openbookproject.googlecode.com/svn/trunk/LovelyPython/KDays/kday4
 
+== 练习 ==
+
+    在前面章节练习mysite的基础上, 完成以下功能:  
+ * (1) 我们在学习了.ks之后, 将原来的mysite改写成函式化页面发布, 这样我们只需一个index.ks文件就可以完成之前index.pih和edit.pih两页面的功能;
+ * (2) 增加用户登录, 验证和登出功能, 即实现用户通过输入姓名和密码, 提交后通过验证后登录首页; 具体可参考png中截图;
+ * (3) 使用HTMLTags美化首页显示, 读者可以展开自己丰富的想象力那;
 
 ----
-返回 KarrigellWebDev -- 快速体验K开发
+返回 [:ObpLovelyPython/KDays:KDays实例故事]
+
+::-- ZoomQuiet [[[DateTime(2005-12-11T04:45:50Z)]]]
+
+[[PageComment2]]
+
 

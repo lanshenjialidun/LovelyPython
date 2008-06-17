@@ -260,10 +260,11 @@ attachment:KDay3-6.png
      
 
 == 实例下载 ==
-使用 [wiki:self/AllAboutSubversion SVN 下载]:
-  1. [wiki:selfsvn/zqlib/trunk/zqlib/tangle/zoomq/Karrigell/obpKWD/KwDay3/ KwDay3实例]
-  1. 注意有在外部安置的 [wiki:selfsvn/zqlib/tangle/zoomq/Karrigell/obpKWD/js/ JS-JVF 目录]
-
+使用SVN下载地址:
+ * http://openbookproject.googlecode.com/svn/trunk/LovelyPython/KDays/kday3
+ * 注意有在上层安置的 JS-JVF 目录:
+  * http://openbookproject.googlecode.com/svn/trunk/LovelyPython/KDays/js
+  
 == 练习 ==
     在前面章节练习mysite的基础上, 完成以下功能:  
    * (1) 利用Karrigell_QuickForm改写编辑页面(edit), 增加更多的文章属性, 如日期, 标签, 引用链接等;
