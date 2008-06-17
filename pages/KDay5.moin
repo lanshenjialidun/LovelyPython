@@ -1,19 +1,22 @@
 ## page was renamed from zhArticleTemplate
 ##language:zh
 #pragma section-numbers on
+||'''status'''|| 正式 || ZoomQuiet|| 完成度:90%||
 
-::-- ZoomQuiet [[[DateTime(2005-12-11T04:51:21Z)]]]
 [[TableOfContents]]
-= K5日:随时重构 =
+
+= KDay5: 通过session重构 =
 '''快速利用已有的所有技巧，重构功能实现'''
  * 让原先分散的.pih 们也整合到一个 '''mana.ks''' 事务页面中吧！
- 
+
+
 == 悠然 Leo ==
 {{{
    Ctrl+`
 }}}从来没有如此让你放心过……
 
-"attachment:snap-KwDay50.png
+图 KDay5-1
+attachment:KDay5-1.png
 
  * 只要保证，所有.ks 中有 clone 的`<< htmlcode >>`
   * 所有.ks 中的响应函式中有 clone 的`<< pagehead >>`及`<< pagefoot >>`
@@ -33,7 +36,8 @@
 print pickle.dumps(sess.usr)
 }}}
 
-"attachment:snap-KwDay51.png
+图 KDay5-2
+attachment:KDay5-2.png
 
   * 唉呀呀……有空格，以及其它符号的！一定会被误解为不同参数的……
   * 找呀找呀，找朋友，找到一个`urlsafe_b64encode(s) ` 是 '''base64''' 模块中的
@@ -44,7 +48,9 @@ print "<br/>"
 print pickle.loads(base64.urlsafe_b64decode(v))
 }}}
 
-"attachment:snap-KwDay52.png  
+图 KDay5-3
+
+attachment:KDay5-3.png  
 
   * 非常理想！就用之了！
 {{{#!python   
@@ -66,7 +72,8 @@ SPAN#mana{border-bottom: 2px solid #778;
     background-color: whitesmoke; padding: 2px;}
 }}}效果如下:
 
-"attachment:snap-KwDay5css.png  
+图 KDay5-4
+attachment:KDay5-4.png  
   
  * 当然的，应该只有权限用户才会看到此链接
  * 不过，开发阶段完全开放——反正要实现版本管理不用怕的说;-)
@@ -131,7 +138,8 @@ shutil.copy2(qpage,qpage+".%s"%time.strftime("%y%m%d%H%M%S"
 == 历史版本 ==
 '''习惯的Wiki的反悔模式，当然的也想自个儿弄一个'''
 
-"attachment:snap-KwDay53.png  
+图 KDay5-5
+attachment:KDay5-5.png  
 
  * 几次小的尝试性修改，在 `/q` 中聚集了一批命名有模式可寻的问卷设计稿
  * 直接利用问卷列表的处理代码，小修改一下子，就成为历史版本列表的实现，归到{{{#!python
@@ -174,7 +182,8 @@ time.strftime("%y%m%d%H%M%S", time.localtime())
 }}} 时间字串
   * 那未知道是 `年月日时分秒`  的组合，使用字串的切片操作，一下子就重新组织输出好了
 
-attachment:snap-KwDay54.png
+图 KDay5-6
+attachment:KDay5-6.png
 
  * 再随手加个链接，给个`?his=` 的历史版本标识
 
@@ -200,7 +209,9 @@ def edit(**var):
 ...
 ,os.stat(conf.qpage.qpath+l)
 }}}
-attachment:snap-KwDay5ST.png
+
+图 KDay5-7
+attachment:KDay5-7.png
 
   * 返回元组有文件对象的: 
    1. st_mode (protection bits), 
@@ -221,14 +232,20 @@ attachment:snap-KwDay5ST.png
 ...
 ,os.stat(conf.qpage.qpath+l)[-4]
 }}}
-attachment:snap-KwDay5his.png
+
+图 KDay5-8
+attachment:KDay5-8.png
 
 
 === 可变参数的意义 ===
  * 现在你可是对Python 函式的可变参数深以为然了
  * 本来按照PHP 的习惯，传递的页面参数自然会变成内存对象，
  * 但是在KarriGell 中如果不严格匹配
-"attachment:snap-KwDay5errorVar.png 这总是会出参数不匹配的错误
+ 图 KDay5-9
+
+attachment:KDay5-9.png 
+
+这总是会出参数不匹配的错误
  * 有了万能的'''(**var)''' 声明，一切都总能兼容！
 
 == 明日任务 ==
@@ -236,13 +253,23 @@ attachment:snap-KwDay5his.png
  * 就是要根据有效的成员信息来进行成绩的统计汇报了
 
 == 实例下载 ==
-使用 [wiki:self/AllAboutSubversion SVN 下载]:
-    [wiki:selfsvn/zqlib/tangle/zoomq/Karrigell/obpKWD/KwDay5/ KwDay5实例]
 
-== 讨论 ==
-[[Include(/Discuss)]]
+使用SVN下载地址:
+ * http://openbookproject.googlecode.com/svn/trunk/LovelyPython/KDays/kday5
 
+
+== 练习 ==
+    在前面章节练习mysite的基础上, 完成以下功能:  
+  * (1) 在首页增加删除链接, 实现删除指定文章的功能; 
+  * (2) 增加搜索功能, 即输入关键字, 进行查找后得到各个文章对象并显示到结果页面中;
+  * (3) 能否优化我们现在的整个网站框架, 若能够则进行最大化的结构优化, 读者可以根据已经学到的知道自由发挥;
 
 ----
-返回 KarrigellWebDev -- 快速体验K开发
+返回 [:ObpLovelyPython/KDays:KDays实例故事]
+
+::-- ZoomQuiet [[[DateTime(2005-12-11T04:51:21Z)]]]
+
+[[PageComment2]]
+
+
 
