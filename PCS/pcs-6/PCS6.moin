@@ -1,0 +1,106 @@
+##language:zh
+#pragma section-numbers on
+||'''status'''|| 校对 || Lizzie|| 完成度95%||
+
+
+[[TableOfContents]]
+
+= Python与中文 =
+中文编码总是个大问题。不过Python可以完美的支持中文，不管你的字符编码是GB2312，GBK 或者UTF-8。为了讲清楚中文问题，首先介绍了汉字编码，然后再讲述Python是如何处理中文的。
+
+== 相关参考 ==
+ * [http://www.pconline.com.cn/pcedu/empolder/gj/other/0505/616631.html 谈谈Unicode编码]
+ * [http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html 字符编码笔记：ASCII，Unicode和UTF-8]
+ * [http://www.css8.cn/css8_document/gb2312.htm 汉字编码问题]
+ * [http://webclipping.com.cn/2007/12/18/如何解决python-中文编码问题/ 如何解决python 中文编码问题]
+ * [http://www.unicode.org/]
+
+== 字符编码简介 ==
+
+=== ASCII和Unicode编码 ===
+这部分内容参见[http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html]
+
+=== 汉字编码 ===
+汉字编码中现在主要用到的有三类，包括GBK，GB2312和Big5。详细内容参见[http://www.css8.cn/css8_document/gb2312.htm 汉字编码问题]
+
+== Python中文编码转换 ==
+在Python中，主要有以下四个对象来处理字符串转换操作等。{{{
+class str(basestring)
+ |  str(object) -> string
+ |  
+ |  Return a nice string representation of the object.
+ |  If the argument is a string, the return value is the same object.
+......
+class unicode(basestring)
+ |  unicode(string [, encoding[, errors]]) -> object
+ |  
+ |  Create a new Unicode object from the given encoded string.
+ |  encoding defaults to the current default string encoding.
+ |  errors can be 'strict', 'replace' or 'ignore' and defaults to 'strict'.
+......
+encode(...)
+    S.encode([encoding[,errors]]) -> object
+    
+    Encodes S using the codec registered for encoding. encoding defaults
+    to the default encoding. errors may be given to set a different error
+    handling scheme. Default is 'strict' meaning that encoding errors raise
+    a UnicodeEncodeError. Other possible values are 'ignore', 'replace' and
+    'xmlcharrefreplace' as well as any other name registered with
+    codecs.register_error that is able to handle UnicodeEncodeErrors.
+decode(...)
+    S.decode([encoding[,errors]]) -> object
+    
+    Decodes S using the codec registered for encoding. encoding defaults
+    to the default encoding. errors may be given to set a different error
+    handling scheme. Default is 'strict' meaning that encoding errors raise
+    a UnicodeDecodeError. Other possible values are 'ignore' and 'replace'
+    as well as any other name registerd with codecs.register_error that is
+    able to handle UnicodeDecodeErrors.
+}}}
+ 1. `str`表示将某对象转换成字符串表示。
+ 1. `unicode`表示将某个字符串按照某个编码方式转换为一unicode对象，unicode是内部编码，世界上所有字符的统一编码集，即每个字符都有唯一的二进制表示，可以在[http://www.unicode.org/]上查到某个字符的unicode码。
+  * 在python 中，如果要正确显示中文字符，简单做法就是把字符串先转化为unicode，然后再由unicode 对象转化成任意其他你的系统可以显示你的编码。如果你的操作系统是linux的，只能正确显示UTF-8，而你要显示的文本是从一个windows系统下过来的GB2312编码的，那么你要做的就是将GB2312转化成unicode,然后由unicode转化成UTF-8，就可以正确显示了。{{{
+In [26]: f = open('test')
+
+In [27]: line = f.readline()
+
+In [28]: uline = unicode(line, 'gb2312')
+
+In [29]: uline
+Out[29]: u'lines: 0.838643\n'
+
+In [30]: u8line = uline.encode('utf-8')
+
+In [31]: u8line
+Out[31]: 'lines: 0.838643\n'
+}}}
+ 1. `encode`将对象按照指定编码进行编码
+ 1. `decode`将对象按照指定编码进行解码。{{{
+In [6]: s = "你好"
+
+In [7]: s.decode("gbk")
+Out[7]: u'\u6d63\u72b2\u30bd'
+
+In [8]: s.decode("gbk").encode("utf-8")
+Out[8]: '\xe6\xb5\xa3\xe7\x8a\xb2\xe3\x82\xbd'
+
+# 或者
+In [12]: s = "你好"
+
+In [13]: unicode(s, "gbk")
+Out[13]: u'\u6d63\u72b2\u30bd'
+
+In [14]: unicode(s, "gbk").encode("utf-8")
+Out[14]: '\xe6\xb5\xa3\xe7\x8a\xb2\xe3\x82\xbd'
+
+}}}
+
+
+== 小结 ==
+字符编码是个比较绕人的问题，因为世界上有太多不同的编码方式，如果全世界统一用一个字符集和一种编码实现方式，那么就不会有这么多问题了，但这是不可能的。
+
+== 练习 ==
+## 设计实用练习,保证每个练习都可以扩展出去
+----
+::ShengYan [2008/06/20 13:24:00]
+[[PageComment2]]
