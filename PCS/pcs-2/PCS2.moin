@@ -1,6 +1,6 @@
 ##language:zh
 #pragma section-numbers on
-||'''status'''|| 校对 || ShengYan|| 完成度95%||
+||'''status'''|| 校对 || Lizzie || 完成度95%||
 
 [[TableOfContents]]
 
@@ -20,15 +20,15 @@ iPython是一个Python的交互式Shell，比默认的Python Shell好用得多�
  1. 下载[http://ipython.scipy.org/dist/ipython-0.8.2.win32-setup.exe ipython-0.8.2.win32-setup.exe]。
  1. 双击运行安装程序。只需以下四步即可完成安装：
   * 显示一些提示信息，直接Next；
-  attachment:PCS-windows-1.png
+  attachment:PCS2-windows-1.png
   * 输入Python安装目录及iPython安装位置，因为之前我们把Python默认安装“C:\Python25\”了，所以这里两个都为默认设置，直接Next。若之前Python不是在“C:\Python25\”需要改变为Python所在目录；
-  attachment:PCS-windows-2.png
+  attachment:PCS2-windows-2.png
   * 出现进度条，需等待一会儿，完毕后Next；
-  attachment:PCS-windows-3.png
+  attachment:PCS2-windows-3.png
   * 显示完成，成功安装iPython。
-  attachment:PCS-windows-4.png
+  attachment:PCS2-windows-4.png
  1. 安装完成后，进入Windows命令行，输入ipython，即可以进入iPython交互环境。
-  attachment:PCS-windows-6.png
+  attachment:PCS2-windows-6.png
 
 === Linux下的iPython安装 ===
  1. 下载[http://ipython.scipy.org/dist/ipython-0.8.2.tar.gz ipython-0.8.2.tar.gz]。
@@ -277,5 +277,5 @@ shengyan@LIZZIE[~/ttt]|2> ls -d d* | wc -l
 == 练习 ==
 ## 设计实用练习,保证每个练习都可以扩展出去
 ----
--- ShengYan  [[DateTime(2008-05-28T21:00:00Z)]] 
+-- Lizzie [[DateTime(2008-05-28T21:00:00Z)]] 
 [[PageComment2]]

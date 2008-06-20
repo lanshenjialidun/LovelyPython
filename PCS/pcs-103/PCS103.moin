@@ -1,0 +1,61 @@
+##language:zh
+#pragma section-numbers on
+||'''status'''|| 校对 || Lizzie || 完成度95%||
+
+
+[[TableOfContents]]
+
+= 缩进 =
+缩进可谓是Python的一大特色，估计没有其他语言再使用缩进作为她的语法结构的一部分了。
+
+== 相关参考 ==
+ * [http://www.woodpecker.org.cn/diveintopy_5_4/getting_to_know_python/indenting_code.html 代码缩进]
+
+== 缩进实例 ==
+{{{
+In [5]: f = open('words')
+
+In [6]: result = dict()
+
+In [7]: 
+
+In [8]: for line in f.readlines():
+   ...:         line = line.strip()
+   ...:     tmplist = line.split()
+   ...:     for w in tmplist:
+   ...:             if result.has_key(w):
+   ...:                 result[w] += 1
+   ...:         else:
+   ...:                 result[w] = 1
+   ...: 
+
+In [9]: for k, v in result.items():
+   ...:         print k, '-->', v
+
+}}}
+ 1. 在Python代码的任何地方，是利用缩进来区分不同的块。不同的块具有不同的作用域，所以Python中，缩进的功能相当于C或Java中的{}。在上述例子中，三个for语句各有自己的块作用域，很清晰的利用每行代码的缩进区分自己属于哪个块。
+ 1. 同一块中具有一致的代码缩进，因此Python代码文件的结构看起来非常清晰。
+ 1. 若本应属于同一块内的代码没有相同的缩进，那么，Python解释器会认为她们属于不同的语义块，因而会引起异常。{{{
+In [10]: f = open('words')
+
+In [11]: result = dict()
+
+In [12]: for line in f.readlines():
+   ...:     line = line.strip()
+   ...:     tmplist = line.split()
+   ...:     for w in tmplist:
+   ...:         if result.has_key(w):
+   ...:             result[w] += 1
+   ...:         else:
+   ...:         result[w] = 1
+------------------------------------------------------------
+IndentationError: unindent does not match any outer indentation level (<ipython console>, line 8)
+}}}
+ 1. 使用缩进有个需要注意的地方，就是，不要混用制表符和空格，因为虽然表面上看起来是同一层次，但python解释器还是会认为是不同的代码缩进。最好仅仅用空格，并且是用4个空格作为一个缩进层次。
+
+== 小结 ==
+缩进很容易被熟悉，对于我们程序员来说，应该养成熟练使用缩进的习惯，因为这不仅是语法需要，更是能够让我们形成统一、良好的编程风格。
+
+----
+::Lizzie [2008/06/16 21:24:00]
+[[PageComment2]]

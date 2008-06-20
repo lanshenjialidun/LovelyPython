@@ -1,14 +1,20 @@
 ##language:zh
 #pragma section-numbers on
-||'''status'''|| 草稿|校对|正式 || ShengYan || 完成度95%||
+||'''status'''|| 校对 || || 完成度95%||
 
 
 [[TableOfContents]]
 
 = import =
 本文首先简要介绍模块和包，接着着重讲述import和from import 的知识。
+
+== 相关参考 ==
+ * [http://wiki.woodpecker.org.cn/moin/ObpLovelyPython/LpyQLearn-6-model]
+ * [http://effbot.org/zone/import-confusion.htm Importing Python Modules ]——很适合于初学者的一篇文章
+ * [http://docs.python.org/tut/node8.html Modules文档 ]
+ * [http://docs.python.org/ref/import.html import语句 ]
+
 == 模块(module) 和包 ==
-参考：http://wiki.woodpecker.org.cn/moin/ObpLovelyPython/LpyQLearn-6-model
  1. 模块是包含Python定义和声明的文件，文件的名称就是模块名称加上.py后缀。
  1. 模块举例：fibo模块(fibo.py)是一个实现Fibonacci功能的模块。{{{#!python
 # Fibonacci numbers module
@@ -101,13 +107,11 @@ from pcs import fibo
 
 == 小结 ==
 ## 总体回顾,给出相关阅读和思考指引
-本文简要介绍了模块、包的相关知识，同时介绍了import、from import的使用。详细的内容还要查阅更多资料：
- *[http://effbot.org/zone/import-confusion.htm Importing Python Modules ]——很适合于初学者的一篇文章
- *[http://docs.python.org/tut/node8.html Modules文档 ]
- *[http://docs.python.org/ref/import.html import语句 ]
+本文简要介绍了模块、包的相关知识，同时介绍了import、from import的使用。
+
 == 练习 ==
 ## 设计实用练习,保证每个练习都可以扩展出去
 
 ----
-::ShengYan [2008/06/16 21:24:00]
+::Lizzie [2008/06/16 21:24:00]
 [[PageComment2]]

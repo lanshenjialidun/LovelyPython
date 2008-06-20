@@ -1,12 +1,18 @@
 ##language:zh
 #pragma section-numbers on
-||'''status'''|| 草稿|校对|正式 || AuthorName|| 完成度15%||
+||'''status'''|| 校对 || || 完成度95%||
 
 
 [[TableOfContents]]
 
 = For 循环 =
-本文介绍for循环语句的使用。参考自：http://wiki.woodpecker.org.cn/moin/ObpLovelyPython/LpyQLearn-3-process
+本文介绍for循环语句的使用。
+
+== 相关参考 ==
+ * [http://wiki.woodpecker.org.cn/moin/ObpLovelyPython/LpyQLearn-3-process]
+ * [http://docs.python.org/tut/node6.html#SECTION006200000000000000000 For循环及相关控制流]
+ * [http://docs.python.org/ref/for.html The for statement ]
+
 == 初步 ==
 {{{
   for item in [1, 2, 3]:
@@ -124,13 +130,11 @@
     get next, current is 10
 }}}
 == 小结 ==
-For循环是比较重要的控制流语句，本文介绍for语句的基本使用。另外内容参考：
- * [http://docs.python.org/tut/node6.html#SECTION006200000000000000000 For循环及相关控制流]
- * [http://docs.python.org/ref/for.html The for statement ]
+For循环是比较重要的控制流语句，本文介绍for语句的基本使用。
 
 == 练习 ==
 ## 设计实用练习,保证每个练习都可以扩展出去
 
 ----
-::ShengYan [2008/06/16 21:24:00]
+::Lizzie [2008/06/16 21:24:00]
 [[PageComment2]]

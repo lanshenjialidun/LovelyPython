@@ -1,0 +1,50 @@
+##language:zh
+#pragma section-numbers on
+||'''status'''|| 校对 || Lizzie || 完成度95%||
+
+
+[[TableOfContents]]
+
+= 对象 =
+Python中的一切东西都是对象，即，一切兼对象！
+
+== 相关参考 ==
+ * [http://www.effbot.org/zone/python-objects.htm Python Objects]
+ * [http://www.python.org/doc/current/ref/objects.html 3.1 Objects, values and types ]
+
+== 对象定义 ==
+ 1. Python把任何数据抽象为对象。
+ 1. 每个对象都有唯一的id，特定的类型，值。定义一个对象后，其id和类型是不能改变的，而值是可有可无并且也能动态改变的。
+ 1. 不同的对象有不同的属性。
+
+== 使用对象 ==
+ 1. Python中的`object`是最基类。{{{
+class object
+ |  The most base type
+}}}
+ 1.  对象使用的例子。{{{
+In [32]: class A(object):
+   ....:     pass
+   ....: 
+
+In [33]: class B(object):
+   ....:     pass
+   ....: 
+
+In [34]: a = A()
+
+In [35]: b = B()
+
+In [36]: type(a)
+Out[36]: <class '__main__.A'>
+
+In [37]: type(b)
+Out[37]: <class '__main__.B'>
+}}}a和b是两个属于不同类的对象。定义之后，她们的类型固定无法改变。
+
+== 小结 ==
+Python学习过程中，一定要时刻记住任何东西都是对象。
+
+----
+::Lizzie [2008/06/20 21:00:00]
+[[PageComment2]]

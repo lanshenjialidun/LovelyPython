@@ -1,6 +1,6 @@
 ##language:zh
 #pragma section-numbers on
-||'''status'''|| 校对 || ShengYan|| 完成度95%||
+||'''status'''|| 校对 || Lizzie || 完成度95%||
 
 [[TableOfContents]]
 
@@ -61,5 +61,5 @@ ImportError: No module named Mysqldb
 ## 设计实用练习,保证每个练习都可以扩展出去
  1. Python是解释执行的，那么什么是解释执行呢？和其他语言（Java，C等）的执行方式有什么区别？
 ----
--- ShengYan  [[DateTime(2008-05-24T14:00:00Z)]] 
+-- Lizzie  [[DateTime(2008-05-24T14:00:00Z)]] 
 [[PageComment2]]
