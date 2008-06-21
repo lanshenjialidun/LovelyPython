@@ -1,12 +1,14 @@
 ## page was renamed from zhArticleTemplate
 ##language:zh
 #pragma section-numbers on
-::-- ZoomQuiet [[[DateTime(2005-12-11T04:51:41Z)]]]
+||'''status'''|| 正式 || ZoomQuiet|| 完成度:90%||
+
 [[TableOfContents]]
 
-= K6日:统计！mm的 =
+= KDay6: 利用mm 人性化组织成员信息 =
 '''快速扩展一个页面适应所有情况！'''
  * 此mm 非彼 mm 哪! 乃FreeMind 思维图谱文件 `.mm`
+ 
 == FreeMind的另类使用 ==
 '''要想进行问卷回答的统计,首先要有手段知道现在组织内成员信息,以便对应统计'''
  * 为什么想到了 FreeMind? 
@@ -15,7 +17,9 @@
   * 而且是XML的数据文件!
  * 曾经依照提供的`freemind.xsl`+`freemind.mm` 输出了加个xml头说明的自定 mm 文件
  
-"attachment:snap-KwDay60.png
+图 KDay6-9
+
+attachment:KDay6-1.png
 
  * 哈哈哈!大致知道 FreeMind 的数据格式:
      1. 所有节点是统一的 `<node>` 
@@ -27,7 +31,9 @@
          1. dept 说明部门的整体信息
          1. staff 汇集成员信息,类似部门的节点组织
          1. total 成员总数
-"attachment:snap-KwDay6mm.png
+
+图 KDay6-2
+attachment:KDay6-2.png
  * 这样就令 XSLT 有基础原则可以进行数据组织了
  * 同理,也可以让Python 快速理解了...
  
@@ -54,7 +60,9 @@ for d in dept:
   1. 从根找到所有第二级的`<node>`节点对象列表
   1. 已经可以通过 `.attrib["TEXT"]` 来获得内容了!
 
-"attachment:snap-KwDay61.png
+图 KDay6-3
+attachment:KDay6-3.png
+
  * 就使用 `findall()` 和 `attrib["TEXT"]` 便可以判定/获取足够的信息,输出成以上的页面从 mm 中!!!
  * 哈哈哈!具体的就看代码吧……
  
@@ -74,7 +82,9 @@ for d in dept:
   * 有MoinMoin 的经验，你就想这样一来应该能将字典对象混人当前名称空间??
    * 在专门mm 理解脚本-- '''deptorg.py''' 中 `print dir()`
 
-"attachment:snap-KwDay62.png
+图 KDay6-4
+
+attachment:KDay6-4.png
 
    * 不会这么简单吧！你发现了 `index.ks` 事务页面中才有的对象 '''sess''' —— 对话容器
    * 尝试的赋值一下子？{{{
@@ -84,7 +94,9 @@ sess.usr["deptree"]=deptree
 }}}
    * KAO！ 真的好用！ 在`index.ks/stat` 统计页面，包含 `deptorg.py` mm专用理解脚本 再打印 '''sess.usr''' 看一下子，唉呀呀！真的有了！
 
-"attachment:snap-KwDay63.png
+图 KDay6-5
+attachment:KDay6-5.png
+
 == 回答验证 ==
 '''进行回答统计前，有一个先决重构'''
  * 有效的答案是全部问题都回答了，不然的话统计很麻烦的说……
@@ -117,8 +129,10 @@ sess.usr["deptree"]=deptree
     class="btn"
     onClick="history.back();"/>
     }}} 这样的JS 行动按钮, 快捷完成想要的完全问答检验处理
-    
-"attachment:snap-KwDay6bye.png
+
+图 KDay6-6    
+attachment:KDay6-6.png
+
  * 好了基本可用了,只是这样一来,加重了服务端的压力,也难以进行页面的友好提醒...
   * 嗯嗯,自古忠孝难全,先这么着,以后再想了....
  
@@ -146,7 +160,8 @@ for a in aed:
   1. 所以可以根据文件名快速整理出名单列表 `aed`
   1. 然后，就有了已知合理成员回答列表 `done` 和 `unknow` 未知成员列表
 
-attachment:snap-KwDay6stat.png 
+图 KDay6-7
+attachment:KDay6-7.png 
 
  * 最后就是个显示问题了:
      1. 要有回答时间的信息?{{{
@@ -173,7 +188,9 @@ print crtqp.ask.keys()
 crtright = [crtqp.ask[i]["key"] for i in crtqp.ask.keys()]
 print crtright
 }}}
-"attachment:snap-KwDay6dict.png 
+
+图 KDay6-8
+attachment:KDay6-8.png 
 
       * 知道症结就好修改了{{{#!python
 #字典排序技巧
@@ -184,7 +201,8 @@ crtright = [crtqp.ask[i]["key"] for i in ak]
 print crtright
 }}}
 
-"attachment:snap-KwDay6sort.png 
+图 KDay6-9
+attachment:KDay6-9.png 
 
      1. 要有总平均成绩?{{{
 #使用stat 列表收集所有有效成绩
@@ -196,7 +214,10 @@ sum(stat)/len(stat)) 就出来了
 reduce(lambda a,b:a+b, stat)/len(stat) 更加cool
 }}}
  * 哈哈哈！！什么也难不住你！
-"attachment:snap-KwDay6done.png 
+ 
+图 KDay6-10
+
+attachment:KDay6-10.png 
 
 
 == 事务测试 ==
@@ -206,14 +227,19 @@ reduce(lambda a,b:a+b, stat)/len(stat) 更加cool
  * 溜个几回，功能测试基本也就了了…………
      
 == 实例下载 ==
-使用 [wiki:self/AllAboutSubversion SVN 下载]:
-    [wiki:selfsvn/zqlib/tangle/zoomq/Karrigell/obpKWD/KwDay6/ KwDay6实例]
+使用SVN下载地址:
+ * http://openbookproject.googlecode.com/svn/trunk/LovelyPython/KDays/kday6
 
-
-== 讨论 ==
-[[Include(/Discuss)]]
-
-
+== 练习 ==
+    到目前为止, 我们已经实现了登录, 编辑, 显示, 删除, 搜索博客文章, 应该说作为个人博客已经差不多了, 当然我们还能继续扩展, 比如以下几点: 
+ *  (1) 从单用户扩展为多个用户, 变为一个简单的博客系统;
+ *  (2) 黑白页面比较丑, 我们可以利用css做些页面的美化, 比如加入颜色, 布局调整等等;
+ 
 ----
-返回 KarrigellWebDev -- 快速体验K开发
+返回 [:ObpLovelyPython/KDays:KDays实例故事]
+
+::-- ZoomQuiet [[[DateTime(2005-12-11T04:51:41Z)]]]
+
+[[PageComment2]]
+
 
