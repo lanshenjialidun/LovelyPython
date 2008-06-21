@@ -1,15 +1,17 @@
 ## page was renamed from zhArticleTemplate
 ##language:zh
 #pragma section-numbers on
+||'''status'''|| 正式 || ZoomQuiet|| 完成度:90%||
 
-::-- ZoomQuiet [[[DateTime(2005-12-11T04:52:04Z)]]]
 [[TableOfContents]]
 
-= K日继续:跟自个儿较劲 =
+= KDay N:经验总结畅想web应用 =
 '''提出自个儿的建议，为社区贡献'''
  * 应该说，到这会儿，你就要考虑将体验中爽的整理为文章分享，不爽的汇报社区以支持改进……
 
-[[Include(ZoomqKdaysWay)]]
+图 KdayN-1
+
+attachment:KdayN-1.gif
 
 == 优化 ==
  1. 减少硬盘的读取次数
@@ -76,18 +78,22 @@
       
      1. 问卷风格的快速切换,实现皮肤功能
      1. ………… 需求是变化莫测的，人的欲望也是无常的…………
-   
+
 == 实例下载 ==
- * 使用 [wiki:self/AllAboutSubversion SVN 下载]:
-    [wiki:selfsvn/zqlib/tangle/zoomq/Karrigell/obpKWD/KwDays/ KwDays实例]
- * '''[http://pythonic.zoomquiet.org/index.html 在线实例]'''
-  * [http://pythonic.zoomquiet.org/demo/tour.htm 教程]
-  * '''[http://pythonic.zoomquiet.org/z/index.ks/index 体验中心]''' -- 完整版的问卷管理系统
+使用SVN下载地址:
+ * http://openbookproject.googlecode.com/svn/trunk/LovelyPython/KDays/kdayN
 
-== 讨论 ==
-[[Include(/Discuss)]]
+== 练习 ==
 
-
+    读者做到这一步应该非常非常了解Karrigell的开发流程了, 接下来还是要对已有的web应用进行优化...这些只能通过自己不断的学习慢慢了解 (^_^)
+     
 ----
-返回 KarrigellWebDev -- 快速体验K开发
+返回 [:ObpLovelyPython/KDays:KDays实例故事]
+
+::-- ZoomQuiet [[[DateTime(2005-12-11T04:52:04Z)]]]
+
+[[PageComment2]]
+
+
+
 
