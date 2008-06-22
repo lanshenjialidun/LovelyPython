@@ -1,0 +1,58 @@
+##language:zh
+#pragma section-numbers on
+||'''status'''|| 校对 || Lizzie|| 完成度95%||
+
+
+[[TableOfContents]]
+
+= 字串格式化 =
+
+== 相关参考 ==
+ * [http://docs.python.org/lib/typesseq-strings.html String Formatting Operations]
+ * [http://www.woodpecker.org.cn/diveintopython/native_data_types/formatting_strings.html 格式化字符串]
+ * [http://blog.csdn.net/magicbreaker/archive/2008/06/09/2525722.aspx 字符串的格式化]
+
+== 格式化操作符 ==
+Python中，使用`%`作为格式化操作符。它的使用方式：格式字串 % 值表，非常类似于C语言中的sprintf()。 比如：{{{
+In [1]: a = 1
+
+In [2]: b = 0.999999
+
+In [3]: c = 'somestring'
+
+In [4]: d = (a, b, c)
+
+In [5]: print 'a = %d b = %f c = %s d = %s' % (a, b, c, d)
+a = 1 b = 0.999999 c = somestring d = (1, 0.99999899999999997, 'somestring')
+}}}从这个例子中可以看到，最后的输出格式是按照前面的格式化字符串的，即把后面的值表按照前面的格式化字符串来组织。后面的值表一般为一元组，但若只有一个值的话，就可以不必使用元组，直接写这个值即可。另外，也可以使用字典，比如：{{{
+In [7]: print '%(a)d %(b)f %(c)s %(d)s' % {'a':a, 'b':b, 'c':c, 'd':d} 
+1 0.999999 你好 (1, 0.99999899999999997, '\xe4\xbd\xa0\xe5\xa5\xbd')
+}}}使用%(字典key)格式化选项这种方式即可按照格式输出后面字典中对应key的值。
+
+== 格式化选项介绍 ==
+ * d  	表示一有符号十进制数。
+ * i 	也表示一有符号十进制数。
+ * o 	表示无符号八进制数。
+ * u 	表示无符号十进制数。
+ * x 	表示无符号十六进制数（小写）。 
+ * X 	表示无符号十六进制数（大写）。 
+ * e 	表示指数形式的浮点数（小写）。
+ * E 	表示指数形式的浮点数（大写）。	
+ * f 	表示浮点数。
+ * F 	也表示浮点数。
+ * g 	表示浮点数（根据值的大小采用%e或%f）。
+ * G 	表示浮点数（根据值的大小采用%E或%F）。
+ * c 	表示单个字符（允许是整型和单个字符串）。
+ * r 	表示字符串（使用对象的repr()将其转换为字符串形式）。	
+ * s 	表示字符串（使用对象的str()将其转换为字符串形式）。
+ * %  表示字符%。
+
+== 小结 ==
+字串格式化，即是将字符串按照一定格式输出，应该不难掌握。
+
+== 练习 ==
+## 设计实用练习,保证每个练习都可以扩展出去
+
+----
+::Lizzie [2008/06/22 13:24:00]
+[[PageComment2]]
