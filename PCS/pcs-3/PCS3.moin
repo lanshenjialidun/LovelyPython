@@ -1,0 +1,30 @@
+##language:zh
+#pragma section-numbers on
+||'''status'''|| 校对 || Lizzie || 完成度95%||
+
+
+[[TableOfContents]]
+
+= 交互环境之winpy =
+
+== 相关参考 ==
+ * [http://www.activestate.com/ ActivesPython]
+
+== ActivesPython ==
+ActivesPython是标准的Python发行版，在Windows，Linux ，Mac OS X等等都能使用。
+在Windows下安装ActivesPython：
+ 1. 下载[http://downloads.activestate.com/ActivePython/windows/2.5/ActivePython-2.5.2.2-win32-x86.msi ActivesPython]。
+ 1. 双击安装文件，运行安装程序。该过程和很多软件在windows下的安装很类似，在这里就不描述了。主要注意的地方是在ActivesPython安装时需选对Python路径（这表示事先得安装好Python），其他都可以默认。
+ 1. 安装完毕。打开ActivesPython的PythonWin，可以看到如下的界面：
+attachment:PCS3-1.png
+里面的一个交互界面，其使用方式和python默认环境非常类似。具体可参考PCS1。
+
+== 小结 ==
+ActivesPython是一个不错的Python编辑器和运行调试工具。界面比较简单，但功能对于初学者来说已经足够了。
+
+== 练习 ==
+## 设计实用练习,保证每个练习都可以扩展出去
+
+----
+::Lizzie [2008/06/23 21:24:00]
+[[PageComment2]]
