@@ -1,0 +1,83 @@
+##language:zh
+#pragma section-numbers on
+||'''status'''|| 校对 || || 完成度95%||
+
+[[TableOfContents]]
+
+= 逻辑分支 =
+== 相关参考 ==
+ * [http://wiki.woodpecker.org.cn/moin/ObpLovelyPython/LpyQLearn-3-process 过程控制]
+ * [http://wiki.woodpecker.org.cn/moin/PyAbsolutelyZipManual Python 绝对简明手册]
+
+== 最基本的用法 ==
+{{{ 
+    
+  if a == b:
+      print 'a 等于 b'
+  elif a < b:
+      print 'a 小于 b'
+  elif a > b:
+      print 'a 大于 b'
+  else:
+      print '在本宇宙中这是不可能滴！'
+}}}`elif`就是`else if`的缩写。
+== 使用if代替switch ==
+Python没有switch语句，不过if elif else组合已经足以应付大部分情况。而对于另外的一种switch应用场景，python 还有更加优雅的方式来处理：{{{
+    # 伪码 根据输入的不同参数选择程序的不同行为
+    switch( sys.argv[1] ):
+        case '-e':
+            walk_cd()
+        case '-d':
+            search_cd()
+        ...
+        default:
+            raise CommandException("Unknown Commend: " + sys.argv[1])
+
+    # 使用 if 替代
+    if sys.argv[1]=='-e':
+        walk_cd()
+    elif sys.argv[1]=='-d':
+        search_cd()
+    ...
+    else:
+        raise CommandException("Unknown Command: " + sys.argv[1])
+
+    # 更好的做法
+    commands = {
+        '-e'   : walk_cd,
+        '-d'   : search_cd,
+    }
+    try:
+        commands[ sys.argv[1] ]()
+    except KeyError:
+        raise CommandException("Unknown Command: " + sys.argv[1])
+}}}最后一种方式不管从可读性（这是显然的）、性能（哈希表 vs 普通查找）上都高出很多。另外最后一种做法将参数与行为的映射完全独立出来了，一来修改起来及其方便，到时候也很容易将它们分离到配置文件中去。
+
+== 三元运算符 ==
+{{{    
+    >>> def get_length(s):
+    ...     # 等价于:
+    ...     # if(s!=None)
+    ...     #     return len(s)
+    ...     # else:
+    ...     #     return len('None')
+    ...     return len(s) if s!=None else len('None')
+    ...
+    >>> get_length(None)
+    4
+}}}用 and or 技巧可以写成：{{{
+    >>> def get_length(s):
+    ...     return s!=None and len(s) or len('None')
+    ...
+    >>> get_length(None)
+    4
+}}}不过，第一种写法看起来更易读些。
+
+== 小结 ==
+
+== 练习 ==
+## 设计实用练习,保证每个练习都可以扩展出去
+
+----
+::Lizzie [2008/06/23 13:24:00]
+[[PageComment2]]

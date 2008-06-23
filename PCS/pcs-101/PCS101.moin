@@ -1,0 +1,223 @@
+##language:zh
+#pragma section-numbers on
+||'''status'''|| 校对 || || 完成度95%||
+
+
+[[TableOfContents]]
+
+= 内建数据类型 =
+== None  ==
+None 表示该值不存在，比如没有定义返回值的函数就返回None。
+
+== True / False ==
+布尔类型，True等价于1，False等价于0。另外，非空字符串、非空列表、非空字典等若当作布尔类型的话值为True，反之为False。
+
+== List ==
+{{{
+>>> test = [1, 2, "yes"]
+}}}用符号`[]`表示列表。
+=== 内建函数 ===
+ 1. append(x)    追加到链尾。
+ 1. extend(L)    追加一个列表，等价于+=。
+ 1. insert(i,x)   在位置i插入x。
+ 1. remove(x)   删除第一个值为x的元素，如果不存在会抛出异常。
+ 1. reverse()   反转序列。
+ 1. pop([i])   返回并删除位置为i的元素，i默认为最后一个元素(i两边的[]表示i为可选的，实际不用输入)。
+ 1. index(x)    返回第一个值为x的元素，不存在则抛出异常。
+ 1. count(x)   返回x出现的次数。
+ 1. sort()   排序。{{{
+>>>test=[1,2,"yes"]
+
+>>>test.append(1) #追加到链尾
+>>>test
+[1, 2, 'yes', 1]
+
+>>>test.extend([ 'no','maybe']) #追加一个列表
+>>>test
+[1, 2, 'yes', 1, 'no', 'maybe']
+
+>>> test.insert(0,'never') #在位置0插入'never'
+>>> test
+['never', 1, 2, 'yes', 1, 'no', 'maybe']
+
+>>> test.remove('no') #删除第一个值为"no"的元素,如果不存在会抛出异常
+>>> test
+['never', 1, 2, 'yes', 1, 'maybe']
+
+>>> test.reverse() #反转序列
+>>> test
+['maybe', 1, 'yes', 2, 1, 'never']
+
+>>> test.pop() #返回并删除位置为i的元素,i默认为最后一个元素
+'never'
+>>> test
+['maybe', 1, 'yes', 2, 1]
+
+>>> test.index('yes') #返回第一个值为'yes'的元素,不存在则抛出异常
+2
+
+>>> test.count(1) #返回1出现的次数
+2
+
+>>>test.sort() #排序
+>>> test
+[1, 1, 2, 'maybe', 'yes']
+}}}
+=== 切片 ===
+从序列中抽取一部分。
+{{{
+>>> test=['never', 1, 2, 'yes', 1, 'no', 'maybe']
+
+>>> test[0:3] #包括test[0],不包括test[3]
+['never', 1, 2]
+
+>>> test[0:6:2] #包括test[0],不包括test[6],而且步长为2
+['never', 2, 1]
+
+>>> test[:-1] #包括开始,不包括最后一个
+['never', 1, 2, 'yes', 1, 'no']
+
+>>> test[-3:] #抽取最后3个
+[1, 'no', 'maybe']
+
+>>>test[::-1] #倒序排列
+['maybe', 'no', 1, 'yes', 2, 1, 'never']
+}}}
+=== 列表推导式 ===
+可以直接通过for循环生成一个list。
+{{{
+>>>freshfruit=['  banana  ','   loganberry  ']
+>>>[weapon.strip() for weapon in freshfruit]
+['banana', 'loganberry']
+}}}说明：strip()是去除字符串两端多于空格，该句是去除序列中的所有字串两端多余的空格。
+{{{
+>>>vec=[2,4,6]
+>>>[3*x for x in vec if x>3]
+[12, 18]
+}}}
+{{{
+>>>[(x,x**2) for x in vec]
+#循环变量要是一个sequence,而[x,x**2 for x in vec]是错误的
+[(2,4),(4,16),(6,36)]
+}}}
+{{{
+>>>vec2=[4,3,-9]
+
+>>>[x*y for x in vec for y in vec2]
+[8, 6, -18, 16, 12, -36, 24, 18, -54]
+
+>>>[vec[i]+vec2[i] for i in range(len(vec))]
+[6, 7, -3]
+}}}
+{{{
+>>>[str(round(355/113.0,i)) for i in range(1,6)]
+#str()是转换类型为可以打印的字符
+#round(x,n)表示对x保留n位小数(四舍五入)
+['3.1', '3.14', '3.142', '3.1416', '3.14159']
+}}}
+
+== 元组 ==
+一旦初始化便不能更改的数据结构，速度比list快。
+{{{
+>>>t=1234,5567,'hello' #t=(1234,5567,'hello')的简写
+
+>>>x,y,z=t    #拆分操作可以应用于所有sequence
+>>>x
+1234
+
+>>>u=t,(1,2,3)
+>>>u
+((1234,5567,'hello'),(1,2,3))
+
+>>>empty=() #空元组
+>>>singleton='hi', #单个元素的元组,注意逗号
+}}}
+通过元组可以很简单的进行数据交换。比如：
+{{{
+a=1
+b=2
+a,b=b,a
+}}}
+== set ==
+set（集合）：无序不重复的元素集。
+{{{
+
+>>>basket = ['apple','orange','apple','pear','apple','banana']
+
+>>>fruit=set(basket)
+
+>>>fruit
+set(['orange', 'pear', 'apple', 'banana'])
+
+>>>'orange' in fruit
+True
+
+>>>a=set('abracadabew')
+>>>a
+set(['a', 'c', 'b', 'e', 'd', 'r', 'w'])
+
+>>>b=set('wajgwaoihwb')
+>>>b
+set(['a', 'b', 'g', 'i', 'h', 'j', 'o', 'w'])
+ 
+>>>a-b    #差
+set(['c', 'r', 'e', 'd'])
+
+>>>a|b   #并
+set(['a', 'c', 'b', 'e', 'd', 'g', 'i', 'h', 'j', 'o', 'r', 'w'])
+
+>>>a&b   #交
+set(['a', 'b', 'w'])
+
+>>>a^b   #(并-交)
+set(['c', 'e', 'd', 'g', 'i', 'h', 'j', 'o', 'r'])
+}}}
+== dict ==
+字典：关键字为不可变类型，如字符串、整数、只包含不可变对象的元组。列表等不可以作为关键字。
+如果列表中存在关键字对，可以用dict()直接构造字典。而这样的列表对通常是由列表推导式生成的。
+{{{
+
+>>>tel={'jack':4098,'sape':4139}
+
+>>>tel['guido']=4127
+
+>>>tel
+{'sape': 4139, 'jack': 4098, 'guido': 4127}
+
+>>>tel['jack'] #如果jack不存在,会抛出KeyError
+4098
+>>>a.get("zsp",5000) #如果"zsp"为tel的键则返回其值,否则返回5000
+
+>>>del tel['sape'] #删除键'sape'和其对应的值
+>>>tel.keys() #复制一份键的副本,同理tel.items()为值的副本
+['jack', 'guido']
+
+>>>"jack" in tel #判断"jack"是否tel的键
+True
+>>>"zsp" not in tel
+True
+
+>>>for k,v in tel.iteritems():print k,v  #同理tel.iterkeys()为键的迭代器,tel.itervalues()为值的迭代器
+jack 4098
+guido 4127
+
+>>>tel.copy() #复制一份tel
+{'jack': 4098, 'guido': 4127}
+
+>>> tel.fromkeys([1,2],0) #从序列生成并返回一个字典,其值为第二个参数(默认为None),不改变当前字典
+{1: 0, 2: 0}
+
+>>>tel.popitem() #弹出一项
+('jack', 4098)
+
+}}}
+
+== 小结 ==
+
+
+== 练习 ==
+## 设计实用练习,保证每个练习都可以扩展出去
+
+----
+::Lizzie [2008/06/23 13:24:00]
+[[PageComment2]]
