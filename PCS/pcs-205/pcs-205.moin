@@ -26,6 +26,26 @@ for index,obj in enumerate(mylist):
 2,"c"
 }}}
 
+
+== 其他内置函数 ==
+ * 小白:enumerate很方便,那Python还有什么内置函数吗?
+ * 行者:map,zip,filter,等等,很多.
+
+=== map ===
+行者:以一个小例子,展示map的威力,将数组中每一个数乘以2
+{{{#!python
+map(lambda x:x*2,[1,2,3,4,5])
+}}}
+行者:同时循环两个一样长的数组
+{{{#!python
+for x,y in zip([1,2,3],[4,5,6]):
+    print "x,y",x,y
+}}}
+行者:过滤掉,数组中小于3的数
+{{{#!python
+filter(lambda x:x>3,[1,2,3,4,5])
+}}}
+
 == 练习 ==
 
 
