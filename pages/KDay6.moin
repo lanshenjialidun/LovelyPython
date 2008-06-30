@@ -16,6 +16,11 @@
   * 还是 FreeMind 直观,操作也非常快捷,复制,移动太爽直了!
   * 而且是XML的数据文件!
  * 曾经依照提供的`freemind.xsl`+`freemind.mm` 输出了加个xml头说明的自定 mm 文件
+{{{详细::
+PCS402 XML
+介绍了这一风生水起的技术领域,
+分享了在Python 中对XML处理思路
+}}}
  
 图 KDay6-9
 
@@ -39,7 +44,7 @@ attachment:KDay6-2.png
  
 
 == ElementTree,当然的！ ==
-'''处理XML Python 有丰富的模块,你知道其中 ElementTree 最方便支持部分Xpath 的搜索'''
+'''处理XML Python 有丰富的模块,小白从行者们那儿知道其中 ElementTree 最方便支持部分Xpath 的搜索'''
  * 其实从使用方面也是 ElementTree 最PythyonIc 了
  * `deptorg.py` mm专用理解脚本中:{{{#!python
 from elementtree import ElementTree
@@ -66,10 +71,16 @@ attachment:KDay6-3.png
  * 就使用 `findall()` 和 `attrib["TEXT"]` 便可以判定/获取足够的信息,输出成以上的页面从 mm 中!!!
  * 哈哈哈!具体的就看代码吧……
  
+{{{详细::
+PCS214 ElementTree
+进一步介绍了这一因为自身的优秀品质,被吸收为内置模块的第三方作品;
+分享了相关的常用操作体验
+}}} 
+
 == Karrigell 的对象混合 ==
 '''但是！怎么样可以使用这种mm 的理解成果？'''
  * 麻烦在于 `ElementTree.parse(xml文件)` 要可以直接访问的文件名
- * 你不想在程序中包含太多系统的路径信息
+ * 小白不想在程序中包含太多系统的路径信息
   1. 反复尝试，发现从相对路径偏移还是从URL 来访问都不稳定，也麻烦
   1. 最简单的就是理解脚本和mm 文件在一起
  * 问题就来了，各种事务页面如何快捷直观的使用理解成果？
@@ -79,14 +90,14 @@ attachment:KDay6-3.png
             |
             +- 因为是从index.ks/login 之类下级行动函式页面访问}}}
             
-  * 有MoinMoin 的经验，你就想这样一来应该能将字典对象混人当前名称空间??
+  * 有MoinMoin 的经验，小白就想这样一来应该能将字典对象混人当前名称空间??
    * 在专门mm 理解脚本-- '''deptorg.py''' 中 `print dir()`
 
 图 KDay6-4
 
 attachment:KDay6-4.png
 
-   * 不会这么简单吧！你发现了 `index.ks` 事务页面中才有的对象 '''sess''' —— 对话容器
+   * 不会这么简单吧！小白发现了 `index.ks` 事务页面中才有的对象 '''sess''' —— 对话容器
    * 尝试的赋值一下子？{{{
 #deptorg.py 中最后..
 sess.usr["dept"]=deptall
@@ -100,7 +111,7 @@ attachment:KDay6-5.png
 == 回答验证 ==
 '''进行回答统计前，有一个先决重构'''
  * 有效的答案是全部问题都回答了，不然的话统计很麻烦的说……
- * 但是曾经令你激动的 '''[http://www.amowa.net/jsvalidation/ JavaScript Validation Framework]''' 国人作品…… 忽然间再也不好用了？！
+ * 但是曾经令小白激动的 '''[http://www.amowa.net/jsvalidation/ JavaScript Validation Framework]''' 国人作品…… 忽然间再也不好用了？！
   * 不得以，仔细看了一下子代码，才发现，有好几点是不能忍的:
       1. 所有表单都要读取同一配置XML，不论访问者想回答哪个问卷，导致动态生成配置文件时有争用问题
       1. 同样的原因，导致每次读取配置文件，可能要读入相对无用的几倍信息(别的表单的检验策略也被迫读取了)
@@ -156,7 +167,7 @@ for a in aed:
         unknow.append(a)
 }}}
  * 先要预备处理一下子，过滤出不知道的人
-  1. 明显的你约定回答文件的命名格式是 `问卷名.成员帐号名.aq`
+  1. 明显的小白约定回答文件的命名格式是 `问卷名.成员帐号名.aq`
   1. 所以可以根据文件名快速整理出名单列表 `aed`
   1. 然后，就有了已知合理成员回答列表 `done` 和 `unknow` 未知成员列表
 
@@ -213,7 +224,7 @@ stat.append(_grade(crtright,open(fn,"r").read().split()))
 sum(stat)/len(stat)) 就出来了
 reduce(lambda a,b:a+b, stat)/len(stat) 更加cool
 }}}
- * 哈哈哈！！什么也难不住你！
+ * 哈哈哈！！什么也难不住小白！
  
 图 KDay6-10
 
@@ -222,7 +233,7 @@ attachment:KDay6-10.png
 
 == 事务测试 ==
 '''不用想什么黑/白盒；边界，点击就成！'''
- * 好了！所有功能都实现了，你现在非常成就感的一路点击一下子
+ * 好了！所有功能都实现了，小白现在非常成就感的一路点击一下子
  * 感觉哪里不好，随手就修正它！
  * 溜个几回，功能测试基本也就了了…………
      

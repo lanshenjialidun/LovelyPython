@@ -59,15 +59,17 @@ table = TABLE(TR(TH('Title')+TH('Artist')) + rows)
 print HTML(HEAD(header) + BODY(title + table))
 }}} 可以将一个标准的HTML页面由几行 Py脚本自然生成！
  * 那未，只要结合 KS 和 HTMLTags 功能就可以快速实现想要的复杂展示功能了！还可以方便的复用！
- * 当然的使用["Leo"] 八股化你所有的.KS
+ * 当然的使用["Leo"] 八股化所有的.KS
 
 图 KDay4-2
 attachment:KDay4-2.png
 
-  1. `<< page declarations >>` 同样是引用声明什么的
+  1. `<< page declarations >>` 将引用声明什么的都归整到一个节点中
   1. `<< htmlcode >>` 就是利用["Leo"]来快速复用的各种 HTML 代码
   1. `<<ini>>` 初始化部分，就是各响应页面都要使用的变量准备
-  1. `@others` 包含以下各种 `def action():` 样定义的实际响应页面和`def _function():` 可以反复调用的不作为页面响应的普通函式声明
+  1. `@others` 包含以下各种实际运行的功能页面,包含:
+   * `def action():` 样定义的实际响应页面
+   * `def _function():` 可以反复调用的不作为页面响应的普通函式声明
   
 == 登录 ==
 '''从默许的index 自动导向 login 那'''
@@ -183,8 +185,6 @@ attachment:KDay4-4.png
  * 实际上，本日，小白使用 .ks 体验了一把函式化的页面发布，成果就一个脚本'''index.ks'''
   * 但是以前完成的`.pih` 依然好用，而小白将趁兴将它们都重构为更加爽快的'''函式化页面发布'''
  * 而且，小白忍不住对CSS进行了深入的定制，在输出代码的最简和页面表现丰富之间进行了有效的探索
- 
- 
  
  
 === 明日任务 ===

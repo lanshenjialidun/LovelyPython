@@ -288,7 +288,7 @@ def index(**args):
 attachment:CDay2-6.png
 图 CDay2-6
 
-==== 功能 ====
+==== 搜索功能 ====
 随便输入,提交,没有任何问题,但是怎么获得提交的信息?
 
 http://karrigell.sourceforge.net/en/programming.htm -- 有说:

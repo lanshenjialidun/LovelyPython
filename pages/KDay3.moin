@@ -101,7 +101,7 @@ def qpubish(dict):
     p.addGroup(["submit","btn_submit","提交"]
                ,["reset","btn_reset","重写"])
 }}}
- * 注意到原先的 Karrigell_QuickForm 只有display()，要求直接输出，但是你需要进一步的HTML 处理
+ * 注意到原先的 Karrigell_QuickForm 只有display()，要求直接输出，但是小白需要进一步的HTML 处理
  * 所以有了{{{#!python
 def export(self):
     """ export the html form code so people can do something for them self
@@ -124,6 +124,7 @@ def export(self):
  * 呜乎哀哉！！这是个问题哪！如果不是所有问题回答完就提交的话
   * 交给服务端检验，浪费带宽！你还要记录上次的问题情况，返回/提示/重答
   * 不检验，则没有办法进行统计
+  
 === 继续发现！ ===
 '''现在的问题是有什么现成的可以模式化的定义表单测验的JS组件？'''
  *  TiosnG ![ti'aosn'gu]
@@ -136,7 +137,7 @@ def export(self):
 
 attachment:KDay3-3.png
 
-  * 致力于 Python 的Ajax框架开发的 [http://www.amowa.net AMOWA]团队作品，值得期待！使用之！
+  * 致力于 Python 的Ajax框架开发的 [http://www.amowa.net AMOWA]团队作品，值得期待！试用之！
 
 === 迁就,先！ ===
  * 与KarriGell 配合[[FootNote(测试JS 成功引用否的小技巧:`alert("Include KO!");` JS 中加入强制提示看刷页面见分晓！)]]，当前需要:
@@ -226,7 +227,7 @@ def qpubish(dict):
 ##attachment:snap-KwDay31.png 
 
 == 滥用Leo ==
-'''到现在页面都是白丁！不能忍了！加载CSS！'''
+'''到现在页面都是白板！不能忍了！加载CSS！'''
  * 不清楚KarriGell 的页面引用效率，直接将CSS，写入页面好了，反正有["Leo"]来维护
 
 === CSS设计技巧 ===
