@@ -7,9 +7,9 @@
 [[TableOfContents]]
 
 = KDay 1:品尝KarriGell =
-'''快速根据PHP 的经验尝试Karrigell 的开发'''
+'''快速根据PHP的现成代码思路尝试Karrigell 的开发'''
 
- * 原先的问卷生成系统，其实就是一组手工写成的PHP页面,可以将每个人的回答记录到数据库中,后来小白学习了Python 就写了个脚本,可以从 .ini 文本文件中自动批量生成相似的PHP页面,所以,现在的问卷生成流程是:
+ * 原先的问卷系统，其实就是一组手工写成的PHP页面,可以将每个人的回答记录到数据库中,后来小白学习了Python 就写了个脚本,可以从 .ini 文本文件中自动批量生成相似的PHP页面,所以,现在的问卷生成流程是:
   * .ini(txt) -> Python -> PHP -> DB -> Python -> 回答统计
  * 这样的数据流程真够傻的
  * 总算又有了点儿时间，小白就想尝试使用纯Python 的环境重构出一个可以快捷修改，统计问卷的简单系统。
@@ -22,8 +22,9 @@ PHP ~ Personal Hypertext Preprocesser
 但是不属于本书分享的范畴,请读者自行搜集相关文档学习吧;
 TisonG!
 }}}
+
 == 准备环境 ==
-'''为什么选择KarriGell? 缘分吧…………哈哈哈！'''
+'''为什么选择KarriGell? 缘分吧……其实是懶,在社区学习中,小白体验了KarriGell ,当然,就手先使用了……哈哈哈！'''
 
 {{{详细:
 PCS301 Karrigell
@@ -39,7 +40,7 @@ PCS301 Karrigell
  图 KDay1-1
 
  attachment:KDay1-1.png
-  * 尝试了一下子在 M$ 和 FreeBSD 平台中，是完全一样的反应！
+  * 尝试了一下子在 M$ 和 FreeBSD/Ubuntu 平台中，都是完全一样的反应！
   * 意味着，只要有Python环境，你随时可以获得一个全功能的Web 应用环境！
  
 == 动手动脚 ==
@@ -62,11 +63,11 @@ print dir(a)
 == 组织开发环境 ==
 '''OK！要可以随时看到教程，同时又有独立的站点空间……'''
 
- * 小白好容易学习，掌握了 Leo ，而且感觉一切都应该由 Leo 组织才自然
+ * 小白好不容易学习,掌握了 Leo ,而且感觉一切都应该由 Leo 组织才自然
  * 那未就按照直觉来定制KarriGell 一下子:
      * 看了其它人的体验……
      * 其实 KarriGell 的设置非常的简单的，由统一的 ini 文件来设定整体行为
-     * 你想要的非常简单，就是将KarriGell 的默许教程站点和你的开发隔离开..{{{
+     * 现在的需求非常简单，就是将KarriGell 的默许教程站点和你的开发隔离开,以便不影响开发的同时可以随时回来参考内置教程,所以{{{
 [Alias]
 # associates an alias to a path on the file system
 # always use / as path separator, even on Windows
@@ -78,8 +79,8 @@ doc=%(base)s/doc
 debugger=%(base)s/debugger
 }}}
   * Yeah! 就是这里，非常直观，那未定义一个你自个儿开发的站点目录在 KarriGell 系统目录中就好
-   * 嗯嗯……感谢Unix 系统中的 link 命令了！ 如果在 M$ 中就只能真的在其中建立目录
-  * Leo 中快速设立好自个儿的工程，组织一个最简单的 index.pih:{{{
+   * 嗯嗯……感谢Unix 系统中的 link 命令了！小白可以将开发中的问卷系统文件放在任何习惯的目录中,仅仅链接到KarriGell 的环境目录中就完成了应用安装, 如果在 M$ 中就只能真的在其中建立目录
+  * 首先,习惯性的在 Leo 中设立好自个儿的工程，组织一个最简单的 index.pih:{{{
 <html><body>
 <%
 a="Kariigell"
@@ -107,7 +108,7 @@ k=%(base)s/karriweb
 q=%(base)s/karriweb/questionnaire
 ...
 }}}
-  * OK! 重启一下子KarriGell : `Ctrl+C` 通用操作，让KarriGell 的Python 进程停止
+  * OK! 重启一下子KarriGell ,当然, `Ctrl+C` 是在Linux/Unix 系统中的通用操作，令 KarriGell 的Python 进程停止
   * 然后一样的 `python Karrigell.py`
   * 那未 http://localhost/k
    * 嗬嗬，一切如愿！ KarriGell 正如你想象的有了实时的反应，不象CherryPy 你的每次修改，都要重启服务

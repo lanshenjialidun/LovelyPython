@@ -3,7 +3,8 @@
     @author: U{Zoom.Quiet<mailto:Zoom.Quiet@gmail.com>}
     @license:GPL v3 U{http://www.gnu.org/licenses/}
     @version:0.7
-    @note: 作为WEB界面主程序，使用Karrigell 框架
+    @note: 作为WEB界面主程序，使用Karrigell 框架;
+        - CDCPATH 目录要在运行时,修订成你当前的 cdc 数据存放点
     @todo: 通过CSS美化界面表现
 '''
 import os,sys,fnmatch,time
@@ -15,7 +16,8 @@ from cdctools import *
 #print dir()    #通过检查名称空间进行测试
 
 ## 全局变量
-CDCPATH = "/home/zoomq/workspace/obp/trunk/LovelyPython/PyDays/pyd+2/cdc"
+CDCPATH = "/home/zoomq/0penproj.s/googlecode.com/OBP/trunk/LovelyPython/CDays/cday2/cdc"
+##"/home/zoomq/workspace/obp/trunk/LovelyPython/PyDays/pyd+2/cdc"
 CDROM = '/media/cdrom0'
 
 def _htmhead(title):

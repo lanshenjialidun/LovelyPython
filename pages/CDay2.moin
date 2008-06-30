@@ -217,7 +217,7 @@ PCS114 交互参数
 ==== 导入 ====
 好了,将原先的 工具脚本导入进来就可以通过网页调用原先的功能了,但是...
 
-怎么从 `CDays/cday2/Karrigell-2.3.5/webapps/cdc/index.ks` 可以`import` 到 `CDays/cday2/cdctools.py`???
+怎样才能从 `CDays/cday2/Karrigell-2.3.5/webapps/cdc/index.ks` 也可以`import` 到 `CDays/cday2/cdctools.py` 来复用已经成熟的功能?
 
 好象,貌似, `import` 操作不象网页的包含动作有相对路径可以玩的?
 
@@ -327,18 +327,8 @@ attachment:CDay2-7.png
 成咧!! 嗬嗬嗬,一切太自然了...
 
 
-==== 二传 ====
+==== 搜索结果"二传" ====
 不过...这搜索匹配结果的输出也忒糙了点儿,随手改进一下吧:
-{{{#!python
-def cdcGrep(cdcpath,keyword):
-    filelist = os.listdir(cdcpath)          # 搜索目录中的文件
-    for cdc in filelist:                    # 循环文件列表
-        if ".cdc" in cdc:
-            cdcfile = open(cdcpath+cdc)         # 拼合文件路径，并打开文件
-            for line in cdcfile.readlines():    # 读取文件每一行，并循环
-                if keyword in line:             # 判定是否有关键词在行中
-                    print "<br/>",line                  # 打印输出
-}}}唉呀呀? 好象没有反应?
 
 {{{#!python
 def cdcGrep(cdcpath,keyword):
@@ -355,15 +345,19 @@ def cdcGrep(cdcpath,keyword):
     print export
 }}}呜乎矣哉...依然没有反应,页面居然输出是 `None`?!
 
-...嗯嗯嗯...嗯嗯嗯?! 怎么意思? import 的函式不算Karrigell 体系里的,无法直接返回数据的?!
-又或是数据文件在 Karrigell 目录之外无法获取内容？
+...嗯嗯嗯...嗯嗯嗯?! 怎么意思? 
 
+好吧,使出调试的终极招术:`重启服务!`
+ * `Ctrl+c` 或是直接关闭运行脚本的命令窗口
+ * 再次`python Karrigell.py`
 
-小白没空深入研究Karrigell 和外部模块的交互原理,自然的决定使用第三方文件来进行数据传递...
+Bingo! 再次搜索,输出了修订后的结果列表!
 
-那么... `二传`一个!
+  小白进一步多想了点,搜索,总是有重复的搜索,怎么样可以将每次的搜索成果记录下来,以便可以日后进行分析或是直接复用呢?
 
-其实因为,想用一超级 cool 的模块 `pickle` -- 序列化! 对象腌制器！ -- 据说可以将Python 的数据对象输出成文本文件，而且导入时直接转化成自然的对象！！！
+  那么... `二传`一个!
+
+  其实因为,想用一超级 cool 的模块 `pickle` -- 序列化! 对象腌制器！ -- 据说可以将Python 的数据对象输出成文本文件，而且导入时直接转化成自然的对象！！！
 
 {{{详细::
 PCS210 pickle
@@ -390,6 +384,7 @@ if __name__ == '__main__':      # this way the module can be
     '''
     CDROM = '/media/cdrom0'
     CDCPATH = "/path/to/LovelyPython/CDays/cday2/cdc/"
+    ## 需要根据实际情况指向真实的目录
     cdcGrep(CDCPATH,"EVA")
     print pickle.load(open("searched.dump"))
 }}}
@@ -463,7 +458,7 @@ Karrigell 这么听话，几乎是随想随写就完成了 Web 化的界面实�
 == web.py ==
 '''web.py 则是绝对简单直接的应用框架,但是同样拥有各种高级特性!'''
 
-原先就两个文件的完整最精简框架,现在虽然也发展到有十来个文件,但是也包含了从DB到模板到web服务林林总总所有高级web 应用的特性.
+核心文件就两个的完整最精简Web应用框架,现在虽然也发展到有十来个文件,但是也包含了从DB到模板到web服务林林总总所有高级web 应用的特性.
 
 不过坚持了最Pythonic 的直接表述原则,小白看到的完整功能网站实例就8行:
 {{{#!python
@@ -503,13 +498,11 @@ attachment:CDay2-11.png
 == 练习 ==
 ## 设计实用练习,确保体例代码可以自由扩展出各种实用应用!
 
-(1) 如果在Karrigell 实例中，不复制 cdctools.py 到webapp 目录中，也可以令 index.ks 引用到？
+ * (1) 如果在Karrigell 实例中，不复制 cdctools.py 到webapp 目录中，也可以令 index.ks 引用到？
 
+ * (2) 经过本章Karrigell的初步学习，实现一个简易的web留言系统。主要利用Karrigell_QuickForm实现提交留言并显示出来。
 
-
-(2) 经过本章Karrigell的初步学习，实现一个简易的web留言系统。主要利用Karrigell_QuickForm实现提交留言并显示出来。
-
-
+ * (3) 思考,本日提出的,搜索结果积累想法,如何实现? 如何在搜索时可以快速确认以前曾经搜索过相同的关键词,直接输出原先的搜索成果,不用真正打开CD信息文件来匹配?
 
 ----
 ::-- ZoomQuiet [[[DateTime(2007-04-13T16:29:37Z)]]]

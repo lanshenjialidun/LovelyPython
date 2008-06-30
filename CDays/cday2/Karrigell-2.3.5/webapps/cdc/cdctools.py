@@ -70,12 +70,13 @@ def formatCDinfo(root,dirs,files):
 def cdcGrep(cdcpath,keyword):
     '''光盘信息文本关键词搜索函式
     @note: 使用最简单的内置字串匹配处理来判定是否有关键词包含
-    @param cdcpath: 包含*.cdc 文件的目录
+    @param cdcpath: 包含*.cdc 文件的目录;运行前得在 __main__ 中修订成你当前的 cdc 数据存放点
     @param keyword: 搜索的关键词
     @return: 组织匹配好的信息到字典中导出成 searched.dump 文件
     @todo: 可结合搜索引擎进行模糊搜索!
     '''
     expDict = {}
+    print cdcpath
     filelist = os.listdir(cdcpath)          # 搜索目录中的文件
     for cdc in filelist:                    # 循环文件列表
         if ".cdc" in cdc:
@@ -109,7 +110,9 @@ if __name__ == '__main__':      # this way the module can be
     '''cdctools 自测响应处理
     '''
     CDROM = '/media/cdrom0'
-    CDCPATH = "/home/zoomq/workspace/obp/trunk/LovelyPython/PyDays/pyd+2/cdc/"
+    CDCPATH = "/home/zoomq/0penproj.s/googlecode.com/OBP/trunk/LovelyPython/CDays/cday2/cdc"
+    ## 以上目录要在运行时,修订成你当前的 cdc 数据存放点
+    ##"/home/zoomq/workspace/obp/trunk/LovelyPython/PyDays/pyd+2/cdc/"
     #iniCDinfo(CDROM,"cdctools-utf8-beautify.cdc")
     #cdWalker(CDROM,"cdctools-utf8-beautify.cdc")
     cdcGrep(CDCPATH,"EVA")

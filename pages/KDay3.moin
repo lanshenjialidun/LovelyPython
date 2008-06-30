@@ -2,7 +2,7 @@
 ##language:zh
 #pragma section-numbers on
 
-||'''status'''|| 正式 || ZoomQuiet|| 完成度:70%||
+||'''status'''|| 正式 || ZoomQuiet|| 完成度:90%||
 [[TableOfContents]]
 
 = KDay 3:使用第3方模块规范化表单 =
@@ -11,7 +11,7 @@
  
 == Karrigell_QuickForm  ==
 '''[http://www.orionlab.net/karrigell_quickform/Karrigell_QuickForm.html Karrigell_QuickForm]''' 真的是想要什么就来什么！
- * 刚刚从订阅的[http://sourceforge.net/mailarchive/forum.php?forum=karrigell-main karrigell-main 列表]中看到有人完成了一个 Pear 中 quickform的Karrigell 实现
+ * 刚刚从订阅的[http://sourceforge.net/mailarchive/forum.php?forum=karrigell-main karrigell-main 列表]中看到有人完成了一个 Pear(PHP的流行应用框架之一) 中 quickform的 Karrigell 实现
  * 即有之，则用之！
  * 示例：
 {{{#!python
@@ -50,7 +50,7 @@ def addRadioGroup(self,name,value):
 	    radio = radio + "<input type='radio' name='"+name+"' value='"+a+"'>"+"<label><font face=verdana size=2>"+b+"</font></label><br>"
         self.form_list.append(radio+"</td>")
 	self.form_list.append("</tr>")
-}}} 増补为:
+}}} 増补了个单选列表生成器:
 {{{#!python
 def addRadioList(self,name,desc,value,id=""):
     """add a radio element export as UL LI group

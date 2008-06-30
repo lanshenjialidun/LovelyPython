@@ -7,10 +7,11 @@
 [[TableOfContents]]
 
 = KDay 2:~ 通过表单直接完成功能！ =
-'''不管37 21 直接完成心目中的功能先！'''
- * 小白秉承之前的习惯，先计划这日的可达成目标:
-  * 可以直接读取原先的问卷设计 ini 文本，到页面的 TEXTAREA 中
-  * 然后可以提交单，并保存到服务器上的指定目录中！
+'''不管3721直接完成心目中的功能,先！'''
+
+小白秉承之前的习惯，先计划这日的可达成目标:
+ * 可以直接读取原先的问卷设计 ini 文本，到页面的 TEXTAREA 中
+ * 可以提交单，并保存到服务器上的指定目录中！
 
 == 规划 ==
 行者[:RocketyKarrigell:‘Rockety’ 对KarriGell 的设置有很好的介绍]
@@ -20,7 +21,7 @@
 obp=%(base)s/karriweb/obp
 }}} 在`Karrigell.ini` 中追加设置行，这样一来，就可以通过
  http://localhost/obp/ 来访问了
- ，当然没有在 obp 目录中安置index.htm/index.pih 之类的脚本是不会让小白看到什么的说……
+ ，当然没有在 obp 目录中安置index.htm/index.pih 之类的默认首页 KarriGell 是不会让小白看到什么的说……
  
  * 简单点儿吧！{{{# 约定以下全局性变量
 qpath = "q/"
@@ -44,10 +45,14 @@ pubq = qpath+"easy051201.cfg"
      1. 渲染输出`print Template(page, searchList=[vPool])`
      * 则模板中有`$cfgtxt` 的地方就会替换为实际数据
 
+{{{详细::
+PCS309 模板系统
+综合列举了流行的一些Web应用模板系统,
+分享了一些实用的模板选择和使用体验
+}}}
 
 == Leo 组织实现 ==
-
-'''可以在一个统一界面中把握全部章节/元素哪！'''
+'''通过Leo可以在一个统一界面中把握全部章节/元素哪！'''
  * 可以使用中文作章节名目:
      * `问卷`来组织设计文案
      * 就是`@nosent easy051201.cfg`
@@ -58,10 +63,12 @@ pubq = qpath+"easy051201.cfg"
      * `@nosent  questionnaire.tmpl` 修改问卷模板，["Cheetah"]的
 
 === 干净的处理脚本 ===
-'''MVC?尝试一下子'''
+'''总听说MVC模式,小白自个儿也想尝试一下:'''
  * `@nosent  mana.pih` 是纯HTML页面了！ 算表现(View)？
  * `<%Include("qdesign.py")%>` 来包含一个纯操作脚本，算模式了(Model)
  * `@nosent  questionnaire.tmpl` 模板，算数据控制(Control)？
+
+原来概念就是将自然的作法,起个NB的名称... ;-)
 
 === 八股文样 ===
 '''模式化的处理脚本'''
@@ -101,6 +108,7 @@ print txp
      
      1. `@nosent  qpage.py` 实际的数据重组
 === 关键代码 ===
+
  * `from dict4ini import DictIni` 当然的要从 NewEdit 中扒出 dict4ini.py 安装到当前目录中
  * 创建`def expage(dict):` 问卷输出函式，来将ini 内容整理为相应的页面
  {{{#!python
