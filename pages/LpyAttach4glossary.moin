@@ -1,3 +1,102 @@
+## page was renamed from ObpLovelyPython/LpyAttach-Glossary
+##language:zh
+#pragma section-numbers on
+##||'''status'''|| 草稿|校对|正式 || AuthorName|| 完成度15%||
+||'''status'''|| 草稿  || Liz || 完成度 75% ||
+
+
+[[TableOfContents]]
+
+
+= Aa~Dd =
+ ActivePython ::
+  * 一个商业产品，但是有自由使用版权的完善的Python开发应用环境。''''' CDay -5/1.2.1. ''''' ''''' PCS3 '''''
+ Ajax ::
+  * Asynchronous JavaScript and XML，异步JavaScript和XML，是指一种创建交互式网页应用的网页开发技术。''''' CDay N/1.1.7. '''''
+ ASCII ::
+  *  即“美国国家标准资讯交换码”（American Standard Code forInternational Interchange）的缩写。在1970年由美国国家标准化委员会通过的编码规格，它规定了128个基础英文字符的二进制编码规则。''''' CDay -1/1.3.2. ''''' ''''' PCS6 '''''
+ BIG5 ::
+  * 在台湾和香港等地广为使用的计算机汉字编码方案，使用的是繁体。 ''''' CDay -1/1.3.2. '''''
+ CherryPy  ::
+  * 面向对象的web 开发平台。提供完全的基于web的应用功能编写，不用太多的底层知识。''''' Kday 0 '''''
+ CSS ::
+  * Cascading Style Sheet，级联样式单，又常称这为风格样式单Style Sheet，用来进行网页风格设计。''''' CDay N/1.1.7. ''''' ''''' Kday 3/1.3. '''''
+ DHTML  ::
+  * 动态HTML（Dynamic HTML，简称DHTML），是HTML、CSS和客户端脚本(JavaScript)的一种集成。 ''''' Kday 0 '''''
+
+= Ee~Ii =
+ Epydoc ::
+  * 即Easy Py Documentor的缩写，一个轻松的Py文档生成器。''''' CDay 0/1.2.2.1. '''''
+ FP ::
+  * 函数编程，是使用例如 Lisp、Scheme、Haskell、ML、OCAML、Clean、Mercury、Erlang（或其它一些）语言进行编程时所做的。函数是第一类（对象）。即，可以对“数据”进行的每样操作都可以使用函数本身做到（例如将一个函数传递给另一个函数）。''''' CDay N/1.1.2. '''''
+ FreeMind ::
+  * 一个很方便的画图工具。''''' Kday 6 '''''
+ GAE ::
+  * Google App Engine，给Web开发人员提供的托管平台并且也提供了大量的API。''''' CDay N/1.1.9. '''''
+ GBK ::
+  * 一个汉字编码标准，全称《汉字内码扩展规范》(GBK)，英文名称 Chinese Internal Code Specification 。GBK 向下与 GB 2312 编码兼容，向上支持 ISO 10646.1 国际标准，是前者向后者过渡过程中的一个承上启下的标准。  ''''' CDay -1/1.3.2. ''''' ''''' PCS6 '''''
+ Grep ::
+  * 古老实用高效的模式文本匹配工具，在所有Unix/Linux 系统中都有默认安装。[http://www.gnu.org/software/grep/] ''''' CDay-2/1.2.4. '''''
+ GUI ::
+  * 是Graphical User Interface 的简称，即图形用户接口。 ''''' CDay 2/1.2. '''''
+ HTML ::
+  * Hyper Text Mark-up Language，超文本标记语言的缩写，用于制作网页，该语言编写出来的源码能被各浏览器解析形成网页供人们浏览。''''' CDay 2/1.2.1. '''''
+ iPython ::
+  * 一个Python的交互式Shell，比默认的Python Shell好用得多，功能也更强大。''''' CDay -5/1.2.2. ''''' ''''' CDay -4/1.2.1. ''''' ''''' PCS2 '''''
+ ISO9660 ::
+  * 国际上认可的CD媒体逻辑级标准，它定义了CD-ROM上文件和目录的格式。此标准允许有不同操作系统的不同计算机访问同样的数据格式。所有计算机平台将数据作为一个文件系统放在光盘。文件系统被设计成为UNIX，VAX\VMS，MS-DOS和Mac及它们的各种派生系统所公认，ISO9660意味着与不同操作系统兼容。 ''''' CDay -1/1.4.1. '''''
+
+= Jj~Nn =
+ JS ::
+  * JavaScript，是一种基于对象(Object)和事件驱动(Event Driven)并具有安全性能的脚本语言。''''' Kday 3/1.2. '''''
+ Karrigell ::
+  * 纯Python实现的 Web应用开发平台。''''' CDay 2/1.4. '''''
+ Leo ::
+  * 可以作为一个通用的数据管理环境，或是一个项目管理器，或是一个提纲式的程序编辑器。''''' Kday 0 ''''' ''''' Kday 3/1.3. ''''' ''''' Kday 5 '''''
+
+= Oo~Yy =
+ PHP::
+  * Personal Hypertext Preprocesser，个人超文本解析语言。''''' Kday 1 '''''
+ Refactoring ::
+  * 重构，即在不改变程序外在行为的前提下，对代码做出修改，改进程序内部结构的过程。''''' CDay-2/1.2.2. ''''' ''''' CDay 1/1.3.2. ''''' ''''' CDay 2/1.4.4. ''''' ''''' Kday 5 '''''
+ Shell ::
+  * 一个命令行解释器，它的作用就是遵循一定的语法将输入的命令加以解释并传给系统。''''' PCS1 ''''' ''''' PCS2 '''''
+ TisonG::
+  * 是以下E文的缩写::`There is one site named Google!`来自python-cn 列表中的俚语,专门用以回应那些没有预先探索直接就想解决极基础问题的态度不好的小白的专语;) 算是 "提问的智慧" 的最精简概述...
+  * http://wiki.woodpecker.org.cn/moin/AskForHelp
+  * ''''' Kday 1 '''''
+ Stackless Python  ::
+  * 一种不在 C 堆栈上保存状态的 Python 实现。''''' CDay N/1.1.5. '''''
+ Ubuntu ::
+  * 一个完全以 Linux 为基础的操作系统, 可自由的获得，并提供社区和专业的支持。Ubuntu 宣言: 软件应免费提供，软件工具应能以人们本地语种的形式可用且不牺牲任何功能，人们应拥有定制及改变他们软件的自由，这包括以任何他们认为适宜的方式。''''' CDay -4/1.2.1. '''''
+ Unicode ::
+  * 一种在计算机上使用的字符编码。它为每种语言中的每个字符设定了统一并且唯一的二进制编码，以满足跨语言、跨平台进行文本转换、处理的要求。''''' CDay -4/1.2.1. ''''' ''''' PCS6 '''''
+ Wiki ::
+  * 一种网上共同协作的超文本系统，可由多人共同对网站内容进行维护和更新。''''' Kday 5/1.4. '''''
+ XML ::
+  * eXtensible Markup Language的缩写，意为可扩展的标记语言，一套定义语义标记的规则，这些标记将文档分成许多部件并对这些部件加以标识。它也是元标记语言，即定义了用于定义其他与特定领域有关的、语义的、结构化的标记语言的句法语言。''''' CDay N/1.1.4. '''''
+ XUL ::
+  * 一种XML语言，能使用包括XSLT、XPath和DOM函数在内许多已存在的标准来处理一个用户界面，XUL功能非常强大，以至于Mozilla软件的所有用户界面都是用XUL实现的。''''' CDay N/1.1.1. '''''
+
+= Zz~其它 =
+
+ 邮件列表 ::
+  * 一种仅仅通过邮件进行群体异步交流的服务形式,是比BBS 更加古老和有效的沟通方式。''''' CDay -5/1.1.2. '''''
+ 数据类型::
+  * 具有相同特征的数据的一种抽象概括。''''' CDay -4/1.2.3. '''''
+ 函式 ::
+  * 具体实现某个功能，由一些语句组成的代码块，一般情况下都有函数名字。''''' CDay-3/1.2.1. '''''
+ 系统参数 ::
+  * 运行程序或脚本时，操作系统传给该程序的一些变量。''''' CDay-3/1.2.2. '''''
+ 伪代码 ::
+  * 解决问题的方法和步骤描述，使用类似于代码的语言表述，但不是真正可执行的代码。''''' CDay-3/1.2.3. '''''
+ 自由软件 ::
+  * 指用户运行、拷贝、研究、改进软件的自由，更准确地说，是指三种层次的自由：研究程序运行机制，并根据你自己的需要修改它的自由；重新分发拷贝，以使其他人能够共享软件的自由；改进程序，为使他人受益而散发它的自由。 ''''' CDay -1/1.4.1. '''''
+
+----
+::-- ZoomQuiet [[[DateTime(2007-11-27T13:09:34Z)]]]
+[[PageComment2]]
+
 ##language:zh
 #pragma section-numbers on
 ##||'''status'''|| 草稿|校对|正式 || AuthorName|| 完成度15%||
