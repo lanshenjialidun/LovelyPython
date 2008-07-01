@@ -6,8 +6,8 @@
 [[TableOfContents]]
 
 = KDay 3:使用第3方模块规范化表单 =
-'''Cheetah 只能组织有模板的页面输出，但是……'''
- * 对于动态变化的表单，有什么更好的方式来组织？
+'''Cheetah 只能输出有配套模板的页面内容，但是……'''
+ * 对于经常变化的表单，有什么更好的方式来生成表单?
  
 == Karrigell_QuickForm  ==
 '''[http://www.orionlab.net/karrigell_quickform/Karrigell_QuickForm.html Karrigell_QuickForm]''' 真的是想要什么就来什么！
@@ -39,7 +39,7 @@ attachment:KDay3-1.png
  图 KDay3-2
  attachment:KDay3-2.png
  
- * 立即改造！
+ * 立即着手改造单选列表生成:
 {{{#!python
 def addRadioGroup(self,name,value):
 	"""add a radio element - addRadioGroup('genre',{'male':'Male','female':'Female'})"""
@@ -50,7 +50,7 @@ def addRadioGroup(self,name,value):
 	    radio = radio + "<input type='radio' name='"+name+"' value='"+a+"'>"+"<label><font face=verdana size=2>"+b+"</font></label><br>"
         self.form_list.append(radio+"</td>")
 	self.form_list.append("</tr>")
-}}} 増补了个单选列表生成器:
+}}} 増补了个基于列表的干净版本的单选框生成器:
 {{{#!python
 def addRadioList(self,name,desc,value,id=""):
     """add a radio element export as UL LI group

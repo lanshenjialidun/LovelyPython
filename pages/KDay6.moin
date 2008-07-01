@@ -7,7 +7,7 @@
 
 = KDay6: 利用mm 人性化组织成员信息 =
 '''快速扩展一个页面适应所有情况！'''
- * 此mm 非彼 mm 哪! 乃FreeMind 思维图谱文件 `.mm`
+ * 此mm 非彼 MM 吔 ;-) 乃指 FreeMind 思维图谱文件 `.mm`
  
 == FreeMind的另类使用 ==
 '''要想进行问卷回答的统计,首先要有手段知道现在组织内成员信息,以便对应统计'''
@@ -17,9 +17,9 @@
   * 而且是XML的数据文件!
  * 曾经依照提供的`freemind.xsl`+`freemind.mm` 输出了加个xml头说明的自定 mm 文件
 {{{详细::
-PCS402 XML
-介绍了这一风生水起的技术领域,
-分享了在Python 中对XML处理思路
+PCS403 思維导图
+介绍了导图这一种极高效的思维记录和辅助工具;
+分享了流行的导图工具,其中包含了对 FreeMind 这一轻盈完备的导图工具的愉快体验!
 }}}
  
 图 KDay6-9
@@ -36,6 +36,12 @@ attachment:KDay6-1.png
          1. dept 说明部门的整体信息
          1. staff 汇集成员信息,类似部门的节点组织
          1. total 成员总数
+
+{{{详细::
+PCS402 XML
+介绍了这一风生水起的技术领域,
+分享了在Python 中对XML处理思路
+}}}
 
 图 KDay6-2
 attachment:KDay6-2.png
@@ -109,7 +115,7 @@ sess.usr["deptree"]=deptree
 attachment:KDay6-5.png
 
 == 回答验证 ==
-'''进行回答统计前，有一个先决重构'''
+'''进行回答统计前，必须有个先决重构'''
  * 有效的答案是全部问题都回答了，不然的话统计很麻烦的说……
  * 但是曾经令小白激动的 '''[http://www.amowa.net/jsvalidation/ JavaScript Validation Framework]''' 国人作品…… 忽然间再也不好用了？！
   * 不得以，仔细看了一下子代码，才发现，有好几点是不能忍的:
@@ -175,12 +181,12 @@ for a in aed:
 attachment:KDay6-7.png 
 
  * 最后就是个显示问题了:
-     1. 要有回答时间的信息?{{{
+     1. 想要有 回答时间的信息?{{{
 fn = conf.qpage.apath+'%s.%s.aq'%(qpname,a)
 ...
 time.strftime("%y/%m/%d %H:%M:%S",time.localtime(os.path.getmtime(fn)
 }}}
-     1. 要有 百分制 的成绩?{{{#!python
+     1. 想要有 百分制 的成绩?{{{#!python
 def _grade(right,answer):
     """根据问卷答案自动计算分数
     """
@@ -192,7 +198,7 @@ def _grade(right,answer):
             pass
     return 100*(float(grade)/len(right))
 }}}
-     1. 唉呀呀??为什么不许怎么回答都是0分?
+     1. 唉呀呀??为什么不管怎么回答都是0分?
       * 发现问题..字典的无序和回答的有序!间的矛盾
      {{{
 print crtqp.ask.keys()
@@ -243,8 +249,10 @@ attachment:KDay6-10.png
 
 == 练习 ==
     到目前为止, 我们已经实现了登录, 编辑, 显示, 删除, 搜索博客文章, 应该说作为个人博客已经差不多了, 当然我们还能继续扩展, 比如以下几点: 
- *  (1) 从单用户扩展为多个用户, 变为一个简单的博客系统;
- *  (2) 黑白页面比较丑, 我们可以利用css做些页面的美化, 比如加入颜色, 布局调整等等;
+ * (1) 从单用户扩展为多个用户, 变为一个简单的博客系统;
+ * (2) 黑白页面比较丑, 我们可以利用css做些页面的美化, 比如加入颜色, 布局调整等等;
+ * (3) 思考:前述字典排序技巧是通过将字典关键词单独取出来成列表来排序的，有其它更加直接的方法嘛？
+## 提示:: http://wiki.woodpecker.org.cn/moin/MiscItems/2008-07-01
  
 ----
 返回 [:ObpLovelyPython/KDays:KDays实例故事]

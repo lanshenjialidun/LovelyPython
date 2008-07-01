@@ -5,7 +5,7 @@
 
 [[TableOfContents]]
 
-= KDay5: 通过session重构 =
+= KDay5: 通过session重构应用流程 =
 '''快速利用已有的所有技巧，重构功能实现'''
  * 让原先分散的.pih 们也整合到一个 '''mana.ks''' 事务页面中吧！
 
@@ -17,8 +17,8 @@
 图 KDay5-1
 attachment:KDay5-1.png
 
- * 只要保证，所有.ks 中有 clone 的`<< htmlcode >>`
-  * 所有.ks 中的响应函式中有 clone 的`<< pagehead >>`及`<< pagefoot >>`
+ * 只要保证，所有.ks 中有 clone 的`<< htmlcode >>`节点
+  * 所有.ks 中的响应函式中有 clone 的`<< pagehead >>`及`<< pagefoot >>`节点
   * 就等于随时控制了所有页面的外观！
 
 == 调整事务响应 ==
@@ -38,7 +38,7 @@ print pickle.dumps(sess.usr)
 图 KDay5-2
 attachment:KDay5-2.png
 
-  * 唉呀呀……有空格，以及其它符号的！一定会被误解为不同参数的……
+  * 唉呀呀……有空格，以及其它符号的！一定会被解析为非期待参数的……
   * 找呀找呀，找朋友，找到一个`urlsafe_b64encode(s) ` 是 '''base64''' 模块中的
   * OK 组织测试一下子:{{{#!python    
 v = base64.urlsafe_b64encode(pickle.dumps(sess.usr))
@@ -51,7 +51,7 @@ print pickle.loads(base64.urlsafe_b64decode(v))
 
 attachment:KDay5-3.png  
 
-  * 非常理想！就用之了！
+  * 非常理想, 用之！
 {{{#!python   
 print SPAN(A('> 编辑管理问卷'
         ,href="../mana.ks/edit?qp=%s&obj=%s"%(
@@ -75,7 +75,7 @@ SPAN#mana{border-bottom: 2px solid #778;
 attachment:KDay5-4.png  
   
  * 当然的，应该只有权限用户才会看到此链接
- * 不过，开发阶段完全开放——反正要实现版本管理不用怕的说;-)
+ * 不过，开发阶段完全开放——反正要实现版本管理,这会儿不用怕的说;-)
  
  
 == 重构编辑流程 ==
@@ -135,7 +135,7 @@ shutil.copy2(qpage,qpage+".%s"%time.strftime("%y%m%d%H%M%S"
   
 
 == 历史版本 ==
-'''习惯的Wiki的反悔模式，当然的也想自个儿弄一个'''
+'''习惯Wiki代版本管理的反悔模式，当然的也想自个儿弄一个'''
 
 图 KDay5-5
 attachment:KDay5-5.png  
@@ -148,10 +148,10 @@ def historic(**var):
     << pagefoot >>
 }}}
  * 可以看到现在连事务页面中的具体请求也可以八股化了
-  1. `<< pagehead >>` 标准的页头 信息
+  1. `<< pagehead >>` 节点包含标准的页头 信息
    * 不过是一个`print _htmhead("标题文字")` 将预定HTML 代码少量处理后输出的小函式
   1. `@others`  包含所有具体行为的章节脚本
-  1. `<< pagefoot >>` 标准的页底 信息
+  1. `<< pagefoot >>` 节点包含标准的页底 信息
    * 更加简单的 `print htmfoot` 打印行为，将 `Powered by:...`什么的广告全都统一而已
 === 关键代码 ===
 {{{#!python
@@ -173,7 +173,7 @@ for l in qnow:
                 )
              )
 print "</UL>"
-}}} 老技巧，使用 `fnmatch` 模块将吻合模式的文件搜索为一个列表对象
+}}} 老技巧，使用 `fnmatch` 模块将吻合模式的文件搜索出来,成一个列表对象
  * 现在的 模式:`'%s.cfg.*'%sess.usr["qp"]`
   * 即，当然要看的问卷名+".cfg"+".其它什么的" 
   * ".其它什么的"就是之前你随手复制了一下子先时定的{{{
@@ -184,7 +184,7 @@ time.strftime("%y%m%d%H%M%S", time.localtime())
 图 KDay5-6
 attachment:KDay5-6.png
 
- * 再随手加个链接，给个`?his=` 的历史版本标识
+ * 再随手加个链接，给个`?his=` 的历史版本参数标识
 
 {{{详细::
 PCS213 time 模块

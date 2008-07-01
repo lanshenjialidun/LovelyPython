@@ -1,7 +1,7 @@
 ##language:zh
 #pragma section-numbers on
 ##||'''status'''|| 草稿|校对|正式 || AuthorName|| 完成度15%||
-||'''status'''|| 草稿  || ZoomQuiet || 完成度~10%;初始化内容结构，期待Limodou 上架跟进 ||
+||'''status'''|| 校对 || ZoomQuiet || 完成度~90%;||
 
 
 [[TableOfContents]]
@@ -13,7 +13,7 @@
 
 == 用之,不学! ==
  * '''Use it! do not learnning'''
-  * 来自 [:ObpLovelyPython/PyDay-5:PyDay-5]
+  * 来自 [:ObpLovelyPython/CDay-5:CDay-5]
 
  背景故事::
 {{{
@@ -30,11 +30,12 @@ http://blog.donews.com/limodou/archive/2004/12/10/199174.aspx
 
 == 寻找吧!不要先想着创造 ==
  * '''寻找吧!不要先想着创造--Python 是自足的'''
-  * 来自 [:ObpLovelyPython/PyDay-4:PyDay-4]
+  * 来自 [:ObpLovelyPython/CDay-4:CDay-4]
 
 
  背景故事::
-  * attachment:batteries-included.jpg
+ 图 atta1-1
+  * attachment:atta1-1.jpg
   * `Batteries Included`~是Python 的哲学之一!
   * http://www.uselesspython.com/BatteriesIncluded.html 内置了足够多的模块,可以独立完成大多数常见任务的!
   * 成功故事之一:
@@ -46,7 +47,7 @@ http://blog.donews.com/limodou/archive/2005/04/26/352565.aspx
 
 == 不断的否定自己,但是要坚持最初的妄想 ==
  * '''不断的否定自己,但是要坚持最初的妄想'''^ --不论战术上如何变化,千万不要忘记战略目标^
-  * 来自 [:ObpLovelyPython/PyDay-3:PyDay-3]
+  * 来自 [:ObpLovelyPython/CDay-3:CDay-3]
   * 有关重构的心态经验
 
  背景故事::
@@ -57,7 +58,7 @@ Python code
 
 == 没有完美的软件! ==
  * ''',够用并且容易使用的软件已经算是完美的了'''
-  * 来自 [:ObpLovelyPython/PyDay-2:PyDay-2]
+  * 来自 [:ObpLovelyPython/CDay-2:CDay-2]
   * 有关需求控制经验
 
  背景故事::
@@ -68,7 +69,7 @@ Python code
 
 == 你能够碰到的问题,99%的情况下其它人已经遇到过了 ==
  * ''',所以,最佳的解决方式就是找到那段别人解决相似问题的代码!'''
-  * 来自 [:ObpLovelyPython/PyDay-1:PyDay-1]
+  * 来自 [:ObpLovelyPython/CDay-1:CDay-1]
   * 有关资源利用经验
 
  背景故事::
@@ -79,7 +80,7 @@ Python code
 
 == 发布!为了全人类! ==
  * 因为'''一个人如果力求完善自己，他就会看到，为此也必须同时完善他人。一个人如果不关心别人的完善，自己便不可能完善。'''
-  * 来自 [:ObpLovelyPython/PyDay-0:PyDay-0]
+  * 来自 [:ObpLovelyPython/CDay0:CDay0]
   * 有关社区体验经验
 
 [编程杂谈]写写Blog吧
@@ -97,7 +98,7 @@ Python code
 }}}
 
 == 没有最好,只有更合理! ==
-  * 来自 [:ObpLovelyPython/PyDay1:PyDay+1]
+  * 来自 [:ObpLovelyPython/CDay1:CDay+1]
   * 有关重构的进一步经验
 
 http://wiki.woodpecker.org.cn/moin/Py8Rong8Chi
@@ -131,7 +132,7 @@ Python code
 }}}
 
 == 网站软件化绝对不是空话! ==
-  * 来自 [:ObpLovelyPython/PyDay2:PyDay+2]
+  * 来自 [:ObpLovelyPython/CDay2:CDay2]
   * 有关桌面软件开发趋势体验
 
 
@@ -142,7 +143,7 @@ Python code
 }}}
 
 == KISS 才是王道! ==
-  * 来自 [:ObpLovelyPython/PyDay3:PyDay+3]
+  * 来自 [:ObpLovelyPython/CDay3:CDay3]
   * 有关软件设计经验
 
 
@@ -153,7 +154,7 @@ Python code
 }}}
 
 == 想象力才是 Pythoner 的唯一界限 ==
-  * 来自 [:ObpLovelyPython/PyDayN:PyDay+1]
+  * 来自 [:ObpLovelyPython/CDayN:CDay+1]
   * 有关资源深度利用经验~ 社区，交流，搜索，知识管理策略 ...
 
 
