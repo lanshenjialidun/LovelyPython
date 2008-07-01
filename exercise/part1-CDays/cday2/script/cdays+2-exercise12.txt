@@ -15,3 +15,8 @@ from cdctools import *
 4、cd至karrigell所在目录，输入python Karrigell.py运行后，在浏览器地址栏中输入localhost:8081就可以看到页面，点击Message链接即可到达。
 
 ps: cdays+2-exercise-2.py是个模拟留言程序，真正实现是在msg的index.ks中。
+
+(3) 可以把之前搜索历史记录下来，这样就可以在下次查询某个关键词时，先查找这里的信息，若能够找到则直接可以返回结果，没有的话，再按照以前的方法遍历搜索，同时更新这个新关键词的信息。
+1、修改cdctools.py中的cdcGrep函式，增加查找，更新历史记录文件，具体可参见代码。
+2、命令行中测试。第一次搜索关键词EVA时，出现结果为：
+{'z.MCollection.29.cdc': [], 'mfj-00.cdc': [], 'MCollec.39.cdc': [], 'z.Animation.00.cdc': ['[L:\\mAnimi\\Gainax\\EVAalbumESP]\r\n'], 'z.MFC.pop.02.cdc': []}这里的有效搜索信息就会增加到history_search.dump文件中。当再次搜索该词时，出现：{'z.Animation.00.cdc': ['[L:\\mAnimi\\Gainax\\EVAalbumESP]\r\n']}，因为导出格式一致，所以页面上无须修改。
