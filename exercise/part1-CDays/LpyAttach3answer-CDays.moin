@@ -1,0 +1,977 @@
+##language:zh
+#pragma section-numbers on
+## 草稿|校对|正式
+||'''status''' || 校对 || lizzie || 完成度100% ||
+[[TableOfContents]]
+
+= 故事练习解答 =
+== CDays ==
+##startInc
+
+=== CDays-5 ===
+ 1. 计算今年是闰年嘛?
+  * 源代码 {{{#!python
+#coding:utf-8
+'''cdays-5-exercise-1.py 判断今年是否是闰年
+    @note: 使用了import, time模块, 逻辑分支, 字串格式化等
+'''
+
+import time                             #导入time模块
+thisyear = time.localtime()[0]             #获取当前年份
+if thisyear % 400 == 0 or thisyear % 4 ==0 and thisyear % 100 <> 0: #判断闰年条件, 满足模400为0, 或者模4为0但模100不为0
+    print 'this year %s is a leap year' % thisyear
+else:
+    print 'this year %s is not a leap year' % thisyear
+}}}
+  * 运行截屏
+  attachment:cdays-5-exercise-1.png
+ 1. 利用python作为科学计算器。熟悉Python中的常用运算符，并分别求出表达式12*34+78-132/6、(12*(34+78)-132)/6、(8.6/4)**5的值。并利用math模块进行数学计算，分别求出145/23的余数，0.5的sin和cos值等等，详细可参考help(math)。
+  * 源代码 {{{#!python
+#coding:utf-8
+'''cdays-5-exercise-2.py 求表达式的值
+    @note: 基本表达式运算, 格式化输出, math模块
+    @see: math模块使用可参考http://docs.python.org/lib/module-math.html
+'''
+
+x = 12*34+78-132/6      #表达式计算
+y = (12*(34+78)-132)/6
+z = (8.6/4)**5
+
+print '12*34+78-132/6 = %d' % x
+print '(12*(34+78)-132)/6 = %d' % y
+print '(8.6/4)**5 = %f' % z
+
+import math             #导入数学计算模块
+
+a = math.fmod(145, 23)  #求余函数
+b = math.sin(0.5)       #正弦函数
+c = math.cos(0.5)       #余弦函数
+
+print '145/23的余数 = %d' % a
+print 'sin(0.5) = %f' %b
+print 'cos(0.5) = %f' %c
+}}}
+  * 运行截屏
+  attachment:cdays-5-exercise-2.png
+ 1. 找出0~100之间的所有素数。
+  * 源代码 {{{#!python
+#coding:utf-8
+'''cdays-5-exercise-3.py 求0~100之间的所有素数
+    @note: for循环, 列表类型
+    @see: math模块使用可参考http://docs.python.org/lib/module-math.html
+'''
+
+from math import sqrt
+
+N = 100
+#基本的方法
+result1 = []
+for num in range(2, N):
+    f = True
+    for snu in range(2, int(sqrt(num))+1):
+        if num % snu == 0:
+           f = False
+           break
+    if f:
+        result1.append(num)
+print result1
+
+#更好的方法
+result2 = [ p for p in range(2, N) if 0 not in [ p% d for d in range(2, int(sqrt(p))+1)] ]
+print result2
+}}}
+  * 运行截屏
+  attachment:cdays-5-exercise-3.png
+
+=== CDays-4 ===
+ 1. os 模块中还有哪些功能可以使用? -- 提示使用 dir()和help()
+  * os模块中还有很多功能，主要的有以下些：
+   *os.error, os.path, os.popen, os.stat_result, os.sys, os.system等等等,详细可参见dir(os)和python帮助文档help(os)
+
+ 1. open() 还有哪些模式可以使用?
+  * open()有以下几种模式:
+   * 'r': 以只读方式打开已存在文件，若文件不存在则抛出异常。此方式是默认方式
+   * 'U'或者'rU': python惯例构造了通用换行支持;提供'U'模式以文本方式打开一个文件,但是行可能随时结束:Unix的结束符规定为'\n',苹果系统则为'\r',还有windows规定为'\r\n',所有这些规定在python程序中统一为'\n'.
+   * 'w': 以可写方式打开存在或者不存在的文件，若文件不存在则先新建该文件，若文件存在则覆盖该文件
+   * 'a': 用于追加，对unix系统而言,所有的内容都将追加到文件末尾而不管指针的当前位置如何
+   * 'b': 以二进制方式打开。打开一个二进制文件必须用该模式。增加'b'模式是用来兼容系统对当二进制和文本文件的处理不同
+   * 'r+','w+'和'a+'以更新方式打开文件(注意'w+'覆盖文件)
+ 1. 尝试for .. in ..循环可以对哪些数据类型进行操作?
+  * for..in循环对于任何序列（列表，元组，字符串）都适用。但从广义说来可以使用任何种类的由任何对象组成的序列
+ 1. 格式化声明,还有哪些格式可以进行约定?
+  * 格式化申明
+  * 详细：[http://docs.python.org/lib/typesseq-strings.html]
+   * d  	Signed integer decimal.  	
+   * i 	Signed integer decimal. 	
+   * o 	Unsigned octal. 	
+   * u 	Unsigned decimal. 	
+   * x 	Unsigned hexadecimal (lowercase). 
+   * X 	Unsigned hexadecimal (uppercase). 	
+   * e 	Floating point exponential format (lowercase). 
+   * E 	Floating point exponential format (uppercase). 	
+   * f 	Floating point decimal format. 	
+   * F 	Floating point decimal format. 	
+   * g 	Floating point format. Uses exponential format if exponent is greater than -4 or less than precision, decimal format otherwise. 	
+   * G 	Floating point format. Uses exponential format if exponent is greater than -4 or less than precision, decimal format otherwise. 	
+   * c 	Single character (accepts integer or single character string). 	
+   * r 	String (converts any python object using repr()). 	
+   * s 	String (converts any python object using str()). 	
+   * % 	No argument is converted, results in a "%" character in the result.
+ 1. 现在的写入文件模式好嘛? 有改进的余地?
+  * CDay-4-5.py 好在哪里? {{{#!python
+# coding : utf-8
+
+import os
+
+export = ""
+for root, dirs, files in os.walk('/media/cdrom0'):
+  export+="\n %s;%s;%s" % (root,dirs,files)
+open('mycd2.cdc', 'w').write(export)
+}}}
+  * CDay-4-6.py又更加好在哪里? {{{
+#!python
+# coding : utf-8
+
+import os
+
+export = []
+for root, dirs, files in os.walk('/media/cdrom0'):
+    export.append("\n %s;%s;%s" % (root,dirs,files))
+open('mycd2.cdc', 'w').write(''.join(export))
+}}}
+  * CDay-4-5.py中使用了字符串的+连接，而CDay-4-6.py中是利用join。字符串的join要比+操作效率高。因为对象的反复+，比一次性内建处理，要浪费更多的资源。
+ 1. 读取文件cdays-4-test.txt内容，去除空行和注释行后，以行为单位进行排序，并将结果输出为cdays-4-result.txt。
+  * cdays-4-test.txt{{{
+#some words
+
+Sometimes in life,
+You find a special friend;
+Someone who changes your life just by being part of it.
+Someone who makes you laugh until you can't stop;
+Someone who makes you believe that there really is good in the world.
+Someone who convinces you that there really is an unlocked door just waiting for you to open it.
+This is Forever Friendship.
+when you're down,
+and the world seems dark and empty,
+Your forever friend lifts you up in spirits and makes that dark and empty world
+suddenly seem bright and full.
+Your forever friend gets you through the hard times,the sad times,and the confused times.
+If you turn and walk away,
+Your forever friend follows,
+If you lose you way,
+Your forever friend guides you and cheers you on.
+Your forever friend holds your hand and tells you that everything is going to be okay. 
+}}}
+  * 源代码 {{{#!python
+#coding:utf-8
+'''cdays-4-exercise-6.py 文件基本操作
+    @note: 文件读取写入, 列表排序, 字符串操作
+    @see: 字符串各方法可参考hekp(str)或Python在线文档http://docs.python.org/lib/string-methods.html
+'''
+
+f = open('cdays-4-test.txt', 'r')                   #以读方式打开文件
+result = list()
+for line in f.readlines():                          #依次读取每行
+    line = line.strip()                             #去掉每行头尾空白
+    if not len(line) or line.startswith('#'):       #判断是否是空行或注释行
+        continue                                    #是的话，跳过不处理
+    result.append(line)                             #保存
+result.sort()                                       #排序结果
+print result
+open('cdays-4-result.txt', 'w').write('%s' % '\n'.join(result)) #保存入结果文件
+}}}
+  * 运行截屏
+  attachment:cdays-4-exercise-6.png
+
+=== CDays-3 ===
+ 1. 根据DiPy 10.6. 处理[http://www.woodpecker.org.cn/diveintopython/scripts_and_streams/command_line_arguments.html 命令行参数]使用getopt.getopt()优化当前功能函式。
+  * 源代码 {{{#!python
+# coding=utf-8
+'''Lovely Python -3 PyDay 
+    PyCDC v0.3
+    @see：http://www.woodpecker.org.cn/diveintopython/scripts_and_streams/command_line_arguments.html 
+'''
+import os,sys
+import getopt       #导入getopt模块
+
+CDROM = '/media/cdrom0'
+def cdWalker(cdrom,cdcfile):
+    export = ""
+    for root, dirs, files in os.walk(cdrom):
+        export+="\n %s;%s;%s" % (root,dirs,files)
+    open(cdcfile, 'w').write(export)
+
+def usage():
+    print '''PyCDC 使用方式:
+    python cdays-3-exercise-1.py -d cdc -k 中国火
+    #搜索 cdc 目录中的光盘信息，寻找有“中国火”字样的文件或是目录，在哪张光盘中
+        '''
+try:
+    opts, args = getopt.getopt(sys.argv[1:], 'hd:e:k:')
+except getopt.GetoptError:
+    usage()
+    sys.exit()
+
+if len(opts) == 0:
+    usage()
+    sys.exit()
+
+c_path = ''
+for opt, arg in opts:
+    if opt in ('-h', '--help'):
+        usage()
+        sys.exit()
+    elif opt == '-e':
+        #判别sys.argv[2]中是否有目录，以便进行自动创建
+        #cdWalker(CDROM, arg)
+        print "记录光盘信息到 %s" % arg
+    elif opt == '-d':
+        c_path = arg
+    elif opt == '-k':
+        if not c_path:
+            usage()
+            sys.exit()
+        #进行文件搜索
+}}}
+
+ 1. 读取某一简单索引文件cdays-3-test.txt，其每行格式为文档序号 关键词，现需根据这些信息转化为倒排索引，即统计关键词在哪些文档中，格式如下：包含该关键词的文档数 关键词 => 文档序号。其中，原索引文件作为命令行参数传入主程序，并设计一个collect函式统计 "关键字<－>序号" 结果对，最后在主程序中输出结果至屏幕。
+  * cdays-3-test.txt 内容:{{{
+1 key1
+2 key2
+3 key1
+7 key3
+8 key2
+10 key1
+14 key2
+19 key4
+20 key1
+30 key3
+}}}
+  * 源代码 {{{#!python
+#coding:utf-8
+'''cdays-3-exercise-2.py 字典的使用
+    @not: 使用sys.args, 字典操作, 函数调用
+    @see: sys模块参见help(sys)
+'''
+
+import sys                                          #导入sys模块
+
+def collect(file):
+    ''' 改变 key-value对为value-key对
+    @param file: 文件对象
+    @return: 一个dict包含value-key对
+    '''
+    result = {}
+    for line in file.readlines():                   #依次读取每行
+        left, right = line.split()                  #将一行以空格分割为左右两部分
+        if result.has_key(right):                   #判断是否已经含有right值对应的key
+            result[right].append(left)              #若有，直接添加到result[right]的值列表
+        else:
+            result[right] = [left]                  #没有，则新建result[right]的值列表
+    return result
+
+if __name__ == "__main__":
+    if len(sys.argv) == 1:                          #判断参数个数
+        print 'usage:\n\tpython cdays-3-exercise-2.py cdays-3-test.txt'
+    else:
+        result = collect(open(sys.argv[1], 'r'))    #调用collect函数，返回结果
+        for (right, lefts) in result.items():       #输出结果
+            print "%d '%s'\t=>\t%s" % (len(lefts), right, lefts)
+}}}
+  * 运行截屏
+  attachment:cdays-3-exercise-2.png
+ 1. 八皇后问题。在8*8的棋盘上，放置8个皇后，使得任两个皇后不在同行同列同正负对角线上。
+  * 源代码 {{{#!python
+#coding:utf-8
+'''cdays-3-exercise-3.py
+    @note: 使用全局变量和函数的递归调用
+'''
+
+global col                                  #定义一些全局变量
+global row
+global pos_diag
+global nag_diag
+global count
+
+def output():   
+    ''' 输出一种有效结果
+    '''
+    global count
+    print row
+    count += 1
+
+def do_queen(i):
+    ''' 生成所有正确解
+    @param i: 皇后的数目
+    '''
+    for j in range(0, 8):                   #依次尝试0～7位置
+        if col[j] == 1 and pos_diag[i-j+7] == 1 and nag_diag[i+j] == 1: #若该行，正对角线，负对角线上都没有皇后，则放入i皇后
+            row[i] = j
+            col[j] = 0                      #调整各个列表状态
+            pos_diag[i-j+7] = 0
+            nag_diag[i+j] = 0
+            if i < 7:
+                do_queen(i+1)               #可递增或递减
+            else:
+                output()                    #产生一个结果，输出
+            col[j] = 1                      #恢复各个列表状态为之前的
+            pos_diag[i-j+7] = 1
+            nag_diag[i+j] = 1
+
+if __name__ == '__main__':
+    col = []                                #矩阵列的列表，存储皇后所在列，若该列有皇后，则相应置为1，反之则0
+    row = []                                #矩阵行的列表，存放每行皇后所在的位置，随着程序的执行，在不断的变化中，之间输出结果
+    pos_diag = []                           #正对角线，i-j恒定，-7~0~7，并且b(i)+7统一到0～14
+    nag_diag = []                           #负对角线，i+j恒定，0～14
+    count = 0
+    for index in range(0, 8):               #一些初始化工作
+        col.append(1)
+        row.append(0)
+    for index in range(0, 15):
+        pos_diag.append(1)
+        nag_diag.append(1)
+    do_queen(0)                             #开始递归，先放一个，依次递增，反过来，从7开始递减也可
+    print 'Totally have %d solutions!' % count
+}}}
+  * 运行截屏
+  attachment:cdays-3-exercise-123.png
+
+=== CDays-2 ===
+ 1. 把最后探索出的 cdcGrep()嵌入 pycdc-v0.5.py 实现完成版本的 PyCDC。
+  * 源代码 {{{#!python
+# coding= utf-8
+'''pycdc-v0.5.py
+Lovely Python -2 PyDay 
+@note: 将cdcGrep()嵌入 , 实现完成版本的 PyCDC
+'''
+import sys, cmd
+from cdctools import *
+class PyCDC(cmd.Cmd):
+    def __init__(self):
+        cmd.Cmd.__init__(self)                # initialize the base class
+        self.CDROM = '/media/cdrom0'
+        self.CDDIR = 'cdc/'
+        self.prompt="(PyCDC)>"
+        self.intro = '''PyCDC0.5 使用说明:
+    dir 目录名     #指定保存和搜索目录，默认是 "cdc"
+    walk 文件名    #指定光盘信息文件名，使用 "*.cdc"
+    find 关键词    #遍历搜索目录中所有.cdc文件，输出含有关键词的行
+    ?           # 查询
+    EOF         # 退出系统，也可以使用Crtl+D(Unix)|Ctrl+Z(dos/windows)
+        '''
+
+    def help_EOF(self):
+        print "退出程序 Quits the program"
+    def do_EOF(self, line):
+        sys.exit()
+
+    def help_walk(self):
+        print "扫描光盘内容 walk cd and export into *.cdc"
+    def do_walk(self, filename):
+        if filename == "":filename = raw_input("输入cdc文件名:: ")
+        print "扫描光盘内容保存到:'%s'" % filename
+        cdWalker(self.CDROM,self.CDDIR+filename)
+
+    def help_dir(self):
+        print "指定保存/搜索目录"
+    def do_dir(self, pathname):
+        if pathname == "": pathname = raw_input("输入指定保存/搜索目录: ")
+        self.CDDIR = pathname
+        print "指定保存/搜索目录:'%s' ;默认是:'%s'" % (pathname,self.CDDIR)
+
+    def help_find(self):
+        print "搜索关键词"
+    def do_find(self, keyword):
+        if keyword == "": keyword = raw_input("输入搜索关键字: ")
+        print "搜索关键词:'%s'" % keyword
+        cdcGrep(self.CDDIR,keyword)
+
+if __name__ == '__main__':      # this way the module can be
+    cdc = PyCDC()            # imported by other programs as well
+    cdc.cmdloop()
+}}}
+ 1. 编写一个类，实现简单的栈。数据的操作按照先进后出(FILO)的顺序。主要成员函数为put(item)，实现数据item插入栈中；get()，实现从栈中取一个数据。
+  * 源代码 {{{#!python
+#coding:utf-8
+'''cdays-2-exercise-2.py 自定义栈
+    @note: 类和对象的使用
+'''
+
+class MyStack(object):
+    '''MyStack
+        自定义栈，主要操作有put(), get() and isEmpty()
+    '''
+    def __init__(self, max):
+        '''
+        初始栈头指针和清空栈
+        @param max: 指定栈的最大长度
+        '''
+        self.head = -1
+        self.stack = list()
+        self.max = max
+        for i in range(self.max):
+            self.stack.append(0)
+    
+    def put(self, item):
+        '''
+        将item压入栈中
+        @param item: 所要入栈的项
+        '''
+        if self.head >= self.max:                       #判断当前栈是否满了
+            return 'Put Error: The Stack is Overflow!'  #提示栈溢出
+        else:
+            self.head += 1                              #不满，则将item入栈，调整栈顶指针
+            self.stack[self.head] = item
+            print 'Put %s Success' % item
+    
+    def get(self):
+        '''
+        获得当前栈顶item
+        @return: 栈顶item
+        '''
+        if self.head < 0:                               #判断当前栈是否为空
+            return 'Get Error: The Stack is Empty!'     #提示栈空
+        else:
+            self.head -= 1                              #出栈，返回栈顶元素，并调整栈顶指针
+            return self.stack[self.head+1]
+    
+    def isEmpty(self):
+        '''
+        获得当前栈的状态，空或者非空
+        @return: True(栈空) or False(栈非空)
+        '''
+        if self.head < -1:
+            return True
+        return False
+
+if __name__ == "__main__":
+    mystack = MyStack(100)
+    mystack.put('a')
+    mystack.put('b')
+    print mystack.get()
+    mystack.put('c')
+    print mystack.get()
+    print mystack.get()
+    print mystack.get()
+}}}
+  * 运行截屏
+  attachment:cdays-2-exercise-2.png
+
+=== CDays-1 ===
+ 1. 自动判定你自个儿／或是朋友的Blog 是什么编码的?
+  * 源代码 {{{#!python
+#coding:utf-8
+'''cdays-1-exercise-1.py 
+    @author: U{shengyan<mailto:shengyan1985@gmail.com>}
+    @version:$Id$
+    @note: 使用chardet和 urllib2
+    @see: chardet使用文档: http://chardet.feedparser.org/docs/, urllib2使用参考: http://docs.python.org/lib/module-urllib2.html
+'''
+
+import sys
+import urllib2
+import chardet
+
+def blog_detect(blogurl):
+    '''
+    检测blog的编码方式
+    @param blogurl: 要检测blog的url
+    '''
+    try:
+        fp = urllib2.urlopen(blogurl)                       #尝试打开给定url
+    except Exception, e:                                    #若产生异常，则给出相关提示并返回
+        print e
+        print 'download exception %s' % blogurl
+        return 0
+    blog = fp.read()                                        #读取内容
+    codedetect = chardet.detect(blog)["encoding"]           #检测得到编码方式
+    print '%s\t<-\t%s' % (blogurl, codedetect)
+    fp.close()                                              #关闭
+    return 1
+    
+if __name__ == "__main__":
+    if len(sys.argv) == 1:
+        print 'usage:\n\tpython cdays-1-exercise-1.py http://xxxx.com'
+    else:
+        blog_detect(sys.argv[1])
+}}}
+  * 运行截屏
+  attachment:cdays-1-exercise-1.png
+ 1. 如果是非utf-8 的,编写小程序自动将指定文章转换成utf-8 编码保存?
+  * 源代码 {{{#!python
+#coding:utf-8
+'''cdays-1-exercise-2.py 熟悉chardet和urllib2
+    @author: U{shengyan<mailto:shengyan1985@gmail.com>}
+    @version:$Id$
+    @note: 使用chardet和 urllib2
+    @see: chardet使用文档: http://chardet.feedparser.org/docs/, urllib2使用参考: http://docs.python.org/lib/module-urllib2.html
+'''
+import sys
+import urllib2
+import chardet
+
+def blog_detect(blogurl):
+    '''
+    检测blog的编码方式
+    @param blogurl: 要检测blog的url
+    '''
+    try:
+        fp = urllib2.urlopen(blogurl)                           #尝试打开给定url
+    except Exception, e:                                        #若产生异常，则给出相关提示并返回
+        print e
+        print 'download exception %s' % blogurl
+        return 0
+    blog = fp.read()                                            #读取内容
+    fp.close()                                                  #关闭
+    codedetect = chardet.detect(blog)["encoding"]               #检测得到编码方式
+    if codedetect <> 'utf-8':                                   #是否是utf-8
+        try:
+            blog = unicode(blog, codedetect)                    #不是的话，则尝试转换
+            #print blog
+            blog = blog.encode('utf-8')
+        except:
+            print u"bad unicode encode try!"
+            return 0
+    filename = '%s_utf-8' % blogurl[7:]                         #保存入文件
+    filename = filename.replace('/', '_')
+    open(filename, 'w').write('%s' % blog)
+    print 'save to file %s' % filename
+    return 1
+    
+if __name__ == "__main__":
+    if len(sys.argv) == 1:
+        print 'usage:\n\tpython cdays-1-exercise-2.py http://xxxx.com'
+    else:
+        blog_detect(sys.argv[1])
+}}}
+  * 运行截屏
+  attachment:cdays-1-exercise-2.png
+=== CDays0 ===
+ 1. 请根据软件发布的流程和软件开发的编码规范，将读者之前章节写的程序修改并发布出去。另外，可以查找下除了epydoc外还有哪些较好的py文档生成器？
+  * 步骤：
+   * 编写epydoc的配置文件如cdays0-epydoc.cfg。{{{
+[epydoc] 
+# Epydoc section marker (required by ConfigParser)
+
+# Information about the project.
+name: MyStack
+url: http://wiki.woodpecker.org.cn/moin/ObpLovelyPython
+
+# The list of modules to document.  Modules can be named using
+# dotted names, module filenames, or package directory names.
+# This option may be repeated.
+modules:  ./cdays0-exercise-1.py
+
+# Write html output to the directory "apidocs"
+output: html
+target: apidocs/
+
+# Include all automatically generated graphs.  These graphs are
+# generated using Graphviz dot.
+graph: all
+dotpath: /usr/bin/dot
+}}}
+   * 在终端中输入epydoc --config cdays0-epydoc.cfg，即可生成文档。
+  * 运行截屏
+  attachment:cdays-0-exercise-1.png
+
+=== CDays1 ===
+ 1. 编程实现以下功能并进行最大化的优化：遍历指定目录下的所有文件，找出其中占用空间最大的前3个文件。
+  * 源代码 {{{#!python
+#coding:utf-8
+'''cdays+1-exercise-1.py
+    @note: 使用os.stat获取相关信息, os.walk遍历,
+    @see: help(os)
+    @author: U{shengyan<mailto:shengyan1985@gmail.com>}
+    @version: $Id$
+'''
+import sys
+import os
+
+def get_top_three(path):
+    ''' 获取给定路径中文件大小最大的三个
+    @param path: 指定路径
+    @return 返回一个list，每项为 (size, filename)
+    '''
+    all_file = {}
+    for root, dirs, files in os.walk(path):             #遍历path
+        for onefile in files:
+            fname = os.path.join(root, onefile)         #获得当前处理文件的完整名字
+            fsize = os.stat(fname).st_size              #获得当前处理文件大小
+            if all_file.has_key(fsize):                 #按照文件大小存储
+                all_file[fsize].append(fname)
+            else:
+                all_file[fsize] = [fname]
+    fsize_key = all_file.keys()                         #得到所有的文件大小
+    fsize_key.sort()                                    #排序，从小到大
+    result = []
+    for i in [-1, -2, -3]:                              #依次取最大的三个
+        for j in all_file[fsize_key[i]]:                #保存
+            result.append((fsize_key[i], j))
+    return result[:3]                                   #返回前三个
+    
+if __name__ == "__main__":
+    if len(sys.argv) == 1:
+        print 'usage:\n\tpython cdays+1-exercise-1.py path'
+    else:
+        abs_path = os.path.abspath(sys.argv[1])         #得到绝对路径
+        if not os.path.isdir(abs_path):                 #判断所给的路径是否存在
+            print '%s is not exist' % abs_path
+        else:
+            top = get_top_three(abs_path)
+            for (s, f) in top:
+                print '%s\t->\t%s' % (s, f)
+}}}
+  * 运行截屏
+  attachment:cdays+1-exercise-1.png
+ 1. 利用ConfigParser，将上述题目中产生的结果按照cdays+1-my.ini格式存储到文件cdays+1-result.txt中。
+  * cdays+1-my.ini内容为：{{{
+[Number]
+filesize = somefilesize
+filename = somefilename
+}}}
+  * 源代码 {{{#!python
+#coding:utf-8
+'''cdays+1-exercise-2.py 
+    @note: 利用ConfigParser解析ini格式
+    @see: 文档参见http://pydoc.org/2.4.1/ConfigParser.html, 其他例子http://effbot.org/librarybook/configparser-example-1.py
+    @author: U{shengyan<mailto:shengyan1985@gmail.com>}
+    @version:$Id$
+'''
+import os
+import sys
+from ConfigParser import RawConfigParser
+
+def iniTT(size_file):
+    ''' 按照.ini的格式，存储size_file
+    '''
+    cfg = RawConfigParser()
+    print size_file
+    index = 1
+    for (s, f) in size_file:
+        cfg.add_section("%d" % index)                   #增加一个section
+        cfg.set("%d" % index, 'Filename', f)            #在该section设置Filename及其值
+        cfg.set("%d" % index, 'FileSize', s)            #在该section设置FileSize及其值
+        index += 1
+
+    cfg.write(open('cdays+1-result.txt',"w"))
+
+def gtt(path):
+    ''' 获取给定路径中文件大小最大的三个
+    @param path: 指定路径
+    @return 返回一个list，每项为 (size, filename)
+    '''
+    all_file = {}
+    for root, dirs, files in os.walk(path):             #遍历path
+        for onefile in files:
+            fname = os.path.join(root, onefile)         #获得当前处理文件的完整名字
+            fsize = os.stat(fname).st_size              #获得当前处理文件大小
+            if all_file.has_key(fsize):                 #按照文件大小存储
+                all_file[fsize].append(fname)
+            else:
+                all_file[fsize] = [fname]
+    fsize_key = all_file.keys()                         #得到所有的文件大小
+    fsize_key.sort()                                    #排序，从小到大
+    result = []
+    for i in [-1, -2, -3]:                              #依次取最大的三个
+        for j in all_file[fsize_key[i]]:                #保存
+            result.append((fsize_key[i], j))
+    return result[:3]                                   #返回前三个
+
+if __name__ == "__main__":
+    if len(sys.argv) == 1:
+        print 'usage:\n\tpython cdays+1-exercise-2.py path'
+    else:
+        abs_path = os.path.abspath(sys.argv[1])
+        if not os.path.isdir(abs_path):
+            print '%s is not exist' % abs_path
+        else:
+            #from cdays+1-exercise-1 import get_top_three as gtt
+            iniTT(gtt(abs_path))
+}}}
+  * 运行结果
+  attachment:cdays+1-exercise-12.png
+
+=== CDays2 ===
+ 1. 如果在Karrigell 实例中，不复制 cdctools.py 到webapp 目录中，也可以令 index.ks 引用到？
+  * 不复制 cdctools.py 到webapp 目录中，也可以令 index.ks 引用到，可以通过以下方式：
+   * 修改python的环境变量PYTHONPATH，把cdctools.py的所在目录路径加入
+   * 在程序里动态的修改sys.path {{{#!python
+import sys
+
+# cdctools.py的路径添加到sys.path
+sys.path.append('/home/shengyan/workspace/obp/CDays/cdays2/')
+from cdctools import *
+.......
+}}}
+   * 即可
+ 1. 经过本章Karrigell的初步学习，实现一个简易的web留言系统。主要利用Karrigell_QuickForm实现提交留言并显示出来。
+  * 步骤：
+   1. 下载karrigell，解压后，根据默认设置直接就可以运行了，但一般修改conf/下Karrigell.ini中的port=8081，表示使用端口8081，保存
+   1. 将msg拷贝至webapps/，并在index.pih中增加链接<a href='msg/'> Message</a>
+   1. 编辑msg中的index.ks，完成所需功能 {{{#!python
+# -*- coding: utf-8 -*-
+
+import os,sys
+import pickle            # 神奇的序列化模块
+from HTMLTags import *  # Karrigell 提供页面输出支持模块
+from Karrigell_QuickForm import Karrigell_QuickForm as KQF
+
+def _htmhead(title):
+    '''默认页面头声明
+    @note: 为了复用，特别的组织成独立函式,根据Karrigell 非页面访问约定，函式名称前加"_"
+    @param title: 页面标题信息
+    @return: 标准的HTML代码
+    '''
+    htm = """<html><HEAD>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<title>%s</title></HEAD>
+<body>"""%title
+    return htm
+## 默认页面尾声明
+htmfoot="""
+<h5>design by:<a href="mailto:shengyan1985@gmail.com">lizzie</a>
+    powered by : <a href="http://python.org">Python</a> +
+ <a href="http://karrigell.sourceforge.net"> KARRIGELL 2.4.0</a>
+</h5>
+</body></html>"""
+
+def index(**args):
+    '''默认主
+    @note: 使用简单的表单／链接操作来完成原有功能的界面化
+    @param args: 数组化的不定参数
+    @return: 标准的HTML页面
+    '''
+    print _htmhead("Leave Messages")
+    p = KQF('fm_message','POST',"index","Message")
+    p.addHtmNode('text','yname','Name',{'size':20,'maxlength':20})
+    p.addTextArea('Words','10','90')
+    p.addGroup(["submit","btn_submit","Submit","btn"])
+    p.display()
+    
+    if 0 == len(QUERY):
+        pass
+    else:
+        if "Submit" in QUERY['btn_submit']:
+            yname = QUERY['yname']
+            ywords = QUERY['Words']
+            if 0 == len(ywords):
+                print H3("please say something!")
+            else:
+                if 0 == len(yname):
+                    yname = 'somebody'
+                try:
+                    msg = pickle.load(open("message.dump"))
+                except:
+                    msg = []
+                msg.append((yname, ywords))
+                index = len(msg)-1
+                while index >= 0:
+                    print H5(msg[index][0]+' says: ')
+                    print P('------ '+msg[index][1])
+                    index -= 1
+                pickle.dump(msg,open("message.dump","w"))
+        else:
+            pass
+    print htmfoot
+}}}
+   1. cd至karrigell所在目录，输入python Karrigell.py运行后，在浏览器地址栏中输入localhost:8081就可以看到页面，点击Message链接即可到达。
+
+  * 运行截屏
+  attachment:cdays+2-exercise-2.png
+ 1. 思考，本日提出的，搜索结果积累想法，如何实现？ 如何在搜索时可以快速确认以前曾经搜索过相同的关键词，直接输出原先的搜索成果，不用真正打开CD信息文件来匹配？
+  * 步骤：{{{
+可以把之前搜索历史记录下来，这样就可以在下次查询某个关键词时，先查找这里的信息，若能够找到则直接可以返回结果，没有的话，再按照以前的方法遍历搜索，同时更新这个新关键词的信息。
+1、修改cdctools.py中的cdcGrep函式，增加查找，更新历史记录文件，具体可参见代码。
+2、命令行中测试。第一次搜索关键词EVA时，出现结果为：
+{'z.MCollection.29.cdc': [], 'mfj-00.cdc': [], 'MCollec.39.cdc': [], 'z.Animation.00.cdc': ['[L:\\mAnimi\\Gainax\\EVAalbumESP]\r\n'], 'z.MFC.pop.02.cdc': []}这里的有效搜索信息就会增加到history_search.dump文件中。当再次搜索该词时，出现：{'z.Animation.00.cdc': ['[L:\\mAnimi\\Gainax\\EVAalbumESP]\r\n']}，因为导出格式一致，所以页面上无须修改。
+}}}
+  * 源码：{{{#!python
+HISTORY_SEARCH = './history_search.dump'
+def cdcGrep(cdcpath,keyword):
+    '''光盘信息文本关键词搜索函式
+    @note: 使用最简单的内置字串匹配处理来判定是否有关键词包含
+    @param cdcpath: 包含*.cdc 文件的目录;运行前得在 __main__ 中修订成你当前的 cdc 数据存放点
+    @param keyword: 搜索的关键词
+    @return: 组织匹配好的信息到字典中导出成 searched.dump 文件
+    @todo: 可结合搜索引擎进行模糊搜索!
+    '''
+    expDict = {}
+    print cdcpath
+    try:
+        h_search = pickle.load(open(HISTORY_SEARCH))
+        
+        if h_search.has_key(keyword):  # 如果已有该关键字，则直接使用历史记录中的，导出格式不变。
+            for (c, l) in h_search[keyword]:
+                if expDict.has_key(c):
+                    expDict[c].append(l)
+                else:
+                    expDict[c] = [l]
+            pickle.dump(expDict,open("searched.dump","w"))
+            return
+    except:
+        h_search = {}
+    
+    filelist = os.listdir(cdcpath)          # 搜索目录中的文件
+    for cdc in filelist:                    # 循环文件列表
+        if ".cdc" in cdc:
+            cdcfile = open(cdcpath+cdc)         # 拼合文件路径，并打开文件
+            expDict[cdc]=[]
+            for line in cdcfile.readlines():    # 读取文件每一行，并循环
+                if keyword in line:             # 判定是否有关键词在行中
+                    #print line                  # 打印输出
+                    expDict[cdc].append(line)
+                    if h_search.has_key(keyword):  # 保存keyword对应的结果，格式为{keyword:[(cdc, line)]}
+                        h_search[keyword].append((cdc, line))
+                    else:
+                        h_search[keyword] = [(cdc, line)]
+    #print expDict
+    pickle.dump(expDict,open("searched.dump","w"))
+    pickle.dump(h_search, open(HISTORY_SEARCH, 'w'))
+}}}
+=== CDays3 ===
+ 1. 熟悉线程相关知识后，利用Lock和RLock实现线程间的简单同步，使得10个线程对同一共享变量进行递增操作，使用加锁机制保证变量结果的正确。
+  * 源代码 {{{#!python
+#coding:utf-8
+'''cdays+3-exercise-1.py 使用Thread和RLock实现简单线程同步
+    @note: Thread, RLock(http://docs.python.org/lib/rlock-objects.html)
+    @see: 可参考http://linuxgazette.net/107/pai.html
+    @author: U{shengyan<mailto:shengyan1985@gmail.com>}
+    @version:$Id$
+'''
+from threading import Thread
+from threading import RLock
+import time
+
+class myThread(Thread):
+    '''myThread
+        自定义的线程，多个线程共同访问一个变量
+    '''
+    def __init__(self, threadname):
+        Thread.__init__(self, name = threadname)
+
+    def run(self):
+        global share_var            #共享一全局变量
+        lock.acquire()              #调用lock的acquire，获得锁
+        share_var += 1              #修改共享变量
+        #time.sleep(2)
+        print share_var
+        lock.release()              #释放
+        
+if __name__ == "__main__":
+    share_var = 0
+    lock = RLock()
+    threadlist = []
+
+    for i in range(10):             #产生10个线程
+        my = myThread('Thread%d' % i)
+        threadlist.append(my)
+    for i in threadlist:            #开始10个线程
+        i.start()
+}}}
+  * 运行截屏
+  attachment:cdays+3-exercise-1.png
+ 1. 使用Queue实现多线程间的同步。比如说，十个输入线程从终端输入字符串，另十个输出线程依次获取字符串并输出到屏幕。
+  * 源代码 {{{#!python
+#coding:utf-8
+'''cdays+3-exercise-2.py 使用Thread和Queue保持多线程间同步
+    @see: Queue(http://doc.astro-wise.org/Queue.html)
+    @author: U{shengyan<mailto:shengyan1985@gmail.com>}
+    @version:$Id$
+'''
+from threading import Thread
+import Queue
+import time
+
+class Input(Thread):
+    '''输入线程： 从标准输入中读一个string，然后把该string加入到queue
+    '''
+    def __init__(self, threadname):
+        Thread.__init__(self, name = threadname)
+    def run(self):
+        some_string = raw_input('please input something for thread %s:' % self.getName()) #输入一个字符串
+        global queue
+        queue.put((self.getName(), some_string))            #加入到队列
+        #time.sleep(5)                                      #延时一段时间
+        
+class Output(Thread):
+    '''输出线程：从queue中得到一个string，并将它输出到屏幕
+    '''
+    def __init__(self, threadname):
+        Thread.__init__(self, name = threadname)
+    def run(self):
+        global queue
+        (iThread, something) = queue.get()                  #从queue中读取
+        print 'Thread %s get "%s" from Thread %s' % (self.getName(), something, iThread) #输出
+
+if __name__ == "__main__":
+    queue = Queue.Queue()                                   #创建Queue对象
+    inputlist = []
+    outputlist = []
+    for i in range(10):
+        il = Input('InputThread%d' % i)                     #输入线程列表
+        inputlist.append(il)
+        ol = Output('outputThread%d' % i)                   #输出线程列表
+        outputlist.append(ol)
+    for i in inputlist:
+        i.start()                                           #依次开始输入线程   
+        i.join()                                            #等待
+    for i in outputlist:
+        i.start()                                           #依次开始输出线程
+        #i.join()
+}}}
+  * 运行结果
+  attachment:cdays+3-exercise-12.png
+ 1. Python中的Event是用于线程间的相互通信，主要利用信号量机制。修改题一的程序，利用信号量重新实现多线程对同一共享变量进行递增操作。
+  * 源代码 {{{#!python
+#coding:utf-8
+'''cdays+3-exercise-3.py 使用Thread和Event实现简单的线程间通信
+    @see: Event(http://docs.python.org/lib/event-objects.html)
+    @author: U{shengyan<mailto:shengyan1985@gmail.com>}
+    @version:$Id$
+'''
+from threading import Thread
+from threading import Event
+import time
+
+class myThread(Thread):
+    '''myThread
+        自定义线程
+    '''
+    def __init__(self, threadname):
+        Thread.__init__(self, name = threadname)
+
+    def run(self):
+        global event
+        global share_var
+        if event.isSet():           #判断event的信号标志
+            event.clear()           #若设置了，则清除
+            event.wait()            #并调用wait方法
+            #time.sleep(2)
+            share_var += 1          #修改共享变量
+            print '%s ==> %d' % (self.getName(), share_var)
+        else:
+            share_var += 1          #未设置，则直接修改
+            print '%s ==> %d' % (self.getName(), share_var)
+            #time.sleep(1)
+            event.set()             #设置信号标志
+
+if __name__ == "__main__":
+    share_var = 0
+    event = Event()                 #创建Event对象
+    event.set()                     #设置内部信号标志为真
+    threadlist = []
+
+    for i in range(10):             #创建10个线程
+        my = myThread('Thread%d' % i)
+        threadlist.append(my)
+    for i in threadlist:            #开启10个线程
+        i.start()
+}}}
+  * 运行截屏
+  attachment:cdays+3-exercise-3.png
+
+##endInc
+----
+ . ::-- ZoomQuiet [[[DateTime(2008-04-26T07:41:41Z)]]] [[PageComment2]]
+

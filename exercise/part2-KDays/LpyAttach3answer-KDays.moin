@@ -1,0 +1,169 @@
+##language:zh
+#pragma section-numbers on
+## 草稿|校对|正式
+||'''status''' || 校对 || lizzie || 完成度100% ||
+[[TableOfContents]]
+
+= 故事练习解答 =
+== KDays ==
+##startInc
+=== KDays0 ===
+初次尝试使用Karrigell(下载地址为: http://tinyurl.com/6bpc3f). 
+ 1. 下载Karrigell解压 
+ 1. 在终端中进入Karrigell所在目录
+ 1. 运行python Karrigell.py, 看看出现什么?
+ 1. 再在浏览器中输入localhost, 再看看出现什么?
+如果出现意外,尝试根据屏幕提示进行排除,书后详细的参考解说...
+{{{
+#解答
+
+运行python Karrigell.py后,若出现
+情况1:
+shengyan@LIZZIE:~/obp/KDays/Karrigell-2.4.0$ python Karrigell.py 
+Address already in use
+Another server is running at address ,80...
+解决方法:
+这是因为Karrigell默认的80端口已被其他程序占用, 所以需修改conf/Karrigell.ini文件中Server字段的port值为8081(即把对应行的注释去掉), 再次运行Karrigell.py可以看到如下. 
+
+情况2:
+shengyan@LIZZIE:~/obp/KDays/Karrigell-2.4.0$ python Karrigell.py 
+Karrigell 2.4.0 running on port 8081
+Press Ctrl+C to stop
+这个表明成功开启Karrigell服务.
+
+现在就可以在浏览器地址栏中输入localhost测试默认站点, 当第一次进入时会转入login页面进行登录, 输入用户名和密码后, 即可进入Karrigell文档首页, 里面有很多有用的资料哦, 读者可以看看. 
+}}}
+  * 运行截屏
+  attachment:KDays0-exercise1.png
+  attachment:KDays0-exercise2.png
+
+=== KDays1 ===
+经过这一节的学习, 熟悉Karrigell.ini基本设置和基本环境部署后(可参考README.txt中), 创建一个自己的站点(mysite), 并依次实现以下功能: 
+  1. 将Karrigell 站配置成发布到 localhost:8081 端口来
+  1. 在首页(index.pih)中输出Hello, Karrigell's world! 即在地址栏中输入localhost:8081/mysite出现Hello, Karrigell's world! 
+  1. 添加一个登录页(login.pih), 用户输入姓名, 密码后进入首页, 并在首页中输出Hello, 姓名's world!即当输入localhost:8081/mysite后, 首先进行登录, 我们输入姓名和密码后, 转入首页, 其显示Hello, 姓名's world! 具体可参见png/中截图所示.
+{{{
+#解答
+    (1) 在Karrigell所在的webapps目录下新建mysite, 或者不在webapps中新建, 再设置.ini的Aliase, 在这略; 
+    (2) 在mysite下创建index.pih, 内容见源码, 主要是输出操作;
+    (3) 运行python Karrigell.py, 在浏览器中输入localhost:8081/mysite, 就可以看到我们的hello world了^-^
+ 
+    (4) 改进, 在mysite下创建login.pih, 可以参考Karrigell/webapps下自带的login.pih, 其中使用到form, 采用post方式, 发送请求到index.pih页面;
+    (5) 修改index.pih, 接受login页面发送的Name, 判断并显示;
+    (6) 完毕, 输入localhost:8081/mysite/login, 输入姓名和密码提交后, 就可以看到自己的名字了;
+    (7) 当然还能改进, 就留待读者慢慢尝试了.
+}}}
+  * 运行截屏
+  attachment:KDays1-exercise1.png
+  attachment:KDays1-exercise2.png
+
+=== KDays2 ===
+    在前面章节练习mysite的基础上, 完成以下功能:  
+  1. 增加编辑页面(edit.pih), 增加编辑输入框, 并保存入本地文件, 转入首页index.pih显示刚刚输入的内容, 类似于制作个人博客的编辑页面; 具体页面分布可参考png中截图;
+  1. 允许文章的多次修改及删除, 并能体现在首页index.pih中; 
+  1. 提示: 各个文章可以保存为.cfg格式, 该格式文件的处理可参见ConfigParser的使用.
+{{{
+#解答
+    (1) 在mysite下新建edit.pih, 增加页面编辑框, url为mysite/edit, 具体参见源码;
+    (2) 增加save_entry.py, 完成保存功能;
+    (3) 修改index.pih, 读取各个文章并显示, url为mysite/index;
+    (4) ok, localhost:8081/mysite/查看首页, localhost:8081/mysite/edit为编辑页面
+    (5) 详细见各源码文件.ConfigParser模块参考: http://docs.python.org/lib/RawConfigParser-objects.html
+}}}
+  * 运行截屏
+  attachment:KDays2-exercise1.png
+  attachment:KDays2-exercise2.png
+=== KDays3 ===
+    在前面章节练习mysite的基础上, 完成以下功能:  
+
+  1. 利用Karrigell_QuickForm改写编辑页面(edit), 增加更多的文章属性, 如日期, 标签, 引用链接等;
+  1. 实现了上述之后, 使用JVF, 依次校验用户输入的有效性;
+  1. 提示: 可以设计一个文章类, 多个文章对象可以利用pickle保存; 最终应该能够实现新建或修改文章并保存入本地文件的功能.
+{{{
+#解答
+
+    (1) 修改edit.pih, 使用Karrigell_QuickForm组织页面元素, 这边只比以前增加了tag, 读者可以添加更多的东西, 另外注意, 应需要已修改原来的Karrigell_QuickForm.py;
+    (2) 新建entry.py, 编写自定义文章类Entry;
+    (3) 修改save_entry.py, 主要是对新建文章和修改文章两种情况进行处理;
+    (4) 修改index.pih, 主要用于显示所有文章, 详细可参考具体代码;
+    (5) ok, localhost:8081/mysite/查看首页, localhost:8081/mysite/edit为编辑页面;
+    (6) 进一步, 修改edit.pih, 增加js校验输入.
+}}}
+  * 运行截屏
+  attachment:KDays3-exercise1.png
+  attachment:KDays3-exercise2.png
+=== KDays4 ===
+    在前面章节练习mysite的基础上, 完成以下功能:  
+  1. 我们在学习了.ks之后, 将原来的mysite改写成函式化页面发布, 这样我们只需一个index.ks文件就可以完成之前index.pih和edit.pih两页面的功能;
+  1. 增加用户登录, 验证和登出功能, 即实现用户通过输入姓名和密码, 提交后通过验证后登录首页; 具体可参考png中截图;
+  1. 使用HTMLTags美化首页显示, 读者可以展开自己丰富的想象力那;
+{{{
+#解答
+
+    (1) 将index.pih改写成index.ks, 并在index.ks完成edit, save功能, 具体可见源码;
+    (2) 增加登录login, 登出logout, 可以使用session;
+    (3) 这样我们就完成了之前分为几个pih页面, 现合并在一个ks页面中的功能;
+    (4) 使用多种HTMLTags美化页面显示, 主要是各种字体格式等;
+}}}
+  * 运行截屏
+  attachment:KDays4-exercise1.png
+  attachment:KDays4-exercise2.png
+=== KDays5 ===
+    在前面章节练习mysite的基础上, 完成以下功能:  
+  1. 在首页增加删除链接, 实现删除指定文章的功能; 
+  1. 增加搜索功能, 即输入关键字, 进行查找后得到各个文章对象并显示到结果页面中;
+  1. 能否优化我们现在的整个网站框架, 若能够则进行最大化的结构优化, 读者可以根据已经学到的知道自由发挥;
+{{{
+#解答
+
+    (1) 在首页增加delete链接, 并设计delete函数, 完成删除功能;
+    (2) 添加搜索框, 并设计search函数和修改类Entry, 完成搜索功能;
+    (3) 详细可见源码, 另, 优化待读者自己思考;
+}}}
+  * 运行截屏
+  attachment:KDays5-exercise1.png
+  attachment:KDays5-exercise2.png
+=== KDays6 ===
+    到目前为止, 我们已经实现了登录, 编辑, 显示, 删除, 搜索博客文章, 应该说作为个人博客已经差不多了, 当然我们还能继续扩展, 比如以下几点: 
+  1. 从单用户扩展为多个用户, 变为一个简单的博客系统;
+  1. 黑白页面比较丑, 我们可以利用css做些页面的美化, 比如加入颜色, 布局调整等等;
+  1. 思考:前述字典排序技巧是通过将字典关键词单独取出来成列表来排序的，有其它更加直接的方法吗?
+{{{
+#12解答
+    (1) 修改chkusr函数, 检测用户是否存在, 若不存在则新建用户并把相关信息保存到文件user_info.txt中, 并设置当前session为该用户;
+    (2) 修改entrylist读取的数据是从seesion中传入的entry_path中, 并在index, save, delete等做相应修改;
+    (3) 另外, 现在是对多个用户, 但我们并未使用密码来验证用户登录, 所以可以在这个地方做适当改进, 目前代码没有实现, 留待读者;
+    (4) 美化页面, 主要是一些css, 这边省略, 读者可参考css相关资料.
+}}}
+  * 运行截屏
+  attachment:KDays6-exercise1.png
+  attachment:KDays6-exercise2.png
+{{{
+#3解答
+使用内置函式sorted:
+    sorted( iterable[, cmp[, key[, reverse]]])
+        Return a new sorted list from the items in iterable. The optional arguments cmp, key, and reverse have the same meaning as those for the
+list.sort() method. New in version 2.4.
+}}}利用sorted，按照字典关键词排序实现如下:
+{{{#!python
+myDict = {'c':13, 'b':14, 'a':12}
+
+# 按照字典关键词升序排列
+for k, v in sorted(myDict.items(), key=lambda x:x[0]):
+    print k, v
+
+# 一种更好的方法
+from operator import itemgetter
+# 按照字典关键词升序排列
+print sorted(myDict.iteritems(), key=itemgetter(0))
+}}}更具体的参见源码文件.
+   * 运行截屏
+  attachment:KDays6-exercise3.png
+
+=== KDaysN ===
+    读者做到这一步应该非常非常了解Karrigell的开发流程了, 接下来还是要对已有的web应用进行优化...这些只能通过自己不断的学习慢慢了解^-^
+
+##endInc
+----
+ . ::-- ZoomQuiet [[[DateTime(2008-04-26T07:41:41Z)]]] [[PageComment2]]
+
