@@ -9,28 +9,27 @@
 = 行者箴言 =
 ## 一句话本章精要精神
 ''' 光说不练徦把式，光练不说傻把式！ '''
- * 汇集本书散落在各处的程序员 箴句 细说来由
+ * 汇集本书散落在各处的程序员 箴言警句 细说来由
 
 == 用之,不学! ==
- * '''Use it! do not learnning'''
+ * '''Enjoy it! don't learnning'''
   * 来自 [:ObpLovelyPython/CDay-5:CDay-5]
 
- 背景故事::
-{{{
-#!python
-Python code
-}}}
-
-[编程杂谈]编程就象练书法
-http://blog.donews.com/limodou/archive/2006/04/02/808281.aspx
+ 背景::
+ * [编程杂谈]做个项目吧 http://blog.donews.com/limodou/archive/2004/12/10/199174.aspx
+ * 来自 中国Python 著名行者 Limodou 的Blog文章,他是 UliPad 的作者 http://code.google.com/p/ulipad/
+ 
+ 解说::
+ * 
 
 
-[编程杂谈]做个项目吧
-http://blog.donews.com/limodou/archive/2004/12/10/199174.aspx
-
-== 寻找吧!不要先想着创造 ==
+== 寻之!不造! ==
  * '''寻找吧!不要先想着创造--Python 是自足的'''
   * 来自 [:ObpLovelyPython/CDay-4:CDay-4]
+ * '''你能够碰到的问题,99%的情况下其它人已经遇到过了,所以,最佳的解决方式就是找到那段别人解决相似问题的代码!'''
+  * 来自 [:ObpLovelyPython/CDay-1:CDay-1]
+
+  * 有关资源利用经验
 
 
  背景故事::
@@ -45,48 +44,23 @@ http://blog.donews.com/limodou/archive/2004/12/10/199174.aspx
 [编程杂谈]开始读源码吧
 http://blog.donews.com/limodou/archive/2005/04/26/352565.aspx
 
-== 不断的否定自己,但是要坚持最初的妄想 ==
+== 否之!守之! ==
  * '''不断的否定自己,但是要坚持最初的妄想'''^ --不论战术上如何变化,千万不要忘记战略目标^
   * 来自 [:ObpLovelyPython/CDay-3:CDay-3]
   * 有关重构的心态经验
+ * [编程杂谈]编程就象练书法 http://blog.donews.com/limodou/archive/2006/04/02/808281.aspx
 
- 背景故事::
-{{{
-#!python
-Python code
-}}}
 
-== 没有完美的软件! ==
- * ''',够用并且容易使用的软件已经算是完美的了'''
-  * 来自 [:ObpLovelyPython/CDay-2:CDay-2]
-  * 有关需求控制经验
 
- 背景故事::
-{{{
-#!python
-Python code
-}}}
-
-== 你能够碰到的问题,99%的情况下其它人已经遇到过了 ==
- * ''',所以,最佳的解决方式就是找到那段别人解决相似问题的代码!'''
-  * 来自 [:ObpLovelyPython/CDay-1:CDay-1]
-  * 有关资源利用经验
-
- 背景故事::
-{{{
-#!python
-Python code
-}}}
-
-== 发布!为了全人类! ==
- * 因为'''一个人如果力求完善自己，他就会看到，为此也必须同时完善他人。一个人如果不关心别人的完善，自己便不可能完善。'''
+== 坚持!发布! ==
+ * '''发布!为了全人类!'''因为'''一个人如果力求完善自己，他就会看到，为此也必须同时完善他人。一个人如果不关心别人的完善，自己便不可能完善。'''
   * 来自 [:ObpLovelyPython/CDay0:CDay0]
   * 有关社区体验经验
 
 [编程杂谈]写写Blog吧
 http://blog.donews.com/limodou/archive/2004/12/14/202590.aspx
 
-=== 发布好象不是通告一嗓子就好的事儿 ===
+ * 发布好象不是通告一嗓子就好的事儿 
  * '''分分分!学生的命根! 文档,文档,文档!软件的颜面!'''
   * 文档化开发体验
 
@@ -97,8 +71,15 @@ http://blog.donews.com/limodou/archive/2004/12/14/202590.aspx
 Python code
 }}}
 
-== 没有最好,只有更合理! ==
+
+== 可用!再补! ==
+ * '''没有完美的软件!够用并且容易使用的软件已经算是完美的了'''
+  * 来自 [:ObpLovelyPython/CDay-2:CDay-2]
+
+ * '''没有最好,只有更合理!'''
   * 来自 [:ObpLovelyPython/CDay1:CDay+1]
+
+  * 有关需求控制经验
   * 有关重构的进一步经验
 
 http://wiki.woodpecker.org.cn/moin/Py8Rong8Chi
@@ -125,47 +106,54 @@ date	Sat, Feb 23, 2008 at 11:28 AM
 以总结分享为荣 , 以跪求其解为耻;
 }}}
 
- 背景故事::
-{{{
-#!python
-Python code
-}}}
 
-== 网站软件化绝对不是空话! ==
-  * 来自 [:ObpLovelyPython/CDay2:CDay2]
+== 网站?软件! ==
+  * '''网站软件化绝对不是空话!''' 来自:: [:ObpLovelyPython/CDay2:CDay2]
   * 有关桌面软件开发趋势体验
 
 
- 背景故事::
-{{{
-#!python
-Python code
-}}}
 
-== KISS 才是王道! ==
-  * 来自 [:ObpLovelyPython/CDay3:CDay3]
+== 王道!简单! ==
+  * '''KISS 才是王道!'''来自 [:ObpLovelyPython/CDay3:CDay3]
   * 有关软件设计经验
 
 
- 背景故事::
-{{{
-#!python
-Python code
-}}}
 
-== 想象力才是 Pythoner 的唯一界限 ==
-  * 来自 [:ObpLovelyPython/CDayN:CDay+1]
+== 想象!无限! ==
+  * '''想象力才是 Pythoner 的唯一界限''' 
+  来自 [:ObpLovelyPython/CDayN:CDay+1]
   * 有关资源深度利用经验~ 社区，交流，搜索，知识管理策略 ...
 
 
- 背景故事::
-{{{
-#!python
-Python code
-}}}
+= 箴言凝练 =
 
-== 小结 ==
-## 总体语法等等叙述,注意给出相关知识的阅读指导
+
+== 蠎 禅 ==
+http://wiki.woodpecker.org.cn/moin/PythonZen
+{{{
+美丽好过丑陋;
+明显好过隐晦;
+简单好过复合;
+复合好过复杂;
+扁平好过嵌套;
+稀疏好过密集;
+可读性最重要;
+即便实用性比纯度重要,
+但是!特殊案例不可特殊到打破规则;
+错误从来不会默默消失,
+直到明确的让它闭嘴!
+面对模糊,拒绝猜测的诱惑;
+应该有一个(宁愿只有一个)显而易见的解决方法;
+尽管刚开始方法不会是很明显,即使永远不做比"立刻"做要"聪明",
+但是！现在就做永远比不做要好;
+只要实现很难解释,那么它就不是一个好主意;
+只要实现很容易解释,那么这就是一个好主意;
+名称空间是个绝妙想法
+--大家一起来实践这些规则吧!
+
+-- by Tim Peters
+
+}}}
 
 
 
