@@ -1,7 +1,7 @@
 ##language:zh
 #pragma section-numbers on
 ##||'''status'''|| 草稿|校对|正式 || AuthorName|| 完成度15%||
-||'''status'''|| 校对 || ZoomQuiet || 完成度~90%;||
+||'''status'''|| 校对 || ZoomQuiet || 完成度~60%;||
 
 
 [[TableOfContents]]
@@ -12,87 +12,83 @@
  * 汇集本书散落在各处的程序员 箴言警句 细说来由
 
 == 用之,不学! ==
- * '''Enjoy it! don't learnning'''
+`Enjoy it! don't Learnning`
   * 来自 [:ObpLovelyPython/CDay-5:CDay-5]
 
  背景::
  * [编程杂谈]做个项目吧 http://blog.donews.com/limodou/archive/2004/12/10/199174.aspx
- * 来自 中国Python 著名行者 Limodou 的Blog文章,他是 UliPad 的作者 http://code.google.com/p/ulipad/
+  * 来自 中国Python 著名行者 Limodou 的Blog文章,他是 UliPad 的作者 
+  * 工程站点: http://code.google.com/p/ulipad/
  
  解说::
- * 
+  这是本书的核心本愿!
 
 
-== 寻之!不造! ==
+== 寻之,不造! ==
+`Search at first,Don't try creat!`
  * '''寻找吧!不要先想着创造--Python 是自足的'''
   * 来自 [:ObpLovelyPython/CDay-4:CDay-4]
  * '''你能够碰到的问题,99%的情况下其它人已经遇到过了,所以,最佳的解决方式就是找到那段别人解决相似问题的代码!'''
   * 来自 [:ObpLovelyPython/CDay-1:CDay-1]
 
-  * 有关资源利用经验
-
-
- 背景故事::
+ 背景::
  图 atta1-1
   * attachment:atta1-1.jpg
   * `Batteries Included`~是Python 的哲学之一!
-  * http://www.uselesspython.com/BatteriesIncluded.html 内置了足够多的模块,可以独立完成大多数常见任务的!
+  * http://www.uselesspython.com/BatteriesIncluded.html 语言本身天然已经内置了足够多的模块,可以独立完成大多数常见任务的!
   * 成功故事之一:
   http://www.python.org/about/success/eztrip/
-  ...  
-
-[编程杂谈]开始读源码吧
-http://blog.donews.com/limodou/archive/2005/04/26/352565.aspx
-
+  * [编程杂谈]开始读源码吧 http://blog.donews.com/limodou/archive/2005/04/26/352565.aspx
+   * 同样来自 Limodou 的体验
+ 
+ 解说::
+  有自由/开源软件的世界里,解决问题的途径不只有自个儿堆代码解决了(嗯嗯嗯,当然的作为程序的自尊,一般也不允许自个儿去买软件来解决问题;-) 
+   
 == 否之!守之! ==
+`Keep evolution,focus original Goal!`
  * '''不断的否定自己,但是要坚持最初的妄想'''^ --不论战术上如何变化,千万不要忘记战略目标^
   * 来自 [:ObpLovelyPython/CDay-3:CDay-3]
-  * 有关重构的心态经验
+
+
+ 背景::
  * [编程杂谈]编程就象练书法 http://blog.donews.com/limodou/archive/2006/04/02/808281.aspx
+  * 同样来自 Limodou 的体验
+ 
+ 解说::
+   有关重构的心态经验
 
 
 
-== 坚持!发布! ==
+== 发布!持续! ==
+`Keep realese,Keep publish!`
  * '''发布!为了全人类!'''因为'''一个人如果力求完善自己，他就会看到，为此也必须同时完善他人。一个人如果不关心别人的完善，自己便不可能完善。'''
+ * 发布好象不是通告一嗓子就好的事儿 ~ '''分分分!学生的命根! 文档,文档,文档!软件的颜面!'''
   * 来自 [:ObpLovelyPython/CDay0:CDay0]
-  * 有关社区体验经验
-
-[编程杂谈]写写Blog吧
-http://blog.donews.com/limodou/archive/2004/12/14/202590.aspx
-
- * 发布好象不是通告一嗓子就好的事儿 
- * '''分分分!学生的命根! 文档,文档,文档!软件的颜面!'''
-  * 文档化开发体验
 
 
- 背景故事::
-{{{
-#!python
-Python code
-}}}
+ 背景::
+ * [编程杂谈]写写Blog吧 http://blog.donews.com/limodou/archive/2004/12/14/202590.aspx
+  * 同样来自 Limodou 的体验
+ 
+ 解说::
+  有关社区体验经验/文档化开发体验
 
 
-== 可用!再补! ==
+
+== 先用,再修! ==
+`Running! before Enhancement`
  * '''没有完美的软件!够用并且容易使用的软件已经算是完美的了'''
   * 来自 [:ObpLovelyPython/CDay-2:CDay-2]
 
  * '''没有最好,只有更合理!'''
   * 来自 [:ObpLovelyPython/CDay1:CDay+1]
 
-  * 有关需求控制经验
-  * 有关重构的进一步经验
 
-http://wiki.woodpecker.org.cn/moin/Py8Rong8Chi
-{{{Gerald Lee <leejd80@gmail.com>
-reply-to	python-cn@googlegroups.com,
-to	python-cn@googlegroups.com,
-date	Sat, Feb 23, 2008 at 11:28 AM
-}}}
- * 原创:subject	[CPyUG:40912] [http://groups.google.com/group/python-cn/browse_thread/thread/71c74c4e77577365/a4940f98b59bde43  跟进学习八荣八耻]
-
-
-##startInc
-` Python 八荣八耻 `
+ 背景::
+ * [编程杂谈]编程就象练书法 http://blog.donews.com/limodou/archive/2006/04/02/808281.aspx
+ 
+ 解说::
+  ` Python 八荣八耻 ` http://wiki.woodpecker.org.cn/moin/Py8Rong8Chi
 
 {{{
 以动手实践为荣 , 以只看不练为耻;
@@ -106,30 +102,62 @@ date	Sat, Feb 23, 2008 at 11:28 AM
 以总结分享为荣 , 以跪求其解为耻;
 }}}
 
+  * 有关需求控制经验
+  * 有关重构的进一步经验
+ 
+
 
 == 网站?软件! ==
-  * '''网站软件化绝对不是空话!''' 来自:: [:ObpLovelyPython/CDay2:CDay2]
+`Site is kinds of Software!`
+  * '''网站软件化绝对不是空话!''' 来自 [:ObpLovelyPython/CDay2:CDay2]
+
+ 背景::
+ * SaaS 概念
+ 
+ 解说::
+  如果看待GUI ?  
   * 有关桌面软件开发趋势体验
 
+== 王道?简洁! ==
+`Kingcraft is pithy!`
 
-
-== 王道!简单! ==
   * '''KISS 才是王道!'''来自 [:ObpLovelyPython/CDay3:CDay3]
+
+ 背景::
+ * KISS 概念
+ 
+ 解说::
   * 有关软件设计经验
 
-
-
-== 想象!无限! ==
+== 想象,无垠! ==
+`Imagine Unlimited!`
   * '''想象力才是 Pythoner 的唯一界限''' 
   来自 [:ObpLovelyPython/CDayN:CDay+1]
+
+ 背景::
+ * Python的动态性真是让人吃惊 
+  * 访问地址: http://hi.baidu.com/limodou/blog/item/83f4b21937ed174043a9adb5.html
+  * 快速访问: http://tinyurl.com/43teuz	
+ * 优雅型修饰 
+  * 访问地址: http://wiki.woodpecker.org.cn/moin/MiscItems/2008-04-17
+  * 快速访问: http://tinyurl.com/4urfmx
+ 
+ 解说::
   * 有关资源深度利用经验~ 社区，交流，搜索，知识管理策略 ...
 
-
 = 箴言凝练 =
-
+`Motto zip`
 
 == 蠎 禅 ==
-http://wiki.woodpecker.org.cn/moin/PythonZen
+一切尽在自言中:
+
+图 atta1-2
+attachment:atta1-2.png
+
+在线的汉化版本收集:
+  http://wiki.woodpecker.org.cn/moin/PythonZen
+
+
 {{{
 美丽好过丑陋;
 明显好过隐晦;
