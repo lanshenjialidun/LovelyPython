@@ -137,6 +137,11 @@ return exp
 
 图 KDay2-3
 attachment:KDay2-3.png
+{{{详细::
+PCS208 dict4ini
+知名行者 Limodou 从UliPad 项目中分离贡献的快捷 ini 配置文本解析支持模块;
+在PCS208 中分享了基本技巧
+}}}
 
 == 串联页面 ==
 '''将编辑页面和展现页面串联起来'''

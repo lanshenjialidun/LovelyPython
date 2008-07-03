@@ -35,6 +35,12 @@ attachment:KDay5-1.png
 print pickle.dumps(sess.usr)
 }}}
 
+{{{详细::
+PCS210 pickle
+对象序列化模块,支持将对象导出成硬盘文件以便进行网络传输等等其它进一步操作;
+在PCS210 中,分享了进一步操作技巧
+}}}
+
 图 KDay5-2
 attachment:KDay5-2.png
 
@@ -240,6 +246,10 @@ attachment:KDay5-7.png
 图 KDay5-8
 attachment:KDay5-8.png
 
+{{{详细::
+PCS200 os
+介绍了相关系统信息获取支持的常用模块的进一步操作技巧
+}}}
 
 === 可变参数的意义 ===
  * 现在你可是对Python 函式的可变参数深以为然了
