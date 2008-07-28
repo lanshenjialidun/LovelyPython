@@ -7,12 +7,19 @@
 [[TableOfContents]]
 
 = KDay 1:品尝KarriGell =
-'''快速根据PHP的现成代码思路尝试Karrigell 的开发'''
+'''快速根据现成的PHP实现思路,尝试Karrigell 的开发'''
 
- * 原先的问卷系统，其实就是一组手工写成的PHP页面,可以将每个人的回答记录到数据库中,后来小白学习了Python 就写了个脚本,可以从 .ini 文本文件中自动批量生成相似的PHP页面,所以,现在的问卷生成流程是:
-  * .ini(txt) -> Python -> PHP -> DB -> Python -> 回答统计
- * 这样的数据流程真够傻的
- * 总算又有了点儿时间，小白就想尝试使用纯Python 的环境重构出一个可以快捷修改，统计问卷的简单系统。
+== 背景 ==
+ 原先的问卷系统:
+  * 其实就是一组手工写成的非常简单的PHP页面,每个页面包含一个选择题,点击"下一题"就可以将每个人对应的回答记录到数据库中;然后通过数据库的查询进行成绩统计;
+  * 小白学习了Python后,首先写了个脚本,可以从 .ini 文本中自动批量生成相似的PHP页面:
+   * 每个节`[ask/1]`类似开头的一系列键值对,对应生成一个选择题
+   * 在`key=`一项记录了正确答案的选择项
+  * 然后配套也写了自动查询DB,统计出回答过问卷的成员成绩的Python脚本
+  * 所以,现在的问卷生成流程是:{{{ 
+.ini(txt) -> Python -> PHP -> DB -> Python -> 答巻统计
+}}}
+  * 这样的数据流程真够傻的~经过了太多手续,使用了太多的语言和系统,而且不能作到实时得到所有人的成绩!
  
 {{{注意::
 PHP ~ Personal Hypertext Preprocesser
@@ -24,50 +31,73 @@ TisonG!
 }}}
 
 == 准备环境 ==
-'''为什么选择KarriGell? 缘分吧……其实是懶,在社区学习中,小白体验了KarriGell ,当然,就手先使用了……哈哈哈！'''
+
+总算得空,小白就想尝试使用纯Python 的环境重构出一个可以快捷修改,统计成绩的简单问卷系统!
+
+{{{详细:
+PCS404 代码重构浅说
+重构~Refactoring 是现代软件开发工程中常用技巧,
+可以保证系统在可用状态下持续不断的提高代码品质!
+在PCS404 中,浅显的说明了一下 重构 思想以及常见的重构技巧
+}}}
+
+ 为什么选择KarriGell?::
+  * 小白想这么回答:"缘分吧...嗬嗬嗬!"
+  * 真实原因就是:"懒!" 毕竟在前述CDays 实例故事中,在Python 学习过程中,小白已体验过了 KarriGell,当然,就手先使用熟悉了的哪,哈哈哈!
 
 {{{详细:
 PCS301 Karrigell
-分享了被选中的号称最简易好用的应用框架；
-就在本书前一部分，CDays故事中，最后小白就是使用的这种框架;
+分享了这一被选中的号称最简易好用的应用框架的基本配置和开发使用体验;
+就在本书前一部分,CDays故事中,最后小白就是使用的这种框架;
 }}}
 
- * 有了之前学习Python 时的体验,再复习一下 KarriGell 的教程,立即就可以开始了
- * 下载KarriGell
- * 解开，然后：`python Karrigell.py`
- * bingo! 你有了一个展示了各种应用的 KarriGell 站点了！ 就在 http://localhost/
+ 立即开始!::
+ * 下载KarriGell{{{
+ 下载地址: http://sourceforge.net/projects/karrigell
+ 快捷访问: http://tinyurl.com/6bpc3f }}} 一般是个单独的压缩文件,比如说:`Karrigell-2.3.6.tar.bz2`
+ * 首先,使用工具解开压缩(推荐使用 7-zip 这一自由软件,通吃一切常见压缩包! http://7-zip.org/zh-cn/)
+ * 然后,进入 KarriGell 所在目录
+ * 最后,在命令行下面输入：`python Karrigell.py`
+  * M$用户的命令行环境调用: 开始->命令->输入"cmd" (或是你习惯的任何M$终端软件)
+  * Unix/Linux用户: 应用程序->附件->终端 (或是其它任何你喜欢的终端软件)
+ * bingo! 通过 http://localhost/ 小白就已经获得了一个展示有各种应用的 KarriGell 站点了！ 
 
  图 KDay1-1
 
  attachment:KDay1-1.png
-  * 尝试了一下子在 M$ 和 FreeBSD/Ubuntu 平台中，都是完全一样的反应！
-  * 意味着，只要有Python环境，你随时可以获得一个全功能的Web 应用环境！
+ 
+  * 这也意味着,只要有Python环境,我们可以在任何平台中,随时可以获得一个全功能的Web 应用环境！
  
 == 动手动脚 ==
-'''跟着教程走，随便动一动'''
- * http://localhost/demo/frame_tour_en.htm 是基础入门的教程，展示了KarriGell 进行 web 开发中最经常要面对的应用实现
- {{{截屏
- }}}
+'''跟着教程走,随便动一动'''
+ * 默认的 KarriGell 站点中,就含有教程!
+ * http://localhost/demo/frame_tour_zh.htm 是最简要入门教程,展示了KarriGell 进行 web 开发中最经常要面对的应用实现
+  图 KDay1-4
+  
+  attachment:KDay1-4.png
  
- * 小白看的懂Python， 当然的，对于 hello 这样的示例已经没有兴趣了，
- * 看过一些前人的体验文章，知道有种 `pih` 的页面交互方式，最象原先的 PHP 开发
- * 跟着教程，http://localhost/demo/test.pih 小白直接修改了两下:{{{
+ * 小白也算修炼过Python,当然的,对于"hello world"这样的示例已经没有兴趣了,想直接行进交互式的应用开发
+ * 经过行者的点拔,知道有种 `.pih` 的页面交互方式,最象原先的 PHP 页面,是将执行代码嵌入到HTML页面中的
+ * 根据教程的理解,小白直接对原有的页面 http://localhost/demo/test.pih  进行修改尝试:{{{
 <h2>HTTP headers</h2>
 <%
 a="Karrigell"
 print dir(a)
 %>
 }}}
-  * 嗬嗬！！果然和命令行中的反应一样，看来就将KarriGell 想象为面向 Web 的Python 解释器好了！
+  * 嗬嗬！！果然和命令行中的反应一样,看来就将KarriGell 想象为面向 Web 的Python 解释器好了！
 
+  图 KDay1-5
+  
+  attachment:KDay1-5.png
+  
 == 组织开发环境 ==
-'''OK！要可以随时看到教程，同时又有独立的站点空间……'''
+'''OK！要可以随时看到教程,同时又有独立的站点空间……'''
 
- * 小白好不容易学习,掌握了 Leo ,而且感觉一切都应该由 Leo 组织才自然
+ * 小白好不容易学习,掌握了 ["Leo"] ,而且感觉一切都应该由 ["Leo"] 组织才自然
  * 那未就按照直觉来定制KarriGell 一下子:
-     * 看了其它人的体验……
-     * 其实 KarriGell 的设置非常的简单的，由统一的 ini 文件来设定整体行为
-     * 现在的需求非常简单，就是将KarriGell 的默许教程站点和你的开发隔离开,以便不影响开发的同时可以随时回来参考内置教程,所以{{{
+     * 其实 KarriGell 的设置非常的简单的,由统一的 ini 文件来设定整体行为
+     * 现在的需求非常简单,就是将KarriGell 的默许教程站点和你的开发隔离开,以便不影响开发的同时可以随时回来参考内置教程,所以{{{
 [Alias]
 # associates an alias to a path on the file system
 # always use / as path separator, even on Windows
@@ -78,9 +108,9 @@ print dir(a)
 doc=%(base)s/doc
 debugger=%(base)s/debugger
 }}}
-  * Yeah! 就是这里，非常直观，那未定义一个你自个儿开发的站点目录在 KarriGell 系统目录中就好
+  * Yeah! 就是这里,非常直观,那未定义一个你自个儿开发的站点目录在 KarriGell 系统目录中就好
    * 嗯嗯……感谢Unix 系统中的 link 命令了！小白可以将开发中的问卷系统文件放在任何习惯的目录中,仅仅链接到KarriGell 的环境目录中就完成了应用安装, 如果在 M$ 中就只能真的在其中建立目录
-  * 首先,习惯性的在 Leo 中设立好自个儿的工程，组织一个最简单的 index.pih:{{{
+  * 首先,习惯性的在 ["Leo"] 中设立好自个儿的工程,组织一个最简单的 index.pih:{{{
 <html><body>
 <%
 a="Kariigell"
@@ -96,32 +126,34 @@ print dir(a)
 PCS310 LEO
 分享了什么是文学化编辑环境,
 以及利用文学化视角来组织软件工程时的最佳体验;
-这里的 @nosent 是指LEO中结点的特殊名称，
-可以引起不同的系统响应的名称，具体的参考
+这里的 @nosent 是指LEO中结点的特殊名称,
+可以引起不同的系统响应的名称,具体的参考
 PCS310 LEO
 }}}
   
-  * 对应的，Karrigell.ini 中设定一下{{{
+  * 对应的,Karrigell.ini 中设定一下{{{
 [Alias]
 ...
 k=%(base)s/karriweb
 q=%(base)s/karriweb/questionnaire
 ...
 }}}
-  * OK! 重启一下子KarriGell ,当然, `Ctrl+C` 是在Linux/Unix 系统中的通用操作，令 KarriGell 的Python 进程停止
+  * OK! 重启一下子KarriGell ,当然, `Ctrl+C` 是在Linux/Unix 系统中的通用操作,令 KarriGell 的Python 进程停止
   * 然后一样的 `python Karrigell.py`
   * 那未 http://localhost/k
-   * 嗬嗬，一切如愿！ KarriGell 正如你想象的有了实时的反应，不象CherryPy 你的每次修改，都要重启服务
-   * 在KarriGell 中，就象PHP开发那样，每次修改好后，刷一下子页面，立即你的修改就能显示出来
+   * 嗬嗬,一切如愿！ KarriGell 正如你想象的有了实时的反应,不象CherryPy 你的每次修改,都要重启服务
+   * 在KarriGell 中,就象PHP开发那样,每次修改好后,刷一下子页面,立即你的修改就能显示出来
 
 图 KDay1-3
 attachment:KDay1-3.png
 
-== 规划目标 ==
- * 好了今天的任务，完成！'''评估KarriGell的可用性'''
-  * 嗬嗬，其实就是简单的确定 KarriGell 的开发方式
-  * 对于简单问卷本身, 明天，先要完成的是怎么在KarriGell 中读人外部文件，并可以在页面中修改，然后提交保存...
-  * 最终目标是利用 limodou 的 Dict4Ini 类来理解问卷的设计，并将问答收集为一系列文件，最终仍由Python 进行统计成绩……
+== 小结 ==
+ 今天任务::
+  * '''评估KarriGell的可用性'''--已经达成！
+  * 嗬嗬,其实就是简单的确定 KarriGell 的应用开发/组织方式
+ 明日计划::
+  * 对于"简单问卷"本身,先要完成的是怎么在KarriGell 中读人外部文件,并可以在页面中修改,然后提交保存...
+  * 最终目标是利用 limodou 的 Dict4Ini 类来理解问卷的设计,并将问答收集为一系列文件,最终仍由Python 进行统计成绩...
 
 == 实例下载 ==
 使用SVN下载地址:

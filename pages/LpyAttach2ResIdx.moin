@@ -98,7 +98,17 @@
 
 == Py 影响力 ==
  常识::
-  * 相关语言
+  * 原来Boo是一种有着python语法的.net语言，好处是公用CLI和.net其他语言互相协
+作无间。。
+
+我同事那个小组用了很久了，他老大用c#。他们在mono上跑，看来现在mono也相当
+的成熟了，他们的都是生产上的应用。
+
+Boo的logo挺讨人喜欢 :)
+http://boo.codehaus.org/Language+Features
+
+不知道在vs.net上面开发boo会不会很爽。
+
  深入::
   * 相关项目
  前沿::
