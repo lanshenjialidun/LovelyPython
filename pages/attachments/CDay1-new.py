@@ -7,7 +7,8 @@ def iniCDinfo(cdrom,cdcfile):
     '''
     walker = {}
     for root, dirs, files in os.walk(cdrom):
-        walker[root]=(dirs,files)          # 这里是个需要理解的地方
+        walker[root]=(dirs,files)          # 使用字典保存目录结构信息，以根目录作为key，对应子目录及文件作为value，以便下面的cfg组织信息
+
     cfg = rcp()
     cfg.add_section("Info")
     cfg.add_section("Comment")
