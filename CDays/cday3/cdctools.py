@@ -167,7 +167,7 @@ def markIni(cdcfile,keyword):
             for item in cfg.items(node):
                 try:
                     if keyw in item[0].upper():
-                        report += "\n","%s/%s "%(node,item)
+                        report += "\n %s/%s "%(node,item)
                 except:
                     pass
     #print keyw
