@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+        <!DOCTYPE validation-config SYSTEM "validation-config.dtd">
+        <validation-config lang="auto">	
+        	<form id="fm_edit" show-error="errorMessage" onfail="" 
+        	show-type="first">
+            
+        		<field name="entry_title" 
+        		display-name="required" onfail="">
+        			<depend name="required" />
+        		</field>
+        
+        		<field name="entry_content" 
+        		display-name="required" onfail="">
+        			<depend name="required" />
+        		</field>
+        
+        	</form>
+        </validation-config>
+        
