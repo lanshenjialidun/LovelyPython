@@ -1,0 +1,64 @@
+<html>
+<head>
+    <title>Mysite</title>
+    <meta content="text/html; charset=utf-8" http-equiv=content-type>
+</head>
+<body>
+<%
+#导入Karrigell_QuickForm模块
+from Karrigell_QuickForm import Karrigell_QuickForm as KQF
+
+#若是新建文章, 则id为空, 若是修改文章, 则有对应文章的id
+id = QUERY.keys()
+
+#先初始化
+entry_title = ''
+entry_content = ''
+entry_tag = ''
+entry_id = 0
+if not id:
+    #若是新建的, 则id为0来标志
+    id = 0
+else:
+    #获取文章id, 应该减1
+    id = int(id[0])-1
+    #导入pickle模块
+    import pickle
+    try:
+        #load文章列表对象
+        entrylist = pickle.load(open("entry.dump"))
+        #获取对应id的文章
+        entry_title = entrylist[id].title
+        entry_content = entrylist[id].content
+        entry_tag = ' '.join(entrylist[id].tag)
+        entry_id = entrylist[id].id
+    except Exception, e:
+        #raise HTTP_REDIRECTION,"error"
+        print e
+    
+string = '''
+    <h1>Edit</h1>
+''' 
+print string
+#使用Karrigell_QuickForm修改原来的string
+p = KQF('fm_edit','POST',"save_entry.py","Edit")
+p.addHtmNode('text','entry_title','Title',{'size':20, 'maxlength':'40', "value":"%s" % entry_title})
+p.addHtmNode('text','entry_tag','Tags',{'size':20, 'maxlength':'40', "value":"%s" % entry_tag})
+p.addCntTextArea('entry_content', 'Content', '%s' % entry_content, '20','50')
+p.addElement("reset", 'reset', {'value':"Reset"})
+p.addGroup(["submit","btn_submit","Submit","btn"])
+#p.addElement("submit", "ok", {'value':"Ok"})
+#p.addElement("reset", 'reset', {'value':"Reset"})
+p.addElement("hidden", "entry_id", {"value":"%s" % entry_id})
+
+#增加JS, 有问题???
+p.addJSRule("entry_title", 'required')
+p.addJSRule("entry_content", 'required')
+#p.addRule("entry_title", 'required', 'Titile is required!')
+p.addJSValidation()
+p.saveJSRule("./js/validation-config.xml")
+
+p.display()
+%>
+</body>
+</html>

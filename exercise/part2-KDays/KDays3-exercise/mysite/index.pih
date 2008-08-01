@@ -1,0 +1,19 @@
+<head>
+    <title>Mysite</title>
+</head>
+<body>
+    <h1>Entry</h1>
+<%
+import pickle
+
+try:
+    entrylist = pickle.load(open("entry.dump"))
+except Exception, e:
+    entrylist = list()
+entrylist.reverse()
+for e in entrylist:
+    print '<h3>%s</h3><p>Title: %s</p><p>Tags: %s</p><p>%s</p>' % (e.id, e.title, ' '.join(e.tag), e.content)
+    print '<form action="edit" method="post"><input type="Submit" value="Edit" name="%s"></form>' % e.id
+    print '<hr/>'
+%>
+</body>
