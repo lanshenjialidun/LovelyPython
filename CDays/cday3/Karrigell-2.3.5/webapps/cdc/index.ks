@@ -43,6 +43,7 @@ def index(**args):
     @param args: 数组化的不定参数
     @return: 标准的HTML页面
     '''
+    RESPONSE['Content-Type'] = "text/html; charset=utf-8"
     print _htmhead("PyCDC WEB")
     p = KQF('fm_cdwalk','POST',"index","CD Walk")
     p.addHtmNode('text',"keywd","文件名",{'size':20,'maxlength':50})
