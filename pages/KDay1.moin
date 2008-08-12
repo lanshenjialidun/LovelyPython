@@ -32,7 +32,7 @@ TisonG!
 
 == 准备环境 ==
 
-总算得空,小白就想尝试使用纯Python 的环境重构出一个可以快捷修改,统计成绩的简单问卷系统!
+总算得空,小白立即想尝试使用纯 Python 的重构出一个可快速修改+统计成绩的简单问卷系统.
 
 {{{详细:
 PCS404 代码重构浅说
@@ -76,9 +76,9 @@ PCS301 Karrigell
   
   attachment:KDay1-4.png
  
- * 小白也算修炼过Python,当然的,对于"hello world"这样的示例已经没有兴趣了,想直接行进交互式的应用开发
- * 经过行者的点拔,知道有种 `.pih` 的页面交互方式,最象原先的 PHP 页面,是将执行代码嵌入到HTML页面中的
- * 根据教程的理解,小白直接对原有的页面 http://localhost/demo/test.pih  进行修改尝试:{{{
+ * 小白也算修炼过Pythonw编程的,当然对于"hello world"这样的示例已经没有兴趣了,想直接行进交互式的Web应用开发
+ * 经过行者的点拔,注意到有种 `.pih` 发布方式,最象原先的 PHP 页面,可以将执行代码嵌入到HTML页面中
+ * 根据内置教程的演示,小白直接对原有的页面 http://localhost/demo/test.pih  进行修改尝试:{{{
 <h2>HTTP headers</h2>
 <%
 a="Karrigell"
@@ -92,12 +92,12 @@ print dir(a)
   attachment:KDay1-5.png
   
 == 组织开发环境 ==
-'''OK！要可以随时看到教程,同时又有独立的站点空间……'''
+'''OK！我期望可以随时看到教程,同时又有独立的站点空间……'''
 
  * 小白好不容易学习,掌握了 ["Leo"] ,而且感觉一切都应该由 ["Leo"] 组织才自然
- * 那么就按照直觉来定制KarriGell 一下子:
+ * 那么就按照习惯来定制KarriGell 一下子:
      * 其实 KarriGell 的设置非常的简单的,由统一的 ini 文件来设定整体行为
-     * 现在的需求非常简单,就是将KarriGell 的默许教程站点和你的开发隔离开,以便不影响开发的同时可以随时回来参考内置教程,所以{{{
+     * 现在的需求非常简单,就是将KarriGell 的默许教程站点和小白自个儿的开发隔离开,以便开发的同时不影响随时参考内置教程,所以{{{
 [Alias]
 # associates an alias to a path on the file system
 # always use / as path separator, even on Windows
@@ -108,8 +108,22 @@ print dir(a)
 doc=%(base)s/doc
 debugger=%(base)s/debugger
 }}}
-  * Yeah! 就是这里,非常直观,那么定义一个你自个儿开发的站点目录在 KarriGell 系统目录中就好
-   * 嗯嗯……感谢Unix 系统中的 link 命令了！小白可以将开发中的问卷系统文件放在任何习惯的目录中,仅仅链接到KarriGell 的环境目录中就完成了应用安装, 如果在 M$ 中就只能真的在其中建立目录
+  * Yeah! 就是这里,非常直观,那么定义一个自个儿开发的站点目录在 KarriGell 系统目录中就好
+   * 嗯嗯……得感谢Unix 系统中的 link 命令！小白可以将开发中的问卷系统文件放在任何习惯的目录中,仅仅链接到KarriGell 的环境目录中就完成了自个儿的应用安装; 如果在 M$ Windows 环境中就只能真的在其中建立目录了;
+{{{
+比如说;在Linux 中,小白的 EasyPage 工程组织在:
+/home/zoomq/0penproj.s/lovpy.OBP/KDays
+而下载安装的 Karrigell 在:
+/home/zoomq/0penproj.s/trunk/karrigell/trunk
+则小白只要运行:
+$ ln -s /home/zoomq/0penproj.s/lovpy.OBP/KDays/kday1 \
+  /home/zoomq/0penproj.s/trunk/karrigell/trunk/webapps/
+就等于在 /home/zoomq/0penproj.s/trunk/karrigell/trunk/webapps/ 中安装好了 
+/home/zoomq/0penproj.s/lovpy.OBP/KDays 中的 kday1 目录;
+然而在 M$ Windows 环境中,小白除了可以将 kday1 目录复制过去,没有任何方法;
+这样,小白想灵活的将不同目录中的不同工程目录安装到 不同版本的 Karrigell 实例环境中,就无能为力了..
+}}}
+
   * 首先,习惯性的在 ["Leo"] 中设立好自个儿的工程,组织一个最简单的 index.pih:{{{
 <html><body>
 <%
@@ -118,7 +132,7 @@ print dir(a)
 %>
 </body></html>
 }}}
-  * 嗯嗯……为了方便使用 `@nosent` 操作符 `Ctrl+S` 就在计划中的目录里生成了文件
+  * 嗯嗯……为了方便, 使用["Leo"]在节点声明 `@nosent` 操作符,以便按下 `Ctrl+S` 时,就自动在指定的目录里保存了对应文件
   图 KDay1-2
   
   attachment:KDay1-2.png
@@ -126,7 +140,7 @@ print dir(a)
 PCS310 LEO
 分享了什么是文学化编辑环境,
 以及利用文学化视角来组织软件工程时的最佳体验;
-这里的 @nosent 是指LEO中结点的特殊名称,
+这里的 @nosent 是指Leo中结点的特殊名称,
 可以引起不同的系统响应的名称,具体的参考
 PCS310 LEO
 }}}
@@ -139,9 +153,9 @@ q=%(base)s/karriweb/questionnaire
 ...
 }}}
   * OK! 重启一下子KarriGell ,当然, `Ctrl+C` 是在Linux/Unix 系统中的通用操作,令 KarriGell 的Python 进程停止
-  * 然后一样的 `python Karrigell.py`
+  * 然后再运行 `python Karrigell.py`
   * 那么访问: http://localhost/k
-   * 嗬嗬,一切如愿！ KarriGell 正如你想象的有了实时的反应,不象CherryPy 你的每次修改,都要重启服务
+   * 嗬嗬,一切如愿！ KarriGell 正如小白想象的有了实时的反应,不象CherryPy 每次修改,都要重启服务
    * 在KarriGell 中,就象PHP开发那样,每次修改好后,刷一下子页面,立即你的修改就能显示出来
 
 图 KDay1-3
@@ -153,7 +167,12 @@ attachment:KDay1-3.png
   * 嗬嗬,其实就是简单的确定 KarriGell 的应用开发/组织方式
  明日计划::
   * 对于"简单问卷"本身,先要完成的是怎么在KarriGell 中读人外部文件,并可以在页面中修改,然后提交保存...
-  * 最终目标是利用 limodou 的 Dict4Ini 类来理解问卷的设计,并将问答收集为一系列文件,最终仍由Python 进行统计成绩...
+  * 是利用大侠 Limodou 自创的 Dict4Ini 模块来理解问卷的设计,并将问答收集为一系列文件,最终仍由Python 进行统计成绩...
+{{{详细::
+PCS208 dict4ini
+分享了专门用以解析和输出 .ini 类 M$ Windows 配置文件文本的支持模块的基本使用思路;
+这是 UliPad 作者Limodou自个儿组织分享出来的
+}}}
 
 == 实例下载 ==
 使用SVN下载地址:
