@@ -19,7 +19,7 @@
   * 所以,现在的问卷生成流程是:{{{ 
 .ini(txt) -> Python -> PHP -> DB -> Python -> 答巻统计
 }}}
-  * 这样的数据流程真够傻的~经过了太多手续,使用了太多的语言和系统,而且不能作到实时得到所有人的成绩!
+  * 这样的数据流程真够傻的~经过了太多手续,使用了太多的语言和系统,而且作不到答卷成绩的立等可取!
  
 {{{注意::
 PHP ~ Personal Hypertext Preprocesser
@@ -95,7 +95,7 @@ print dir(a)
 '''OK！要可以随时看到教程,同时又有独立的站点空间……'''
 
  * 小白好不容易学习,掌握了 ["Leo"] ,而且感觉一切都应该由 ["Leo"] 组织才自然
- * 那未就按照直觉来定制KarriGell 一下子:
+ * 那么就按照直觉来定制KarriGell 一下子:
      * 其实 KarriGell 的设置非常的简单的,由统一的 ini 文件来设定整体行为
      * 现在的需求非常简单,就是将KarriGell 的默许教程站点和你的开发隔离开,以便不影响开发的同时可以随时回来参考内置教程,所以{{{
 [Alias]
@@ -108,7 +108,7 @@ print dir(a)
 doc=%(base)s/doc
 debugger=%(base)s/debugger
 }}}
-  * Yeah! 就是这里,非常直观,那未定义一个你自个儿开发的站点目录在 KarriGell 系统目录中就好
+  * Yeah! 就是这里,非常直观,那么定义一个你自个儿开发的站点目录在 KarriGell 系统目录中就好
    * 嗯嗯……感谢Unix 系统中的 link 命令了！小白可以将开发中的问卷系统文件放在任何习惯的目录中,仅仅链接到KarriGell 的环境目录中就完成了应用安装, 如果在 M$ 中就只能真的在其中建立目录
   * 首先,习惯性的在 ["Leo"] 中设立好自个儿的工程,组织一个最简单的 index.pih:{{{
 <html><body>
@@ -131,7 +131,7 @@ PCS310 LEO
 PCS310 LEO
 }}}
   
-  * 对应的,Karrigell.ini 中设定一下{{{
+  * 对应的,在配置文件: Karrigell.ini 中设定一下{{{
 [Alias]
 ...
 k=%(base)s/karriweb
@@ -140,7 +140,7 @@ q=%(base)s/karriweb/questionnaire
 }}}
   * OK! 重启一下子KarriGell ,当然, `Ctrl+C` 是在Linux/Unix 系统中的通用操作,令 KarriGell 的Python 进程停止
   * 然后一样的 `python Karrigell.py`
-  * 那未 http://localhost/k
+  * 那么访问: http://localhost/k
    * 嗬嗬,一切如愿！ KarriGell 正如你想象的有了实时的反应,不象CherryPy 你的每次修改,都要重启服务
    * 在KarriGell 中,就象PHP开发那样,每次修改好后,刷一下子页面,立即你的修改就能显示出来
 
