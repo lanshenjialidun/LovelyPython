@@ -1,14 +1,73 @@
 ##language:zh
 ##OBP项目图书reST通用文章模板
 ###format rst
-||status|| 草稿 ||清风 & liz; 50%||
+||status|| 草稿 ||清风 & liz; 95%||
 
 [[TableOfContents]]
 
 == 概述 ==
-epydoc
-    
+Epydoc是一个纯Python 实现的Python专用文档化工具，主要基于Python模块的文档字符串（docstring）生成各种格式（如Html, plaintext, LaTeX 和PDF）的文档。与Python 结合非常自然，稳定，可扩展，Python代码中的注释采用Epydoc规定的格式来撰写可以非常方便的生成程序的规范化API文档。它支持多种文档化标签语法：Epytext（轻量级的标记语言，用于标记各种文档字符串，主要是在一些特定的标签上添加相关的信息，例如参数类型等等）、ReStructuredText（一种易用的，所见即所得的文本标签语法）、Javadoc（用于Java源代码的文档化标记语言）以及普通文本。Epydoc是采用Python按照软件工程开发步骤中不可缺少的一环。
+
 == 使用 ==
+=== 安装 ===
+源码安装步骤：
+{{{
+shengyan@LIZZIE:~/tmp$ wget http://prdownloads.sourceforge.net/epydoc/epydoc-3.0.1.tar.gz #下载
+shengyan@LIZZIE:~/tmp$ tar zxvf epydoc-3.0.1.tar.gz #解压文件
+shengyan@LIZZIE:~/tmp$ cd epydoc-3.0.1/ #进入目标目录
+shengyan@LIZZIE:~/tmp/epydoc-3.0.1$ sudo python setup.py install #安装，需要root权限
+[sudo] password for shengyan: 
+running install
+running build
+running build_py
+...
+#完毕
+}}}
+各种平台下的更多安装方法可参见[http://epydoc.sourceforge.net/manual-install.html 安装手册]
+
+=== 书写格式 ===
+在代码中插入相关的各种格式的Docstring，支持多种[http://wiki.woodpecker.org.cn/moin/EpydocApiTag 标签]，以下列出基本的标签：{{{
+1.   py文献信息   
+ '''@author:''' ... 作者 
+ '''@license:''' ... 版权 
+ '''@contact:''' ... 联系 
+
+2.   py状态信息   
+ '''@version:''' ... 版本推荐使用$Id$ 
+ '''@todo '''[ver]: ... 改进,可以指定针对的版本 
+
+3.   py模块信息   
+ '''@var '''v: ... 模块变量v 说明 
+ '''@type '''v: ... 模块变量类型v 说明 
+
+4.   py函式信息   
+ '''@param '''p: ... 参数 p 说明 
+ '''@type '''v: ... 参数 p 类型说明 
+ '''@return: ''' ... 返回值说明 
+ '''@rtype '''v: ... 返回值类型说明 
+
+5.   py提醒信息   
+ '''@note:''' ... 注解 
+ '''@attention:''' ... 注意 
+ '''@bug:''' ... 问题 
+ '''@warning:''' ... 警告 
+
+6.   py关联信息   
+ '''@see:''' ... 参考资料
+}}}
+epydoc 支持三种标签的语法.
+ * '''Epytext''':
+ {{{
+ @tag: 内容...}}}
+ * '''ReStructuredText''':
+ {{{
+ :tag: 内容...}}}
+ * '''Javadoc''':
+ {{{
+ @tag 内容...}}}
+更多的Tag语法及注释规范可参见[http://wiki.woodpecker.org.cn/moin/CodeCommentingRule 文档化开发注释规范]
+
+=== 文档生成 ===
 功能描述:将docstring生成html文档
 
 代码示例 pcs-203-1.py :
@@ -27,10 +86,35 @@ epydoc pcs-203-1.py
 }}}
 在当前目录下会生成一个html文件夹,点击index.html,即可看到生成的文档结果
 
-[此处放置截图效果]
+attachment:pcs-203-1.png
 
 == 问题 ==
-epydoc
+还可以通过书写一个简单的配置文件，生成更丰富的文档。如：
+{{{
+##可以命名为epydoc.cfg
+[epydoc]
+# 项目信息，名称及URL
+name: Backup
+url: http://wiki.woodpecker.org.cn/moin/ObpLovelyPython
+#指定想要处理的模块
+modules: main.py, inotify.py
+#指定输出形式及位置
+output: html
+target: apidocs/
+#指定图形生成工具，这样就可以产生各种UML图
+graph: all
+dotpath: /usr/bin/dot
+}}}然后使用如下命令即可生成所需文档
+{{{
+epydoc --config epydoc.cfg  #获得最新的 API文档 
+}}}
 
-== 探讨 ==
-epydoc
+
+
+
+
+##[http://epydoc.sourceforge.net/ Epydoc官方文档]
+##[http://billlangjun.blogspot.com/2008/01/learning-epydoc.html Learning Epydoc]
+##[http://wiki.woodpecker.org.cn/moin/EpydocApiTag Epydoc标签]
+##[http://wiki.woodpecker.org.cn/moin/CodeCommentingRule 文档化开发注释规范]
+##[http://epydoc.sourceforge.net/manual-install.html 安装手册]
