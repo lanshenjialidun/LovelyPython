@@ -5,16 +5,20 @@
 
 [[TableOfContents]]
 
-== enumerate ==
-小白:Python中的循环,想知道现在循环了几次好麻烦,总要在循环外定义一个变量,然后每次循环再加1,像这样:
+== 概述 ==
+Python除了语言简洁,容易上手等优点,还有一个重要的优点,就是存在大量的内置函数,方便编程.这个章节将介绍这些常用函数.让您更好的了解Python的诱人之处.
+
+== 使用 ==
+=== enumerate ===
+enumerate是python 2.3中新增的内置函数，它的英文说明为：
 {{{
-i=0
-for obj in objlist:
-    i+=1
-    print i
+enumerate(iterable)
+    Return an enumerate object. iterable must be a sequence, an iterator, or some other object which supports iteration. The next() method of the iterator returned by enumerate() returns a tuple containing a count (from zero) and the corresponding value obtained from iterating over iterable. enumerate() is useful for obtaining an indexed series: (0, seq[0]), (1, seq[1]), (2, seq[2]), .... New in version 2.3. 
 }}}
 
-行者:..........请尝试enumerate
+它特别适合用于一个for循环时，当我们同时需要计数和元素时可以使用这个函数。举个简单的例子，有一个字符串数组，需要一行一行打印出来，同时每行前面加上计数，从1开始。
+
+例如:
 {{{#!python
 mylist=["a","b","c"]
 for index,obj in enumerate(mylist):
@@ -25,11 +29,6 @@ for index,obj in enumerate(mylist):
 1,"b"
 2,"c"
 }}}
-
-
-== 其他内置函数 ==
- * 小白:enumerate很方便,那Python还有什么内置函数吗?
- * 行者:map,zip,filter,等等,很多.
 
 === map ===
 行者:以一个小例子,展示map的威力,将数组中每一个数乘以2
@@ -45,8 +44,6 @@ for x,y in zip([1,2,3],[4,5,6]):
 {{{#!python
 filter(lambda x:x>3,[1,2,3,4,5])
 }}}
-
-== 练习 ==
 
 
 -- 清风  [[DateTime(2008-04-25T14:33:00Z)]] 
