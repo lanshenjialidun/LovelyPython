@@ -148,8 +148,8 @@ PCS310 LEO
   * 对应的,在配置文件: Karrigell.ini 中设定一下{{{
 [Alias]
 ...
-k=%(base)s/karriweb
-q=%(base)s/karriweb/questionnaire
+k=%(base)s/KDays
+q=%(base)s/KDays/kday1
 ...
 }}}
   * OK! 重启一下子KarriGell ,当然, `Ctrl+C` 是在Linux/Unix 系统中的通用操作,令 KarriGell 的Python 进程停止

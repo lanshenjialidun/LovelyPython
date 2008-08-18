@@ -1,27 +1,34 @@
 
 ##language:zh
 #pragma section-numbers on
-||'''status'''|| 正式 || ZoomQuiet|| 完成度:90%||
+||'''status'''|| 正式 || ZoomQuiet|| 完成度:95%||
 
 
 [[TableOfContents]]
 
 = KDay 2:~ 通过表单直接完成功能！ =
-'''不管3721直接完成心目中的功能,先！'''
+'''不管37,21直接完成心目中的功能,先！'''
 
-小白秉承之前的习惯，先计划这日的可达成目标:
- * 可以直接读取原先的问卷设计 ini 文本，到页面的 TEXTAREA 中
- * 可以提交单，并保存到服务器上的指定目录中！
+小白秉承之前的习惯,先计划当日期望的达成目标:
+ 1. 可以直接读取原先的问卷设计 .ini 文本, 显示到页面中的 文本框(<TEXTAREA></TEXTAREA>) 中
+ 1. 可以提交包含问卷设计文本框的表单,并将内容保存到服务器上的指定目录中,完成问卷的更新;
 
 == 规划 ==
-行者[:RocketyKarrigell:‘Rockety’ 对KarriGell 的设置有很好的介绍]
-  * 小白参考后， 认真规划了一下站点的开发{{{
+行者 ‘Rockety’ 对KarriGell 的设置有很好的介绍
+{{{脚注::
+Rockety 的Karrigell 使用体验:
+http://wiki.woodpecker.org.cn/moin/RocketyKarrigell
+另外在 PCS301 中也对最常用部分的配置进行了说明
+}}}
+  * 小白参考之从新规划了一下站点的开发, 对 `/path/to/Karrigell/conf/Karrigell.ini` 相关部分进行修订
+  {{{
+...
 [Alias]
 ..
-obp=%(base)s/karriweb/obp
-}}} 在`Karrigell.ini` 中追加设置行，这样一来，就可以通过
- http://localhost/obp/ 来访问了
- ，当然没有在 obp 目录中安置index.htm/index.pih 之类的默认首页 KarriGell 是不会让小白看到什么的说……
+q=%(base)s/KDays
+}}} 追加这一行设置行，这样一来，就可以通过
+ http://localhost/q/kday2/ 
+ 来访问今天的开发成果了! 当然没有在 obp 目录中安置index.htm/index.pih 之类的默认首页 KarriGell 是不会让小白看到什么的说……
  
  * 简单点儿吧！{{{# 约定以下全局性变量
 qpath = "q/"
@@ -30,29 +37,34 @@ pubq = qpath+"easy051201.cfg"
   * 使用这样的全局变量定义下来，使用 Leo 快速的将所有的文件控制起来
 
  * 计划就是这样的:
-     http://localhost/obp/KwDay2/mana.pih 看到并可以编辑 ini 问卷设计文稿
-     点击提交后 到
-     http://localhost/obp/KwDay2/qpage.pih
-     可以看到真正保存下来的问卷设计内容
+  1. http://localhost/obp/kday2/mana.pih 看到并可以编辑 ini 问卷设计文稿,点击提交后转到
+  2. http://localhost/obp/kday2/qpage.pih 可以看到真正保存下来的问卷设计内容
      
 == Cheetah ==
-''' 道听途说 各种模板系统中 Cheetah 非常的好和稳定，就用它了！'''
+小白从很早,从身边的师兄师姐那儿就模糊的听说过 `MVC` 模式,说是什么将 数据模式/前端表现/业务控制 分层实现等等;
+在这个简单的连数据库都没有实例小项目中,顶多是 `VC` 分层了,咨询了一下技术列表,有行者推荐说模板系统中 Cheetah 非常的好和稳定, 那就先尝试它了！
 
  * 小小看一下子示例，知道 [:CheetahTemplateOrg:Cheetah] 的基本使用是这样的:
-     1. 引入模板`from Cheetah.Template import Template`
-     1. 加载模板`page = open("你的模板文件.tmpl","r").read()`
-     1. 加载数据`vPool = {'cfgtxt':随便什么字串的值就成}`
-     1. 渲染输出`print Template(page, searchList=[vPool])`
-     * 则模板中有`$cfgtxt` 的地方就会替换为实际数据
+{{{#!python
+from Cheetah.Template import Template        # 0. 引入模板
+page = open("你的模板文件.tmpl","r").read()    # 1. 加载模板
+vPool = {'cfgtxt':随便什么字串的值就成}          # 2. 加载数据
+print Template(page, searchList=[vPool])     # 3. 渲染输出`
+}}}
+  * 则模板文件中有 `$cfgtxt` 的地方就会替换为实际数据
+  * 模板文件就是标准的HTML文件,只是各个期望有动态数据出现的地方,变成了 `$开头的变量名`
+  * `$开头的变量名` 只要在合适的时机,先于`print Template()` 完成赋值就好
 
 {{{详细::
 PCS309 模板系统
 综合列举了流行的一些Web应用模板系统,
 分享了一些实用的模板选择和使用体验
+有关 Cheetch ~ 印度豹模板系统的简要介绍在:
+http://wiki.woodpecker.org.cn/moin/CheetahTemplateOrg
 }}}
 
 == Leo 组织实现 ==
-'''通过Leo可以在一个统一界面中把握全部章节/元素哪！'''
+'''小白已经习惯了通过 Leo 在一个统一界面中把握程序的全部逻辑章节/元素!-)'''
  * 可以使用中文作章节名目:
      * `问卷`来组织设计文案
      * 就是`@nosent easy051201.cfg`
@@ -62,17 +74,16 @@ PCS309 模板系统
      * `@nosent  mana.pih` 管理页面入口
      * `@nosent  questionnaire.tmpl` 修改问卷模板，["Cheetah"]的
 
-=== 干净的处理脚本 ===
-'''总听说MVC模式,小白自个儿也想尝试一下:'''
- * `@nosent  mana.pih` 是纯HTML页面了！ 算表现(View)？
- * `<%Include("qdesign.py")%>` 来包含一个纯操作脚本，算模式了(Model)
- * `@nosent  questionnaire.tmpl` 模板，算数据控制(Control)？
+=== VC分层 ===
+'''至此,小白组织好了自个儿的'VC'实现:'''
+ * `@nosent  mana.pih` 虽然几乎是纯HTML页面,但是通过`<%Include("qdesign.py")%>` 来包含一个纯操作脚本，算数据控制(Control)层?
+ * `@nosent  questionnaire.tmpl` 模板，算表现(View)层?
 
-原来概念就是将自然的作法,起个NB的名称... ;-)
+嗯嗯嗯,原来所谓分层实现,就是将自然的作法,起个NB的名称... ;-)
 
 === 八股文样 ===
 '''模式化的处理脚本'''
- * 从文学化编程角度看，web 应用的脚本，应该说都一个样儿！
+ * 从文学化编程角度看,web 应用的前端应用脚本,应该说都一个样儿！
 图 KDay2-1
  attachment:KDay2-1.png
  
@@ -83,7 +94,7 @@ PCS309 模板系统
      1. 实际尝试 `<<try>>` 引用的部分
 
 == 编辑实现 ==
-'''其实就是将指定的文件内容读出来发布到页面的TEXTARE 中'''
+'''其实就是将指定的文件内容读出来发布到页面的输入框(<TEXTARE/>) 中'''
  * 模板中先准备{{{<textarea NAME="cfgfile" rows="27" >
 $cfgtxt
 </textarea>}}}
@@ -99,7 +110,7 @@ print txp
  * bingo! 完成！
 图 KDay2-2
  attachment:KDay2-2.png
- 
+
 == 实现展现 ==
 '''就是将ini 的内容整理为HTML的页面展示'''
  * 同样的快速组织一下子:
@@ -109,7 +120,7 @@ print txp
      1. `@nosent  qpage.py` 实际的数据重组
 === 关键代码 ===
 
- * `from dict4ini import DictIni` 当然的要从 NewEdit 中扒出 dict4ini.py 安装到当前目录中
+ * `from dict4ini import DictIni` 当然的是使用 Limodou 贡献出的 dict4ini.py ~ 字典化ini 操作模块
  * 创建`def expage(dict):` 问卷输出函式，来将ini 内容整理为相应的页面
  {{{#!python
 exp +="<ul>"
@@ -139,7 +150,7 @@ return exp
 attachment:KDay2-3.png
 {{{详细::
 PCS208 dict4ini
-知名行者 Limodou 从UliPad 项目中分离贡献的快捷 ini 配置文本解析支持模块;
+知名行者 Limodou 从UliPad 项目中贡献出来的对象化操作 ini 配置文本支持模块;
 在PCS208 中分享了基本技巧
 }}}
 
