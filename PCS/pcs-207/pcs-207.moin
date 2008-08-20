@@ -6,7 +6,7 @@
 [[TableOfContents]]
 
 == 概述 ==
-python是支持多线程的,并且是native的线程。主要是通过thread和threading这两个模块来实现的。thread是比较底层的模块,threading是thread的包装,可以更加方便的被使用。这里需要提一下的是python对线程的支持还不够完善,不能利用多CPU,但是下个版本的python中已经考虑改进这点.
+python是支持多线程的,但是,是利用操作系统的本地线程,虚拟机本身并未实现线程支持(Java虚拟机实现了线程支持).主要是通过thread和threading这两个模块来实现的.thread是比较底层的模块,threading是thread的包装,可以更加方便的被使用。这里需要提一下的是python对线程的支持还不够完善,不能利用多CPU,但是下个版本的python中已经考虑改进这点.
 
 == 使用 ==
 === threading ===
