@@ -5,11 +5,11 @@
 
 [[TableOfContents]]
 
-== ConfigParse ==
+== 概述 ==
+ConfigParse是用来处理ini格式的配置文件的Python标准库.
 
- * 小白:程序中经常会有很多需要灵活配置的地方,有什么方法,可以让我快速的使用类似ini式的配置文件呢?
- * 行者:你不必一行一行的去读取分析文本,只需要使用ConfigParse,就可以轻松的完成了
-
+== 使用 ==
+=== 实例 ===
 配置文件示例:
 {{{
 [portal]
@@ -20,7 +20,7 @@ password = SECRET
 port = 8080
 }}}
 
-使用ConfigParse解析它:
+使用ConfigParse解析:
 {{{#!python
 from ConfigParser import ConfigParser
 import os
@@ -34,8 +34,5 @@ config.read(filename)
 url = config.get('portal', 'url')
 print url
 }}}
-
-== 练习 ==
-
 
 -- 清风  [[DateTime(2008-04-25T14:33:00Z)]] 
