@@ -62,7 +62,8 @@ PCS301 Karrigell
   * Unix/Linux用户: 应用程序->附件->终端 (或是其它任何你喜欢的终端软件)
  * bingo! 通过 http://localhost/ 小白就已经获得了一个展示有各种应用的 KarriGell 站点了！ 
 
- 图 KDay1-1
+
+ 图 KDay1-1 默认首页
 
  attachment:KDay1-1.png
  
@@ -72,9 +73,10 @@ PCS301 Karrigell
 '''跟着教程走,随便动一动'''
  * 默认的 KarriGell 站点中,就含有教程!
  * http://localhost/demo/frame_tour_zh.htm 是最简要入门教程,展示了KarriGell 进行 web 开发中最经常要面对的应用实现
-  图 KDay1-4
+ 
+  图 KDay1-2 内置中文教程
   
-  attachment:KDay1-4.png
+  attachment:kday1-zh-tut.png
  
  * 小白也算修炼过Pythonw编程的,当然对于"hello world"这样的示例已经没有兴趣了,想直接行进交互式的Web应用开发
  * 经过行者的点拔,注意到有种 `.pih` 发布方式,最象原先的 PHP 页面,可以将执行代码嵌入到HTML页面中
@@ -87,9 +89,9 @@ print dir(a)
 }}}
   * 嗬嗬！！果然和命令行中的反应一样,看来就将KarriGell 想象为面向 Web 的Python 解释器好了！
 
-  图 KDay1-5
+  图 KDay1-3 打印dir()的页面输出
   
-  attachment:KDay1-5.png
+  attachment:kday1-exp-dir.png
   
 == 组织开发环境 ==
 '''OK！我期望可以随时看到教程,同时又有独立的站点空间……'''
@@ -133,9 +135,12 @@ print dir(a)
 </body></html>
 }}}
   * 嗯嗯……为了方便, 使用["Leo"]在节点声明 `@nosent` 操作符,以便按下 `Ctrl+S` 时,就自动在指定的目录里保存了对应文件
-  图 KDay1-2
   
-  attachment:KDay1-2.png
+  
+  图 KDay1-4 Leo界面中的情景
+  
+  attachment:kday1-exp-dir.png
+  
 {{{详细::
 PCS310 LEO
 分享了什么是文学化编辑环境,
@@ -158,8 +163,9 @@ q=%(base)s/KDays/kday1
    * 嗬嗬,一切如愿！ KarriGell 正如小白想象的有了实时的反应,不象CherryPy 每次修改,都要重启服务
    * 在KarriGell 中,就象PHP开发那样,每次修改好后,刷一下子页面,立即你的修改就能显示出来
 
-图 KDay1-3
-attachment:KDay1-3.png
+图 KDay1-5 页面输出和服务运行对比
+
+attachment:kday1-page-run-cil.png
 
 == 小结 ==
  今天任务::
