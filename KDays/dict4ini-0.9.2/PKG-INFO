@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: dict4ini
+Version: 0.9.2
+Summary: An ini configure process module, and deal with ini file as a dict object
+Home-page: http://wiki.woodpecker.org.cn/moin.cgi/Dict4Ini
+Author: limodou
+Author-email: limodou@gmail.com
+License: BSD
+Description: UNKNOWN
+Platform: UNKNOWN
