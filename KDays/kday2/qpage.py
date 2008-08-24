@@ -3,6 +3,7 @@
 
 #!/usr/bin/env python
 # coding:utf-8
+#print QUERY;    # 打印表单提交的对象信息
 
 import time,shutil
 import sys,os,string,re
