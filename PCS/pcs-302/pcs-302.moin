@@ -6,15 +6,12 @@
 [[TableOfContents]]
 
 == web.py ==
-
-=== web.py 食谱 ===
- * [http://webpy.org/cookbook web.py Cook Book] ~ 中文翻译
+=== 概述 ===
+web.py 是 Python 所有 Web 开发框架中,最为简洁,最为容易上手的一个.全部框架只有一个文件构成.可以快速的建立 Web 原型.和学习Web开发.可以说,麻雀虽小五脏俱全.
 
 === Hello World! ===
+使用web.py 写个'hello world'
 
- 命题::
- 怎么使用web.py 写个''hello world''?
- 解决::
 {{{#!python
 import web
 
@@ -29,7 +26,10 @@ if __name__ == "__main__":
     app.run()
 }}}
 
-== 练习 ==
+== 相关资料 ==
+ * [http://webpy.org/cookbook web.py Cook Book] ~ 中文翻译
+
+
 
 
 -- 清风  [[DateTime(2008-04-25T14:33:00Z)]] 

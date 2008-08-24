@@ -5,10 +5,11 @@
 
 [[TableOfContents]]
 
-== ElementTree ==
- * 小白:Python是否有处理xml的模块呢?以dom的方式处理数据,而不用自己去分析文本?
- * 行者:Python2.5之后内置了ElementTree,来处理xml
+== 概述 ==
+ElementTree是Python的xml处理模块,它提供了一个轻量级的对象模型,用于以 Python 处理 XML.ElementTree是在Python2.5以后成为Python标准库的一部分的.在2.4版本之前需要单独安装.
 
+== 使用 ==
+=== 基本使用 ===
 {{{#!python
 from xml.etree.ElementTree import Element, SubElement, dump
 
@@ -32,8 +33,6 @@ $ python elementtree-example-1.py
 "word" /><buttonbox><button>OK</button><button>Cancel</button></but
 tonbox></window>
 }}}
-
-== 练习 ==
 
 
 -- 清风  [[DateTime(2008-04-25T14:33:00Z)]] 

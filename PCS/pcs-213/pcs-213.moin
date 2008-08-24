@@ -5,11 +5,13 @@
 
 [[TableOfContents]]
 
-== time ==
- * 小白:经常要做时间的累加,计算时间的间隔,难道都要拆分字符串,自己去做处理吗~~~崩溃~~~~
- * 行者:尝试尝试time模块,你会从崩溃中解脱出来的
+== 概述 ==
+time是Python的时间处理模块.时间处理是在编程的时候经常遇到的一个问题,经常遇到的问题有以下几种:
+ * 获取当前unix时间戳
+ * 求出15分钟后是几点几分
 
-打印时间戳:
+== 使用 ==
+=== 获取unix时间戳 ===
 {{{#!python
 import time
 print 'The time is:', time.time()
@@ -21,7 +23,7 @@ The time is: 1209465739.3
 }}}
 
 
-打印15秒后的时间:
+=== 获取15秒后的时间 ===
 {{{#!python
 import time
 
@@ -36,8 +38,6 @@ print '15 secs from now :', time.ctime(later)
 The time is      : Tue Apr 29 18:43:32 2008
 15 secs from now : Tue Apr 29 18:43:47 2008
 }}}
-
-== 练习 ==
 
 
 -- 清风  [[DateTime(2008-04-25T14:33:00Z)]] 
