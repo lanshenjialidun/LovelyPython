@@ -1,18 +1,17 @@
-## page was renamed from zhArticleTemplate
 ##language:zh
-#pragma section-numbers on
+##pragma section-numbers off
 
 ||'''status'''|| 正式 || ZoomQuiet|| 完成度:90%||
 [[TableOfContents]]
 
 = KDay 3:使用第3方模块规范化表单 =
-'''Cheetah 只能输出有配套模板的页面内容，但是……'''
- * 对于经常变化的表单，有什么更好的方式来生成表单?
- 
+'''Cheetah 只能输出有配套模板的页面内容,但是……'''
+ * 对于经常变化的表单,有什么更好的方式来生成表单?
+ * 小白开始了 Pythonic 重构思考,感觉 `VC` 格局中的 `V` ~ view,展示层,少不了人手工维护 HTML 为本的页面模板, 而且每个对应的功能页面就要写个模板,模板文件的复用非常难...
+ * 所以,想起在 `CDays` 故事演练中使用过的 Karrigell 快速表单模块:
+  
 == Karrigell_QuickForm  ==
-'''[http://www.orionlab.net/karrigell_quickform/Karrigell_QuickForm.html Karrigell_QuickForm]''' 真的是想要什么就来什么！
- * 刚刚从订阅的[http://sourceforge.net/mailarchive/forum.php?forum=karrigell-main karrigell-main 列表]中看到有人完成了一个 Pear(PHP的流行应用框架之一) 中 quickform的 Karrigell 实现
- * 即有之，则用之！
+ * 即有之,则用之!
  * 示例：
 {{{#!python
 from Karrigell_QuickForm import Karrigell_QuickForm
@@ -23,20 +22,21 @@ p.addElement('text','password')
 p.addRule('login','required',"Login is required!")
 p.addGroup(["submit","botao_enviar","submit","Send"]
            ,["reset","botao_limpar","reset","Clear"])
-"""根据习惯hack! 原先的自动生成 value 的为指定按钮文字。
+"""根据习惯hack! 原先的自动生成 value 的为指定按钮文字.
 p.addGroup(["submit","botao_enviar","Send"]
            ,["reset","botao_limpar","Clear"])
 """
 p.display()
-}}} 6行完成一个标准的登录表单！！！哈哈哈！赞！
+}}} 6行完成一个标准的登录表单!!!哈哈哈!赞!
 
-图 KDay3-1
+图 KDay3-1 使用KQF生成的试验表单
 attachment:KDay3-1.png
 
 === 改造 ===
-'''毕竟是 alpha 版本，居然还是全面的table 结构！'''
- * 代码也很ugly 哪！使用["Leo"]整理后
- 图 KDay3-2
+'''毕竟是 alpha 版本,居然还是全面的table 结构!'''
+ * 代码也很ugly 哪!
+ 
+ 图 KDay3-2 使用["Leo"]自动整理后的情景
  attachment:KDay3-2.png
  
  * 立即着手改造单选列表生成:
@@ -73,7 +73,7 @@ def addRadioList(self,name,desc,value,id=""):
 }}}
 
 === 利用 ===
-'''直接将昨天的展示函式修改一下子就应该好用的！'''
+'''直接将昨天的展示函式修改一下子就应该好用的!'''
  * `def expage(dict):` 对应的修改为:
 {{{#!python
 def qpubish(dict):
@@ -81,7 +81,7 @@ def qpubish(dict):
     p = Karrigell_QuickForm('fm_kq','POST','#',dict.desc.desc)
     
     p.addElement('node','<ul>','')
-    # 深入数据 基本和昨天的一样，仅仅是输出时使用 Karrigell_QuickForm 对象而已
+    # 深入数据 基本和昨天的一样,仅仅是输出时使用 Karrigell_QuickForm 对象而已
     qli = {}
     k = [int(i) for i in dict.ask.keys()]
     k.sort()
@@ -101,8 +101,8 @@ def qpubish(dict):
     p.addGroup(["submit","btn_submit","提交"]
                ,["reset","btn_reset","重写"])
 }}}
- * 注意到原先的 Karrigell_QuickForm 只有display()，要求直接输出，但是小白需要进一步的HTML 处理
- * 所以有了{{{#!python
+ * 注意到原先的 Karrigell_QuickForm 只有display(),要求表单页面立即输出, 但是小白现在需要进一步的HTML 处理后再输出
+ * 所以有了以下修订{{{#!python
 def export(self):
     """ export the html form code so people can do something for them self
     """
@@ -120,41 +120,48 @@ def export(self):
 }}}
 
 == JS 问题 ==
-'''一切顺心，表单正确生成了，但是，Karrigell_QuickForm 提供的JS检验不支持Radio列表的！'''
- * 呜乎哀哉！！这是个问题哪！如果不是所有问题回答完就提交的话
-  * 交给服务端检验，浪费带宽！你还要记录上次的问题情况，返回/提示/重答
-  * 不检验，则没有办法进行统计
-  
-=== 继续发现！ ===
-'''现在的问题是有什么现成的可以模式化的定义表单测验的JS组件？'''
- *  TiosnG ![ti'aosn'gu]
-  * There is one site named Google! -- 哈哈哈！！
-  * '''[http://www.amowa.net/jsvalidation/ JavaScript Validation Framework]''' 国人作品！
+'''一切顺心,表单顺利自动生成了,但是,Karrigell_QuickForm 提供的前端表单检验居然不支持Radio列表的!'''
+ * 呜乎哀哉!这是个问题哪...
+ * 如果不是所有人将所有问题都回答完就提交的话:
+  * 不检验这种情况,则成绩统计没有意义;
+  * 交给服务端检验,浪费带宽!还要想办法记录上次是谁回答的问题情况, 然后再返回/提示/要求重答等等等等...
+ 
+=== 继续发掘 ===
+'''现在的问题是有什么现成的可以模式化的定义表单检验的前端JS组件? '''
+ *  TiosnG !`[ti'aosn'gu]`
+  * There is one site named Google! -- 哈哈哈!!运用这个流传在行者们中的咒语,翻查了一下,确认 `Validation` ~ 有效性检查是小白想要的检验的学名,于是得到...
+  * '''JVF'''~[http://www.amowa.net/jsvalidation/ JavaScript Validation Framework] -- Javascript 有效性有效性框架 国人作品!
 
 ## mechiland@gmail.com jzchen80@hotmail.com
 
-图 KDay3-3
+图 KDay3-3 2004年当时的JVF作品页面情景
 
 attachment:KDay3-3.png
 
-  * 致力于 Python 的Ajax框架开发的 [http://www.amowa.net AMOWA]团队作品，值得期待！试用之！
+  * 是致力于 Python 的Ajax框架开发的 [http://www.amowa.net AMOWA]团队作品,值得期待!试用之!
 
-=== 迁就,先！ ===
- * 与KarriGell 配合[[FootNote(测试JS 成功引用否的小技巧:`alert("Include KO!");` JS 中加入强制提示看刷页面见分晓！)]]，当前需要:
-     1. `jvf=%(base)s/karriweb/questionnaire/js` 这样的专门虚拟目录发布，以便，其它各种应用也可以享受
-     1. `var ValidationRoot = "/jvf/";` JVF 实际运行的 validation-framework.js 本身也要声明所在目录
-     1. {{{
+=== 迁就,先! ===
+为了与KarriGell 配合,当前需要:
+
+ 1. 在配置文件中,追加声明`jvf=%(base)s/karriweb/questionnaire/js` 这样的专门虚拟目录发布,以便,其它各种应用也可以享受JVF 支持
+ 1. JVF 实际运行的 validation-framework.js 本身, 也要声明可访问的目录:`var ValidationRoot = "/jvf/";`
+ 1. 小量修订 JVF 声明错误输出的页面元素 `类` 名 '''#errorDiv'''{{{
 ValidateMethodFactory.validateRequired = function(field, params) {
 	...
 	window.location.replace("#errorDiv");
 }}} 使用replace 来减少不必要的页面刷新
-     1. 使用`p.saveJSRule("../js/validation-config.xml")` 时要对应的修正写入的正确目标文件 
- * KQF 对JVF 的迁就:
+ 1. 使用 `p.saveJSRule("../js/validation-config.xml")` 声明提交时要检验的表单元素
 
+{{{注意:
+测试JS 成功引用否的小技巧:
+`alert("Include KO!");` 
+在JS脚本中加入强制提示,刷新页面,如果见到已经包含的信息就表明引用路径对了!
+}}}
 
-==== 关键代码 ====
-'''JVF的使用很有个性，使用外部的XML 文件进行设置，标准的J2EE行为哪！'''
- * 所以，对应的增补Karrigell_QuickForm
+==== KQF 对JVF 的迁就 ====
+'''JVF的使用很有个性,使用外部的XML 文件进行检验行为的设置...'''
+ 
+ * 所以,对应的增补Karrigell_QuickForm
   1. addJSRule() 追加专门的JVF 规则{{{#!python
     def addJSRule(self,name,message):
         """add a xml rule for javascript checking
@@ -187,7 +194,7 @@ ValidateMethodFactory.validateRequired = function(field, params) {
                                              ,exp)
                                              )
 }}}
-  1. 对应的KQF中有预设对象{{{
+  1. 对应的KQF中追加统一的预设声明{{{
 self.JSvXMLtmpl="""<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE validation-config SYSTEM "validation-config.dtd">
 <validation-config lang="auto">	
@@ -208,57 +215,95 @@ self.JSvRules = []
 
 === 果然不出所料 ===
 '''仅仅追加少量代码就完成所想的客户端JS验证功能'''
-{{{
+
+在原先问卷解析函式中,追加准备好的JVF 支持{{{
 def qpubish(dict):
     ...
     ## 具体问题解析
     k.sort()
     for i in k:
         ...
-        p.addJSRule("cr_ask%s"%i,"问题%s "%i)
+        p.addJSRule("cr_ask%s"%i,"问题%s "%i) # 声明此处要进行JS检验
     ## 整体行为处理
     p.addJSValidation()
-    p.saveJSRule("js/validation-config.xml")
-    
-    p.addElement('node','</ul>','')
+    p.saveJSRule("js/validation-config.xml")    #收集检验声明,生成JVF 使用的外部XML设置文件
+    ...
 }}}
- * 果然不出所料 没有任何悬念的完成任务！
+ * 没有任何悬念的完成任务!
 
-##attachment:snap-KwDay31.png 
 
-== 滥用Leo ==
-'''到现在页面都是白板！不能忍了！加载CSS！'''
- * 不清楚KarriGell 的页面引用效率，直接将CSS，写入页面好了，反正有["Leo"]来维护
+图 KDay3-4 加载JVF 后,表单有任何项没有提交就报错
 
+attachment:kday3-jvf-alert.png
+
+== 页面编码 ==
+从开始使用 Karrigell ,小白在 FireFox 浏览器中就发现有中文乱码问题...
+
+图 KDay3-4 页面乱码现象
+
+attachment:kday3-bad-page-encode.png
+
+ * 小白努力的检查了源代码,模板代码,将所有应该声明或是本身也另存为了 utf-8;
+ 甚至于发现配置文件中有疑似输出编码声明的地方也逐一打开,比如说:
+ {{{
+[Server]
+...
+outputEncoding = utf-8
+...
+# determine if form fields should be encoded
+encodeFormData = 1
+...
+}}}
+ * 但是依然是乱码,每次非得手工将浏览器的字符编码设置成 utf-8 才正常...
+ * 怎么回事儿呢? 小白不得不到列表中吼,经过行者们的研究,确认是 Karrigell 内部处理编码有问题,不过,想解决也非常简单,使用以下的影响编码声明:
+{{{
+RESPONSE['Content-Type'] = "text/html; charset=utf-8"
+}}}
+
+{{{脚注:
+行者们讨论中文乱码问题的原始记要在 啄木鸟社区维基:
+http://wiki.woodpecker.org.cn/moin/MiscItems/2008-08-05
+}}}
+
+== 合理滥用Leo ==
+'''到现在页面都是白板!不能忍了!使用CSS!'''
+ * 小白先不理会 KarriGell 的外部文件引用效率,决定简单些,直接将CSS,写入页面,反正有["Leo"]来维护
+
+图 KDay3-5 通过Leo 每个页面复用嵌入的css 定义
+
+attachment:kday3-leo-css-embed.png
+
+ * 注意 `<<k_base>>` 节点前的小红箭头记号 ~ 这表明此节点是从 别处 克隆过来的!
+ 
 === CSS设计技巧 ===
-'''复用以前自个儿的积累是非常好的事儿！'''
- * 颜色的设计是个问题，不过有好工具来偷！
+'''复用以前自个儿的积累是非常好的事儿!'''
+ * 颜色的设计是个问题,不过有好工具来偷!
  '''[http://www.redalt.com/Tools/ilyc.php Red Alt - I Like Your Colors]'''
-图 KDay3-4
+
+图 KDay3-6 演示 redalt.com 的CSS颜色分析工具
 
 attachment:KDay3-4.png
 
 === CSS ===
-  * 每一需要CSS美化的页面都加`<<k_base>>` 引用，
+  * 每一需要CSS美化的页面都加`<<k_base>>` 引用,
   * 引用都是从`复用代码` 中clone 过来的同一节点
-  * 包含的就是`k_base.css` 你以往积累的一个通用的CSS整体设计,少量修改后，套用中意的颜色系统
+  * 包含的就是`k_base.css` 小白根据 Django 社区的样式修剪成的一个通用CSS设计,套用到当前的系统中
 
-图 KDay3-5
+图 KDay3-7 问卷管理和展示CSS效果
 
 attachment:KDay3-5.png
  
-== 小节 ==
+== 小结 ==
 '''今天发现并引入了 [http://www.orionlab.net/karrigell_quickform/Karrigell_QuickForm.html KQF]和 [http://www.amowa.net/jsvalidation/ JVF]好象有点复杂的样子……'''
 
-图 KDay3-6
+图 KDay3-8 最终问卷效果
 
 attachment:KDay3-6.png
 
- * 当然在故事中,这不是最终接受的方案，精彩还要继续……
- * 现在所有的基本功能都有了，接下来的就是要实用化:
-     1. 有用户验证，要登录
-     1. 多问卷选择/回答/编辑
-     
+ * 当然在小白的开发故事中,这不是最终接受的方案,精彩还要继续……
+ * 现在所有的基本功能点都有了,接下来的就是要实用化:
+  1. 支持多用户,得有用户验证,要登录
+  1. 支持多问卷选择/回答/编辑
 
 == 实例下载 ==
 使用SVN下载地址:

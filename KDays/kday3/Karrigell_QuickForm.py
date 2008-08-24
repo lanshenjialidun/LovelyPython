@@ -30,7 +30,8 @@ class Karrigell_QuickForm:
     """Simple HTML Forms Generation  - Karrigell_QuickForm"""
     def __init__(self,name,method,action,legend):    	
         """Form name, request method, file target,legend - Karrigell_QuickForm('contact_form','POST','contact.py','form legend')"""
-        
+
+
         self.form_list = []
         self.css_list = []
         self.js_list =[]
@@ -39,7 +40,7 @@ class Karrigell_QuickForm:
         self.method = method
         self.action = action
         self.jvfxml = ""
-        
+
         self.jvfxmltmpl="""
         <validation-config lang="auto">
         	<form id="%s" show-error="errorMessage" onfail="" 
@@ -70,21 +71,20 @@ class Karrigell_QuickForm:
         		</field>
         """
         self.JSvRules = []
-        
+
         self.form_list.append("""<div>
     <form method='%s' 
-    name='%s' 
+
     action='%s' 
     id='%s' enctype='multipart/form-data'>
     <fieldset><legend>
     <b>%s</b>
     </legend><table>"""%(self.method
-                         ,self.name
                          ,self.action
                          ,self.name
                          ,self.legend_name)
                          )
-    
+
     def addElement(self,element,name,options=None):
         """add a form element: text,file,image,submit,reset,header 
             - addElement('text'
@@ -94,22 +94,22 @@ class Karrigell_QuickForm:
         available elements: 
         text, checkbox, submit, reset, file,image,header 
         """
-        
+
         if element == 'text':
             size = options['size']
             size = str(size)
             maxlength = options['maxlength']
             maxlength = str(maxlength)
             self.form_list.append("<tr><td align='right' valign='top'><b>"+name.title().replace('_',' ')+":</b></td><td valign='top' align='left'><input type='"+element+"' name='"+name+"' size='"+size+"' maxlength='"+maxlength+"'><td></tr>") 
-        
-           
-        
-        
+
+
+
+
         elif element == 'node':
             self.form_list.append(name)
-        
-        
-        
+
+
+
         elif element == 'checkbox':
             self.form_list.append("<tr><td align='right' valign='top'><b>"+name.title().replace('_',' ')+":</b></td> <td valign='top' align='left'>")
             checkbox = ""
@@ -118,27 +118,27 @@ class Karrigell_QuickForm:
                 checkbox = checkbox + "<input type='checkbox' name='"+name+"' value='"+a+"'>"+"<label><font face=verdana size=2> "+b+"</font></label><br>"
             self.form_list.append(checkbox+"</td>")
             self.form_list.append("</tr>")
-        
+
         elif element == 'submit':
             value = options['value']
             self.form_list.append("<tr><td align='right' valign='top'><b></b></td><td valign='top' align='left'><input type='"+element+"' name='"+name+"' value='"+value+"'><td></tr>")	
-        
-        
+
+
         elif element == 'reset':
             value= options['value']
             self.form_list.append("<tr><td align='right' valign='top'><b></b></td><td valign='top' align='left'><input type='"+element+"' name='"+name+"' value='"+value+"'></td></tr>")
-        
-        
+
+
         elif element == 'file':
             self.form_list.append("<tr><td align='right' valign='top'><b>"+name.title()+":</b></td><td valign='top' align='left'><input type='"+element+"' name='"+name+"'><td></tr>")
-        
+
         elif element == 'image':
             self.form_list.append("<tr><td align='right' valign='top'><b></b></td><td valign='top' align='left'><img src='"+name+"'></td></tr>")
-        
+
         elif element == 'header':
             self.form_list.append("<tr><td align='left' valign='top' colspan='2'><b><center>"+name.title()+"</center></b></td></tr>")
-            
-    
+
+
     def addHtmNode(self,element,name,desc,options=None):
         """add a form element: text,file,image,submit,reset,header 
             - addElement('text'
@@ -149,7 +149,7 @@ class Karrigell_QuickForm:
         available elements: 
         text, checkbox, submit, reset, file,image,header 
         """
-        
+
         if element == 'text':
             size = options['size']
             size = str(size)
@@ -172,14 +172,14 @@ class Karrigell_QuickForm:
                                        ,maxlength)
                                     )
             #name.title().replace('_',' ')
-        
-        
-        
+
+
+
         elif element == 'node':
             self.form_list.append(name)
-        
-        
-        
+
+
+
         elif element == 'checkbox':
             self.form_list.append("<tr><td align='right' valign='top'><b>"+name.title().replace('_',' ')+":</b></td> <td valign='top' align='left'>")
             checkbox = ""
@@ -188,32 +188,32 @@ class Karrigell_QuickForm:
                 checkbox = checkbox + "<input type='checkbox' name='"+name+"' value='"+a+"'>"+"<label><font face=verdana size=2> "+b+"</font></label><br>"
             self.form_list.append(checkbox+"</td>")
             self.form_list.append("</tr>")
-        
+
         elif element == 'submit':
             value = options['value']
             self.form_list.append("<tr><td align='right' valign='top'><b></b></td><td valign='top' align='left'><input type='"+element+"' name='"+name+"' value='"+value+"'><td></tr>")	
-        
-        
+
+
         elif element == 'reset':
             value= options['value']
             self.form_list.append("<tr><td align='right' valign='top'><b></b></td><td valign='top' align='left'><input type='"+element+"' name='"+name+"' value='"+value+"'></td></tr>")
-        
-        
+
+
         elif element == 'file':
             self.form_list.append("<tr><td align='right' valign='top'><b>"+name.title()+":</b></td><td valign='top' align='left'><input type='"+element+"' name='"+name+"'><td></tr>")
-        
+
         elif element == 'image':
             self.form_list.append("<tr><td align='right' valign='top'><b></b></td><td valign='top' align='left'><img src='"+name+"'></td></tr>")
-        
+
         elif element == 'header':
             self.form_list.append("<tr><td align='left' valign='top' colspan='2'><b><center>"+name.title()+"</center></b></td></tr>")
-            
-    
+
+
     def addTextArea(self,name,rows,cols):
         """ add a textarea element - addTextArea('message','10','90')""" 
         self.form_list.append("<tr><td align='right' valign='top'><b>"+name.title().replace('_',' ')+":</b></td><td valign='top' align='left'><textarea name='"+name+"' cols='"+cols+"' rows='"+rows+"'></textarea><td></tr>")
-    
-    
+
+
     def addCntTextArea(self,name,desc,content,rows,cols):
         """ add a textarea element with content
             - addTextArea('message','desc',"contents...",'10','90')
@@ -231,8 +231,8 @@ class Karrigell_QuickForm:
                               ,rows
                               ,content)
                             )
-    
-    
+
+
     def addGroup(self,*t):
         """ add a button group 
         """
@@ -261,7 +261,7 @@ class Karrigell_QuickForm:
             combo = combo + "<option value='"+a+"'>"+b+"</option>"
         self.form_list.append(combo)
         self.form_list.append("</select></td></tr>")
-    
+
     def addRadioGroup(self,name,value):
     	"""add a radio element export in TABLE
         - addRadioGroup('genre'
@@ -275,10 +275,11 @@ class Karrigell_QuickForm:
             radio = radio + "<input type='radio' name='"+name+"' value='"+a+"'>"+"<label><font face=verdana size=2>"+b+"</font></label><br>"
         self.form_list.append(radio+"</td>")
         self.form_list.append("</tr>")
-    
-    
-    
-            
+
+
+
+
+
     def addRadioList(self,name,desc,value,id=""):
     	"""add a radio element export as UL LI group
         - addRadioGroup('name','desc'
@@ -301,35 +302,35 @@ class Karrigell_QuickForm:
             radio = radio + tmpl%(name,a,b)
         self.form_list.append(radio+"</ul></li>")
         #self.form_list.append("</tr>")
-    
-            
+
+
+
     def addRadioLi(self,name,desc,vdict,klist,id=""):
     	"""add a radio element export as UL LI group
-            - name 列表名
-            - desc 项描述
-            - vdict 值字典
-            - klist 键列表
+            - name ~ List Name
+            - desc ~ item info
+            - vdict ~ var dict
+            - klist ~ kay dict
         """
         htm = """
-            <li id='%s'>%s<b></b>
-                <ul>"""
+            <li id='%s'>%s:<b></b>
+                <DIV id='qlist'><ul>"""
         self.form_list.append(htm%(id,desc))
     	radio = ""
         #t = value.items()
         tmpl = """<li>
             <input type='radio' 
             name='%s' 
-            value='%s'
-            class='chkrd'>
-            <label>%s</label>    
+            value='%s'>  
+            <label>%s</label>      
             """        
         for k in klist:
-            radio +=tmpl%(name,k,vdict[k])
-        self.form_list.append(radio+"</ul></li>")
-        #<DIV id='qlist'></DIV>
+            radio = radio + tmpl%(name,k,vdict[k])
+        self.form_list.append(radio+"</ul></DIV></li>")
         #self.form_list.append("</tr>")
-    
-            
+
+
+
     def addVarRadioList(self,name,desc,value,convert,id=""):
     	"""add a radio element export as UL LI group
         - addRadioGroup('name','desc'
@@ -345,16 +346,16 @@ class Karrigell_QuickForm:
         tmpl = """<li>
             <input type='radio' 
             name='%s' 
-            value='%s'
-            class='chkrd'>  
+            value='%s'>  
             <label>%s</label>      
             """        
         for a,b in t:
             radio = radio + tmpl%(name,convert[a],b)
         self.form_list.append(radio+"</ul></li>")
         #self.form_list.append("</tr>")
-    
-            
+
+
+
     def addRadioGrp(self,name,desc,value):
     	"""add a radio element in TABLE
         - addRadioGroup('name','desc'
@@ -378,9 +379,9 @@ class Karrigell_QuickForm:
             radio = radio + tmpl%(name,a,b)
         self.form_list.append(radio+"</td>")
         self.form_list.append("</tr>")
-    
-        
-    
+
+
+
     def addChkboxGrp(self,name,desc,value):
     	"""add a radio element Export in TABLE
         - addRadioGroup('name','desc'
@@ -404,13 +405,13 @@ class Karrigell_QuickForm:
             radio = radio + tmpl%(name,a,b)
         self.form_list.append(radio+"</td>")
         self.form_list.append("</tr>")
-    
-        
-    
+
+
+
     def showFormList(self):
         """ returns the whole form list """
         return self.form_list
-    
+
     def display(self):
         """ displays the html form"""
         self.form_list.append("</table></fieldset></form></div>")
@@ -439,7 +440,7 @@ class Karrigell_QuickForm:
             print c+"\n"
         for i in self.form_list:
             print i+"\n"
-    
+
     def export(self):
         """ export the html form code
             so people can do something for them self
@@ -449,7 +450,7 @@ class Karrigell_QuickForm:
     </fieldset></form><textarea 
     id="jsvalidation-framework" rows="27" >%s
     </textarea></div>"""%self.jvfxml)
-    
+
         self.js_list.append("<script type='text/javascript'>")
         exp += self.js_list.pop()
         exp += "function validate_%s(frm){"% self.name
@@ -476,12 +477,12 @@ class Karrigell_QuickForm:
         for i in self.form_list:
             exp += i+"\n"
         return exp
-    
+
     def addStyleSheets(self,t):
         """add a basic stylesheet - simple CSS parameters"""
         css = "<style type='text/css'>textarea { background-color:"+t['bgcolor']+";font-family:"+t['font']+"; font-size:"+t['size']+"px; border-style:solid;border-color:"+t['border-color']+";border-width:1px;} option { background-color:"+t['bgcolor']+";font-family:"+t['font']+";border-style:solid;border-color:"+t['border-color']+";border-width:1px;} input { background-color:"+t['bgcolor']+";font-family:"+t['font']+";border-style:solid;border-color:"+t['border-color']+";border-width:1px;} option { background-color:"+t['bgcolor']+";font-family:"+t['font']+";border-style:solid;border-color:"+t['border-color']+";border-width:1px;} select { background-color:"+t['bgcolor']+";font-family:"+t['font']+";border-style:solid;border-color:"+t['border-color']+";border-width:1px;} td { font-size:"+t['size']+"px; font-family:"+t['font']+"}</style>"
         self.css_list.append(css)
-    
+
     def addRule(self,elem_name,rule_type,message):
         """add a javascript rule in order to validate a form field  
         - addRule('elem_name','required','Name is required!')
@@ -512,11 +513,11 @@ class Karrigell_QuickForm:
                    ,message)    
             js_string = js_string.replace("<break>","\\n")
             self.js_list.append(js_string)
-            
+
         else:
             pass
-        
-    
+
+
     def addJSValidation(self):
         """add a javascript rule in order to validate a form field  
         - addRule('elem_name','required','Name is required!')
@@ -528,20 +529,20 @@ class Karrigell_QuickForm:
         begin_form=self.form_list[0].replace(orig
                                      ,repl%self.name) 
         self.form_list[0] = begin_form
-         
-        
-    
-    
+
+
+
+
     def addJSRule(self,name,message):
         """add a xml rule for javascript checking
         """
         exp = self.JSvMXLnode%(name,message)
         self.JSvRules.append(exp)
-        
-         
-        
-    
-    
+
+
+
+
+
     def saveJSRule(self,xml):
         """exp and save a xml rule for javascript checking
         """
@@ -550,22 +551,23 @@ class Karrigell_QuickForm:
             exp+= node
         #exp = self.JSvXMLtmpl%(form,exp)
         #self.jvfxml = self.jvfxmltmpl%(self.name,exp)
+        #exp = self.jvfxmltmpl%(self.name,exp)
         #print self.jvfxml
         open(xml,'w').write(self.JSvXMLtmpl%(self.name,exp))
-    
-    
-    
-        
-         
-        
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
 
 """
    Overview - Karrigell_QuickForm
-   
+
   p = Karrigell_QuickForm('teste','POST','teste.py')
   p.addElement('text','nome',{'size':80,'maxlength':20})
   p.addElement('text','email',{'size':80,'maxlength':20})
@@ -580,6 +582,5 @@ class Karrigell_QuickForm:
   p.addGroup(["submit","botao_enviar","Enviar"],["reset","botao_limpar","Limpar"])
   p.addStyleSheets({'bgcolor':'lightblue','font':'verdana','border-color':'black'})
   p.display()
- 
-"""
 
+"""

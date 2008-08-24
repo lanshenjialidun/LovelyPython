@@ -7,7 +7,7 @@ print "自由问卷 之 啄木鸟基本知晓 - Powered by Karrigell"
 </title>
 <meta content="text/html; charset=utf-8" http-equiv=content-type>
 <style>
-/* $Id: questionnaire.leo,v 1.9 2005/12/13 03:43:43 zhouqi Exp $
+/* $Id: obpKwd3.leo 325 2005-12-30 04:23:49Z  $
 Karrigell 使用的CSS
 Django 颜色！*/
 /*esp for 问卷::自动居中！margin: 0 auto;*/
@@ -49,7 +49,8 @@ TEXTAREA#jsvalidation-framework{display:none;}
 
 DIV#errorMessage{font-size: 14px;color: #333;
     font-weight: bold;border: 0px solid #930;
-    BACKGROUND-COLOR: #94DA3A}BODY{font-size: 10px; color: #333333; 
+    BACKGROUND-COLOR: #94DA3A}
+BODY{font-size: 10px; color: #333333; 
     text-indent: 1em; 
     background-color: whitesmoke; 
     margin: .5em;    
@@ -179,12 +180,12 @@ SELECT{WIDTH: 100%;
 	font-family: "Arial", "Helvetica", "sans-serif"; 
 	background-color: #8DB48D; 
 	border-width: 1px ;border-color: #CCCCCC;}
-	
+
 INPUT{ font-family: "Arial", "Helvetica";
     font-size: 14px;font-weight: light; color: #993300; 
 	background-color: transparent; 
 	border: 1px solid #838A9E;}
-	
+
 INPUT.btn { font-size: 13px; 
     font-weight: light; color: whitesmoke; 
 	background-color: #487858; 
@@ -192,7 +193,7 @@ INPUT.btn { font-size: 13px;
     border-color: #E0F3E0 #679265 #333333 #CCCCCC;
 	height: 20px;	
 	padding:0px 1em 2px 1em;}
-	
+
 INPUT.chkrd { background-color: transparent; border: 0px}
 /*颜色准备*/
 
@@ -257,7 +258,7 @@ INPUT.chkrd { background-color: transparent; border: 0px}
 .action A{
 	font-size: 12px;
 	color: #406040;
-	
+
 }
 .action A:hover{
 	font-size: 12px;
@@ -281,9 +282,10 @@ INPUT.chkrd { background-color: transparent; border: 0px}
 
 .Webdings{
 	font-family: "Webdings";
-	
+
 }
 </style>
+
 </head>
 <body>
 <div id='qpage'>
@@ -304,7 +306,10 @@ INPUT.chkrd { background-color: transparent; border: 0px}
  查看最终效果</a>
  |> 
 </h5>
+
 <%
+RESPONSE['Content-Type'] = "text/html; charset=utf-8"
+
 Include("qpage.py")
 %>
 
@@ -318,7 +323,8 @@ Include("qpage.py")
 <a href="qprint.pih">
  查看最终效果</a>
  |> 
-</h5><div>
+</h5>
+<div>
 </body>
 
 </html>

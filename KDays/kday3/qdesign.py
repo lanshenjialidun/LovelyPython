@@ -1,4 +1,4 @@
-# $Id: qdesign.py 325 2005-12-30 04:23:49Z  $
+# $Id: obpKwd3.leo 325 2005-12-30 04:23:49Z  $
 # qdesign.py 快捷问卷设计
 
 #!/usr/bin/env python
@@ -23,6 +23,7 @@ qpath = "q/"
 pubq = qpath+"easy051201.cfg"
 
 
+#print pubq
 page = open("questionnaire.tmpl","r").read()
 vPool = {}
 vPool['cfgtxt'] = open(pubq,"r").read()

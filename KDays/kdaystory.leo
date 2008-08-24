@@ -11,21 +11,21 @@
 <vnodes>
 <v t="zoomq.20080818231058.44"><vh>@chapters</vh></v>
 <v t="zoomq.20080818231058.3" a="E"><vh>KDayStory</vh>
-<v t="zoomq.20080818231058.5" a="E"><vh>kday1</vh>
+<v t="zoomq.20080818231058.5"><vh>kday1</vh>
 <v t="zoomq.20080818231058.6"><vh>Kday1:尝试</vh></v>
-<v t="zoomq.20080818231058.7" a="E"><vh>尝试</vh>
-<v t="zoomq.20080818231058.10" a="ETV" tnodeList="zoomq.20080818231058.10"><vh>@nosent index.pih</vh></v>
+<v t="zoomq.20080818231058.7"><vh>尝试</vh>
+<v t="zoomq.20080818231058.10" a="E" tnodeList="zoomq.20080818231058.10"><vh>@nosent index.pih</vh></v>
 </v>
 <v t="zoomq.20080818231058.11"><vh>问卷设计</vh>
 <v t="zoomq.20080818231058.12" tnodeList="zoomq.20080818231058.12"><vh>@nosent easy051201.cfg</vh></v>
 </v>
 </v>
-<v t="zoomq.20080818231058.14"><vh>kday2</vh>
+<v t="zoomq.20080818231058.14" a="E"><vh>kday2</vh>
 <v t="zoomq.20080818231058.15"><vh>Kday2:完成</vh></v>
-<v t="zoomq.20080818231058.16"><vh>管理</vh>
+<v t="zoomq.20080818231058.16" a="E"><vh>管理</vh>
 <v t="zoomq.20080818231058.18" a="E" tnodeList="zoomq.20080818231058.18"><vh>@nosent  mana.pih</vh></v>
 <v t="zoomq.20080818231058.19" a="E" tnodeList="zoomq.20080818231058.19"><vh>@nosent questionnaire.tmpl</vh></v>
-<v t="zoomq.20080818231058.20" tnodeList="zoomq.20080818231058.20,zoomq.20080818231058.21,zoomq.20080818231058.22,zoomq.20080818231058.23"><vh>@nosent  qdesign.py</vh>
+<v t="zoomq.20080818231058.20" a="E" tnodeList="zoomq.20080818231058.20,zoomq.20080818231058.21,zoomq.20080818231058.22,zoomq.20080818231058.23"><vh>@nosent  qdesign.py</vh>
 <v t="zoomq.20080818231058.21"><vh>&lt;&lt; page declarations &gt;&gt;</vh></v>
 <v t="zoomq.20080818231058.22"><vh>init</vh></v>
 <v t="zoomq.20080818231058.23"><vh>&lt;&lt; try &gt;&gt;</vh></v>
@@ -54,11 +54,11 @@
 <v t="zoomq.20080818231058.40"><vh>&lt;&lt; try &gt;&gt;</vh></v>
 </v>
 </v>
-<v t="zoomq.20080818231058.41" a="E"><vh>问卷设计</vh>
+<v t="zoomq.20080818231058.41"><vh>问卷设计</vh>
 <v t="zoomq.20080818231058.42" tnodeList="zoomq.20080818231058.42"><vh>@nosent easy051201.cfg</vh></v>
 </v>
 </v>
-<v t="zoomq.20080818232347.3"><vh>kday3</vh>
+<v t="zoomq.20080818232347.3" a="E"><vh>kday3</vh>
 <v t="zoomq.20080818232347.4"><vh>Kday3:发现</vh></v>
 <v t="zoomq.20080818232347.5"><vh>问卷设计</vh>
 <v t="zoomq.20080818232347.6" tnodeList="zoomq.20080818232347.6"><vh>@nosent easy051201.cfg</vh></v>
@@ -73,10 +73,10 @@
 </v>
 </v>
 </v>
-<v t="zoomq.20080818232347.14"><vh>管理</vh>
-<v t="zoomq.20080818232347.15" a="E"><vh>@thin __init__.py</vh></v>
+<v t="zoomq.20080818232347.14" a="E"><vh>管理</vh>
+<v t="zoomq.20080818232347.15" a="E" tnodeList="zoomq.20080818232347.15"><vh>@nosent __init__.py</vh></v>
 <v t="zoomq.20080818232347.16" tnodeList="zoomq.20080818232347.16"><vh>@nosent tryKQF.py</vh></v>
-<v t="zoomq.20080818232347.17" tnodeList="zoomq.20080818232347.17,zoomq.20080818232347.8,zoomq.20080818232347.9,zoomq.20080818232347.10,zoomq.20080818232347.11,zoomq.20080818232347.12,zoomq.20080818232347.13"><vh>@nosent  mana.pih</vh>
+<v t="zoomq.20080818232347.17" a="E" tnodeList="zoomq.20080818232347.17,zoomq.20080818232347.8,zoomq.20080818232347.9,zoomq.20080818232347.10,zoomq.20080818232347.11,zoomq.20080818232347.12,zoomq.20080818232347.13"><vh>@nosent  mana.pih</vh>
 <v t="zoomq.20080818232347.8"><vh>&lt;&lt;k_base&gt;&gt;</vh>
 <v t="zoomq.20080818232347.9"><vh>k_base.css</vh></v>
 <v t="zoomq.20080818232347.10" a="E"><vh>EPserver.css</vh>
@@ -112,7 +112,7 @@
 </v>
 <v t="zoomq.20080818232347.31" a="E"><vh>&lt;&lt; try &gt;&gt;</vh></v>
 </v>
-<v t="zoomq.20080818232347.32" a="E" tnodeList="zoomq.20080818232347.32,zoomq.20080818232347.8,zoomq.20080818232347.9,zoomq.20080818232347.10,zoomq.20080818232347.11,zoomq.20080818232347.12,zoomq.20080818232347.13,zoomq.20080818232347.33,zoomq.20080818232347.33"><vh>@nosent  qprint.pih</vh>
+<v t="zoomq.20080818232347.32" a="ETV" tnodeList="zoomq.20080818232347.32,zoomq.20080818232347.8,zoomq.20080818232347.9,zoomq.20080818232347.10,zoomq.20080818232347.11,zoomq.20080818232347.12,zoomq.20080818232347.13,zoomq.20080818232347.33,zoomq.20080818232347.33"><vh>@nosent  qprint.pih</vh>
 <v t="zoomq.20080818232347.33"><vh>&lt;&lt;导航&gt;&gt;</vh></v>
 <v t="zoomq.20080818232347.8"><vh>&lt;&lt;k_base&gt;&gt;</vh>
 <v t="zoomq.20080818232347.9"><vh>k_base.css</vh></v>
@@ -123,7 +123,7 @@
 </v>
 </v>
 </v>
-<v t="zoomq.20080818232347.34" a="E" tnodeList="zoomq.20080818232347.34,zoomq.20080818232347.35,zoomq.20080818232347.36,zoomq.20080818232347.37,zoomq.20080818232347.38,zoomq.20080818232347.39"><vh>@nosent  qprint.py</vh>
+<v t="zoomq.20080818232347.34" tnodeList="zoomq.20080818232347.34,zoomq.20080818232347.35,zoomq.20080818232347.36,zoomq.20080818232347.37,zoomq.20080818232347.38,zoomq.20080818232347.39"><vh>@nosent  qprint.py</vh>
 <v t="zoomq.20080818232347.35"><vh>&lt;&lt; page declarations &gt;&gt;</vh></v>
 <v t="zoomq.20080818232347.36"><vh>init</vh></v>
 <v t="zoomq.20080818232347.37" a="E"><vh>qpubish()</vh>
@@ -5070,7 +5070,7 @@ key		= d # 正确答案</t>
 obp=%(base)s/karriweb/obp
 
 
-
+@path kday3/
 </t>
 <t tx="zoomq.20080818231058.15">## page was renamed from zhArticleTemplate
 ##language:zh
@@ -5669,7 +5669,7 @@ jvf=%(base)s/karriweb/obp/js
 ...
 
 
-
+@path kday3/
 </t>
 <t tx="zoomq.20080818232347.4">## page was renamed from zhArticleTemplate
 ##language:zh
@@ -6160,12 +6160,12 @@ SELECT{WIDTH: 100%;
 	font-family: "Arial", "Helvetica", "sans-serif"; 
 	background-color: #8DB48D; 
 	border-width: 1px ;border-color: #CCCCCC;}
-	
+
 INPUT{ font-family: "Arial", "Helvetica";
     font-size: 14px;font-weight: light; color: #993300; 
 	background-color: transparent; 
 	border: 1px solid #838A9E;}
-	
+
 INPUT.btn { font-size: 13px; 
     font-weight: light; color: whitesmoke; 
 	background-color: #487858; 
@@ -6173,7 +6173,7 @@ INPUT.btn { font-size: 13px;
     border-color: #E0F3E0 #679265 #333333 #CCCCCC;
 	height: 20px;	
 	padding:0px 1em 2px 1em;}
-	
+
 INPUT.chkrd { background-color: transparent; border: 0px}
 </t>
 <t tx="zoomq.20080818232347.12">
@@ -6238,7 +6238,7 @@ INPUT.chkrd { background-color: transparent; border: 0px}
 .action A{
 	font-size: 12px;
 	color: #406040;
-	
+
 }
 .action A:hover{
 	font-size: 12px;
@@ -6262,7 +6262,7 @@ INPUT.chkrd { background-color: transparent; border: 0px}
 
 .Webdings{
 	font-family: "Webdings";
-	
+
 }
 </t>
 <t tx="zoomq.20080818232347.14">#一步接一步自然的来
@@ -6272,7 +6272,8 @@ INPUT.chkrd { background-color: transparent; border: 0px}
 3. 创建处理脚本 qdesign.py
 ... 然后就瀑布样的该作什么就作什么了(^_^)
 """
-@path ./</t>
+</t>
+<t tx="zoomq.20080818232347.15"></t>
 <t tx="zoomq.20080818232347.16">from Karrigell_QuickForm import Karrigell_QuickForm
 
 p = Karrigell_QuickForm('teste','POST','foo.py','Authentication')
@@ -6299,6 +6300,7 @@ print "自由问卷 之 啄木鸟基本知晓 - Powered by Karrigell"
 &lt;h1&gt;在线编辑问卷设计文案，自动解析为模拟问卷&lt;/h1&gt;
 
 &lt;%# 最简单的方式将实际处理脚本包含到页面中适当的位置
+RESPONSE['Content-Type'] = "text/html; charset=utf-8"
 Include("qdesign.py")
 %&gt;
 
@@ -6362,7 +6364,8 @@ from dict4ini import DictIni
 qpath = "q/"
 pubq = qpath+"easy051201.cfg"
 </t>
-<t tx="zoomq.20080818232347.22">page = open("questionnaire.tmpl","r").read()
+<t tx="zoomq.20080818232347.22">#print pubq
+page = open("questionnaire.tmpl","r").read()
 vPool = {}
 vPool['cfgtxt'] = open(pubq,"r").read()
 txp = ctTpl(page, searchList=[vPool])
@@ -6394,6 +6397,8 @@ print "自由问卷 之 啄木鸟基本知晓 - Powered by Karrigell"
 &lt;&lt;导航&gt;&gt;
 
 &lt;%
+RESPONSE['Content-Type'] = "text/html; charset=utf-8"
+
 Include("qpage.py")
 %&gt;
 
@@ -6524,6 +6529,7 @@ print "自由问卷 之 啄木鸟基本知晓 - Powered by Karrigell"
 &lt;&lt;导航&gt;&gt;
 
 &lt;%
+RESPONSE['Content-Type'] = "text/html; charset=utf-8"
 Include("qprint.py")
 %&gt;
 
@@ -6661,7 +6667,7 @@ p.addGroup(["submit","btn_submit","提交"]
 """
 </t>
 <t tx="zoomq.20080818232347.40"># 按照约定，这样的扩展要部属到Karrigell 的根目录，所以使用相对路径回溯指向！
-@path ../../../</t>
+</t>
 <t tx="zoomq.20080818232347.41">
 &lt;&lt; Karrigell_QuickForm declarations &gt;&gt;
 
@@ -6669,7 +6675,7 @@ p.addGroup(["submit","btn_submit","提交"]
 
 """
    Overview - Karrigell_QuickForm
-   
+
   p = Karrigell_QuickForm('teste','POST','teste.py')
   p.addElement('text','nome',{'size':80,'maxlength':20})
   p.addElement('text','email',{'size':80,'maxlength':20})
@@ -6684,7 +6690,7 @@ p.addGroup(["submit","btn_submit","提交"]
   p.addGroup(["submit","botao_enviar","Enviar"],["reset","botao_limpar","Limpar"])
   p.addStyleSheets({'bgcolor':'lightblue','font':'verdana','border-color':'black'})
   p.display()
- 
+
 """
 </t>
 <t tx="zoomq.20080818232347.42">#@ignore
@@ -6719,8 +6725,8 @@ Requirements: Karrigell HTTP Server - http://karrigell.sourceforge.net
 	@others</t>
 <t tx="zoomq.20080818232347.44">def __init__(self,name,method,action,legend):    	
     """Form name, request method, file target,legend - Karrigell_QuickForm('contact_form','POST','contact.py','form legend')"""
-    @others
-    
+
+
     self.form_list = []
     self.css_list = []
     self.js_list =[]
@@ -6740,7 +6746,8 @@ id='%s' enctype='multipart/form-data'&gt;
                      ,self.action
                      ,self.name
                      ,self.legend_name)
-                     )</t>
+                     )
+</t>
 <t tx="zoomq.20080818232347.45">self.jvfxml = ""
 
 self.jvfxmltmpl="""
@@ -6801,7 +6808,7 @@ if element == 'text':
     maxlength = str(maxlength)
     self.form_list.append("&lt;tr&gt;&lt;td align='right' valign='top'&gt;&lt;b&gt;"+name.title().replace('_',' ')+":&lt;/b&gt;&lt;/td&gt;&lt;td valign='top' align='left'&gt;&lt;input type='"+element+"' name='"+name+"' size='"+size+"' maxlength='"+maxlength+"'&gt;&lt;td&gt;&lt;/tr&gt;") 
 
-   
+
 
 </t>
 <t tx="zoomq.20080818232347.48">
@@ -6843,7 +6850,7 @@ elif element == 'file':
 </t>
 <t tx="zoomq.20080818232347.54">elif element == 'header':
     self.form_list.append("&lt;tr&gt;&lt;td align='left' valign='top' colspan='2'&gt;&lt;b&gt;&lt;center&gt;"+name.title()+"&lt;/center&gt;&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;")
-    
+
 </t>
 <t tx="zoomq.20080818232347.55">
 def addHtmNode(self,element,name,desc,options=None):
@@ -6929,7 +6936,7 @@ elif element == 'file':
 </t>
 <t tx="zoomq.20080818232347.63">elif element == 'header':
     self.form_list.append("&lt;tr&gt;&lt;td align='left' valign='top' colspan='2'&gt;&lt;b&gt;&lt;center&gt;"+name.title()+"&lt;/center&gt;&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;")
-    
+
 </t>
 <t tx="zoomq.20080818232347.64">
 def addTextArea(self,name,rows,cols):
@@ -7005,7 +7012,8 @@ def addCntTextArea(self,name,desc,content,rows,cols):
 
 
 
-    </t>
+
+</t>
 <t tx="zoomq.20080818232347.69">
 def addRadioList(self,name,desc,value,id=""):
 	"""add a radio element export as UL LI group
@@ -7030,14 +7038,15 @@ def addRadioList(self,name,desc,value,id=""):
     self.form_list.append(radio+"&lt;/ul&gt;&lt;/li&gt;")
     #self.form_list.append("&lt;/tr&gt;")
 
-    </t>
+
+</t>
 <t tx="zoomq.20080818232347.70">
 def addRadioLi(self,name,desc,vdict,klist,id=""):
 	"""add a radio element export as UL LI group
-        - name 列表名
-        - desc 项描述
-        - vdict 值字典
-        - klist 键列表
+        - name ~ List Name
+        - desc ~ item info
+        - vdict ~ var dict
+        - klist ~ kay dict
     """
     htm = """
         &lt;li id='%s'&gt;%s:&lt;b&gt;&lt;/b&gt;
@@ -7056,7 +7065,8 @@ def addRadioLi(self,name,desc,vdict,klist,id=""):
     self.form_list.append(radio+"&lt;/ul&gt;&lt;/DIV&gt;&lt;/li&gt;")
     #self.form_list.append("&lt;/tr&gt;")
 
-    </t>
+
+</t>
 <t tx="zoomq.20080818232347.71">
 def addVarRadioList(self,name,desc,value,convert,id=""):
 	"""add a radio element export as UL LI group
@@ -7081,7 +7091,8 @@ def addVarRadioList(self,name,desc,value,convert,id=""):
     self.form_list.append(radio+"&lt;/ul&gt;&lt;/li&gt;")
     #self.form_list.append("&lt;/tr&gt;")
 
-    </t>
+
+</t>
 <t tx="zoomq.20080818232347.72">
 def addRadioGrp(self,name,desc,value):
 	"""add a radio element in TABLE
@@ -7107,7 +7118,7 @@ def addRadioGrp(self,name,desc,value):
     self.form_list.append(radio+"&lt;/td&gt;")
     self.form_list.append("&lt;/tr&gt;")
 
-    
+
 </t>
 <t tx="zoomq.20080818232347.73">
 def addChkboxGrp(self,name,desc,value):
@@ -7134,7 +7145,7 @@ def addChkboxGrp(self,name,desc,value):
     self.form_list.append(radio+"&lt;/td&gt;")
     self.form_list.append("&lt;/tr&gt;")
 
-    
+
 </t>
 <t tx="zoomq.20080818232347.74">
 def showFormList(self):
@@ -7234,7 +7245,7 @@ id="jsvalidation-framework" rows="27" &gt;%s
         &lt;&lt;input&gt;&gt;
     else:
         pass
-    
+
 
 </t>
 <t tx="zoomq.20080818232347.79">js_string = """
@@ -7277,8 +7288,8 @@ self.js_list.append(js_string)
     begin_form=self.form_list[0].replace(orig
                                  ,repl%self.name) 
     self.form_list[0] = begin_form
-     
-    
+
+
 
 
 </t>
@@ -7287,9 +7298,9 @@ self.js_list.append(js_string)
     """
     exp = self.JSvMXLnode%(name,message)
     self.JSvRules.append(exp)
-    
-     
-    
+
+
+
 
 
 </t>
@@ -7307,9 +7318,9 @@ self.js_list.append(js_string)
 
 
 
-    
-     
-    
+
+
+
 
 
 
