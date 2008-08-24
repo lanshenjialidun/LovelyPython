@@ -1,6 +1,9 @@
-##language:zh
-##OBP项目图书reST通用文章模板
-###format rst
+## Do not edit this header. It is not part of the wiki code and will not be
+## posted back to the wiki when you save.
+## Base: http://wiki.woodpecker.org.cn/moin/
+## Page: ObpLovelyPython_2fPCS303
+## Secs: 
+## END OF HEADER
 ||status|| 草稿 ||清风; 100%||
 
 [[TableOfContents]]
@@ -33,4 +36,4 @@
 == 练习 ==
 
 
--- 清风  [[DateTime(2008-04-25T14:33:00Z)]] 
+-- 清风  [[DateTime(2008-04-25T14:33:00Z)]]
