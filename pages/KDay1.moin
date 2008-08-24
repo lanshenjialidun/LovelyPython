@@ -52,15 +52,15 @@ PCS301 Karrigell
 }}}
 
  立即开始!::
- * 下载KarriGell{{{
+  * 下载KarriGell{{{
  下载地址: http://sourceforge.net/projects/karrigell
  快捷访问: http://tinyurl.com/6bpc3f }}} 一般是个单独的压缩文件,比如说:`Karrigell-2.3.6.tar.bz2`
- * 首先,使用工具解开压缩(推荐使用 7-zip 这一自由软件,通吃一切常见压缩包! http://7-zip.org/zh-cn/)
- * 然后,进入 KarriGell 所在目录
- * 最后,在命令行下面输入：`python Karrigell.py`
-  * M$用户的命令行环境调用: 开始->命令->输入"cmd" (或是你习惯的任何M$终端软件)
+  * 首先,使用工具解开压缩(推荐使用 7-zip 这一自由软件,通吃一切常见压缩包! http://7-zip.org/zh-cn/)
+  * 然后,进入 KarriGell 所在目录
+  * 最后,在命令行下面输入：`python Karrigell.py`
+   * M$用户的命令行环境调用: 开始->命令->输入"cmd" (或是你习惯的任何M$终端软件)
   * Unix/Linux用户: 应用程序->附件->终端 (或是其它任何你喜欢的终端软件)
- * bingo! 通过 http://localhost/ 小白就已经获得了一个展示有各种应用的 KarriGell 站点了！ 
+  * bingo! 通过 http://localhost/ 小白就已经获得了一个展示有各种应用的 KarriGell 站点了！ 
 
 
  图 KDay1-1 默认首页

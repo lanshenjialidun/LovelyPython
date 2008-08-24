@@ -2,7 +2,7 @@
 <?xml-stylesheet ekr_stylesheet?>
 <leo_file>
 <leo_header file_format="2" tnodes="0" max_tnode_index="0" clone_windows="0"/>
-<globals body_outline_ratio="0.293700787402">
+<globals body_outline_ratio="0.220472440945">
 	<global_window_position top="27" left="10" height="716" width="1270"/>
 	<global_log_window_position top="0" left="0" height="0" width="0"/>
 </globals>
@@ -11,21 +11,21 @@
 <vnodes>
 <v t="zoomq.20080818231058.44"><vh>@chapters</vh></v>
 <v t="zoomq.20080818231058.3" a="E"><vh>KDayStory</vh>
-<v t="zoomq.20080818231058.5"><vh>kday1</vh>
+<v t="zoomq.20080818231058.5" a="E"><vh>kday1</vh>
 <v t="zoomq.20080818231058.6"><vh>Kday1:尝试</vh></v>
 <v t="zoomq.20080818231058.7" a="E"><vh>尝试</vh>
-<v t="zoomq.20080818231058.10" a="E" tnodeList="zoomq.20080818231058.10"><vh>@nosent  try.pih</vh></v>
+<v t="zoomq.20080818231058.10" a="EV" tnodeList="zoomq.20080818231058.10"><vh>@nosent index.pih</vh></v>
 </v>
 <v t="zoomq.20080818231058.11"><vh>问卷设计</vh>
 <v t="zoomq.20080818231058.12" tnodeList="zoomq.20080818231058.12"><vh>@nosent easy051201.cfg</vh></v>
 </v>
 </v>
-<v t="zoomq.20080818231058.14" a="E"><vh>kday2</vh>
+<v t="zoomq.20080818231058.14"><vh>kday2</vh>
 <v t="zoomq.20080818231058.15"><vh>Kday2:完成</vh></v>
-<v t="zoomq.20080818231058.16" a="E"><vh>管理</vh>
+<v t="zoomq.20080818231058.16"><vh>管理</vh>
 <v t="zoomq.20080818231058.18" a="E" tnodeList="zoomq.20080818231058.18"><vh>@nosent  mana.pih</vh></v>
 <v t="zoomq.20080818231058.19" a="E" tnodeList="zoomq.20080818231058.19"><vh>@nosent questionnaire.tmpl</vh></v>
-<v t="zoomq.20080818231058.20" a="TV" tnodeList="zoomq.20080818231058.20,zoomq.20080818231058.21,zoomq.20080818231058.22,zoomq.20080818231058.23"><vh>@nosent  qdesign.py</vh>
+<v t="zoomq.20080818231058.20" tnodeList="zoomq.20080818231058.20,zoomq.20080818231058.21,zoomq.20080818231058.22,zoomq.20080818231058.23"><vh>@nosent  qdesign.py</vh>
 <v t="zoomq.20080818231058.21"><vh>&lt;&lt; page declarations &gt;&gt;</vh></v>
 <v t="zoomq.20080818231058.22"><vh>init</vh></v>
 <v t="zoomq.20080818231058.23"><vh>&lt;&lt; try &gt;&gt;</vh></v>
