@@ -54,6 +54,13 @@ print Template(page, searchList=[vPool])     # 3. 渲染输出`
   * 则模板文件中有 `$cfgtxt` 的地方就会替换为实际数据
   * 模板文件就是标准的HTML文件,只是各个期望有动态数据出现的地方,变成了 `$开头的变量名`
   * `$开头的变量名` 只要在合适的时机,先于`print Template()` 完成赋值就好
+  * 例如以下模板文件片段
+{{{
+<!--你的模板文件.tmpl; 
+其实模板文件可以使用任何后缀名的,甚至是.exe 只要内容是纯文本的,但是为了统一,建议还是使用一看就知道是模板的后缀
+-->
+<H2>$cfgtxt</H2>
+}}}
 
 {{{详细::
 PCS309 模板系统
@@ -64,7 +71,7 @@ http://wiki.woodpecker.org.cn/moin/CheetahTemplateOrg
 }}}
 
 == Leo 组织实现 ==
-'''小白已经习惯了通过 Leo 在一个统一界面中把握程序的全部逻辑章节/元素!-)'''
+'''小白已经习惯了通过 Leo 在一个统一界面中把握程序的全部逻辑层次/章节/元素 ;-)'''
  * 可以使用中文作章节名目:
      * `问卷`来组织设计文案
      * 就是`@nosent easy051201.cfg`
@@ -89,15 +96,17 @@ http://wiki.woodpecker.org.cn/moin/CheetahTemplateOrg
  
  * 即:
      1. 脚本说明 `@...@c` 部分
-     1. 脚本声明 `<< page declarations >>`  引用部分
+     1. 脚本声明 `<< page declarations >>`  引用的下层部分
      1. 行为定义 `@others` 包含的所有下级节点
-     1. 实际尝试 `<<try>>` 引用的部分
+     1. 实际尝试 `<<try>>` 引用的下层部分
 
 == 编辑实现 ==
 '''其实就是将指定的文件内容读出来发布到页面的输入框(<TEXTARE/>) 中'''
- * 模板中先准备{{{<textarea NAME="cfgfile" rows="27" >
+ * 模板中先准备{{{
+<textarea NAME="cfgfile" rows="27" >
 $cfgtxt
-</textarea>}}}
+</textarea>
+}}}
  * 处理脚本中{{{#!python
 #简化引用对象名
 from Cheetah.Template import Template as ctTpl
@@ -107,7 +116,7 @@ page = open("questionnaire.tmpl","r").read()
 txp = ctTpl(page, searchList=[vPool])
 print txp
 }}}
- * bingo! 完成！
+ * Bingo! 完成！
 图 KDay2-2
  attachment:KDay2-2.png
 
@@ -118,8 +127,8 @@ print txp
      http://localhost/obp/KwDay2/qpage.pih
      
      1. `@nosent  qpage.py` 实际的数据重组
-=== 关键代码 ===
 
+=== 关键代码 ===
  * `from dict4ini import DictIni` 当然的是使用 Limodou 贡献出的 dict4ini.py ~ 字典化ini 操作模块
  * 创建`def expage(dict):` 问卷输出函式，来将ini 内容整理为相应的页面
  {{{#!python
@@ -143,8 +152,9 @@ for i in k:
     exp +="</li>"
 exp +="</ul>"
 return exp
-    }}} 双重循环就可以对应的将类似`[ask/1]` 一节中的所有
-    类似`a = 赞！` 的选择项按照列表的形式输出了！
+}}} 
+ * 上述代码中的双层循环就可以对应的将所有类似`[ask/1]` 的问题,以及其中的所有
+ * 类似`a = 赞！` 的选择项按照列表的形式输出了！
 
 图 KDay2-3
 attachment:KDay2-3.png
@@ -156,12 +166,14 @@ PCS208 dict4ini
 
 == 串联页面 ==
 '''将编辑页面和展现页面串联起来'''
- * 当然的要使用 FORM:
-{{{<FORM ENCTYPE="multipart/form-data" 
+ * 当然的要使用 HTML 表单元素 ~ <FORM/>,利用内置的提交声明 `ACTION` 就可以了,例如:
+{{{
+<FORM ENCTYPE="multipart/form-data" 
     ACTION="qpage.pih" 
     METHOD=POST>
-    }}} 在模板中声明一下子
- * 测试为先！！！在 qpage.py 中加入`print QUERY` 确认倒底传送了什么
+}}} 在模板中补充以上声明;
+ * 测试为先! 在 qpage.py 中加入`print QUERY` 确认倒底传送过来了什么
+ 
  * OK！ 一切吻合想象`open(qpath+pubq,"w").write(QUERY["cfgfile"])`
   * 将传送来的编辑成果先写回文件，再整理展现！
 

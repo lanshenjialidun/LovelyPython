@@ -99,13 +99,9 @@ print dir(a)
  * 小白好不容易学习,掌握了 ["Leo"] ,而且感觉一切都应该由 ["Leo"] 组织才自然
  * 那么就按照习惯来定制KarriGell 一下子:
      * 其实 KarriGell 的设置非常的简单的,由统一的 ini 文件来设定整体行为
-     * 现在的需求非常简单,就是将KarriGell 的默许教程站点和小白自个儿的开发隔离开,以便开发的同时不影响随时参考内置教程,所以{{{
+     * 现在的需求非常简单,就是将KarriGell 的默许教程站点和小白自个儿的开发隔离开,以便开发的同时不影响随时参考内置教程,所以查找有关目录别名的配置...{{{
 [Alias]
-# associates an alias to a path on the file system
-# always use / as path separator, even on Windows
-# if you create this alias : doc=c:/Program Files/Karrigell/doc 
-# then the url htpp://host/doc/index.htm will match the file 
-# c:\Program Files\Karrigell\doc\index.htm
+...
 # demo=%(base)s/demo
 doc=%(base)s/doc
 debugger=%(base)s/debugger
@@ -142,19 +138,18 @@ print dir(a)
   attachment:kday1-leo-nosent.png
   
 {{{详细::
-PCS310 LEO
+PCS310 Leo
 分享了什么是文学化编辑环境,
 以及利用文学化视角来组织软件工程时的最佳体验;
 这里的 @nosent 是指Leo中结点的特殊名称,
 可以引起不同的系统响应的名称,具体的参考
-PCS310 LEO
+PCS310 Leo
 }}}
   
   * 对应的,在配置文件: Karrigell.ini 中设定一下{{{
 [Alias]
 ...
-k=%(base)s/KDays
-q=%(base)s/KDays/kday1
+k=%(base)s/webapps/KDays
 ...
 }}}
   * OK! 重启一下子KarriGell ,当然, `Ctrl+C` 是在Linux/Unix 系统中的通用操作,令 KarriGell 的Python 进程停止
@@ -166,6 +161,18 @@ q=%(base)s/KDays/kday1
 图 KDay1-5 页面输出和服务运行对比
 
 attachment:kday1-page-run-cil.png
+
+=== 小技巧 ===
+{{{
+[Directories]
+...
+allow_directory_listing = 1
+}}}
+在实际开发过程中,经常要查看实际发布目录中有什么内容,打开配置文件中的上述配置项, Karrigell 将自动发布没有默认首页的目录内容索引,
+
+图 KDay1-6 默认的目录内容索引样式
+
+attachment:kday1-dir-cfg.png
 
 == 小结 ==
  今天任务::
@@ -199,4 +206,5 @@ PCS208 dict4ini
 ----
 ::-- ZoomQuiet [[[DateTime(2005-12-10T11:49:22Z)]]]
 [[PageComment2]]
+
 

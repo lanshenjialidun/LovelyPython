@@ -2,7 +2,7 @@
 <?xml-stylesheet ekr_stylesheet?>
 <leo_file>
 <leo_header file_format="2" tnodes="0" max_tnode_index="0" clone_windows="0"/>
-<globals body_outline_ratio="0.220472440945">
+<globals body_outline_ratio="0.237795275591">
 	<global_window_position top="27" left="10" height="716" width="1270"/>
 	<global_log_window_position top="0" left="0" height="0" width="0"/>
 </globals>
@@ -14,7 +14,7 @@
 <v t="zoomq.20080818231058.5" a="E"><vh>kday1</vh>
 <v t="zoomq.20080818231058.6"><vh>Kday1:尝试</vh></v>
 <v t="zoomq.20080818231058.7" a="E"><vh>尝试</vh>
-<v t="zoomq.20080818231058.10" a="EV" tnodeList="zoomq.20080818231058.10"><vh>@nosent index.pih</vh></v>
+<v t="zoomq.20080818231058.10" a="ETV" tnodeList="zoomq.20080818231058.10"><vh>@nosent index.pih</vh></v>
 </v>
 <v t="zoomq.20080818231058.11"><vh>问卷设计</vh>
 <v t="zoomq.20080818231058.12" tnodeList="zoomq.20080818231058.12"><vh>@nosent easy051201.cfg</vh></v>
@@ -5001,7 +5001,7 @@ attachment:snap-KwDay02.png
 print dir()
 %&gt;
 &lt;!--
-喜欢 pih 自由的两类代码的自然组织！
+喜欢 pih 自由的两种代码的自然组织！
 --&gt;
 &lt;hr/&gt;
 &lt;%
