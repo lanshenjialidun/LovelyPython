@@ -1,0 +1,21 @@
+##language:zh
+##OBP项目图书reST通用文章模板
+###format rst
+||status|| 草稿 ||清风; 100%||
+
+[[TableOfContents]]
+
+== PyLons ==
+=== 概述 ===
+PyLons 是建立在[http://wsgi.org wsgi]和[http://pythonpaste.org/ paste]基础上的rails框架.
+
+=== 特性介绍 ===
+ * url dispatcher: [http://routes.groovie.org/ Routes], 默认模板: [http://www.myghty.org/ myghty], 不过只需几句代码就可以配置为其他模板;
+ * 取众家之长, 比如 route,webhelpers,web测试 等观念来自ror;
+ * 许多功能都由wsgi中间件提供,比如:web调试,错误处理,session,cache,用户验证等;
+ * 许多核心模块的配置组装过程直接反映在自动生成的用户代码中,可以进行深度定制,(查看your_project/config/middleware);
+ * 不依赖具体orm, 模板系统容易替换, 可以轻松使用其他符合wsgi标准的web组件;
+ * 灵活的同时增加了配置的复杂度.
+
+
+-- 清风  [[DateTime(2008-04-25T14:33:00Z)]] 
