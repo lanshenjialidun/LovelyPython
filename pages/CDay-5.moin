@@ -110,9 +110,9 @@ http://ipython.scipy.org/
 ，推荐使用，你会爱上 TAB 键的;-)
 }}}
 
-attachment:cday-5-hello-world-ipython.png
-
 图 CDay-5-2 Hello World 示例(iPython)
+
+attachment:cday-5-hello-world-ipython.png
 
 
 是也乎,就是这么简单,告诉Python 打印"Hello World!" 就好.
