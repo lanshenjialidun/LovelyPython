@@ -1,54 +1,58 @@
 ## page was renamed from zhArticleTemplate
 ##language:zh
 #pragma section-numbers on
-||'''status'''|| 正式 || ZoomQuiet|| 完成度:90%||
+||'''status'''|| 正式 || ZoomQuiet|| 完成度:95%||
 
 [[TableOfContents]]
 
 = KDay4: 使用KS模式重构代码 =
 
-图 KDay4-1
+图 KDay4-1 当前开发成果在Leo 中组织的情景
+
 attachment:KDay4-1.png 
 
-'''不爽直！使用新的KS 页面组织'''
+小白回顾当前的成果,发现仅实现了三个小功能的原型就动用了 7,8 个文件...这也忒麻烦了,有些想念 CherryPy 的对象式应用发布了...
 
-现在想来，小白仅仅实现了三个小功能就用了7，8个文件……有些想念 CherryPy 的对象式应用发布了..
-
-== lovely session ==
-'''学习一下子文档吧！'''
- * http://localhost/demo/ksTest.ks/index
- * {{{#!python
+== 可爱的 session ==
+'''今天,小白计划支持多用户和多问卷的问题,决定先学习一下内置文档!'''
+ * 首先要解决登录后的用户,在不同页面跳转时,系统知道用户的信息,貌似有关 session 的处理可以支持这种需要
+ * 找到相关实例:
+  * http://localhost/demo/ksTest.ks/index
+ * 观察代码(小白追加了自个儿的评注):
+{{{#!python
 so = Session()
-if not hasattr(so, 'x'):
+if not hasattr(so, 'x'):    # 判定 so 对象的 x ~计算属性是否初始化过
     so.x = 0
-def index():
+def index():                # 默认行为,展示所有操作
     print "x = %s" %so.x
     print '<br><a href="increment">Increment</a>'
     print '<br><a href="decrement">Decrement</a>'
     print '<br><a href="reset">Reset</a>'
     
-def increment():
+def increment():            # 累加
     so.x = _private(so.x)
-    raise HTTP_REDIRECTION,"index"
-def decrement():
+    raise HTTP_REDIRECTION,"index"  # 返回默认展示页面
+def decrement():            # 递减
     so.x -= 1
-    raise HTTP_REDIRECTION,"index"
-def reset():
+    raise HTTP_REDIRECTION,"index"  # 返回默认展示页面
+def reset():                # 置零
     so.x = 0
-    raise HTTP_REDIRECTION,"index"
-def _private(x):
+    raise HTTP_REDIRECTION,"index"  # 返回默认展示页面
+def _private(x):            # 不可URL访问的支持函式
     """The function name begins with _ : internal function, 
     can't be call by a url"""
     return x+1
-    }}} 不是吧！！ 一个页面就作完了四种动作！完全是CherryPy 味的！！
-  * Session 完全是对象了，标准的KarriGell 内置对象!
-  * 又不是CherryPy 那样严格的对象属性，是文件级别的全局性变量，容易引用！
-    * 但是，还是要在优雅的Python 脚本中掺杂HTML 代码，不爽直！
+    }}} 不是吧!! 一个页面就作完了四种动作!完全是CherryPy 味的!!
+    
+ * 可以确认 Session 完全是对象了,而且标准的KarriGell 内置对象!
+  * 但是,还是要在优雅的Python 脚本中掺杂HTML 代码,不爽直!
+
+'''不过,相比使用 .pih和包含.py 的方式,使用 .ks 来进行页面组织,已经足够爽直了!'''
 
 == HTMLTags ==
 '''函式化的HTML生成'''
  * http://localhost/doc/en/htmltags.htm
- * 唉呀呀！！还真的是心想事儿成！ 从2.2 增加的新功能哪！
+ * 唉呀呀!!还真的是心想事儿成! 从2.2 增加的新功能哪!
  {{{#!python
 stylesheet = LINK(rel="Stylesheet",href="doc.css")
 header = TITLE('Record collection')+stylesheet
@@ -58,8 +62,8 @@ rows = Sum ([TR(TD(rec.title,Class="title")
     for rec in records])
 table = TABLE(TR(TH('Title')+TH('Artist')) + rows)
 print HTML(HEAD(header) + BODY(title + table))
-}}} 可以将一个标准的HTML页面由几行 Py脚本自然生成！
- * 那未，只要结合 KS 和 HTMLTags 功能就可以快速实现想要的复杂展示功能了！还可以方便的复用！
+}}} 可以将一个标准的HTML页面由几行 Py脚本自然生成!
+ * 那未,只要结合 KS 和 HTMLTags 功能就可以快速实现想要的复杂展示功能了!还可以方便的复用!
  * 当然的使用["Leo"] 八股化所有的.KS
 
 图 KDay4-2
@@ -67,7 +71,7 @@ attachment:KDay4-2.png
 
   1. `<< page declarations >>` 将引用声明什么的都归整到一个节点中
   1. `<< htmlcode >>` 就是利用["Leo"]来快速复用的各种 HTML 代码
-  1. `<<ini>>` 初始化部分，就是各响应页面都要使用的变量准备
+  1. `<<ini>>` 初始化部分,就是各响应页面都要使用的变量准备
   1. `@others` 包含以下各种实际运行的功能页面,包含:
    * `def action():` 样定义的实际响应页面
    * `def _function():` 可以反复调用的不作为页面响应的普通函式声明
@@ -83,14 +87,14 @@ def index():
     else:
         pass
 }}} 照猫画虎, 使用`raise HTTP_REDIRECTION,"login"` 来根据是否有登录过来导向登响应
- * 当然的，要在 .KS 的 ini 初始化部分先声明会话容器:
+ * 当然的,要在 .KS 的 ini 初始化部分先声明会话容器:
      {{{#!python
 # 使用 Session来记忆成员信息
 sess = Session()
 if not hasattr(sess, 'usr'):
     sess.usr = {"name":"NULL"}
-    }}}在没有进行登录前，准备一个值为`NULL` 的`usr` 用户会话对象
- * 好了，实际的登录表单还是 [http://www.orionlab.net/karrigell_quickform/Karrigell_QuickForm.html KQF]来干:
+    }}}在没有进行登录前,准备一个值为`NULL` 的`usr` 用户会话对象
+ * 好了,实际的登录表单还是 [http://www.orionlab.net/karrigell_quickform/Karrigell_QuickForm.html KQF]来干:
 {{{#!python
 p = Karrigell_QuickForm('fm_login'
                         ,'POST'
@@ -104,7 +108,7 @@ p.addGroup(["submit","btn_submit","提交","btn"]
 p.addRule('uname','required'
           ,"成员名是必须的!Login name is required!")
 p.display()
-}}} 非常简洁，标准
+}}} 非常简洁,标准
  * 进行有效性判别的处理也是个标准的KS 函式{{{#!python
 def chkusr(**args):
     """检查用户登录情况
@@ -112,16 +116,16 @@ def chkusr(**args):
     print QUERY
     sess.usr["name"] = QUERY["uname"]
     if sess.usr["name"] in pmguys:
-        # pmguys 是个元组，预定义的有管理整理的成员帐号
+        # pmguys 是个元组,预定义的有管理整理的成员帐号
         sess.usr["pm"] = 1
     print sess.usr
     #raise HTTP_REDIRECTION,"index"
-}}}先别让页面自动跳走，看一看，是否随愿的将登录信息记录了？！
+}}}先别让页面自动跳走,看一看,是否随愿的将登录信息记录了？!
 
 图 KDay4-3
 attachment:KDay4-3.png 
 
- * 问卷的使用原则是，任何人都可以登录/回答,但是:
+ * 问卷的使用原则是,任何人都可以登录/回答,但是:
   1. 只有有效的成员问答才会统计
   1. 只有个别的成员才有管理/编辑问卷的权限
   
@@ -130,7 +134,7 @@ attachment:KDay4-3.png
 ''' 有了登录后的用户信息,就可以根据不同的角色进行处理了'''
 === fnmatch ===
  * 指定目录中某模式的所有文件的寻找…………
- * 有内置的处理模块哪！'''fnmatch'''
+ * 有内置的处理模块哪!'''fnmatch'''
  * 配合统一设置进行搜索{{{#!python
 qcfglist = []
 for f in os.listdir(conf.qpage.qpath):
@@ -140,11 +144,11 @@ for f in os.listdir(conf.qpage.qpath):
         else:
             qcfglist.append(f)
 print qcfglist
-}}} 就可以找出目录中所有以`.cfg`结尾的文件！
+}}} 就可以找出目录中所有以`.cfg`结尾的文件!
   * conf 对象是新发布模式下的统一设置信息对象
-   * 因为，担心可能需要多个.KS 文件来组织网站，不想象原先那样滥用["Leo"]来复用信息了
-   * 所以，建立`@nosent questionnaire.cfg` 统一配置文件
-   * 这样，`conf = DictIni("questionnaire.cfg")` 一下子，就可以在所有.KS 页面中获取统一的站点设置了
+   * 因为,担心可能需要多个.KS 文件来组织网站,不想象原先那样滥用["Leo"]来复用信息了
+   * 所以,建立`@nosent questionnaire.cfg` 统一配置文件
+   * 这样,`conf = DictIni("questionnaire.cfg")` 一下子,就可以在所有.KS 页面中获取统一的站点设置了
    
 === 列表所有问卷 ===
 '''根据问卷的状态进行归类列表'''
@@ -163,7 +167,7 @@ for p in qcfglist:
        qdone[p]=cfgp
     else:
         qdesign[p]=cfgp
-}}} 使用不同的字典容器先过滤一下子搜索出来的文件；
+}}} 使用不同的字典容器先过滤一下子搜索出来的文件;
  * 然后使用类似的输出就好:
 {{{#!python
 print H4("问卷进行中::")
@@ -183,15 +187,15 @@ print UL("".join([str(LI(
 attachment:KDay4-4.png
 
 == 小节 ==
- * 实际上，本日，小白使用 .ks 体验了一把函式化的页面发布，成果就一个脚本'''index.ks'''
-  * 但是以前完成的`.pih` 依然好用，而小白将趁兴将它们都重构为更加爽快的'''函式化页面发布'''
- * 而且，小白忍不住对CSS进行了深入的定制，在输出代码的最简和页面表现丰富之间进行了有效的探索
+ * 实际上,本日,小白使用 .ks 体验了一把函式化的页面发布,成果就一个脚本'''index.ks'''
+  * 但是以前完成的`.pih` 依然好用,而小白将趁兴将它们都重构为更加爽快的'''函式化页面发布'''
+ * 而且,小白忍不住对CSS进行了深入的定制,在输出代码的最简和页面表现丰富之间进行了有效的探索
  
  
 === 明日任务 ===
-'''心情舒畅！快速的完成了更加简练的功能页面！'''
- * 但是，如何将编辑，回答，统计融合起来？
-  1. 点击进入不同问卷，可以回答/或是编辑
+'''心情舒畅!快速的完成了更加简练的功能页面!'''
+ * 但是,如何将编辑,回答,统计融合起来？
+  1. 点击进入不同问卷,可以回答/或是编辑
   1. 点击编辑就直接编辑
   1. 提交就成为新版本问卷
   1. 问卷要有版本管理
