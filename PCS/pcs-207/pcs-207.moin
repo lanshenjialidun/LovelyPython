@@ -6,7 +6,7 @@
 [[TableOfContents]]
 
 == 概述 ==
-python是支持多线程的,但是,是利用操作系统的本地线程,虚拟机本身并未实现线程支持(Java虚拟机实现了线程支持).主要是通过thread和threading这两个模块来实现的.thread是比较底层的模块,threading是thread的包装,可以更加方便的被使用。这里需要提一下的是python对线程的支持还不够完善,不能利用多CPU,但是下个版本的python中已经考虑改进这点.
+python是支持多线程的,并且是native的线程。主要是通过thread和threading这两个模块来实现的。thread是比较底层的模块,threading是thread的包装,可以更加方便的被使用。这里需要提一下的是python对线程的支持还不够完善,不能利用多CPU,但是下个版本的python中已经考虑改进这点.
 
 == 使用 ==
 === threading ===
@@ -15,7 +15,7 @@ threading模块里面主要是对一些线程的操作对象化了,创建了叫T
 ==== 第一种使用方法 ====
 使用线程有两种模式,一种是创建线程要执行的函数,把这个函数传递进Thread对象里,让它来执行.
 {{{#!python
-mport string, threading, time
+import string, threading, time
 
 def thread_main(a):
     global count, mutex
@@ -51,6 +51,23 @@ if __name__ == '__main__':
     num = 4
     # 创建4个线程
     main(4)
+}}}
+{{{
+$ python pcs-207-1.py 
+Thread-1 0 2
+Thread-2 0 3
+Thread-3 0 4
+Thread-4 0 5
+Thread-1 1 6
+...
+Thread-1 8 34
+Thread-2 8 35
+Thread-3 8 36
+Thread-4 8 37
+Thread-1 9 38
+Thread-2 9 39
+Thread-3 9 40
+Thread-4 9 41
 }}}
 
 ==== 第二种方法 ====
@@ -92,6 +109,6 @@ if __name__ == '__main__':
     for t in threads:
         t.join()
 }}}
-
+结果同上。
 
 -- 清风  [[DateTime(2008-04-25T14:33:00Z)]] 
