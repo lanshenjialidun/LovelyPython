@@ -310,7 +310,27 @@ attachment:KDay3-6.png
  * http://openbookproject.googlecode.com/svn/trunk/LovelyPython/KDays/kday3
  * 注意有在上层安置的 JS-JVF 目录:
   * http://openbookproject.googlecode.com/svn/trunk/LovelyPython/KDays/js
-  
+ 本日成果::
+{{{
+kday3
+|-- Karrigell_QuickForm.py  KQF快速表单模块
+|-- tryKQF.py           KQF试用页面
+|-- dict4ini.py         Limodou 贡献的 ini 解析模块
+|-- q/                  问卷设计文本收藏目录
+|   |-- easy051201.cfg  第一份问卷设计
+|   |-- easy051201.cfg.080824231959 问卷设计历史存档
+|   `-- easy051201.cfg.080824232025
+|-- mana.pih            问卷设计页面
+|-- qdesign.py          问卷设计实际行为脚本
+|-- qpage.pih           问卷复审页面
+|-- qpage.py            问卷复审实际行为脚本
+|-- qprint.pih          问卷展示页面
+|-- qprint.py           问卷展示实际行为脚本
+|-- questionnaire.cfg   问卷配置脚本
+`-- questionnaire.tmpl  问卷展示模板
+}}}
+
+
 == 练习 ==
     在前面章节练习mysite的基础上, 完成以下功能:  
    * (1) 利用Karrigell_QuickForm改写编辑页面(edit), 增加更多的文章属性, 如日期, 标签, 引用链接等;

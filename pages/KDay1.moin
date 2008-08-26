@@ -188,8 +188,15 @@ PCS208 dict4ini
 }}}
 
 == 实例下载 ==
-使用SVN下载地址:
- * http://openbookproject.googlecode.com/svn/trunk/LovelyPython/KDays/kday1
+ 使用SVN下载地址::
+  * http://openbookproject.googlecode.com/svn/trunk/LovelyPython/KDays/kday1
+ 本日成果::
+{{{
+kday1/
+|-- q/                  问卷设计文本收藏目录
+|   `-- easy051201.cfg  第一份问卷设计
+`-- try.pih             第一个动态页面
+}}}
 
 = 练习 =
     经过这一节的学习, 熟悉Karrigell.ini基本设置和基本环境部署后(可参考README.txt中), 创建一个自己的站点(mysite), 并依次实现以下功能: 

@@ -197,9 +197,21 @@ attachment:kday2-exp-query.png
 == 实例下载 ==
 使用SVN下载地址:
  * http://openbookproject.googlecode.com/svn/trunk/LovelyPython/KDays/kday2
+ 本日成果::
+{{{
+kday2/
+|-- dict4ini.py         Limodou 贡献的 ini 解析模块
+|-- q/                  问卷设计文本收藏目录
+|   `-- easy051201.cfg  第一份问卷设计
+|-- mana.pih            问卷设计页面
+|-- qdesign.py          问卷设计实际行为脚本
+|-- qpage.pih           问卷展示页面
+|-- qpage.py            问卷展示实际行为脚本
+`-- questionnaire.tmpl  问卷展示模板
+}}}
 
-今日成果：
 图 KDay2-5 本日完成的所有页面在Leo 中的组织情景
+
 attachment:KDay2-4.png
 
 
