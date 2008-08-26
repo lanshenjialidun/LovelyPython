@@ -25,31 +25,43 @@ for index,obj in enumerate(mylist):
     print index,obj
 }}}
 {{{
-0,"a"
-1,"b"
-2,"c"
+0,a
+1,b
+2,c
 }}}
 
 === map ===
-函数说明:map()的两个参数一个是函数名，另一个是列表或元组。
+函数说明:map(function, sequence[, sequence, ...]) -> list，两个参数一个是函数名，另一个是列表或元组，返回一个列表。
 例子:将数组中每一个数乘以2
 {{{#!python
-map(lambda x:x*2,[1,2,3,4,5])
+print "map(lambda x:x*2,[1,2,3,4,5]) -> ",map(lambda x:x*2,[1,2,3,4,5])
+}}}
+{{{
+map(lambda x:x*2,[1,2,3,4,5]) ->  [2, 4, 6, 8, 10]
 }}}
 
 === zip ===
-函数说明:同时循环两个一样长的数组
+函数说明:zip(seq1 [, seq2 [...]]) -> [(seq1[0], seq2[0] ...), (...)]，可以同时循环两个一样长的数组，返回一个包含每个参数元组对应元素的元组。各参数元组长度最好一致，若不一致，采取截断使得返回的结果元组的长度为各参数元组长度最小的。
 {{{#!python
+print "zip([1,2,3],[4,5,6]):"
 for x,y in zip([1,2,3],[4,5,6]):
     print "x,y",x,y
 }}}
-
-=== filter ===
-函数说明:filter（）函数包括两个参数，分别是function和list。该函数根据function参数返回的结果是否为真来过滤list参数中的项，最后返回一个新列表
-例子:过滤掉数组中小于3的数
-{{{#!python
-filter(lambda x:x>3,[1,2,3,4,5])
+{{{
+zip([1,2,3],[4,5,6]):
+x,y 1 4
+x,y 2 5
+x,y 3 6
 }}}
 
+=== filter ===
+函数说明: filter(function or None, sequence) -> list, tuple, or string，包括两个参数，分别是function和list。该函数根据function参数返回的结果是否为真来过滤list参数中的项，最后返回一个新列表
+例子:过滤掉数组中小于3的数
+{{{#!python
+print "filter(lambda x:x>3,[1,2,3,4,5]) -> ",filter(lambda x:x>3,[1,2,3,4,5])
+}}}
+{{{
+filter(lambda x:x>3,[1,2,3,4,5]) ->  [4, 5]
+}}}
 
 -- 清风  [[DateTime(2008-04-25T14:33:00Z)]] 
