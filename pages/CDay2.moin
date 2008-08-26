@@ -169,8 +169,8 @@ port=8081
 python Karrigell.py 
  }}} 完事儿! 网站已经启动,界面已经拥有!
 
-图 CDay2-1
-attachment:CDay2-1.png
+图 CDay2-1 Karrigell启动后输出的状态信息
+attachment:cday2-start-karrigell.png
 
 === 组织 ===
 前后看了看,发觉,默认的,Karrigell 发布 `Karrigell-2.3.5/webapps` 目录为网站根
@@ -181,9 +181,9 @@ attachment:CDay2-1.png
 <h1><a href="cdc/">PyCDC Web</a><h1>
 }}}
 
-刷个新: attachment:CDay2-2.png 
-
-图 CDay2-2
+刷个新: 
+图 CDay2-2 PyCDC网站首页
+attachment:cday2-pycdc-website.png 
 
 嗬嗬嗬,老实的显示出来,而且可以正常点击!
 
@@ -216,8 +216,9 @@ def index(**args):
     print htmfoot
 }}}
 
-刷个新: attachment:CDay2-3.png
-图 CDay2-3
+刷个新: 
+图 CDay2-3 PyCDC网站ks实现
+attachment:cday2-ks.png
 
 真乖呢...小白参考网络中搜索出来的前辈的实例,一试即成! 感觉真是不一般的爽快!
 
@@ -242,15 +243,15 @@ PCS114 交互参数
 from cdctools import *
 print dir()    #通过检查名称空间进行测试
 }}}
-attachment:CDay2-4.png
-图 CDay2-4
+图 CDay2-4 import测试结果
+attachment:cday2-import.png
 
 咔咔咔,瞧见了熟悉的几个函式名称,DONE!
 
  PS:: 小白万分感动的看到Karrigell 提供了友好,丰富,明晰的网页调试信息汇报
 
- attachment:CDay2-5.png
-图 CDay2-5
+图 CDay2-5 网页输出调试信息
+ attachment:cday2-debug-info.png
 
 ==== 表单 ====
 好了,组织好了,接下来就是表单组织,最后连接上即有功能就得!
@@ -302,8 +303,8 @@ def index(**args):
     p.display()
 }}}得了您哪! 追加8行,完成两个功能针对性的表单
 
-attachment:CDay2-6.png
-图 CDay2-6
+图 CDay2-6 使用QuickForm生成页面
+attachment:cday2-quickform.png
 
 ==== 搜索功能 ====
 随便输入,提交,没有任何问题,但是怎么获得提交的信息?
@@ -338,8 +339,8 @@ CDROM = '/media/cdrom0'
 
 运行一下:
 
-attachment:CDay2-7.png
-图 CDay2-7
+图 CDay2-7 搜索功能演示
+attachment:cday2-search.png
 
 成咧!! 嗬嗬嗬,一切太自然了...
 
@@ -406,8 +407,8 @@ if __name__ == '__main__':      # this way the module can be
     print pickle.load(open("searched.dump"))
 }}}
 
-attachment:CDay2-8.png
-图 CDay2-8
+图 CDay2-8 cdctools.py运行结果
+attachment:cday2-cdctools-result.png
 
 对应的导出文件`searched.dump`:{{{
 (dp0
@@ -459,11 +460,11 @@ def index(**args):
     print htmfoot
 }}}
 
- 搜索时:: 图 CDay2-9
- attachment:CDay2-9.png
+ 搜索时:: 图 CDay2-9 搜索时信息显示
+ attachment:cday2-search-result.png
 
- 记录时:: 图 CDay2-10
- attachment:CDay2-10.png
+ 记录时:: 图 CDay2-10 记录时信息显示
+ attachment:cday2-walk-result.png
 
 
 === TODO ===
@@ -492,9 +493,8 @@ if __name__ == "__main__":
 
 直接调用:`python tryweb.py`
 
-图 CDay2-11
-attachment:CDay2-11.png
-
+图 CDay2-11 web.py框架使用初探
+attachment:cday2-tryweb.png
 
 就会在本地 8080 端口发布一个可以响应用户URL 输入的网站来!
 

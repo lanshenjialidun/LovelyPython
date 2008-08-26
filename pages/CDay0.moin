@@ -107,8 +107,8 @@ dotpath: /usr/bin/dot
 {{{$ epydoc --config epydoc.cfg}}}获得最新的 API文档
  * 效果类似:
 
-图 CDay0-1 
-attachment:CDay0-1.png
+图 CDay0-1 epydoc生成的API文档
+attachment:cday0-api.png
 
 
   * 是非常类似 JAVA DOC 的带框架的综合视图的文档站点!

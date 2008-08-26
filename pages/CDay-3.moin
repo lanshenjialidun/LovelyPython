@@ -84,9 +84,8 @@ def cdWalker(cdrom,cdcfile):
 
 
 运行一下: 
-attachment:CDay-3-1.png
-
-图 CDay-3-1
+图 CDay-3-1 pycdc-v0.1.py运行结果
+attachment:cday-3-pycdc-v0.1-result.png
 
 OK,出错了，但是有了 `os` 模块的经验，瞧`sys.argv` 这么眼熟，小白猜这是个模块，需要引入，所以微小的改动一下:
 {{{#!python
@@ -101,9 +100,10 @@ def cdWalker(cdrom,cdcfile):
 #cdWalker('/media/cdrom0','cd1.cdc')
 }}}
 运行一下: 
-attachment:CDay-3-2.png
 
-图 CDay-3-2
+图 CDay-3-2 修改pycdc-v0.1.py后的运行结果
+attachment:cday-3-pycdc-v0.1-result-right.png
+
 
 Great! 一切如愿，然后就是简单的识别参数问题了：
 
@@ -148,9 +148,8 @@ PCS110 逻辑分支
 
 OK，看起来，应该已经完成了功能1~2,但是实际运行时:
 
-attachment:CDay-3-3.png
-
-图 CDay-3-3
+图 CDay-3-3 pycdc-v0.1.py运行IO错误
+attachment:cday-3-pycdc-v0.1-result-ioerror.png
 
 ... 尝试带目录的输出时:{{{
 IOError: [Errno 2] No such file or directory: 'cdc/mycd-1.cdc'

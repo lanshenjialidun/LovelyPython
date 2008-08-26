@@ -29,8 +29,8 @@
 尝试来几下! ... 呜乎矣哉,什么也查不出来!
 
 == 查阅记录文本 ==
-attachment:CDay-1-1.png
-图 CDay-1-1
+图 CDay-1-1 mymusic-1.cdc内容
+attachment:cday-1-mymusic-content.png
 
 '''这种数据对嘛？'''
  * 当初为了简单使用文档中的基本型:{{{#'cdctools.py' 中 cdWalker(cdrom,cdcfile) 的动作
@@ -55,20 +55,20 @@ attachment:CDay-1-1.png
  * 但是!`有时候,选择太多也是个问题;-)`
 
 === 编码问题 ===
-attachment:CDay-1-2.png
 
-图 CDay-1-2
+图 CDay-1-2 编码思维图谱
+attachment:cday-1-encode.png
 
  * 有行者给出如上[http://mindmap.fltrp.com/mind-1.htm 思维图谱(Mind Map)]
  * 理解过程中，先使用已知的方式测试本地硬盘文件目录情况
 
-attachment:CDay-1-3.png
-图 CDay-1-3
+图 CDay-1-3 本地文件目录测试结果
+attachment:cday-1-test-local-file.png
 
   * 嗯嗯嗯，看着就不同,根据理解继续尝试是否理解
 
-attachment:CDay-1-4.png
-CDay-1-4
+图 CDay-1-4 另一些测试结果(使用unicode)
+attachment:cday-1-test-unicode.png
 
 {{{ unicode(原始文本,   'utf8'   ).encode('utf8')
 文本 ==decode()--> [unicode] ==>encode()--> utf-8文本
@@ -148,8 +148,8 @@ PCS6 Python与中文
 嗯嗯嗯？！怎么安装外部模块的呢？软件包下载，解开压缩，嗯嗯嗯？没有INSTALL 说明文件，
 但是有个`setup.py` 尝试执行一下？
 
-attachment:CDay-1-5.png
-图 CDay-1-5
+图 CDay-1-5 chardet安装示意
+attachment:cday-1-chardet-setup.png
 
 {{{
 总用量 33
@@ -286,9 +286,9 @@ Python 内置的字符模板支持特性;
  * `d`代表目录;`f`代表文件
  
 == 小结 ==
-attachment:CDay-1-6.png
 
-图 CDay-1-6
+图 CDay-1-6 CDay-1问题解决思路图谱
+attachment:cday-1-mind.png
 
 
 这日,小白仅仅解决了一个问题 -- 中文搜索问题;解决尝试路途及相互关系如上图所示
@@ -305,7 +305,7 @@ attachment:CDay-1-6.png
  * mount
 
 '''注意'''
- * 如果你使用M$ 系统,运气好的话,是不会见到笔者列出的现象的,但是不保证以后遇不到自动处理下搞不掂的光盘内容;希望那时候小白真的有个自由环境可以尝试其它方案 ;)
+ * 如果你使用M$ 系统,运气好的话,是不会见到笔者列出的现象的,但是不保证以后遇不到自动处理下搞不定的光盘内容;希望那时候小白真的有个自由环境可以尝试其它方案 ;)
 
 {{{警告::
 事实上有在Windows 下面的完全Unix环境
@@ -317,7 +317,7 @@ http://www.cygwin.com
 
 == 练习 ==
 
-1. 自动判定你自个儿／或是朋友的Blog 是什么编码的?
+1. 自动判定你自个儿或是朋友的Blog 是什么编码的?
 
 2. 如果是非utf-8 的,编写小程序自动将指定文章转换成utf-8 编码保存?
 

@@ -33,8 +33,8 @@
   * 但是几乎没有可以照抄的代码哪?
 
 === 照猫画虎的重要资源 ===
-attachment:CDay-2-1.gif
-图 CDay-2-1
+图 CDay-2-1 Learning Python
+attachment:cday-2-learning-python.gif
 ##http://www.oreilly.com/catalog/covers/1565924649_cat.gif
 
 不搜不知道,一搜吓一跳!原来原文技术书都在出版社网站上公开了书中代码样例:
@@ -99,7 +99,8 @@ if __name__ == '__main__':      # this way the module can be
 
 运行一下:
 
-图 CDay-2-2 attachment:CDay-2-2.png
+图 CDay-2-2  pycdc-v0.4.py运行结果
+attachment:cday-2-pycdc-v0.4-result.png
 
 {{{警告::
 运行时总是汇报的一个`Non-ASCII character '\xe6' ...`警告,是个中文问题,只要不影响我们的尝试,先不理会
@@ -222,9 +223,8 @@ if __name__ == '__main__':      # this way the module can be
 
 运行一下:
 
-图 CDay-2-3 
-
-attachment:CDay-2-3.png
+图 CDay-2-3 pycdc-v0.5.py运行结果
+attachment:cday-2-pycdc-v0.5-result.png
 
 完全吻合想象!
 
