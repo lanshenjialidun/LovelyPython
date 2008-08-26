@@ -1,5 +1,7 @@
 ##language:zh
 ##OBP项目图书reST通用文章模板
+##language:zh
+##OBP项目图书reST通用文章模板
 ###format rst
 ||status|| 草稿 ||清风; 100%||
 
@@ -9,6 +11,44 @@
 ConfigParse是用来处理ini格式的配置文件的Python标准库.
 
 == 使用 ==
+=== ConfigParse.read(self, filenames) ===
+函数功能：直接读取ini文件内容，filename可以是一文件名或是文件名列表
+{{{
+>>> from ConfigParser import ConfigParser
+>>> config = ConfigParser()
+>>> config.read('approachrc')
+['approachrc']
+}}}
+
+=== ConfigParse.sections(self) ===
+函数功能：得到所有的section，并以列表的形式返回
+{{{
+>>> config.sections()
+['portal']
+}}}
+
+=== ConfigParse.options(self, section) ===
+函数功能：得到指定section的所有option
+{{{
+>>> config.options('portal')
+['username', 'host', 'url', 'password', 'port']
+}}}
+
+=== ConfigParse.get(self, section, option, raw=False, vars=None) ===
+函数功能：得到section中option的值，返回为string类型
+{{{
+>>> config.get('portal', 'username')
+'dhellmann'
+}}}
+
+=== ConfigParse.set(self, section, option, value) ===
+函数功能：对section中的option进行设置值为value
+{{{
+>>> config.set('portal', 'username', 'lovelypython')
+>>> config.get('portal', 'username')
+'lovelypython'
+}}}
+
 === 实例 ===
 配置文件示例:
 {{{
