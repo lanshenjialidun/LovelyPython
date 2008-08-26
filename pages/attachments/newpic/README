@@ -1,0 +1,48 @@
+X标记表示有对应名字的新截图
+Y表示没有新截，还是原样
+
+cday-4-use-script.png Y没有/media/cdrom0，但图中脚本名字不同
+cday-4-use-ipython.png Y没有/media/cdrom0
+cday-4-result-with-error.png X
+
+cday-3-pycdc-v0.1-result.png X
+cday-3-pycdc-v0.1-result-right.png X但运行结果和原图不一样
+cday-3-pycdc-v0.1-result-ioerror.png X
+
+cday-2-learning-python.gif Y
+cday-2-pycdc-v0.4-result.png X
+cday-2-pycdc-v0.5-result.png X
+
+cday-1-mymusic-content.png Y
+cday-1-encode.png Y
+cday-1-test-local-file.png Y
+cday-1-test-unicode.png Y
+cday-1-chardet-setup.png X
+cday-1-mind.png Y
+
+cday0-api.png Y
+
+cday1-configparser.png Y
+cday1-os-stat.png Y
+
+#网页上都没有重新截，不过看了下，应该没有问题，除了有2个页面中显示的Karrigell版本和使用的版本不一致。
+cday2-start-karrigell.png X
+cday2-pycdc-website.png  Y 
+cday2-ks.png Y
+cday2-import.png Y
+cday2-debug-info.png Y
+cday2-quickform.png Y
+cday2-search.png Y
+cday2-cdctools-result.png X
+cday2-search-result.png Y
+cday2-walk-result.png Y
+cday2-tryweb.png   Y这个我机上web模块未装
+
+cday3-cdctools-improve.png X
+
+
+还有一个地方是，有些脚本中首行写
+# coding : utf-8，若有中文的话，会出现
+  File "pycdc-v0.1.py", line 15
+SyntaxError: Non-ASCII character '\xe8' in file pycdc-v0.1.py on line 15, but no encoding declared; see http://www.python.org/peps/pep-0263.html for details
+这种错误，改成# coding:utf-8，中间不要空格的吧
