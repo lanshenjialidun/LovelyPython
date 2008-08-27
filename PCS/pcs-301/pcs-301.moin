@@ -6,10 +6,10 @@
 [[TableOfContents]]
 
 == Karrigell ==
-
+##这篇里面是否将链接扩展出来？
 === 概述 ===
 '''Pure Python 实现的又一个 Web 应用平台！'''
- * 但是 Karrigell 区别与其它平台的不同在于...
+ * 但是 Karrigell 区别于其它平台的不同在于...
   * [http://www.donews.net/limodou/archive/2005/03/14/302380.aspx Python 下的轻型web framework - limodou的学习记录]
  * Limodou 先有体验 -- [http://www.donews.net/limodou/archive/2005/04/23/347349.aspx "Karrigell学习"我为什么选择了Karrigell - limodou的学习记录]
   * 记录了一个系列的学习使用 Karrigell 时的发现，体会，感触……非常有指导意义！
