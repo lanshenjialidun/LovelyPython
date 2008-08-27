@@ -7,21 +7,125 @@
 
 == 概述 ==
 Base64是网络上最常见的用于传输8Bit字节代码的编码方式之一，大家可以查看RFC2045～RFC2049，上面有MIME的详细规范。
-
 Base64要求把每三个8Bit的字节转换为四个6Bit的字节（3*8 = 4*6 = 24），然后把6Bit再添两位高位0，组成四个8Bit的字节，也就是说，转换后的字符串理论上将要比原来的长1/3。
-
-当然,Python的base64库,帮我们封装了这些复杂的算法,你只需要简单的使用base64.encodestring("Hello Python"),就可以进行base64编码了
+当然,Python的base64库,帮我们封装了这些复杂的算法,只需要简单的使用base64.encodestring("Hello Python"),就可以进行base64编码了
 
 == 使用 ==
-== 基本使用 ==
+##来自PyMOTW:base64  http://blog.doughellmann.com/2008/07/pymotw-base64.html
+=== Base 64 编码 ===
+简单的文本编码示例如下：
+{{{#!python
+
+import base64
+
+initial_data = open(__file__, 'rt').read()
+
+encoded_data = base64.b64encode(initial_data)
+
+num_initial = len(initial_data)
+padding = { 0:0, 1:2, 2:1 }[num_initial % 3]
+
+print '%d bytes before encoding' % num_initial
+print 'Expect %d padding bytes' % padding
+print '%d bytes after encoding' % len(encoded_data)
+print
+print encoded_data
+}}}
+输出显示原来349字节的文本在编码之后被扩展到了468个字节，从编码过程来看，每一个24位序列（3个字节）作为输入，输出时候则增加了4个字节，最后2个字符“==”，则是简单的追加，因为原始字符串的位数不能被24整除。
+{{{
+$ python pcs-211-1.py 
+349 bytes before encoding
+Expect 2 padding bytes
+468 bytes after encoding
+
+aW1wb3J0IGJhc2U2NAoKaW5pdGlhbF9kYXRhID0gb3BlbihfX2ZpbGVfXywgJ3J0JykucmVhZCgpCgplbmNvZGVkX2
+RhdGEgPSBiYXNlNjQuYjY0ZW5jb2RlKGluaXRpYWxfZGF0YSkKCm51bV9pbml0aWFsID0gbGVuKGluaXRpYWxfZG
+F0YSkKcGFkZGluZyA9IHsgMDowLCAxOjIsIDI6MSB9W251bV9pbml0aWFsICUgM10KCnByaW50ICclZCBieXRlcyBi
+ZWZvcmUgZW5jb2RpbmcnICUgbnVtX2luaXRpYWwKcHJpbnQgJ0V4cGVjdCAlZCBwYWRkaW5nIGJ5dGVzJyAlIHB
+hZGRpbmcKcHJpbnQgJyVkIGJ5dGVzIGFmdGVyIGVuY29kaW5nJyAlIGxlbihlbmNvZGVkX2RhdGEpCnByaW50CnBy
+aW50IGVuY29kZWRfZGF0YQ==
+}}}
+
+=== Base 64 解码 ===
+编码的字符串可以转换为原来的格式，利用反向转换把4个字节转换为3个字节，可以使用b64decode()函数。
 {{{#!python
 import base64
 
-basestr = base64.encodestring("yanxu 123")
-print "base64 encodestring:",basestr
-print "base64 decodestring:",base64.decodestring(basestr)
+original_string = 'This is the data, in the clear.'
+print 'Original:', original_string
+
+encoded_string = base64.b64encode(original_string)
+print 'Encoded :', encoded_string
+
+decoded_string = base64.b64decode(encoded_string)
+print 'Decoded :', decoded_string
+}}}
+{{{
+$ python pcs-211-2.py 
+Original: This is the data, in the clear.
+Encoded : VGhpcyBpcyB0aGUgZGF0YSwgaW4gdGhlIGNsZWFyLg==
+Decoded : This is the data, in the clear.
 }}}
 
+=== URL-Safe变体 ===
+默认的base64字母表可能会使用+和/，而这些字符可能出现在url中，因此必须为这些字符指定可选择的编码情况，+由符号-来代替，而/由下划线_来代替，其他字母表还是相同。
+{{{#!python
+import base64
 
+for original in [ '\xfb\xef', '\xff\xff' ]:
+    print 'Original         :', repr(original)
+    print 'Standard encoding:', base64.standard_b64encode(original)
+    print 'URL-safe encoding:', base64.urlsafe_b64encode(original)
+    print
+}}}
+{{{
+$ python pcs-211-3.py 
+Original         : '\xfb\xef'
+Standard encoding: ++8=
+URL-safe encoding: --8=
 
+Original         : '\xff\xff'
+Standard encoding: //8=
+URL-safe encoding: __8=
+}}}
+
+=== 其他编码 ===
+除了base 64以外，还有base 32和base 16（16进制）提供函数用于编码数据。
+{{{#!python
+import base64
+
+original_string = 'This is the data, in the clear.'
+print 'Original:', original_string
+
+encoded_string = base64.b32encode(original_string)
+print 'Encoded :', encoded_string
+
+decoded_string = base64.b32decode(encoded_string)
+print 'Decoded :', decoded_string
+}}}
+{{{
+1$ python pcs-211-4.py 
+Original: This is the data, in the clear.
+Encoded : KRUGS4ZANFZSA5DIMUQGIYLUMEWCA2LOEB2GQZJAMNWGKYLSFY======
+Decoded : This is the data, in the clear.
+}}}
+base 16中的函数是以16进制方式表示。
+{{{#!python
+import base64
+
+original_string = 'This is the data, in the clear.'
+print 'Original:', original_string
+
+encoded_string = base64.b16encode(original_string)
+print 'Encoded :', encoded_string
+
+decoded_string = base64.b16decode(encoded_string)
+print 'Decoded :', decoded_string
+}}}
+{{{
+$ python pcs-211-5.py 
+Original: This is the data, in the clear.
+Encoded : 546869732069732074686520646174612C20696E2074686520636C6561722E
+Decoded : This is the data, in the clear.
+}}}
 -- 清风  [[DateTime(2008-04-25T14:33:00Z)]] 
