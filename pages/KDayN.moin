@@ -5,6 +5,7 @@
 
 [[TableOfContents]]
 
+##startInc
 = KDay N:经验总结畅想web应用 =
 '''提出自个儿的建议，为社区贡献'''
  * 应该说，到这会儿，小白就要考虑将体验中爽的整理为文章分享，不爽的汇报社区以支持改进……
@@ -86,7 +87,9 @@ attachment:KdayN-1.gif
 == 练习 ==
 
     读者做到这一步应该非常非常了解Karrigell的开发流程了, 接下来还是要对已有的web应用进行优化...这些只能通过自己不断的学习慢慢了解 (^_^)
-     
+
+##endInc
+
 ----
 返回 [:ObpLovelyPython/KDays:KDays实例故事]
 

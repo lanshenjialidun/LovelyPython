@@ -5,6 +5,7 @@
 
 [[TableOfContents]]
 
+##startInc
 = CDay 1 优化!对自个儿的反省 =
 ~ 首次重构优化数据结构
 
@@ -222,6 +223,7 @@ dict4ini 就是其中一种第三方模块，
  * (1) 编程实现以下功能并进行最大化的优化：遍历指定目录下的所有文件，找出其中占用空间最大的前3个文件。
  * (2) 利用ConfigParser，将上述题目中产生的结果按照cdays+1-my.ini格式存储到文件cdays+1-result.txt中。
 
+##endInc
 ----
 ::-- ZoomQuiet [[[DateTime(2007-04-13T16:17:50Z)]]]
 [[PageComment2]]

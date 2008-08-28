@@ -5,6 +5,7 @@
 
 [[TableOfContents]]
 
+##startInc
 = KDay4: 使用KS模式重构代码 =
 
 图 KDay4-1 当前开发成果在Leo 中组织的情景
@@ -226,6 +227,7 @@ attachment:KDay4-4.png
  * (2) 增加用户登录, 验证和登出功能, 即实现用户通过输入姓名和密码, 提交后通过验证后登录首页; 具体可参考png中截图;
  * (3) 使用HTMLTags美化首页显示, 读者可以展开自己丰富的想象力那;
 
+##endInc
 ----
 返回 [:ObpLovelyPython/KDays:KDays实例故事]
 

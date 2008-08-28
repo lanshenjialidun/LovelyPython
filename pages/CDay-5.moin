@@ -5,7 +5,7 @@
 
 [[TableOfContents]]
 
-
+##startInc
 = CDay -5 Python初体验和原始需求 =
 
 `Just use it! don't learn!` -- 用之,不学!
@@ -173,6 +173,7 @@ OK!轻松的开始,但是,你知道,你同时于获得了免费的绝对强大�
 (3) 找出0~100之间的所有素数.
 
 
+##endInc
 -- ZoomQuiet  [[DateTime(2007-02-20T06:12:54Z)]] 
 
 [[PageComment2(nosmiley=1, notify=1)]]

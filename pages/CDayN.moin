@@ -5,6 +5,7 @@
 
 [[TableOfContents]]
 
+##startInc
 = CDay N 基于Python的无尽探索 =
 `想象力才是 Pythoner 的唯一界限!`
 
@@ -199,6 +200,7 @@ PCS309 GAE
 
 充分信任Python, 大胆设想,小心求证,搜寻己有实例,谁都可以创造出美妙实用的工具的!
 
+##endInc
 
 ----
 ::-- ZoomQuiet [[[DateTime(2007-04-13T16:36:52Z)]]]

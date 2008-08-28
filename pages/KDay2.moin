@@ -7,7 +7,7 @@
 
 
 [[TableOfContents]]
-
+##startInc
 = KDay 2:~ 通过表单直接完成功能！ =
 '''不管37,21直接完成心目中的功能,先！'''
 
@@ -222,7 +222,7 @@ attachment:KDay2-4.png
  * (2) 允许文章的多次修改及删除, 并能体现在首页index.pih中; 
  * (3) 提示: 各个文章可以保存为.cfg格式, 该格式文件的处理可参见ConfigParser的使用.
 
-
+##endInc
 ----
 返回 [:ObpLovelyPython/KDays:KDays实例故事]
 

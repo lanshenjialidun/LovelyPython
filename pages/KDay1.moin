@@ -6,6 +6,7 @@
 
 [[TableOfContents]]
 
+##startInc
 = KDay 1:品尝KarriGell =
 '''快速根据现成的PHP实现思路,尝试Karrigell 的开发'''
 
@@ -207,6 +208,7 @@ kday1/
   * (2) 添加一个登录页(login.pih), 用户输入姓名, 密码后进入首页, 并在首页中输出Hello, 姓名's world!即当输入localhost:8081/mysite后, 首先进行登录, 我们输入姓名和密码后, 转入首页, 其显示Hello, 姓名's world! 具体可参见png/中截图所示.
 
 
+##endInc
 ----
 返回 [:ObpLovelyPython/KDays:KDays实例故事]
 

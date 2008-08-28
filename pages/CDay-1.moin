@@ -5,6 +5,7 @@
 
 [[TableOfContents]]
 
+##startInc
 = CDay -1 实用化,中文! =
 ~ 中文处理完成功能的实用化
 
@@ -321,7 +322,7 @@ http://www.cygwin.com
 
 2. 如果是非utf-8 的,编写小程序自动将指定文章转换成utf-8 编码保存?
 
-
+##endInc
 
 ----
 ::-- ZoomQuiet [[[DateTime(2007-02-24T09:24:27Z)]]]

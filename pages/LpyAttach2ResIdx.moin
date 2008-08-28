@@ -9,7 +9,7 @@
 ##|校对|正式 
 ||'''status'''|| 草稿|| ZoomQuiet|| 完成度:20% 框架分类||
 
-
+##startInc
 = Python 资源索引 =
 
 == Python 语言 ==
@@ -114,9 +114,6 @@ http://boo.codehaus.org/Language+Features
  前沿::
   * 相关进步
   * PyPy
-
-##startInc
-    
 
 ##endInc
 

@@ -6,10 +6,12 @@
 ||'''status''' || 校对 || lizzie || 完成度100% ||
 [[TableOfContents(2)]]
 
-= 故事练习解答 =
 ## 编辑正文收集在:
 ### http://openbookproject.googlecode.com/svn/trunk/LovelyPython/exercise/part2-KDays/LpyAttach3answer-KDays.moin
 ### http://openbookproject.googlecode.com/svn/trunk/LovelyPython/exercise/part1-CDays/LpyAttach3answer-CDays.moin
+
+##startInc
+= 故事练习解答 =
 
 == CDays 故事解答 ==
 [[Include(/CDays,,from="^##startInc",to="^##endInc")]]
@@ -17,7 +19,7 @@
 == KDays 故事解答 ==
 [[Include(/KDays,,from="^##startInc",to="^##endInc")]]
 
-
+##endInc
 ----
  . ::-- ZoomQuiet [[[DateTime(2008-04-26T07:41:41Z)]]] [[PageComment2]]
 

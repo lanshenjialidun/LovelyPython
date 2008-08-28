@@ -6,6 +6,7 @@
 
 [[TableOfContents]]
 
+##startInc
 = CDay 3 优化!多线程 =
 ~ 应用多线程再次优化
 
@@ -208,6 +209,8 @@ attachment:cday3-cdctools-improve.png
 
 (3) Python中的Event是用于线程间的相互通信，主要利用信号量机制。修改题一的程序，利用信号量重新实现多线程对同一共享变量进行递增操作。
 
+
+##endInc
 ----
 ::-- ZoomQuiet [[[DateTime(2007-04-13T16:32:36Z)]]]
 [[PageComment2]]

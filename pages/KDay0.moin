@@ -1,3 +1,12 @@
+##language:zh
+#pragma section-numbers on
+##草稿|校对|正式
+||'''status'''|| 正式 || ZoomQuiet|| 完成度:98%||
+
+
+[[TableOfContents]]
+
+##startInc
 = KDay 0: Web开发启航 =
 '''定场诗'''
 {{{
@@ -100,5 +109,13 @@ key		= a # 正确答案
  * 运行python Karrigell.py, 看看出现什么?
  * 再在浏览器中输入localhost, 再看看出现什么?
 如果出现意外,尝试根据屏幕提示进行排除...
+
+##endInc
+----
+返回 [:ObpLovelyPython/KDays:KDays实例故事]
+
+----
+::-- ZoomQuiet [[[DateTime(2005-12-10T11:49:22Z)]]]
+[[PageComment2]]
 
 

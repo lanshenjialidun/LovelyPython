@@ -3,10 +3,11 @@
 ##format rst
 
 ||status|| 校对 ||ZoomQuiet; 100% ||
+|| ||校对 ||["bfishadow"]; 100% ||
 
 [[TableOfContents]]
 
-
+##startInc
 = CDay -4 可用的首个Python脚本 =
 
 '''寻找吧!不要先想着创造 -- Python 是自足的'''
@@ -66,7 +67,7 @@ PCS5 Python脚本文件
 }}}
 
  解释:
-  1. `# coding : utf-8` 应该作为八股文一样在每个脚本头部声明，这是个忠告-- 为了解决中文兼容问题的忠告, 同时你应该选择支持 Unicode 编码的编辑器环境,保证在运行脚本中的每个汉字都是使用 utf-8 编码过的...详细参考...
+  1. `# coding : utf-8` 应该作为八股文一样在每个周末头部声明，这是个忠告-- 为了解决中文兼容问题的忠告, 同时你应该选择支持 Unicode 编码的编辑器环境,保证在运行脚本中的每个汉字都是使用 utf-8 编码过的...详细参考...
   1. `import os` 就是告诉 Python 环境,我们要使用 `os模块`, 以此类推,如果你想使用任何己有的模块包,就使用 '''import 模块名''' 的形式引用就好
   1. 最后一行才是我们真正想做的事儿:"打印光盘根路径中的所有文件和目录"
 
@@ -78,13 +79,13 @@ PCS5 Python脚本文件
 
  运行结果类似:
 
-图 CDay-4-1 使用脚本运行
-attachment:cday-4-use-script.png
+图 CDay-4-1
+attachment:CDay-4-1.png
 
 当然在 `iPython`  环境下，逐步运行也一样
 
-图 CDay-4-2 iPython中运行
-attachment:cday-4-use-ipython.png
+图 CDay-4-2
+attachment:CDay-4-2.png
 
 {{{详细:
 PCS2 详细说明了
@@ -189,8 +190,8 @@ http://www.woodpecker.org.cn/diveintopython/file_handling/file_objects.html
 
 执行尝试 `$python CDay-4-3.py`
 
-图 CDay-4-3 初步CDay-4-3.py脚本运行结果
-attachment:cday-4-result-with-error.png
+图 CDay-4-3 
+attachment:CDay-4-3.png
 
 完了!报错!...小白感觉信心又降到冰点了;
 "嗬嗬嗬",行者说:"不用担心,在Python 中的解决bug 是非常轻松的,因为完善的回溯能力,Python 可以非常精确的汇报小白错误的时间,地点,原因,我们只要对应修订就好."
@@ -272,54 +273,105 @@ PCS101 内建数据类型 介绍了动态语言的最大便利～自由类型转
 
 (1) os 模块中还有哪些功能可以使用? -- 提示使用 dir()和help()
 
+
+
 (2) open() 还有哪些模式可以使用?
+
+
 
 (3) 尝试for .. in ..循环可以对哪些数据类型进行操作?
 
+
+
 (4) 格式化声明,还有哪些格式可以进行约定?
 
+
+
 (5) 现在的写入文件模式好嘛? 有改进的余地?
+
 CDay-4-5.py 好在哪里? :
+
 {{{#!python
+
 # coding : utf-8
+
 import os
+
 export = ""
+
 for root, dirs, files in os.walk('/media/cdrom0'):
+
   export+="\n %s;%s;%s" % (root,dirs,files)
+
 open('mycd2.cdc', 'w').write(export)
+
 }}}
+
+
 
 CDay-4-6.py又更加好在哪里? :
+
 {{{#!python
+
 # coding : utf-8
+
 import os
+
 export = []
+
 for root, dirs, files in os.walk('/media/cdrom0'):
+
     export.append("\n %s;%s;%s" % (root,dirs,files))
+
 open('mycd2.cdc', 'w').write(''.join(export))
+
 }}}
 
-(6) 读取文件cdays-4-test.txt内容，去除空行和注释行后，以行为单位进行排序，并将结果输出为cdays-4-result.txt。cdays-4-test.txt~{{{
+
+
+(6) 读取文件cdays-4-test.txt内容，去除空行和注释行后，以行为单位进行排序，并将结果输出为cdays-4-result.txt。
+cdays-4-test.txt~{{{
 #some words
 
-Sometimes in life,
-You find a special friend;
-Someone who changes your life just by being part of it.
-Someone who makes you laugh until you can't stop;
-Someone who makes you believe that there really is good in the world.
-Someone who convinces you that there really is an unlocked door just waiting for you to open it.
-This is Forever Friendship.
-when you're down,
-and the world seems dark and empty,
-Your forever friend lifts you up in spirits and makes that dark and empty world
-suddenly seem bright and full.
-Your forever friend gets you through the hard times,the sad times,and the confused times.
-If you turn and walk away,
-Your forever friend follows,
-If you lose you way,
-Your forever friend guides you and cheers you on.
-Your forever friend holds your hand and tells you that everything is going to be okay. }}}
 
+
+Sometimes in life,
+
+You find a special friend;
+
+Someone who changes your life just by being part of it.
+
+Someone who makes you laugh until you can't stop;
+
+Someone who makes you believe that there really is good in the world.
+
+Someone who convinces you that there really is an unlocked door just waiting for you to open it.
+
+This is Forever Friendship.
+
+when you're down,
+
+and the world seems dark and empty,
+
+Your forever friend lifts you up in spirits and makes that dark and empty world
+
+suddenly seem bright and full.
+
+Your forever friend gets you through the hard times,the sad times,and the confused times.
+
+If you turn and walk away,
+
+Your forever friend follows,
+
+If you lose you way,
+
+Your forever friend guides you and cheers you on.
+
+Your forever friend holds your hand and tells you that everything is going to be okay. 
+}}}
+
+
+##endInc
 
 [[PageComment2(nosmiley=1, notify=1)]]
 

@@ -5,6 +5,7 @@
 
 [[TableOfContents]]
 
+##startInc
 = KDay6: 利用mm 人性化组织成员信息 =
 '''快速扩展一个页面适应所有情况！'''
  * 此mm 非彼 MM 吔 ;-) 乃指 FreeMind 思维图谱文件 `.mm`
@@ -253,7 +254,9 @@ attachment:KDay6-10.png
  * (2) 黑白页面比较丑, 我们可以利用css做些页面的美化, 比如加入颜色, 布局调整等等;
  * (3) 思考:前述字典排序技巧是通过将字典关键词单独取出来成列表来排序的，有其它更加直接的方法嘛？
 ## 提示:: http://wiki.woodpecker.org.cn/moin/MiscItems/2008-07-01
- 
+
+##endInc
+
 ----
 返回 [:ObpLovelyPython/KDays:KDays实例故事]
 

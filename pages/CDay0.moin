@@ -5,6 +5,7 @@
 
 [[TableOfContents]]
 
+##startInc
 = CDay 0 时刻准备着!发布 =
 ~ 感受软件工程进行发布的准备
 
@@ -173,6 +174,7 @@ http://www.python.org/dev/peps/pep-0008/
 ## 设计实用练习,确保体例代码可以自由扩展出各种实用应用!
  * (1) 请根据软件发布的流程和软件开发的编码规范，将读者之前章节写的程序修改并发布出去。另外，可以查找下除了epydoc外还有哪些较好的py文档生成器？
 
+##endInc
 
 ##=== distribute ===
 ##[http://blender.bokee.com/523381.html 如何“编译”Python程序] ^ Oyster <lepto.python@gmail.com> 建议^

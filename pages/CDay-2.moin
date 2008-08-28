@@ -5,6 +5,7 @@
 
 [[TableOfContents]]
 
+##startInc
 = CDay-2 完成核心功能 =
 ~ 利用文本文件完成核心功能
 
@@ -301,6 +302,7 @@ cpu cores       : 2
 
 (2) 编写一个类，实现简单的栈。数据的操作按照先进后出(FILO)的顺序。主要成员函数为put(item)，实现数据item插入栈中；get()，实现从栈中取一个数据。
 
+##endInc
 ----
 ::-- ZoomQuiet [[[DateTime(2007-02-23T12:43:32Z)]]]
 [[PageComment2]]
