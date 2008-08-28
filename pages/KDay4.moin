@@ -14,7 +14,7 @@ attachment:KDay4-1.png
 小白回顾当前的成果,发现仅实现了三个小功能的原型就动用了 7,8 个文件...这也忒麻烦了,有些想念 CherryPy 的对象式应用发布了...
 
 == 可爱的 session ==
-'''今天,小白计划支持多用户和多问卷的问题,决定先学习一下内置文档!'''
+'''今天,小白计划支持多用户和多问卷的问题,先从翻淘内置文档开始...'''
  * 首先要解决登录后的用户,在不同页面跳转时,系统知道用户的信息,貌似有关 session 的处理可以支持这种需要
  * 找到相关实例:
   * http://localhost/demo/ksTest.ks/index
@@ -48,10 +48,12 @@ def _private(x):            # 不可URL访问的支持函式
   * 但是,还是要在优雅的Python 脚本中掺杂HTML 代码,不爽直!
 
 '''不过,相比使用 .pih和包含.py 的方式,使用 .ks 来进行页面组织,已经足够爽直了!'''
-
+ * 但是使用 Cheetah 模板系统,就得每个访问页面都得有对应的模板声明来支持,好象也过于正统和麻烦了...
+ 
 == HTMLTags ==
-'''函式化的HTML生成'''
- * http://localhost/doc/en/htmltags.htm
+'''小白猛然发现有函式化的HTML生成机制!'''
+ * 同样在 KarriGell 内置文档中:
+  * http://localhost/doc/en/htmltags.htm
  * 唉呀呀!!还真的是心想事儿成! 从2.2 增加的新功能哪!
  {{{#!python
 stylesheet = LINK(rel="Stylesheet",href="doc.css")
@@ -77,24 +79,32 @@ attachment:KDay4-2.png
    * `def _function():` 可以反复调用的不作为页面响应的普通函式声明
   
 == 登录 ==
-'''从默许的index 自动导向 login 那'''
- * 在{{{#!python
+改造思路就是:'''从默许的index 根据用户状态,自动导向 login 页面'''
+ * 参考 session 例程中的相关代码{{{#!python
+...
+def increment():            # 累加
+    so.x = _private(so.x)
+    raise HTTP_REDIRECTION,"index"  # 返回默认展示页面
+...
+}}} 照猫画虎, 使用`raise HTTP_REDIRECTION,"login"` 来创立小白自个儿的智能导向登响应页面
+{{{#!python
 def index():
     << pagehead >>
     
-    if sess.usr["name"]=="NULL":
+    if sess.usr["name"]=="NULL":        # 查问 session 对象中的 usr 属性是否初始化过?
         raise HTTP_REDIRECTION,"login"
     else:
         pass
-}}} 照猫画虎, 使用`raise HTTP_REDIRECTION,"login"` 来根据是否有登录过来导向登响应
- * 当然的,要在 .KS 的 ini 初始化部分先声明会话容器:
+}}}
+ * 当然的,要在 .ks 的 ini 初始化部分先声明会话容器:
      {{{#!python
 # 使用 Session来记忆成员信息
 sess = Session()
 if not hasattr(sess, 'usr'):
     sess.usr = {"name":"NULL"}
     }}}在没有进行登录前,准备一个值为`NULL` 的`usr` 用户会话对象
- * 好了,实际的登录表单还是 [http://www.orionlab.net/karrigell_quickform/Karrigell_QuickForm.html KQF]来干:
+
+ * 好了,实际的登录表单还是使用 [http://www.orionlab.net/karrigell_quickform/Karrigell_QuickForm.html KQF]来干:
 {{{#!python
 p = Karrigell_QuickForm('fm_login'
                         ,'POST'
@@ -108,7 +118,7 @@ p.addGroup(["submit","btn_submit","提交","btn"]
 p.addRule('uname','required'
           ,"成员名是必须的!Login name is required!")
 p.display()
-}}} 非常简洁,标准
+}}} 非常简洁,齐整
  * 进行有效性判别的处理也是个标准的KS 函式{{{#!python
 def chkusr(**args):
     """检查用户登录情况
@@ -120,7 +130,7 @@ def chkusr(**args):
         sess.usr["pm"] = 1
     print sess.usr
     #raise HTTP_REDIRECTION,"index"
-}}}先别让页面自动跳走,看一看,是否随愿的将登录信息记录了？!
+}}}先别让页面自动跳走,看一看,是否如愿的将登录信息记录了？!
 
 图 KDay4-3
 attachment:KDay4-3.png 
@@ -131,7 +141,8 @@ attachment:KDay4-3.png
   
  
 == 多问卷选择 ==
-''' 有了登录后的用户信息,就可以根据不同的角色进行处理了'''
+'''有了登录后的用户信息,就可以根据不同的角色进行处理了'''
+
 === fnmatch ===
  * 指定目录中某模式的所有文件的寻找…………
  * 有内置的处理模块哪!'''fnmatch'''
