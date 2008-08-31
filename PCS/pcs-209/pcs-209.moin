@@ -1,0 +1,42 @@
+##language:zh
+##OBP项目图书reST通用文章模板
+###format rst
+||status|| 草稿 ||清风 & liz; 95%||
+
+[[TableOfContents]]
+
+== 概述 ==
+fnmatch 实现了shell patterns表匹配字符串或文件名
+
+== 使用 ==
+=== fnmatch.fnmatch(name, pattern) ===
+函数功能:测试name是否匹配pattern，返回true/false
+{{{#!python
+>>>fnmatch.fnmatch('*py','*.py')  
+>>>False  
+  
+>>>fnmatch.fnmatch('tlie.py','*.py')  
+>>>True
+}}}
+
+{{{
+注意:匹配样式是unix shell风格的.其中*表示匹配任何单个或多个字符.?表示匹配单个字符;[seq] 匹配单个seq中的字符;[!seq]匹配单个不是seq中的字符
+}}}
+
+
+=== fnmatch.filter(names, pat) ===
+函数功能:实现列表特殊字符的过滤或筛选,返回符合匹配模式的字符列表
+{{{#!python
+>>>names = ['dlsf', 'ewro.txt', 'te.py', 'youe.py']  
+#匹配以.py结尾的字符  
+>>> fnmatch.filter(names, '*.py')  
+>>> ['te.py', 'youe.py']  
+  
+>>> fnmatch.filter(names, '[de]')  
+>>> []  
+#匹配以d或e开头的字符  
+>>>fnmatch.filter(names, '[de]*')  
+>>>['dlsf', 'ewro.txt']
+}}}
+
+
