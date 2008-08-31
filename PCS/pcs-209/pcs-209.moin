@@ -7,36 +7,53 @@
 
 == 概述 ==
 fnmatch 实现了shell patterns表匹配字符串或文件名
+##这里的shell patterns是否翻译出来？fnmatch - Filename matching with shell patterns.
 
 == 使用 ==
 === fnmatch.fnmatch(name, pattern) ===
-函数功能:测试name是否匹配pattern，返回true/false
-{{{#!python
+函数功能:测试name是否匹配pattern，匹配返回true，否则返回false。
+{{{
+>>>import fnmatch
+# 匹配以.py结尾的字符串
 >>>fnmatch.fnmatch('*py','*.py')  
 >>>False  
-  
 >>>fnmatch.fnmatch('tlie.py','*.py')  
 >>>True
 }}}
-
 {{{
 注意:匹配样式是unix shell风格的.其中*表示匹配任何单个或多个字符.?表示匹配单个字符;[seq] 匹配单个seq中的字符;[!seq]匹配单个不是seq中的字符
 }}}
 
-
 === fnmatch.filter(names, pat) ===
 函数功能:实现列表特殊字符的过滤或筛选,返回符合匹配模式的字符列表
-{{{#!python
+{{{
+>>>import fnmatch
 >>>names = ['dlsf', 'ewro.txt', 'te.py', 'youe.py']  
-#匹配以.py结尾的字符  
+# 匹配以.py结尾的字符串
 >>> fnmatch.filter(names, '*.py')  
->>> ['te.py', 'youe.py']  
-  
+>>> ['te.py', 'youe.py']
 >>> fnmatch.filter(names, '[de]')  
 >>> []  
-#匹配以d或e开头的字符  
+# 匹配以d或e开头的字符串  
 >>>fnmatch.filter(names, '[de]*')  
 >>>['dlsf', 'ewro.txt']
 }}}
 
+=== fnmatch.fnmatchcase(name, pat) ===
+函数功能:和fnmatch()类似，只是fnmatchcase强制区分大小写匹配，不管文件系统是否区分。
+{{{
+>>> import fnmatch
+# 匹配以R开头的字符串
+>>> fnmatch.fnmatchcase('readme', 'R*')
+False
+>>> fnmatch.fnmatchcase('Readme', 'R*')
+True
+}}}
 
+=== fnmatch.translate(pat) ===
+函数功能:将pat转换成正则表达式
+{{{
+>>> import fnmatch
+>>> fnmatch.translate('*.py')
+'.*\\.py$'
+}}}

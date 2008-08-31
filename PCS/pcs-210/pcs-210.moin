@@ -23,7 +23,7 @@ print 'PICKLE:', data_string
 }}}
 
 {{{
-$ python pickle_string.py
+$ python pcs-210-1.py
 DATA:[{'a': 'A', 'b': 2, 'c': 3.0}]
 PICKLE: (lp1
 (dp2
