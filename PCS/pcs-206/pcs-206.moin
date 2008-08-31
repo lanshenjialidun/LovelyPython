@@ -1,0 +1,50 @@
+##language:zh
+##OBP项目图书reST通用文章模板
+###format rst
+||status|| 草稿 ||清风 & liz; 95%||
+
+[[TableOfContents]]
+
+== 概述 ==
+python是支持多线程的,并且是native的线程。主要是通过thread和threading这两个模块来实现的。thread是比较底层的模块,threading是thread的包装,可以更加方便的被使用。这里需要提一下的是python对线程的支持还不够完善,不能利用多CPU,但是下个版本的python中已经考虑改进这点.
+
+{{{
+注意:
+  出于以下几点考虑，我们不建议您使用thread模块。首先，更高级别的threading模块更为先 
+进，对线程的支持更为完善，而且使用thread模块里的属性有可能会与threading出现冲突。其次， 
+低级别的thread模块的同步原语很少（实际上只有一个），而threading模块则有很多。
+
+  另一个不要使用thread原因是，对于你的进程什么时候应该结束完全没有控制，当主线程结束 
+时，所有的线程都会被强制结束掉，没有警告也不会有正常的清除工作。
+}}}
+
+== 使用 ==
+=== 基本使用 ===
+{{{#!python
+#!/usr/bin/env python 
+
+import thread 
+from time import sleep, ctime 
+
+def loop0(): 
+	print 'start loop 0 at:', ctime() 
+	sleep(4) 
+	print 'loop 0 done at:', ctime() 
+
+def loop1(): 
+	print 'start loop 1 at:', ctime() 
+	sleep(2) 
+	print 'loop 1 done at:', ctime() 
+
+def main(): 
+	print 'starting at:', ctime() 
+	thread.start_new_thread(loop0, ()) 
+	thread.start_new_thread(loop1, ()) 
+	sleep(6) 
+	print 'all DONE at:', ctime() 
+
+if __name__ == '__main__': 
+	main() 
+}}}
+
+
