@@ -12,10 +12,10 @@
 
 attachment:KDay4-1.png 
 
-小白回顾当前的成果,发现仅实现了三个小功能的原型就动用了 7,8 个文件...这也忒麻烦了,有些想念 CherryPy 的对象式应用发布了...
+小白回顾当前的成果,发现仅实现了三个小功能的原型就动用了 7,8 个文件...这也忒麻烦了,有些想念 CherryPy 的对象式发布了...
 
 == 可爱的 session ==
-'''今天,小白计划支持多用户和多问卷的问题,先从翻淘内置文档开始...'''
+'''今天,小白计划支持多用户和多问卷的问题,先从翻找内置文档开始...'''
  * 首先要解决登录后的用户,在不同页面跳转时,系统知道用户的信息,貌似有关 session 的处理可以支持这种需要
  * 找到相关实例:
   * http://localhost/demo/ksTest.ks/index
@@ -49,13 +49,15 @@ def _private(x):            # 不可URL访问的支持函式
   * 但是,还是要在优雅的Python 脚本中掺杂HTML 代码,不爽直!
 
 '''不过,相比使用 .pih和包含.py 的方式,使用 .ks 来进行页面组织,已经足够爽直了!'''
- * 但是使用 Cheetah 模板系统,就得每个访问页面都得有对应的模板声明来支持,好象也过于正统和麻烦了...
+
+ * 但是使用 Cheetah 模板系统,就得每个访问页面都得有对应的模板声明来支持,好象也过于古板和繁琐了...继续寻求解决;
  
 == HTMLTags ==
 '''小白猛然发现有函式化的HTML生成机制!'''
+
  * 同样在 KarriGell 内置文档中:
   * http://localhost/doc/en/htmltags.htm
- * 唉呀呀!!还真的是心想事儿成! 从2.2 增加的新功能哪!
+ * 唉呀呀!!还真的是心想事儿成! 这是从从2.2 增加的新功能哪!
  {{{#!python
 stylesheet = LINK(rel="Stylesheet",href="doc.css")
 header = TITLE('Record collection')+stylesheet
@@ -67,7 +69,7 @@ table = TABLE(TR(TH('Title')+TH('Artist')) + rows)
 print HTML(HEAD(header) + BODY(title + table))
 }}} 可以将一个标准的HTML页面由几行 Py脚本自然生成!
  * 那未,只要结合 KS 和 HTMLTags 功能就可以快速实现想要的复杂展示功能了!还可以方便的复用!
- * 当然的使用["Leo"] 八股化所有的.KS
+ * 当然的使用["Leo"] 八股化所有的.ks
 
 图 KDay4-2
 attachment:KDay4-2.png
@@ -79,7 +81,7 @@ attachment:KDay4-2.png
    * `def action():` 样定义的实际响应页面
    * `def _function():` 可以反复调用的不作为页面响应的普通函式声明
   
-== 登录 ==
+== 登录 判别 ==
 改造思路就是:'''从默许的index 根据用户状态,自动导向 login 页面'''
  * 参考 session 例程中的相关代码{{{#!python
 ...
@@ -97,7 +99,7 @@ def index():
     else:
         pass
 }}}
- * 当然的,要在 .ks 的 ini 初始化部分先声明会话容器:
+ * 当然的,要在 .ks 的`<<ini>>`初始化部分先声明会话容器:
      {{{#!python
 # 使用 Session来记忆成员信息
 sess = Session()
@@ -119,7 +121,7 @@ p.addGroup(["submit","btn_submit","提交","btn"]
 p.addRule('uname','required'
           ,"成员名是必须的!Login name is required!")
 p.display()
-}}} 非常简洁,齐整
+}}} 嗯嗯,比使用模板要直观,简洁,齐整
  * 进行有效性判别的处理也是个标准的KS 函式{{{#!python
 def chkusr(**args):
     """检查用户登录情况
@@ -141,13 +143,13 @@ attachment:KDay4-3.png
   1. 只有个别的成员才有管理/编辑问卷的权限
   
  
-== 多问卷选择 ==
+== 多问卷列表选择 ==
 '''有了登录后的用户信息,就可以根据不同的角色进行处理了'''
 
-=== fnmatch ===
- * 指定目录中某模式的所有文件的寻找…………
- * 有内置的处理模块哪!'''fnmatch'''
- * 配合统一设置进行搜索{{{#!python
+=== fnmatch 模块 ===
+小白首先要解决的问题就是,在指定目录中寻找依照某约定模式命名的所有文件...
+ * 这次不用询问行者就知道,必定有内置的支持模块!果然~'''fnmatch'''
+ * 配合设置进行:{{{#!python
 qcfglist = []
 for f in os.listdir(conf.qpage.qpath):
     if fnmatch.fnmatch(f, '*.cfg'):
@@ -156,13 +158,13 @@ for f in os.listdir(conf.qpage.qpath):
         else:
             qcfglist.append(f)
 print qcfglist
-}}} 就可以找出目录中所有以`.cfg`结尾的文件!
+}}} 使用以上代码就可以搜索出目录中所有以`.cfg`结尾的文件!
   * conf 对象是新发布模式下的统一设置信息对象
-   * 因为,担心可能需要多个.KS 文件来组织网站,不想象原先那样滥用["Leo"]来复用信息了
+   * 因为,担心可能需要多个.ks 文件来组织网站,不愿象原先那样滥用["Leo"]来复用信息了
    * 所以,建立`@nosent questionnaire.cfg` 统一配置文件
-   * 这样,`conf = DictIni("questionnaire.cfg")` 一下子,就可以在所有.KS 页面中获取统一的站点设置了
+   * 这样,`conf = DictIni("questionnaire.cfg")` 一下子,就可以在所有.ks 页面中获取统一的站点设置了
    
-=== 列表所有问卷 ===
+=== 列表显示所有问卷 ===
 '''根据问卷的状态进行归类列表'''
 {{{#!python
 # 识别问卷发布情况::
@@ -199,11 +201,31 @@ print UL("".join([str(LI(
 attachment:KDay4-4.png
 
 == 小节 ==
- * 实际上,本日,小白使用 .ks 体验了一把函式化的页面发布,成果就一个脚本'''index.ks'''
-  * 但是以前完成的`.pih` 依然好用,而小白将趁兴将它们都重构为更加爽快的'''函式化页面发布'''
+ * 实际上,本日,小白使用 .ks 体验了一把'''函式化页面发布''',成果就一个脚本'''index.ks'''
+  * 当然,以前完成的`.pih`功能页面依然好用,而小白将利用今天的成果将它们都重构为更加爽快的'''函式化页面发布'''
  * 而且,小白忍不住对CSS进行了深入的定制,在输出代码的最简和页面表现丰富之间进行了有效的探索
- 
- 
+
+ 本日成果::
+{{{
+kday4/
+|-- Karrigell_QuickForm.py  KQF快速表单模块
+|-- dict4ini.py         Limodou 贡献的 ini 解析模块
+|-- q/                  问卷设计文本收藏目录
+|   |-- CPUG051211.cfg  多问卷实例-CPUG社区问卷
+|   |-- Python051221.cfg    -Python基础问卷
+|   `-- easy051201.cfg      -实验问卷草稿
+|-- index.ks            使用KS 模式重构的有登录功能的系统首页
+|-- mana.pih            问卷设计页面
+|-- qdesign.py          问卷设计实际行为脚本
+|-- qpage.pih           问卷复审页面
+|-- qpage.py            问卷复审实际行为脚本
+|-- qprint.pih          问卷展示页面
+|-- qprint.py           问卷展示实际行为脚本
+|-- questionnaire.cfg   问卷系统配置文件
+|-- questionnaire.tmpl  问卷展示模板
+`-- tryKQF.py           KQF试用页面
+}}}
+
 === 明日任务 ===
 '''心情舒畅!快速的完成了更加简练的功能页面!'''
  * 但是,如何将编辑,回答,统计融合起来？
@@ -213,7 +235,7 @@ attachment:KDay4-4.png
   1. 问卷要有版本管理
   1. 提交后,可以立即回到问答或是问卷集首页
   1. 任何页面都有安全退出的链接
-  1. .... 呜乎哀哉,好象越作越多了,任务…………
+  * ... 呜乎哀哉,好象越作越多了,任务...
  
 == 实例下载 ==
 
