@@ -71,7 +71,8 @@ print HTML(HEAD(header) + BODY(title + table))
  * 那未,只要结合 KS 和 HTMLTags 功能就可以快速实现想要的复杂展示功能了!还可以方便的复用!
  * 当然的使用["Leo"] 八股化所有的.ks
 
-图 KDay4-2
+图 KDay4-2 KS 模式功能页面在 Leo 中的组织情景
+
 attachment:KDay4-2.png
 
   1. `<< page declarations >>` 将引用声明什么的都归整到一个节点中
@@ -135,7 +136,9 @@ def chkusr(**args):
     #raise HTTP_REDIRECTION,"index"
 }}}先别让页面自动跳走,看一看,是否如愿的将登录信息记录了？!
 
-图 KDay4-3
+
+图 KDay4-3 根据session值自动判别用户身份
+
 attachment:KDay4-3.png 
 
  * 问卷的使用原则是,任何人都可以登录/回答,但是:
@@ -197,7 +200,8 @@ print UL("".join([str(LI(
                     )
 }}}     
 
-图 KDay4-4
+图 KDay4-4 多问卷列表管理时情景
+
 attachment:KDay4-4.png
 
 == 小节 ==
