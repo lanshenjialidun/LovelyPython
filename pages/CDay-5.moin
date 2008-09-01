@@ -126,15 +126,26 @@ attachment:cday-5-hello-world-ipython.png
 
 但是丰富的文档还是可以安抚我们面对未知的恐惧的*,推荐以下深入阅读资料,但是不推荐现在就全面阅读
 
- * DiPy -- `Dive Into Python` 深入Python 中文版本
-  * http://www.woodpecker.org.cn/diveintopython/index.html
- * `A Byte Of Python` -- 简明 Python 教程
-  * http://www.woodpecker.org.cn/share/doc/abyteofpython_cn/chinese/index.html
- * ASPN -- `Python Reference`_ Python 参考资料汇编
-  * http://aspn.activestate.com/ASPN/Python/Reference/
- * Woodpecker.org.cn -- 啄木鸟社区分享文档库
-  * http://www.woodpecker.org.cn/share/doc/Python/
 
+
+ * Python Tutorial -- Python 教程中文版本
+  * 在线访问: http://wiki.woodpecker.org.cn/moin/March_Liu/PyTutorial
+  * 快速地址: http://tinyurl.com/6h2q7g
+  * 是 CPyUG ~ Chinese Python User Group 中国Python用户组的资深专家,刘鑫长期维护的一部基础文档,也是Python 创造者 Guido.van.Rossum 唯一亲笔撰写的技术文档!
+ * `A Byte Of Python` -- 简明 Python 教程
+  * 在线访问: http://www.woodpecker.org.cn/share/doc/abyteofpython_cn/chinese/index.html
+  * 快速地址: http://tinyurl.com/5k8pv5
+  * 沈洁元 翻译的一篇流传甚广的学习 Python 的小书,从初学者的角度,快速说明了一些关键知识点
+  * 原作者是印度的一位年青的程序员,大家可以到这本书的网站直接和作者沟通:
+   * http://www.swaroopch.com/byteofpython/
+ * Python 标准库 中文版
+  * 在线访问: http://www.woodpecker.org.cn/share/doc/Python/_html/PythonStandardLib/
+  * 快速地址: http://tinyurl.com/5pmvkn
+  * 由"Python 江湖 QQ 群"共同完成的Python 2.0 内置所有标准模块的说明,是初学者开发过程中必备的参考
+ * ASPN -- `Python Reference` ~ Activestate 公司Python 参考资料汇总:
+  * 在线访问: http://aspn.activestate.com/ASPN/Python/Reference/
+  * 快速地址: http://tinyurl.com/58t3sl
+  
 
 
 == 原始需求 ==
@@ -166,11 +177,16 @@ OK!轻松的开始,但是,你知道,你同时于获得了免费的绝对强大�
 
 == 练习 ==
 
-(1) 计算今年是闰年嘛?判断闰年条件, 满足年份模400为0, 或者模4为0但模100不为0.
-
-(2) 利用python作为科学计算器.熟悉Python中的常用运算符,并分别求出表达式12*34+78-132/6、(12*(34+78)-132)/6、(86/40)**5的值.并利用math模块进行数学计算,分别求出145/23的余数,0.5的sin和cos值（注意sin和cos中参数是弧度制表示）,可通过import math; help(math)查看math帮助.
-
-(3) 找出0~100之间的所有素数.
+ * (1) 计算今年是闰年嘛?判断闰年条件, 满足年份模400为0, 或者模4为0但模100不为0.
+ * (2) 利用python作为科学计算器.熟悉Python中的常用运算符,并分别求出:
+  1. `12*34+78-132/6`
+  1. `(12*(34+78)-132)/6、(86/40)**5`
+  并利用`math`模块进行数学计算,分别求出:
+   1. 145/23的余数
+   1. 0.5的sin和cos值（注意sin和cos中参数是弧度制表示）
+   提醒:可通过import math; help(math)查看math帮助.
+   
+ * (3) 找出0~100之间的所有素数.
 
 
 ##endInc
