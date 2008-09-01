@@ -1,20 +1,18 @@
 ##language:zh
 #pragma section-numbers on
-||'''status'''|| 校对 || Lizzie|| 完成度95%||
+||'''status'''|| 校对 || Lizzie|| 完成度100%||
 
 
 [[TableOfContents]]
 
+##startInc
 = 常用自省 =
-自省，简单来说是自我检查。Python提供给我们这个强大的功能，方便程序员查看各个对象的信息。
 
-== 相关参考 ==
- * [http://www.woodpecker.org.cn/diveintopython/power_of_introspection/index.html 自省的威力]
- * [http://www.ibm.com/developerworks/cn/linux/l-pyint/index.html Python 自省指南]
- * [http://www.xwy2.com/article.asp?id=106 Python 学习笔记 - 2.自省]
+== 概述 ==
+自省，简单来说是自我检查。Python提供这个强大的功能，方便程序员查看各个对象的信息。常用自省函数有help()、dir()、type()、id()等等。
 
-== 常用自省函数 ==
- 1. 使用`help()`可以用来查看很多帮助python自带文档信息。{{{
+== help() ==
+用来查看很多python自带帮助文档信息，可以使用`help()`。{{{
 shengyan@LIZZIE:~$ ipython
 Python 2.5.2 (r252:60911, May  7 2008, 15:19:09) 
 Type "copyright", "credits" or "license" for more information.
@@ -61,7 +59,9 @@ continue            for                 not                 with
 def                 from                or                  yield
 del                 global              pass                
 }}}
- 1. `dir()` 可以列出对象的所有属性。{{{
+
+== dir() ==
+可以列出对象的所有属性。{{{
 In [6]: import os
 
 In [7]: dir(os)
@@ -74,11 +74,13 @@ Out[7]:
  'EX_NOINPUT',
 ......
 }}}
- 1. `type()`列出对象的类型。{{{
+== type() ==
+返回对象的类型。{{{
 In [8]: type(os)
 Out[8]: <type 'module'>
 }}}
- 1. `id()`返回对象的 "唯一序号"。其中，对于引用对象来说，返回的是被引用对象的id()。{{{
+== id() ==
+返回对象的 "唯一序号"。其中，对于引用对象来说，返回的是被引用对象的id()。{{{
 In [29]: a = 'abc'
 
 In [30]: b = a
@@ -89,7 +91,8 @@ Out[31]: 137472992
 In [32]: id(b)
 Out[32]: 137472992
 }}}
- 1. `hasattr()` 和 `getattr()`分别是判断对象是否有某个属性及获得某个属性值{{{
+== hasattr()和getattr() ==
+分别是判断对象是否有某个属性及获得某个属性值{{{
 
 In [35]: hasattr(a, 'split')
 Out[35]: True
@@ -98,7 +101,8 @@ In [36]: getattr(a, 'split')
 Out[36]: <built-in method split of str object at 0x831abe0>
 
 }}}
- 1. `callable()`判断对象是否可以被调用{{{
+== callable() ==
+判断对象是否可以被调用{{{
 
 In [37]: callable(a)
 Out[37]: False
@@ -107,7 +111,8 @@ In [38]: callable(a.split)
 Out[38]: True
 
 }}}
- 1. `isinstance()`可以确认某个变量是否某种类型。{{{
+== isinstance() ==
+可以确认某个变量是否某种类型。{{{
 
 In [44]: isinstance(a, str)
 Out[44]: True
@@ -117,11 +122,15 @@ Out[45]: False
 
 }}}
 
-== 小结 ==
-以上这些都是常用的自身方法，还有其他的可参见文首给出的相关资源。
+##endInc
 
-== 练习 ==
-## 设计实用练习,保证每个练习都可以扩展出去
+##== 小结？ ==
+##以上这些都是常用的自身方法，还有其他的可参见相关资源。
+
+##== 相关参考 ==
+## * [http://www.woodpecker.org.cn/diveintopython/power_of_introspection/index.html 自省的威力]
+## * [http://www.ibm.com/developerworks/cn/linux/l-pyint/index.html Python 自省指南]
+## * [http://www.xwy2.com/article.asp?id=106 Python 学习笔记 - 2.自省]
 
 ----
 ::Lizzie [2008/06/20 13:24:00]

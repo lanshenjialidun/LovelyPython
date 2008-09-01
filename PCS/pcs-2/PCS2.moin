@@ -1,52 +1,53 @@
 ##language:zh
 #pragma section-numbers on
-||'''status'''|| 校对 || Lizzie || 完成度95%||
+||'''status'''|| 校对 || Lizzie || 完成度100%||
 
 [[TableOfContents]]
 
-= 交互环境之iPython =
-iPython是一个Python的交互式Shell，比默认的Python Shell好用得多，功能也更强大。她支持语法高亮，自动完成，代码调试，对象自省，支持 Bash Shell 命令，内置了许多很有用的功能和函数等等，我们能够非常容易的使用。
+##startInc
 
-== 相关参考 ==
- * [http://ipython.scipy.org iPython网站]
- * [http://ipython.scipy.org/moin/Documentation iPython英文文档]
- * [http://ipython.scipy.org/dist iPython下载]
- * [http://guyingbo.javaeye.com/blog/111142 iPython中一些magic函数]
+= 交互环境之iPython =
+== 概述 ==
+iPython是一个Python的交互式Shell，比默认的Python Shell好用得多，功能也更强大。她支持语法高亮，自动完成，代码调试，对象自省，支持 Bash Shell 命令，内置了许多很有用的功能和函数等等，非常容易使用。
 
 ==  安装iPython ==
-目前，最新稳定的iPython版本是0.8.2，支持多种操作系统，如Linux，Unix，Mac OS X，Windows等等，我们这里详细介绍在Linux和WIndows的安装过程。其他系统下的安装过程可参见[http://ipython.scipy.org/moin/Download 具体说明]。
+目前，最新稳定的iPython版本是0.8.4，支持多种操作系统，如Linux，Unix，Mac OS X，Windows等等，这里详细介绍在Linux和WIndows的安装过程。其他系统下的安装过程可参见[http://ipython.scipy.org/moin/Download 具体说明]。
 
 === Windows下的iPython安装 ===
- 1. 下载[http://ipython.scipy.org/dist/ipython-0.8.2.win32-setup.exe ipython-0.8.2.win32-setup.exe]。
+ 1. 下载[http://ipython.scipy.org/dist/ipython-0.8.4.win32-setup.exe ipython-0.8.4.win32-setup.exe]和[http://ipython.scipy.org/dist/pyreadline-1.5-win32-setup.exe pyreadline-1.5-win32-setup.exe]。
  1. 双击运行安装程序。只需以下四步即可完成安装：
   * 显示一些提示信息，直接Next；
   attachment:PCS2-windows-1.png
-  * 输入Python安装目录及iPython安装位置，因为之前我们把Python默认安装“C:\Python25\”了，所以这里两个都为默认设置，直接Next。若之前Python不是在“C:\Python25\”需要改变为Python所在目录；
+  * 输入Python安装目录及iPython安装位置，因为之前把Python默认安装“C:\Python25\”了，所以这里两个都为默认设置，直接Next。若之前Python不是在“C:\Python25\”需要改变为Python所在目录；
   attachment:PCS2-windows-2.png
   * 出现进度条，需等待一会儿，完毕后Next；
   attachment:PCS2-windows-3.png
   * 显示完成，成功安装iPython。
   attachment:PCS2-windows-4.png
- 1. 安装完成后，进入Windows命令行，输入ipython，即可以进入iPython交互环境。
+ 1. 安装pyreadline。直接双击安装，如下图所示：
+  attachment:PCS2-windows-5.png 接下去，只需下一步直至安装完毕即可。
+ 1. 设置环境变量Path里面加上python安装目录下面的scripts目录:
   attachment:PCS2-windows-6.png
+ 1. 安装完成后，进入Windows命令行，输入ipython，即可以进入iPython交互环境。
+  attachment:PCS2-windows-7.png
 
 === Linux下的iPython安装 ===
- 1. 下载[http://ipython.scipy.org/dist/ipython-0.8.2.tar.gz ipython-0.8.2.tar.gz]。
+ 1. 下载[http://ipython.scipy.org/dist/ipython-0.8.4.tar.gz ipython-0.8.4.tar.gz]。
  1. 进入终端，输入如下几条命令，分别是解压、进入目录、编译、安装，一切ok的话就顺利安装iPython。{{{
-tar xvzf ipython-0.8.2.tar.gz
-cd ipython-0.8.2
+tar xvzf ipython-0.8.4.tar.gz
+cd ipython-0.8.4
 python setup.py build  #这步可以省略
 sudo python setup.py install
 }}}
  1. 在Ubuntu下，可以通过输入命令sudo apt-get install ipython即可完成安装，非常方便。
 
 == 使用iPython ==
-在我们顺利安装好iPython之后，就可以进入该交互环境使用了。下面介绍在Linux下iPython的使用方式，Windows下也是很类似的。
-下面内容很多参考自：[http://forum.ubuntu.org.cn/viewtopic.php?p=447255&sid=5ba2eaa5af49eaca994976f9c285b819 【翻译】使用IPython增强交互式体验]和其英文原文[http://www.onlamp.com/pub/a/python/2005/01/27/ipython.html Enhanced Interactive Python with IPython]非常不错的资料！
+在顺利安装好iPython之后，就可以进入该交互环境使用了。下面介绍在Linux下iPython的使用方式，Windows下也是很类似的。
+下面内容很多参考自：[http://forum.ubuntu.org.cn/viewtopic.php?p=447255&sid=5ba2eaa5af49eaca994976f9c285b819 使用IPython增强交互式体验]和其英文原文[http://www.onlamp.com/pub/a/python/2005/01/27/ipython.html Enhanced Interactive Python with IPython]非常不错的资料！
  1. 进入终端，输入ipython，即可进入如下图所示的iPython交互环境。
   attachment:PCS2-linux-1.png
-  注意：若是第一次运行ipython时会自动生成配置目录 $HOME/.ipython，包含了一些配置文件适用于不同的环境：ipythonrc， ipythonrc-math， ipythonrc-numeric， ipythonrc-physics， ipythonrc-pysh， ipythonrc-scipy以及 ipythonrc-tutorial。我们先可以不用管她，直接使用默认就好了。
- 1. 在交互环境中，我们可以和在Python默认交互环境中一样，编写代码进行调试、测试等等。比默认Python环境好的几点是：
+  注意：若是第一次运行ipython时会自动生成配置目录 $HOME/.ipython，包含了一些配置文件适用于不同的环境：ipythonrc， ipythonrc-math， ipythonrc-numeric， ipythonrc-physics， ipythonrc-pysh， ipythonrc-scipy以及 ipythonrc-tutorial。先可以不用管她，直接使用默认就好了。
+ 1. 在交互环境中，和在Python默认交互环境中一样，编写代码进行调试、测试等等。比默认Python环境好的几点是：
   * '''Magic'''。iPython有一些"magic"关键字:{{{
 %Exit, %Pprint, %Quit, %alias, %autocall, %autoindent, %automagic,
 %bookmark, %cd, %color_info, %colors, %config, %dhist, %dirs, %ed,
@@ -97,7 +98,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>> readline.parse_and_bind('tab: complete')
 >>> h
 hasattr  hash     help     hex  
-}}}是的，标准Python交互式解释器和IPython都支持“普通”自动补全和菜单补全。使用自动补全，你要先输入一个匹配模型，然后按Tab键。如果是“普通”自动补全模式（默认），Tab后会：
+}}}是的，标准Python交互式解释器和IPython都支持“普通”自动补全和菜单补全。使用自动补全，要先输入一个匹配模型，然后按Tab键。如果是“普通”自动补全模式（默认），Tab后会：
    * 匹配模型按最大匹配展开。
    * 列出所有匹配的结果。
    例如：{{{
@@ -109,13 +110,13 @@ os.popen os.popen2 os.popen3 os.popen4
 In [2]: os.popen
 }}}输入os.po然后按Tab键，os.po被展开成os.popen（就象在In [2]:提示符显示的那样），并显示os所有以po开头的模块，类和函数，它们是popen，popen2，popen3和popen4。
    菜单补全稍有不同。
-   关闭默认Tab补全，使用菜单补全，你需要修改配置文件$HOME/.ipython/ipythonrc。{{{
+   关闭默认Tab补全，使用菜单补全，需修改配置文件$HOME/.ipython/ipythonrc。{{{
 注释掉：
 readline_parse_and_bind tab: complete
 取消注释:
 readline_parse_and_bind tab: menu-complete
 }}}
-   不同于“普通”自动补全的显示当前命令所有匹配列表，菜单补全会随着你每按一次Tab键而循环显示匹配列表中的项目。例如：{{{
+   不同于“普通”自动补全的显示当前命令所有匹配列表，菜单补全会随着每按一次Tab键而循环显示匹配列表中的项目。例如：{{{
 In [1]: import os
 
 In [2]: os.po
@@ -182,7 +183,7 @@ In [6]: for i in range(20):
    ...:     e.append(i)
    ...:     d[i] = b
    ...:     
-}}}你可以输入命令“hist”快速查看那些已输入的历史记录：{{{
+}}}可以输入命令“hist”快速查看那些已输入的历史记录：{{{
 In [7]: hist
 1: a = 1
 2: b =2
@@ -208,8 +209,8 @@ for i in range(20):
     
 _ip.magic("hist ")
 _ip.magic("hist -n")
-}}}这样你就可以方便的将代码复制到一个文本编辑器中。要在历史记录中搜索，可以先输入一个匹配模型，然后按Ctrl-P。找到一个匹配后，继续按Ctrl-P会向后搜索再上一个匹配，Ctrl-N则是向前搜索最近的匹配。
-  * '''编辑'''。当在Python提示符下试验一个想法时，经常需要通过编辑器修改源代码（甚至是反复修改）。在iPython下输入edit就会根据环境变量$ EDITOR调用相应的编辑器。如果$EDITOR为空，则会调用vi（Unix）或记事本（Windows）。要回到iPython提示符，直接退出编辑器即可。如果是保存并退出编辑器，输入编辑器的代码会在当前名字空间下被自动执行。如果你不想这样，使用edit -x。如果要再次编辑上次最后编辑的代码，使用edit -p。在上一个特性里，提到使用hist -n可以很容易的将代码拷贝到编辑器。一个更简单的方法是edit加Python列表的切片（slice）语法。假定hist输出如下：{{{
+}}}这样就可方便的将代码复制到一个文本编辑器中。要在历史记录中搜索，可以先输入一个匹配模型，然后按Ctrl-P。找到一个匹配后，继续按Ctrl-P会向后搜索再上一个匹配，Ctrl-N则是向前搜索最近的匹配。
+  * '''编辑'''。当在Python提示符下试验一个想法时，经常需要通过编辑器修改源代码（甚至是反复修改）。在iPython下输入edit就会根据环境变量$ EDITOR调用相应的编辑器。如果$EDITOR为空，则会调用vi（Unix）或记事本（Windows）。要回到iPython提示符，直接退出编辑器即可。如果是保存并退出编辑器，输入编辑器的代码会在当前名字空间下被自动执行。如果不想这样，使用edit -x。如果要再次编辑上次最后编辑的代码，使用edit -p。在上一个特性里，提到使用hist -n可以很容易的将代码拷贝到编辑器。一个更简单的方法是edit加Python列表的切片（slice）语法。假定hist输出如下：{{{
 In [29]: hist
 1 : a = 1
 2 : b = 2
@@ -230,13 +231,13 @@ edit 4:7
    * -n 阻止运行源文件代码时__name__变量被设为"__main__"。这会防止if __name__ == "__main__":块中的代码被执行;
    * -i 源文件在就当前iPython的名字空间下运行而不是在一个新的名字空间中。如果你需要源代码可以使用在交互式session中定义的变量就会很有用。
    * -p 使用Python的profiler模块运行并分析源代码。使用该选项代码不会运行在当前名字空间。
-  * '''宏'''。宏允许用户为一段代码定义一个名字，这样你可以在以后使用这个名字来运行这段代码。就象在magic关键字edit中提到的，列表切片法也适用于宏定义。假设有一个历史记录如下：{{{
+  * '''宏'''。宏允许用户为一段代码定义一个名字，这样可在以后使用这个名字来运行这段代码。就象在magic关键字edit中提到的，列表切片法也适用于宏定义。假设有一个历史记录如下：{{{
 In [3]: hist
 1: l = []
 2:
 for i in l:
 print i
-}}}你可以这样来定义一个宏：{{{
+}}}可以这样来定义一个宏：{{{
 In [4]: macro print_l 2
 Macro `print_l` created. To execute, type its name (without quotes).
 Macro contents:
@@ -245,7 +246,7 @@ print i
 }}}运行宏：{{{
 In [5]: print_l
 ------> print_l()
-}}}在这里，列表l是空的，所以没有东西被输出。但这其实是一个很强大的功能，我们可以赋予列表l某些实际值，再次运行宏就会看到不同的结果：{{{
+}}}在这里，列表l是空的，所以没有东西被输出。但这其实是一个很强大的功能，赋予列表l某些实际值，再次运行宏就会看到不同的结果：{{{
 In [7]: l = range(5)
 
 In [8]: print_l
@@ -258,9 +259,9 @@ In [8]: print_l
 }}}当运行一个宏时就好象你重新输入了一遍包含在宏print_1中的代码。它还可以使用新定义的变量l。由于Python语法中没有宏结构（也许永远也不会有），在一个交互式shell中它更显得是一个有用的特性。
   * '''环境（Profiles）'''。就象早前提到的那样，iPython安装了多个配置文件用于不同的环境。配置文件的命名规则是ipythonrc-。要使用特定的配置启动iPython，需要这样：{{{
 ipython -p
-}}}一个创建你自己环境的方法是在$HOME/.ipython目录下创建一个iPython配置文件，名字就叫做ipythonrc_，这里是你想要的环境的名字。如果你同时进行好几个项目，而这些项目又用到互不相同的特殊的库，这时候每个项目都有自己的环境就很有用了。你可以为每个项目建立一个配置文件，然后在每个配置文件中import该项目中经常用到的模块。
+}}}一个创建自己环境的方法是在$HOME/.ipython目录下创建一个iPython配置文件，名字就叫做ipythonrc_，这里是你想要的环境的名字。如果同时进行好几个项目，而这些项目又用到互不相同的特殊的库，这时候每个项目都有自己的环境就很有用了。也可以为每个项目建立一个配置文件，然后在每个配置文件中import该项目中经常用到的模块。
 
-  * '''使用操作系统的Shell'''。使用默认的iPython配置文件，有几个Unix Shell命令（当然，是在Unix系统上），cd，pwd和ls都能象在bash下一样工作。运行其它的shell命令需要在命令前加!或!!。使用magic关键字%sc和%sx可以捕捉shell命令的输出。pysh环境可以被用来替换掉shell。使用-p pysh参数启动的iPython，可以接受并执行用户$PATH中的所有命令，同时还可以使用所有的Python模块，Python关键字和内置函数。例如，我想要创建500个目录，命名规则是从d_0_d到d_499_d，可以使用-p pysh启动iPython，然后就象这样：{{{
+  * '''使用操作系统的Shell'''。使用默认的iPython配置文件，有几个Unix Shell命令（当然，是在Unix系统上），cd，pwd和ls都能象在bash下一样工作。运行其它的shell命令需要在命令前加!或!!。使用magic关键字%sc和%sx可以捕捉shell命令的输出。pysh环境可以被用来替换掉shell。使用-p pysh参数启动的iPython，可以接受并执行用户$PATH中的所有命令，同时还可以使用所有的Python模块，Python关键字和内置函数。例如，想要创建500个目录，命名规则是从d_0_d到d_499_d，可以使用-p pysh启动iPython，然后就象这样：{{{
 shengyan@LIZZIE[~/ttt]|1> for i in range(500):
                       |.>     mkdir d_${i}_d
                       |.> 
@@ -271,11 +272,17 @@ shengyan@LIZZIE[~/ttt]|2> ls -d d* | wc -l
 
  1. 退出iPython。输入Ctrl-D（会要求你确认），也可以输入Exit或Quit（注意大小写）退出而不需要确认。
 
-== 小结 ==
-经过本文对iPython的特性及其基本的使用方法的介绍，已经充分感受到iPython的强大功能了吧！那么，就把她作为一个有利的工具帮助我们开发吧！对于进一步的配置和更多的用途，有兴趣的同学可以在网络上发掘更丰富的资料。
 
-== 练习 ==
-## 设计实用练习,保证每个练习都可以扩展出去
+##endInc
+
+##== 小结？ ==
+##经过本文对iPython的特性及其基本的使用方法的介绍，已经充分感受到iPython的强大功能了吧！那么，就把她作为一个有利的工具帮助我们开发吧！对于进一步的配置和更多的用途，有兴趣的同学可以在网络上发掘更丰富的资料。
+
+##== 相关参考 ==
+## * [http://ipython.scipy.org iPython网站]
+## * [http://ipython.scipy.org/moin/Documentation iPython英文文档]
+## * [http://ipython.scipy.org/dist iPython下载]
+## * [http://guyingbo.javaeye.com/blog/111142 iPython中一些magic函数]
 ----
 -- Lizzie [[DateTime(2008-05-28T21:00:00Z)]] 
 [[PageComment2]]
