@@ -1,0 +1,69 @@
+##language:zh
+#pragma section-numbers off
+[[TableOfContents]]
+
+||'''status'''|| 初稿 || ZoomQuiet;40% ||
+
+
+##startInc
+= Leo ~ 文学化编程环境 =
+
+ Leo is ...::
+  * Leo 可以是 一个通用的数据管理环境
+  * Leo 可以是 一个柔韧性的项目,程序或是其它数据的浏览器
+  * Leo 可以是 一个项目管理器
+  * Leo 可以是 一个提纲式的程序编辑器
+  * Leo 可以是 ...
+  
+这个纯Python 的编辑环境用最简单的外观,实现了如此丰富的使用方式和编程思想！ 以至于无法简单的定义 Leo 到底是什么!
+不过可以肯定一点:`Leo 不是 IDE!`
+
+== 概述 ==
+Leo 是基于 Noweb 数据工具的 文学化编程环境:
+ * Noweb 是一个已维护了15年的成熟自由软件,用以支持语言无关的文学化编程;
+  * 官方网站: http://www.cs.tufts.edu/~nr/noweb/
+  * 快速访问: http://tinyurl.com/6mhjp5
+  * 由于Leo 通过友好的界面包裹了 Noweb 的功能,一般不必对 Noweb 有太多的认识
+ * Literate Programming ~ 文学化编程是 TeX 的发明人 Donald Knuth在1984年提出的概念:
+  * 源代码只是构成程序的一小部分; 程序的真正主体是对它的算法、结构、目的和用法的描述——实现它的源代码并不是主要的
+  * 所以,文学化编程关注人是怎么理解和构建程序的,而不是象其它主流开发环境那样,期望人来理解程序应该怎么样运行和组织!
+  * 定义: http://en.wikipedia.org/wiki/Literate_programming
+  * 官网: http://www.literateprogramming.com
+ * 所以,Leo 的名字含义是:`Literate Editor with Outlines` 基于提纲的文学化编辑器, 但是,Leo 最常见的使用方式就是拿来文学化的组织软件开发工程!
+ 
+== 使用 ==
+`通过实际操作,可以快速体验到文学化编程的魅力:`
+
+ 安装::
+  * 下载
+  * 配置
+ 基础::
+  * 节点
+  * clone
+ 编程::
+  * 伪代码开始
+  * 协同技巧
+  * 混合计
+  
+  
+== 问题 ==
+心理,
+
+习惯,
+
+环境, ubutnu 的中文问题,,,
+
+== 探讨 ==
+LeoN ~ 网络中的 Leo,,,
+Vim 的文学化扩展,,, 
+
+    
+##endInc
+
+
+----
+'''反馈'''
+
+创建 by @USER@ [@TIME@]
+||<^>[[PageComment2]]||<^>[:/PageCommentData:PageCommentData]''||
+
