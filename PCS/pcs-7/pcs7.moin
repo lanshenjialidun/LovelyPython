@@ -3,14 +3,13 @@
 
 [[TableOfContents]]
 
+##startInc
+
 = Python编码规范 =
-实际是 Python 增进提案仓库 008 号文件的倡议:
-http://www.python.org/dev/peps/pep-0008/
+本文参考自 Python 增进提案仓库 008 号文件的倡议，其原文:[http://www.python.org/dev/peps/pep-0008/  PEP 008 《Style Guide for Python Code》]，其中文翻译在http://wiki.woodpecker.org.cn/moin/PythonCodingRule，在这简要叙述一下各个要点。
 
 ==  Python 八荣八耻 ==
-在线版本:
-    http://wiki.woodpecker.org.cn/moin/Py8Rong8Chi
-
+这首诗出自于[http://groups.google.com/group/python-cn/browse_thread/thread/71c74c4e77577365/a4940f98b59bde43 CPyUG:40912]，非常简明的指出了学习Python的多个注意点。
 {{{
 以动手实践为荣 , 以只看不练为耻;
 以打印日志为荣 , 以单步跟踪为耻;
@@ -23,16 +22,163 @@ http://www.python.org/dev/peps/pep-0008/
 以总结分享为荣 , 以跪求其解为耻;
 }}}
 
+== 一致性的建议 ==
+愚蠢得使用一致性是无知的妖怪(A Foolish Consistency is the Hobgoblin of Little Minds)。这里的一致性主要是指一个项目内的一致性和一个模块或函数内的一致性，相对于前者而言，后者更为重要。但最重要的是:知道何时会不一致。当出现不一致时，运用自己的最佳判断，看看别的例子，然后决定怎样看起来更好。
 
-== 中文翻译 ==
-http://wiki.woodpecker.org.cn/moin/PythonCodingRule
+== 代码的布局 ==
 
+=== 缩进 ===
+建议使用Emacs的Python-mode默认值：4个空格一个缩进层次。对于确实古老的代码，若不希望产生混乱，可以继续使用8空格的制表符。在Emacs的Python-mode中会自动发现文件中主要的缩进层次，依此设定缩进参数。如果使用其他的编辑器，如vim、gedit、ulipad等，非常建议设置为4个空格为一个缩进层次。
 
-== 小结 ==
+=== 制表符还是空格 ===
+ 1. 永远不要混用制表符和空格，因为如果混用了，虽然在编辑环境中显示两条语句为同一缩进层次，但因为制表符和空格的不同导致Python解释为两个不同的层次。
+ 1. 最流行的Python缩进方式是仅使用空格，其次是仅使用制表符。若一定要混合使用制表符和空格，可以将其转换成仅使用空格。如在Emacs中，选中整个缓冲区，按ESC-x去除制表符。或者在调用python命令行解释器时使用-t选项，可对代码中不合法得混合制表符和空格发出警告，使用-tt时警告将变成错误，这些选项是被高度推荐的。但是强烈推荐仅使用空格而不是制表符。
 
+=== 行的最大长度 ===
+ 1. 有许多设备被限制在每行80字符，窗口也限制在80个字符，因此，建议将所有行限制在最大79字符(Emacs准确得将行限制为长80字符)。
+ 1. 对顺序排放的大块文本(文档字符串或注释)，推荐将长度限制在72字符。折叠长行的首选方法是使用Pyhon支持的圆括号，方括号或花括号内的行延续。如果需要，可以在表达式周围增加一对额外的圆括号，但是使用反斜杠看起来会更好，比如下面这个例子:{{{#!python
+        class Rectangle(Blob):
+                def __init__(self, width, height,
+                             color='black', emphasis=None, highlight=0):
+                        if width == 0 and height == 0 and \
+                           color == 'red' and emphasis == 'strong' or \
+                           highlight > 100:
+                                raise ValueError, "sorry, you lose"
+                        if width == 0 and height == 0 and (color == 'red' or
+                                                           emphasis is None):
+                                raise ValueError, "I don't think so"
+                        Blob.__init__(self, width, height,
+                                      color, emphasis, highlight)
 
+}}}
 
+=== 空行 ===
+ 1. 用两行空行分割顶层函数和类的定义，类内方法的定义用单个空行分割。
+ 1. 额外的空行可被用于分割一组相关函数。在一组相关的单句中间可以省略空行。
+ 1. 当空行用于分割方法的定义时，在'class'行和第一个方法定义之间也要有一个空行。
+ 1. 在函数中使用空行时，请谨慎的用于表示一个逻辑段落。Python接受contol-L(即^L)换页符作为空格；Emacs(和一些打印工具) 视这个字符为页面分割符，因此在文件中，可以用他们来作为相关片段分页。
+
+== 导入 ==
+ 1. 通常应该在单独的行中导入，例如：{{{
+No:  import sys, os
+Yes: import sys
+        import os
+}}}但是这样也是可以的：{{{#!python
+from types import StringType, ListType
+}}}
+ 1. Imports 通常被放置在文件的顶部，仅在模块注释和文档字符串之后，在模块的全局变量和常量之前。Imports应该有顺序地成组安放，顺序依次为：标准库的导入、 相关的主包的导入、特定应用的导入。同时建议在每组导入之间放置一个空行。
+ 1. 对于内部包的导入是不推荐使用相对路径导入，而对所有导入都要使用包的绝对路径。
+ 1. 从一个包含类的模块中导入类时，通常可以写成这样：{{{#!python
+from MyClass import MyClass
+from foo.bar.YourClass import YourClass
+}}}如果这样写导致了本地名字冲突，那么就这样写：{{{#!python
+import MyClass
+import foo.bar.YourClass
+}}}即可以使用MyClass.MyClass和foo.bar.YourClass.YourClass这种写法。
+
+== 空格 ==
+ 1. 建议不要在以下地方出现空格：
+  * 紧挨着圆括号,方括号和花括号的,如:spam( ham[ 1 ], { eggs: 2 } )要始终将它写成spam(ham[1], {eggs: 2})
+  * 紧贴在逗号,分号或冒号前的,如:if x == 4 : print x , y ; x , y = y , x要始终将它写成if x == 4: print x, y; x, y = y, x
+  * 紧贴着函数调用的参数列表前开式括号(open parenthesis )的,如spam (1).要始终将它写成spam(1)
+  * 紧贴在索引或切片开始的开式括号前的,如:dict ['key'] = list [index]要始终将它写成dict['key'] = list[index]
+ 1. 在赋值(或其它)运算符周围的用于和其它并排的一个以上的空格,如:{{{#!python
+x             = 1
+y             = 2
+long_variable = 3
+}}}要始终将它写成{{{
+#!python
+x = 1
+y = 2
+long_variable = 3
+}}}
+ 1. 始终在这些二元运算符两边放置一个空格:赋值(=), 比较(==, <, >, !=, <>, <=,>=, in, not in, is, is not), 布尔运算 (and, or, not).
+ 1. 在算术运算符周围插入空格. 始终保持二元运算符两边空格的一致.
+ 1. 不要在用于指定关键字参数或默认参数值的'='号周围使用空格
+ 1. 不要将多条语句写在同一行上，如：{{{
+No:  if foo == 'blah': do_blah_thing()
+Yes: if foo == 'blah':
+            do_blah_thing()
+No:  do_one(); do_two(); do_three()
+Yes: do_one()
+     do_two()
+     do_three()
+}}}
+
+== 文档化 ==
+ 1. 为所有公共模块,函数,类和方法编写文档字符串.文档字符串对非公开的方法不是必要的,但你应该有一个描述这个方法做什么的注释.
+ 1. 多行文档字符串结尾的""" 应该单独成行,例如:{{{
+"""Return a foobang
+Optional plotz says to frobnicate the bizbaz first.
+"""
+}}}
+ 1. 对单行的文档字符串,结尾的"""在同一行也可以.
+
+== 版本注记 ==
+如果要将RCS或CVS的杂项包含在你的源文件中,按如下做:{{{#!python
+__version__ = "$Revision: 1.4 $"
+# $Source: E:/cvsroot/python_doc/pep8.txt,v $
+}}}对于CVS的服务器工作标记更应该在代码段中明确出它的使用，如：{{{
+在文档的最开始的版权声明后应加入如下版本标记：
+# 文件：$id$
+# 版本： $Revision$
+这样的标记在提交给配置管理服务器后，会自动适配成为相应的字符串，如：
+# 文件：$Id: ussp.py,v 1.22 2004/07/21 04:47:41 hd Exp $
+# 版本： $Revision: 1.4 $ 
+}}}这些应该包含在模块的文档字符串之后,所有代码之前,上下用一个空行分割.
+
+== 命名约定 ==
+ 1. 以下的命名风格是众所周知的:
+  * b (单个小写字母)
+  * B (单个大写字母)
+  * 小写串 如:getname
+  * 带下划的小写串 如:_getname
+  * 大写串 如:GETNAME
+  * 带下划的大写串 如:_GETNAME
+  * CapitalizedWords(首字母大写单词串) 
+  * mixedCase (混合大小写串)
+  * Capitalized_Words_With_Underscores(带下划线的首字母大写串)
+ 1. 另外,以下用下划线作前导或结尾的特殊形式是被公认的(这些通常可以和任何习惯使用):
+  * _single_leading_underscore(以一个下划线作前导): 弱的"内部使用(internal use)"标志.例如,"from M import *"不会导入以下划线开头的对象.
+  * single_trailing_underscore_(以一个下划线结尾): 用于避免与Python关键词的冲突,例如"Tkinter.Toplevel(master, class_='ClassName')".
+  * {{{__double_leading_underscore}}}(双下划线): 从Python 1.4起为类私有名.
+  * {{{__double_leading_and_trailing_underscore__}}}: 特殊的(magic) 对象或属性,存在于用户控制的(user-controlled)名字空间, 例如:{{{__init__}}}, {{{__import__}}} 或 {{{__file__}}}. 有时它们被用户定义, 用于触发某个特殊行为(magic behavior)(例如:运算符重载); 有时被构造器(infrastructure)插入,以便自己使用或为了调试. 因此,在未来的版本中,构造器(也可定义为Python解释器和标准库) 可能打算建立自己的魔法属性列表,用户代码通常应该限制将这种约定作为己用. 欲成为构造器的一部分的用户代码可以在下滑线中结合使用短前缀,例如. {{{__bobo_magic_attr__}}}.
+ 1. 应避免的名字: 永远不要用字符l(小写字母el(就是读音,下同)),O(大写字母oh),或I(大写字母eye)作为单字符的变量名. 在某些字体中,这些字符不能与数字1和0分开.当想要使用l时，用L代替它.
+ 1. 模块名: 模块应该是不含下划线的,简短的,小写的名字. 因为模块名被映射到文件名, 有些文件系统大小写不敏感并且截短长名字, 模块名被选为相当短是重要的---这在Unix上不是问题, 但当代码传到Mac 或Windows上就可能是个问题了. Python包应该是不含下划线的,简短的,全小写的名字.
+ 1. 类名:几乎没有例外，类名总是使用首字母大写单词串(CapWords)的约定.
+ 1. 异常名:如果模块对所有情况定义了单个异常,它通常被叫做"error"或"Error". 似乎内建的模块使用"error"(例如:os.error), 而Python模块通常用"Error" (例如: xdrlib.Error).
+ 1. 全局变量名:一般全部大写字母命名。
+ 1. 函数名:函数名应该为小写,可能用下划线风格单词以增加可读性.
+ 1. 方法名和实例变量:这段大体上和函数相同:通常使用小写单词,必要时用下划线分隔增加可读性. 使用一个前导下划线仅用于不打算作为类的公共接口的内部方法和实例变量. Python不强制要求这样; 它取决于程序员是否遵守这个约定. 使用两个前导下划线以表示类私有的名字. Python将这些名字和类名连接在一起:如果类Foo有一个属性名为 {{{__a}}}, 它不能以{{{Foo.__a}}}访问. 通常,双前导下划线应该只用来避免与类(为可以子类化所设计)中的属性发生名字冲突.
+ 1. 继承的设计:始终要确定一个类中的方法和实例变量是否要被公开. 通常,永远不要将数据变量公开,除非你实现的本质上只是记录. 人们总是更喜欢给类提供一个函数的接口作为替换. 同样,确定你的属性是否应为私有的.私有与非公有的区别在于: 前者永远不会被用在一个派生类中,而后者可能会. 私有属性必须有两个前导下划线,无后置下划线. 非公有属性必须有一个前导下划线,无后置下划线. 公共属性没有前导和后置下划线,除非它们与保留字冲突, 在此情况下,单个后置下划线比前置或混乱的拼写要好, 例如:class_优于klass. 
+
+== 其他建议 ==
+ 1. 象None之类的单值进行比较,应该永远用:is或is not来做. 当你本意是if x is not None时,对写成if x要小心，例如当你测试一个默认为None的变量或参数是否被设置为其它值时. 这个其它值可能是一个在布尔上下文中为假的值!
+ 1. 基于类的异常总是好过基于字符串的异常. 模块和包应该定义它们自己的域内特定的基异常类, 基类应该是内建的Exception类的子类. 还始终包含一个类的文档字符串.例如:{{{#!python
+class MessageError(Exception):
+        """Base class for errors in the email package."""
+}}}
+ 1. 使用字符串方法代替字符串模块,除非必须向后兼容Python 2.0以前的版本. 字符串方法总是非常快,而且和unicode字符串共用同样的API(应用程序接口)
+ 1. 在检查前缀或后缀时避免对字符串进行切片. 用startswith()和endswith()代替, 因为它们是明确的并且错误更少. 例如:{{{
+No:  if foo[:3] == 'bar':
+Yes: if foo.startswith('bar'):
+}}}对象类型的比较应该始终用isinstance()代替直接比较类型.例如:{{{
+No:  if type(obj) is type(1):
+Yes: if isinstance(obj, int):
+}}}
+ 1. 检查一个对象是否是字符串时,紧记它也可能是unicode字符串! 在Python 2.3, str和unicode有公共的基类,basestring,所以你可以这样做:{{{#!python
+if isinstance(obj, basestring):
+}}}
+ 1. 对序列,(字符串(strings),列表(lists),元组(tuples)), 使用空列表是false这个事实,因此if not seq或if seq比 if len(seq)或if not len(seq)好.
+ 1. 书写字符串文字时不要依赖于有意义的后置空格. 这种后置空格在视觉上是不可辨别的,并且有些编辑器会将它们修整掉.
+ 1. 不要用 == 来比较布尔型的值以确定是True或False{{{
+No:  if greeting == True:
+Yes: if greeting:
+No:  if greeting == True:
+Yes: if greeting:
+}}}
+
+##endInc
 ----
 ::-- ZoomQuiet [[[DateTime(2007-04-13T16:36:52Z)]]]
 [[PageComment2]]
-
