@@ -76,14 +76,13 @@ PCS5 Python脚本文件
   * 这是Python 丰富的运行形式之一,也是最常用的一种
 
  运行结果类似:
-
-图 CDay-4-1
-attachment:CDay-4-1.png
+图 CDay-4-1 使用脚本运行
+attachment:cday-4-use-script.png
 
 当然在 `iPython`  环境下，逐步运行也一样
 
-图 CDay-4-2
-attachment:CDay-4-2.png
+图 CDay-4-2 iPython中运行
+attachment:cday-4-use-ipython.png
 
 {{{详细:
 PCS2 详细说明了
@@ -188,8 +187,8 @@ http://www.woodpecker.org.cn/diveintopython/file_handling/file_objects.html
 
 执行尝试 `$python CDay-4-3.py`
 
-图 CDay-4-3 
-attachment:CDay-4-3.png
+图 CDay-4-3 初步CDay-4-3.py脚本运行结果
+attachment:cday-4-result-with-error.png
 
 完了!报错!...小白感觉信心又降到冰点了;
 "嗬嗬嗬",行者说:"不用担心,在Python 中的解决bug 是非常轻松的,因为完善的回溯能力,Python 可以非常精确的汇报小白错误的时间,地点,原因,我们只要对应修订就好."
