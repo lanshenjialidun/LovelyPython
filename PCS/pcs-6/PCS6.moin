@@ -9,15 +9,7 @@
 = Python与中文 =
 
 == 概述 ==
-中文编码总是个大问题。不过Python可以完美的支持中文，不管你的字符编码是GB2312，GBK 或者UTF-8。为了讲清楚中文问题，首先介绍了汉字编码，然后再讲述Python是如何处理中文的。
-
-== 字符编码简介 ==
-
-=== ASCII和Unicode编码 ===
-这部分内容参见[http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html]
-
-=== 汉字编码 ===
-汉字编码中现在主要用到的有三类，包括GBK，GB2312和Big5。详细内容参见[http://www.css8.cn/css8_document/gb2312.htm 汉字编码问题]
+中文编码总是个大问题。不过Python可以完美的支持中文，不管你的字符编码是GB2312，GBK 或者UTF-8。在这里，不准备讲述有关ASCII/Unicode编码和中文编码问题，这两部分内容可以分别参考http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html和http://www.css8.cn/css8_document/gb2312.htm上的描述。在这里，我们介绍Python中的中文编码问题。
 
 == Python中文编码转换 ==
 在Python中，主要有以下四个对象来处理字符串转换操作等。{{{
