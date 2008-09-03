@@ -1,18 +1,15 @@
 ##language:zh
 #pragma section-numbers on
-||'''status'''|| 校对 || || 完成度95%||
+||'''status'''|| 校对 || || 完成度100%||
 
 
 [[TableOfContents]]
 
+##startInc
 = 异常 =
 
-== 相关参考 ==
- * [http://wiki.woodpecker.org.cn/moin/ObpLovelyPython/LpyQLearn-3-process#id2 异常处理]
- * [http://wiki.woodpecker.org.cn/moin/PyAbsolutelyZipManual#head-263e21b75a15eebdaa6574be53cfbddebb7a1231 try ... except ... finally / raise]
- * [http://www.blogjava.net/JAVA-HE/archive/2008/04/10/191867.html Python  学习笔记]
-
 == 捕捉异常 ==
+使用try...except可以捕捉各种异常类型。Python中有很多内置异常类型，具体可以参见[http://www.python.org/doc/current/lib/module-exceptions.html]。
 {{{#!python
 try:
     code_block()
@@ -27,8 +24,7 @@ else:
     do_some_thing_when_success()
 finally:
     do_some_thing()
-}}}使用try...except可以捕捉各种异常类型。Python内置异常类型参见[http://www.python.org/doc/current/lib/module-exceptions.html]。
-try...except可以带一个else子句，该子句只能出现在所有except子句之后。当try语句没有抛出异常时，需要执行一些代码，可以使用这个子句。 不管try子句中有没有发生异常，finally子句都一定会被执行。如果发生异常，在finally子句执行完后它会被重新抛出。try子句经由break或return退出也一样会执行finally子句。
+}}}try...except可以带一个else子句，该子句只能出现在所有except子句之后。当try语句没有抛出异常时，需要执行一些代码，可以使用这个子句。 不管try子句中有没有发生异常，finally子句都一定会被执行。如果发生异常，在finally子句执行完后它会被重新抛出。try子句经由break或return退出也一样会执行finally子句。
 
 == 抛出异常 ==
 使用raise来抛出异常。{{{#!python
@@ -37,26 +33,27 @@ try:
 except NameError, a:
     print 'An exception flew by!'
     print type(a)
-}}}
-raise函数第一个参数是异常名，第二个是这个异常的实例，它存储在instance.args的参数中。和except NameError,a: 中第二个参数意思差不多。
+}}}raise函数第一个参数是异常名，第二个是这个异常的实例，它存储在instance.args的参数中。和except NameError,a: 中第二个参数意思差不多。
+
 == 自定义异常 ==
+异常类中可以定义任何其它类中可以定义的东西，但是通常为了保持简单，只在其中加入几个属性信息，以供异常处理句柄提取。
 {{{#!python
-class MyError(Exception):
+ class MyError(Exception):
     def __init__(self, value):
         self.value = value
     def __str__(self):
-        return repr(self.value)
+      return repr(self.value)
 try:
     raise MyError(2*2)
 except MyError, e:
     print 'My exception occurred, value:', e.value
-}}}异常类中可以定义任何其它类中可以定义的东西，但是通常为了保持简单，只在其中加入几个属性信息，以供异常处理句柄提取。如果一个新创建的模块中需要抛出几种不同的错误时，一个通常的作法是为该模块定义一个异常基类，然后针对不同的错误类型派生出对应的异常子类。
+}}}如果一个新创建的模块中需要抛出几种不同的错误时，一个通常的作法是为该模块定义一个异常基类，然后针对不同的错误类型派生出对应的异常子类。
 
-== 小结 ==
-## 总体回顾,给出相关阅读和思考指引
-
-== 练习 ==
-## 设计实用练习,保证每个练习都可以扩展出去
+##endInc
+##== 相关参考 ==
+## * [http://wiki.woodpecker.org.cn/moin/ObpLovelyPython/LpyQLearn-3-process#id2 异常处理]
+## * [http://wiki.woodpecker.org.cn/moin/PyAbsolutelyZipManual#head-263e21b75a15eebdaa6574be53cfbddebb7a1231 try ... except ... finally / raise]
+## * [http://www.blogjava.net/JAVA-HE/archive/2008/04/10/191867.html Python  学习笔记]
 
 ----
 ::Lizzie [2008/06/24 13:24:00]

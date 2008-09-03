@@ -1,15 +1,11 @@
 ##language:zh
 #pragma section-numbers on
-||'''status'''|| 校对 || || 完成度95%||
+||'''status'''|| 校对 || || 完成度100%||
 
 [[TableOfContents]]
 
+##startInc
 = 类 =
-
-== 相关参考 ==
- * [http://wiki.woodpecker.org.cn/moin/ObpLovelyPython/LpyQLearn-5-object 类与实例]
- * [http://www.woodpecker.org.cn/diveintopython/object_oriented_framework/index.html#fileinfo.divein 对象和面向对象]
- * [http://www.python.org/doc/current/tut/node11.html#SECTION0011300000000000000000 A First Look at Classes ]
 
 == 类定义 ==
 自定义的类是类似于下面的形式：
@@ -28,8 +24,8 @@ In [2]: class B(object):
 In [3]: print B.__dict__
 {'__dict__': <attribute '__dict__' of 'B' objects>, '__module__': '__main__', '__weakref__': <attribute '__weakref__' of 'B' objects>, '__doc__': 'This is Class B', '__init__': <function __init__ at 0x842ed14>}
 }}}
- 1. 这个小例子中，关键字class定义了两个类：A和B分别是类名字，他们都继承了object类（这个是最基类，Python 中所有的class都是从object继承而来，也可以不写）。和函数一样，class也可以定义文档字符串，同样是通过__doc__访问。和许多语言不同的是，Python 中构造函数叫做__init__，第一个参数传递的就是将要初始化的实例对象本身，类似许多语言中的this。同样也有类似的析构函式叫做__del__。
- 1. 构造函数中的self.a = a 便给self这个对象增加了一个名为a的属性，其绑定的对象就是传入的参数a所绑定的对象。对象的__dict__属性可以查看对象的所有属性。在任何时候都可以给对象增加属性，只需要给不存在的属性绑定对象即可，Python会自动创建不存在的属性。
+ 1. 这个小例子中，关键字class定义了两个类：A和B分别是类名字，他们都继承了object类（这个是最基类，Python 中所有的class都是从object继承而来，也可以不写）。和函数一样，class也可以定义文档字符串，同样是通过{{{__doc__}}}访问。和许多语言不同的是，Python 中构造函数叫做{{{__init__}}}，第一个参数传递的就是将要初始化的实例对象本身，类似许多语言中的this。同样也有类似的析构函式叫做{{{__del__}}}。
+ 1. 构造函数中的self.a = a 便给self这个对象增加了一个名为a的属性，其绑定的对象就是传入的参数a所绑定的对象。对象的{{{__dict__}}}属性可以查看对象的所有属性。在任何时候都可以给对象增加属性，只需要给不存在的属性绑定对象即可，Python会自动创建不存在的属性。
  1. 类也可以有自己的属性。{{{
 In [4]: class A(object):
    ...:     """This is Class A"""
@@ -66,14 +62,13 @@ In [18]: objc = C(1, 2, 3)
 In [19]: objc.__dict__
 Out[19]: {'a': 1, 'b': 2, 'c': 3}
 
-}}}如果所需要的一个属性在类C中没有找到，则依次从左到右，按A，B的顺序在基类中寻找。通过__dict__可以看到对象的所有属性。
+}}}如果所需要的一个属性在类C中没有找到，则依次从左到右，按A，B的顺序在基类中寻找。通过{{{__dict__}}}可以看到对象的所有属性。
 
-== 小结 ==
-类
-
-== 练习 ==
-## 设计实用练习,保证每个练习都可以扩展出去
-
+##endInc
+##== 相关参考 ==
+## * [http://wiki.woodpecker.org.cn/moin/ObpLovelyPython/LpyQLearn-5-object 类与实例]
+## * [http://www.woodpecker.org.cn/diveintopython/object_oriented_framework/index.html#fileinfo.divein 对象和面向对象]
+## * [http://www.python.org/doc/current/tut/node11.html#SECTION0011300000000000000000 A First Look at Classes ]
 ----
 ::Lizzie [2008/06/24 13:24:00]
 [[PageComment2]]
