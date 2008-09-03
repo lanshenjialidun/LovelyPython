@@ -1,0 +1,64 @@
+##language:zh
+#pragma section-numbers on
+||'''status'''|| 校对 || Lizzie|| 完成度100%||
+
+[[TableOfContents]]
+
+##startInc
+= 交互参数 =
+
+== 交互参数sys.argv ==
+Python中的sys模块提供一些系统变量和函式。其中的`argv`代表调用Python脚本时的命令行参数列表。argv[0]是脚本的名字（由于操作系统的不同显示绝对路径名或者相对路径名），然后为各命令行选项或参数。
+{{{
+In [1]: import sys
+
+In [2]: len(sys.argv)
+Out[2]: 1
+
+In [3]: print sys.argv
+['/usr/bin/ipython']
+}}}
+
+== 解析系统参数 ==
+Python中提供很多模块都可以解析系统参数，比如，[http://docs.python.org/lib/module-cmd.html cmd]、[http://docs.python.org/lib/module-getopt.html getopt]和[http://docs.python.org/lib/module-optparse.html optparse]，下面举个optparse的简单例子：{{{#!python
+from optparse import OptionParser
+import sys
+
+#...
+def execute_from_command_line(argv=None):
+    if argv is None:
+        argv = sys.argv
+    # Parse the command-line arguments.
+    parser = OptionParser(usage="""my_html_to_txt.py [options] xxx""")
+    parser.add_option('-s', '--search', help='Search keywords frequence', dest='keyword')
+    parser.add_option('-c', '--create', help='Create a txt file from many html', action='store_true', dest='create')
+    parser.add_option('-f', '--frequence', help='Get Words Frequence', action='store_true', dest='frequence')
+    parser.add_option('-d', '--delete', help='delete Http', action='store_true', dest='delete')
+    #...
+
+    options, args = parser.parse_args(argv[1:])
+    if options.keyword:
+        print options.keyword
+    if options.create:
+        print 'create sth'
+    #...
+    
+if __name__ == '__main__':
+    execute_from_command_line(sys.argv)
+}}}首先申明一个OptionParser对象，然后通过add_option增加选项，根据这些选项做出不同的动作，完成不同的功能。最终效果如下：
+{{{
+$ python pcs109.py -s key -c
+key
+create sth
+}}}
+
+##endInc
+
+##== 相关参考 ==
+## * [http://docs.python.org/lib/module-sys.html System-specific parameters and functions]
+## * [http://docs.python.org/lib/module-cmd.html cmd]
+## * [http://docs.python.org/lib/module-getopt.html getopt]
+## * [http://docs.python.org/lib/module-optparse.html optparse]
+----
+::Lizzie [2008/06/23 13:24:00]
+[[PageComment2]]

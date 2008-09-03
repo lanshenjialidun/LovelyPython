@@ -1,26 +1,25 @@
 ##language:zh
 #pragma section-numbers on
-||'''status'''|| 校对 || || 完成度95%||
-
+||'''status'''|| 校对 || || 完成度100%||
 
 [[TableOfContents]]
 
+##startInc
 = 内建数据类型 =
-== 相关参考 ==
- * [http://wiki.woodpecker.org.cn/moin/ObpLovelyPython/LpyQLearn-2-data 内置数据类型]
- * [http://wiki.woodpecker.org.cn/moin/PyAbsolutelyZipManual Python 绝对简明手册]
 
-== None  ==
+== 空(None)  ==
 None 表示该值不存在，比如没有定义返回值的函数就返回None。
 
-== 布尔类型 ==
+== 布尔类型(Boolean) ==
+布尔类型，True等价于1，False等价于0。 None、任何数值类型中的0、空字符串''、空元组()、空列表[]、空字典{}都被当作False，还有自定义的类型如果它实现了{{{__nonzero__()}}}或{{{__len__()}}}方法且方法返回0或False的，则其实例也被当作False，其他对象均为True。
 {{{
 >>> bigornot = 1>2
 >>> bigornot
 False
-}}}布尔类型，True等价于1，False等价于0。 None、任何数值类型中的0、空字符串''、空元组()、空列表[]、空字典{}都被当作False，还有自定义的类型如果它实现了__nonzero__() 或__len__()方法且方法返回0或False的，则其实例也被当作False，其他对象均为True。
+}}}
 
-== 整型 ==
+== 整型(Int) ==
+在Python内部对整数的处理还是会分为普通整数和长整数，普通整数长度为机器位长，通常都是32位。超过这个范围的整数就自动当作长整数处理，而长整数表示范围可就几乎完全没有限制了。
 {{{
 >>> a = []
 >>> a is False
@@ -35,22 +34,23 @@ False
 1
 >>> b
 999999999999999999999999L
-}}}在Python内部对整数的处理还是会分为普通整数和长整数，普通整数长度为机器位长，通常都是32位。超过这个范围的整数就自动当作长整数处理，而长整数表示范围可就几乎完全没有限制了。
+}}}
 
-== 浮点数 ==
+== 浮点数(Float) ==
+Python的浮点数就是数学中的小数，C语言中的double。在数值运算中，整数与浮点数运算的结果是浮点数，这就是所谓的“提升规则”，也就是“小”类型会被提升为“大”类型参与计算，许多语言都是这样的。
 {{{
 >>> a = 0.000000001
 >>> type(a)
 <type 'float'>
 >>> a
 1.0000000000000001e-09
-}}}Python的浮点数就是数学中的小数，c 语言中的double。在数值运算中，整数与浮点数运算的结果是浮点数，这就是所谓的“提升规则”，也就是“小”类型会被提升为“大”类型参与计算，许多语言都是这样的。
+}}}
 
-== 字符串 ==
+== 字符串(String) ==
 Python字符串既可以用单引号括起来也可以用双引号括起来，甚至还可以用三引号括起来。这样如果字符串里本身包含双引号，你就可以用单引号来括：{{{
 >>> 'My name is "python"'
 'My name is "python"'
-}}}而如果字符串里本身包含单引号呢，你又可以用双引号用括：{{{
+}}}而如果字符串里本身就包含单引号呢？可以使用双引号：{{{
 >>> "My name is 'python'"
 "My name is 'python'"
 }}}三个引号的字符串就更方便了，中间甚至还可以换行！{{{
@@ -63,77 +63,68 @@ Python字符串既可以用单引号括起来也可以用双引号括起来，�
 'My\nname\nis\n"python"\n!\n'
 }}}
 
-== List ==
+== 列表(List) ==
+用符号`[]`表示列表。
 {{{
 >>> test = [1, 2, "yes"]
-}}}用符号`[]`表示列表。
-=== 内建函数 ===
- 1. append(x)    追加到链尾。
- 1. extend(L)    追加一个列表，等价于+=。
- 1. insert(i,x)   在位置i插入x。
- 1. remove(x)   删除第一个值为x的元素，如果不存在会抛出异常。
- 1. reverse()   反转序列。
- 1. pop([i])   返回并删除位置为i的元素，i默认为最后一个元素(i两边的[]表示i为可选的，实际不用输入)。
- 1. index(x)    返回第一个值为x的元素，不存在则抛出异常。
- 1. count(x)   返回x出现的次数。
- 1. sort()   排序。{{{
->>>test=[1,2,"yes"]
+}}}
 
+=== 内建函数 ===
+ 1. append(x) 追加到链尾。
+ 1. extend(L) 追加一个列表，等价于+=。
+ 1. insert(i,x) 在位置i插入x。
+ 1. remove(x) 删除第一个值为x的元素，如果不存在会抛出异常。
+ 1. reverse() 反转序列。
+ 1. pop([i]) 返回并删除位置为i的元素，i默认为最后一个元素(i两边的[]表示i为可选的，实际不用输入)。
+ 1. index(x) 返回第一个值为x的元素，不存在则抛出异常。
+ 1. count(x) 返回x出现的次数。
+ 1. sort() 排序。
+{{{
+>>>test=[1,2,"yes"]
 >>>test.append(1) #追加到链尾
 >>>test
 [1, 2, 'yes', 1]
-
 >>>test.extend([ 'no','maybe']) #追加一个列表
 >>>test
 [1, 2, 'yes', 1, 'no', 'maybe']
-
 >>> test.insert(0,'never') #在位置0插入'never'
 >>> test
 ['never', 1, 2, 'yes', 1, 'no', 'maybe']
-
 >>> test.remove('no') #删除第一个值为"no"的元素,如果不存在会抛出异常
 >>> test
 ['never', 1, 2, 'yes', 1, 'maybe']
-
 >>> test.reverse() #反转序列
 >>> test
 ['maybe', 1, 'yes', 2, 1, 'never']
-
 >>> test.pop() #返回并删除位置为i的元素,i默认为最后一个元素
 'never'
 >>> test
 ['maybe', 1, 'yes', 2, 1]
-
 >>> test.index('yes') #返回第一个值为'yes'的元素,不存在则抛出异常
 2
-
 >>> test.count(1) #返回1出现的次数
 2
-
 >>>test.sort() #排序
 >>> test
 [1, 1, 2, 'maybe', 'yes']
 }}}
+
 === 切片 ===
 从序列中抽取一部分。
 {{{
 >>> test=['never', 1, 2, 'yes', 1, 'no', 'maybe']
-
 >>> test[0:3] #包括test[0],不包括test[3]
 ['never', 1, 2]
-
 >>> test[0:6:2] #包括test[0],不包括test[6],而且步长为2
 ['never', 2, 1]
-
 >>> test[:-1] #包括开始,不包括最后一个
 ['never', 1, 2, 'yes', 1, 'no']
-
 >>> test[-3:] #抽取最后3个
 [1, 'no', 'maybe']
-
 >>>test[::-1] #倒序排列
 ['maybe', 'no', 1, 'yes', 2, 1, 'never']
 }}}
+
 === 列表推导式 ===
 可以直接通过for循环生成一个list。
 {{{
@@ -143,43 +134,37 @@ Python字符串既可以用单引号括起来也可以用双引号括起来，�
 }}}说明：strip()是去除字符串两端多于空格，该句是去除序列中的所有字串两端多余的空格。
 {{{
 >>>vec=[2,4,6]
->>>[3*x for x in vec if x>3]
+>>>[3*x for x in vec if x>3]  # 大于3的元素乘上3作为新列表元素
 [12, 18]
 }}}
 {{{
->>>[(x,x**2) for x in vec]
-#循环变量要是一个sequence,而[x,x**2 for x in vec]是错误的
+>>>[(x,x**2) for x in vec] # 循环变量要是一个sequence,而[x,x**2 for x in vec]是错误的
 [(2,4),(4,16),(6,36)]
 }}}
 {{{
 >>>vec2=[4,3,-9]
-
->>>[x*y for x in vec for y in vec2]
+>>>[x*y for x in vec for y in vec2] # vec与vec2元素相乘
 [8, 6, -18, 16, 12, -36, 24, 18, -54]
-
->>>[vec[i]+vec2[i] for i in range(len(vec))]
+>>>[vec[i]+vec2[i] for i in range(len(vec))] # vec与vec2元素相加
 [6, 7, -3]
 }}}
 {{{
->>>[str(round(355/113.0,i)) for i in range(1,6)]
 #str()是转换类型为可以打印的字符
 #round(x,n)表示对x保留n位小数(四舍五入)
+>>>[str(round(355/113.0,i)) for i in range(1,6)]
 ['3.1', '3.14', '3.142', '3.1416', '3.14159']
 }}}
 
-== 元组 ==
-一旦初始化便不能更改的数据结构，速度比list快。
+== 元组(tuple) ==
+和列表相似的数据结构，但是它一旦初始化就不能更改，速度比list快。
 {{{
 >>>t=1234,5567,'hello' #t=(1234,5567,'hello')的简写
-
->>>x,y,z=t    #拆分操作可以应用于所有sequence
+>>>x,y,z=t #拆分操作可以应用于所有sequence
 >>>x
 1234
-
 >>>u=t,(1,2,3)
 >>>u
 ((1234,5567,'hello'),(1,2,3))
-
 >>>empty=() #空元组
 >>>singleton='hi', #单个元素的元组,注意逗号
 }}}
@@ -189,85 +174,67 @@ a=1
 b=2
 a,b=b,a
 }}}
-== set ==
-set（集合）：无序不重复的元素集。
+
+==集合(Set) ==
+无序不重复的元素集。
 {{{
-
 >>>basket = ['apple','orange','apple','pear','apple','banana']
-
 >>>fruit=set(basket)
-
 >>>fruit
 set(['orange', 'pear', 'apple', 'banana'])
-
 >>>'orange' in fruit
 True
-
 >>>a=set('abracadabew')
 >>>a
 set(['a', 'c', 'b', 'e', 'd', 'r', 'w'])
-
 >>>b=set('wajgwaoihwb')
 >>>b
 set(['a', 'b', 'g', 'i', 'h', 'j', 'o', 'w'])
- 
->>>a-b    #差
+ >>>a-b    # 集合的差
 set(['c', 'r', 'e', 'd'])
-
->>>a|b   #并
+>>>a|b   # 集合的并
 set(['a', 'c', 'b', 'e', 'd', 'g', 'i', 'h', 'j', 'o', 'r', 'w'])
-
->>>a&b   #交
+>>>a&b   # 集合的交
 set(['a', 'b', 'w'])
-
->>>a^b   #(并-交)
+>>>a^b   # 集合的异或, 即(并-交)
 set(['c', 'e', 'd', 'g', 'i', 'h', 'j', 'o', 'r'])
 }}}
-== dict ==
-字典：关键字为不可变类型，如字符串、整数、只包含不可变对象的元组。列表等不可以作为关键字。
-如果列表中存在关键字对，可以用dict()直接构造字典。而这样的列表对通常是由列表推导式生成的。
+
+== 字典(dict) ==
+关键字为不可变类型，如字符串、整数、只包含不可变对象的元组。列表等不可以作为关键字。如果列表中存在关键字对，可以用dict()直接构造字典。而这样的列表对通常是由列表推导式生成的。
 {{{
-
 >>>tel={'jack':4098,'sape':4139}
-
 >>>tel['guido']=4127
-
 >>>tel
 {'sape': 4139, 'jack': 4098, 'guido': 4127}
-
->>>tel['jack'] #如果jack不存在,会抛出KeyError
+>>>tel['jack'] # 如果jack不存在,会抛出KeyError
 4098
->>>a.get("zsp",5000) #如果"zsp"为tel的键则返回其值,否则返回5000
-
->>>del tel['sape'] #删除键'sape'和其对应的值
->>>tel.keys() #复制一份键的副本,同理tel.items()为值的副本
+>>>a.get("zsp",5000) # 如果"zsp"为tel的键则返回其值,否则返回5000
+>>>del tel['sape'] # 删除键'sape'和其对应的值
+>>>tel.keys() # 复制一份键的副本,同理tel.items()为值的副本
 ['jack', 'guido']
-
->>>"jack" in tel #判断"jack"是否tel的键
+>>>"jack" in tel # 判断"jack"是否tel的键
 True
 >>>"zsp" not in tel
 True
-
->>>for k,v in tel.iteritems():print k,v  #同理tel.iterkeys()为键的迭代器,tel.itervalues()为值的迭代器
+>>>for k,v in tel.iteritems():print k,v  # 同理tel.iterkeys()为键的迭代器,tel.itervalues()为值的迭代器
 jack 4098
 guido 4127
-
->>>tel.copy() #复制一份tel
+>>>tel.copy() # 复制一份tel
 {'jack': 4098, 'guido': 4127}
-
->>> tel.fromkeys([1,2],0) #从序列生成并返回一个字典,其值为第二个参数(默认为None),不改变当前字典
+>>> tel.fromkeys([1,2],0) # 从序列生成并返回一个字典,其值为第二个参数(默认为None),不改变当前字典
 {1: 0, 2: 0}
-
->>>tel.popitem() #弹出一项
+>>>tel.popitem() # 弹出一项
 ('jack', 4098)
-
 }}}
 
-== 小结 ==
-Python中的数据类型比较丰富的，主要就是上述些内容。其实这里还有很多关于数据类型的知识，在这里没有描述。可以进一步参考文首给出的链接。
+##endInc
+##== 小结? ==
+##Python中的数据类型比较丰富的，主要就是上述些内容。其实这里还有很多关于数据类型的知识，在这里没有描述。可以进一步参考文首给出的链接。
 
-== 练习 ==
-## 设计实用练习,保证每个练习都可以扩展出去
+##== 相关参考 ==
+## * [http://wiki.woodpecker.org.cn/moin/ObpLovelyPython/LpyQLearn-2-data 内置数据类型]
+## * [http://wiki.woodpecker.org.cn/moin/PyAbsolutelyZipManual Python 绝对简明手册]
 
 ----
 ::Lizzie [2008/06/23 13:24:00]

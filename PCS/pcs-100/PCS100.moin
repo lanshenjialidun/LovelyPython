@@ -1,34 +1,33 @@
 ##language:zh
 #pragma section-numbers on
-||'''status'''|| 校对 || || 完成度95%||
-
+||'''status'''|| 校对 || || 完成度100%||
 
 [[TableOfContents]]
 
+##startInc
 = import =
-本文首先简要介绍模块和包，接着着重讲述import和from import 的知识。
 
-== 相关参考 ==
- * [http://wiki.woodpecker.org.cn/moin/ObpLovelyPython/LpyQLearn-6-model]
- * [http://effbot.org/zone/import-confusion.htm Importing Python Modules ]——很适合于初学者的一篇文章
- * [http://docs.python.org/tut/node8.html Modules文档 ]
- * [http://docs.python.org/ref/import.html import语句 ]
+== 模块(modules) ==
+模块是包含Python定义和声明的文件，文件的名称就是模块名称加上.py后缀。例如：fibo模块(fibo.py)是一个实现Fibonacci功能的模块。{{{#!python
+#coding:utf-8
 
-== 模块(module) 和包 ==
- 1. 模块是包含Python定义和声明的文件，文件的名称就是模块名称加上.py后缀。
- 1. 模块举例：fibo模块(fibo.py)是一个实现Fibonacci功能的模块。{{{#!python
-# Fibonacci numbers module
-def fib(n): # write Fibonacci series up to n
+# Fibonacci数列模块
+# 输出所有小于n的Fibonacci数
+def fib(n):
     a, b = 0, 1
     while b < n:
-        print b, a, b = b, a+b
-def fib2(n): # return Fibonacci series up to n
+        print b, 
+        a, b = b, a+b
+
+# 返回所有小于n的Fibonacci数
+def fib2(n): 
     result = [] 
     a, b = 0, 1
     while b < n:
-         result.append(b) a, b = b, a+b
+        result.append(b)
+        a, b = b, a+b
     return result
-}}}在Python解释器中，使用import fibo导入fibo模块，使用fibo.fib(1000)来调用函数，也可以用fib = fibo.fib将模块函数赋值到本地函数。{{{
+}}}在Python解释器中，使用import fibo语句导入fibo模块，使用fibo.fib(1000)来调用函数，也可以用fib = fibo.fib将模块函数赋值到本地函数。{{{
 >>> import fibo
 >>> fibo.fib(1000)
 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987
@@ -38,10 +37,11 @@ def fib2(n): # return Fibonacci series up to n
 'fibo'
 >>> fib = fibo.fib
 >>> fib(500)
-    1 1 2 3 5 8 13 21 34 55 89 144 233 377
+1 1 2 3 5 8 13 21 34 55 89 144 233 377
 }}}
- 1. 包是一种采用"."组织模块命名空间的方式。比如模块名称A.B表示是表示A 包中的模块B。这种命名空间的组织方式能够避免不同模块命名的冲突。
- 1. 包举例：假设需要设计一组模块来处理声音文件和声音数据，就是如何组织一个包。由于存在多个不同声音格式的文件，需要一个随时能增加新模块的包来处理新增的声音格式。另外还需要对声音进行各种不同处理（例如混声、加回音、加入平衡、加入人工音效等），所以还需要另写一些模块来作这些处理。比如以下组织结构：{{{
+
+== 包(package) ==
+包是采用"."组织模块命名空间方式，比如模块名称A.B表示是表示A 包中的模块B。这种命名空间的组织方式能够避免不同模块命名的冲突。例如：假设需要设计一组模块来处理声音文件和声音数据，就是如何组织一个包。由于存在多个不同声音格式的文件，需要一个随时能增加新模块的包来处理新增的声音格式。另外还需要对声音进行各种不同处理（例如混声、加回音、加入平衡、加入人工音效等），所以还需要另写一些模块来作这些处理。比如以下组织结构：{{{
 Sound/                          Top-level package
       __init__.py               Initialize the sound package
       Formats/                  Subpackage for file format conversions
@@ -65,11 +65,10 @@ Sound/                          Top-level package
               vocoder.py
               karaoke.py
               ...
-}}} __init__.py是必须的，帮助Python将该目录识别为包。在最简单的例子中，__init__.py是一个空文件。当然你也可以让__init__.py做一些包的初始化动作，或者设定__all__变量。
+}}}{{{__init__.py}}}是必须的，它帮助Python将该目录识别为包。在最简单的例子中，{{{__init__.py}}}是一个空文件。当然也可以让{{{__init__.py}}}做一些包的初始化动作或是设定一些变量，如{{{__all__}}}变量。
 
-== 模块和包的使用 ==
-要使用现有模块和包，就需要用到import和from import 
- 1. 可以在package中import一个模块来使用。例如：{{{#!python
+== import ==
+直接导入包中的一个模块来使用，比如：{{{#!python
 import Sound.Effects.echo
 
 # 使用这个模块,必须使用完整的名字来调用
@@ -81,37 +80,39 @@ echo.echofilter(input, output, delay=0.7, atten=4)
 # 另一种直接导入你需要的函数和变量的方法：
 from Sound.Effects.echo import echofilter
 # 其使用方法为
- echofilter(input, output, delay=0.7, atten=4)
+echofilter(input, output, delay=0.7, atten=4)
 }}}
- 1. from Sound.Effects import * 会怎么样？ 理想情况下，我们可能期望会搜寻整个package目录，然后搜寻所有的module并且一一import。但是，在Mac以及Windows平台下，文件的名称大小写不一致，所以无法保证所有的module被import。所以唯一解决的方法就是package的作者，要提供一个明确索引给使用package的人。如果遵守该习惯的话，当用package的人在import的时候使用from Sound.Effects import *，就会查找package中的__init__.py中的__all__这个list变量，该list就包含所有应该被import进来的module名称。身为Package的作者有责任维护更新__init__.py。以Sounds/Effects/__init__.py为例：{{{#!python
- __all__ = ["echo", "surround", "reverse"]
-# 表示from Sound.Effects import * 会import 这三个module。
 
-# 如果没有定义__all__，from Sound.Effects import *不会保证所有的子module被导入。所以要么通过__init__.py，要么显式地import保证子module被导入。如下：
+== from ... import ==
+另一种写法，from Sound.Effects import * 会怎么样？ 理想情况下，可能期望会搜寻整个包目录，然后搜寻所有的模块并且一一导入。但是，在Mac以及Windows平台下，文件的名称大小写不一致，所以无法保证所有的模块都会被导入。所以唯一解决的方法就是包的作者提供一个明确索引给使用包的人。如果遵守该习惯的话，当使用包的人在导入的时候使用from Sound.Effects import *，就会查找包中的{{{__init__.py}}}中的{{{__all__}}}这个list变量，该变量就包含所有应该被导入进来的模块名称。身为包的作者有责任维护更新{{{__init__.py}}}。以{{{Sounds/Effects/__init__.py}}}为例：{{{#!python
+ __all__ = ["echo", "surround", "reverse"]
+}}}表示当from Sound.Effects import * 时会import 这三个module。如果没有定义__all__，from Sound.Effects import *不会保证所有的子模块被导入。所以要么通过__init__.py，要么显式地import以保证子模块被导入。如下：{{{#!python
 import Sound.Effects.echo
 import Sound.Effects.surround
 from Sound.Effects import *
-}}}值得注意的是import *不被鼓励，因为这样会降低程序的可读性，虽然有时会减少一些打字，而且有些module在设计时故意只让某些特别的名称可以被使用。
- 1. 使用from Package import specific_submodule没有任何不对，除非你的module名称和其他名称冲突，将采用如下方式：{{{#!python
- from Package import specific_submodule as specific_submodule_alias
+}}}值得注意的是import *不被鼓励，因为这样会降低程序的可读性，虽然有时会减少一些打字，而且有些模块在设计时故意只让某些特别的名称可以被使用。
+使用from Package import specific_submodule没有任何不对，但如果你的模块名称和其他名称冲突，就得使用as为冲突模块取个别名：{{{#!python
+from Package import specific_submodule as specific_submodule_alias
 }}}
- 1. 搜寻路径。当你import fibo，Python解释器先在当前目录下搜寻fibo.py文件，如果没有找到，会依次在$PYTHONPATH指示的所有路径中搜寻。$PYTHONPATH的设定方法与$PATH是一样的，即多个目录路径的字符串。事实上，模块的搜寻路径是依照sys.path变量（多个路径组成的list变量）。当Python解释器启动时，会将当前目录、$PYTHONPATH、以及按照安装时设定的一些目录加入到sys.path变量中。所以可以修改这些参数来控制搜寻模块的路径。例如：{{{#!python
+
+== 搜寻路径 ==
+当你导入fibo时，Python解释器先在当前目录下搜寻fibo.py文件，如果没有找到，会依次在$PYTHONPATH指示的所有路径中搜寻。$PYTHONPATH的设定方法与$PATH是一样的，即多个目录路径的字符串。事实上，模块的搜寻路径是依照sys.path变量（多个路径组成的list变量）。当Python解释器启动时，会将当前目录、$PYTHONPATH、以及按照安装时设定的一些目录加入到sys.path变量中，所以可以修改这些参数来控制搜寻模块的路径。 比如：{{{#!python
 import sys
-
-# fibo.py的路径添加到sys.path
-
+# 将fibo.py的路径添加到sys.path
 sys.path.append('/home/shengyan/workspace/')
 
 from pcs import fibo
 }}}
 
-== 小结 ==
-## 总体回顾,给出相关阅读和思考指引
-本文简要介绍了模块、包的相关知识，同时介绍了import、from import的使用。
+##endInc
+##== 小结 ==
+##本文简要介绍了模块、包的相关知识，同时介绍了import、from import的使用及相关内容，更多的阅读资料可查看文首的资源链接。
 
-== 练习 ==
-## 设计实用练习,保证每个练习都可以扩展出去
-
+##== 相关参考 ==
+## * [http://wiki.woodpecker.org.cn/moin/ObpLovelyPython/LpyQLearn-6-model]
+## * [http://effbot.org/zone/import-confusion.htm Importing Python Modules ]——很适合于初学者的一篇文章
+## * [http://docs.python.org/tut/node8.html Modules文档 ]
+## * [http://docs.python.org/ref/import.html import语句 ]
 ----
 ::Lizzie [2008/06/16 21:24:00]
 [[PageComment2]]

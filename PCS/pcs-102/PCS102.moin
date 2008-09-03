@@ -1,24 +1,18 @@
 ##language:zh
 #pragma section-numbers on
-||'''status'''|| 校对 || || 完成度95%||
+||'''status'''|| 校对 || || 完成度100%||
 
 
 [[TableOfContents]]
 
+##startInc
 = For 循环 =
-本文介绍for循环语句的使用。
-
-== 相关参考 ==
- * [http://wiki.woodpecker.org.cn/moin/ObpLovelyPython/LpyQLearn-3-process]
- * [http://docs.python.org/tut/node6.html#SECTION006200000000000000000 For循环及相关控制流]
- * [http://docs.python.org/ref/for.html The for statement ]
 
 == 初步 ==
 {{{
   for item in [1, 2, 3]:
       print item
-}}}
-上面的代码其实就是遍历 ``some_list`` 列表，将其中每一个元素都打印出来。所有的循环语句中都可以使用这么两条语句：``break`` 和 ``continue`` 。 ``break`` 表示要退出循环， ``continue`` 是说直接进入到下一轮的循环中去：{{{
+}}}上面的代码其实就是遍历了列表[1, 2, 3]，将其中每一个元素都打印出来。所有的循环语句中都可以使用这么两条语句：break和continue。break表示要退出循环， continue是说直接进入到下一轮的循环中去：{{{
   >>> for item in range(10):
   ...     if item<5:         # 遇到比 5 小的
   ...         continue       # 进入下一轮循环
@@ -27,13 +21,12 @@
   ...         break          # 并直接退出循环
   ...
   5
-}}}
-其实上面这个例子中的循环体也可以这么写的：{{{
+}}}上面这个例子中的循环体也可以这么写的：{{{
   if item>=5:
       print item
       break
 }}}
-``for`` 语句后面可以跟 ``else`` 子句，在这里 ``else`` 子句含义是：如果 for 一直循环到了末尾，最后正常退出循环，那么随后就会执行它的 ``else`` 子句，否则由于 ``break`` 语句或异常等原因退出循环的，则不会执行 ``else`` 子句。其实在程序中我们就常常就会遇到这样的场景：对某个列表中每一个元素执行某个操作，如果成功执行则马上``break`` 跳出循环，如果遍历完整个列表，发现没有一个元素满足要求，也就是意味着遍历失败，那么处理失败情况的语句就可以放在 ``else`` 子句中了，比如：{{{
+for语句后面可以跟else子句，在这里else子句含义是：如果 for 一直循环到了末尾，最后正常退出循环，那么随后就会执行它的else子句，否则由于break语句或异常等原因退出循环的，则不会执行else子句。其实在程序中我们就常常就会遇到这样的场景：对某个列表中每一个元素执行某个操作，如果成功执行则马上break跳出循环，如果遍历完整个列表，发现没有一个元素满足要求，也就是意味着遍历失败，那么处理失败情况的语句就可以放在else子句中了，比如：{{{
   >>> for item in range(10):
   ...     if item<10:
   ...         continue
@@ -47,7 +40,8 @@
 }}}
 
 == 两种风格的for语句 ==
-如果你熟悉c语言的话，便会看出python的for和c的for的不同，表面上的语法差异自然容易看出，但实际上他们的含义却是有根本的不同的。要类比python这种形式的``for``语句的话，大家可以想象某些语言的``for in``或者``foreach``之类的语法。{{{
+如果熟悉C语言的话，便会看出Python的for和C的for的不同，表面上的语法差异自然容易看出，但实际上他们的含义却是有根本的不同的。要类比Python这种形式的for语句的话，可以想象某些语言的for in或者foreach之类的语法。
+{{{
 
     /* c 语言 */
     for(int i=0; i<count; i++){
@@ -57,11 +51,11 @@
     # python
     for item in a_iterable:
         ...
-}}}简单地说， c 语言形式的 ``for`` 语句的工作原理是这样的：取第0个、第1个、第2个，一直取到最后一个这样子。而迭代器这种呢，就是对迭代器取下一个、取下一个、取下一个，一直取到迭代器自己喊停为止。实际上 python 的 ``for`` 语句是同时支持这两种风格的。
-我们先来解剖一下 python 的 ``for`` 语句：{{{
+}}}简单地说，C语言形式的for语句的工作原理是这样的：取第0个、第1个、第2个，一直取到最后一个这样子。而迭代器这种呢，就是对迭代器取下一个、取下一个、取下一个，一直取到迭代器自己喊停为止。实际上Python 的for语句是同时支持这两种风格的。
+先来解剖一下Python 的for语句：{{{
     for item in obj:
         ...
-}}}如果 ``obj`` 对象实现了 ``__iter__`` 方法，就是说它是个迭代器，那这就是迭代器风格的 ``for`` 语句，而上面这段代码也就等价于：{{{
+}}}如果obj对象实现了{{{__iter__}}}方法，就是说它是个迭代器，那这就是迭代器风格的for语句，而上面这段代码也就等价于：{{{
     iterator = iter(obj) # 获取迭代器。
     # iter(obj) 等价于 obj.__iter__()
     try:
@@ -72,7 +66,7 @@
     except StopIteration:      # 迭代器喊停
         pass
 }}}
-如果上面的 ``obj`` 对象实现了 ``__getitem__`` 方法，也就是说它支持索引操作，这就成了 c 语言风格的那种迭代器，这段代码便等价于：{{{    
+如果上面的obj对象实现了{{{__getitem__}}}方法，也就是说它支持索引操作，这就成了C 语言风格的那种迭代器，这段代码便等价于：{{{    
     try:
       item = obj[0]      # 取第0个
       # obj[0] 等价于 obj.__getitem__(0)
@@ -84,7 +78,7 @@
 }}}
 最后再测试一把：{{{
     >>> class Indexable(object):
-    ...     def __getitem__(self, i):
+    ...     def __getitem__(self, i):   # 定义__getitem__, 如果i大于10，就停止迭代
     ...         if i>10:
     ...             raise StopIteration()
     ...         print 'get object %d'%i
@@ -92,13 +86,13 @@
     >>> class Iterable(object):
     ...     def __init__(self):
     ...         self.counter = 0
-    ...     def __iter__(self):
+    ...     def __iter__(self): 
     ...         return self
     ...     def next(self):
-    ...         if self.counter>10:
+    ...         if self.counter>10: # 如果计数器大于10，就停止迭代
     ...             raise StopIteration()
     ...         print 'get next, current is %d'%self.counter
-    ...         self.counter += 1
+    ...         self.counter += 1 # 计数器增1
     ...
     >>> container = Indexable()
     >>> for i in container:pass
@@ -129,11 +123,15 @@
     get next, current is 9
     get next, current is 10
 }}}
-== 小结 ==
-For循环是比较重要的控制流语句，本文介绍for语句的基本使用。
 
-== 练习 ==
-## 设计实用练习,保证每个练习都可以扩展出去
+##endInc
+##== 小结? ==
+##For循环是比较重要的控制流语句，本文介绍for语句的基本使用。
+
+##== 相关参考 ==
+## * [http://wiki.woodpecker.org.cn/moin/ObpLovelyPython/LpyQLearn-3-process]
+## * [http://docs.python.org/tut/node6.html#SECTION006200000000000000000 For循环及相关控制流]
+## * [http://docs.python.org/ref/for.html The for statement ]
 
 ----
 ::Lizzie [2008/06/16 21:24:00]
