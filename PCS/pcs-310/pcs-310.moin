@@ -24,12 +24,12 @@ Leo 是基于 Noweb 数据工具的 文学化编程环境:
   * 官方网站: http://www.cs.tufts.edu/~nr/noweb/
   * 快速访问: http://tinyurl.com/6mhjp5
   * 由于Leo 通过友好的界面包裹了 Noweb 的功能,一般不必对 Noweb 有太多的认识
- * Literate Programming ~ 文学化编程是 TeX 的发明人 Donald Knuth在1984年提出的概念:
+ * Literate Programming ~ 文学化编程是 T,,E,,X 的发明人 Donald Knuth在1984年提出的概念:
   * 源代码只是构成程序的一小部分; 程序的真正主体是对它的算法、结构、目的和用法的描述——实现它的源代码并不是主要的
   * 所以,文学化编程关注人是怎么理解和构建程序的,而不是象其它主流开发环境那样,期望人来理解程序应该怎么样运行和组织!
   * 定义: http://en.wikipedia.org/wiki/Literate_programming
   * 官网: http://www.literateprogramming.com
- * 所以,Leo 的名字含义是:`Literate Editor with Outlines` 基于提纲的文学化编辑器, 但是,Leo 最常见的使用方式就是拿来文学化的组织软件开发工程!
+ * 所以,Leo 的名字含义是:`L`iterate `E`ditor with `O`utlines ~ 基于提纲的文学化编辑器, 但是,Leo 最常见的使用方式就是拿来文学化的组织软件开发工程.
  
 == 使用 ==
 `通过实际操作,可以快速体验到文学化编程的魅力:`
@@ -52,6 +52,49 @@ Leo 是基于 Noweb 数据工具的 文学化编程环境:
 习惯,
 
 环境, ubutnu 的中文问题,,,
+
+=== 中文问题 ===
+Leo 是使用Python 基于Tk框架开发的,而Tk 是一个古老而简洁的桌面图形化软件支持库,以往的版本对中文的支持,在非M$平台一直有问题;这里快速说明一下 Ubuntu(一种GNU/Linux 操作系统)中 Leo 中文显示问题的解决方法:
+
+ 现象::
+  * 无法使用输入法输入中文;字体可选择非常少,边缘显示有毛剌现象;
+  * 利用Python 来探测:
+  {{{
+  $ python
+Python 2.5.2 (r252:60911, Jun 21 2008, 09:47:06) 
+[GCC 4.2.3 (Ubuntu 4.2.3-2ubuntu7)] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import Tkinter
+>>> print Tkinter.TclVersion
+8.4
+}}} 如果系统输出 Tk 版本是 8.4 的话,证明Tk 框架是不支持中文的老版本.
+ 思路::
+  * 感谢自由软件社区,这个问题早在2年前就由台湾的 aMSN社区(http://www.amsn-project.net)在开发过程中解决了,而且补丁被包含在 Tk8.5 版本中;但是在Ubuntu 等等操作系统中,Python 预编译版本都是绑定的 Tk8.4 版本,所以,只要重编译Python 将Tk 最新版本包含进来就可以完善中文的支持
+ 处置::
+  * 安装 Tk8.5, 在Ubuntu 的软件仓库中就有包含,所以,可以使用 快立得 工具快速安装,使用命令行安装的话如下:
+  {{{
+$ sudo apt-get install tk8.5 tk8.5-dev
+  }}}
+  * 从 Python 官方网站下载对应本地CPU的源代码(http://www.python.org/ftp/python/2.5.2/)
+  * 依次进行以下操作
+  {{{
+$ tar xjv Python-2.5.2.tar.bz2
+$ cd Python-2.5.2
+$ ./configure --prefix=/usr --enable-unicode=ucs4
+$ make
+$ sudo make install
+  }}} 完成编译和安装,然后替换原先的 Python 调用:
+  {{{
+$ cd /usr/bin
+$ sudo rm python
+$ sudo ln -s python2.5 python
+}}}
+  * 再进行之前的测试,就应该可以看到 `Tkinter.TclVersion` 的值变成了 8.5
+  * 而且可以从菜单 Cmds->Picklers->Show-Fonts 中看到之前无法选择到的各种中文字体了!
+  
+ 提醒::
+  * 如果处理后,还有问题,请及时升级 Leo 到最新版本, 2008-09-02 时,Leo 已经是 4.5.0 版本了,新版本对各种特性都有精心提升,可以支持最粗暴的操作,建议及时安装体验;-)  
+  
 
 == 探讨 ==
 LeoN ~ 网络中的 Leo,,,
