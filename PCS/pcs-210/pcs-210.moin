@@ -6,24 +6,31 @@
 [[TableOfContents]]
 
 == 概述 ==
-从空间和时间上说,Pickle 是可移植的.换句话说,pickle 文件格式独立于机器的体系结构,这意味着,例如,可以在 Linux 下创建一个 pickle,然后把它发送到在 Windows 或 Mac OS 下运行的 Python 程序.并且,当升级到更新版本的 Python 时,不必担心可能要废弃已有的 pickle.Python 开发人员已经保证 pickle 格式把可以向后兼容 Python 各个版本.
+pickle模块可以实现任意的Python对象的序列化.这些序列化后的对象可以被传输或存储，也可以重构为一个和原先对象具有相同特征的新对象。但在实际项目中为了提高序列化和反序列化的速度,可以改用cPickle模块.pickle的文档清晰的表明它不提供安全保证。所以慎用pickle来作为内部进程通信或者数据存储，也不要相信那些你不能验证安全性的数据。
 
 == 使用 ==
-=== 基本使用 ===
-定义一个字典:
+第一个pickle示例是将一个数据结构编码为一个字符串，然后将其输出到控制台。
+{{{#!python
+try:
+   import cPickle as pickle
+except:
+   import pickle
+import pprint
+}}}
+首先尝试导入cPickle，并指定别名为"pickle"。如果因为某种原因导入pickle失败，则导入由Python实现的pickle模块。这样,如果cPickle可用则速度会快点，但如果不可用，也会有正确的实现。接下来，定义一个完全由基本类型组成的数据结构。
 {{{#!python
 data = [ { 'a':'A', 'b':2, 'c':3.0 } ]
-print 'DATA:',data
+print 'DATA:',
+pprint.pprint(data)
 }}}
-
-查看dump后的结果:
+可以使用pickle.dumps()来创建数据值的字符串表示。
 {{{#!python
 data_string = pickle.dumps(data)
 print 'PICKLE:', data_string
 }}}
-
+可以看到结果如下:
 {{{
-$ python pcs-210-1.py
+$ python pcs-201-1.py
 DATA:[{'a': 'A', 'b': 2, 'c': 3.0}]
 PICKLE: (lp1
 (dp2
@@ -35,20 +42,107 @@ sS'b'
 I2
 sa.
 }}}
-
-读取pickle文件为对象:
+一旦数据被序列化，就可以把他写入到文件、socket、管道等等中。之后你可以读取这个文件，读取这些数据来构造具有相同值的新对象。
 {{{#!python
-print "LOAD",pickle.loads(data_string)
-}}}
+data1 = [ { 'a':'A', 'b':2, 'c':3.0 } ]
+print 'BEFORE:',
+pprint.pprint(data1)
 
-=== pickle和cPickle ===
-在实际项目中为了提高序列化和反序列化的速度,可以改用cPickle:
+data1_string = pickle.dumps(data1)
+
+data2 = pickle.loads(data1_string)
+print 'AFTER:',
+pprint.pprint(data2)
+
+print 'SAME?:', (data1 is data2)
+print 'EQUAL?:', (data1 == data2)
+}}}
+新构造的对象等于原来的对象，但他们又不是相同的对象。
+{{{
+$ python pcs-201-2.py
+BEFORE:[{'a': 'A', 'b': 2, 'c': 3.0}]
+AFTER:[{'a': 'A', 'b': 2, 'c': 3.0}]
+SAME?: False
+EQUAL?: True
+}}}
+在处理自定义类时，应该保证这些被序列化的类会在进程名空间出现 。只有数据实例才能被序列化，而不能是定义的类。在反序列化时，类的名字被用于寻找构造器以便创建新对象。接下来这个例子，是将一个类实例写入到文件中：
 {{{#!python
 try:
    import cPickle as pickle
 except:
    import pickle
+import sys
+
+class SimpleObject(object):
+
+   def __init__(self, name):
+       self.name = name
+       l = list(name)
+       l.reverse()
+       self.name_backwards = ''.join(l)
+       return
+
+if __name__ == '__main__':
+   data = []
+   data.append(SimpleObject('pickle'))
+   data.append(SimpleObject('cPickle'))
+   data.append(SimpleObject('last'))
+
+   try:
+       filename = sys.argv[1]
+   except IndexError:
+       raise RuntimeError('Please specify a filename as an argument to %s' % sys.argv[0])
+
+   out_s = open(filename, 'wb')
+   try:
+       # 写入到流中
+       for o in data:
+           print 'WRITING: %s (%s)' % (o.name, o.name_backwards)
+           pickle.dump(o, out_s)
+   finally:
+       out_s.close()
 }}}
+当运行这个脚本时，它会创建名为命令行中输入参数的文件：
+{{{
+$ python pcs-201-3.py test.dat
+WRITING: pickle (elkcip)
+WRITING: cPickle (elkciPc)
+WRITING: last (tsal)
+}}}
+一个简单的尝试是将刚才的序列化对象装载进来,如下：
+{{{#!python
+try:
+   import cPickle as pickle
+except:
+   import pickle
+import pprint
+from StringIO import StringIO
+import sys
+#注意:需要导入自定义类
+from pcs-201-3 import SimpleObject
 
+try:
+   filename = sys.argv[1]
+except IndexError:
+   raise RuntimeError('Please specify a filename as an argument to %s' % sys.argv[0])
 
--- 清风  [[DateTime(2008-04-25T14:33:00Z)]] 
+in_s = open(filename, 'rb')
+try:
+   # 读取数据
+   while True:
+       try:
+           o = pickle.load(in_s)
+       except EOFError:
+           break
+       else:
+           print 'READ: %s (%s)' % (o.name, o.name_backwards)
+finally:
+   in_s.close()
+}}}
+运行这个脚本,可以看到：
+{{{
+$ python pcs-201-4.py test.dat
+READ: pickle (elkcip)
+READ: cPickle (elkciPc)
+READ: last (tsal)
+}}}

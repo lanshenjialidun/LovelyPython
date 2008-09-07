@@ -1,7 +1,7 @@
 ##language:zh
 ##OBP项目图书reST通用文章模板
 ###format rst
-||status|| 草稿 ||清风 & liz; 95%||
+||status|| 草稿 ||清风 & liz; 100%||
 
 [[TableOfContents]]
 
@@ -10,7 +10,7 @@ epydoc是专门用于从源码注释中生成各种格式（如Html, plaintext, 
 
 == 使用 ==
 === 安装 ===
-源码安装步骤：
+这里先介绍下使用源码安装的步骤：
 {{{
 shengyan@LIZZIE:~/tmp$ wget http://prdownloads.sourceforge.net/epydoc/epydoc-3.0.1.tar.gz #下载
 shengyan@LIZZIE:~/tmp$ tar zxvf epydoc-3.0.1.tar.gz #解压文件
@@ -23,10 +23,10 @@ running build_py
 ...
 #完毕
 }}}
-各种平台下的更多安装方法可参见[http://epydoc.sourceforge.net/manual-install.html 安装手册]
+在其他平台下的更多安装方法可参见[http://epydoc.sourceforge.net/manual-install.html 安装手册]
 
 === 书写格式 ===
-在代码中插入相关的各种格式的Docstring，支持多种[http://wiki.woodpecker.org.cn/moin/EpydocApiTag 标签]，以下列出基本的标签：{{{
+使用epydoc生成文档,得先在源代码中插入相关的各种格式的Docstring，它支持多种[http://wiki.woodpecker.org.cn/moin/EpydocApiTag 标签]，以下列出基本的标签：{{{
 1.   py文献信息   
  '''@author:''' ... 作者 
  '''@license:''' ... 版权 
@@ -80,9 +80,9 @@ def MyFunc():
     '''
     pass
 }}}
-运行epydoc生成文档:
+运行epydoc来生成文档:
 {{{
-epydoc pcs-203-1.py
+$ epydoc pcs-203-1.py
 }}}
 在当前目录下会生成一个html文件夹,点击index.html,即可看到生成的文档结果
 
@@ -106,7 +106,7 @@ graph: all
 dotpath: /usr/bin/dot
 }}}然后使用如下命令即可生成所需文档
 {{{
-epydoc --config epydoc.cfg  #获得最新的 API文档 
+$ epydoc --config epydoc.cfg  #获得最新的 API文档 
 }}}
 
 
