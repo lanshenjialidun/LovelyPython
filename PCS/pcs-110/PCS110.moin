@@ -9,8 +9,7 @@
 
 == 最基本的用法 ==
 以下一段代码使用if分支实现比较两个数的大小：
-{{{ #!python
-    
+{{{#!python
   if a == b:
       print 'a 等于 b'
   elif a < b:
