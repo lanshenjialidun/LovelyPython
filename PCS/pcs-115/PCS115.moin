@@ -1,0 +1,37 @@
+##language:zh
+#pragma section-numbers off
+##含有章节索引导航的 ZPyUG 文章通用模板
+[[TableOfContents]]
+## 默许导航,请保留
+[[Include(ZPyUGnav)]]
+
+
+
+
+##startInc
+= FP初体验 =
+ 概述::
+    简洁的介绍 FP 的概念...
+    
+ 使用::
+    以实用的小例子,快速介绍Python 中实用的FP 开发
+
+ 问题::
+    指出知识点应用中常常遇见的问题,和解决思路
+
+ 探讨::
+    进一步介绍相关的或是深入的知识领域...
+
+
+##endInc
+`原料`::
+[[Include(PythonFunctionProgramming,,from="^##startInc$",to="^##endInc$")]]
+
+
+----
+'''反馈'''
+
+创建 by -- ZoomQuiet [[[DateTime(2008-09-09T06:32:17Z)]]]
+||<^>[[PageComment2]]||<^>[:/PageCommentData:PageCommentData]''||
+
+
