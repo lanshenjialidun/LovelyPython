@@ -9,7 +9,7 @@
 shutil是一个更高级的文件处理模块,可以做到很多os模块做不到的事情.例如:listdir,copy.相当于shell的ls和cp功能.
 
 == 使用 ==
-== copy ==
+=== copy ===
 函数功能:将指定文件复制出一个副本
 {{{#!python
 import os
