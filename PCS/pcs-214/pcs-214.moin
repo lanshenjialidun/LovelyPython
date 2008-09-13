@@ -6,7 +6,9 @@
 [[TableOfContents]]
 
 == 概述 ==
-ElementTree是Python的xml处理模块,它提供了一个轻量级的对象模型,用于以 Python 处理 XML.ElementTree是在Python2.5以后成为Python标准库的一部分的.在2.4版本之前需要单独安装.
+ElementTree是Python的xml处理模块,它提供了一个轻量级的对象模型,用于以 Python 处理 XML.
+
+ElementTree是在Python2.5以后成为Python标准库的一部分的.在Python 2.4之前需要单独安装.
 
 == 使用 ==
 === 基本使用 ===
