@@ -1,0 +1,64 @@
+##language:zh
+##OBP项目图书reST通用文章模板
+###format rst
+||status|| 草稿 ||清风; 100%||
+
+[[TableOfContents]]
+
+== 概述 ==
+cmd模块为命令行接口(command-line interfaces , CLI)提供了一个简单的框架. 它被用在 pdb模块中,当然你也可以在自己的程序中使用它.
+
+== 使用 ==
+=== 基本使用 ===
+{{{#!python
+import cmd
+import string, sys
+
+class CLI(cmd.Cmd):
+
+    def _ _init_ _(self):
+        cmd.Cmd._ _init_ _(self)
+        self.prompt = '> '
+
+    def do_hello(self, arg):
+        print "hello again", arg, "!"
+
+    def help_hello(self):
+        print "syntax: hello [message]",
+        print "-- prints a hello message"
+
+    def do_quit(self, arg):
+        sys.exit(1)
+
+    def help_quit(self):
+        print "syntax: quit",
+        print "-- terminates the application"
+
+    # shortcuts
+    do_q = do_quit
+
+#
+# try it out
+
+cli = CLI()
+cli.cmdloop()
+
+*B*> help
+
+Documented commands (type help <topic>):
+========================================
+hello           quit
+
+Undocumented commands:
+======================
+help            q
+
+> hello world
+hello again world !
+> q*b*
+
+}}}
+
+
+
+-- 清风  [[DateTime(2008-04-25T14:33:00Z)]] 
