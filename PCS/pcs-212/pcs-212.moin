@@ -1,31 +1,202 @@
 ##language:zh
 ##OBP项目图书reST通用文章模板
 ###format rst
-||status|| 草稿 ||清风; 100%||
+||status|| 草稿 ||清风 & liz; 100%||
 
 [[TableOfContents]]
-
+##startInc
+= shutil =
 == 概述 ==
-shutil是一个更高级的文件处理模块,可以做到很多os模块做不到的事情.例如:listdir,copy.相当于shell的ls和cp功能.
+shutil模块提供了一些高层次的文件操作,比如复制,设置权限,删除等等.
 
 == 使用 ==
-=== copy ===
-函数功能:将指定文件复制出一个副本
+=== copyfile() ===
+copyfile()将源文件内容完全复制给目标文件.如果没有写入目标文件的权限,会引起IOError.另外,对于一些特殊文件,使用copyfile()是不能被复制成新的特殊文件的.
 {{{#!python
 import os
 from shutil import *
 
 print 'BEFORE:', os.listdir(os.getcwd())
-copyfile('shutil_copyfile.py', 'shutil_copyfile.py.copy')
+copyfile('pcs-212-1.py', 'pcs-212-1.py.copy')
 print 'AFTER:', os.listdir(os.getcwd())
+}}}
+{{{
+$ python pcs-212-1.py 
+BEFORE: ['pcs-212-1.py', 'pcs-212.moin']
+AFTER: ['pcs-212-1.py.copy', 'pcs-212-1.py', 'pcs-212.moin']
+}}}copyfile()其实是底层调用了copyfileobj()函数.文件名参数传递给copyfile()后,进而将此文件句柄传递给copyfileobj()并由它真正完成文件复制.
+
+=== copy() ===
+copy()函数类似于Unix命令cp,将源文件复制一个目标文件.和copyfile不同的是,如果目标参数是一个目录而不是文件,那么在这个目录中复制一个源文件副本(它与源文件同名).另外,文件的权限也随之复制.
+{{{#!python
+import os
+from shutil import *
+
+os.mkdir('example')
+print 'BEFORE:', os.listdir('example')
+copy('pcs-212-2.py', 'example')
+print 'AFTER:', os.listdir('example')
 }}}
 运行结果:
 {{{
-$ python shutil_copyfile.py 
-BEFORE: ['__init__.py', 'shutil_copyfile.py']
-AFTER: ['__init__.py', 'shutil_copyfile.py', 'shutil_copyfile.py.copy']
+$ python pcs-212-2.py 
+BEFORE: []
+AFTER: ['pcs-212-2.py']
 }}}
 
+=== copy2() ===
+copy2()函数类似于copy(),但不同于copy()的地方是,copy2()将一些元信息,如文件最后一次被读取时间和修改时间等,也复制给新文件.
+{{{#!python
+import os
+import time
+from shutil import *
 
+def show_file_info(filename):
+    stat_info = os.stat(filename)
+    print '\tMode    :', stat_info.st_mode
+    print '\tCreated :', time.ctime(stat_info.st_ctime)
+    print '\tAccessed:', time.ctime(stat_info.st_atime)
+    print '\tModified:', time.ctime(stat_info.st_mtime)
 
--- 清风  [[DateTime(2008-04-25T14:33:00Z)]] 
+os.mkdir('example')
+print 'SOURCE:'
+show_file_info('pcs-212-3.py')
+copy2('pcs-212-3.py', 'example')
+print 'DEST:'
+show_file_info('example/pcs-212-3.py')
+}}}
+运行结果如下,可以看到新文件的元信息和源文件的是一样的:
+{{{
+$ python pcs-212-3.py 
+SOURCE:
+	Mode    : 33188
+	Created : Sun Sep 14 16:49:31 2008
+	Accessed: Sun Sep 14 16:49:33 2008
+	Modified: Sun Sep 14 16:49:31 2008
+DEST:
+	Mode    : 33188
+	Created : Sun Sep 14 16:49:39 2008
+	Accessed: Sun Sep 14 16:49:33 2008
+	Modified: Sun Sep 14 16:49:31 2008
+}}}
+
+=== copymode() ===
+在Unix下,一个新创建的文件的权限会根据当前用户的umask值来设置.这里可以使用copymode()来实现被创建的文件具有umask值,而不是源文件的权限.
+{{{#!python
+from commands import *
+from shutil import *
+
+print 'BEFORE:', getstatus('file_to_change.txt')
+copymode('pcs-212-4.py', 'file_to_change.txt')
+print 'AFTER :', getstatus('file_to_change.txt')
+}}}
+首先创建一个文件file_to_change.txt.然后对其权限做些修改:
+{{{
+$ touch file_to_change.txt
+$ chmod ugo+w file_to_change.txt
+}}}
+然后,运行刚才的示例脚本:
+{{{
+$ python pcs-212-4.py 
+BEFORE: -rw-rw-rw- 1 shengyan shengyan 0 2008-09-14 16:54 file_to_change.txt
+AFTER : -rw-r--r-- 1 shengyan shengyan 0 2008-09-14 16:54 file_to_change.txt
+}}}可以看到两个文件的权限是不一样的,新的file_to_change.txt的权限设置是与普通新文件的权限一致.
+
+=== copystat() ===
+copystat()函数可以复制文件的其他元信息(权限,最后读取时间,最后修改时间等).它和copy2()函数很类似.
+{{{#!python
+import os
+from shutil import *
+import time
+
+def show_file_info(filename):
+    stat_info = os.stat(filename)
+    print '\tMode    :', stat_info.st_mode
+    print '\tCreated :', time.ctime(stat_info.st_ctime)
+    print '\tAccessed:', time.ctime(stat_info.st_atime)
+    print '\tModified:', time.ctime(stat_info.st_mtime)
+
+print 'BEFORE:'
+show_file_info('file_to_change.txt')
+copystat('pcs-212-5.py', 'file_to_change.txt')
+print 'AFTER :'
+show_file_info('file_to_change.txt')
+}}}
+运行结果如下:
+{{{
+$ python pcs-212-5.py 
+BEFORE:
+	Mode    : 33188
+	Created : Sun Sep 14 16:54:35 2008
+	Accessed: Sun Sep 14 16:54:36 2008
+	Modified: Sun Sep 14 16:54:09 2008
+AFTER :
+	Mode    : 33188
+	Created : Sun Sep 14 16:58:44 2008
+	Accessed: Sun Sep 14 16:58:44 2008
+	Modified: Sun Sep 14 16:58:42 2008
+}}}
+
+=== copytree() ===
+使用copytree()来复制目录,它会递归复制整个目录结构.目标目录必须不存在.其中的symlinks参数控制符号链接是否作为链接或文件被复制,默认是将其内容复制成一个新文件.如果此选项为true,新的链接会在目标目录中创建.
+{{{#!python
+from commands import *
+from shutil import *
+
+print 'BEFORE:'
+print getoutput('ls -rlast ./example_other')
+copytree('example', './example_other')
+print 'AFTER:'
+print getoutput('ls -rlast ./example_other')
+}}}
+运行结果:
+{{{
+$ python pcs-212-6.py 
+BEFORE:
+ls: 无法访问./example_other: 没有该文件或目录
+AFTER:
+总用量 12
+4 -rw-r--r-- 1 shengyan shengyan  473 2008-09-14 16:49 pcs-212-3.py
+4 drwxr-xr-x 2 shengyan shengyan 4096 2008-09-14 16:49 .
+4 drwxr-xr-x 5 shengyan shengyan 4096 2008-09-14 17:04 ..
+}}}
+
+=== rmtree() ===
+使用rmtree()可以删除整个目录.若其中产生错误,会作为异常抛出.但是如果它的第二个参数是目录,那么产生的错误会被忽略,第三个参数可以指定为一个特殊出错处理函数句柄.
+{{{#!python
+from commands import *
+from shutil import *
+
+print 'BEFORE:'
+print getoutput('ls -rlast ./example_other')
+rmtree('example_other', './example_other')
+print 'AFTER:'
+print getoutput('ls -rlast ./example_other')
+}}}
+{{{
+$ python pcs-212-7.py 
+BEFORE:
+总用量 12
+4 -rw-r--r-- 1 shengyan shengyan  473 2008-09-14 16:49 pcs-212-3.py
+4 drwxr-xr-x 2 shengyan shengyan 4096 2008-09-14 16:49 .
+4 drwxr-xr-x 5 shengyan shengyan 4096 2008-09-14 17:04 ..
+AFTER:
+ls: 无法访问./example_other: 没有该文件或目录
+}}}
+
+=== move() ===
+移动文件或目录可以使用move(),这类似于Unix命令mv.如果源文件或目录和目标文件或目录在同一个文件系统下,那么源文件或目录会直接重命名,否则源文件或目录会复制到目标文件或目录,接着删除源文件或目录.
+{{{#!python
+import os
+from shutil import *
+
+print 'BEFORE: example : ', os.listdir('example')
+move('example', 'example2')
+print 'AFTER : example2: ', os.listdir('example2')
+}}}
+{{{
+$ python pcs-212-8.py 
+BEFORE: example :  ['pcs-212-3.py']
+AFTER : example2:  ['pcs-212-3.py']
+}}}
+##endInc
