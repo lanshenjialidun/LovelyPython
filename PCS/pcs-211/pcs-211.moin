@@ -1,10 +1,11 @@
 ##language:zh
 ##OBP项目图书reST通用文章模板
 ###format rst
-||status|| 草稿 ||清风; 100%||
+||status|| 草稿 ||清风 & liz; 100%||
 
 [[TableOfContents]]
-
+##startInc
+= base64 =
 == 概述 ==
 Base64是网络上最常见的用于传输8Bit字节代码的编码方式之一，大家可以查看RFC2045～RFC2049，上面有MIME的详细规范。
 Base64要求把每三个8Bit的字节转换为四个6Bit的字节（3*8 = 4*6 = 24），然后把6Bit再添两位高位0，组成四个8Bit的字节，也就是说，转换后的字符串理论上将要比原来的长1/3。
@@ -128,4 +129,4 @@ Original: This is the data, in the clear.
 Encoded : 546869732069732074686520646174612C20696E2074686520636C6561722E
 Decoded : This is the data, in the clear.
 }}}
--- 清风  [[DateTime(2008-04-25T14:33:00Z)]] 
+##endInc

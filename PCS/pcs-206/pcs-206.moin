@@ -4,17 +4,17 @@
 ||status|| 草稿 ||清风 & liz; 100%||
 
 [[TableOfContents]]
-
+##startInc
+= thread =
 == 概述 ==
-python是支持多线程的,并且是native的线程。主要是通过thread和threading这两个模块来实现的。thread是比较底层的模块,threading是thread的包装,可以更加方便的被使用。这里需要提一下的是python对线程的支持还不够完善,不能利用多CPU,但是下个版本的python中已经考虑改进这点。
-我们不建议使用thread模块，是由于以下几点：
- * 首先，更高级别的threading模块更为先进，对线程的支持更为完善，而且使用thread模块里的属性有可能会与threading出现冲突。
- * 其次，低级别的thread模块的同步原语很少（实际上只有一个），而threading模块则有很多。
- * 另一个不要使用thread原因是，它对你的进程什么时候应该结束完全没有控制，当主线程结束时，所有的线程都会被强制结束掉，没有警告也不会有正常的清除工作。
+python是支持多线程的,并且是native的线程,主要是通过thread和threading这两个模块来实现的.thread是比较底层的模块,threading是thread的包装,可以更加方便的被使用.这里需要提一下的是python对线程的支持还不够完善,不能利用多CPU,但是下个版本的python中已经考虑改进这点.
+我们不建议使用thread模块,是由于以下几点:
+ * 首先,更高级别的threading模块更为先进,对线程的支持更为完善,而且使用thread模块里的属性有可能会与threading出现冲突。
+ * 其次,低级别的thread模块的同步原语很少(实际上只有一个),而threading模块则有很多.
+ * 另一个不要使用thread原因是,它对你的进程什么时候应该结束完全没有控制,当主线程结束时,所有的线程都会被强制结束掉,没有警告也不会有正常的清除工作.
 
 == 使用 ==
-=== 基本使用 ===
-下面举个使用thread模块的简单例子，主要是为了演示最基本的使用
+下面举个使用thread模块的简单例子:
 {{{#!python
 #!/usr/bin/env python 
 
@@ -42,8 +42,7 @@ def main():
 
 if __name__ == '__main__': 
 	main() 
-}}}
-运行之后，可以看到如下结果：
+}}}这个例子中,主程序创建了两个线程后进入睡眠6秒,而两个线程分别执行loop0和loop1,线程0在loop0中睡眠了4秒,而线程1在loop1中只睡眠了2秒,这样导致线程1先结束,线程0后结束,最后主程序6秒后退出.运行之后，可以看到如下结果：
 {{{
 $ python pcs-206-1.py 
 starting at: Sun Aug 31 20:04:44 2008
@@ -53,3 +52,4 @@ loop 1 done at: Sun Aug 31 20:04:46 2008
 loop 0 done at: Sun Aug 31 20:04:48 2008
 all DONE at: Sun Aug 31 20:04:50 2008
 }}}
+##endInc

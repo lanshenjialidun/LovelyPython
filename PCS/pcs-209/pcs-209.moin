@@ -1,12 +1,13 @@
 ##language:zh
 ##OBP项目图书reST通用文章模板
 ###format rst
-||status|| 草稿 ||清风 & liz; 95%||
+||status|| 草稿 ||清风 & liz; 100%||
 
 [[TableOfContents]]
-
+##startInc
+= fnmatch =
 == 概述 ==
-fnmatch 实现了shell patterns表匹配字符串或文件名
+fnmatch 实现了shell patterns表匹配字符串或文件名.
 ##这里的shell patterns是否翻译出来？fnmatch - Filename matching with shell patterns.
 
 == 使用 ==
@@ -57,3 +58,4 @@ True
 >>> fnmatch.translate('*.py')
 '.*\\.py$'
 }}}
+##endInc

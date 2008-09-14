@@ -2,7 +2,7 @@ from ConfigParser import ConfigParser
 import os
 
 filename = os.path.join('.', 'approachrc')
-#print filename
+print filename
 
 config = ConfigParser()
 config.read(filename)

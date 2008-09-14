@@ -3,12 +3,15 @@
 ##language:zh
 ##OBP项目图书reST通用文章模板
 ###format rst
-||status|| 草稿 ||清风; 100%||
+||status|| 草稿 ||清风 & liz; 100%||
 
 [[TableOfContents]]
 
+##startInc
+= ConfigParser =
+
 == 概述 ==
-ConfigParse是用来处理ini格式的配置文件的Python标准库.
+ConfigParser是用来处理ini格式的配置文件的Python标准库.
 
 == 使用 ==
 === read(self, filenames) ===
@@ -50,7 +53,7 @@ ConfigParse是用来处理ini格式的配置文件的Python标准库.
 }}}
 
 === 实例 ===
-配置文件示例:
+假设有如下的配置文件示例:
 {{{
 [portal]
 url = http://%(host)s:%(port)s/Portal
@@ -59,20 +62,23 @@ host = localhost
 password = SECRET
 port = 8080
 }}}
-
 使用ConfigParse解析:
 {{{#!python
 from ConfigParser import ConfigParser
 import os
 
 filename = os.path.join('.', 'approachrc')
-#print filename
+print filename
 
 config = ConfigParser()
 config.read(filename)
 
 url = config.get('portal', 'url')
 print url
+}}}这段代码中,config读取approachrc内容,获得字段portal中的选项url的值,可以看到approachrc中的url为http://%(host)s:%(port)s/Portal,这里的%(host)s和%(port)s又分别读取了host和port的值,最终得到了如下的结果:
+{{{
+$ python pcs-204-1.py 
+./approachrc
+http://localhost:8080/Portal
 }}}
-
--- 清风  [[DateTime(2008-04-25T14:33:00Z)]] 
+##endInc

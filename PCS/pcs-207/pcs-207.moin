@@ -1,18 +1,19 @@
 ##language:zh
 ##OBP项目图书reST通用文章模板
 ###format rst
-||status|| 草稿 ||清风; 100%||
+||status|| 草稿 ||清风 & liz; 100%||
 
 [[TableOfContents]]
-
+##startInc
+= threading =
 == 概述 ==
-python是支持多线程的,并且是native的线程。主要是通过thread和threading这两个模块来实现的。thread是比较底层的模块,threading是thread的包装,可以更加方便的被使用。这里需要提一下的是python对线程的支持还不够完善,不能利用多CPU,但是下个版本的python中已经考虑改进这点.
+python是支持多线程的,并且是native的线程,主要是通过thread和threading这两个模块来实现的.thread是比较底层的模块,threading是thread的包装,可以更加方便的被使用.这里需要提一下的是python对线程的支持还不够完善,不能利用多CPU,但是下个版本的python中已经考虑改进这点.
 
 == 使用 ==
 === threading ===
-threading模块里面主要是对一些线程的操作对象化了,创建了叫Thread的class.
+threading模块里面主要是对一些线程的操作对象化了,创建了叫Thread的类.
 
-==== 第一种使用方法 ====
+==== 第一种方法 ====
 使用线程有两种模式,一种是创建线程要执行的函数,把这个函数传递进Thread对象里,让它来执行.
 {{{#!python
 import string, threading, time
@@ -51,7 +52,7 @@ if __name__ == '__main__':
     num = 4
     # 创建4个线程
     main(4)
-}}}
+}}}这个例子中,主程序创建4个线程,每个线程对全局变量count进行加1运算.因为多个线程对同一个变量进行加1操作,为了避免冲突,在修改变量count之前加锁,之后解锁释放.运行下,可以看到:
 {{{
 $ python pcs-207-1.py 
 Thread-1 0 2
@@ -71,7 +72,7 @@ Thread-4 9 41
 }}}
 
 ==== 第二种方法 ====
-直接从Thread继承,创建一个新的class,把线程执行的代码放到这个新的class里。
+直接从Thread继承,创建一个新的类,把线程执行的代码放到这个新类里。
 {{{#!python
 import threading
 import time
@@ -86,8 +87,10 @@ class Test(threading.Thread):
         threadname = threading.currentThread().getName()
     
         for x in xrange(0, int(self._run_num)):
+            # 取得锁
             mutex.acquire()
             count = count + 1
+            # 释放锁
             mutex.release()
             print threadname, x, count
             time.sleep(1)
@@ -108,7 +111,5 @@ if __name__ == '__main__':
     # 等待子线程结束
     for t in threads:
         t.join()
-}}}
-结果同上。
-
--- 清风  [[DateTime(2008-04-25T14:33:00Z)]] 
+}}}这段代码的运行结果是和上面例子相同的,只是创建线程的方法是直接继承了threading.Thread类,主程序中只要创建这个类的对象就可以了.
+##endInc
