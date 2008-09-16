@@ -1,30 +1,30 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <?xml-stylesheet ekr_stylesheet?>
 <leo_file>
 <leo_header file_format="2" tnodes="0" max_tnode_index="0" clone_windows="0"/>
-<globals body_outline_ratio="0.237795275591">
+<globals body_outline_ratio="0.233070866142">
 	<global_window_position top="27" left="10" height="716" width="1270"/>
 	<global_log_window_position top="0" left="0" height="0" width="0"/>
 </globals>
 <preferences/>
 <find_panel_settings/>
 <vnodes>
-<v t="zoomq.20080818231058.44"><vh>@chapters</vh></v>
+<v t="zoomq.20080818231058.44" str_leo_pos="1,4,4,1,5,0"><vh>@chapters</vh></v>
 <v t="zoomq.20080818231058.3" a="E"><vh>KDayStory</vh>
 <v t="zoomq.20080818231058.5"><vh>kday1</vh>
 <v t="zoomq.20080818231058.6"><vh>Kday1:尝试</vh></v>
 <v t="zoomq.20080818231058.7"><vh>尝试</vh>
-<v t="zoomq.20080818231058.10" a="E" tnodeList="zoomq.20080818231058.10"><vh>@nosent index.pih</vh></v>
+<v t="zoomq.20080818231058.10" tnodeList="zoomq.20080818231058.10"><vh>@nosent index.pih</vh></v>
 </v>
 <v t="zoomq.20080818231058.11"><vh>问卷设计</vh>
 <v t="zoomq.20080818231058.12" tnodeList="zoomq.20080818231058.12"><vh>@nosent easy051201.cfg</vh></v>
 </v>
 </v>
-<v t="zoomq.20080818231058.14" a="E"><vh>kday2</vh>
+<v t="zoomq.20080818231058.14"><vh>kday2</vh>
 <v t="zoomq.20080818231058.15"><vh>Kday2:完成</vh></v>
 <v t="zoomq.20080818231058.16" a="E"><vh>管理</vh>
-<v t="zoomq.20080818231058.18" a="E" tnodeList="zoomq.20080818231058.18"><vh>@nosent  mana.pih</vh></v>
-<v t="zoomq.20080818231058.19" a="E" tnodeList="zoomq.20080818231058.19"><vh>@nosent questionnaire.tmpl</vh></v>
+<v t="zoomq.20080818231058.18" tnodeList="zoomq.20080818231058.18"><vh>@nosent  mana.pih</vh></v>
+<v t="zoomq.20080818231058.19" tnodeList="zoomq.20080818231058.19"><vh>@nosent questionnaire.tmpl</vh></v>
 <v t="zoomq.20080818231058.20" a="E" tnodeList="zoomq.20080818231058.20,zoomq.20080818231058.21,zoomq.20080818231058.22,zoomq.20080818231058.23"><vh>@nosent  qdesign.py</vh>
 <v t="zoomq.20080818231058.21"><vh>&lt;&lt; page declarations &gt;&gt;</vh></v>
 <v t="zoomq.20080818231058.22"><vh>init</vh></v>
@@ -40,7 +40,7 @@
 <v t="zoomq.20080818231058.30"><vh>desc</vh></v>
 <v t="zoomq.20080818231058.31"><vh>askloop</vh></v>
 </v>
-<v t="zoomq.20080818231058.32" a="E"><vh>&lt;&lt; try &gt;&gt;</vh></v>
+<v t="zoomq.20080818231058.32"><vh>&lt;&lt; try &gt;&gt;</vh></v>
 </v>
 <v t="zoomq.20080818231058.33" tnodeList="zoomq.20080818231058.33,zoomq.20080818231058.34,zoomq.20080818231058.34"><vh>@nosent  qprint.pih</vh>
 <v t="zoomq.20080818231058.34"><vh>&lt;&lt;backdesign&gt;&gt;</vh></v>
@@ -58,7 +58,7 @@
 <v t="zoomq.20080818231058.42" tnodeList="zoomq.20080818231058.42"><vh>@nosent easy051201.cfg</vh></v>
 </v>
 </v>
-<v t="zoomq.20080818232347.3" a="E"><vh>kday3</vh>
+<v t="zoomq.20080818232347.3"><vh>kday3</vh>
 <v t="zoomq.20080818232347.4"><vh>Kday3:发现</vh></v>
 <v t="zoomq.20080818232347.5"><vh>问卷设计</vh>
 <v t="zoomq.20080818232347.6" tnodeList="zoomq.20080818232347.6"><vh>@nosent easy051201.cfg</vh></v>
@@ -69,12 +69,12 @@
 <v t="zoomq.20080818232347.10" a="E"><vh>EPserver.css</vh>
 <v t="zoomq.20080818232347.11"><vh>&lt;&lt;表单&gt;&gt;</vh></v>
 <v t="zoomq.20080818232347.12"><vh>&lt;&lt;色系&gt;&gt;</vh></v>
-<v t="zoomq.20080818232347.13" a="E"><vh>&lt;&lt;效果&gt;&gt;</vh></v>
+<v t="zoomq.20080818232347.13"><vh>&lt;&lt;效果&gt;&gt;</vh></v>
 </v>
 </v>
 </v>
 <v t="zoomq.20080818232347.14" a="E"><vh>管理</vh>
-<v t="zoomq.20080818232347.15" a="E" tnodeList="zoomq.20080818232347.15"><vh>@nosent __init__.py</vh></v>
+<v t="zoomq.20080818232347.15" tnodeList="zoomq.20080818232347.15"><vh>@nosent __init__.py</vh></v>
 <v t="zoomq.20080818232347.16" tnodeList="zoomq.20080818232347.16"><vh>@nosent tryKQF.py</vh></v>
 <v t="zoomq.20080818232347.17" a="E" tnodeList="zoomq.20080818232347.17,zoomq.20080818232347.8,zoomq.20080818232347.9,zoomq.20080818232347.10,zoomq.20080818232347.11,zoomq.20080818232347.12,zoomq.20080818232347.13"><vh>@nosent  mana.pih</vh>
 <v t="zoomq.20080818232347.8"><vh>&lt;&lt;k_base&gt;&gt;</vh>
@@ -82,11 +82,11 @@
 <v t="zoomq.20080818232347.10" a="E"><vh>EPserver.css</vh>
 <v t="zoomq.20080818232347.11"><vh>&lt;&lt;表单&gt;&gt;</vh></v>
 <v t="zoomq.20080818232347.12"><vh>&lt;&lt;色系&gt;&gt;</vh></v>
-<v t="zoomq.20080818232347.13" a="E"><vh>&lt;&lt;效果&gt;&gt;</vh></v>
+<v t="zoomq.20080818232347.13"><vh>&lt;&lt;效果&gt;&gt;</vh></v>
 </v>
 </v>
 </v>
-<v t="zoomq.20080818232347.18" a="E" tnodeList="zoomq.20080818232347.18"><vh>@nosent questionnaire.tmpl</vh></v>
+<v t="zoomq.20080818232347.18" tnodeList="zoomq.20080818232347.18"><vh>@nosent questionnaire.tmpl</vh></v>
 <v t="zoomq.20080818232347.19" tnodeList="zoomq.20080818232347.19,zoomq.20080818232347.20,zoomq.20080818232347.21,zoomq.20080818232347.22"><vh>@nosent  qdesign.py</vh>
 <v t="zoomq.20080818232347.20"><vh>&lt;&lt; page declarations &gt;&gt;</vh></v>
 <v t="zoomq.20080818232347.21"><vh>init</vh></v>
@@ -99,7 +99,7 @@
 <v t="zoomq.20080818232347.10" a="E"><vh>EPserver.css</vh>
 <v t="zoomq.20080818232347.11"><vh>&lt;&lt;表单&gt;&gt;</vh></v>
 <v t="zoomq.20080818232347.12"><vh>&lt;&lt;色系&gt;&gt;</vh></v>
-<v t="zoomq.20080818232347.13" a="E"><vh>&lt;&lt;效果&gt;&gt;</vh></v>
+<v t="zoomq.20080818232347.13"><vh>&lt;&lt;效果&gt;&gt;</vh></v>
 </v>
 </v>
 </v>
@@ -110,16 +110,16 @@
 <v t="zoomq.20080818232347.29"><vh>desc</vh></v>
 <v t="zoomq.20080818232347.30"><vh>askloop</vh></v>
 </v>
-<v t="zoomq.20080818232347.31" a="E"><vh>&lt;&lt; try &gt;&gt;</vh></v>
+<v t="zoomq.20080818232347.31"><vh>&lt;&lt; try &gt;&gt;</vh></v>
 </v>
-<v t="zoomq.20080818232347.32" a="ETV" tnodeList="zoomq.20080818232347.32,zoomq.20080818232347.8,zoomq.20080818232347.9,zoomq.20080818232347.10,zoomq.20080818232347.11,zoomq.20080818232347.12,zoomq.20080818232347.13,zoomq.20080818232347.33,zoomq.20080818232347.33"><vh>@nosent  qprint.pih</vh>
+<v t="zoomq.20080818232347.32" a="E" tnodeList="zoomq.20080818232347.32,zoomq.20080818232347.8,zoomq.20080818232347.9,zoomq.20080818232347.10,zoomq.20080818232347.11,zoomq.20080818232347.12,zoomq.20080818232347.13,zoomq.20080818232347.33,zoomq.20080818232347.33"><vh>@nosent  qprint.pih</vh>
 <v t="zoomq.20080818232347.33"><vh>&lt;&lt;导航&gt;&gt;</vh></v>
 <v t="zoomq.20080818232347.8"><vh>&lt;&lt;k_base&gt;&gt;</vh>
 <v t="zoomq.20080818232347.9"><vh>k_base.css</vh></v>
 <v t="zoomq.20080818232347.10" a="E"><vh>EPserver.css</vh>
 <v t="zoomq.20080818232347.11"><vh>&lt;&lt;表单&gt;&gt;</vh></v>
 <v t="zoomq.20080818232347.12"><vh>&lt;&lt;色系&gt;&gt;</vh></v>
-<v t="zoomq.20080818232347.13" a="E"><vh>&lt;&lt;效果&gt;&gt;</vh></v>
+<v t="zoomq.20080818232347.13"><vh>&lt;&lt;效果&gt;&gt;</vh></v>
 </v>
 </v>
 </v>
@@ -134,7 +134,7 @@
 </v>
 <v t="zoomq.20080818232347.40"><vh>KQf</vh>
 <v t="zoomq.20080818232347.41" a="E" tnodeList="zoomq.20080818232347.41,zoomq.20080818232347.42,zoomq.20080818232347.43,zoomq.20080818232347.44,zoomq.20080818232347.45,zoomq.20080818232347.46,zoomq.20080818232347.47,zoomq.20080818232347.48,zoomq.20080818232347.49,zoomq.20080818232347.50,zoomq.20080818232347.51,zoomq.20080818232347.52,zoomq.20080818232347.53,zoomq.20080818232347.54,zoomq.20080818232347.55,zoomq.20080818232347.56,zoomq.20080818232347.57,zoomq.20080818232347.58,zoomq.20080818232347.59,zoomq.20080818232347.60,zoomq.20080818232347.61,zoomq.20080818232347.62,zoomq.20080818232347.63,zoomq.20080818232347.64,zoomq.20080818232347.65,zoomq.20080818232347.66,zoomq.20080818232347.67,zoomq.20080818232347.68,zoomq.20080818232347.69,zoomq.20080818232347.70,zoomq.20080818232347.71,zoomq.20080818232347.72,zoomq.20080818232347.73,zoomq.20080818232347.74,zoomq.20080818232347.75,zoomq.20080818232347.76,zoomq.20080818232347.77,zoomq.20080818232347.78,zoomq.20080818232347.80,zoomq.20080818232347.81,zoomq.20080818232347.82,zoomq.20080818232347.83"><vh>@nosent Karrigell_QuickForm.py</vh>
-<v t="zoomq.20080818232347.42" a="E"><vh>&lt;&lt; Karrigell_QuickForm declarations &gt;&gt;</vh></v>
+<v t="zoomq.20080818232347.42"><vh>&lt;&lt; Karrigell_QuickForm declarations &gt;&gt;</vh></v>
 <v t="zoomq.20080818232347.43" a="E"><vh>class Karrigell_QuickForm</vh>
 <v t="zoomq.20080818232347.44" a="E"><vh>__init__</vh>
 <v t="zoomq.20080818232347.45"><vh>&lt;&lt;JVF&gt;&gt;</vh></v>
@@ -162,12 +162,12 @@
 <v t="zoomq.20080818232347.64"><vh>addTextArea</vh></v>
 <v t="zoomq.20080818232347.65"><vh>addCntTextArea</vh></v>
 <v t="zoomq.20080818232347.66"><vh>addGroup</vh></v>
-<v t="zoomq.20080818232347.67" a="E"><vh>addComboBox</vh></v>
+<v t="zoomq.20080818232347.67"><vh>addComboBox</vh></v>
 <v t="zoomq.20080818232347.68"><vh>addRadioGroup</vh></v>
-<v t="zoomq.20080818232347.69" a="E"><vh>addRadioList</vh></v>
-<v t="zoomq.20080818232347.70" a="E"><vh>addRadioLi</vh></v>
-<v t="zoomq.20080818232347.71" a="E"><vh>addVarRadioList</vh></v>
-<v t="zoomq.20080818232347.72" a="E"><vh>addRadioGrp</vh></v>
+<v t="zoomq.20080818232347.69"><vh>addRadioList</vh></v>
+<v t="zoomq.20080818232347.70"><vh>addRadioLi</vh></v>
+<v t="zoomq.20080818232347.71"><vh>addVarRadioList</vh></v>
+<v t="zoomq.20080818232347.72"><vh>addRadioGrp</vh></v>
 <v t="zoomq.20080818232347.73"><vh>addCheckboxGrp</vh></v>
 <v t="zoomq.20080818232347.74"><vh>showFormList</vh></v>
 <v t="zoomq.20080818232347.75"><vh>display</vh></v>
@@ -198,7 +198,7 @@
 <v t="zoomq.20080818232601.13" a="E"><vh>EPserver.css</vh>
 <v t="zoomq.20080818232601.14"><vh>&lt;&lt;表单&gt;&gt;</vh></v>
 <v t="zoomq.20080818232601.15"><vh>&lt;&lt;色系&gt;&gt;</vh></v>
-<v t="zoomq.20080818232601.16" a="E"><vh>&lt;&lt;效果&gt;&gt;</vh></v>
+<v t="zoomq.20080818232601.16"><vh>&lt;&lt;效果&gt;&gt;</vh></v>
 </v>
 </v>
 </v>
@@ -208,14 +208,14 @@
 <v t="zoomq.20080818232601.19" tnodeList="zoomq.20080818232601.19"><vh>@nosent questionnaire.cfg</vh></v>
 <v t="zoomq.20080818232601.20" a="E"><vh>KS</vh>
 <v t="zoomq.20080818232601.21" a="E" tnodeList="zoomq.20080818232601.21,zoomq.20080818232601.22,zoomq.20080818232601.10,zoomq.20080818232601.11,zoomq.20080818232601.12,zoomq.20080818232601.13,zoomq.20080818232601.14,zoomq.20080818232601.15,zoomq.20080818232601.16,zoomq.20080818232601.23,zoomq.20080818232601.24,zoomq.20080818232601.17,zoomq.20080818232601.25,zoomq.20080818232601.26,zoomq.20080818232601.27,zoomq.20080818232601.28,zoomq.20080818232601.29,zoomq.20080818232601.18,zoomq.20080818232601.30,zoomq.20080818232601.17,zoomq.20080818232601.31,zoomq.20080818232601.18,zoomq.20080818232601.32,zoomq.20080818232601.33,zoomq.20080818232601.34,zoomq.20080818232601.17,zoomq.20080818232601.18"><vh>@nosent index.ks</vh>
-<v t="zoomq.20080818232601.22" a="E"><vh>&lt;&lt; page declarations &gt;&gt;</vh></v>
+<v t="zoomq.20080818232601.22"><vh>&lt;&lt; page declarations &gt;&gt;</vh></v>
 <v t="zoomq.20080818232601.10"><vh>&lt;&lt; htmlcode &gt;&gt;</vh>
 <v t="zoomq.20080818232601.11" a="E"><vh>&lt;&lt;k_base&gt;&gt;</vh>
 <v t="zoomq.20080818232601.12"><vh>k_base.css</vh></v>
 <v t="zoomq.20080818232601.13" a="E"><vh>EPserver.css</vh>
 <v t="zoomq.20080818232601.14"><vh>&lt;&lt;表单&gt;&gt;</vh></v>
 <v t="zoomq.20080818232601.15"><vh>&lt;&lt;色系&gt;&gt;</vh></v>
-<v t="zoomq.20080818232601.16" a="E"><vh>&lt;&lt;效果&gt;&gt;</vh></v>
+<v t="zoomq.20080818232601.16"><vh>&lt;&lt;效果&gt;&gt;</vh></v>
 </v>
 </v>
 </v>
@@ -244,7 +244,7 @@
 </v>
 </v>
 <v t="zoomq.20080818232601.35"><vh>管理</vh>
-<v t="zoomq.20080818232601.36" a="E"><vh>@thin __init__.py</vh></v>
+<v t="zoomq.20080818232601.36"><vh>@thin __init__.py</vh></v>
 <v t="zoomq.20080818232601.37" tnodeList="zoomq.20080818232601.37"><vh>@nosent tryKQF.py</vh></v>
 <v t="zoomq.20080818232601.38" tnodeList="zoomq.20080818232601.38,zoomq.20080818232601.39,zoomq.20080818232601.40,zoomq.20080818232601.41,zoomq.20080818232601.42,zoomq.20080818232601.43,zoomq.20080818232601.44"><vh>@nosent  mana.pih</vh>
 <v t="zoomq.20080818232601.39"><vh>&lt;&lt;k_base&gt;&gt;</vh>
@@ -252,11 +252,11 @@
 <v t="zoomq.20080818232601.41" a="E"><vh>EPserver.css</vh>
 <v t="zoomq.20080818232601.42"><vh>&lt;&lt;表单&gt;&gt;</vh></v>
 <v t="zoomq.20080818232601.43"><vh>&lt;&lt;色系&gt;&gt;</vh></v>
-<v t="zoomq.20080818232601.44" a="E"><vh>&lt;&lt;效果&gt;&gt;</vh></v>
+<v t="zoomq.20080818232601.44"><vh>&lt;&lt;效果&gt;&gt;</vh></v>
 </v>
 </v>
 </v>
-<v t="zoomq.20080818232601.45" a="E" tnodeList="zoomq.20080818232601.45"><vh>@nosent questionnaire.tmpl</vh></v>
+<v t="zoomq.20080818232601.45" tnodeList="zoomq.20080818232601.45"><vh>@nosent questionnaire.tmpl</vh></v>
 <v t="zoomq.20080818232601.46" tnodeList="zoomq.20080818232601.46,zoomq.20080818232601.47,zoomq.20080818232601.48,zoomq.20080818232601.49"><vh>@nosent  qdesign.py</vh>
 <v t="zoomq.20080818232601.47"><vh>&lt;&lt; page declarations &gt;&gt;</vh></v>
 <v t="zoomq.20080818232601.48"><vh>init</vh></v>
@@ -269,7 +269,7 @@
 <v t="zoomq.20080818232601.41" a="E"><vh>EPserver.css</vh>
 <v t="zoomq.20080818232601.42"><vh>&lt;&lt;表单&gt;&gt;</vh></v>
 <v t="zoomq.20080818232601.43"><vh>&lt;&lt;色系&gt;&gt;</vh></v>
-<v t="zoomq.20080818232601.44" a="E"><vh>&lt;&lt;效果&gt;&gt;</vh></v>
+<v t="zoomq.20080818232601.44"><vh>&lt;&lt;效果&gt;&gt;</vh></v>
 </v>
 </v>
 </v>
@@ -280,7 +280,7 @@
 <v t="zoomq.20080818232601.56"><vh>desc</vh></v>
 <v t="zoomq.20080818232601.57"><vh>askloop</vh></v>
 </v>
-<v t="zoomq.20080818232601.58" a="E"><vh>&lt;&lt; try &gt;&gt;</vh></v>
+<v t="zoomq.20080818232601.58"><vh>&lt;&lt; try &gt;&gt;</vh></v>
 </v>
 <v t="zoomq.20080818232601.59" a="E" tnodeList="zoomq.20080818232601.59,zoomq.20080818232601.39,zoomq.20080818232601.40,zoomq.20080818232601.41,zoomq.20080818232601.42,zoomq.20080818232601.43,zoomq.20080818232601.44,zoomq.20080818232601.60,zoomq.20080818232601.60"><vh>@nosent  qprint.pih</vh>
 <v t="zoomq.20080818232601.60"><vh>&lt;&lt;导航&gt;&gt;</vh></v>
@@ -289,7 +289,7 @@
 <v t="zoomq.20080818232601.41" a="E"><vh>EPserver.css</vh>
 <v t="zoomq.20080818232601.42"><vh>&lt;&lt;表单&gt;&gt;</vh></v>
 <v t="zoomq.20080818232601.43"><vh>&lt;&lt;色系&gt;&gt;</vh></v>
-<v t="zoomq.20080818232601.44" a="E"><vh>&lt;&lt;效果&gt;&gt;</vh></v>
+<v t="zoomq.20080818232601.44"><vh>&lt;&lt;效果&gt;&gt;</vh></v>
 </v>
 </v>
 </v>
@@ -304,7 +304,7 @@
 </v>
 <v t="zoomq.20080818232601.67"><vh>KQf</vh>
 <v t="zoomq.20080818232601.68" a="E" tnodeList="zoomq.20080818232601.68,zoomq.20080818232601.69,zoomq.20080818232601.70,zoomq.20080818232601.71,zoomq.20080818232601.72,zoomq.20080818232601.73,zoomq.20080818232601.74,zoomq.20080818232601.75,zoomq.20080818232601.76,zoomq.20080818232601.77,zoomq.20080818232601.78,zoomq.20080818232601.79,zoomq.20080818232601.80,zoomq.20080818232601.81,zoomq.20080818232601.82,zoomq.20080818232601.83,zoomq.20080818232601.84,zoomq.20080818232601.85,zoomq.20080818232601.86,zoomq.20080818232601.87,zoomq.20080818232601.88,zoomq.20080818232601.89,zoomq.20080818232601.90,zoomq.20080818232601.91,zoomq.20080818232601.92,zoomq.20080818232601.93,zoomq.20080818232601.94,zoomq.20080818232601.95,zoomq.20080818232601.96,zoomq.20080818232601.97,zoomq.20080818232601.98,zoomq.20080818232601.99,zoomq.20080818232601.100,zoomq.20080818232601.101,zoomq.20080818232601.102,zoomq.20080818232601.103,zoomq.20080818232601.104,zoomq.20080818232601.105,zoomq.20080818232601.107,zoomq.20080818232601.108,zoomq.20080818232601.109,zoomq.20080818232601.110"><vh>@nosent Karrigell_QuickForm.py</vh>
-<v t="zoomq.20080818232601.69" a="E"><vh>&lt;&lt; Karrigell_QuickForm declarations &gt;&gt;</vh></v>
+<v t="zoomq.20080818232601.69"><vh>&lt;&lt; Karrigell_QuickForm declarations &gt;&gt;</vh></v>
 <v t="zoomq.20080818232601.70" a="E"><vh>class Karrigell_QuickForm</vh>
 <v t="zoomq.20080818232601.71"><vh>__init__</vh>
 <v t="zoomq.20080818232601.72"><vh>&lt;&lt;JVF&gt;&gt;</vh></v>
@@ -332,12 +332,12 @@
 <v t="zoomq.20080818232601.91"><vh>addTextArea</vh></v>
 <v t="zoomq.20080818232601.92"><vh>addCntTextArea</vh></v>
 <v t="zoomq.20080818232601.93"><vh>addGroup</vh></v>
-<v t="zoomq.20080818232601.94" a="E"><vh>addComboBox</vh></v>
+<v t="zoomq.20080818232601.94"><vh>addComboBox</vh></v>
 <v t="zoomq.20080818232601.95"><vh>addRadioGroup</vh></v>
-<v t="zoomq.20080818232601.96" a="E"><vh>addRadioList</vh></v>
-<v t="zoomq.20080818232601.97" a="E"><vh>addRadioLi</vh></v>
-<v t="zoomq.20080818232601.98" a="E"><vh>addVarRadioList</vh></v>
-<v t="zoomq.20080818232601.99" a="E"><vh>addRadioGrp</vh></v>
+<v t="zoomq.20080818232601.96"><vh>addRadioList</vh></v>
+<v t="zoomq.20080818232601.97"><vh>addRadioLi</vh></v>
+<v t="zoomq.20080818232601.98"><vh>addVarRadioList</vh></v>
+<v t="zoomq.20080818232601.99"><vh>addRadioGrp</vh></v>
 <v t="zoomq.20080818232601.100"><vh>addCheckboxGrp</vh></v>
 <v t="zoomq.20080818232601.101"><vh>showFormList</vh></v>
 <v t="zoomq.20080818232601.102"><vh>display</vh></v>
@@ -354,21 +354,21 @@
 </v>
 </v>
 </v>
-<v t="zoomq.20080818233010.3"><vh>kday5</vh>
+<v t="zoomq.20080818233010.3" a="E"><vh>kday5</vh>
 <v t="zoomq.20080818233010.4"><vh>Kday5:重构</vh></v>
 <v t="zoomq.20080818233010.5"><vh>问卷设计</vh>
 <v t="zoomq.20080818233010.6" tnodeList="zoomq.20080818233010.6"><vh>@nosent easy051201.cfg</vh></v>
 <v t="zoomq.20080818233010.7" tnodeList="zoomq.20080818233010.7"><vh>@nosent CPUG051211.cfg</vh></v>
 <v t="zoomq.20080818233010.8" tnodeList="zoomq.20080818233010.8"><vh>@nosent Python051221.cfg</vh></v>
 </v>
-<v t="zoomq.20080818233010.9"><vh>复用代码</vh>
+<v t="zoomq.20080818233010.9" a="E"><vh>复用代码</vh>
 <v t="zoomq.20080818233010.10"><vh>&lt;&lt; htmlcode &gt;&gt;</vh>
-<v t="zoomq.20080818233010.11" a="E"><vh>&lt;&lt;k_base&gt;&gt;</vh>
+<v t="zoomq.20080818233010.11"><vh>&lt;&lt;k_base&gt;&gt;</vh>
 <v t="zoomq.20080818233010.12"><vh>k_base.css</vh></v>
 <v t="zoomq.20080818233010.13" a="E"><vh>EPserver.css</vh>
 <v t="zoomq.20080818233010.14"><vh>&lt;&lt;表单&gt;&gt;</vh></v>
 <v t="zoomq.20080818233010.15"><vh>&lt;&lt;色系&gt;&gt;</vh></v>
-<v t="zoomq.20080818233010.16" a="E"><vh>&lt;&lt;效果&gt;&gt;</vh></v>
+<v t="zoomq.20080818233010.16"><vh>&lt;&lt;效果&gt;&gt;</vh></v>
 </v>
 </v>
 </v>
@@ -376,16 +376,16 @@
 <v t="zoomq.20080818233010.18"><vh>&lt;&lt; pagefoot &gt;&gt;</vh></v>
 </v>
 <v t="zoomq.20080818233010.19" tnodeList="zoomq.20080818233010.19"><vh>@nosent questionnaire.cfg</vh></v>
-<v t="zoomq.20080818233010.20"><vh>KS</vh>
+<v t="zoomq.20080818233010.20" a="E"><vh>KS</vh>
 <v t="zoomq.20080818233010.21" tnodeList="zoomq.20080818233010.21,zoomq.20080818233010.22,zoomq.20080818233010.10,zoomq.20080818233010.11,zoomq.20080818233010.12,zoomq.20080818233010.13,zoomq.20080818233010.14,zoomq.20080818233010.15,zoomq.20080818233010.16,zoomq.20080818233010.23,zoomq.20080818233010.24,zoomq.20080818233010.17,zoomq.20080818233010.25,zoomq.20080818233010.26,zoomq.20080818233010.27,zoomq.20080818233010.28,zoomq.20080818233010.29,zoomq.20080818233010.18,zoomq.20080818233010.30,zoomq.20080818233010.17,zoomq.20080818233010.31,zoomq.20080818233010.18,zoomq.20080818233010.32,zoomq.20080818233010.33,zoomq.20080818233010.34,zoomq.20080818233010.17,zoomq.20080818233010.35,zoomq.20080818233010.18,zoomq.20080818233010.36,zoomq.20080818233010.17,zoomq.20080818233010.37,zoomq.20080818233010.18,zoomq.20080818233010.38,zoomq.20080818233010.39,zoomq.20080818233010.41,zoomq.20080818233010.40"><vh>@nosent index.ks</vh>
-<v t="zoomq.20080818233010.22" a="E"><vh>&lt;&lt; page declarations &gt;&gt;</vh></v>
+<v t="zoomq.20080818233010.22"><vh>&lt;&lt; page declarations &gt;&gt;</vh></v>
 <v t="zoomq.20080818233010.10"><vh>&lt;&lt; htmlcode &gt;&gt;</vh>
-<v t="zoomq.20080818233010.11" a="E"><vh>&lt;&lt;k_base&gt;&gt;</vh>
+<v t="zoomq.20080818233010.11"><vh>&lt;&lt;k_base&gt;&gt;</vh>
 <v t="zoomq.20080818233010.12"><vh>k_base.css</vh></v>
 <v t="zoomq.20080818233010.13" a="E"><vh>EPserver.css</vh>
 <v t="zoomq.20080818233010.14"><vh>&lt;&lt;表单&gt;&gt;</vh></v>
 <v t="zoomq.20080818233010.15"><vh>&lt;&lt;色系&gt;&gt;</vh></v>
-<v t="zoomq.20080818233010.16" a="E"><vh>&lt;&lt;效果&gt;&gt;</vh></v>
+<v t="zoomq.20080818233010.16"><vh>&lt;&lt;效果&gt;&gt;</vh></v>
 </v>
 </v>
 </v>
@@ -408,7 +408,7 @@
 <v t="zoomq.20080818233010.32"><vh>logout</vh></v>
 <v t="zoomq.20080818233010.33"><vh>chkusr</vh></v>
 <v t="zoomq.20080818233010.34" a="E"><vh>page</vh>
-<v t="zoomq.20080818233010.35" a="E"><vh>&lt;&lt;导航&gt;&gt;</vh></v>
+<v t="zoomq.20080818233010.35"><vh>&lt;&lt;导航&gt;&gt;</vh></v>
 <v t="zoomq.20080818233010.17"><vh>&lt;&lt; pagehead &gt;&gt;</vh></v>
 <v t="zoomq.20080818233010.18"><vh>&lt;&lt; pagefoot &gt;&gt;</vh></v>
 </v>
@@ -420,18 +420,18 @@
 <v t="zoomq.20080818233010.38"><vh>_qpubish()</vh>
 <v t="zoomq.20080818233010.39"><vh>&lt;&lt;表单类型&gt;&gt;</vh></v>
 <v t="zoomq.20080818233010.40"><vh>&lt;&lt;submit&gt;&gt;</vh></v>
-<v t="zoomq.20080818233010.41" a="E"><vh>&lt;&lt;loopask&gt;&gt;</vh></v>
+<v t="zoomq.20080818233010.41"><vh>&lt;&lt;loopask&gt;&gt;</vh></v>
 </v>
 </v>
-<v t="zoomq.20080818233010.42" tnodeList="zoomq.20080818233010.42,zoomq.20080818233010.43,zoomq.20080818233010.10,zoomq.20080818233010.11,zoomq.20080818233010.12,zoomq.20080818233010.13,zoomq.20080818233010.14,zoomq.20080818233010.15,zoomq.20080818233010.16,zoomq.20080818233010.44,zoomq.20080818233010.45,zoomq.20080818233010.48,zoomq.20080818233010.46,zoomq.20080818233010.47,zoomq.20080818233010.49,zoomq.20080818233010.50,zoomq.20080818233010.48,zoomq.20080818233010.52,zoomq.20080818233010.51,zoomq.20080818233010.49,zoomq.20080818233010.53,zoomq.20080818233010.48,zoomq.20080818233010.54,zoomq.20080818233010.49,zoomq.20080818233010.55,zoomq.20080818233010.56,zoomq.20080818233010.57,zoomq.20080818233010.58"><vh>@nosent mana.ks</vh>
+<v t="zoomq.20080818233010.42" a="E" tnodeList="zoomq.20080818233010.42,zoomq.20080818233010.43,zoomq.20080818233010.10,zoomq.20080818233010.11,zoomq.20080818233010.12,zoomq.20080818233010.13,zoomq.20080818233010.14,zoomq.20080818233010.15,zoomq.20080818233010.16,zoomq.20080818233010.44,zoomq.20080818233010.45,zoomq.20080818233010.48,zoomq.20080818233010.46,zoomq.20080818233010.47,zoomq.20080818233010.49,zoomq.20080818233010.50,zoomq.20080818233010.48,zoomq.20080818233010.52,zoomq.20080818233010.51,zoomq.20080818233010.49,zoomq.20080818233010.53,zoomq.20080818233010.48,zoomq.20080818233010.54,zoomq.20080818233010.49,zoomq.20080818233010.55,zoomq.20080818233010.56,zoomq.20080818233010.57,zoomq.20080818233010.58"><vh>@nosent mana.ks</vh>
 <v t="zoomq.20080818233010.43"><vh>&lt;&lt; page declarations &gt;&gt;</vh></v>
-<v t="zoomq.20080818233010.10"><vh>&lt;&lt; htmlcode &gt;&gt;</vh>
-<v t="zoomq.20080818233010.11" a="E"><vh>&lt;&lt;k_base&gt;&gt;</vh>
+<v t="zoomq.20080818233010.10" a="E"><vh>&lt;&lt; htmlcode &gt;&gt;</vh>
+<v t="zoomq.20080818233010.11"><vh>&lt;&lt;k_base&gt;&gt;</vh>
 <v t="zoomq.20080818233010.12"><vh>k_base.css</vh></v>
 <v t="zoomq.20080818233010.13" a="E"><vh>EPserver.css</vh>
 <v t="zoomq.20080818233010.14"><vh>&lt;&lt;表单&gt;&gt;</vh></v>
 <v t="zoomq.20080818233010.15"><vh>&lt;&lt;色系&gt;&gt;</vh></v>
-<v t="zoomq.20080818233010.16" a="E"><vh>&lt;&lt;效果&gt;&gt;</vh></v>
+<v t="zoomq.20080818233010.16"><vh>&lt;&lt;效果&gt;&gt;</vh></v>
 </v>
 </v>
 </v>
@@ -443,7 +443,7 @@
 <v t="zoomq.20080818233010.49"><vh>&lt;&lt; pagefoot &gt;&gt;</vh></v>
 </v>
 <v t="zoomq.20080818233010.50"><vh>page</vh>
-<v t="zoomq.20080818233010.51" a="E"><vh>&lt;&lt;问卷展示&gt;&gt;</vh></v>
+<v t="zoomq.20080818233010.51"><vh>&lt;&lt;问卷展示&gt;&gt;</vh></v>
 <v t="zoomq.20080818233010.52"><vh>&lt;&lt;导航&gt;&gt;</vh></v>
 <v t="zoomq.20080818233010.48"><vh>&lt;&lt; pagehead &gt;&gt;</vh></v>
 <v t="zoomq.20080818233010.49"><vh>&lt;&lt; pagefoot &gt;&gt;</vh></v>
@@ -453,12 +453,12 @@
 <v t="zoomq.20080818233010.48"><vh>&lt;&lt; pagehead &gt;&gt;</vh></v>
 <v t="zoomq.20080818233010.49"><vh>&lt;&lt; pagefoot &gt;&gt;</vh></v>
 </v>
-<v t="zoomq.20080818233010.55" a="E"><vh>_qshow()</vh>
+<v t="zoomq.20080818233010.55"><vh>_qshow()</vh>
 <v t="zoomq.20080818233010.56" a="E"><vh>askloop</vh>
 <v t="zoomq.20080818233010.57"><vh>&lt;&lt;单选列表&gt;&gt;</vh></v>
 </v>
 </v>
-<v t="zoomq.20080818233010.58" a="E"><vh>_ctrl()</vh></v>
+<v t="zoomq.20080818233010.58"><vh>_ctrl()</vh></v>
 </v>
 </v>
 <v t="zoomq.20080818233010.59"><vh>管理</vh>
@@ -469,11 +469,11 @@
 <v t="zoomq.20080818233010.65" a="E"><vh>EPserver.css</vh>
 <v t="zoomq.20080818233010.66"><vh>&lt;&lt;表单&gt;&gt;</vh></v>
 <v t="zoomq.20080818233010.67"><vh>&lt;&lt;色系&gt;&gt;</vh></v>
-<v t="zoomq.20080818233010.68" a="E"><vh>&lt;&lt;效果&gt;&gt;</vh></v>
+<v t="zoomq.20080818233010.68"><vh>&lt;&lt;效果&gt;&gt;</vh></v>
 </v>
 </v>
 </v>
-<v t="zoomq.20080818233010.69" a="E" tnodeList="zoomq.20080818233010.69"><vh>@nosent questionnaire.tmpl</vh></v>
+<v t="zoomq.20080818233010.69" tnodeList="zoomq.20080818233010.69"><vh>@nosent questionnaire.tmpl</vh></v>
 <v t="zoomq.20080818233010.70" tnodeList="zoomq.20080818233010.70,zoomq.20080818233010.71,zoomq.20080818233010.72,zoomq.20080818233010.73"><vh>@nosent  qdesign.py</vh>
 <v t="zoomq.20080818233010.71"><vh>&lt;&lt; page declarations &gt;&gt;</vh></v>
 <v t="zoomq.20080818233010.72"><vh>init</vh></v>
@@ -486,7 +486,7 @@
 <v t="zoomq.20080818233010.65" a="E"><vh>EPserver.css</vh>
 <v t="zoomq.20080818233010.66"><vh>&lt;&lt;表单&gt;&gt;</vh></v>
 <v t="zoomq.20080818233010.67"><vh>&lt;&lt;色系&gt;&gt;</vh></v>
-<v t="zoomq.20080818233010.68" a="E"><vh>&lt;&lt;效果&gt;&gt;</vh></v>
+<v t="zoomq.20080818233010.68"><vh>&lt;&lt;效果&gt;&gt;</vh></v>
 </v>
 </v>
 </v>
@@ -497,7 +497,7 @@
 <v t="zoomq.20080818233010.80"><vh>desc</vh></v>
 <v t="zoomq.20080818233010.81"><vh>askloop</vh></v>
 </v>
-<v t="zoomq.20080818233010.82" a="E"><vh>&lt;&lt; try &gt;&gt;</vh></v>
+<v t="zoomq.20080818233010.82"><vh>&lt;&lt; try &gt;&gt;</vh></v>
 </v>
 <v t="zoomq.20080818233010.83" a="E" tnodeList="zoomq.20080818233010.83,zoomq.20080818233010.63,zoomq.20080818233010.64,zoomq.20080818233010.65,zoomq.20080818233010.66,zoomq.20080818233010.67,zoomq.20080818233010.68,zoomq.20080818233010.84,zoomq.20080818233010.84"><vh>@nosent  qprint.pih</vh>
 <v t="zoomq.20080818233010.84"><vh>&lt;&lt;导航&gt;&gt;</vh></v>
@@ -506,7 +506,7 @@
 <v t="zoomq.20080818233010.65" a="E"><vh>EPserver.css</vh>
 <v t="zoomq.20080818233010.66"><vh>&lt;&lt;表单&gt;&gt;</vh></v>
 <v t="zoomq.20080818233010.67"><vh>&lt;&lt;色系&gt;&gt;</vh></v>
-<v t="zoomq.20080818233010.68" a="E"><vh>&lt;&lt;效果&gt;&gt;</vh></v>
+<v t="zoomq.20080818233010.68"><vh>&lt;&lt;效果&gt;&gt;</vh></v>
 </v>
 </v>
 </v>
@@ -521,7 +521,7 @@
 </v>
 <v t="zoomq.20080818233010.91"><vh>KQf</vh>
 <v t="zoomq.20080818233010.92" a="E" tnodeList="zoomq.20080818233010.92,zoomq.20080818233010.93,zoomq.20080818233010.94,zoomq.20080818233010.95,zoomq.20080818233010.96,zoomq.20080818233010.97,zoomq.20080818233010.98,zoomq.20080818233010.99,zoomq.20080818233010.100,zoomq.20080818233010.101,zoomq.20080818233010.102,zoomq.20080818233010.103,zoomq.20080818233010.104,zoomq.20080818233010.105,zoomq.20080818233010.106,zoomq.20080818233010.107,zoomq.20080818233010.108,zoomq.20080818233010.109,zoomq.20080818233010.110,zoomq.20080818233010.111,zoomq.20080818233010.112,zoomq.20080818233010.113,zoomq.20080818233010.114,zoomq.20080818233010.115,zoomq.20080818233010.116,zoomq.20080818233010.117,zoomq.20080818233010.118,zoomq.20080818233010.119,zoomq.20080818233010.120,zoomq.20080818233010.121,zoomq.20080818233010.122,zoomq.20080818233010.123,zoomq.20080818233010.124,zoomq.20080818233010.125,zoomq.20080818233010.126,zoomq.20080818233010.127,zoomq.20080818233010.128,zoomq.20080818233010.129,zoomq.20080818233010.131,zoomq.20080818233010.132,zoomq.20080818233010.133,zoomq.20080818233010.134"><vh>@nosent Karrigell_QuickForm.py</vh>
-<v t="zoomq.20080818233010.93" a="E"><vh>&lt;&lt; Karrigell_QuickForm declarations &gt;&gt;</vh></v>
+<v t="zoomq.20080818233010.93"><vh>&lt;&lt; Karrigell_QuickForm declarations &gt;&gt;</vh></v>
 <v t="zoomq.20080818233010.94"><vh>class Karrigell_QuickForm</vh>
 <v t="zoomq.20080818233010.95" a="E"><vh>__init__</vh>
 <v t="zoomq.20080818233010.96"><vh>&lt;&lt;JVF&gt;&gt;</vh></v>
@@ -549,12 +549,12 @@
 <v t="zoomq.20080818233010.115"><vh>addTextArea</vh></v>
 <v t="zoomq.20080818233010.116"><vh>addCntTextArea</vh></v>
 <v t="zoomq.20080818233010.117"><vh>addGroup</vh></v>
-<v t="zoomq.20080818233010.118" a="E"><vh>addComboBox</vh></v>
+<v t="zoomq.20080818233010.118"><vh>addComboBox</vh></v>
 <v t="zoomq.20080818233010.119"><vh>addRadioGroup</vh></v>
-<v t="zoomq.20080818233010.120" a="E"><vh>addRadioList</vh></v>
-<v t="zoomq.20080818233010.121" a="E"><vh>addRadioLi</vh></v>
-<v t="zoomq.20080818233010.122" a="E"><vh>addVarRadioList</vh></v>
-<v t="zoomq.20080818233010.123" a="E"><vh>addRadioGrp</vh></v>
+<v t="zoomq.20080818233010.120"><vh>addRadioList</vh></v>
+<v t="zoomq.20080818233010.121"><vh>addRadioLi</vh></v>
+<v t="zoomq.20080818233010.122"><vh>addVarRadioList</vh></v>
+<v t="zoomq.20080818233010.123"><vh>addRadioGrp</vh></v>
 <v t="zoomq.20080818233010.124"><vh>addCheckboxGrp</vh></v>
 <v t="zoomq.20080818233010.125"><vh>showFormList</vh></v>
 <v t="zoomq.20080818233010.126"><vh>display</vh></v>
@@ -585,7 +585,7 @@
 <v t="zoomq.20080818232601.231" a="E"><vh>EPserver.css</vh>
 <v t="zoomq.20080818232601.232"><vh>&lt;&lt;表单&gt;&gt;</vh></v>
 <v t="zoomq.20080818232601.233"><vh>&lt;&lt;色系&gt;&gt;</vh></v>
-<v t="zoomq.20080818232601.234" a="E"><vh>&lt;&lt;效果&gt;&gt;</vh></v>
+<v t="zoomq.20080818232601.234"><vh>&lt;&lt;效果&gt;&gt;</vh></v>
 </v>
 </v>
 </v>
@@ -595,14 +595,14 @@
 <v t="zoomq.20080818232601.237" tnodeList="zoomq.20080818232601.237"><vh>@nosent questionnaire.cfg</vh></v>
 <v t="zoomq.20080818232601.238"><vh>KS</vh>
 <v t="zoomq.20080818232601.239" tnodeList="zoomq.20080818232601.239,zoomq.20080818232601.240,zoomq.20080818232601.228,zoomq.20080818232601.229,zoomq.20080818232601.230,zoomq.20080818232601.231,zoomq.20080818232601.232,zoomq.20080818232601.233,zoomq.20080818232601.234,zoomq.20080818232601.241,zoomq.20080818232601.242,zoomq.20080818232601.235,zoomq.20080818232601.243,zoomq.20080818232601.244,zoomq.20080818232601.245,zoomq.20080818232601.246,zoomq.20080818232601.247,zoomq.20080818232601.236,zoomq.20080818232601.248,zoomq.20080818232601.235,zoomq.20080818232601.249,zoomq.20080818232601.236,zoomq.20080818232601.250,zoomq.20080818232601.251,zoomq.20080818232601.252,zoomq.20080818232601.235,zoomq.20080818232601.253,zoomq.20080818232601.236,zoomq.20080818232601.254,zoomq.20080818232601.235,zoomq.20080818232601.255,zoomq.20080818232601.256,zoomq.20080818232601.257,zoomq.20080818232601.258,zoomq.20080818232601.259,zoomq.20080818232601.236,zoomq.20080818232601.260,zoomq.20080818232601.235,zoomq.20080818232601.261,zoomq.20080818232601.236,zoomq.20080818232601.262,zoomq.20080818232601.263,zoomq.20080818232601.265,zoomq.20080818232601.264,zoomq.20080818232601.266"><vh>@nosent index.ks</vh>
-<v t="zoomq.20080818232601.240" a="E"><vh>&lt;&lt; page declarations &gt;&gt;</vh></v>
+<v t="zoomq.20080818232601.240"><vh>&lt;&lt; page declarations &gt;&gt;</vh></v>
 <v t="zoomq.20080818232601.228"><vh>&lt;&lt; htmlcode &gt;&gt;</vh>
 <v t="zoomq.20080818232601.229" a="E"><vh>&lt;&lt;k_base&gt;&gt;</vh>
 <v t="zoomq.20080818232601.230"><vh>k_base.css</vh></v>
 <v t="zoomq.20080818232601.231" a="E"><vh>EPserver.css</vh>
 <v t="zoomq.20080818232601.232"><vh>&lt;&lt;表单&gt;&gt;</vh></v>
 <v t="zoomq.20080818232601.233"><vh>&lt;&lt;色系&gt;&gt;</vh></v>
-<v t="zoomq.20080818232601.234" a="E"><vh>&lt;&lt;效果&gt;&gt;</vh></v>
+<v t="zoomq.20080818232601.234"><vh>&lt;&lt;效果&gt;&gt;</vh></v>
 </v>
 </v>
 </v>
@@ -625,7 +625,7 @@
 <v t="zoomq.20080818232601.250"><vh>logout</vh></v>
 <v t="zoomq.20080818232601.251"><vh>chkusr</vh></v>
 <v t="zoomq.20080818232601.252"><vh>page</vh>
-<v t="zoomq.20080818232601.253" a="E"><vh>&lt;&lt;导航&gt;&gt;</vh></v>
+<v t="zoomq.20080818232601.253"><vh>&lt;&lt;导航&gt;&gt;</vh></v>
 <v t="zoomq.20080818232601.235"><vh>&lt;&lt; pagehead &gt;&gt;</vh></v>
 <v t="zoomq.20080818232601.236"><vh>&lt;&lt; pagefoot &gt;&gt;</vh></v>
 </v>
@@ -633,7 +633,7 @@
 <v t="zoomq.20080818232601.255"><vh>初始化</vh></v>
 <v t="zoomq.20080818232601.256" a="E"><vh>统计回答</vh>
 <v t="zoomq.20080818232601.257"><vh>&lt;&lt;成员回答&gt;&gt;</vh></v>
-<v t="zoomq.20080818232601.258" a="E"><vh>&lt;&lt;总计&gt;&gt;</vh></v>
+<v t="zoomq.20080818232601.258"><vh>&lt;&lt;总计&gt;&gt;</vh></v>
 <v t="zoomq.20080818232601.259"><vh>&lt;&lt;未知成员&gt;&gt;</vh></v>
 </v>
 <v t="zoomq.20080818232601.236"><vh>&lt;&lt; pagefoot &gt;&gt;</vh></v>
@@ -647,9 +647,9 @@
 <v t="zoomq.20080818232601.262"><vh>_qpubish()</vh>
 <v t="zoomq.20080818232601.263"><vh>&lt;&lt;表单类型&gt;&gt;</vh></v>
 <v t="zoomq.20080818232601.264"><vh>&lt;&lt;submit&gt;&gt;</vh></v>
-<v t="zoomq.20080818232601.265" a="E"><vh>&lt;&lt;loopask&gt;&gt;</vh></v>
+<v t="zoomq.20080818232601.265"><vh>&lt;&lt;loopask&gt;&gt;</vh></v>
 </v>
-<v t="zoomq.20080818232601.266" a="E"><vh>_grade()</vh></v>
+<v t="zoomq.20080818232601.266"><vh>_grade()</vh></v>
 </v>
 <v t="zoomq.20080818232601.267" tnodeList="zoomq.20080818232601.267,zoomq.20080818232601.268,zoomq.20080818232601.228,zoomq.20080818232601.229,zoomq.20080818232601.230,zoomq.20080818232601.231,zoomq.20080818232601.232,zoomq.20080818232601.233,zoomq.20080818232601.234,zoomq.20080818232601.269,zoomq.20080818232601.270,zoomq.20080818232601.273,zoomq.20080818232601.271,zoomq.20080818232601.272,zoomq.20080818232601.274,zoomq.20080818232601.275,zoomq.20080818232601.273,zoomq.20080818232601.277,zoomq.20080818232601.276,zoomq.20080818232601.274,zoomq.20080818232601.278,zoomq.20080818232601.273,zoomq.20080818232601.279,zoomq.20080818232601.274,zoomq.20080818232601.280,zoomq.20080818232601.281,zoomq.20080818232601.282,zoomq.20080818232601.283"><vh>@nosent mana.ks</vh>
 <v t="zoomq.20080818232601.268"><vh>&lt;&lt; page declarations &gt;&gt;</vh></v>
@@ -659,7 +659,7 @@
 <v t="zoomq.20080818232601.231" a="E"><vh>EPserver.css</vh>
 <v t="zoomq.20080818232601.232"><vh>&lt;&lt;表单&gt;&gt;</vh></v>
 <v t="zoomq.20080818232601.233"><vh>&lt;&lt;色系&gt;&gt;</vh></v>
-<v t="zoomq.20080818232601.234" a="E"><vh>&lt;&lt;效果&gt;&gt;</vh></v>
+<v t="zoomq.20080818232601.234"><vh>&lt;&lt;效果&gt;&gt;</vh></v>
 </v>
 </v>
 </v>
@@ -671,7 +671,7 @@
 <v t="zoomq.20080818232601.274"><vh>&lt;&lt; pagefoot &gt;&gt;</vh></v>
 </v>
 <v t="zoomq.20080818232601.275" a="E"><vh>page</vh>
-<v t="zoomq.20080818232601.276" a="E"><vh>&lt;&lt;问卷展示&gt;&gt;</vh></v>
+<v t="zoomq.20080818232601.276"><vh>&lt;&lt;问卷展示&gt;&gt;</vh></v>
 <v t="zoomq.20080818232601.277"><vh>&lt;&lt;导航&gt;&gt;</vh></v>
 <v t="zoomq.20080818232601.273"><vh>&lt;&lt; pagehead &gt;&gt;</vh></v>
 <v t="zoomq.20080818232601.274"><vh>&lt;&lt; pagefoot &gt;&gt;</vh></v>
@@ -686,17 +686,17 @@
 <v t="zoomq.20080818232601.282"><vh>&lt;&lt;单选列表&gt;&gt;</vh></v>
 </v>
 </v>
-<v t="zoomq.20080818232601.283" a="E"><vh>_ctrl()</vh></v>
+<v t="zoomq.20080818232601.283"><vh>_ctrl()</vh></v>
 </v>
 </v>
 <v t="zoomq.20080818232601.284" a="E"><vh>组织成员</vh>
 <v t="zoomq.20080818232601.285" tnodeList="zoomq.20080818232601.285,zoomq.20080818232601.286,zoomq.20080818232601.287,zoomq.20080818232601.288,zoomq.20080818232601.289,zoomq.20080818232601.290,zoomq.20080818232601.291"><vh>@nosent  deptorg.py</vh>
 <v t="zoomq.20080818232601.286"><vh>&lt;&lt; page declarations &gt;&gt;</vh></v>
-<v t="zoomq.20080818232601.287" a="E"><vh>&lt;&lt;ini&gt;&gt;</vh></v>
+<v t="zoomq.20080818232601.287"><vh>&lt;&lt;ini&gt;&gt;</vh></v>
 <v t="zoomq.20080818232601.288"><vh>listDeptStaff</vh>
 <v t="zoomq.20080818232601.289"><vh>&lt;&lt;AllStaff&gt;&gt;</vh></v>
 </v>
-<v t="zoomq.20080818232601.290" a="E"><vh>getStaffUser</vh></v>
+<v t="zoomq.20080818232601.290"><vh>getStaffUser</vh></v>
 <v t="zoomq.20080818232601.291"><vh>&lt;&lt; try &gt;&gt;</vh></v>
 </v>
 <v t="zoomq.20080818232601.292"><vh>XSL</vh>
@@ -715,17 +715,17 @@
 </v>
 <v t="zoomq.20080818232601.304"><vh>&lt;&lt; loop staff &gt;&gt;</vh></v>
 </v>
-<v t="zoomq.20080818232601.305" a="E"><vh>&lt;&lt; loop DeptOrgVersion &gt;&gt;</vh></v>
+<v t="zoomq.20080818232601.305"><vh>&lt;&lt; loop DeptOrgVersion &gt;&gt;</vh></v>
 </v>
 <v t="zoomq.20080818232601.306"><vh>&lt;&lt; node cloud &gt;&gt;</vh></v>
 <v t="zoomq.20080818232601.307"><vh>&lt;&lt; node child &gt;&gt;</vh></v>
-<v t="zoomq.20080818232601.308" a="E"><vh>&lt;&lt; node icon &gt;&gt;</vh></v>
+<v t="zoomq.20080818232601.308"><vh>&lt;&lt; node icon &gt;&gt;</vh></v>
 <v t="zoomq.20080818232601.309"><vh>&lt;&lt; node url &gt;&gt;</vh></v>
 <v t="zoomq.20080818232601.310"><vh>&lt;&lt; node doclink &gt;&gt;</vh></v>
 <v t="zoomq.20080818232601.311"><vh>&lt;&lt; node arrowlink &gt;&gt;</vh></v>
 </v>
 </v>
-<v t="zoomq.20080818232601.312" a="E" tnodeList="zoomq.20080818232601.312"><vh>@nosent freemind.css</vh></v>
+<v t="zoomq.20080818232601.312" tnodeList="zoomq.20080818232601.312"><vh>@nosent freemind.css</vh></v>
 </v>
 </v>
 <v t="zoomq.20080818232601.313"><vh>管理</vh>
@@ -736,11 +736,11 @@
 <v t="zoomq.20080818232601.319" a="E"><vh>EPserver.css</vh>
 <v t="zoomq.20080818232601.320"><vh>&lt;&lt;表单&gt;&gt;</vh></v>
 <v t="zoomq.20080818232601.321"><vh>&lt;&lt;色系&gt;&gt;</vh></v>
-<v t="zoomq.20080818232601.322" a="E"><vh>&lt;&lt;效果&gt;&gt;</vh></v>
+<v t="zoomq.20080818232601.322"><vh>&lt;&lt;效果&gt;&gt;</vh></v>
 </v>
 </v>
 </v>
-<v t="zoomq.20080818232601.323" a="E" tnodeList="zoomq.20080818232601.323"><vh>@nosent questionnaire.tmpl</vh></v>
+<v t="zoomq.20080818232601.323" tnodeList="zoomq.20080818232601.323"><vh>@nosent questionnaire.tmpl</vh></v>
 <v t="zoomq.20080818232601.324" tnodeList="zoomq.20080818232601.324,zoomq.20080818232601.325,zoomq.20080818232601.326,zoomq.20080818232601.327"><vh>@nosent  qdesign.py</vh>
 <v t="zoomq.20080818232601.325"><vh>&lt;&lt; page declarations &gt;&gt;</vh></v>
 <v t="zoomq.20080818232601.326"><vh>init</vh></v>
@@ -753,7 +753,7 @@
 <v t="zoomq.20080818232601.319" a="E"><vh>EPserver.css</vh>
 <v t="zoomq.20080818232601.320"><vh>&lt;&lt;表单&gt;&gt;</vh></v>
 <v t="zoomq.20080818232601.321"><vh>&lt;&lt;色系&gt;&gt;</vh></v>
-<v t="zoomq.20080818232601.322" a="E"><vh>&lt;&lt;效果&gt;&gt;</vh></v>
+<v t="zoomq.20080818232601.322"><vh>&lt;&lt;效果&gt;&gt;</vh></v>
 </v>
 </v>
 </v>
@@ -764,7 +764,7 @@
 <v t="zoomq.20080818232601.334"><vh>desc</vh></v>
 <v t="zoomq.20080818232601.335"><vh>askloop</vh></v>
 </v>
-<v t="zoomq.20080818232601.336" a="E"><vh>&lt;&lt; try &gt;&gt;</vh></v>
+<v t="zoomq.20080818232601.336"><vh>&lt;&lt; try &gt;&gt;</vh></v>
 </v>
 <v t="zoomq.20080818232601.337" a="E" tnodeList="zoomq.20080818232601.337,zoomq.20080818232601.317,zoomq.20080818232601.318,zoomq.20080818232601.319,zoomq.20080818232601.320,zoomq.20080818232601.321,zoomq.20080818232601.322,zoomq.20080818232601.338,zoomq.20080818232601.338"><vh>@nosent  qprint.pih</vh>
 <v t="zoomq.20080818232601.338"><vh>&lt;&lt;导航&gt;&gt;</vh></v>
@@ -773,7 +773,7 @@
 <v t="zoomq.20080818232601.319" a="E"><vh>EPserver.css</vh>
 <v t="zoomq.20080818232601.320"><vh>&lt;&lt;表单&gt;&gt;</vh></v>
 <v t="zoomq.20080818232601.321"><vh>&lt;&lt;色系&gt;&gt;</vh></v>
-<v t="zoomq.20080818232601.322" a="E"><vh>&lt;&lt;效果&gt;&gt;</vh></v>
+<v t="zoomq.20080818232601.322"><vh>&lt;&lt;效果&gt;&gt;</vh></v>
 </v>
 </v>
 </v>
@@ -788,7 +788,7 @@
 </v>
 <v t="zoomq.20080818232601.345"><vh>KQf</vh>
 <v t="zoomq.20080818232601.346" a="E" tnodeList="zoomq.20080818232601.346,zoomq.20080818232601.347,zoomq.20080818232601.348,zoomq.20080818232601.349,zoomq.20080818232601.350,zoomq.20080818232601.351,zoomq.20080818232601.352,zoomq.20080818232601.353,zoomq.20080818232601.354,zoomq.20080818232601.355,zoomq.20080818232601.356,zoomq.20080818232601.357,zoomq.20080818232601.358,zoomq.20080818232601.359,zoomq.20080818232601.360,zoomq.20080818232601.361,zoomq.20080818232601.362,zoomq.20080818232601.363,zoomq.20080818232601.364,zoomq.20080818232601.365,zoomq.20080818232601.366,zoomq.20080818232601.367,zoomq.20080818232601.368,zoomq.20080818232601.369,zoomq.20080818232601.370,zoomq.20080818232601.371,zoomq.20080818232601.372,zoomq.20080818232601.373,zoomq.20080818232601.374,zoomq.20080818232601.375,zoomq.20080818232601.376,zoomq.20080818232601.377,zoomq.20080818232601.378,zoomq.20080818232601.379,zoomq.20080818232601.380,zoomq.20080818232601.381,zoomq.20080818232601.382,zoomq.20080818232601.383,zoomq.20080818232601.385,zoomq.20080818232601.386,zoomq.20080818232601.387,zoomq.20080818232601.388"><vh>@nosent Karrigell_QuickForm.py</vh>
-<v t="zoomq.20080818232601.347" a="E"><vh>&lt;&lt; Karrigell_QuickForm declarations &gt;&gt;</vh></v>
+<v t="zoomq.20080818232601.347"><vh>&lt;&lt; Karrigell_QuickForm declarations &gt;&gt;</vh></v>
 <v t="zoomq.20080818232601.348" a="E"><vh>class Karrigell_QuickForm</vh>
 <v t="zoomq.20080818232601.349" a="E"><vh>__init__</vh>
 <v t="zoomq.20080818232601.350"><vh>&lt;&lt;JVF&gt;&gt;</vh></v>
@@ -816,12 +816,12 @@
 <v t="zoomq.20080818232601.369"><vh>addTextArea</vh></v>
 <v t="zoomq.20080818232601.370"><vh>addCntTextArea</vh></v>
 <v t="zoomq.20080818232601.371"><vh>addGroup</vh></v>
-<v t="zoomq.20080818232601.372" a="E"><vh>addComboBox</vh></v>
+<v t="zoomq.20080818232601.372"><vh>addComboBox</vh></v>
 <v t="zoomq.20080818232601.373"><vh>addRadioGroup</vh></v>
-<v t="zoomq.20080818232601.374" a="E"><vh>addRadioList</vh></v>
-<v t="zoomq.20080818232601.375" a="E"><vh>addRadioLi</vh></v>
-<v t="zoomq.20080818232601.376" a="E"><vh>addVarRadioList</vh></v>
-<v t="zoomq.20080818232601.377" a="E"><vh>addRadioGrp</vh></v>
+<v t="zoomq.20080818232601.374"><vh>addRadioList</vh></v>
+<v t="zoomq.20080818232601.375"><vh>addRadioLi</vh></v>
+<v t="zoomq.20080818232601.376"><vh>addVarRadioList</vh></v>
+<v t="zoomq.20080818232601.377"><vh>addRadioGrp</vh></v>
 <v t="zoomq.20080818232601.378"><vh>addCheckboxGrp</vh></v>
 <v t="zoomq.20080818232601.379"><vh>showFormList</vh></v>
 <v t="zoomq.20080818232601.380"><vh>display</vh></v>
@@ -860,7 +860,7 @@
 <v t="ZoomQuiet.20051224171010.2" a="E"><vh>EPserver.css</vh>
 <v t="ZoomQuiet.20051224171010.3"><vh>&lt;&lt;表单&gt;&gt;</vh></v>
 <v t="ZoomQuiet.20051224171010.4"><vh>&lt;&lt;色系&gt;&gt;</vh></v>
-<v t="ZoomQuiet.20051224171010.5" a="E"><vh>&lt;&lt;效果&gt;&gt;</vh></v>
+<v t="ZoomQuiet.20051224171010.5"><vh>&lt;&lt;效果&gt;&gt;</vh></v>
 </v>
 </v>
 </v>
@@ -870,14 +870,14 @@
 <v t="ZoomQuiet.20051224170150" tnodeList="ZoomQuiet.20051224170150"><vh>@nosent questionnaire.cfg</vh></v>
 <v t="ZoomQuiet.20051224165357"><vh>KS</vh>
 <v t="ZoomQuiet.20051224165419" tnodeList="ZoomQuiet.20051224165419,ZoomQuiet.20051224165419.1,ZoomQuiet.20051224165419.2,ZoomQuiet.20051224171010,ZoomQuiet.20051224171010.1,ZoomQuiet.20051224171010.2,ZoomQuiet.20051224171010.3,ZoomQuiet.20051224171010.4,ZoomQuiet.20051224171010.5,ZoomQuiet.20051224165419.9,ZoomQuiet.20051224165419.10,ZoomQuiet.20051224165419.14,ZoomQuiet.20051224165419.11,ZoomQuiet.20051224165419.12,ZoomQuiet.20051224181034,ZoomQuiet.20051224181034.1,ZoomQuiet.20051224165419.13,ZoomQuiet.20051224165419.15,ZoomQuiet.20051224165419.25,ZoomQuiet.20051224165419.14,ZoomQuiet.20051224165419.26,ZoomQuiet.20051224165419.15,ZoomQuiet.20051224165419.27,ZoomQuiet.20051224165419.28,ZoomQuiet.20051224165419.16,ZoomQuiet.20051224165419.14,ZoomQuiet.20051224165419.17,ZoomQuiet.20051224165419.15,ZoomQuiet.20051225180959,ZoomQuiet.20051224165419.14,ZoomQuiet.20051225180959.2,ZoomQuiet.20051225180959.3,ZoomQuiet.20051225180959.4,ZoomQuiet.20051225180959.5,ZoomQuiet.20051225180959.6,ZoomQuiet.20051224165419.15,ZoomQuiet.20051225192243.1,ZoomQuiet.20051224165419.14,ZoomQuiet.20051225192243.2,ZoomQuiet.20051224165419.15,ZoomQuiet.20051224165419.61,ZoomQuiet.20051224165419.62,ZoomQuiet.20051224165419.64,ZoomQuiet.20051224165419.63,ZoomQuiet.20051225181414"><vh>@nosent index.ks</vh>
-<v t="ZoomQuiet.20051224165419.1" a="E"><vh>&lt;&lt; page declarations &gt;&gt;</vh></v>
+<v t="ZoomQuiet.20051224165419.1"><vh>&lt;&lt; page declarations &gt;&gt;</vh></v>
 <v t="ZoomQuiet.20051224165419.2"><vh>&lt;&lt; htmlcode &gt;&gt;</vh>
 <v t="ZoomQuiet.20051224171010" a="E"><vh>&lt;&lt;k_base&gt;&gt;</vh>
 <v t="ZoomQuiet.20051224171010.1"><vh>k_base.css</vh></v>
 <v t="ZoomQuiet.20051224171010.2" a="E"><vh>EPserver.css</vh>
 <v t="ZoomQuiet.20051224171010.3"><vh>&lt;&lt;表单&gt;&gt;</vh></v>
 <v t="ZoomQuiet.20051224171010.4"><vh>&lt;&lt;色系&gt;&gt;</vh></v>
-<v t="ZoomQuiet.20051224171010.5" a="E"><vh>&lt;&lt;效果&gt;&gt;</vh></v>
+<v t="ZoomQuiet.20051224171010.5"><vh>&lt;&lt;效果&gt;&gt;</vh></v>
 </v>
 </v>
 </v>
@@ -897,10 +897,10 @@
 <v t="ZoomQuiet.20051224165419.14"><vh>&lt;&lt; pagehead &gt;&gt;</vh></v>
 <v t="ZoomQuiet.20051224165419.15"><vh>&lt;&lt; pagefoot &gt;&gt;</vh></v>
 </v>
-<v t="ZoomQuiet.20051224165419.27" a="E"><vh>logout</vh></v>
+<v t="ZoomQuiet.20051224165419.27"><vh>logout</vh></v>
 <v t="ZoomQuiet.20051224165419.28"><vh>chkusr</vh></v>
 <v t="ZoomQuiet.20051224165419.16" a="E"><vh>page</vh>
-<v t="ZoomQuiet.20051224165419.17" a="E"><vh>&lt;&lt;导航&gt;&gt;</vh></v>
+<v t="ZoomQuiet.20051224165419.17"><vh>&lt;&lt;导航&gt;&gt;</vh></v>
 <v t="ZoomQuiet.20051224165419.14"><vh>&lt;&lt; pagehead &gt;&gt;</vh></v>
 <v t="ZoomQuiet.20051224165419.15"><vh>&lt;&lt; pagefoot &gt;&gt;</vh></v>
 </v>
@@ -922,9 +922,9 @@
 <v t="ZoomQuiet.20051224165419.61"><vh>_qpubish()</vh>
 <v t="ZoomQuiet.20051224165419.62"><vh>&lt;&lt;表单类型&gt;&gt;</vh></v>
 <v t="ZoomQuiet.20051224165419.63"><vh>&lt;&lt;submit&gt;&gt;</vh></v>
-<v t="ZoomQuiet.20051224165419.64" a="E"><vh>&lt;&lt;loopask&gt;&gt;</vh></v>
+<v t="ZoomQuiet.20051224165419.64"><vh>&lt;&lt;loopask&gt;&gt;</vh></v>
 </v>
-<v t="ZoomQuiet.20051225181414" a="E"><vh>_grade()</vh></v>
+<v t="ZoomQuiet.20051225181414"><vh>_grade()</vh></v>
 </v>
 <v t="ZoomQuiet.20051224185506" tnodeList="ZoomQuiet.20051224185506,ZoomQuiet.20051224185506.1,ZoomQuiet.20051224165419.2,ZoomQuiet.20051224171010,ZoomQuiet.20051224171010.1,ZoomQuiet.20051224171010.2,ZoomQuiet.20051224171010.3,ZoomQuiet.20051224171010.4,ZoomQuiet.20051224171010.5,ZoomQuiet.20051224185506.9,ZoomQuiet.20051224185506.10,ZoomQuiet.20051224185506.13,ZoomQuiet.20051224185506.11,ZoomQuiet.20051224185506.12,ZoomQuiet.20051224185506.14,ZoomQuiet.20051224185506.20,ZoomQuiet.20051224185506.13,ZoomQuiet.20051224185506.23,ZoomQuiet.20051224185506.22,ZoomQuiet.20051224185506.14,ZoomQuiet.20051224185506.18,ZoomQuiet.20051224185506.13,ZoomQuiet.20051224185506.19,ZoomQuiet.20051224185506.14,ZoomQuiet.20051224185506.24,ZoomQuiet.20051224185506.25,ZoomQuiet.20051224185506.26,ZoomQuiet.20051224185506.27"><vh>@nosent mana.ks</vh>
 <v t="ZoomQuiet.20051224185506.1"><vh>&lt;&lt; page declarations &gt;&gt;</vh></v>
@@ -934,7 +934,7 @@
 <v t="ZoomQuiet.20051224171010.2" a="E"><vh>EPserver.css</vh>
 <v t="ZoomQuiet.20051224171010.3"><vh>&lt;&lt;表单&gt;&gt;</vh></v>
 <v t="ZoomQuiet.20051224171010.4"><vh>&lt;&lt;色系&gt;&gt;</vh></v>
-<v t="ZoomQuiet.20051224171010.5" a="E"><vh>&lt;&lt;效果&gt;&gt;</vh></v>
+<v t="ZoomQuiet.20051224171010.5"><vh>&lt;&lt;效果&gt;&gt;</vh></v>
 </v>
 </v>
 </v>
@@ -946,7 +946,7 @@
 <v t="ZoomQuiet.20051224185506.14"><vh>&lt;&lt; pagefoot &gt;&gt;</vh></v>
 </v>
 <v t="ZoomQuiet.20051224185506.20" a="E"><vh>page</vh>
-<v t="ZoomQuiet.20051224185506.22" a="E"><vh>&lt;&lt;问卷展示&gt;&gt;</vh></v>
+<v t="ZoomQuiet.20051224185506.22"><vh>&lt;&lt;问卷展示&gt;&gt;</vh></v>
 <v t="ZoomQuiet.20051224185506.23"><vh>&lt;&lt;导航&gt;&gt;</vh></v>
 <v t="ZoomQuiet.20051224185506.13"><vh>&lt;&lt; pagehead &gt;&gt;</vh></v>
 <v t="ZoomQuiet.20051224185506.14"><vh>&lt;&lt; pagefoot &gt;&gt;</vh></v>
@@ -961,17 +961,17 @@
 <v t="ZoomQuiet.20051224185506.26"><vh>&lt;&lt;单选列表&gt;&gt;</vh></v>
 </v>
 </v>
-<v t="ZoomQuiet.20051224185506.27" a="E"><vh>_ctrl()</vh></v>
+<v t="ZoomQuiet.20051224185506.27"><vh>_ctrl()</vh></v>
 </v>
 </v>
 <v t="ZoomQuiet.20051225171032"><vh>组织成员</vh>
 <v t="ZoomQuiet.20051225173430" tnodeList="ZoomQuiet.20051225173430,ZoomQuiet.20051225173430.1,ZoomQuiet.20051225173430.2,ZoomQuiet.20051225173430.3,ZoomQuiet.20051225173430.4,ZoomQuiet.20051225173430.5,ZoomQuiet.20051225173430.6"><vh>@nosent  deptorg.py</vh>
 <v t="ZoomQuiet.20051225173430.1"><vh>&lt;&lt; page declarations &gt;&gt;</vh></v>
-<v t="ZoomQuiet.20051225173430.2" a="E"><vh>&lt;&lt;ini&gt;&gt;</vh></v>
+<v t="ZoomQuiet.20051225173430.2"><vh>&lt;&lt;ini&gt;&gt;</vh></v>
 <v t="ZoomQuiet.20051225173430.3"><vh>listDeptStaff</vh>
 <v t="ZoomQuiet.20051225173430.4"><vh>&lt;&lt;AllStaff&gt;&gt;</vh></v>
 </v>
-<v t="ZoomQuiet.20051225173430.5" a="E"><vh>getStaffUser</vh></v>
+<v t="ZoomQuiet.20051225173430.5"><vh>getStaffUser</vh></v>
 <v t="ZoomQuiet.20051225173430.6"><vh>&lt;&lt; try &gt;&gt;</vh></v>
 </v>
 <v t="ZoomQuiet.20051225171032.37"><vh>XSL</vh>
@@ -990,22 +990,22 @@
 </v>
 <v t="ZoomQuiet.20051225171032.49"><vh>&lt;&lt; loop staff &gt;&gt;</vh></v>
 </v>
-<v t="ZoomQuiet.20051225171032.50" a="E"><vh>&lt;&lt; loop DeptOrgVersion &gt;&gt;</vh></v>
+<v t="ZoomQuiet.20051225171032.50"><vh>&lt;&lt; loop DeptOrgVersion &gt;&gt;</vh></v>
 </v>
 <v t="ZoomQuiet.20051225171032.51"><vh>&lt;&lt; node cloud &gt;&gt;</vh></v>
 <v t="ZoomQuiet.20051225171032.52"><vh>&lt;&lt; node child &gt;&gt;</vh></v>
-<v t="ZoomQuiet.20051225171032.53" a="E"><vh>&lt;&lt; node icon &gt;&gt;</vh></v>
+<v t="ZoomQuiet.20051225171032.53"><vh>&lt;&lt; node icon &gt;&gt;</vh></v>
 <v t="ZoomQuiet.20051225171032.54"><vh>&lt;&lt; node url &gt;&gt;</vh></v>
 <v t="ZoomQuiet.20051225171032.55"><vh>&lt;&lt; node doclink &gt;&gt;</vh></v>
 <v t="ZoomQuiet.20051225171032.56"><vh>&lt;&lt; node arrowlink &gt;&gt;</vh></v>
 </v>
 </v>
-<v t="ZoomQuiet.20051225171511" a="E" tnodeList="ZoomQuiet.20051225171511"><vh>@nosent freemind.css</vh></v>
+<v t="ZoomQuiet.20051225171511" tnodeList="ZoomQuiet.20051225171511"><vh>@nosent freemind.css</vh></v>
 </v>
 </v>
 <v t="ZoomQuiet.20051222115335"><vh>KQf</vh>
 <v t="ZoomQuiet.20051222115335.1" a="E" tnodeList="ZoomQuiet.20051222115335.1,ZoomQuiet.20051222115335.2,ZoomQuiet.20051222115335.3,ZoomQuiet.20051222115335.4,ZoomQuiet.20051222115335.5,ZoomQuiet.20051222115335.6,ZoomQuiet.20051222115335.7,ZoomQuiet.20051222115335.8,ZoomQuiet.20051222115335.9,ZoomQuiet.20051222115335.10,ZoomQuiet.20051222115335.11,ZoomQuiet.20051222115335.12,ZoomQuiet.20051222115335.13,ZoomQuiet.20051222115335.14,ZoomQuiet.20051222115335.15,ZoomQuiet.20051222115335.16,ZoomQuiet.20051222115335.17,ZoomQuiet.20051222115335.18,ZoomQuiet.20051222115335.19,ZoomQuiet.20051222115335.20,ZoomQuiet.20051222115335.21,ZoomQuiet.20051222115335.22,ZoomQuiet.20051222115335.23,ZoomQuiet.20051222115335.24,ZoomQuiet.20051222115335.25,ZoomQuiet.20051222115335.26,ZoomQuiet.20051222115335.27,ZoomQuiet.20051222115335.28,ZoomQuiet.20051222115335.29,ZoomQuiet.20051222115335.30,ZoomQuiet.20051222115335.31,ZoomQuiet.20051222115335.32,ZoomQuiet.20051222115335.33,ZoomQuiet.20051222115335.34,ZoomQuiet.20051222115335.35,ZoomQuiet.20051222115335.36,ZoomQuiet.20051222115335.37,ZoomQuiet.20051222115335.38,ZoomQuiet.20051222115335.40,ZoomQuiet.20051222115335.41,ZoomQuiet.20051222115335.42,ZoomQuiet.20051222115335.43"><vh>@nosent Karrigell_QuickForm.py</vh>
-<v t="ZoomQuiet.20051222115335.2" a="E"><vh>&lt;&lt; Karrigell_QuickForm declarations &gt;&gt;</vh></v>
+<v t="ZoomQuiet.20051222115335.2"><vh>&lt;&lt; Karrigell_QuickForm declarations &gt;&gt;</vh></v>
 <v t="ZoomQuiet.20051222115335.3" a="E"><vh>class Karrigell_QuickForm</vh>
 <v t="ZoomQuiet.20051222115335.4" a="E"><vh>__init__</vh>
 <v t="ZoomQuiet.20051222115335.5"><vh>&lt;&lt;JVF&gt;&gt;</vh></v>
@@ -1033,12 +1033,12 @@
 <v t="ZoomQuiet.20051222115335.24"><vh>addTextArea</vh></v>
 <v t="ZoomQuiet.20051222115335.25"><vh>addCntTextArea</vh></v>
 <v t="ZoomQuiet.20051222115335.26"><vh>addGroup</vh></v>
-<v t="ZoomQuiet.20051222115335.27" a="E"><vh>addComboBox</vh></v>
+<v t="ZoomQuiet.20051222115335.27"><vh>addComboBox</vh></v>
 <v t="ZoomQuiet.20051222115335.28"><vh>addRadioGroup</vh></v>
-<v t="ZoomQuiet.20051222115335.29" a="E"><vh>addRadioList</vh></v>
-<v t="ZoomQuiet.20051222115335.30" a="E"><vh>addRadioLi</vh></v>
-<v t="ZoomQuiet.20051222115335.31" a="E"><vh>addVarRadioList</vh></v>
-<v t="ZoomQuiet.20051222115335.32" a="E"><vh>addRadioGrp</vh></v>
+<v t="ZoomQuiet.20051222115335.29"><vh>addRadioList</vh></v>
+<v t="ZoomQuiet.20051222115335.30"><vh>addRadioLi</vh></v>
+<v t="ZoomQuiet.20051222115335.31"><vh>addVarRadioList</vh></v>
+<v t="ZoomQuiet.20051222115335.32"><vh>addRadioGrp</vh></v>
 <v t="ZoomQuiet.20051222115335.33"><vh>addCheckboxGrp</vh></v>
 <v t="ZoomQuiet.20051222115335.34"><vh>showFormList</vh></v>
 <v t="ZoomQuiet.20051222115335.35"><vh>display</vh></v>
