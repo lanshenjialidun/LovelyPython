@@ -1,42 +1,28 @@
 ## page was renamed from zhArticleTemplate
 ##language:zh
 #pragma section-numbers on
-||'''status'''|| 正式 || ZoomQuiet|| 完成度:90%||
+||'''status'''|| 正式 || ZoomQuiet|| 完成度:92.5%||
 
 [[TableOfContents]]
 
 ##startInc
-= KDay6: 利用mm 人性化组织成员信息 =
-'''快速扩展一个页面适应所有情况！'''
- * 此mm 非彼 MM 吔 ;-) 乃指 FreeMind 思维图谱文件 `.mm`
+= KDay6: 利用 mm 人性化组织成员信息 =
+ * 此mm 非彼 MM 吔 ;-) 乃指 FreeMind 思维图谱文件,默认后缀是`.mm`因而得名,,
  
 == FreeMind的另类使用 ==
-'''要想进行问卷回答的统计,首先要有手段知道现在组织内成员信息,以便对应统计'''
- * 为什么想到了 FreeMind? 
-  * 以往使用DB,怎么样都要立成员表和组织表然后还有这那儿的对应选择关系什么的
-  * 还是 FreeMind 直观,操作也非常快捷,复制,移动太爽直了!
-  * 而且是XML的数据文件!
- * 曾经依照提供的`freemind.xsl`+`freemind.mm` 输出了加个xml头说明的自定 mm 文件
-{{{详细::
-PCS403 思維导图
-介绍了导图这一种极高效的思维记录和辅助工具;
-分享了流行的导图工具,其中包含了对 FreeMind 这一轻盈完备的导图工具的愉快体验!
+'''继承原先问卷系统的要求:问卷成绩的统计是针对团队的'''所以,得有方法知道回答者的成员组织信息,以便对应分组统计.
+ * 小白第一时间想到了 FreeMind! 因为:
+  * 如果使用DB,怎么都得立成员表和组织表,然后还得根据什么ID外键关系什么的进行对应选择什么的,好麻烦的
+  * 还是经过行者推荐后,轻松使用起来的 FreeMind 直观,操作也非常快捷--复制,移动太爽直了!
+  * 最关键的, FreeMind 文件本身其实就是XML格式的文本! 本质上这也是种数据库,可以直接使用的
+ * 行者们曾经提供过`freemind.xsl`+`freemind.mm` 可以配合在浏览器中输出了 mm 文件
+{{{脚注::
+XSL模板其实无法直接解析.mm文件,
+得手工在头部追加个xml头声明,类似:
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='freemind.xsl'?>
+以便通知浏览器套用什么XSLT模板
 }}}
- 
-图 KDay6-9
-
-attachment:KDay6-1.png
-
- * 哈哈哈!大致知道 FreeMind 的数据格式:
-     1. 所有节点是统一的 `<node>` 
-     1. 属性和值,全部是UTF8编码的字串
- * 所以,只要有简单的约定,就可以作为 Xpath 的过滤参数来理解真正的数据意义了
- * 以上的组织成员信息就是有个小小的约定:
-     1. 一级节点都是部门描述,中文
-     1. 二级节点是属性描述:
-         1. dept 说明部门的整体信息
-         1. staff 汇集成员信息,类似部门的节点组织
-         1. total 成员总数
 
 {{{详细::
 PCS402 XML
@@ -44,13 +30,43 @@ PCS402 XML
 分享了在Python 中对XML处理思路
 }}}
 
-图 KDay6-2
+
+{{{详细::
+PCS403 思維导图
+介绍了导图这一种极高效的思维记录和辅助工具;
+分享了流行的导图工具,其中包含了对 FreeMind 这一轻盈完备的导图工具的愉快体验!
+}}}
+ 
+图 KDay6-9 .xsl解析手工增补后的.mm文件输出时情景
+
+attachment:KDay6-1.png
+
+哈哈哈! 由此,小白大致知道了 FreeMind 的数据格式:
+ 1. 所有节点是统一的 `<node>` 
+ 1. 属性和值,全部是UTF8编码的字串
+ 
+所以,只要有简单的约定,就可以作为 Xpath 的过滤参数来理解真正的数据意义了
+ * 以上的组织成员信息就简单依从以下小小的约定:
+  1. 一级节点都是部门描述,中文
+  1. 二级节点是属性描述:
+   1. dept 说明部门的整体信息
+   1. staff 汇集成员信息,类似部门的节点组织
+   1. total 成员总数
+
+图 KDay6-2 FreeMind 中根据约定组织好的团队信息
 attachment:KDay6-2.png
+
  * 这样就令 XSLT 有基础原则可以进行数据组织了
  * 同理,也可以让Python 快速理解了...
  
 
-== ElementTree,当然的！ ==
+{{{详细::
+XSLT ~ 以XML为形式的用来解析XML数据的样式语言,
+嗯嗯嗯,好象很绕的语言,其实是XML应用领域中很实用的一个标准,
+在 PCS402 XML 中也有相关的简要介绍
+}}}
+
+== ElementTree,当然的!  ==
 '''处理XML Python 有丰富的模块,小白从行者们那儿知道其中 ElementTree 最方便支持部分Xpath 的搜索'''
  * 其实从使用方面也是 ElementTree 最PythyonIc 了
  * `deptorg.py` mm专用理解脚本中:{{{#!python
@@ -76,7 +92,7 @@ for d in dept:
 attachment:KDay6-3.png
 
  * 就使用 `findall()` 和 `attrib["TEXT"]` 便可以判定/获取足够的信息,输出成以上的页面从 mm 中!!!
- * 哈哈哈!具体的就看代码吧……
+ * 哈哈哈!具体的就看代码吧... 
  
 {{{详细::
 PCS214 ElementTree
@@ -85,43 +101,43 @@ PCS214 ElementTree
 }}} 
 
 == Karrigell 的对象混合 ==
-'''但是！怎么样可以使用这种mm 的理解成果？'''
+'''但是! 怎么样可以使用这种mm 的理解成果？'''
  * 麻烦在于 `ElementTree.parse(xml文件)` 要可以直接访问的文件名
  * 小白不想在程序中包含太多系统的路径信息
-  1. 反复尝试，发现从相对路径偏移还是从URL 来访问都不稳定，也麻烦
+  1. 反复尝试,发现从相对路径偏移还是从URL 来访问都不稳定,也麻烦
   1. 最简单的就是理解脚本和mm 文件在一起
- * 问题就来了，各种事务页面如何快捷直观的使用理解成果？
-  * 自然的，就想到了 `Include()` KarriGell 中到处都可以进行的基础操作 -- '''包含'''
+ * 问题就来了,各种事务页面如何快捷直观的使用理解成果？
+  * 自然的,就想到了 `Include()` KarriGell 中到处都可以进行的基础操作 -- '''包含'''
 {{{Include("../xslmm/deptorg.py") 
             ^
             |
             +- 因为是从index.ks/login 之类下级行动函式页面访问}}}
             
-  * 有MoinMoin 的经验，小白就想这样一来应该能将字典对象混人当前名称空间??
+  * 有MoinMoin 的经验,小白就想这样一来应该能将字典对象混人当前名称空间??
    * 在专门mm 理解脚本-- '''deptorg.py''' 中 `print dir()`
 
 图 KDay6-4
 
 attachment:KDay6-4.png
 
-   * 不会这么简单吧！小白发现了 `index.ks` 事务页面中才有的对象 '''sess''' —— 对话容器
+   * 不会这么简单吧! 小白发现了 `index.ks` 事务页面中才有的对象 '''sess''' —— 对话容器
    * 尝试的赋值一下子？{{{
 #deptorg.py 中最后..
 sess.usr["dept"]=deptall
 sess.usr["deptree"]=deptree
 }}}
-   * KAO！ 真的好用！ 在`index.ks/stat` 统计页面，包含 `deptorg.py` mm专用理解脚本 再打印 '''sess.usr''' 看一下子，唉呀呀！真的有了！
+   * KAO!  真的好用!  在`index.ks/stat` 统计页面,包含 `deptorg.py` mm专用理解脚本 再打印 '''sess.usr''' 看一下子,唉呀呀! 真的有了! 
 
 图 KDay6-5
 attachment:KDay6-5.png
 
 == 回答验证 ==
-'''进行回答统计前，必须有个先决重构'''
- * 有效的答案是全部问题都回答了，不然的话统计很麻烦的说……
- * 但是曾经令小白激动的 '''[http://www.amowa.net/jsvalidation/ JavaScript Validation Framework]''' 国人作品…… 忽然间再也不好用了？！
-  * 不得以，仔细看了一下子代码，才发现，有好几点是不能忍的:
-      1. 所有表单都要读取同一配置XML，不论访问者想回答哪个问卷，导致动态生成配置文件时有争用问题
-      1. 同样的原因，导致每次读取配置文件，可能要读入相对无用的几倍信息(别的表单的检验策略也被迫读取了)
+'''进行回答统计前,必须有个先决重构'''
+ * 有效的答案是全部问题都回答了,不然的话统计很麻烦的说... 
+ * 但是曾经令小白激动的 '''[http://www.amowa.net/jsvalidation/ JavaScript Validation Framework]''' 国人作品...  忽然间再也不好用了？! 
+  * 不得以,仔细看了一下子代码,才发现,有好几点是不能忍的:
+      1. 所有表单都要读取同一配置XML,不论访问者想回答哪个问卷,导致动态生成配置文件时有争用问题
+      1. 同样的原因,导致每次读取配置文件,可能要读入相对无用的几倍信息(别的表单的检验策略也被迫读取了)
       1. {{{		...
             try {
 			var prefix = ["MSXML2", "MSXML", "Microsoft", "MSXML3"];
@@ -156,9 +172,9 @@ attachment:KDay6-6.png
  
 == 统计汇报 ==
  * 接下来就简单了:
-     1. 所有人的回答输出为简单的文件，比如说： 每个题目的回答为一行
-     1. 套用问卷列表的技巧，可以搜索出对应问卷的所有回答文件
-     1. 批量读到列表中，和成员信息字典匹配一下子，就可以人性化的输出了
+     1. 所有人的回答输出为简单的文件,比如说： 每个题目的回答为一行
+     1. 套用问卷列表的技巧,可以搜索出对应问卷的所有回答文件
+     1. 批量读到列表中,和成员信息字典匹配一下子,就可以人性化的输出了
 {{{#!python
 ali = fnmatch.filter(os.listdir(conf.qpage.apath), '%s.*.aq'%qpname)
 aed = []
@@ -173,10 +189,10 @@ for a in aed:
     else:
         unknow.append(a)
 }}}
- * 先要预备处理一下子，过滤出不知道的人
+ * 先要预备处理一下子,过滤出不知道的人
   1. 明显的小白约定回答文件的命名格式是 `问卷名.成员帐号名.aq`
   1. 所以可以根据文件名快速整理出名单列表 `aed`
-  1. 然后，就有了已知合理成员回答列表 `done` 和 `unknow` 未知成员列表
+  1. 然后,就有了已知合理成员回答列表 `done` 和 `unknow` 未知成员列表
 
 图 KDay6-7
 attachment:KDay6-7.png 
@@ -231,7 +247,7 @@ stat.append(_grade(crtright,open(fn,"r").read().split()))
 sum(stat)/len(stat)) 就出来了
 reduce(lambda a,b:a+b, stat)/len(stat) 更加cool
 }}}
- * 哈哈哈！！什么也难不住小白！
+ * 哈哈哈! ! 什么也难不住小白! 
  
 图 KDay6-10
 
@@ -239,11 +255,63 @@ attachment:KDay6-10.png
 
 
 == 事务测试 ==
-'''不用想什么黑/白盒；边界，点击就成！'''
- * 好了！所有功能都实现了，小白现在非常成就感的一路点击一下子
- * 感觉哪里不好，随手就修正它！
- * 溜个几回，功能测试基本也就了了…………
+'''不用想什么黑/白盒; 边界,点击就成! '''
+ * 好了! 所有功能都实现了,小白现在非常成就感的一路点击一下子
+ * 感觉哪里不好,随手就修正它! 
+ * 溜个几回,功能测试基本也就了了... ... 
      
+== 小节 ==
+今日,小白在昨日基础上,蒙头快速使用 .ks 模式服务页面,将原先实现了的功能全部归并到了两个文件中,进一步的:
+ 1. 成功!追加了不同问卷的编辑入口 ~ 通过链接参数,令编辑页面知道读入哪个文件而已
+ 1. 成功!增强了问题编辑的版本管理 ~ 通过支持模块快速复制原有文件,并组织好历史版本访问列表而已
+完全达成了昨天的计划开发!
+
+ 本日成果::
+{{{
+kday5/
+|-- Karrigell_QuickForm.py  KQF快速表单模块
+|-- dict4ini.py         Limodou 贡献的 ini 解析模块
+|-- a                   回答收集目录
+|   |-- easy051201.HD.aq        -实验问卷HD答案
+|   |-- easy051201.Zoomq.aq     -实验问卷Zoomq答案
+|   |-- easy051201.hoxide .aq   -实验问卷hoxide答案
+|   `-- easy051201.perrin.aq    -实验问卷perrin答案
+|-- q/                  问卷设计文本收藏目录
+|   |-- CPUG051211.cfg  多问卷实例-CPUG社区问卷
+|   |-- CPUG051211.cfg.051225182951
+|   |-- Python051221.cfg    -Python基础问卷
+|   |-- Python051221.cfg.051225183000
+|   |-- easy051201.cfg      -实验问卷草稿
+|   |-- easy051201.cfg.051222112545 -实验问题编辑历史快照
+|   |-- ...
+|   `-- easy051201.cfg.051225162724
+|-- index.ks            使用KS 模式重构的有登录功能的系统首页
+|-- mana.ks             使用KS 模式重构问卷设计综合支持页面
+|-- mana.pih            问卷设计页面
+|-- qdesign.py          问卷设计实际行为脚本
+|-- qpage.pih           问卷复审页面
+|-- qpage.py            问卷复审实际行为脚本
+|-- qprint.pih          问卷展示页面
+|-- qprint.py           问卷展示实际行为脚本
+|-- questionnaire.cfg   问卷系统配置文件
+|-- questionnaire.tmpl  问卷展示模板
+|-- tryKQF.py           KQF试用页面
+`-- xslmm               freemind 思维图谱团队数据解析目录
+    |-- deptorg.mm      团队定义 freemind 底稿文件
+    |-- deptorg.py      团队定义 解析脚本
+    |-- deptorg.xml     团队定义 输出XML数据文件
+    |-- deptorganise.xsl团队定义 输出XSL模板
+    |-- freemind.css    freemind 输出默认样式
+    |-- freemind.xsl    freemind 输出默认模板
+    |-- icons           freemind 输出图标目录
+    |   |-- Mail.png
+    |   |-- ...
+    |   `-- xmag.png
+    |-- hide.png        freemind 输出页面用小图形
+    |-- ...
+    `-- show.png
+}}}
+
 == 实例下载 ==
 使用SVN下载地址:
  * http://openbookproject.googlecode.com/svn/trunk/LovelyPython/KDays/kday6
@@ -252,10 +320,12 @@ attachment:KDay6-10.png
     到目前为止, 我们已经实现了登录, 编辑, 显示, 删除, 搜索博客文章, 应该说作为个人博客已经差不多了, 当然我们还能继续扩展, 比如以下几点: 
  * (1) 从单用户扩展为多个用户, 变为一个简单的博客系统;
  * (2) 黑白页面比较丑, 我们可以利用css做些页面的美化, 比如加入颜色, 布局调整等等;
- * (3) 思考:前述字典排序技巧是通过将字典关键词单独取出来成列表来排序的，有其它更加直接的方法嘛？
+ * (3) 思考:前述字典排序技巧是通过将字典关键词单独取出来成列表来排序的,有其它更加直接的方法嘛？
 ## 提示:: http://wiki.woodpecker.org.cn/moin/MiscItems/2008-07-01
 
 ##endInc
+= TODO =
+
 
 ----
 返回 [:ObpLovelyPython/KDays:KDays实例故事]
