@@ -5,10 +5,13 @@
 [[TableOfContents]]
 
 ##startInc
-= import =
+= import ~ 模块及包的使用 =
 
 == 模块(modules) ==
-模块是包含Python定义和声明的文件，文件的名称就是模块名称加上.py后缀。例如：fibo模块(fibo.py)是一个实现Fibonacci功能的模块。{{{#!python
+模块(modules) 其实,就是普通的 Python 脚本文件，一般命名是模块名称加上.py后缀；
+这类Python 脚本文件,主要供其他程序将其引入,以便利用其提供的操作/功能/数据，Python标准库全部是以模块方式提供的.
+
+例如：fibo模块(fibo.py)是一个实现Fibonacci功能的模块。{{{#!python
 #coding:utf-8
 
 # Fibonacci数列模块
