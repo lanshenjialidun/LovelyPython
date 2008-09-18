@@ -131,7 +131,7 @@ def export(self):
 '''现在的问题是有什么现成的可以模式化的定义表单检验的前端JS组件? '''
  *  TiosnG !`[ti'aosn'gu]`
   * There is one site named Google! -- 哈哈哈!!运用这个流传在行者们中的咒语,翻查了一下,确认 `Validation` ~ 有效性检查是小白想要的检验的学名,于是得到...
-  * '''JVF'''~[http://www.amowa.net/jsvalidation/ JavaScript Validation Framework] -- Javascript 有效性有效性框架 国人作品!
+  * '''JVF'''~[http://cosoft.org.cn/projects/jsvalidation JavaScript Validation Framework] -- Javascript 有效检验框架 国人作品!
 
 ## mechiland@gmail.com jzchen80@hotmail.com
 
@@ -139,7 +139,13 @@ def export(self):
 
 attachment:KDay3-3.png
 
-  * 是致力于 Python 的Ajax框架开发的 [http://www.amowa.net AMOWA]团队作品,值得期待!试用之!
+{{{详细::
+JVF是AMOWA社区作品,该社区致力于创建一个实用精巧的Ajax框架;
+当年的官网是 http://www.amowa.net 
+现在迁移到 http://buffalo.sourceforge.net/
+JVF 可以从 http://cosoft.org.cn/projects/jsvalidation 获得;
+相关的动态网页技术,在PCS401 DHTML 进行分享
+}}}
 
 === 迁就,先! ===
 为了与KarriGell 配合,当前需要:

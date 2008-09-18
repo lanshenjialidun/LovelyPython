@@ -1,6 +1,6 @@
 ## page was renamed from zhArticleTemplate
 ##language:zh
-#pragma section-numbers on
+#pragma section-numbers off
 ||'''status'''|| 正式 || ZoomQuiet|| 完成度:92.5%||
 
 [[TableOfContents]]
@@ -49,9 +49,9 @@ attachment:KDay6-1.png
  * 以上的组织成员信息就简单依从以下小小的约定:
   1. 一级节点都是部门描述,中文
   1. 二级节点是属性描述:
-   1. dept 说明部门的整体信息
-   1. staff 汇集成员信息,类似部门的节点组织
-   1. total 成员总数
+   * dept 说明部门的整体信息
+   * staff 汇集成员信息,类似部门的节点组织
+   * total 成员总数
 
 图 KDay6-2 FreeMind 中根据约定组织好的团队信息
 attachment:KDay6-2.png
@@ -60,16 +60,19 @@ attachment:KDay6-2.png
  * 同理,也可以让Python 快速理解了...
  
 
-{{{详细::
+{{{注意::
 XSLT ~ 以XML为形式的用来解析XML数据的样式语言,
-嗯嗯嗯,好象很绕的语言,其实是XML应用领域中很实用的一个标准,
-在 PCS402 XML 中也有相关的简要介绍
+嗯嗯嗯,好象很绕的语言,其实是XML应用领域中很实用的一个标准;
+Xpath 就是XML世界中的查询语句,可以快速从XML数据岛中过滤出想要的信息;
+在 PCS402 XML 中都有相关的介绍,读者可以深入了解一下.
 }}}
 
-== ElementTree,当然的!  ==
-'''处理XML Python 有丰富的模块,小白从行者们那儿知道其中 ElementTree 最方便支持部分Xpath 的搜索'''
+== 当然 ElementTree !  ==
+'''在Python世界，处理XML解析的模块有N多种,小白从行者们那儿知道其中 ElementTree 最好用!'''
+ * 不仅仅因为 ElementTree 好用到已经被收为官方标准包,而且支持 Xpath 的搜索
  * 其实从使用方面也是 ElementTree 最PythyonIc 了
- * `deptorg.py` mm专用理解脚本中:{{{#!python
+ * `deptorg.py` 是根据对 .mm 的理解,快速组织的专用解析脚本,其中:
+ {{{#!python
 from elementtree import ElementTree
 print open(xmlFileName,"r").read()
 tree = ElementTree.parse(xmlFileName)
@@ -81,100 +84,114 @@ for d in dept:
 
 }}}
 
-
-  1. 引入 ElementTree
-  1. 处理XML为 ElementTree 对象
-  1. 找到根
+ 解说::
+  1. 引入 ElementTree 模块
+  1. 读入指定XML文件
+  1. 处理XML文件为 ElementTree 对象
+  1. 找到XML根
   1. 从根找到所有第二级的`<node>`节点对象列表
-  1. 已经可以通过 `.attrib["TEXT"]` 来获得内容了!
+  {{{注意::
+"node/node" 就是个 Xpath 语句,
+要求XML解析器,找出所有<node>标签中次一级的<node>标签节点!
+在 PCS402 XML 中都有相关的介绍,读者可以深入了解一下.
+  }}}
+  1. 找到的所有节点,组织成一个列表,已经可以循环处理,并通过 `.attrib["TEXT"]` 来获得内容了!
 
-图 KDay6-3
+图 KDay6-3 页面输出和XML文本对照情景
 attachment:KDay6-3.png
 
- * 就使用 `findall()` 和 `attrib["TEXT"]` 便可以判定/获取足够的信息,输出成以上的页面从 mm 中!!!
- * 哈哈哈!具体的就看代码吧... 
+ * 就使用 `findall()` 和 `attrib["TEXT"]` 便可以判别/获取足够的信息,从 .mm 中输出数据到页面凫!
+ * 哈哈哈!具体的就请读者去看相应脚本吧... 
+
+通过SVN的下载地址:
+ * http://openbookproject.googlecode.com/svn/trunk/LovelyPython/KDays/kday6/xslmm/deptorg.py
  
 {{{详细::
 PCS214 ElementTree
-进一步介绍了这一因为自身的优秀品质,被吸收为内置模块的第三方作品;
-分享了相关的常用操作体验
+进一步介绍了这一因为自身的优秀品质,被吸收为内置模块的第三方XML处理模块;
+分享了相关的常用操作体验;
 }}} 
 
 == Karrigell 的对象混合 ==
-'''但是! 怎么样可以使用这种mm 的理解成果？'''
- * 麻烦在于 `ElementTree.parse(xml文件)` 要可以直接访问的文件名
- * 小白不想在程序中包含太多系统的路径信息
-  1. 反复尝试,发现从相对路径偏移还是从URL 来访问都不稳定,也麻烦
-  1. 最简单的就是理解脚本和mm 文件在一起
- * 问题就来了,各种事务页面如何快捷直观的使用理解成果？
+'''但是! 怎么样可以在问卷系统中,使用 .mm 的理解成果?'''
+ * 麻烦在于 `ElementTree.parse()` 需要XML文件的绝对访问路径
+ * 然而,小白不想在程序中包含太多系统的真实路径信息,所以:
+  1. 反复尝试,发现从相对路径偏移还是从URL 来访问都不靠谱
+  1. 最简单的就是解析脚本和 .mm 文件在一起
+ * 问题就来了,各种事务页面如何快捷直观的使用理解成果?
   * 自然的,就想到了 `Include()` KarriGell 中到处都可以进行的基础操作 -- '''包含'''
 {{{Include("../xslmm/deptorg.py") 
             ^
             |
-            +- 因为是从index.ks/login 之类下级行动函式页面访问}}}
+            +- 使用相对路径,回退一级;
+            因为是从index.ks/login 之类下级行动函式页面访问}}}
             
-  * 有MoinMoin 的经验,小白就想这样一来应该能将字典对象混人当前名称空间??
-   * 在专门mm 理解脚本-- '''deptorg.py''' 中 `print dir()`
+  * 小白根据MoinMoin 包含操作的经验,猜想这样一来应该能将字典对象混人当前名称空间?
+   * 在专门的 .mm 解析脚本-- '''deptorg.py''' 中尝试 `print dir()`
 
-图 KDay6-4
+图 KDay6-4 在页面输出当前名称空间的情景
 
 attachment:KDay6-4.png
 
-   * 不会这么简单吧! 小白发现了 `index.ks` 事务页面中才有的对象 '''sess''' —— 对话容器
-   * 尝试的赋值一下子？{{{
-#deptorg.py 中最后..
+   * 不会这么简单吧! 小白发现了本来应该只在 `index.ks` 事务页面中才有的对象 '''sess''' —— 对话容器
+   * 继续尝试赋值一下子?在 `deptorg.py` 中最后追加..{{{
+...
 sess.usr["dept"]=deptall
 sess.usr["deptree"]=deptree
 }}}
-   * KAO!  真的好用!  在`index.ks/stat` 统计页面,包含 `deptorg.py` mm专用理解脚本 再打印 '''sess.usr''' 看一下子,唉呀呀! 真的有了! 
+   * KAO!  真的好用!  在`index.ks/stat` 统计页面,包含 `deptorg.py` .mm专用解析脚本 再打印 '''sess.usr''' 看一下子,唉呀呀! 真的有了! 
 
-图 KDay6-5
+图 KDay6-5 在页面输出从 .mm 文件中解析出来的成员信息
 attachment:KDay6-5.png
+
+成了!想要的数据从.mm解析出了,传递给页面成了,也测试打印出了,go on!
 
 == 回答验证 ==
 '''进行回答统计前,必须有个先决重构'''
- * 有效的答案是全部问题都回答了,不然的话统计很麻烦的说... 
- * 但是曾经令小白激动的 '''[http://www.amowa.net/jsvalidation/ JavaScript Validation Framework]''' 国人作品...  忽然间再也不好用了？! 
-  * 不得以,仔细看了一下子代码,才发现,有好几点是不能忍的:
-      1. 所有表单都要读取同一配置XML,不论访问者想回答哪个问卷,导致动态生成配置文件时有争用问题
-      1. 同样的原因,导致每次读取配置文件,可能要读入相对无用的几倍信息(别的表单的检验策略也被迫读取了)
-      1. {{{		...
-            try {
-			var prefix = ["MSXML2", "MSXML", "Microsoft", "MSXML3"];
-			for (var i = 0; i < prefix.length; i++) {
-				//return new ActiveXObject(prefix[i] + ".DomDocument"); 
-				var obj = new ActiveXObject(prefix[i] + ".DomDocument"); 
-				if (obj == null || typeof(obj) == 'undefined') {
-					continue;
-				} else {
-					return obj;
-				}
-			}
-		} catch (e) {
-			//^_^
-			throw new Error("My God, What version of IE are you using? IE5&+ is requiered.");
-		}
-}}}咔...'''BS'''!居然不能支持 FireFox 的,怎么以前成功的是灵异现象?!
+ * 有效的答案必须是全部问题都回答了,不然的话不仅涉及用户反复问答的情景,而且统计很不公平的说... 
+ * 但是曾经令小白激动的 JVF~JavaScript Validation Framework ...  忽然间怎么也不好用了!
+  * 不得以,仔细看了一下子代码,才发现,有好几处设计是不能忍的:
+   1. 所有表单都要读取同一配置XML,不论访问者想回答哪个问卷,导致动态生成配置文件时有争用问题
+   1. 同样的原因,导致每次读取配置文件,可能要读入相对无用的几倍信息(别的表单的检验策略也被迫读取了)
+   1. 在 validation-framework.js 中居然...{{{
+try {
+var prefix = ["MSXML2", "MSXML", "Microsoft", "MSXML3"];
+for (var i = 0; i < prefix.length; i++) {
+	//return new ActiveXObject(prefix[i] + ".DomDocument"); 
+	var obj = new ActiveXObject(prefix[i] + ".DomDocument"); 
+	if (obj == null || typeof(obj) == 'undefined') {
+		continue;
+	} else {
+		return obj;
+	}
+}
+} catch (e) {
+//^_^
+throw new Error("My God, What version of IE are you using? IE5&+ is requiered.");
+}
+}}}啍啍...'''BS'''!居然不能支持 FireFox 的,难道以前小白的成功反而是灵异现象?!
 
- * 怕了!直接使用服务端的判定吧!
+ * 小白彻底无言了!直接使用服务端的判定吧!
  * 创立 `bye()` 判别处理页面 并在失败时输出{{{
 <input type="button"
     value="点击返回重新回答"
     class="btn"
     onClick="history.back();"/>
-    }}} 这样的JS 行动按钮, 快捷完成想要的完全问答检验处理
+    }}} 这样的JS 行动按钮,快速完成想要的`必须问答完全部问题之检验`
 
-图 KDay6-6    
+图 KDay6-6 查觉有未回答问题时提醒的情景
 attachment:KDay6-6.png
 
- * 好了基本可用了,只是这样一来,加重了服务端的压力,也难以进行页面的友好提醒...
+ * 好了基本可用了,只是这样一来,加重了服务端的压力,也无法进行客户端页面的就地提醒...
   * 嗯嗯,自古忠孝难全,先这么着,以后再想了....
  
 == 统计汇报 ==
- * 接下来就简单了:
-     1. 所有人的回答输出为简单的文件,比如说： 每个题目的回答为一行
-     1. 套用问卷列表的技巧,可以搜索出对应问卷的所有回答文件
-     1. 批量读到列表中,和成员信息字典匹配一下子,就可以人性化的输出了
+'''终于进入最后的功能完成了!小白已经开始志得意满起来了,因为,实在没有什么难度了卟?'''
+ * 接下来的功能就单纯了:
+  1. 所有人的回答输出记录成简单的文件,比如说：每个题目的回答为一行
+  1. 套用问卷列表的技巧,需要时可以搜索出对应问卷的所有成员回答记录
+  1. 批量读到列表中,和成员信息字典匹配一下子,就可以人性化的输出了
+相关代码:
 {{{#!python
 ali = fnmatch.filter(os.listdir(conf.qpage.apath), '%s.*.aq'%qpname)
 aed = []
@@ -189,21 +206,22 @@ for a in aed:
     else:
         unknow.append(a)
 }}}
- * 先要预备处理一下子,过滤出不知道的人
-  1. 明显的小白约定回答文件的命名格式是 `问卷名.成员帐号名.aq`
-  1. 所以可以根据文件名快速整理出名单列表 `aed`
-  1. 然后,就有了已知合理成员回答列表 `done` 和 `unknow` 未知成员列表
+ 注解::
+  先要预备处理一下子,过滤出不知道的非期待的回答者
+  * 行1: 从目录中查找出所有相关回答记录文件(明显的小白约定回答文件的命名格式是 `问卷名.成员帐号名.aq`)
+  * 行2~5: 根据文件名快速整理出名单列表 `aed`
+  * 行6~12: 顺势,就有了已知合理成员回答列表 `done` 和 `unknow` 未知成员列表
 
-图 KDay6-7
+图 KDay6-7 成员回答情况统计汇报总表情景
 attachment:KDay6-7.png 
 
- * 最后就是个显示问题了:
-     1. 想要有 回答时间的信息?{{{
+最最后就仅仅是信息的显示问题了:
+ 1. 想要有 回答时间的信息?{{{
 fn = conf.qpage.apath+'%s.%s.aq'%(qpname,a)
 ...
 time.strftime("%y/%m/%d %H:%M:%S",time.localtime(os.path.getmtime(fn)
 }}}
-     1. 想要有 百分制 的成绩?{{{#!python
+ 1. 想要有 百分制 的成绩?{{{#!python
 def _grade(right,answer):
     """根据问卷答案自动计算分数
     """
@@ -215,18 +233,17 @@ def _grade(right,answer):
             pass
     return 100*(float(grade)/len(right))
 }}}
-     1. 唉呀呀??为什么不管怎么回答都是0分?
-      * 发现问题..字典的无序和回答的有序!间的矛盾
-     {{{
+  *唉呀呀?!小白突然发现,为什么不管怎么回答都是0分?
+   * 原来,是字典的无序和回答的有序!造成的,验证一下:{{{#!python
 print crtqp.ask.keys()
 crtright = [crtqp.ask[i]["key"] for i in crtqp.ask.keys()]
 print crtright
 }}}
 
-图 KDay6-8
+图 KDay6-8 将答案和问题教员检出到页面
 attachment:KDay6-8.png 
 
-      * 知道症结就好修改了{{{#!python
+   * 知道症结就好修改了{{{#!python
 #字典排序技巧
 ak = crtqp.ask.keys()
 ak.sort()
@@ -238,7 +255,7 @@ print crtright
 图 KDay6-9
 attachment:KDay6-9.png 
 
-     1. 要有总平均成绩?{{{
+ 1. 要有总平均成绩?{{{
 #使用stat 列表收集所有有效成绩
 stat = []
 ...
@@ -249,23 +266,24 @@ reduce(lambda a,b:a+b, stat)/len(stat) 更加cool
 }}}
  * 哈哈哈! ! 什么也难不住小白! 
  
-图 KDay6-10
+图 KDay6-10 有总平均分的情景
 
 attachment:KDay6-10.png 
 
 
 == 事务测试 ==
 '''不用想什么黑/白盒; 边界,点击就成! '''
- * 好了! 所有功能都实现了,小白现在非常成就感的一路点击一下子
+ * 好了! 所有功能都实现了,小白现在非常成就感的一路点击下来
  * 感觉哪里不好,随手就修正它! 
  * 溜个几回,功能测试基本也就了了... ... 
-     
+
+
 == 小节 ==
 今日,小白在昨日基础上,蒙头快速使用 .ks 模式服务页面,将原先实现了的功能全部归并到了两个文件中,进一步的:
- 1. 成功!追加了不同问卷的编辑入口 ~ 通过链接参数,令编辑页面知道读入哪个文件而已
- 1. 成功!增强了问题编辑的版本管理 ~ 通过支持模块快速复制原有文件,并组织好历史版本访问列表而已
-完全达成了昨天的计划开发!
-
+ 1. 成功!使用 .mm 文件作数据源来维护团队组织信息,并用包含的方式,应用到了页面事务中! 
+ 1. 成功!发现了JVF 的设计缺陷,并通过判定事务的迁移,通过服务端判别,重构了功能的支持;
+ 1. 成功!综合过往成果完成了统计功能的支持;
+ 
  本日成果::
 {{{
 kday5/
@@ -320,7 +338,7 @@ kday5/
     到目前为止, 我们已经实现了登录, 编辑, 显示, 删除, 搜索博客文章, 应该说作为个人博客已经差不多了, 当然我们还能继续扩展, 比如以下几点: 
  * (1) 从单用户扩展为多个用户, 变为一个简单的博客系统;
  * (2) 黑白页面比较丑, 我们可以利用css做些页面的美化, 比如加入颜色, 布局调整等等;
- * (3) 思考:前述字典排序技巧是通过将字典关键词单独取出来成列表来排序的,有其它更加直接的方法嘛？
+ * (3) 思考:前述字典排序技巧是通过将字典关键词单独取出来成列表来排序的,有其它更加直接的方法嘛?
 ## 提示:: http://wiki.woodpecker.org.cn/moin/MiscItems/2008-07-01
 
 ##endInc
