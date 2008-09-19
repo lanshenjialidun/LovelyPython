@@ -28,9 +28,9 @@ def formatCDinfo(root,dirs,files):
     return export
 
 def cdcGrep(cdcpath,keyword):
-    filelist = os.listdir(cdcpath)          # 搜索目录中的文件
+    filelist = os.listdir(cdcpath)           # 搜索目录中的文件
     for cdc in filelist:                    # 循环文件列表
-        if ".cdc" in cdc:
+        if ".cdc" in cdc:                   # 过滤可能的其它文件,只关注.cdc
             cdcfile = open(cdcpath+cdc)         # 拼合文件路径，并打开文件
             for line in cdcfile.readlines():    # 读取文件每一行，并循环
                 if keyword in line:             # 判定是否有关键词在行中

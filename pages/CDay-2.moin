@@ -248,10 +248,11 @@ attachment:cday-2-pycdc-v0.5-result.png
 def cdcGrep(cdcpath,keyword):
     filelist = os.listdir(cdcpath)          # 搜索目录中的文件
     for cdc in filelist:                    # 循环文件列表
-        cdcfile = open(cdcpath+cdc)         # 拼合文件路径，并打开文件
-        for line in cdcfile.readlines():    # 读取文件每一行，并循环
-            if keyword in line:             # 判定是否有关键词在行中
-                print line                  # 打印输出
+        if ".cdc" in cdc:                   # 过滤可能的其它文件,只关注.cdc
+            cdcfile = open(cdcpath+cdc)         # 拼合文件路径，并打开文件
+            for line in cdcfile.readlines():    # 读取文件每一行，并循环
+                if keyword in line:             # 判定是否有关键词在行中
+                    print line                  # 打印输出
 }}}
 
 对于小白,这个自制的最简单的 `grep` 功能,6行代码其中5行都可以自然的写出,只有一行判定代码是新的:
