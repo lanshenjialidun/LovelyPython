@@ -16,7 +16,7 @@ reload(sys)
 sys.setdefaultencoding('utf8')
 
 YAHOO_DIR = 'J:\\yahoo_data\\'
-YAHOO_TXT = yahoo_dir + 'txt\\all.txt'
+YAHOO_TXT = YAHOO_DIR+ 'txt\\all.txt'
 
 def html_to_txt():
     """将多个html文件合并为一个txt文件，统一编码为utf-8 or ascii
