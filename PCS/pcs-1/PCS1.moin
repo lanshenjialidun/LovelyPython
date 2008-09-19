@@ -49,7 +49,7 @@ ImportError: No module named Mysqldb
 >>> 
 }}}
  1. 在主提示符或附属提示符输入中断符（Control-c，抛出一个 keyboardinterrupt 异常，它可以被try句截获）就会取消当前输入，回到主命令行。
- 1. 在Python Shell中可以很方便的查看Python文档，包括类型、类库、模块等等的使用资料。这些都是非常有用的。通过help(obj)就可以看到obj的帮助信息，就像系统Shell中的man帮助一样，提供了非常详细的资料。
+ 1. 在Python Shell中可以很方便的查看Python文档，包括类型、类库、模块等等的使用资料。这些都是非常有用的。通过help("obj")就可以看到obj的帮助信息，就像系统Shell中的man帮助一样，提供了非常详细的资料。
 
 ##endInc
 
