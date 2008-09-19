@@ -1,14 +1,14 @@
 #!/bin/python
 # coding: utf-8
 
-""" Html To Txt
+""" Html To Text
 @author: lizzie
 @contract: shengyan1985@gmail.com
 @see: ...
 @version:0.1
 """
 import os
-from html2txt import *
+from html2text import *
 import chardet
 import sys
 
