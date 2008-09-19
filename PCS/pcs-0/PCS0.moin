@@ -44,7 +44,7 @@ Python是跨平台的动态脚本语言，可以运行在Windows、Linux/Unix、
  1. 成功安装后，在/home/shengyan/python2.5.2下就是刚刚安装的Python目录。在终端中进入/home/shengyan/python2.5.2目录，输入./python，即可进入Python交互环境，可以看到刚才安装的Python2.5.2。
  attachment:PCS0-ubuntu-step4.png
  1. 若想在终端中直接输入python，启动的是Python2.5.2，而不是以前的旧版本，则应该做以下两个方法：
-  * 方法一，修改环境变量PATH。若仅仅在终端下修改PATH，只对当前终端有效。若想在其他终端中或重启之后还有效的话，则需在用户目录的.bashrc文件末尾加入export PATH=/home/shengyan/python2.5/bin:$PATH，注销或重启X就可。具体设置PATH的多种方法可参考[http://blog.csdn.net/wangyifei0822/archive/2008/05/04/2386076.aspx 这里]
+  * 方法一，修改环境变量PATH。若仅仅在终端下修改PATH，只对当前终端有效。若想在其他终端中或重启之后还有效的话，则需在用户目录的.bashrc文件末尾加入export PATH="/home/shengyan/python2.5/bin:$PATH"，注销或重启X就可。具体设置PATH的多种方法可参考[http://blog.csdn.net/wangyifei0822/archive/2008/05/04/2386076.aspx 这里]
   attachment:PCS0-ubuntu-step5.png
   * 方法二，上述方法仅对当前用户环境进行设置，若想在系统上，全局使用Python2.5.2，则需以下步骤：
   attachment:PCS0-ubuntu-step6.png
