@@ -137,7 +137,7 @@ $ python pcs-200-6.py
 {{{#!python
 import os.path
 
-for user in [ '', 'daemon', 'mysql' ]:
+for user in [ '', 'root', 'mysql' ]:
     lookup = '~' + user
     print lookup, ':', os.path.expanduser(lookup)
 }}}'~'是表示某个用户的home目录.
