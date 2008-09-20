@@ -157,6 +157,48 @@ Writing /usr/lib/python2.5/site-packages/chardet-1.0.1.egg-info
 无
 
 ######CDay1
+In [8]: from ConfigParser import RawConfigParser as rcp
+
+In [9]: cfg = rcp()
+
+In [10]: cfg.add_section("Info")
+
+In [11]: cfg.set("Info", "ImagePath", "path/to/my/cdrom")
+
+In [12]: cfg.set("Info", "foo", "CD 信息")
+
+In [13]: cfg.write(open("try.ini", "w"))
+
+In [14]: cat try
+try      try.ini  
+
+In [14]: cat try.ini
+[Info]
+imagepath = path/to/my/cdrom
+foo = CD 信息
+
+In [17]: import os
+
+In [18]: os.stat("./ChangeLog")
+Out[18]: (33261, 1180964L, 2052L, 1, 1000, 1000, 1460L, 1221903012, 1209130528, 1221877926)
+
+In [19]: os.stat("./ChangeLog").st_size
+Out[19]: 1460L
+
+In [20]: ls -lF
+总用量 92
+drwxr-xr-x 3 shengyan shengyan  4096 2008-04-25 21:35 apidocs/
+-rwxr-xr-x 1 shengyan shengyan    87 2008-04-25 21:35 AUTHORS*
+drwxr-xr-x 3 shengyan shengyan  4096 2008-04-25 21:35 cdc/
+-rwxr-xr-x 1 shengyan shengyan  4260 2008-04-25 21:35 cdctools.py*
+-rw-r--r-- 1 shengyan shengyan 10986 2008-04-25 21:35 cdctools-utf8-beautify.cdc
+-rwxr-xr-x 1 shengyan shengyan  1460 2008-04-25 21:35 ChangeLog*
+-rw-r--r-- 1 shengyan shengyan   694 2008-04-25 21:35 epydoc.cfg
+-rwxr-xr-x 1 shengyan shengyan 35148 2008-04-25 21:35 LICENSE*
+-rwxr-xr-x 1 shengyan shengyan   246 2008-04-25 21:35 PKG-INFO*
+-rwxr-xr-x 1 shengyan shengyan  2930 2008-04-25 21:35 pycdc.py*
+-rwxr-xr-x 1 shengyan shengyan  1082 2008-04-25 21:35 README*
+-rw-r--r-- 1 shengyan shengyan    53 2008-09-20 17:31 try.ini
 
 
 ######CDay2
