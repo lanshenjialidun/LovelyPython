@@ -1,4 +1,4 @@
-# coding : utf-8
+# -*- coding: utf-8 -*-
 '''Lovely Python -3 PyDay 
     PyCDC v0.1
 '''

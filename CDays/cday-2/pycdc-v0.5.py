@@ -1,4 +1,4 @@
-# coding : utf-8
+# -*- coding: utf-8 -*-
 '''pycdc-v0.5.py
 Lovely Python -2 PyDay 
 '''

@@ -1,0 +1,170 @@
+######CDay-5
+~/LovelyPython$ python
+Python 2.5.2 (r252:60911, May  7 2008, 15:19:09) 
+[GCC 4.2.3 (Ubuntu 4.2.3-2ubuntu7)] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> print "Hello Pythonic World!"
+Hello Pythonic World!
+>>> 
+~/LovelyPython$ ipython
+Python 2.5.2 (r252:60911, May  7 2008, 15:19:09) 
+Type "copyright", "credits" or "license" for more information.
+
+IPython 0.8.4 -- An enhanced Interactive Python.
+?         -> Introduction and overview of IPython's features.
+%quickref -> Quick reference.
+help      -> Python's own help system.
+object?   -> Details about 'object'. ?object also works, ?? prints more.
+
+In [1]: print "Hello Pythonic World!"
+Hello Pythonic World!
+
+
+######CDay-4
+~/LovelyPython/CDays/cday-4$ python CDay-4-1.py 
+['README.diskdefines', 'install', 'preseed', 'pool', 'doc', 'pics', 'isolinux', 'md5sum.txt', 'ubuntu', '.disk', 'dists']
+~/LovelyPython/CDays/cday-4$ ipython
+Python 2.5.2 (r252:60911, May  7 2008, 15:19:09) 
+Type "copyright", "credits" or "license" for more information.
+
+IPython 0.8.4 -- An enhanced Interactive Python.
+?         -> Introduction and overview of IPython's features.
+%quickref -> Quick reference.
+help      -> Python's own help system.
+object?   -> Details about 'object'. ?object also works, ?? prints more.
+
+In [1]: import os
+
+In [2]: print os.listdir("/media/cdrom0")
+['README.diskdefines', 'install', 'preseed', 'pool', 'doc', 'pics', 'isolinux', 'md5sum.txt', 'ubuntu', '.disk', 'dists']
+
+~/LovelyPython/CDays/cday-4$ python CDay-4-3.py 
+Traceback (most recent call last):
+  File "CDay-4-3.py", line 4, in <module>
+    open('mycd.cdc', 'a').write(root+dirs+files)
+TypeError: cannot concatenate 'str' and 'list' objects
+
+
+######CDay-3
+~/LovelyPython/CDays/cday-3$ python pycdc-v0.1.py -e mycd-1.cdc
+Traceback (most recent call last):
+  File "pycdc-v0.1.py", line 6, in <module>
+    print sys.argv
+NameError: name 'sys' is not defined
+~/LovelyPython/CDays/cday-3$ 
+~/LovelyPython/CDays/cday-3$ python pycdc-v0.1.py -e mycd-1.cdc
+['pycdc-v0.1.py', '-e', 'mycd-1.cdc']
+~/LovelyPython/CDays/cday-3$ python pycdc-v0.1.py -e cdc/mycd-1.cdc
+Traceback (most recent call last):
+  File "pycdc-v0.1.py", line 11, in <module>
+    cdWalker(CDROM,sys.argv[2])
+  File "pycdc-v0.1.py", line 8, in cdWalker
+    open(cdcfile, 'w').write(export)
+IOError: [Errno 2] No such file or directory: 'cdc/mycd-1.cdc'
+
+######CDay-2
+~/LovelyPython/CDays/cday-2$ python pycdc-v0.4.py 
+(Cmd) help
+
+Documented commands (type help <topic>):
+========================================
+EOF  dir  find  walk
+
+Undocumented commands:
+======================
+help
+
+(Cmd) dir
+输入指定保存/搜索目录: cdc
+(Cmd) xx
+*** Unknown syntax: xx
+(Cmd) ? find
+搜索关键词
+(Cmd) 
+搜索关键词
+
+~/LovelyPython/CDays/cday-2$ python pycdc-v0.5.py 
+PyCDC0.5 使用说明:
+    dir 目录名     #指定保存和搜索目录，默认是 "cdc"
+    walk 文件名    #指定光盘信息文件名，使用 "*.cdc"
+    find 关键词    #遍历搜索目录中所有.cdc文件，输出含有关键词的行
+    ?           # 查询
+    EOF         # 退出系统，也可以使用Crtl+D(Unix)|Ctrl+Z(dos/windows)
+        
+(PyCDC)>wakl
+*** Unknown syntax: wakl
+(PyCDC)>walk try.cdc
+扫描光盘内容保存到:'try.cdc'
+(PyCDC)>
+扫描光盘内容保存到:'try.cdc'
+
+######CDay-1
+~/LovelyPython/CDays/cday-1$ ipython
+Python 2.5.2 (r252:60911, May  7 2008, 15:19:09) 
+Type "copyright", "credits" or "license" for more information.
+
+IPython 0.8.4 -- An enhanced Interactive Python.
+?         -> Introduction and overview of IPython's features.
+%quickref -> Quick reference.
+help      -> Python's own help system.
+object?   -> Details about 'object'. ?object also works, ?? prints more.
+
+In [1]: import os
+
+In [2]: for root, dirs, files in os.walk("./中文编码"):
+   ...:     print "\n%s;%s;%s " % (root, dirs, files)
+   ...: 
+
+./中文编码;[];['\xe4\xb8\xad\xe6\x96\x87\xe7\xbc\x96\xe7\xa0\x81\xe6\xb5\x8b\xe8\xaf\x95', '\xe4\xbd\xa0\xe5\xa5\xbd'] 
+
+In [3]: unicode([dirs for dirs in os.walk("./中文编码")][0][0], 'utf8')
+Out[3]: u'./\u4e2d\u6587\u7f16\u7801'
+
+In [4]: unicode([dirs for dirs in os.walk("./中文编码")][0][0], 'utf8').encode("utf8")
+Out[4]: './\xe4\xb8\xad\xe6\x96\x87\xe7\xbc\x96\xe7\xa0\x81'
+
+In [5]: print unicode([dirs for dirs in os.walk("./中文编码")][0][0], 'utf8').encode("utf8")
+./中文编码
+
+In [6]: 
+[4]+  Stopped                 ipython
+
+~/ubuntu_software/python/chardet-1.0.1$ 
+~/ubuntu_software/python/chardet-1.0.1$ ls -l
+总用量 44
+drwxr-xr-x 3 shengyan shengyan  4096 2008-04-11 19:03 build
+drwxr-xr-x 2 shengyan shengyan  4096 2008-04-11 19:05 chardet
+-rwxr-xr-x 1 shengyan shengyan 26432 2008-03-05 13:46 COPYING
+drwxr-xr-x 4 shengyan shengyan  4096 2008-03-05 13:46 docs
+-rwxr-xr-x 1 shengyan shengyan  1983 2008-03-05 13:46 setup.py
+~/ubuntu_software/python/chardet-1.0.1$ python setup.py
+usage: setup.py [global_opts] cmd1 [cmd1_opts] [cmd2 [cmd2_opts] ...]
+   or: setup.py --help [cmd1 cmd2 ...]
+   or: setup.py --help-commands
+   or: setup.py cmd --help
+
+error: no commands supplied
+~/ubuntu_software/python/chardet-1.0.1$ sudo python setup.py install
+running install
+running build
+running build_py
+running install_lib
+running install_egg_info
+Removing /usr/lib/python2.5/site-packages/chardet-1.0.1.egg-info
+Writing /usr/lib/python2.5/site-packages/chardet-1.0.1.egg-info
+
+######CDay-0
+无
+
+######CDay1
+
+
+######CDay2
+
+
+######CDay3
+
+
+######CDay4
+
+

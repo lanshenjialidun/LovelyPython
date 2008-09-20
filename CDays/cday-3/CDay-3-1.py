@@ -1,4 +1,4 @@
-# coding : utf-8
+# -*- coding: utf-8 -*-
 import os
 def cdWalker(cdrom,cdcfile):
     export = ""
