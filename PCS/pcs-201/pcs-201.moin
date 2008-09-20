@@ -19,8 +19,8 @@ import string, sys
 
 class CLI(cmd.Cmd):
 
-    def _ _init_ _(self):
-        cmd.Cmd._ _init_ _(self)
+    def __init__(self):
+        cmd.Cmd.__init__(self)
         self.prompt = '> '    # 定义命令行提示符
 
     def do_hello(self, arg):   # 定义hello命令所执行的操作
