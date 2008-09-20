@@ -14,6 +14,7 @@ cmd模块为命令行接口(command-line interfaces , CLI)提供了一个简单�
 == 使用 ==
 下面先举个cmd模块使用的小例子:
 {{{#!python
+#coding: utf-8
 import cmd
 import string, sys
 
