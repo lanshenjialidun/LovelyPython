@@ -1,7 +1,7 @@
-##language:zh
+﻿##language:zh
 ##OBP项目图书reST通用文章模板
 ###format rst
-||status|| 草稿 ||清风; 100%||
+||status|| 草稿 ||HuangYi，清风; 100%||
 
 [[TableOfContents]]
 
@@ -12,26 +12,8 @@ python 上有无数网页开发模组可选择. 随着选择的增加, 要挑选
 你可以想像 TurboGears 就是 python 网页开发界的 Ubuntu 发布套件 (Linux Distribution), 整合各种TurboGears 推荐的开源模组, 提供简单易用的介面与一致的系统体验.
 
 === 特性介绍 ===
- * 用最好的开源组件 (Best of Breed)
- * 互动式开发
- * 体验自由组合的乐趣
-
-=== MVC ===
-TurboGears 使用 MVC 的方式组织网站, 提供网页框架快速生成工具, 开发中自动即时重载的网页伺服器,
-
-使用 easy_install 命令就可以从 TurboGears Cogbin 中轻易扩展功能.
-
- * 组成 TurboGears 的组件主要可分为
-   1. ORM (面向对象的方法存取资料库, SQLObject 或 SQLAlchemy)
-   1. Template 样板系统 (目前已知支援 10 种以上样板包含 Django Template, kid)
+   1. 成熟的ORM (SQLObject 或 SQLAlchemy)
+   1. 可替换的Template 模板系统 (默认GenShi，但支持几乎所有 Python 世界的模板系统)
    1. 控制器核心 (CherryPy)
-   1. AJAX 库 (各种 Javascript 库, Mochikit)
-
-TurboGears 现也已提供网站程式中最常用的网页认证模组, 网页注册模组, 网页发信模组等.
-
-TurboGears 使用 widgets, 從系統(而非样板)支持网页元素重用. (各种样板系统都可以用来开发 网页元素).
-
-网页工具箱 ToolBox 里面包含设计/维护网站资料库的工具, 线上多国语言翻译工具等.
-TurboGears 大部分组件都可 自由替换
-
--- 清风  [[DateTime(2008-04-25T14:33:00Z)]] 
+   1. 与前台javascript框架（Mochikit）的良好整合，方便ajax应用程序的开发。
+   1. Widget 库，方便重用小的功能模块。
