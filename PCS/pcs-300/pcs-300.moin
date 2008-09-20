@@ -22,7 +22,7 @@ CherryPy 是个非常简洁易用——面向对象的 web 框架。咦，面向对象不是用来形容
 
 == 下载安装 ==
 
-从 http://download.cherrypy.org/cherrypy/ 下载最新的版本，解压，然后执行 {{{python setup.py install}}} ，则大功搞成，可以开始写程序了。
+从 http://www.cherrypy.org/wiki/CherryPyDownload 找到最新版本的下载地址并下载之，解压，然后和几乎所有python模块的安装一样，执行 {{{python setup.py install}}} ，则大功搞成，可以开始写程序了。
 
 == 开始写程序 ==
 
@@ -43,12 +43,15 @@ class HelloWorld:
 cherrypy.quickstart(HelloWorld())
 }}}
 
-然后打开命令行，执行 {{{ python hello.py }}} 。现在打开浏览器访问 http://localhost:8080/index ，
+然后打开命令行，直接执行 {{{ python hello.py }}} 。现在打开浏览器访问 http://localhost:8080/index ，
 就可以看到上面 {{{index}}} 方法返回的那句话了，也可以直接访问 http://localhost:8080/ ，index 是默认调用的方法。
 
-再来看个复杂的吧：
+再来看个稍微复杂点的吧：
 
 {{{#!python
+# -*- coding: utf-8 -*-
+import cherrypy
+
 class OnePage(object):
     def index(self):
         return "one page!"
@@ -76,4 +79,3 @@ cherrypy.quickstart(HelloWorld())
 
 另外实际的 web 应用中，当然不能把页面的html全部塞到 Python 代码里面来，实际上有很多专门的模板可以用，详见 PCSXX 大 web 框架介绍。
 关于 CherryPy 的详细内容，读者可以参考CherryPy的官方文档 http://www.cherrypy.org/wiki/TableOfContents 。
-
