@@ -60,7 +60,7 @@ attachment:cday-2-learning-python.gif
 所以将原先的代码整理到'cdctools.py';
 创建新脚本 'pycdc-v0.4.py':
 {{{#!python
-# coding : utf-8
+# -*- coding: utf-8 -*-
 import sys, cmd
 class PyCDC(cmd.Cmd):
     def __init__(self):
@@ -122,7 +122,7 @@ attachment:cday-2-pycdc-v0.4-result.png
 === 利用自个儿的模块 ===
 那么如何直接利用暂存到'cdctools.py' 的功能?
 {{{#!python
-# coding : utf-8
+# -*- coding: utf-8 -*-
 import os
 def cdWalker(cdrom,cdcfile):
     export = ""
@@ -140,7 +140,7 @@ from 某脚本文件名 import *
 
 立即拿来改造 'pycdc-v0.4.py':
 {{{#!python
-# coding : utf-8
+# -*- coding: utf-8 -*-
 import sys, cmd
 from cdctools import *
 ...
@@ -177,6 +177,7 @@ http://aspn.activestate.com/ASPN/docs/ActivePython/2.4/python/lib/module-cmd.htm
 
 ==== pycdc-v0.5.py ====
 研究和改造成果如下:{{{#!python
+# -*- coding: utf-8 -*-
 import sys, cmd
 from cdctools import *
 class PyCDC(cmd.Cmd):

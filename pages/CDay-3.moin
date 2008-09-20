@@ -44,7 +44,7 @@ python pycdc.py -d cdc -k 中国火
 === 函式化? ===
 声明函式名，定义参数，然后使用缩进，将前一日摸索出来的代码包装一下，使用参数代替原先指定的目录和文件名:
 '''CDay-3-1.py'''{{{#!python
-# coding : utf-8
+# -*- coding: utf-8 -*-
 import os
 def cdWalker(cdrom,cdcfile):
     export = ""
@@ -72,7 +72,7 @@ PCS108 函式
 
 那么无畏的小白立即创建一个将进行真正使用的功能脚本 '''pycdc-v0.1.py''' ,并尝试加入最新提示代码:
 {{{#!python
-# coding : utf-8
+# -*- coding: utf-8 -*-
 import os
 print sys.argv
 def cdWalker(cdrom,cdcfile):
@@ -90,7 +90,7 @@ attachment:cday-3-pycdc-v0.1-result.png
 
 OK,出错了，但是有了 `os` 模块的经验，瞧`sys.argv` 这么眼熟，小白猜这是个模块，需要引入，所以微小的改动一下:
 {{{#!python
-# coding : utf-8
+# -*- coding: utf-8 -*-
 import os,sys
 print sys.argv
 def cdWalker(cdrom,cdcfile):
@@ -112,7 +112,7 @@ Great! 一切如愿，然后就是简单的识别参数问题了：
 所以,得对未知用户的行为进行判定,对非期待的输入进行提示,而不是由Python 自个儿出错中断;
 正如其它语言类似，什么`if`,`else` 等等逻辑判别，Python 同样的有,找到相关章节，照猫画虎:
 {{{#!python
-# coding : utf-8
+# -*- coding: utf-8 -*-
 import os,sys
 CDROM = '/media/cdrom0'
 def cdWalker(cdrom,cdcfile):

@@ -52,7 +52,7 @@ http://www.woodpecker.org.cn/share/doc/abyteofpython_cn/chinese/ch14s03.html
 }}}
 看起来可以使用,所以,创建我们第一个执行脚本 `CDay-4-1.py`:
 {{{#!python
-# coding : utf-8
+# -*- coding: utf-8 -*-
 import os
 print os.listdir("/media/cdrom0")
 }}}
@@ -141,7 +141,7 @@ PCS4 常用自省
 
 按照 `os-file-dir` 的示例改造脚本尝试 '''CDay-4-2.py''' :
 {{{#!python
-# coding : utf-8
+# -*- coding: utf-8 -*-
 import os
 for root, dirs, files in os.walk('/media/cdrom0'):
   print root,dirs,files
@@ -171,7 +171,7 @@ PCS102 for循环
 
 小白,根据行者指引,或是搜索,都指向 `file_objects`文件对象操作, 加点儿想象就可以组成以下脚本 '''CDay-4-3.py''':
 {{{#!python
-# coding : utf-8
+# -*- coding: utf-8 -*-
 import os
 for root, dirs, files in os.walk('/media/cdrom0'):
   open('mycd.cdc', 'a').write(root+dirs+files)
@@ -216,7 +216,7 @@ http://www.woodpecker.org.cn/diveintopython/getting_to_know_python/everything_is
 
 如果有C编程经验的小白就立即可以联想到这是输出格式化的技巧, 使用`%s` 的格式化声明,要求后面的对象以 '''String''' 字串的格式进行转换,所以脚本 '''CDay-4-4.py''' 的改造也就顺理成章了 :
 {{{#!python
-# coding : utf-8
+# -*- coding: utf-8 -*-
 import os
 for root, dirs, files in os.walk('/media/cdrom0'):
   open('mycd.cdc', 'a').write("%s %s %s" % (root,dirs,files))
@@ -276,7 +276,7 @@ PCS101 内建数据类型 介绍了动态语言的最大便利～自由类型转
 
 CDay-4-5.py 好在哪里? :
 {{{#!python
-# coding : utf-8
+# -*- coding: utf-8 -*-
 import os
 export = ""
 for root, dirs, files in os.walk('/media/cdrom0'):
@@ -286,7 +286,7 @@ open('mycd2.cdc', 'w').write(export)
 
 CDay-4-6.py又更加好在哪里? :
 {{{#!python
-# coding : utf-8
+# -*- coding: utf-8 -*-
 import os
 export = []
 for root, dirs, files in os.walk('/media/cdrom0'):
