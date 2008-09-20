@@ -205,6 +205,24 @@ drwxr-xr-x 3 shengyan shengyan  4096 2008-04-25 21:35 cdc/
 
 
 ######CDay3
+~/LovelyPython/CDays/cday3$ python cdctools.py 
+/media/cdrom0/NamieAmuro/neverEnd/音乐极限--日韩专区.files
+/media/cdrom0/NamieAmuro/neverEnd
+Search from  cdc//z.MFC.pop.02.cdc  out  
+Search from  cdc//MCollec.39.cdc  out  
+ L:\可儿乐队精选The Corrs Greathits/('i never loved you anyway.mp3', '3281377') 
+ L:\可儿乐队精选The Corrs Greathits/('everybody hurts.mp3', '4899889') 
+Search from  cdc//z.Animation.00.cdc  out  
+Search from  cdc//mfj-00.cdc  out  
+ /media/cdrom0/NamieAmuro/neverEnd/音乐极限--日韩专区.files
+ /media/cdrom0/NamieAmuro/neverEnd
+Search from  cdc//.svn  out  
+Search from  cdc//z.MCollection.29.cdc  out  
+ L:\MFW.20\jazz\Info\Mp3之家-绝版JazzCD.files/('apelevencoveraa.jpeg', '5650') 
+ L:\MFJ.16\The Brilliant Green/('uptu.com-rainy_days_never_stays03.wma', '926441') 
+ L:\MFJ.16\The Brilliant Green/('uptu.com-rainy_days_never_stays02.wma', '807552') 
+usage 0.135001897812 s
+~/LovelyPython/CDays/cday3$ 
 
 
 ######CDay4
