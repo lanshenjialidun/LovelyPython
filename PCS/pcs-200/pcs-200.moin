@@ -24,9 +24,9 @@ for path in [ '/one/two/three',
     print '"%s" : "%s"' % (path, os.path.split(path))
 }}}对于一个文件(具有绝对路径或者相对路径),使用os.path.split()可以将其拆成对应路径名(不以路径分割符,如'/'结尾)和文件名;对于一个路径,则返回该路径(同样,不以路径分割符,如'/'结尾),而对应的文件名为空.这里比较奇特的是对于当前文件夹('.'),os.path.split()把它看作是文件名.
 {{{
-$ python ospath_split.py
-"/one/two/three" : "('/one/two', 'three')" 
-"/one/two/three/" : "('/one/two/three', '')" 
+$ python pcs-200-1.py 
+"/one/two/three" : "('/one/two', 'three')"
+"/one/two/three/" : "('/one/two/three', '')"
 "/" : "('/', '')"
 "." : "('', '.')"
 "" : "('', '')"
@@ -46,7 +46,7 @@ for path in [ '/one/two/three',
     print '"%s" : "%s"' % (path, os.path.basename(path))
 }}}如果这里的函数参数只是一个路径,不是文件名,则返回对应的文件名为空.同样对于'.'也是比较奇怪.
 {{{
-$ python ospath_basename.py
+$ python pcs-200-2.py 
 "/one/two/three" : "three"
 "/one/two/three/" : ""
 "/" : ""
@@ -68,8 +68,8 @@ for path in [ '/one/two/three',
     print '"%s" : "%s"' % (path, os.path.dirname(path))
 }}}同样,返回的路径名是不以路径分割符,如'/'结尾的.
 {{{
-$ python ospath_dirname.py
-"/one/two/three" : "/one/two" 
+$ python pcs-200-3.py 
+"/one/two/three" : "/one/two"
 "/one/two/three/" : "/one/two/three"
 "/" : "/"
 "." : ""
@@ -86,7 +86,7 @@ for path in [ 'filename.txt', 'filename', '/path/to/filename.txt', '/', '' ]:
     print '"%s" :' % path, os.path.splitext(path)
 }}}可以看到os.path.splittext只是很单纯的将文件名和扩展名分开了.
 {{{
-$ python ospath_splitext.py
+$ python pcs-200-4.py 
 "filename.txt" : ('filename', '.txt')
 "filename" : ('filename', '')
 "/path/to/filename.txt" : ('/path/to/filename', '.txt')
@@ -108,7 +108,7 @@ print paths
 print os.path.commonprefix(paths)
 }}}
 {{{
-$ python ospath_commonprefix.py
+$ python pcs-200-5.py 
 ['/one/two/three/four', '/one/two/threefold', '/one/two/three/']
 /one/two/three
 }}}
@@ -126,26 +126,26 @@ for parts in [ ('one', 'two', 'three'),
     print parts, ':', os.path.join(*parts)
 }}}也就是将一系列短路径拼合成有效的长路径.
 {{{
-$ python ospath_join.py
+$ python pcs-200-6.py 
 ('one', 'two', 'three') : one/two/three
 ('/', 'one', 'two', 'three') : /one/two/three
 ('/one', '/two', '/three') : /three
 }}}
 
 === os.path.expanduser ===
-可以利用os.path.expanduser寻找用户的/home目录.
+可以利用os.path.expanduser寻找用户的home目录.
 {{{#!python
 import os.path
 
-for user in [ '', 'dhellmann', 'postgres' ]:
+for user in [ '', 'daemon', 'mysql' ]:
     lookup = '~' + user
     print lookup, ':', os.path.expanduser(lookup)
 }}}'~'是表示某个用户的home目录.
 {{{
-$ python ospath_expanduser.py
-~ : /Users/dhellmann
-~dhellmann : /Users/dhellmann
-~postgres : /var/empty
+$ python pcs-200-7.py 
+~ : /home/shengyan
+~root : /root
+~mysql : /var/lib/mysql
 }}}
 
 === os.path.expandvars ===
@@ -160,7 +160,7 @@ os.environ['MYVAR'] = 'VALUE'
 print os.path.expandvars('/path/to/$MYVAR')
 }}}
 {{{
-$ python ospath_expandvars.py
+$ python pcs-200-8.py 
 /path/to/VALUE
 }}}
 
@@ -177,7 +177,7 @@ for path in [ 'one//two//three',
     print path, ':', os.path.normpath(path)
 }}}
 {{{
-$ python ospath_normpath.py
+$ python pcs-200-9.py 
 one//two//three : one/two/three
 one/./two/./three : one/two/three
 one/../one/two/three : one/two/three
@@ -193,11 +193,11 @@ for path in [ '.', '..', './one/two/three', '../one/two/three']:
     print '"%s" : "%s"' % (path, os.path.abspath(path))
 }}}
 {{{
-$ python ospath_abspath.py
-"." : "/Users/dhellmann/Documents/PyMOTW/in_progress/ospath"
-".." : "/Users/dhellmann/Documents/PyMOTW/in_progress"
-"./one/two/three" : "/Users/dhellmann/Documents/PyMOTW/in_progress/ospath/one/two/three"
-"../one/two/three" : "/Users/dhellmann/Documents/PyMOTW/in_progress/one/two/three"
+$ python pcs-200-10.py 
+"." : "/home/shengyan/LovelyPython/PCS/pcs-200"
+".." : "/home/shengyan/LovelyPython/PCS"
+"./one/two/three" : "/home/shengyan/LovelyPython/PCS/pcs-200/one/two/three"
+"../one/two/three" : "/home/shengyan/LovelyPython/PCS/one/two/three"
 }}}
 
 == 问题 ==
