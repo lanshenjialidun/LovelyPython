@@ -1,0 +1,133 @@
+<html>
+<head>
+<title>Python scripts
+</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="STYLESHEET" href="../doc.css">
+</head>
+<BODY bgcolor="#71B559" LINK="#FFFFCC" VLINK="#FFFFCC" LEFTMARGIN="0" TOPMARGIN="0">
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td class="side">&nbsp;</td>
+<td>
+    <table class="header" cellpadding="0" cellspacing="0">
+    <tr>
+        <td>
+            <a href="../../index.pih"><img src="../images/karrigell_skeudenn.png" border="0"></a>
+        </td>
+        <td class="headertext">
+            <td class="headertext1">
+                <center>
+                <font size="+2"><b>Karrigell Documentation</b></font>
+                <p>
+                <table width="70%" cellpadding="0" cellspacing="0"><tr>
+                <td class="info" align="left"><strong>Version 2.4.0</strong></td>
+                <td class="info" align="right">12 04 08</td>
+                </tr></table>
+                </center>
+            </td>
+            <td class="headertext2">
+                <a class="header" href="../fr/pythonscripts.htm">Fran&ccedil;ais</a>
+            </td>
+        </td>
+    </tr>
+    </table>
+</td>
+</tr>
+<tr><td class="menu" valign="top"><a class="menu" href="front.htm">
+1. Introduction
+</a><br><a class="menu" href="install.htm">
+2. Installing Karrigell
+</a><br><a class="menu" href="webserveroptions.htm">
+3. The Web server
+</a><br><a class="menu" href="configuration.htm">
+4. Configuration options
+</a><br><a class="menu" href="apache.htm">
+5. Working with Apache, LightTPD or Xitami
+</a><br><a class="menu" href="programming.htm">
+6. Programming
+</a><br><a class="menu" href="debugging.htm">
+7. Debugging
+</a><br><span class="sel">
+8. Python scripts
+</span><br><a class="menu" href="cgi.htm">
+9. CGI scripts
+</a><br><a class="menu" href="karrigellservices.htm">
+10. Karrigell Services
+</a><br><a class="menu" href="pythoninsidehtml.htm">
+11. Python Inside HTML
+</a><br><a class="menu" href="htmlinsidepython.htm">
+12. HTML Inside Python
+</a><br><a class="menu" href="htmltags.htm">
+13. HTMLTags - generate HTML in Python
+</a><br><a class="menu" href="include.htm">
+14. Including documents
+</a><br><a class="menu" href="sessions.htm">
+15. Sessions
+</a><br><a class="menu" href="authentication.htm">
+16. Authentication and users management
+</a><br><a class="menu" href="internationalization.htm">
+17. Translation and Unicode
+</a><br><a class="menu" href="namespace.htm">
+18. Summary of built-in names</a><br></td>
+<td class="content">
+<h1>8. Python scripts</h1>
+<p>Running Python scripts with Karrigell is straightforward. Open you favorite Python
+code editor, create the following script :</p>
+<dl><dd><pre class="verbatim">
+print &quot;Hello Karrigell !&quot;
+</pre></dl>
+<p>and save it under the name <span class="file">hello.py</span> in the
+<a href="webserveroptions.htm#root">Root Directory</a>. Then type
+  <span class="url">http://localhost/hello.py</span>
+  and you should see the message appear in your browser</p>
+<p>Python scripts run with Karrigell are ordinary Python scripts, except that
+the <code>print</code>   statement sends the output to the client's browser
+instead of the console window. Therefore you'll have to write HTML code if
+you need the correct formatting ; for a minimal table you'll have to write
+something like</p>
+<dl><dd><pre class="verbatim">
+print &quot;&lt;TABLE&gt;&quot;
+print &quot;&lt;TR&gt;&quot;
+print &quot;&lt;TD&gt;Name&lt;/TD&gt;&quot;
+print &quot;&lt;TD&gt;Address&lt;/TD&gt;&quot;
+print &quot;&lt;/TR&gt;&quot;
+print &quot;&lt;/TABLE&gt;&quot;
+</pre></dl>
+<p>or, using the multi-line Python syntax :</p>
+<dl><dd><pre class="verbatim">
+print &quot;&quot;&quot;&lt;TABLE&gt;
+      &lt;TR&gt;
+        &lt;TD&gt;Name&lt;/TD&gt;
+        &lt;TD&gt;Address&lt;/TD&gt;
+      &lt;/TR&gt;
+    &lt;/TABLE&gt;&quot;&quot;&quot;
+</pre></dl>
+or if you want to use the <a href="htmltags.htm">HTMLTags</a> module :
+<p>
+<dl><dd><pre class="verbatim">
+from HTMLTags import *
+print TABLE(TR(TD("Name")+TD("Address")))
+</pre></dl>
+<p>If you write Python scripts that musn't be executed by Karrigell (for instance because
+they have a GUI-based interaction with the user) you can include this code at the top of 
+your script :
+<p>
+<dl><dd><pre class="verbatim">
+try:
+    SCRIPT_END
+except NameError:
+    pass
+else:
+    print "This script can't be executed by Karrigell"
+    raise SCRIPT_END
+    
+(... rest of your script here ...)
+</pre></dl>
+<p>Since <code>SCRIPT_END</code> is in the namespace of Python scripts when executed in
+Karrigell, the execution stops in this case ; when run from the command line, a 
+<code>NameError</code> is raised, and is ignored by the script
+</body>
+</html>
+</td>
+</tr></table>

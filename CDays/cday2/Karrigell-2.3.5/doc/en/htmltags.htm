@@ -1,0 +1,164 @@
+<html>
+<head>
+<title>HTMLTags - generate HTML in Python
+</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="STYLESHEET" href="../doc.css">
+</head>
+<BODY bgcolor="#71B559" LINK="#FFFFCC" VLINK="#FFFFCC" LEFTMARGIN="0" TOPMARGIN="0">
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td class="side">&nbsp;</td>
+<td>
+    <table class="header" cellpadding="0" cellspacing="0">
+    <tr>
+        <td>
+            <a href="../../index.pih"><img src="../images/karrigell_skeudenn.png" border="0"></a>
+        </td>
+        <td class="headertext">
+            <td class="headertext1">
+                <center>
+                <font size="+2"><b>Karrigell Documentation</b></font>
+                <p>
+                <table width="70%" cellpadding="0" cellspacing="0"><tr>
+                <td class="info" align="left"><strong>Version 2.4.0</strong></td>
+                <td class="info" align="right">12 04 08</td>
+                </tr></table>
+                </center>
+            </td>
+            <td class="headertext2">
+                <a class="header" href="../fr/htmltags.htm">Fran&ccedil;ais</a>
+            </td>
+        </td>
+    </tr>
+    </table>
+</td>
+</tr>
+<tr><td class="menu" valign="top"><a class="menu" href="front.htm">
+1. Introduction
+</a><br><a class="menu" href="install.htm">
+2. Installing Karrigell
+</a><br><a class="menu" href="webserveroptions.htm">
+3. The Web server
+</a><br><a class="menu" href="configuration.htm">
+4. Configuration options
+</a><br><a class="menu" href="apache.htm">
+5. Working with Apache, LightTPD or Xitami
+</a><br><a class="menu" href="programming.htm">
+6. Programming
+</a><br><a class="menu" href="debugging.htm">
+7. Debugging
+</a><br><a class="menu" href="pythonscripts.htm">
+8. Python scripts
+</a><br><a class="menu" href="cgi.htm">
+9. CGI scripts
+</a><br><a class="menu" href="karrigellservices.htm">
+10. Karrigell Services
+</a><br><a class="menu" href="pythoninsidehtml.htm">
+11. Python Inside HTML
+</a><br><a class="menu" href="htmlinsidepython.htm">
+12. HTML Inside Python
+</a><br><span class="sel">
+13. HTMLTags - generate HTML in Python
+</span><br><a class="menu" href="include.htm">
+14. Including documents
+</a><br><a class="menu" href="sessions.htm">
+15. Sessions
+</a><br><a class="menu" href="authentication.htm">
+16. Authentication and users management
+</a><br><a class="menu" href="internationalization.htm">
+17. Translation and Unicode
+</a><br><a class="menu" href="namespace.htm">
+18. Summary of built-in names</a><br></td>
+<td class="content">
+<h1>13. HTMLTags - generate HTML in Python</h1>
+The HTMLTags module defines a class for all the valid HTML tags, written in 
+uppercase letters. To create a piece of HTML, the general syntax is :
+<p>
+<pre class="verbatim">
+      t = TAG(innerHTML, key1=val1,key2=val2,...)
+</pre>
+so that <code>print t</code> results in :
+<p>
+<pre>    &lt;TAG key1="val1" key2="val2" ...>innerHTML&lt;/TAG>
+</pre>
+For instance :
+<pre>    print A('bar', href="foo")  ==>  &lt;A href="foo">bar&lt;/A>
+</pre>
+<p>Attributes with the same name as Python keywords (<code>class</code>,
+<code>type</code>) must be capitalized :
+<pre>    print DIV('bar', Class="title")  ==>  &lt;DIV class="title">bar&lt;/A>
+</pre>
+<p>To generate HTML attributes without value, give them the value 
+<code>True</code> :
+<pre>    print OPTION('foo',SELECTED=True,value=5)  ==>  &lt;OPTION value="5" SELECTED>
+</pre>
+For non-closing tags such as &lt;IMG&gt; or &lt;BR&gt;, the <code>print</code>
+statement does not generate the closing tag
+<p>The <em>innerHTML</em> argument can be an instance of an HTML class, so that you 
+can nest tags, like this :
+<p>
+<pre>    print B(I('foo'))  ==>  &lt;B&gt;&lt;I&gt;foo&lt;/I&gt;&lt;/B&gt;
+</pre>
+<p>Instances of the HTML classes support the addition :
+<p>
+<pre>    print B('bar')+INPUT(name="bar")  ==>  &lt;B>bar&lt;/B>&lt;INPUT name="bar">
+</pre>
+<p>and also repetition :
+<p>
+<pre>    print TH('&amp;nbsp')*3  ==>  &lt;TD>&amp;nbsp;&lt;/TD>&lt;TD>&amp;nbsp;&lt;/TD>&lt;TD>&amp;nbsp;&lt;/TD>
+</pre>
+<p>If you have a list of instances, you can't concatenate the items with 
+<code>sum(instanceList)</code> because <code>sum</code> takes only numbers 
+as arguments. So there is a function called <code>Sum</code> which will do 
+the job :
+<p>
+<pre>    Sum([ TR(TD(i)+TD(i*i)) for i in range(100) ])
+</pre>
+generates the rows of a table showing the squares of integers from 0 to 99
+<P>The <em>innerHTML</em> argument can be a string, but you can't concatenate 
+a string and an instance of an HTML class, like in :
+<p>
+<pre>    H1('To be or ' + B('not to be'))
+</pre>
+For this, use a class called <code>TEXT</code>, which will not generate any tag :
+<p>
+<pre>    H1(TEXT('To be or ') + B('not to be'))
+</pre>
+A simple document can be produced by :
+<p>
+<pre>
+    print HTML( HEAD(TITLE('Test document')) +
+        BODY(H1('This is a test document')+
+             TEXT('First line')+BR()+
+             TEXT('Second line')))
+</pre>
+This will produce :
+<p>
+<pre>
+    &lt;HTML&gt;
+    &lt;HEAD&gt;
+    &lt;TITLE&gt;Test document&lt;/TITLE&gt;
+    &lt;/HEAD&gt;
+    &lt;BODY&gt;
+    &lt;H1&gt;This is a test document&lt;/H1&gt;
+    First line
+    &lt;BR&gt;
+    Second line
+    &lt;/BODY&gt;
+    &lt;/HTML&gt;
+</pre>
+If the document is more complex it is more readable to create the elements 
+first, then to print the whole result in one instruction. For example :
+<p>
+<pre>
+    stylesheet = LINK(rel="Stylesheet",href="doc.css")
+    header = TITLE('Record collection')+stylesheet
+    title = H1('My record collection')
+    rows = Sum ([TR(TD(rec.title,Class="title")+TD(rec.artist,Class="Artist")) 
+        for rec in records])
+    table = TABLE(TR(TH('Title')+TH('Artist')) + rows)
+    print HTML(HEAD(header) + BODY(title + table))
+</pre>
+</td>
+</tr></table>

@@ -1,0 +1,134 @@
+<html>
+<head>
+<title>Le serveur Web
+</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="STYLESHEET" href="../doc.css">
+</head>
+<BODY bgcolor="#71B559" LINK="#FFFFCC" VLINK="#FFFFCC" LEFTMARGIN="0" TOPMARGIN="0">
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td class="side">&nbsp;</td>
+<td>
+    <table class="header" cellpadding="0" cellspacing="0">
+    <tr>
+        <td>
+            <a href="../../index.pih"><img src="../images/karrigell_skeudenn.png" border="0"></a>
+        </td>
+        <td class="headertext">
+            <td class="headertext1">
+                <center>
+                <font size="+2"><b>Karrigell Documentation</b></font>
+                <p>
+                <table width="70%" cellpadding="0" cellspacing="0"><tr>
+                <td class="info" align="left"><strong>Version 2.4.0</strong></td>
+                <td class="info" align="right">12 04 08</td>
+                </tr></table>
+                </center>
+            </td>
+            <td class="headertext2">
+                <a class="header" href="../en/webserveroptions.htm">English</a>
+            </td>
+        </td>
+    </tr>
+    </table>
+</td>
+</tr>
+<tr><td class="menu" valign="top"><a class="menu" href="front.htm">
+1. Introduction
+</a><br><a class="menu" href="install.htm">
+2. Installation
+</a><br><span class="sel">
+3. Le serveur Web
+</span><br><span class="sel">
+&nbsp;&nbsp;<small>3.1 Le Répertoire Racine</small></span><br><span class="sel">
+&nbsp;&nbsp;<small>3.2 Servir des fichiers statiques</small></span><br><span class="sel">
+&nbsp;&nbsp;<small>3.3 Options de ligne de commande</small></span><br><a class="menu" href="configuration.htm">
+4. Options de configuration
+</a><br><a class="menu" href="apache.htm">
+5. Travailler avec Apache, LightTPD ou Xitami
+</a><br><a class="menu" href="programming.htm">
+6. Programmation
+</a><br><a class="menu" href="debugging.htm">
+7. Debogage
+</a><br><a class="menu" href="pythonscripts.htm">
+8. Scripts Python
+</a><br><a class="menu" href="cgi.htm">
+9. Scripts CGI
+</a><br><a class="menu" href="karrigellservices.htm">
+10. Services Karrigell
+</a><br><a class="menu" href="pythoninsidehtml.htm">
+11. Python Inside HTML
+</a><br><a class="menu" href="htmlinsidepython.htm">
+12. HTML Inside Python
+</a><br><a class="menu" href="htmltags.htm">
+13. HTMLTags - génère du HTML en Python
+</a><br><a class="menu" href="include.htm">
+14. Inclure des documents
+</a><br><a class="menu" href="sessions.htm">
+15. Sessions
+</a><br><a class="menu" href="authentication.htm">
+16. Authentification et gestion des utilisateurs
+</a><br><a class="menu" href="internationalization.htm">
+17. Traduction et Unicode
+</a><br><a class="menu" href="namespace.htm">
+18. Résumé des noms intégrés</a><br></td>
+<td class="content">
+<script src="../pf_test.js"></script>
+<h1>3. Le serveur Web</h1>
+<p>Le serveur web intégré est un serveur asynchrone, sur le même principe que les modules 
+<CODE>asyncore</CODE> et <CODE>asynchat</CODE> de la distribution standard de Python. Pour 
+autant que j'ai pu le tester, il est très efficace, avec des temps de réponse excellents
+<sup><a href="#note">(1)</a></sup>
+<h2><a name="root">3.1 Le Répertoire Racine</h2>
+Le Répertoire Racine est l'endroit où placer les fichiers qui seront atteints au sommet de la
+hiérarchie des url ; si vous placez <code>monfichier.htm</code> dans ce répertoire, il sera appelé
+par <span class="url">http://hote/monfichier.htm</span> où <span class="url">hote</span> est le nom
+d'hôte du serveur (<span class="url">localhost</span> si vous travaillez en local)
+<p>A l'installation, le Répertoire Racine est le sous-répertoire <code>webapps</code> du
+Répertoire Serveur. Vous pouvez le modifier dans le fichier de configuration (voir les
+<a href="configuration.htm">options de configuration</a>)
+<h2>3.2 Servir des fichiers statiques</h2>
+<p>Pour servir des fichiers &quot;statiques&quot; (pages HTML, images GIF ou JPEG, etc) tout ce
+qu'il y a à faire est de les créer en utilisant votre outil favori et de les sauvegarder dans le
+<a href="#root">Répertoire Racine</a></p>
+<p>Supposons que vous ayez créé un document HTML, <span class="file">monFichier.htm</span>, et que
+vous l'ayez mis dans le Répertoire Racine. Lancez votre navigateur web préféré et entrez l'URL
+<span class="url">http://localhost/monFichier.htm</span> ; vous devriez voir votre fichier
+s'afficher dans le navigateur</p>
+<p>Si vous sauvegardez le fichier dans un sous-répertoire il faut ajouter son nom au début de l'URL.
+Si vous avez un fichier <span class="file">monImage.gif</span> dans le sous-répertoire <code>Images
+</code>, son URL sera <span class="url">http://localhost/Images/monImage.gif</span>
+<p>Pour atteindre des fichiers en-dehors du Répertoire Racine, utilisez les alias 
+(voir les <a href="configuration.htm">options de configuration</a>)
+<p>Si on ne spécifie pas de nom de fichier et que l'url correspond à un répertoire, le serveur
+cherche dans ce répertoire s'il y a des fichiers de nom <span class="file">index.html, index.htm, 
+index.py, index.pih, index.hip</span> ou <span class="file">index.ks</span>.
+S'il n'en trouve pas, il affiche la liste des sous-répertoires et des fichiers dans le 
+répertoire ; s'il en trouve plus d'un, il déclenche une exception.
+<p>Si l'extension d'un fichier n'est pas spécifié, le serveur cherchera un fichier avec l'une
+des extensions <CODE>html, htm, py, pih, hip</CODE> ou <CODE>ks</CODE>. S'il en trouve un, il est utilisé ; s'il en trouve
+plus d'un, une exception est déclenchée ; s'il n'en trouve aucun, une exception est
+également déclenchée.
+<p>
+<h2>3.3 Options de ligne de commande</h2>
+<br>La ligne de commande est de la forme :
+<p><code>python Karrigell.py [-P port] [-S] [-D] [initFile]</code>
+<p>où
+<ul>
+<li><code>port</code> est le numéro de port HTTP (80 par défaut)
+<li><code>S</code> spécifie le mode "silencieux". Par défaut, Karrigell affiche une trace pour
+chaque requête qu'il reçoit. Avec l'option <code>-S</code> rien n'est affiché
+<br><li><code>initFile</code> est le fichier de configuration (voir ci-dessous). Par défaut 
+c'est le
+fichier <span class="file">Karrigell.ini</span> dans le répertoire du serveur
+</ul>
+<p><a name="note"><small>(1) vous pouvez aussi vous servir d'un autre serveur web intégré, 
+basé sur les modules <code>SocketServer</code>, <code>BaseHTTPServer</code> et 
+<code>SimpleHTTPServer</code> de la distribution standard Python : faites
+<code>python Karrigell_SocketServer.py</code>
+</small>
+</body>
+</html>
+</td>
+</tr></table>

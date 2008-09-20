@@ -1,0 +1,288 @@
+<html>
+<head>
+<title>Programming
+</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="STYLESHEET" href="../doc.css">
+</head>
+<BODY bgcolor="#71B559" LINK="#FFFFCC" VLINK="#FFFFCC" LEFTMARGIN="0" TOPMARGIN="0">
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td class="side">&nbsp;</td>
+<td>
+    <table class="header" cellpadding="0" cellspacing="0">
+    <tr>
+        <td>
+            <a href="../../index.pih"><img src="../images/karrigell_skeudenn.png" border="0"></a>
+        </td>
+        <td class="headertext">
+            <td class="headertext1">
+                <center>
+                <font size="+2"><b>Karrigell Documentation</b></font>
+                <p>
+                <table width="70%" cellpadding="0" cellspacing="0"><tr>
+                <td class="info" align="left"><strong>Version 2.4.0</strong></td>
+                <td class="info" align="right">12 04 08</td>
+                </tr></table>
+                </center>
+            </td>
+            <td class="headertext2">
+                <a class="header" href="../fr/programming.htm">Fran&ccedil;ais</a>
+            </td>
+        </td>
+    </tr>
+    </table>
+</td>
+</tr>
+<tr><td class="menu" valign="top"><a class="menu" href="front.htm">
+1. Introduction
+</a><br><a class="menu" href="install.htm">
+2. Installing Karrigell
+</a><br><a class="menu" href="webserveroptions.htm">
+3. The Web server
+</a><br><a class="menu" href="configuration.htm">
+4. Configuration options
+</a><br><a class="menu" href="apache.htm">
+5. Working with Apache, LightTPD or Xitami
+</a><br><span class="sel">
+6. Programming
+</span><br><span class="sel">
+&nbsp;&nbsp;<small>6.1 Accessing HTTP environment</small></span><br><span class="sel">
+&nbsp;&nbsp;<small>6.2 Form fields</small></span><br><span class="sel">
+&nbsp;&nbsp;<small>6.3 Smart urls</small></span><br><span class="sel">
+&nbsp;&nbsp;<small>6.4 File uploads</small></span><br><span class="sel">
+&nbsp;&nbsp;<small>6.5 Exceptions</small></span><br><span class="sel">
+&nbsp;&nbsp;<small>6.6 HTMLStream</small></span><br><a class="menu" href="debugging.htm">
+7. Debugging
+</a><br><a class="menu" href="pythonscripts.htm">
+8. Python scripts
+</a><br><a class="menu" href="cgi.htm">
+9. CGI scripts
+</a><br><a class="menu" href="karrigellservices.htm">
+10. Karrigell Services
+</a><br><a class="menu" href="pythoninsidehtml.htm">
+11. Python Inside HTML
+</a><br><a class="menu" href="htmlinsidepython.htm">
+12. HTML Inside Python
+</a><br><a class="menu" href="htmltags.htm">
+13. HTMLTags - generate HTML in Python
+</a><br><a class="menu" href="include.htm">
+14. Including documents
+</a><br><a class="menu" href="sessions.htm">
+15. Sessions
+</a><br><a class="menu" href="authentication.htm">
+16. Authentication and users management
+</a><br><a class="menu" href="internationalization.htm">
+17. Translation and Unicode
+</a><br><a class="menu" href="namespace.htm">
+18. Summary of built-in names</a><br></td>
+<td class="content">
+<h1>6. Programming</h1>
+<p>There are many programming styles to write programs in Karrigell : 
+<ul>
+<li>pure <a href="pythonscripts.htm">Python scripts</a>, with a simplified variant, 
+<a href="htmlinsidepython.htm">HTML Inside Python</a>
+<li><a href="karrigellservices.htm">Karrigell services</a>, which are Python scripts which can
+handle a whole website (several pages)
+<li>for those who like the PHP-like mix of HTML and programs, see 
+<a href="pythoninsidehtml.htm">Python Inside HTML</a>
+</ul>
+They are are described in the documentation. You can also add the support for other 
+kinds of scripts : if you want to manage scripts with the extension 
+<CODE>.foo</CODE>, you have to write a module called <CODE>mod_foo</CODE>. 
+See the example of <CODE>mod_tmpl.py</CODE> to manage the Cheetah 
+templating system
+<p>The principle of programming with Karrigell is simple : <p>
+<b><i>All the necessary 
+data are available in the namespace where the script is run</i></b>
+<p>This namespace is prepared by Karrigell before the script is executed. For instance,
+the script can use the built-in name <CODE>HEADERS</CODE> to get the HTTP header values
+<h2>6.1 Accessing HTTP environment</h2>
+Access to the HTTP environment is provided through global variables available in the script's
+namespace :
+<ul>
+<li><code>HEADERS</code> is a dictionary with the HTTP headers sent by the server : 
+the key is the header name, the value is the header's value. For instance 
+<code>HEADERS["accept-language"]</code> will return the value of the 
+<var>accept-language</var> header
+<li><code>RESPONSE</code> is a dictionary in which you'll set values for the response 
+header that will be sent to the server. This dictionary is insensitive to the 
+case of the keys : RESPONSE['Content-type'] and RESPONSE['CONTENT-type'] return the 
+same result
+<li><CODE>Role()</CODE> is a function that returns the user's role, as defined in the
+built-in user management framework (see the chapter on <a href=
+"authentication.htm">authentication</a>)
+<li><code>COOKIE</code> is a dictionary-like SimpleCookie objet (in Python <code>Cookie</code>
+module) that stores the cookies sent by the web browser with the HTTP request
+<li><code>SET_COOKIE</code> is another SimpleCookie objet to which you can set keys and values 
+which will be stored by the web browser as cookies
+<li><code>ACCEPTED_LANGUAGES</code> is a list of languages accepted by the 
+user's browser, ordered by preference. The items are two-character strings identifying 
+the language, according to the ISO 639 codification (<code>en</code> for English, 
+<code>fr</code> for French, etc)
+<li>For advanced use, <code>REQUEST_HANDLER</code> represents the current 
+RequestHandler instance. It exposes attributes such as <code>client_address</code>, 
+a tuple with the client IP address and port. See the documentation for the 
+<code>BaseHTTPServer</code> and <code>SimpleHTTPServer</code> modules in Python 
+standard distribution
+<li><code>THIS</code> is an instance of the class Script (in Template.py) 
+representing the current script
+</ul>
+<h2>6.2 Form fields</h2>
+The <code>QUERY</code> variable is a dictionary representing the query string if the script is
+called with the HTTP <code>GET</code> method, or the fields of a form submitted with the HTTP <code>
+POST</code> method. <code>QUERY</code> keys are the name of the fields, and values are either the
+value of the field as a string, or a list of values if the field name ends with <code>[]</code> (if
+it comes from a <code>&lt;SELECT MULTIPLE&gt;</code> form field for instance)
+<p>Suppose you have an HTML form such as :
+<p>
+<dl><dd><pre class="verbatim">
+&lt;form action="myScript.py"&gt;
+  Spam &lt;input name="spam"&gt;
+  &lt;br&gt;&lt;select multiple name="animal[]"&gt;
+  &lt;option value="dog"&gt;Dog
+  &lt;option value="cat"&gt;Cat
+  &lt;option value="frog"&gt;Frog
+  &lt;/select&gt;
+  &lt;br&gt;&lt;input type="submit" value="Ok"&gt;
+&lt;/form&gt;
+</pre></dl>
+<p>In <code>myScript.py</code> the input would be displayed with :
+<p>
+<dl><dd><pre class="verbatim">
+print "&lt;br&gt;Spam is ",QUERY["spam"]
+if QUERY.has_key("animal"):
+    print "&lt;br&gt;Animal is ",str(QUERY["animal"])
+</pre></dl>
+<p>
+<p>Access to these data is available through a shortcut, consisting in the underscore <code>_</code>
+prepended to the field name. The code above could be written in this simpler way :
+<p>
+<dl><dd><pre class="verbatim">
+print "&lt;br&gt;Spam is ",_spam
+if QUERY.has_key("animal"):
+    print "&lt;br&gt;Animal is ",str(_animal)
+</pre></dl>
+<p>
+The underscore is introduced to reduce the risks of naming conflicts with Python reserved words or
+with the name of frequently used modules
+<a name="smart"><h2>6.3 Smart urls</h2>
+The normal way to pass parameters to a script is to use query strings in the url, or
+post data. An alternative is to pass parameters as a part of the url, like in <code>
+http://host/path/script.py/foo/bar</code> ; here the parameters to the script are 
+<CODE>foo</CODE> and <CODE>bar</CODE>
+<p>In the script you can access these parameters as a list ; it is an attribute of THIS, 
+THIS.subpath :
+<p>
+<dl><dd><pre class="verbatim">
+print "The parameters are %s" %THIS.subpath
+</pre></dl>
+<p>
+A problem with these urls is that if you want to use Include or write a relative link
+or insert an image or a JavaScript, the url must be different if the script was called 
+without a subpath or with any number of parameters in the subpath
+For instance if you write this relative url in the script :
+<p>
+<dl><dd><pre class="verbatim">
+print '&lt;IMG SRC="images/pic.png"&gt;'
+</pre></dl>
+<p>
+and you call the script with <CODE>http://host/path/script.py/foo/bar</CODE>, the browser 
+will compute the absolute url <code>http://host/path/script.py/foo/images/pic.png</code>,
+and execute the same script with the parameters <CODE>foo,images,pic.png</CODE> - not what you
+want !
+<p>So if you plan to pass parameters in a subpath, you must write the relative url this way :
+<p>
+<dl><dd><pre class="verbatim">
+print '&lt;IMG SRC="%s"&gt;' %THIS.rel("images/pic.png")
+</pre></dl>
+<p>
+<CODE>THIS.rel</CODE> prepends to the relative url provided as argument as many
+<code>'../'</code> as the number of parameters
+<h2>6.4 File uploads</h2>
+To upload a file from the client to the server, the input tag must have the type "file". For
+instance, the html form will look like this :
+<p>
+<dl><dd><pre class="verbatim">
+&lt;FORM ENCTYPE="multipart/form-data" ACTION="fileUpload.py" METHOD=POST&gt;
+File to process: &lt;INPUT NAME="myfile" TYPE="file"&gt;
+&lt;INPUT TYPE="submit" VALUE="Send File"&gt;
+&lt;/FORM&gt;
+</pre></dl>
+<p>The script which has to handle the file upload will use the variable 
+<CODE>QUERY['myfile']</CODE> or <CODE>_myfile</CODE>, which is an instance of the 
+class <CODE>FieldStorage</CODE> in the built-in <CODE>cgi</CODE> module.
+This object has two useful attributes :
+<ul>
+<li><CODE>filename</CODE> : the name of the file
+<li><CODE>file</CODE> : a file-like object from which you can read the file content
+</ul>
+<p>For instance if you want to store the file in the server's file system, with the
+same name as the original file :
+<p>
+<dl><dd><pre class="verbatim">
+import os
+f = _myfile.file # file-like object
+dest_name = os.path.basename(_myfile.filename)
+out = open(dest_name,'wb')
+# copy file
+import shutil
+shutil.copyfileobj(f,out)
+out.close()
+</pre></dl>
+<h2>6.5 Exceptions</h2>
+In Python scripts you can raise special exceptions which are handled by Karrigell
+<ul>
+<li><code>SCRIPT_END</code>
+<br>Use this if you want to stop sending output to the browser without having to process the end of
+the file. This can be useful if you're debugging a script and want to stop its execution at some
+place
+in your script to see the state of some variables
+<p>
+<dl><dd><pre class="verbatim">
+myVar=10
+...
+print myVar
+raise SCRIPT_END
+... (rest of code - won't be run)
+</pre></dl>
+<p>
+<li><code>SCRIPT_ERROR</code>
+<br>Use <CODE>raise SCRIPT_ERROR,msg</CODE> to stop the execution of script and write msg
+<p>
+<li><code>HTTP_ERROR</code>
+<br><code>raise HTTP_ERROR,(errorCode,errorMessage)</code> causes Karrigell to send an HTTP error
+message with the specified error code and message
+<p>
+<li><code>HTTP_REDIRECTION</code>
+<br><code>raise HTTP_REDIRECTION,uri</code> causes Karrigell to redirect the request to the given
+URI
+</ul>
+<h2>6.6 HTMLStream </h2>
+<code>HTMLStream</code> is a class in the HIP module which makes printing easier than 
+with repetitive <code>print</code> statements. It is the same idea as 
+<a href="htmlinsidepython.htm">HTML Inside Python</a> but implemented otherwise
+<p>Create an instance of this class :
+<p>
+<dl><dd><pre class="verbatim">
+import HIP
+H = HIP.HTMLStream()
+</pre></dl>
+<p>
+Then use "+" and "-" to print data to the standard output : with "+" the string representation
+of data is printed ; with "-", it is cgi-escaped
+<p>
+<dl><dd><pre class="verbatim">
+aDict={"one":"unan","two":"daou","three":"tri"}
+H + aDict - type(aDict)
+</pre></dl>
+<p>is the same as :
+<p>
+<dl><dd><pre class="verbatim">
+aDict={"one":"unan";"two":"daou";"three":"tri"}
+print str(aDict),cgi.escape(type(aDict))
+</pre></dl>
+</body>
+</html>
+</td>
+</tr></table>

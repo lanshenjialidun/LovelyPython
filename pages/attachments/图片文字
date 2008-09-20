@@ -202,6 +202,17 @@ drwxr-xr-x 3 shengyan shengyan  4096 2008-04-25 21:35 cdc/
 
 
 ######CDay2
+~/LovelyPython/CDays/cday2/Karrigell-2.3.5$ python Karrigell.py 
+Karrigell 2.3.5 running on port 8081
+Debug level 1
+Press Ctrl+C to stop
+127.0.0.1 - - [20/Sep/2008:18:08:34 +0800] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [20/Sep/2008:18:08:46 +0800] "GET /cdc/ HTTP/1.1" 302 -
+127.0.0.1 - - [20/Sep/2008:18:08:46 +0800] "GET /cdc/index.ks/index HTTP/1.1" 200 -
+
+~/LovelyPython/CDays/cday2/Karrigell-2.3.5/webapps/cdc$ python cdctools.py
+/home/shengyan/LovelyPython/CDays/cday2/cdc/
+{'z.MCollection.29.cdc': [], 'mfj-00.cdc': [], 'MCollec.39.cdc': [], 'z.Animation.00.cdc': ['[L:\\mAnimi\\Gainax\\EVAalbumESP]\r\n'], 'z.MFC.pop.02.cdc': []}
 
 
 ######CDay3

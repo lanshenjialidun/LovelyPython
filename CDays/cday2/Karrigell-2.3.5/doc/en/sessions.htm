@@ -1,0 +1,143 @@
+<html>
+<head>
+<title>Sessions
+</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="STYLESHEET" href="../doc.css">
+</head>
+<BODY bgcolor="#71B559" LINK="#FFFFCC" VLINK="#FFFFCC" LEFTMARGIN="0" TOPMARGIN="0">
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td class="side">&nbsp;</td>
+<td>
+    <table class="header" cellpadding="0" cellspacing="0">
+    <tr>
+        <td>
+            <a href="../../index.pih"><img src="../images/karrigell_skeudenn.png" border="0"></a>
+        </td>
+        <td class="headertext">
+            <td class="headertext1">
+                <center>
+                <font size="+2"><b>Karrigell Documentation</b></font>
+                <p>
+                <table width="70%" cellpadding="0" cellspacing="0"><tr>
+                <td class="info" align="left"><strong>Version 2.4.0</strong></td>
+                <td class="info" align="right">12 04 08</td>
+                </tr></table>
+                </center>
+            </td>
+            <td class="headertext2">
+                <a class="header" href="../fr/sessions.htm">Fran&ccedil;ais</a>
+            </td>
+        </td>
+    </tr>
+    </table>
+</td>
+</tr>
+<tr><td class="menu" valign="top"><a class="menu" href="front.htm">
+1. Introduction
+</a><br><a class="menu" href="install.htm">
+2. Installing Karrigell
+</a><br><a class="menu" href="webserveroptions.htm">
+3. The Web server
+</a><br><a class="menu" href="configuration.htm">
+4. Configuration options
+</a><br><a class="menu" href="apache.htm">
+5. Working with Apache, LightTPD or Xitami
+</a><br><a class="menu" href="programming.htm">
+6. Programming
+</a><br><a class="menu" href="debugging.htm">
+7. Debugging
+</a><br><a class="menu" href="pythonscripts.htm">
+8. Python scripts
+</a><br><a class="menu" href="cgi.htm">
+9. CGI scripts
+</a><br><a class="menu" href="karrigellservices.htm">
+10. Karrigell Services
+</a><br><a class="menu" href="pythoninsidehtml.htm">
+11. Python Inside HTML
+</a><br><a class="menu" href="htmlinsidepython.htm">
+12. HTML Inside Python
+</a><br><a class="menu" href="htmltags.htm">
+13. HTMLTags - generate HTML in Python
+</a><br><a class="menu" href="include.htm">
+14. Including documents
+</a><br><span class="sel">
+15. Sessions
+</span><br><span class="sel">
+&nbsp;&nbsp;<small>15.1 Example</small></span><br><a class="menu" href="authentication.htm">
+16. Authentication and users management
+</a><br><a class="menu" href="internationalization.htm">
+17. Translation and Unicode
+</a><br><a class="menu" href="namespace.htm">
+18. Summary of built-in names</a><br></td>
+<td class="content">
+<h1>15. Sessions</h1>
+<p>Sessions are a way for the server to keep in memory information related to an individual user while he is browsing from page to page
+<p>Suppose you are on a site where you've found two CD's you'd like to order ; then on another page you find a book. After that you'll be asked a few questions about your address, a message to send if it's a present, then they'll want to know about you credit card. After that you'll be presented a page with all the info you've entered so far and asked if you want to confirm you purchase
+<p>Without sessions this would be difficult ; you'd have to pass all previous information as hidden form fields, which would be difficult to implement
+<p>With sessions it becomes very easy ; the user is identified with a "session identifier" which is sent with every request to the server under the form of a cookie. This identifier matches an object in the server to which attributes can be set or retrieved throughout the user's navigation
+<p>With Karrigell, on each page where you want to modify or access session information, begin by creating a session objet by :
+<p>
+<dl><dd><pre class="verbatim">
+sessionObj=Session()
+</pre></dl>
+<p>If you're at the beginning of the session, Karrigell will generate a cookie called sessionId and send it back to the web browser. On subsequent requests, the browser will automatically send this cookie and the server will find the associated object
+<p>The session object is an ordinary Python object, you can set values to it as attributes :
+<p>
+<dl><dd><pre class="verbatim">
+sessionObj.name="John Doe"
+</pre></dl>
+<p>From another script you'll have access to this value by :
+<p>
+<dl><dd><pre class="verbatim">
+name=sessionObj.name
+</pre></dl>
+<p>
+<p>Session objects support a <code>close()</code> method, which causes the session information to be discarded
+<p>You don't really have to explicitely close a session ; Karrigell makes sure there are not more than 1000 simultaneaous sessions and erases the oldest ones when the 1000th is reached
+<h2>15.1 Example</h2>
+In an HTML file create a form and send it to a PIH script :
+<p>
+<dl><dd><pre class="verbatim">
+&lt;h3&gt;Who are you ?&lt;/h3&gt;
+&lt;form action="sessionTestBegin.pih"&gt;
+Name &lt;input name="myname"&gt;
+&lt;br&gt;First name &lt;input name="firstname"&gt;
+&lt;br&gt;&lt;input type="submit" value="Ok"&gt;
+&lt;/form&gt;
+</pre></dl>
+<p>The script will receive the input through QUERY or the form field variables 
+in the namespace, create a session objet and save <var>name</var> and 
+<var>firstname</var> as attributes of this object :
+<p>
+<dl><dd><pre class="verbatim">
+&lt;h3&gt;Begin session&lt;/h3&gt;
+&lt;%
+sessionObj=Session()
+sessionObj.name=_myname
+sessionObj.firstname=_firstname
+print sessionObj.name
+%&gt;
+&lt;a href="sessionTestFollow.pih"&gt;Next...&lt;/a&gt;
+</pre></dl>
+<p>The next script is called without any query string, but it will retrieve 
+the information through the session object :
+<p>
+<dl><dd><pre class="verbatim">
+&lt;h3&gt;Session test goes on&lt;/h3&gt;
+&lt;%
+session=Session()
+print session.firstname
+session.close()
+%&gt;
+</pre></dl>
+<p>Because the script has closed the session, if you go back to the previous 
+page with your browser and try again the Next... link you'll get a nice 
+Python traceback telling you that the session doesn't have a 
+<var>firtsname</var> attribute any more. Modify the script by deleting or 
+commenting the <code>session.close()</code> line and see what happens
+</body>
+</html>
+</td>
+</tr></table>

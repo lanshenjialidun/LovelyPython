@@ -1,0 +1,11 @@
+Options -Indexes FollowSymLinks ExecCGI
+Order allow,deny
+Allow from all
+# manage urls matching folders
+ErrorDocument 403 /cgi-bin/ApacheHandler_OVH.cgi
+# rewrite urls to make Karrigell process the scripts 
+# with extensions py,pih,hip and ks
+RewriteEngine On
+RewriteRule ^(.*)\.(py|pih|hip|ks)$ /cgi-bin/ApacheHandler_OVH.cgi
+# ks scripts with function name
+RewriteRule ^(.*)\.ks/.* /cgi-bin/ApacheHandler_OVH.cgi

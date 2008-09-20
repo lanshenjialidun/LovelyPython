@@ -1,0 +1,167 @@
+<html>
+<head>
+<title>HTMLTags - génère du HTML en Python
+</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="STYLESHEET" href="../doc.css">
+</head>
+<BODY bgcolor="#71B559" LINK="#FFFFCC" VLINK="#FFFFCC" LEFTMARGIN="0" TOPMARGIN="0">
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td class="side">&nbsp;</td>
+<td>
+    <table class="header" cellpadding="0" cellspacing="0">
+    <tr>
+        <td>
+            <a href="../../index.pih"><img src="../images/karrigell_skeudenn.png" border="0"></a>
+        </td>
+        <td class="headertext">
+            <td class="headertext1">
+                <center>
+                <font size="+2"><b>Karrigell Documentation</b></font>
+                <p>
+                <table width="70%" cellpadding="0" cellspacing="0"><tr>
+                <td class="info" align="left"><strong>Version 2.4.0</strong></td>
+                <td class="info" align="right">12 04 08</td>
+                </tr></table>
+                </center>
+            </td>
+            <td class="headertext2">
+                <a class="header" href="../en/htmltags.htm">English</a>
+            </td>
+        </td>
+    </tr>
+    </table>
+</td>
+</tr>
+<tr><td class="menu" valign="top"><a class="menu" href="front.htm">
+1. Introduction
+</a><br><a class="menu" href="install.htm">
+2. Installation
+</a><br><a class="menu" href="webserveroptions.htm">
+3. Le serveur Web
+</a><br><a class="menu" href="configuration.htm">
+4. Options de configuration
+</a><br><a class="menu" href="apache.htm">
+5. Travailler avec Apache, LightTPD ou Xitami
+</a><br><a class="menu" href="programming.htm">
+6. Programmation
+</a><br><a class="menu" href="debugging.htm">
+7. Debogage
+</a><br><a class="menu" href="pythonscripts.htm">
+8. Scripts Python
+</a><br><a class="menu" href="cgi.htm">
+9. Scripts CGI
+</a><br><a class="menu" href="karrigellservices.htm">
+10. Services Karrigell
+</a><br><a class="menu" href="pythoninsidehtml.htm">
+11. Python Inside HTML
+</a><br><a class="menu" href="htmlinsidepython.htm">
+12. HTML Inside Python
+</a><br><span class="sel">
+13. HTMLTags - génère du HTML en Python
+</span><br><a class="menu" href="include.htm">
+14. Inclure des documents
+</a><br><a class="menu" href="sessions.htm">
+15. Sessions
+</a><br><a class="menu" href="authentication.htm">
+16. Authentification et gestion des utilisateurs
+</a><br><a class="menu" href="internationalization.htm">
+17. Traduction et Unicode
+</a><br><a class="menu" href="namespace.htm">
+18. Résumé des noms intégrés</a><br></td>
+<td class="content">
+<h1>13. HTMLTags - génère du HTML en Python</h1>
+Le module HTMLTags définit une classe pour toutes les balises HTML valides,
+écrites en majuscules. Pour créer un élément en HTML, la syntaxe générale 
+est :
+<p>
+<pre class="verbatim">
+t = TAG(innerHTML, key1=val1,key2=val2,...)
+</pre>
+de façon que <code>print t</code> donnera :
+<p>
+<pre>    &lt;TAG key1="val1" key2="val2" ...>innerHTML&lt;/TAG>
+</pre>
+Par exemple :
+<pre>    print A('bar', href="foo")  ==>  &lt;A href="foo">bar&lt;/A>
+</pre>
+<p>Pour les attributs qui ont le même nom que des mots-clé de Python (<code>class</code>,
+<code>type</code>) il faut les écrire avec une majuscule :
+<pre>    print DIV('bar', Class="title")  ==>  &lt;DIV class="title">bar&lt;/A>
+</pre>
+<p>Pour générer des attributs HTML sans valeur, donnez-leur la valeur 
+<code>True</code> :
+<pre>    print OPTION('foo',SELECTED=True,value=5)  ==>  &lt;OPTION value="5" SELECTED>
+</pre>
+Pour des balises sans fermeture telles que &lt;IMG&gt; ou &lt;BR&gt;, l'instruction
+<code>print</code> ne génère pas de balise fermante
+<p>L'argument <em>innerHTML</em> peut être une instance d'une classe HTML, on peut
+donc imbriquer des balises, de cette façon :
+<p>
+<pre>    print B(I('foo'))  ==>  &lt;B&gt;&lt;I&gt;foo&lt;/I&gt;&lt;/B&gt;
+</pre>
+<p>Les instances des classes HTML supportent l'addition :
+<p>
+<pre>    print B('bar')+INPUT(name="bar")  ==>  &lt;B>bar&lt;/B>&lt;INPUT name="bar">
+</pre>
+<p>ainsi que la répétition :
+<p>
+<pre>    print TH('&amp;nbsp')*3  ==>  &lt;TD>&amp;nbsp;&lt;/TD>&lt;TD>&amp;nbsp;&lt;/TD>&lt;TD>&amp;nbsp;&lt;/TD>
+</pre>
+<p>Si vous avez une liste d'instances, vous ne pouvez pas concaténer les éléments
+avec <code>sum(instanceList)</code> parce que <code>sum</code> ne prend que des
+nombres comme arguments. Il y a donc une fonction appelée <code>Sum</code> qui
+fera l'affaire :
+<p>
+<pre>    Sum([ TR(TD(i)+TD(i*i)) for i in range(100) ])
+</pre>
+génère les lignes d'un tableau qui montre les carrés des entiers de 0 à 99
+<P>L'argument <em>innerHTML</em> peut être une chaîne de caractères, mais on 
+ne peut pas concaténer une chaîne et une instance d'une classe HTML, comme dans :
+<p>
+<pre>    H1('O rage ! ' + B('O désespoir !'))
+</pre>
+Pour ceci, servez-vous d'une classe appelée <code>TEXT</code>, qui ne génèrera
+pas de balise :
+<p>
+<pre>    H1(TEXT('O rage !') + B('O désespoir !'))
+</pre>
+Un document simple peut être produit par :
+<p>
+<pre>
+    print HTML( HEAD(TITLE("Document d'essai")) +
+        BODY(H1("Ceci est un document d'essai")+
+             TEXT('Première ligne')+BR()+
+             TEXT('Deuxième ligne')))
+</pre>
+Ce qui donne :
+<p>
+<pre>
+    &lt;HTML&gt;
+    &lt;HEAD&gt;
+    &lt;TITLE&gt;Document d'essai&lt;/TITLE&gt;
+    &lt;/HEAD&gt;
+    &lt;BODY&gt;
+    &lt;H1&gt;Ceci est un document d'essai&lt;/H1&gt;
+    Première ligne
+    &lt;BR&gt;
+    Deuxième ligne
+    &lt;/BODY&gt;
+    &lt;/HTML&gt;
+</pre>
+Si le document est plus complexe, il est plus lisible de créer d'abord les 
+éléments, puis d'imprimer le résultat d'ensemble en une seule instruction.
+Par exemple :
+<p>
+<pre>
+    stylesheet = LINK(rel="Stylesheet",href="doc.css")
+    header = TITLE('Collection de disques')+stylesheet
+    titre = H1('Ma collection de disques')
+    lignes = Sum ([TR(TD(disque.titre,Class="titre")+TD(disque.artiste,Class="Artiste")) 
+        for disque in disques])
+    table = TABLE(TR(TH('Titre')+TH('Artiste')) + lignes)
+    print HTML(HEAD(header) + BODY(titre + table))
+</pre>
+</td>
+</tr></table>
