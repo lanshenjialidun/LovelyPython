@@ -204,7 +204,7 @@ $ python pcs-200-10.py
 要注意,在两个根目录做join操作时经常出现的问题:
 {{{#!python
 import os
-os.path.join('/tmp','/var')
+print os.path.join('/tmp','/var')
 }}}
 执行结果:
 {{{
