@@ -17,6 +17,7 @@ python是支持多线程的,并且是native的线程,主要是通过thread和thr
 下面举个使用thread模块的简单例子:
 {{{#!python
 #!/usr/bin/env python 
+#encoding: utf-8
 
 import thread 
 from time import sleep, ctime 
