@@ -69,8 +69,8 @@ if __name__ == '__main__':
  1. `# coding: utf-8`指定字符编码集。有关字符编码方式和字符集的相关知识参见[http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html]。
  1. `import os`表示导入os模块。`from html2text import *`、`import chardet`、`import sys`同样是导入相应模块。这里的html2txt实现了将某个html文件去除html标签，提取可用信息，转变成纯文本。
  1. 定义全局变量。全局变量通常用大写字母来标识。
- 1. 定义函数。其中`:`表示函式开始，函式内利用缩进体现块与块之间的不同。`#`后表示注释。
- 1. 最后调用函数执行。
+ 1. 定义函式。其中`:`表示函式开始，函式内利用缩进体现块与块之间的不同。`#`后表示注释。
+ 1. 最后调用函式执行。
  1. 执行脚本。在命令行中输入python html_to_txt.py就可以执行。
 
 

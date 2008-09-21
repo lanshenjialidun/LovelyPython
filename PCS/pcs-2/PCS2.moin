@@ -8,7 +8,7 @@
 
 = 交互环境之iPython =
 == 概述 ==
-iPython是一个Python的交互式Shell，比默认的Python Shell好用得多，功能也更强大。她支持语法高亮，自动完成，代码调试，对象自省，支持 Bash Shell 命令，内置了许多很有用的功能和函数等等，非常容易使用。
+iPython是一个Python的交互式Shell，比默认的Python Shell好用得多，功能也更强大。她支持语法高亮，自动完成，代码调试，对象自省，支持 Bash Shell 命令，内置了许多很有用的功能和函式等等，非常容易使用。
 
 ==  安装iPython ==
 目前，最新稳定的iPython版本是0.8.4，支持多种操作系统，如Linux，Unix，Mac OS X，Windows等等，这里详细介绍在Linux和WIndows的安装过程。其他系统下的安装过程可参见[http://ipython.scipy.org/moin/Download 具体说明]。
@@ -55,7 +55,7 @@ sudo python setup.py install
 %macro, %magic, %p, %page, %pdb, %pdef, %pdoc, %pfile, %pinfo, %popd,
 %profile, %prun, %psource, %pushd, %pwd, %r, %rehash, %rehashx, %reset,
 %run, %runlog, %save, %sc, %sx, %system_verbose, %unalias, %who,
-%who_ls, %whos, %xmode }}}iPython会检查传给它的命令是否包含magic关键字。如果命令是一个magic关键字，IPython就自己来处理。如果不是magic关键字，就交给 Python（标准解释器）去处理。如果automagic打开（默认），你不需要在magic关键字前加%符号。相反，如果automagic是关闭的，则%是必须的。在命令提示符下输入命令magic就会显示所有magic关键字列表以及它们的简短的用法说明。良好的文档对于一个软件的任何一部分来说都是重要的，从在线IPython用户手册到内嵌文档（%magic），IPython当然不会在这方面有所缺失。下面介绍些常用的magic函数，如：{{{
+%who_ls, %whos, %xmode }}}iPython会检查传给它的命令是否包含magic关键字。如果命令是一个magic关键字，IPython就自己来处理。如果不是magic关键字，就交给 Python（标准解释器）去处理。如果automagic打开（默认），你不需要在magic关键字前加%符号。相反，如果automagic是关闭的，则%是必须的。在命令提示符下输入命令magic就会显示所有magic关键字列表以及它们的简短的用法说明。良好的文档对于一个软件的任何一部分来说都是重要的，从在线IPython用户手册到内嵌文档（%magic），IPython当然不会在这方面有所缺失。下面介绍些常用的magic函式，如：{{{
 %bg function
     把function放到后台执行，例如: %bg myfunc(x, y, z=1)，之后可以用jobs将其结果取回。myvar = jobs.result(5) 或 myvar = jobs[5].result。另外，jobs.status() 可以查看现有任务的状态。
 %ed 或 %edit
@@ -108,7 +108,7 @@ In [2]: os.po
 os.popen os.popen2 os.popen3 os.popen4
 
 In [2]: os.popen
-}}}输入os.po然后按Tab键，os.po被展开成os.popen（就象在In [2]:提示符显示的那样），并显示os所有以po开头的模块，类和函数，它们是popen，popen2，popen3和popen4。
+}}}输入os.po然后按Tab键，os.po被展开成os.popen（就象在In [2]:提示符显示的那样），并显示os所有以po开头的模块，类和函式，它们是popen，popen2，popen3和popen4。
    菜单补全稍有不同。
    关闭默认Tab补全，使用菜单补全，需修改配置文件$HOME/.ipython/ipythonrc。{{{
 注释掉：
@@ -126,7 +126,7 @@ In [2]: os.po
 In [3]: os.popen
 }}}接下来每次按Tab键就会循环显示匹配列表中的其它项目：popen2，popen3，popen4，最后回到po。
    菜单补全模式下查看所有匹配列表的快捷键是Ctrl-L：
-  * '''自省'''。Python有几个内置的函数用于自省。iPython不仅可以调用所有标准Python函数，对于那些Python shell内置函数同样适用。典型的使用标准Python shell进行自省是使用内置的dir()函数：{{{
+  * '''自省'''。Python有几个内置的函式用于自省。iPython不仅可以调用所有标准Python函式，对于那些Python shell内置函式同样适用。典型的使用标准Python shell进行自省是使用内置的dir()函式：{{{
 >>> import SimpleXMLRPCServer
 >>> dir(SimpleXMLRPCServer.SimpleXMLRPCServer)
 ['__doc__', '__init__', '__module__', '_dispatch',
@@ -139,7 +139,7 @@ In [3]: os.popen
 'server_close', 'socket_type', 'system_listMethods',
 'system_methodHelp', 'system_methodSignature', 'system_multicall',
 'verify_request']
-}}}因为dir()是一个内置函数，在 iPython中也能很好的使用它们。但是iPython的操作符?和??功能还要强大：{{{
+}}}因为dir()是一个内置函式，在 iPython中也能很好的使用它们。但是iPython的操作符?和??功能还要强大：{{{
 In [3]: import SimpleXMLRPCServer
 
 In [4]: ? SimpleXMLRPCServer
@@ -261,14 +261,14 @@ In [8]: print_l
 ipython -p
 }}}一个创建自己环境的方法是在$HOME/.ipython目录下创建一个iPython配置文件，名字就叫做ipythonrc-，这里是你想要的环境的名字。如果同时进行好几个项目，而这些项目又用到互不相同的特殊的库，这时候每个项目都有自己的环境就很有用了。也可以为每个项目建立一个配置文件，然后在每个配置文件中import该项目中经常用到的模块。
 
-  * '''使用操作系统的Shell'''。使用默认的iPython配置文件，有几个Unix Shell命令（当然，是在Unix系统上），cd，pwd和ls都能象在bash下一样工作。运行其它的shell命令需要在命令前加!或!!。使用magic关键字%sc和%sx可以捕捉shell命令的输出。pysh环境可以被用来替换掉shell。使用-p pysh参数启动的iPython，可以接受并执行用户$PATH中的所有命令，同时还可以使用所有的Python模块，Python关键字和内置函数。例如，想要创建500个目录，命名规则是从d_0_d到d_499_d，可以使用-p pysh启动iPython，然后就象这样：{{{
+  * '''使用操作系统的Shell'''。使用默认的iPython配置文件，有几个Unix Shell命令（当然，是在Unix系统上），cd，pwd和ls都能象在bash下一样工作。运行其它的shell命令需要在命令前加!或!!。使用magic关键字%sc和%sx可以捕捉shell命令的输出。pysh环境可以被用来替换掉shell。使用-p pysh参数启动的iPython，可以接受并执行用户$PATH中的所有命令，同时还可以使用所有的Python模块，Python关键字和内置函式。例如，想要创建500个目录，命名规则是从d_0_d到d_499_d，可以使用-p pysh启动iPython，然后就象这样：{{{
 shengyan@LIZZIE[~/ttt]|1> for i in range(500):
                       |.>     mkdir d_${i}_d
                       |.> 
 }}}这就会创建500个目录：{{{
 shengyan@LIZZIE[~/ttt]|2> ls -d d* | wc -l
 500
-}}}注意这里混合了Python的range函数和Unix的mkdir命令。注意，虽然ipython -p pysh提供了一个强大的shell替代品，但它缺少正确的job控制。在运行某个很耗时的任务时按下Ctrl-z将会停止iPython session而不是那个子进程。
+}}}注意这里混合了Python的range函式和Unix的mkdir命令。注意，虽然ipython -p pysh提供了一个强大的shell替代品，但它缺少正确的job控制。在运行某个很耗时的任务时按下Ctrl-z将会停止iPython session而不是那个子进程。
 
  1. 退出iPython。输入Ctrl-D（会要求你确认），也可以输入Exit或Quit（注意大小写）退出而不需要确认。
 
@@ -282,7 +282,7 @@ shengyan@LIZZIE[~/ttt]|2> ls -d d* | wc -l
 ## * [http://ipython.scipy.org iPython网站]
 ## * [http://ipython.scipy.org/moin/Documentation iPython英文文档]
 ## * [http://ipython.scipy.org/dist iPython下载]
-## * [http://guyingbo.javaeye.com/blog/111142 iPython中一些magic函数]
+## * [http://guyingbo.javaeye.com/blog/111142 iPython中一些magic函式]
 ----
 -- Lizzie [[DateTime(2008-05-28T21:00:00Z)]] 
 [[PageComment2]]
