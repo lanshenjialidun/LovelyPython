@@ -717,7 +717,7 @@ if __name__ == "__main__":
   attachment:cdays+1-exercise-12.png
 
 === CDays2 ===
- 1. 如果在Karrigell 实例中，不复制 cdctools.py 到webapp 目录中，也可以令 index.ks 引用到？
+ 1. 如果在Karrigell 实例中，不复制 cdctools.py 到webapps 目录中，也可以令 index.ks 引用到？
   * 不复制 cdctools.py 到webapp 目录中，也可以令 index.ks 引用到，可以通过以下方式：
    * 修改python的环境变量PYTHONPATH，把cdctools.py的所在目录路径加入
    * 在程序里动态的修改sys.path {{{#!python
