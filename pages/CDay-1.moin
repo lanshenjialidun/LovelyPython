@@ -218,7 +218,7 @@ def _smartcode(stream):
  * 则必然是通过某种软件进行转换从而可以访问的
  * 咳 -- Ubuntu 中当然是标准的调用 朴实强大的`mount`命令了
  {{{
-$cat /etc/mtab
+~$ cat /etc/mtab
 ... 
 /dev/sda3 /dos vfat rw,utf8,umask=007,gid=46 0 0
 ...
@@ -229,9 +229,9 @@ $cat /etc/mtab
  * 那么通过改变挂接行为,应该可以改善读取不到正确文本的情况?!
 {{{
 #挂接成GBK
-$ sudo mount -o ro,norock,iocharset=cp936 /dev/scd0 /media/cdrom0
+c$ sudo mount -o ro,norock,iocharset=cp936 /dev/scd0 /media/cdrom0
 #挂接成UTF8
-$ sudo mount -o ro,norock,iocharset=utf8 /dev/scd0 /media/cdrom0
+~$ sudo mount -o ro,norock,iocharset=utf8 /dev/scd0 /media/cdrom0
 }}}
  * 咔咔咔!果然!果然!
  * 相对M$ 系统,安装成什么语言的系统,就永远使用什么编码强行挂接光盘的,好象似乎八成应该不是可以轻易的按照你的意愿改门厅的...

@@ -11,8 +11,8 @@ from twill.commands import *
 from time import sleep
 import os
 
-USERNAME = ''
-PASSWORD = ''
+USERNAME = 'ZoomQuiet'
+PASSWORD = 'Zq@wiki'
 
 def login():
     go("http://wiki.woodpecker.org.cn/moin/ObpLovelyPython?action=login")

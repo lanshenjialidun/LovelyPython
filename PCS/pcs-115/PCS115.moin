@@ -8,8 +8,9 @@
 
 
 
+##startInc
 
-= FP初体验 =
+= PCS115 FP初体验 =
  概述::
     简洁的介绍 FP 的概念...
     
@@ -22,16 +23,14 @@
  探讨::
     进一步介绍相关的或是深入的知识领域...
 
+##endInc
 
 `原料`::
-##startInc
 [[Include(PythonFunctionProgramming,,from="^##startInc$",to="^##endInc$")]]
 
-##endInc
 ----
 '''反馈'''
 
 创建 by -- ZoomQuiet [[[DateTime(2008-09-09T06:32:17Z)]]]
 ||<^>[[PageComment2]]||<^>[:/PageCommentData:PageCommentData]''||
-
 
