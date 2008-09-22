@@ -10,14 +10,18 @@
 == 最基本的用法 ==
 以下一段代码使用if分支实现比较两个数的大小：
 {{{#!python
-  if a == b:
-      print 'a 等于 b'
-  elif a < b:
-      print 'a 小于 b'
-  elif a > b:
-      print 'a 大于 b'
-  else:
-      print '在本宇宙中这是不可能滴！'
+# coding: utf-8
+
+a = int(raw_input("a = "))           #从键盘输入一个int类型的变量
+b = int(raw_input("b = "))
+if a == b:
+   print 'a 等于 b'
+elif a < b:
+   print 'a 小于 b'
+elif a > b:
+   print 'a 大于 b'
+else:
+   print '在本宇宙中这是不可能滴！'
 }}}`elif`就是`else if`的缩写。
 
 == 使用if代替switch ==
