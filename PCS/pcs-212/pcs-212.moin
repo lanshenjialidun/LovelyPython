@@ -24,10 +24,10 @@ print 'AFTER:', os.listdir(os.getcwd())
 $ python pcs-212-1.py 
 BEFORE: ['pcs-212-1.py', 'pcs-212.moin']
 AFTER: ['pcs-212-1.py.copy', 'pcs-212-1.py', 'pcs-212.moin']
-}}}copyfile()其实是底层调用了copyfileobj()函数.文件名参数传递给copyfile()后,进而将此文件句柄传递给copyfileobj()并由它真正完成文件复制.
+}}}copyfile()其实是底层调用了copyfileobj()函式.文件名参数传递给copyfile()后,进而将此文件句柄传递给copyfileobj()并由它真正完成文件复制.
 
 === copy() ===
-copy()函数类似于Unix命令cp,将源文件复制一个目标文件.和copyfile不同的是,如果目标参数是一个目录而不是文件,那么在这个目录中复制一个源文件副本(它与源文件同名).另外,文件的权限也随之复制.
+copy()函式类似于Unix命令cp,将源文件复制一个目标文件.和copyfile()不同的是,如果目标参数是一个目录而不是文件,那么在这个目录中复制一个源文件副本(它与源文件同名).另外,文件的权限也随之复制.
 {{{#!python
 import os
 from shutil import *
@@ -42,10 +42,10 @@ print 'AFTER:', os.listdir('example')
 $ python pcs-212-2.py 
 BEFORE: []
 AFTER: ['pcs-212-2.py']
-}}}
+}}}同时还会在当前目录下面创建一个example目录，并把pcs-212-2.py文件copy到example目录里面
 
 === copy2() ===
-copy2()函数类似于copy(),但不同于copy()的地方是,copy2()将一些元信息,如文件最后一次被读取时间和修改时间等,也复制给新文件.
+copy2()函式类似于copy(),但不同于copy()的地方是,copy2()将一些元信息,如文件最后一次被读取时间和修改时间等,也复制给新文件.
 {{{#!python
 import os
 import time
@@ -103,7 +103,7 @@ AFTER : -rw-r--r-- 1 shengyan shengyan 0 2008-09-14 16:54 file_to_change.txt
 }}}可以看到两个文件的权限是不一样的,新的file_to_change.txt的权限设置是与普通新文件的权限一致.
 
 === copystat() ===
-copystat()函数可以复制文件的其他元信息(权限,最后读取时间,最后修改时间等).它和copy2()函数很类似.
+copystat()函式可以复制文件的其他元信息(权限,最后读取时间,最后修改时间等).它和copy2()函式很类似.
 {{{#!python
 import os
 from shutil import *
@@ -162,7 +162,7 @@ AFTER:
 }}}
 
 === rmtree() ===
-使用rmtree()可以删除整个目录.若其中产生错误,会作为异常抛出.但是如果它的第二个参数是目录,那么产生的错误会被忽略,第三个参数可以指定为一个特殊出错处理函数句柄.
+使用rmtree()可以删除整个目录.若其中产生错误,会作为异常抛出.但是如果它的第二个参数是目录,那么产生的错误会被忽略,第三个参数可以指定为一个特殊出错处理函式句柄.
 {{{#!python
 from commands import *
 from shutil import *
