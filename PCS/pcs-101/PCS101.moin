@@ -186,28 +186,40 @@ a,b=b,a
 }}}
 
 == 集合(Set) ==
-是无序，不重复的元素集。
+是无序，不重复的元素集, 类似数学中的集合,可进行逻辑运算和算术运算。
 {{{
->>>basket = ['apple','orange','apple','pear','apple','banana']
->>>fruit=set(basket)
->>>fruit
-set(['orange', 'pear', 'apple', 'banana'])
->>>'orange' in fruit
+>>> s = set(['a', 'b', 'c'])   # 集合对象s
+>>> len(s)  # 集合s的长度
+3
+>>> 'a' in s  # 元素'a'在集合s中, 返回布尔类型
 True
->>>a=set('abracadabew')
->>>a
-set(['a', 'c', 'b', 'e', 'd', 'r', 'w'])
->>>b=set('wajgwaoihwb')
->>>b
-set(['a', 'b', 'g', 'i', 'h', 'j', 'o', 'w'])
- >>>a-b    # 集合的差
-set(['c', 'r', 'e', 'd'])
->>>a|b   # 集合的并
-set(['a', 'c', 'b', 'e', 'd', 'g', 'i', 'h', 'j', 'o', 'r', 'w'])
->>>a&b   # 集合的交
-set(['a', 'b', 'w'])
->>>a^b   # 集合的异或, 即(并-交)
-set(['c', 'e', 'd', 'g', 'i', 'h', 'j', 'o', 'r'])
+>>> 'd' not in s  # 元素'd'不在集合s中, 返回布尔类型
+True
+>>> t = set(['a', 'b', 'c', 'd'])   # 集合对象t
+>>> s.issubset(t)  # s是否是t的子集, 等价于s <= t
+True
+>>> s.issuperset(t)  # s是否是t的超集, 等价于s >= t
+False
+>>> s.union(t)  # 集合的并, 等价于s | t
+set(['a', 'c', 'b', 'd'])
+>>> s | t
+set(['a', 'c', 'b', 'd'])
+>>> s.intersection(t)  # 集合的交, 等价于s & t
+set(['a', 'c', 'b'])
+>>> s & t
+set(['a', 'c', 'b'])
+>>> s.difference(t)  # 集合的差, 等价于s - t
+set([])
+>>> s - t
+set([])
+>>> t.difference(s)
+set(['d'])
+>>> t - s
+set(['d'])
+>>> s.symmetric_difference(t)  # 集合的异或, 等价于s ^ t 
+set(['d'])
+>>> s ^ t
+set(['d'])
 }}}
 
 == 字典(dict) ==
