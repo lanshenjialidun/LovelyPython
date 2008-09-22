@@ -11,8 +11,9 @@ from twill.commands import *
 from time import sleep
 import os
 
-USERNAME = 'ZoomQuiet'
-PASSWORD = 'Zq@wiki'
+### Zoomq::080922 提示,使用时在本地配置好自个儿的啄木鸟维基帐号和口令
+USERNAME = ''
+PASSWORD = ''
 
 def login():
     go("http://wiki.woodpecker.org.cn/moin/ObpLovelyPython?action=login")
