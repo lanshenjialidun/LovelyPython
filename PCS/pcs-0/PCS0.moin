@@ -1,12 +1,12 @@
 ##language:zh
-#pragma section-numbers on
+#pragma section-numbers off
 ||'''status'''|| 校对 || Lizzie || 完成度100%||
 
 [[TableOfContents]]
 
 ##startInc
 
-= 如何安装Python =
+= PCS0 如何安装Python =
 == 概述 ==
 Python是跨平台的动态脚本语言，可以运行在Windows、Linux/Unix、Mac OS X等多种操作系统上，下面就Python在Windows和Linux上的安装进行详细介绍。
  

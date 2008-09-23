@@ -1,12 +1,11 @@
 ##language:zh
-#pragma section-numbers on
+#pragma section-numbers off
 ||'''status'''|| 校对 || Lizzie|| 完成度100%||
 
-##startInc
 
 [[TableOfContents]]
-
-= Python与中文 =
+##startInc
+= PCS6 Python与中文 =
 
 == 概述 ==
 中文编码总是个大问题。不过Python可以完美的支持中文，不管你的字符编码是GB2312，GBK 或者UTF-8。在这里，不准备讲述有关ASCII/Unicode编码和中文编码问题，这两部分内容可以分别参考http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html和http://www.css8.cn/css8_document/gb2312.htm上的描述。在这里，我们介绍Python中的中文编码问题。

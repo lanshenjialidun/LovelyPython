@@ -1,10 +1,11 @@
 ##language:zh
-#pragma section-numbers on
+#pragma section-numbers off
 ||'''status'''|| 校对 || Lizzie|| 完成度100%||
 
-##startInc
 
 [[TableOfContents]]
+
+##startInc
 
 = Python脚本文件 =
 

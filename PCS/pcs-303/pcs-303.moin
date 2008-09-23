@@ -1,16 +1,13 @@
-## Do not edit this header. It is not part of the wiki code and will not be
-## posted back to the wiki when you save.
-## Base: http://wiki.woodpecker.org.cn/moin/
-## Page: ObpLovelyPython_2fPCS303
-## Secs: 
-## END OF HEADER
+##language:zh
+#pragma section-numbers off
 ||status|| 草稿 ||清风; 100%||
 
 [[TableOfContents]]
 
-== web2py ==
+##startInc
+= PCS303 web2py =
 
-=== 体会 ===
+== 体会 ==
  1. 发展比django晚，社区也小很多，功能相比之下还需要完善，比如ORM没有django完善，也没有什么signal之类的东西
  1. 某些约定可能更接近rails，比如每个controller的方法都自动对应一个view，而不是象django中是否存在view都是由用户来指定的
  1. model和controller是运行在一个特殊的环境下，因此它们不是一个完善的python模块，但是这样你也减少了许多的导入。由些带来的是一些exec的使用。我也在邮件列表中提出了问题：exec的效率会是如何？
@@ -35,5 +32,5 @@
  1. 有一个试验性的web model designer，还没有正式投入使用，但是从演示已经可以设计model，关联外键，并可以生成web2py格式的model定义语句用在你的程序中。
 == 练习 ==
 
-
+##endInc
 -- 清风  [[DateTime(2008-04-25T14:33:00Z)]]

@@ -1,12 +1,12 @@
 ##language:zh
-#pragma section-numbers on
+#pragma section-numbers off
 ||'''status'''|| 校对 || Lizzie|| 完成度100%||
 
 
 [[TableOfContents]]
 
 ##startInc
-= 字串格式化 =
+= PCS107 字串格式化 =
 
 == 格式化操作符 ==
 Python中，使用`%`作为格式化操作符。它的使用方式：格式字串 % 值表，非常类似于C语言中的printf()。{{{

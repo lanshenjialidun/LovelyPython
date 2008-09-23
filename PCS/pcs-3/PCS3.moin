@@ -1,12 +1,13 @@
 ##language:zh
-#pragma section-numbers on
+#pragma section-numbers off
+
 ||'''status'''|| 校对 || Lizzie || 完成度100%||
 
 ##startInc
 
 [[TableOfContents]]
 
-= 交互环境之winpy =
+= PCS3 交互环境之winpy =
 
 == ActivesPython ==
 ActivesPython是标准的Python发行版，在Windows，Linux ，Mac OS X等等都能使用。

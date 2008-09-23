@@ -1,14 +1,12 @@
 ##language:zh
-##OBP项目图书reST通用文章模板
-##language:zh
-##OBP项目图书reST通用文章模板
-###format rst
+#pragma section-numbers off
+
 ||status|| 草稿 ||清风 & liz; 100%||
 
 [[TableOfContents]]
 
 ##startInc
-= ConfigParser =
+= PCS204 ConfigParser =
 
 == 概述 ==
 ConfigParser是用来处理ini格式的配置文件的Python标准库.

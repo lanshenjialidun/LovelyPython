@@ -1,11 +1,12 @@
 ##language:zh
-##OBP项目图书reST通用文章模板
-###format rst
+#pragma section-numbers off
+
+
 ||status|| 草稿 ||清风 & liz; 100%||
 
 [[TableOfContents]]
 ##startInc
-= threading =
+= PCS207 threading =
 == 概述 ==
 python是支持多线程的,并且是native的线程,主要是通过thread和threading这两个模块来实现的.thread是比较底层的模块,threading是thread的包装,可以更加方便的被使用.这里需要提一下的是python对线程的支持还不够完善,不能利用多CPU,但是下个版本的python中已经考虑改进这点.
 

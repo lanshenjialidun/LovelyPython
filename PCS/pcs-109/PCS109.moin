@@ -1,12 +1,12 @@
 ##language:zh
-#pragma section-numbers on
+#pragma section-numbers off
 ||'''status'''|| 校对 || Lizzie|| 完成度100%||
 
 
 [[TableOfContents]]
 
 ##startInc
-= 系统参数 =
+= PCS109 系统参数 =
 
 == 定义参数 ==
 系统参数，即经常说的形参。在定义函数时，若此函数带有参数，就把这些定义的参数叫做形式参数，在调用这个函数时传入形参的那些变量叫做实际参数。Python中函数参数的传递是通过赋值来传递的。在Python中函数参数的定义主要有四种方式：

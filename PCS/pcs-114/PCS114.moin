@@ -1,11 +1,11 @@
 ##language:zh
-#pragma section-numbers on
+#pragma section-numbers off
 ||'''status'''|| 校对 || Lizzie|| 完成度100%||
 
 [[TableOfContents]]
 
 ##startInc
-= 交互参数 =
+= PCS114 交互参数 =
 
 == 交互参数sys.argv ==
 Python中的sys模块提供一些系统变量和函式。其中的`argv`代表调用Python脚本时的命令行参数列表。argv[0]是脚本的名字（由于操作系统的不同显示绝对路径名或者相对路径名），然后为各命令行选项或参数。

@@ -1,11 +1,12 @@
 ##language:zh
-##OBP项目图书reST通用文章模板
-###format rst
+#pragma section-numbers off
+
 ||status|| 草稿 ||清风; 100%||
 
 [[TableOfContents]]
 
-== Karrigell ==
+##startInc
+== PCS301 Karrigell ==
 ##这篇里面是否将链接扩展出来？
 === 概述 ===
 '''Pure Python 实现的又一个 Web 应用平台！'''
@@ -21,5 +22,5 @@
 
 == 练习 ==
 
-
+##endInc
 -- 清风  [[DateTime(2008-04-25T14:33:00Z)]] 

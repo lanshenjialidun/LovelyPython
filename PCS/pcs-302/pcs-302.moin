@@ -1,11 +1,12 @@
-﻿##language:zh
-##OBP项目图书reST通用文章模板
+##language:zh
+#pragma section-numbers off
 
 ||status|| 草稿 ||HuangYi 清风; 100%||
 
 [[TableOfContents]]
 
-= Web.py =
+##startInc
+= PCS302 Web.py =
 
 == 啥是 web.py ==
 
@@ -49,3 +50,7 @@ if __name__ == "__main__": web.run(urls, globals())
 和 cherrypy 一样，要启动，直接执行这个程序就可以了。
 把上面这个程序以 utf-8 编码保存为 hellowold.py 然后执行：{{{python helloworld.py}}} 。
 这个时候你访问 http://localhost:8080/you 就可以看到 Hello you! 了。
+== 练习 ==
+
+##endInc
+

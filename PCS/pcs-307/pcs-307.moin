@@ -1,15 +1,15 @@
 ##language:zh
-##OBP项目图书reST通用文章模板
-###format rst
+#pragma section-numbers off
 ||status|| 草稿 ||清风; 100%||
 
 [[TableOfContents]]
 
-== Quixote ==
-=== 概述 ===
+##startInc
+= PCS307 Quixote =
+== 概述 ==
 Quixote 是老牌的Web开发框架,以稳定和性能著称,目前国内最大的应用案例就是douban.com
 
-=== 特性介绍 ===
+== 特性介绍 ==
  1. pythonic. 就连模版(ptl)都是python. 用
 　　 """<h3>%s</h3>""" % mytitle
 　　
@@ -18,5 +18,7 @@ Quixote 是老牌的Web开发框架,以稳定和性能著称,目前国内最大�
  1. restful. 看看这页的url就知道了。这点quoxite简单灵活地帮你实现了。
 　　
  1. robust. quixote是经过大规模实际应用检验的，不是漂亮的玩具。这点CherryPy不行。用quixote的时候你的注意力大部分在要实现的内容上，framework不会拦在中间跳来跳去。不过如果你需要模版设计和后台分家, 由非程序人员进行复杂的模版调试的话，quixote可能不太适合。
+
+##endInc
 
 -- 清风  [[DateTime(2008-04-25T14:33:00Z)]] 

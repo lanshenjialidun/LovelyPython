@@ -1,11 +1,11 @@
 ##language:zh
-#pragma section-numbers on
+#pragma section-numbers off
 
 [[TableOfContents]]
 
 ##startInc
 
-= Python编码规范 =
+= PCS7 Python编码规范 =
 本文参考自 Python 增进提案仓库 008 号文件的倡议，其原文:[http://www.python.org/dev/peps/pep-0008/  PEP 008 《Style Guide for Python Code》]，其中文翻译在http://wiki.woodpecker.org.cn/moin/PythonCodingRule，在这简要叙述一下各个要点。
 
 ==  Python 八荣八耻 ==

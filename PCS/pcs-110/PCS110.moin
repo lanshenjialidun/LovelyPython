@@ -1,11 +1,11 @@
 ##language:zh
-#pragma section-numbers on
+#pragma section-numbers off
 ||'''status'''|| 校对 || || 完成度100%||
 
 [[TableOfContents]]
 
 ##startInc
-= 逻辑分支 =
+= PCS110 逻辑分支 =
 
 == 最基本的用法 ==
 以下一段代码使用if分支实现比较两个数的大小：

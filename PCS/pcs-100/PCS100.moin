@@ -1,11 +1,11 @@
 ##language:zh
-#pragma section-numbers on
+#pragma section-numbers off
 ||'''status'''|| 校对 || || 完成度100%||
 
 [[TableOfContents]]
 
 ##startInc
-= import ~ 模块及包的使用 =
+= PCS100 import ~ 模块及包的使用 =
 
 == 模块(modules) ==
 模块(modules) 其实,就是普通的 Python 脚本文件，一般命名是模块名称加上.py后缀；

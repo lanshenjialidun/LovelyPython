@@ -1,12 +1,12 @@
 ##language:zh
-#pragma section-numbers on
+#pragma section-numbers off
 ||'''status'''|| 校对 || || 完成度100%||
 
 
 [[TableOfContents]]
 
 ##startInc
-= 函式 =
+= PCS108 函式 =
 
 == 函式定义 ==
 Python中，通过`def`关键字定义函式。def关键字后跟一个函式名，然后跟一对圆括号。圆括号之中可以包括一些变量名，该行以冒号结尾。接下来，是一块语句，称为函式体。 比如：

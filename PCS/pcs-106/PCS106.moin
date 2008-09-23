@@ -1,12 +1,12 @@
 ##language:zh
-#pragma section-numbers on
+#pragma section-numbers off
 ||'''status'''|| 校对 || Lizzie|| 完成度100%||
 
 
 [[TableOfContents]]
 
 ##startInc
-= 文件对象 =
+= PCS106 文件对象 =
 
 == 写文件 ==
 首先看个写文件的例子，实现了每隔2秒钟向test中写入一个随机数的功能。

@@ -1,12 +1,12 @@
 ##language:zh
-#pragma section-numbers on
+#pragma section-numbers off
 ||'''status'''|| 校对 || || 完成度100%||
 
 
 [[TableOfContents]]
 
 ##startInc
-= For 循环 =
+= PCS102 For 循环 =
 
 == 初步 ==
 {{{

@@ -1,11 +1,11 @@
 ##language:zh
-##OBP项目图书reST通用文章模板
-###format rst
+#pragma section-numbers off
+
 ||status|| 草稿 ||清风 & Liz; 100%||
 
 [[TableOfContents]]
 ##startInc
-= pickle =
+= PCS210 pickle =
 == 概述 ==
 pickle模块可以实现任意的Python对象的序列化.这些序列化后的对象可以被传输或存储，也可以重构为一个和原先对象具有相同特征的新对象。但在实际项目中为了提高序列化和反序列化的速度,可以改用cPickle模块.pickle的文档清晰的表明它不提供安全保证。所以慎用pickle来作为内部进程通信或者数据存储，也不要相信那些你不能验证安全性的数据。
 

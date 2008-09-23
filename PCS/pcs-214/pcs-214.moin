@@ -1,11 +1,11 @@
 ##language:zh
-##OBP项目图书reST通用文章模板
-###format rst
+#pragma section-numbers off
+
 ||status|| 草稿 ||清风 & liz; 100%||
 
 [[TableOfContents]]
 ##startInc
-= ElementTree =
+= PCS214 ElementTree =
 == 概述 ==
 ElementTree是Python的XML处理模块,它提供了一个轻量级的对象模型.它是在Python2.5以后成为Python标准库的一部分，但在Python 2.4之前需要单独安装.
 

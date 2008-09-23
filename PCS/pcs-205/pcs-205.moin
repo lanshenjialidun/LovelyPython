@@ -1,12 +1,11 @@
 ##language:zh
-##OBP项目图书reST通用文章模板
-###format rst
+#pragma section-numbers off
 ||status|| 草稿 ||清风 & liz; 100%||
 
 [[TableOfContents]]
 
 ##startInc
-= 内建函式(enumerate) =
+= PCS205 内建函式(enumerate) =
 == 概述 ==
 Python除了语言简洁,容易上手等优点,还有一个重要的优点,就是存在大量的内置函数,方便编程.这个章节将介绍这些常用函数,让我们更好的了解Python的诱人之处.
 

@@ -1,12 +1,12 @@
 ##language:zh
-##OBP项目图书reST通用文章模板
-###format rst
+#pragma section-numbers off
+
 ||status|| 草稿 ||清风 & liz; 100%||
 
 [[TableOfContents]]
 
 ##startInc
-= chardet =
+= PCS202 chardet =
 == 概述 ==
 chardet是一个开源的字符编码自动检测模块,是基于Python实现的.读者可以在chardet的网站上下载这个[http://chardet.feedparser.org/download/chardet-1.0.1.tgz 模块]并根据源码包中相关说明进行安装.
 

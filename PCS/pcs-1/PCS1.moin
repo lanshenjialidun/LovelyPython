@@ -1,12 +1,12 @@
 ##language:zh
-#pragma section-numbers on
+#pragma section-numbers off
 ||'''status'''|| 校对 || Lizzie || 完成度100%||
 
 [[TableOfContents]]
 
 ##startInc
 
-= 交互环境之命令行 =
+= PCS1 交互环境之命令行 =
 == 概述 ==
 Python命令行，又称为Python Shell，是默认的Python交互环境。
 

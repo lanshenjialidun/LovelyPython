@@ -1,11 +1,15 @@
 ##language:zh
-##OBP项目图书reST通用文章模板
-###format rst
+#pragma section-numbers off
+
 ||status|| 草稿 ||清风; 100%||
 
 [[TableOfContents]]
+##startInc
+= PCS309 Pyhton 模板系统 =
 
-== Pyhton 模板系统 ==
+
+##endInc
+`原料!!!`
 ==== GenShi ====
 [http://genshi.edgewall.org http://www.edgewall.org/gfx/genshi_logo.png]
 

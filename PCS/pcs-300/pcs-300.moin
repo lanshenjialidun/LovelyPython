@@ -1,52 +1,53 @@
 ##language:zh
-##OBPÏîÄ¿Í¼ÊéreSTÍ¨ÓÃÎÄÕÂÄ£°å
+#pragma section-numbers off
 
-||status|| ²Ý¸å ||HuangYi Çå·ç; 100%||
+||status|| è‰ç¨¿ ||HuangYi æ¸…é£Ž; 100%||
 
 [[TableOfContents]]
 
-= CherryPy =
+##startInc
+= PCS300 CherryPy =
 
-== É¶ÊÇ CherryPy ==
+== å•¥æ˜¯ CherryPy ==
 
-CherryPy ÊÇ¸ö·Ç³£¼ò½àÒ×ÓÃ¡ª¡ªÃæÏò¶ÔÏóµÄ web ¿ò¼Ü¡£ß×£¬ÃæÏò¶ÔÏó²»ÊÇÓÃÀ´ÐÎÈÝ
-³ÌÐòÉè¼ÆÓïÑÔµÄ£¬ÔõÃ´À´ÐÎÈÝ web ¿ò¼ÜÁË£¿ºÜ¿ìÄã¾Í»áÃ÷°×ÁË¡£
+CherryPy æ˜¯ä¸ªéžå¸¸ç®€æ´æ˜“ç”¨â€”â€”é¢å‘å¯¹è±¡çš„ web æ¡†æž¶ã€‚å’¦ï¼Œé¢å‘å¯¹è±¡ä¸æ˜¯ç”¨æ¥å½¢å®¹
+ç¨‹åºè®¾è®¡è¯­è¨€çš„ï¼Œæ€Žä¹ˆæ¥å½¢å®¹ web æ¡†æž¶äº†ï¼Ÿå¾ˆå¿«ä½ å°±ä¼šæ˜Žç™½äº†ã€‚
 
-Ê¹ÓÃ CherryPy ±àÐ´ web ³ÌÐòµÄ¹ý³Ì£¬¾ÍÊÇ±àÐ´Ò»×é¶ÔÏóÔÙÍ¨¹ý CherryPy ·¢²¼³öÈ¥µÄ¹ý³Ì¡£
-ÕâÑùÒ»×é¶ÔÏóÍ¨¹ýÊôÐÔµÄÒýÓÃ¹¹³ÉÁËÒ»¸öÍ¼£¬ÎÒÃÇÖ»Ðè°ÑÒ»¸ö¸ù½Úµã½»¸ø CherryPy ¡£
-ÕâÑù CherryPy ¾Í»á½«ÓÃ»§ÇëÇóµÄ URL Ó³Éäµ½ÕâÐ©¶ÔÏó£¬½âÎö URL µÄÊ±ºò¾ÍµÈÓÚÊÇÔÚÕâ¸ö¶ÔÏóÍ¼
-ÖÐÂþÓÎ¡£×îÖÕ CherryPy È·¶¨Ä¿±ê¶ÔÏóºÍÏàÓ¦·½·¨£¬½«URLµÄ²ÎÊýºÍPOST²ÎÊý¸ù¾ÝÃû×ÖÓ³Éäµ½·½·¨µÄ²ÎÊý£¬
-È»ºóµ÷ÓÃÆä·½·¨£¬²¢·µ»ØÆä½á¹û¸ø¿Í»§¶Ë¡£
+ä½¿ç”¨ CherryPy ç¼–å†™ web ç¨‹åºçš„è¿‡ç¨‹ï¼Œå°±æ˜¯ç¼–å†™ä¸€ç»„å¯¹è±¡å†é€šè¿‡ CherryPy å‘å¸ƒå‡ºåŽ»çš„è¿‡ç¨‹ã€‚
+è¿™æ ·ä¸€ç»„å¯¹è±¡é€šè¿‡å±žæ€§çš„å¼•ç”¨æž„æˆäº†ä¸€ä¸ªå›¾ï¼Œæˆ‘ä»¬åªéœ€æŠŠä¸€ä¸ªæ ¹èŠ‚ç‚¹äº¤ç»™ CherryPy ã€‚
+è¿™æ · CherryPy å°±ä¼šå°†ç”¨æˆ·è¯·æ±‚çš„ URL æ˜ å°„åˆ°è¿™äº›å¯¹è±¡ï¼Œè§£æž URL çš„æ—¶å€™å°±ç­‰äºŽæ˜¯åœ¨è¿™ä¸ªå¯¹è±¡å›¾
+ä¸­æ¼«æ¸¸ã€‚æœ€ç»ˆ CherryPy ç¡®å®šç›®æ ‡å¯¹è±¡å’Œç›¸åº”æ–¹æ³•ï¼Œå°†URLçš„å‚æ•°å’ŒPOSTå‚æ•°æ ¹æ®åå­—æ˜ å°„åˆ°æ–¹æ³•çš„å‚æ•°ï¼Œ
+ç„¶åŽè°ƒç”¨å…¶æ–¹æ³•ï¼Œå¹¶è¿”å›žå…¶ç»“æžœç»™å®¢æˆ·ç«¯ã€‚
 
-Ê¹ÓÃ CherryPy ±àÐ´ web ³ÌÐòµÄÌåÑéÊÇ·Ç³£Êæ·þ×ÔÈ»µÄ£¬ÏÂÃæ¾Í¸úÎÒÀ´³¢ÊÔÒ»°Ñ°É¡£
+ä½¿ç”¨ CherryPy ç¼–å†™ web ç¨‹åºçš„ä½“éªŒæ˜¯éžå¸¸èˆ’æœè‡ªç„¶çš„ï¼Œä¸‹é¢å°±è·Ÿæˆ‘æ¥å°è¯•ä¸€æŠŠå§ã€‚
 
-== ÏÂÔØ°²×° ==
+== ä¸‹è½½å®‰è£… ==
 
-´Ó http://www.cherrypy.org/wiki/CherryPyDownload ÕÒµ½×îÐÂ°æ±¾µÄÏÂÔØµØÖ·²¢ÏÂÔØÖ®£¬½âÑ¹£¬È»ºóºÍ¼¸ºõËùÓÐpythonÄ£¿éµÄ°²×°Ò»Ñù£¬Ö´ÐÐ {{{python setup.py install}}} £¬Ôò´ó¹¦¸ã³É£¬¿ÉÒÔ¿ªÊ¼Ð´³ÌÐòÁË¡£
+ä»Ž http://www.cherrypy.org/wiki/CherryPyDownload æ‰¾åˆ°æœ€æ–°ç‰ˆæœ¬çš„ä¸‹è½½åœ°å€å¹¶ä¸‹è½½ä¹‹ï¼Œè§£åŽ‹ï¼Œç„¶åŽå’Œå‡ ä¹Žæ‰€æœ‰pythonæ¨¡å—çš„å®‰è£…ä¸€æ ·ï¼Œæ‰§è¡Œ {{{python setup.py install}}} ï¼Œåˆ™å¤§åŠŸæžæˆï¼Œå¯ä»¥å¼€å§‹å†™ç¨‹åºäº†ã€‚
 
-== ¿ªÊ¼Ð´³ÌÐò ==
+== å¼€å§‹å†™ç¨‹åº ==
 
-ÎÒÃÇ¾Í´Ó hello world! ¿ªÊ¼£¬±àÐ´ hello.py £¬ÄÚÈÝÈçÏÂ£¬±£´æ³É utf-8 ¸ñÊ½£º
+æˆ‘ä»¬å°±ä»Ž hello world! å¼€å§‹ï¼Œç¼–å†™ hello.py ï¼Œå†…å®¹å¦‚ä¸‹ï¼Œä¿å­˜æˆ utf-8 æ ¼å¼ï¼š
 
 {{{#!python
 # -*- coding: utf-8 -*-
 import cherrypy
 
 class HelloWorld:
-    # ¶¨ÒåÒ»¸ö index µÄ·½·¨
+    # å®šä¹‰ä¸€ä¸ª index çš„æ–¹æ³•
     def index(self):
         return "Hello world!"
-    # ½« index ·½·¨·¢²¼µ½ web
+    # å°† index æ–¹æ³•å‘å¸ƒåˆ° web
     index.exposed = True
 
-# °Ñ¸ù¶ÔÏó½»¸ø cherrypy£¨²»¹ýÕâÀï×Ü¹²¾ÍÒ»¸ö¶ÔÏó¶øÒÑ£©
+# æŠŠæ ¹å¯¹è±¡äº¤ç»™ cherrypyï¼ˆä¸è¿‡è¿™é‡Œæ€»å…±å°±ä¸€ä¸ªå¯¹è±¡è€Œå·²ï¼‰
 cherrypy.quickstart(HelloWorld())
 }}}
 
-È»ºó´ò¿ªÃüÁîÐÐ£¬Ö±½ÓÖ´ÐÐ {{{ python hello.py }}} ¡£ÏÖÔÚ´ò¿ªä¯ÀÀÆ÷·ÃÎÊ http://localhost:8080/index £¬
-¾Í¿ÉÒÔ¿´µ½ÉÏÃæ {{{index}}} ·½·¨·µ»ØµÄÄÇ¾ä»°ÁË£¬Ò²¿ÉÒÔÖ±½Ó·ÃÎÊ http://localhost:8080/ £¬index ÊÇÄ¬ÈÏµ÷ÓÃµÄ·½·¨¡£
+ç„¶åŽæ‰“å¼€å‘½ä»¤è¡Œï¼Œç›´æŽ¥æ‰§è¡Œ {{{ python hello.py }}} ã€‚çŽ°åœ¨æ‰“å¼€æµè§ˆå™¨è®¿é—® http://localhost:8080/index ï¼Œ
+å°±å¯ä»¥çœ‹åˆ°ä¸Šé¢ {{{index}}} æ–¹æ³•è¿”å›žçš„é‚£å¥è¯äº†ï¼Œä¹Ÿå¯ä»¥ç›´æŽ¥è®¿é—® http://localhost:8080/ ï¼Œindex æ˜¯é»˜è®¤è°ƒç”¨çš„æ–¹æ³•ã€‚
 
-ÔÙÀ´¿´¸öÉÔÎ¢¸´ÔÓµãµÄ°É£º
+å†æ¥çœ‹ä¸ªç¨å¾®å¤æ‚ç‚¹çš„å§ï¼š
 
 {{{#!python
 # -*- coding: utf-8 -*-
@@ -58,14 +59,14 @@ class OnePage(object):
     index.exposed = True
  
 class HelloWorld(object):
-    # Í¨¹ýÊôÐÔÒýÓÃÁíÒ»¸ö¶ÔÏó£¬cherrypy½âÎöURLµÄÊ±ºò¾Í»áÑØ×ÅÊôÐÔÒýÓÃµÄµÀÂ·Ç°½ø¡£
+    # é€šè¿‡å±žæ€§å¼•ç”¨å¦ä¸€ä¸ªå¯¹è±¡ï¼Œcherrypyè§£æžURLçš„æ—¶å€™å°±ä¼šæ²¿ç€å±žæ€§å¼•ç”¨çš„é“è·¯å‰è¿›ã€‚
     onepage = OnePage()
  
     def index(self):
         return "hello world"
     index.exposed = True
     
-    # ¶¨ÒåÁËÒ»¸ö²ÎÊý£¬cherrypy»á½« URL ÖÐµÄÍ¬Ãû²ÎÊýÓ³Éä¹ýÀ´
+    # å®šä¹‰äº†ä¸€ä¸ªå‚æ•°ï¼Œcherrypyä¼šå°† URL ä¸­çš„åŒåå‚æ•°æ˜ å°„è¿‡æ¥
     def hello(self, name):
         return "hello %s" % name
     hello.exposed = True
@@ -73,9 +74,12 @@ class HelloWorld(object):
 cherrypy.quickstart(HelloWorld())
 }}}
 
-Ö´ÐÐºó£¬·ÃÎÊ http://localhost:8080/ ºÍ http://localhost:8080/onepage ¿ÉÒÔ·Ö±ð¿´µ½ hello world ºÍ one page! ¡£·ÃÎÊ http://localhost:8080/hello?name=you Ò²¿ÉÒÔ¿´µ½·µ»ØÁË hello you ¡£
+æ‰§è¡ŒåŽï¼Œè®¿é—® http://localhost:8080/ å’Œ http://localhost:8080/onepage å¯ä»¥åˆ†åˆ«çœ‹åˆ° hello world å’Œ one page! ã€‚è®¿é—® http://localhost:8080/hello?name=you ä¹Ÿå¯ä»¥çœ‹åˆ°è¿”å›žäº† hello you ã€‚
 
-ÉÏÃæ´¦ÀíµÄÊÇ GET ²ÎÊý£¬Ò²¾ÍÊÇ URL ÖÐ´øµÄ²ÎÊý£¬CherryPy ½« POST ²ÎÊýºÍ GET ²ÎÊýÊÇÒ»ÊÓÍ¬ÈÊ£¬Ò»ÂÉÓ³ÉäÎª·½·¨µÄ²ÎÊý£¬ POST µÄ´¦ÀíÆäÊµÊÇÍêÈ«Ò»ÑùÒ»ÑùµÄ¡£
+ä¸Šé¢å¤„ç†çš„æ˜¯ GET å‚æ•°ï¼Œä¹Ÿå°±æ˜¯ URL ä¸­å¸¦çš„å‚æ•°ï¼ŒCherryPy å°† POST å‚æ•°å’Œ GET å‚æ•°æ˜¯ä¸€è§†åŒä»ï¼Œä¸€å¾‹æ˜ å°„ä¸ºæ–¹æ³•çš„å‚æ•°ï¼Œ POST çš„å¤„ç†å…¶å®žæ˜¯å®Œå…¨ä¸€æ ·ä¸€æ ·çš„ã€‚
 
-ÁíÍâÊµ¼ÊµÄ web Ó¦ÓÃÖÐ£¬µ±È»²»ÄÜ°ÑÒ³ÃæµÄhtmlÈ«²¿Èûµ½ Python ´úÂëÀïÃæÀ´£¬Êµ¼ÊÉÏÓÐºÜ¶à×¨ÃÅµÄÄ£°å¿ÉÒÔÓÃ£¬Ïê¼û PCSXX ´ó web ¿ò¼Ü½éÉÜ¡£
-¹ØÓÚ CherryPy µÄÏêÏ¸ÄÚÈÝ£¬¶ÁÕß¿ÉÒÔ²Î¿¼CherryPyµÄ¹Ù·½ÎÄµµ http://www.cherrypy.org/wiki/TableOfContents ¡£
+å¦å¤–å®žé™…çš„ web åº”ç”¨ä¸­ï¼Œå½“ç„¶ä¸èƒ½æŠŠé¡µé¢çš„htmlå…¨éƒ¨å¡žåˆ° Python ä»£ç é‡Œé¢æ¥ï¼Œå®žé™…ä¸Šæœ‰å¾ˆå¤šä¸“é—¨çš„æ¨¡æ¿å¯ä»¥ç”¨ï¼Œè¯¦è§ PCSXX å¤§ web æ¡†æž¶ä»‹ç»ã€‚
+å…³äºŽ CherryPy çš„è¯¦ç»†å†…å®¹ï¼Œè¯»è€…å¯ä»¥å‚è€ƒCherryPyçš„å®˜æ–¹æ–‡æ¡£ http://www.cherrypy.org/wiki/TableOfContents ã€‚
+== ç»ƒä¹  ==
+
+##endInc

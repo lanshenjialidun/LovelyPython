@@ -1,12 +1,12 @@
 ##language:zh
-#pragma section-numbers on
+#pragma section-numbers off
 ||'''status'''|| 校对 || Lizzie || 完成度100%||
 
 
 [[TableOfContents]]
 
 ##startInc
-= 对象 =
+= PCS105 对象 =
 
 == 概述 ==
 Python中的一切东西都是对象，即，一切兼对象！

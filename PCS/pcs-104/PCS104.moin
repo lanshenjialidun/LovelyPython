@@ -1,11 +1,11 @@
 ##language:zh
-#pragma section-numbers on
+#pragma section-numbers off
 ||'''status'''|| 校对 ||  || 完成度100%||
 
 [[TableOfContents]]
 
 ##startInc
-= 注释 =
+= PCS104 注释 =
 
 == 概述 ==
 Python中的注释是以#打头，表明对应代码的语义和功能，以便其他程序员或是自己更快的理解代码含义。

@@ -1,12 +1,12 @@
 ##language:zh
-#pragma section-numbers on
+#pragma section-numbers off
 ||'''status'''|| 校对 || || 完成度100%||
 
 
 [[TableOfContents]]
 
 ##startInc
-= 异常 =
+= PCS113 异常 =
 
 == 捕捉异常 ==
 使用try...except可以捕捉各种异常类型。Python中有很多内置异常类型，具体可以参见[http://www.python.org/doc/current/lib/module-exceptions.html]。

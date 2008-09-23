@@ -1,22 +1,17 @@
-﻿## Do not edit this header. It is not part of the wiki code and will not be
-## posted back to the wiki when you save.
-## Base: http://wiki.woodpecker.org.cn/moin/
-## Page: ObpLovelyPython/PCS304
-## Secs: 
-## END OF HEADER
 ##language:zh
-##OBP项目图书reST通用文章模板
-###format rst
+#pragma section-numbers off
+
 ||status|| 草稿 ||HuangYi, 清风; 100%||
 
 [[TableOfContents]]
 
-== Django ==
-=== 概述 ===
+##startInc
+= PCS304 Django =
+== 概述 ==
 
 Django 应该是 Python 世界最火的 web 开发框架了，经过两年多的发展，已经相当成熟，并且已有大量成功应用案例。Django 设计哲学强调重用，DRY（Dont Repeat Yourself），并且主张将项目分解成一个个app的组合，并且鼓励开发者开发可重用的 app，所以在网上你可以找到大量这种开源的可重用 app，可以大大提升开发效率。
 
-=== 特性介绍 ===
+== 特性介绍 ==
  * ORM
   . 使用 python 代码描述你的数据模型，Django 提供简洁的操作数据库的接口。
  * URL 分发
@@ -31,5 +26,9 @@ Django 应该是 Python 世界最火的 web 开发框架了，经过两年多的
   . 已经支持Postgresql, MySql, [http://www.sqlite.org/ Sqlite3], Oracle
  * 国际化
   . 支持I18N，允许针对应用程序提供特定国家语言的翻译字符
+
+== 练习 ==
+
+##endInc
 
 -- HuangYi 

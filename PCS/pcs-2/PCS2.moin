@@ -1,12 +1,12 @@
 ##language:zh
-#pragma section-numbers on
+#pragma section-numbers off
 ||'''status'''|| 校对 || Lizzie || 完成度100%||
 
 [[TableOfContents]]
 
 ##startInc
 
-= 交互环境之iPython =
+= PCS2 交互环境之iPython =
 == 概述 ==
 iPython是一个Python的交互式Shell，比默认的Python Shell好用得多，功能也更强大。她支持语法高亮，自动完成，代码调试，对象自省，支持 Bash Shell 命令，内置了许多很有用的功能和函式等等，非常容易使用。
 

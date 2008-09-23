@@ -1,11 +1,11 @@
 ##language:zh
-#pragma section-numbers on
+#pragma section-numbers off
 ||'''status'''|| 校对 || || 完成度100%||
 
 [[TableOfContents]]
 
 ##startInc
-= 内建数据类型 =
+= PCS101 内建数据类型 =
 
 == 空(None)  ==
 None表示该值是一个空对象，且对其没有特别的操作，比如没有明确定义返回值的函式就返回None。

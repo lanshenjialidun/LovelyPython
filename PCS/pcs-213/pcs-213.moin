@@ -1,11 +1,11 @@
 ##language:zh
-##OBP项目图书reST通用文章模板
-###format rst
+#pragma section-numbers off
+
 ||status|| 草稿 ||清风 & liz; 100%||
 
 [[TableOfContents]]
 ##startInc
-= time =
+= PCS213 time =
 == 概述 ==
 time是Python的时间处理模块.时间处理是在编程的时候经常遇到的一个问题,经常遇到的问题有如:如何获取当前unix时间戳,怎样求出15分钟后是几点几分?如何格式化时间?如何设置时区信息等等.
 

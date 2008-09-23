@@ -1,5 +1,8 @@
+##language:zh
+#pragma section-numbers off
+
 ##startInc
-= dict4ini =
+= PCS208 dict4ini =
 `特别说明`:
  * 此条目是特邀  Dict4Ini 模块作者 Limodou 自个儿写成的
  * Limodou 是中国Python 早期用户之一，长期在业余时间钻研各种 Python 技术，进一步信息可以参考他的维基和博客:
@@ -51,7 +54,6 @@ Dict4Ini的项目主页在 http://code.google.com/p/dict4ini/ , 上面有许多�
  * 如果你想要保存Python数据类型时，需要注意它的格式可能根据数据格式的不同会进行变化。如list会是以','分隔的串，如果字符串中有特殊符号，它将使用双引号进行处理。
  * 布尔类型需要处理为1和0。
 
-##endInc
 == 练习 ==
 
 1. 使用dict4ini创建一个新的ini文件，并创建如下内容：
@@ -72,3 +74,6 @@ file = testfile
 123 = "has spaces"
 list = list,1,"hello, world",
 }}}
+
+##endInc
+

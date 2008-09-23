@@ -1,11 +1,11 @@
 ##language:zh
-#pragma section-numbers on
+#pragma section-numbers off
 ||'''status'''|| 校对 || || 完成度100%||
 
 [[TableOfContents]]
 
 ##startInc
-= 类 =
+= PCS111 类 =
 
 == 类定义 ==
 自定义的类是类似于下面的形式：

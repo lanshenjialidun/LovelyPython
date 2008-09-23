@@ -1,12 +1,12 @@
 ##language:zh
-#pragma section-numbers on
+#pragma section-numbers off
 ||'''status'''|| 校对 || || 完成度100%||
 
 
 [[TableOfContents]]
 
 ##startInc
-= 缩进 =
+= PCS103 缩进 =
 == 概述 ==
 缩进可谓是Python的一大特色，估计没有其他语言再使用缩进作为它语法结构的一部分了。
 
