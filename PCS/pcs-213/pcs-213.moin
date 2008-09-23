@@ -39,6 +39,7 @@ The time is      : Sun Mar  9 12:18:02 2008
 === time.clock() ===
 time()函数返回的是现实世界的时间，而clock()函数返回的是cpu时钟。clock()函数返回值常用作性能测试，benchmarking等。它们常常反映了程序运行的真实时间，比time()函数返回的值要精确。
 {{{#!python
+#coding:utf-8
 import hashlib
 import time
 
