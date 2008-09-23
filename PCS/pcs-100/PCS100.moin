@@ -13,11 +13,12 @@
 
 例如：fibo模块(fibo.py)是一个实现Fibonacci功能的模块。{{{#!python
 #coding:utf-8
-
 # Fibonacci数列模块
 # 输出所有小于n的Fibonacci数
 def fib(n):
     a, b = 0, 1
+    if n == 1:
+        print 1
     while b < n:
         print b, 
         a, b = b, a+b
@@ -82,11 +83,13 @@ import Sound.Effects.echo
 
 # 使用这个模块,必须使用完整的名字来调用
 Sound.Effects.echo.echofilter(input, output, delay=0.7, atten=4)
+
 # 另一种替代方法
 from Sound.Effects import echo
 # 不同的是，不需要包前缀
 echo.echofilter(input, output, delay=0.7, atten=4)
-# 另一种直接导入你需要的函数和变量的方法：
+
+# 另一种直接导入你需要的函数和变量的方法
 from Sound.Effects.echo import echofilter
 # 其使用方法为
 echofilter(input, output, delay=0.7, atten=4)
