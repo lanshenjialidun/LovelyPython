@@ -16,6 +16,18 @@ None表示该值是一个空对象，且对其没有特别的操作，比如没�
 >>> bigornot = 1>2
 >>> bigornot
 False
+>>> if []:
+...     print "True"
+... else:
+...     print "False"
+... 
+False
+>>> if '':
+...     print "True"
+... else:
+...     print "False"
+... 
+False
 }}}
 
 == 整型(Int) ==
