@@ -211,8 +211,15 @@ Press Ctrl+C to stop
 127.0.0.1 - - [20/Sep/2008:18:08:46 +0800] "GET /cdc/index.ks/index HTTP/1.1" 200 -
 
 ~/LovelyPython/CDays/cday2/Karrigell-2.3.5/webapps/cdc$ python cdctools.py
-/home/shengyan/LovelyPython/CDays/cday2/cdc/
 {'z.MCollection.29.cdc': [], 'mfj-00.cdc': [], 'MCollec.39.cdc': [], 'z.Animation.00.cdc': ['[L:\\mAnimi\\Gainax\\EVAalbumESP]\r\n'], 'z.MFC.pop.02.cdc': []}
+
+~/LovelyPython/CDays/cday2$ python tryweb.py 
+http://0.0.0.0:8080/
+127.0.0.1:57396 - - [23/Sep/2008 15:43:17] "HTTP/1.1 GET /" - 200 OK
+127.0.0.1:57396 - - [23/Sep/2008 15:43:18] "HTTP/1.1 GET /favicon.ico" - 200 OK
+127.0.0.1:57396 - - [23/Sep/2008 15:43:21] "HTTP/1.1 GET /favicon.ico" - 200 OK
+127.0.0.1:58129 - - [23/Sep/2008 15:43:39] "HTTP/1.1 GET /a" - 200 OK
+127.0.0.1:58129 - - [23/Sep/2008 15:43:46] "HTTP/1.1 GET /hehe" - 200 OK
 
 
 ######CDay3
@@ -233,7 +240,7 @@ Search from  cdc//z.MCollection.29.cdc  out
  L:\MFJ.16\The Brilliant Green/('uptu.com-rainy_days_never_stays03.wma', '926441') 
  L:\MFJ.16\The Brilliant Green/('uptu.com-rainy_days_never_stays02.wma', '807552') 
 usage 0.135001897812 s
-~/LovelyPython/CDays/cday3$ 
+
 
 
 ######CDay4
