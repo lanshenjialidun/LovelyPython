@@ -73,7 +73,7 @@ for语句后面可以跟else子句，在这里else子句含义是：如果 for �
       ...
       item = obj[1]      # 取第1个
       ...
-    except StopIteration:      # 取到最后一个
+    except IndexError:      # 取到最后一个
         pass
 }}}
 最后再测试一把：{{{
