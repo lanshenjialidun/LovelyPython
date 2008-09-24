@@ -1,0 +1,252 @@
+##language:zh
+##OBP项目图书reST通用文章模板
+
+||status|| 草稿 ||HuangYi; 30%||
+
+[[TableOfContents]]
+
+那么小白决定进一步探索 python web开发更高级一点的技术了，行者建议他从基础入手。
+
+当用户在浏览器中输入网址，浏览器便找到web服务器，向它发起http请求，
+web服务器再找到web应用程序执行之，并把结果返回给客户端浏览器。
+
+那么做web开发之前首先要有web服务器才行，开发阶段最好使用一个简单方便的开发服务器。
+等开发调试完毕，再将代码部署到 apache、lighttpd 等成熟高效的web服务器，
+放心，使用python做web开发，最后部署的阶段是很轻松的，在本章的后面便会提到。
+
+== wsgiref ==
+
+那么 python2.5 就自带了一个叫做 wsgiref 模块，它提供一些专业 web 开发所需要的一些基础工具，比如一个开发服务器：
+
+{{{#!python
+# -*- coding: utf-8 -*-
+import wsgiref
+
+# 定义一个输出 hello world 和环境变量的简单web应用程序
+def hello_app(environ, start_response):
+    # 输出 http 头
+    start_response('200 OK', [('Content-type','text/plain')])
+    # 准备输出的内容
+    content = []
+    content.append('Hello world')
+    for key, value in environ.items():
+        content.append('%s : %s' % (key, value))
+    # 输出，根据 wsgi 协议，返回的需要是一个迭代器，返回一个 list 就可以
+    return ['\n'.join(content)]
+
+# 构造开发服务器对象，设置绑定的地址和端口，并把 hello world 应用程序传给他
+server = wsgiref.make_server('localhost', 8000, hello_app)
+# 启动开发服务器
+server.serve_forever()
+}}}
+
+把以上代码以utf-8编码保存成python程序，不妨命名为 main.py。然后执行上面这个程序后，打开浏览器，访问 http://localhost:8000 即可看到输出的内容。
+
+{{{注意::
+  wsgiref 带的这个开发服务器调用应用程序所使用的协议叫做 wsgi，wsgiref就是对wsgi协议的
+  一个参考实现，wsgi 协议内容可以参考：URL ，在这里你只需要知道，hello_app 的第一个参数environ
+  是包含web环境变量的字典，类似于 cgi 的环境变量，里面包含了请求的URL，请求客户端的IP等信息。
+  第二个参数 start_response 是一个函数，调用它来输出 http 状态码和响应头。
+}}}
+
+== mako ==
+
+但是 web程序大部分时候都是要返回一个 html 页面的，而把一个复杂的 html 页面
+代码放到python代码里面就太丑陋了，应该把它放到一个模板里去，把页面展现与
+业务逻辑分离开来。
+
+python里面的模板引擎主要有mako、genshi、jinja等。mako 主要特点在于模板里面
+可以比较方便的嵌入python代码，而且执行效率一流；genshi 的特点在于基于 xml，
+非常简单易懂的模板语法，对于热爱xhtml的朋友来说是很好的选择，同时也可以嵌入python
+代码，实现一些复杂的展现逻辑；jinja 和 genshi 一样拥有很简单的模板语法，只是不
+依赖于 xml 的格式，同样很适合设计人员直接进行模板的制作，同时也可以嵌入python
+代码实现一些复杂的展现逻辑。
+
+小白看 mako 挺顺眼的，于是就钻研了它一把。
+可以到这里 http://www.makotemplates.org/download.html 找到最新版本的下载地址，下载解压，
+然后执行 python setup.py install 就可以了。 
+
+下面的代码就是写的一个简单的 mako 模板文件，里面使用 python 的 for 循环来把 data 这个字典的
+内容填充到一个html列表（mako模板的详细语法请参考：URL）。
+
+{{{
+<html>
+  <head>
+    <title>简单mako模板</title>
+  </head>
+  <body>
+    <h5>Hello World!</h5>
+    <ul>
+      % for key, value in data.items():
+      <li>
+        ${key} - ${value}
+      <li>
+      % endfor
+    </ul>
+  </body>
+</html>
+}}}
+
+然后要做的就是给模板传递一个叫做 data 的字典对象了，可以编写如下三句代码实现：
+
+{{{#!python
+# -*- coding: utf-8 -*-
+# 导入模板对象
+from mako import Template
+# 使用模板文件名构造模板对象
+tmpl = Template('./simple.html')
+# 构造一个简单的字典填充模板，并print出来
+print tmpl.render(data = {'a':1, 'b':2})
+}}}
+
+执行以上程序，就可以看到通过模板输出的 html 代码了。
+现在再看看如何把它用到web应用中来吧。
+
+{{{#!python
+# -*- coding: utf-8 -*-
+import wsgiref
+from mako import Template
+
+def hello_app(environ, start_response):
+    tmpl = Template('./simple.html')
+    content = tmpl.render(data=environ)
+    start_response('200 OK', [('Content-type','text/html')])
+    return [content]
+
+server = wsgiref.make_server('localhost', 8000, hello_app)
+server.serve_forever()
+}}}
+
+执行这个程序，并访问 http://localhost:8000 你就可以看到通过模板输出的页面了。
+
+== sqlalchemy ==
+
+作为一个动态网站，有很多数据需要持久存储，关系数据库在这方面通常都是不二选择。
+当小白向行者问道如何才能简化对数据库的访问时，行者郑重向小白推荐了 sqlalchemy 这个库。
+
+sqlalchemy 是一个 ORM （对象-关系映射）库，提供python对象与关系数据库之间的映射，
+可以通过 python 对象很方便地对关系数据库进行操纵，比如使用python代码描述数据库结构，
+创建数据库，执行插入、查询、删除等数据库操作，非常方便。除了这些 ORM 的基本功能外，
+sqlalchemy 还支持Model的继承，自引用(Self-referential)、eager loading、lazy loading 等等，
+还可以直接将 Model 映射到自定义的 SQL 语句。可以说既有不输于 Hibernate 的强大功能，
+同时不失 Python 的优雅简洁。
+
+在这里 http://www.sqlalchemy.org/download.html 找到最新版本的下载地址，下载解压，
+然后执行 python setup.py install 进行安装。
+
+代码胜千言，sqlalchemy 到底可以做什么，直接上代码展示下 sqlalchemy 的基本功能吧：
+
+{{{#!python
+# -*- coding: utf-8 -*-
+from sqlalchemy.ext.declarative import declarative_base
+
+# 创建数据库引擎，这里我们直接使用 python2.5 自带的数据库引擎：sqlite，
+# 直接在当前目录下建立名为 data.db 的数据库
+engine = create_engine('sqlite:///data.db')
+# sqlalchemy 中所有数据库操作都要由某个session来进行管理
+# 关于 session 的详细信息请参考：http://www.sqlalchemy.org/docs/05/session.html
+Session = scoped_session(sessionmaker(autocommit=False, autoflush=False, bind=engine))
+Base = declarative_base()
+
+class Dictionay(Base):
+    # python 对象对应关系数据库的表名
+    __tablename__ = 't_dictionay'
+    # 两个字段：
+    key = Column('key', String(255), primary_key=True)
+    value =  Column('value', String(255))
+
+# 创建数据库
+Base.metadata.create_all(engine)
+
+session = Session()
+for item in ['python','ruby','java']:
+    dictionay = Dictionay(key=item, value=item.upper())
+    session.add(dictionay)
+
+# 提交session，在这里才真正执行数据库的操作，添加三条记录到数据库
+session.commit()
+
+# 查询Dictionary类对应的数据
+for dictionay in session.query(Dictionary):
+    print dictionay.name, dictionay.value
+}}}
+
+直接执行这个程序就可以了。
+不过这是个单独的 demo，要把放到 web 应用里面，还需要先对它的结构重新组织一下。
+
+先剥离出一个公用的 model.py 文件。
+
+{{{#!python
+# -*- coding: utf-8 -*-
+from sqlalchemy.ext.declarative import declarative_base
+
+engine = create_engine('sqlite:///data.db')
+Session = scoped_session(sessionmaker(autocommit=False, autoflush=False, bind=engine))
+Base = declarative_base()
+
+class Dictionay(Base):
+    __tablename__ = 't_dictionay'
+    key = Column('key', String(255), primary_key=True)
+    value =  Column('value', String(255))
+}}}
+
+然后建立一个创建数据库并插入一些测试数据的单独的程序，创建数据库只需要一开始做一次就可以了。
+
+{{{#!python
+# -*- coding: utf-8 -*-
+# 导入公用的 model 模块
+from model import Base, Session, Dictionary
+
+# 创建数据库
+Base.metadata.create_all(engine)
+
+# 插入初始数据
+session = Session()
+for item in ['python','ruby','java']:
+    dictionay = Dictionay(key=item, value=item.upper())
+    session.add(dictionay)
+
+session.commit()
+}}}
+
+最后再将这个功能加入到我们的 web 程序里面来：
+
+{{{#!python
+# -*- coding: utf-8 -*-
+import wsgiref
+from mako import Template
+# 导入公用的 model 模块
+from model import Session, Dictionary
+def hello_app(environ, start_response):
+    session = Session()
+    # 查询到所有 Dictionary 对象
+    dictionaries = session.Query(Dictionary)
+    # 然后根据 Dictionary 对象的 name、value 属性把列表转换成一个字典
+    data = dict([(dictionary.name, dictionary.value) for dictionary in dictionaries])
+
+    # 填充模板
+    tmpl = Template('./simple.html')
+    content = tmpl.render(data=data)
+
+    start_response('200 OK', [('Content-type','text/plain')])
+    return [content]
+
+server = wsgiref.make_server('localhost', 8000, hello_app)
+server.serve_forever()
+}}}
+
+执行上面这个文件并打开浏览器访问 http://localhost:8000/ 就可以看到刚才创建的三条测试数据了。
+
+== yaro ==
+TODO 引入一个request、response对象的实现
+http://lukearno.com/projects/yaro/
+
+== beaker ==
+TODO 引入 session 的实现：beaker
+http://beaker.groovie.org/
+
+TODO 其他组件的介绍
+
+现在让我们回头看一下，我们最终得到了一个什么样的程序。
+
+TODO 成熟 web 框架介绍
