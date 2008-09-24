@@ -13,7 +13,7 @@
 
 == help() ==
 用来查看很多python自带帮助文档信息，可以使用`help()`。{{{
-shengyan@LIZZIE:~$ ipython
+~$ ipython
 Python 2.5.2 (r252:60911, May  7 2008, 15:19:09) 
 Type "copyright", "credits" or "license" for more information.
 
@@ -124,13 +124,13 @@ Out[45]: False
 
 ##endInc
 
-##== 小结？ ==
-##以上这些都是常用的自身方法，还有其他的可参见相关资源。
+== 小结 ==
+以上这些都是常用的自身方法，还有其他的可参见相关资源。
 
-##== 相关参考 ==
-## * [http://www.woodpecker.org.cn/diveintopython/power_of_introspection/index.html 自省的威力]
-## * [http://www.ibm.com/developerworks/cn/linux/l-pyint/index.html Python 自省指南]
-## * [http://www.xwy2.com/article.asp?id=106 Python 学习笔记 - 2.自省]
+== 相关参考 ==
+ * [http://www.woodpecker.org.cn/diveintopython/power_of_introspection/index.html 自省的威力]
+ * [http://www.ibm.com/developerworks/cn/linux/l-pyint/index.html Python 自省指南]
+ * [http://www.xwy2.com/article.asp?id=106 Python 学习笔记 - 2.自省]
 
 ----
 ::Lizzie [2008/06/20 13:24:00]

@@ -35,7 +35,7 @@ tree.write("hello.xhtml")
 使用Element新建XML节点,并设置相应值,然后将其封装在ElementTree中,构成最终XML树保存到本地文件中.运行这个程序,可以看到在当前目录下生成了一个hello.xhtml文件,用firefox或其他浏览器打开,可以看到下图:
 attachment:pcs-214-1.png
 
-使用ElementTree的parser()函数可以快速加载一个完整的XML文档并生成一个ElementTree对象,例如:
+使用ElementTree的parser()函式可以快速加载一个完整的XML文档并生成一个ElementTree对象,例如:
 {{{#!python
 # coding:utf-8
 import xml.etree.ElementTree as ET
@@ -46,7 +46,7 @@ tree = ET.parse("hello.xhtml")
 # 寻找head节点下title节点的值
 print tree.findtext("head/title")
 
-# 使用getroot()函数返回根节点
+# 使用getroot()函式返回根节点
 root = tree.getroot()
 
 # ...接下来可以做些其他操作
@@ -54,11 +54,11 @@ root = tree.getroot()
 # 保存为本地XML文档
 tree.write("out.xml")
 }}}
-ElementTree还提供了很多类和函数,类有:
+ElementTree还提供了很多类和函式,类有:
  * ElementTree:经常使用的元素结构封装类.
  * TreeBuilder:普通元素结构构造器.
  * XMLTreeBuilder:对XML源数据构造成XML结构树,它是基于expat解析器实现的
-函数有:
+函式有:
  * XML(text):从一个包含XML数据的字串文本中解析出XML元素
  * dump(elem): 将整个元素结构树输出至标准输出sys.stdout
  * iselement(element):判断参数元素是否为有效的元素对象

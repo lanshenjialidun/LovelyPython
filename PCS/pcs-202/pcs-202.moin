@@ -23,7 +23,7 @@ chardet是一个开源的字符编码自动检测模块,是基于Python实现的
 
 === 渐进检测字符编码 ===
 对于大量的文本,提供了可以渐进检测字符编码的相关方法并且在满足可信度后会自动停止检测.具体是通过UniversalDetector类的feed方法不断检测每个文本块,当达到最小可信度阈值时,就标记UniversalDetector类的done值为True,表示完成检测.
-已经读取完待检测文本之后若调用UniversalDetector类的close方法,它会在没有达到最小可信度的情况下再做一些计算,以便返回最大程度准确的值,该值是和chardet.detect函数一样的字典结构.
+已经读取完待检测文本之后若调用UniversalDetector类的close方法,它会在没有达到最小可信度的情况下再做一些计算,以便返回最大程度准确的值,该值是和chardet.detect函式一样的字典结构.
 {{{#!python
 import urllib
 from chardet.universaldetector import UniversalDetector
@@ -38,7 +38,7 @@ usock.close()
 print detector.result
 }}}这个例子同样先打开百度首页,接着创建了一个UniversalDetector对象detector,在接下来的for循环中,读取数据的同时检测该数据,当done值为True时表示检测完成退出for循环,最后关闭数据流并打印结果:
 {{{
-$ python pcs-202-1.py 
+~$ python pcs-202-1.py 
 {'confidence': 0.98999999999999999, 'encoding': 'GB2312'}
 }}}
 如果想对多个独立文本进行编码检测,可以重复使用同一个UniversalDetector对象,只要在每个文本开始检测前调用reset()以表明接下来读取的是与之前文本独立的字符串,然后就可以类似于上述例子中的,去调用feed(),最后调用close()结束,最终的检测结果放在result中.
@@ -58,7 +58,7 @@ for filename in glob.glob('*.py'):
 }}}
 其运行结果如下:
 {{{
-$ python pcs-202-2.py 
+~$ python pcs-202-2.py 
 pcs-202-1.py                                                 {'confidence': 1.0, 'encoding': 'ascii'}
 pcs-202-2.py                                                 {'confidence': 1.0, 'encoding': 'ascii'}
 }}}

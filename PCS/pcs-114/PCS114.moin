@@ -47,18 +47,18 @@ if __name__ == '__main__':
     execute_from_command_line(sys.argv)
 }}}首先申明一个OptionParser对象，然后通过add_option增加选项，根据这些选项做出不同的动作，完成不同的功能。最终效果如下：
 {{{
-$ python pcs109.py -s key -c
+~$ python pcs109.py -s key -c
 key
 create sth
 }}}
 
 ##endInc
 
-##== 相关参考 ==
-## * [http://docs.python.org/lib/module-sys.html System-specific parameters and functions]
-## * [http://docs.python.org/lib/module-cmd.html cmd]
-## * [http://docs.python.org/lib/module-getopt.html getopt]
-## * [http://docs.python.org/lib/module-optparse.html optparse]
+== 相关参考 ==
+ * [http://docs.python.org/lib/module-sys.html System-specific parameters and functions]
+ * [http://docs.python.org/lib/module-cmd.html cmd]
+ * [http://docs.python.org/lib/module-getopt.html getopt]
+ * [http://docs.python.org/lib/module-optparse.html optparse]
 ----
 ::Lizzie [2008/06/23 13:24:00]
 [[PageComment2]]

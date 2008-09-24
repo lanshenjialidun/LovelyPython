@@ -34,10 +34,10 @@ iPython是一个Python的交互式Shell，比默认的Python Shell好用得多�
 === Linux下的iPython安装 ===
  1. 下载[http://ipython.scipy.org/dist/ipython-0.8.4.tar.gz ipython-0.8.4.tar.gz]。
  1. 进入终端，输入如下几条命令，分别是解压、进入目录、编译、安装，一切ok的话就顺利安装iPython。{{{
-tar xvzf ipython-0.8.4.tar.gz
-cd ipython-0.8.4
-python setup.py build  #这步可以省略
-sudo python setup.py install
+~$ tar xvzf ipython-0.8.4.tar.gz
+~$ cd ipython-0.8.4
+~/ipython-0.8.4$ python setup.py build  #这步可以省略
+~/ipython-0.8.4$ sudo python setup.py install
 }}}
  1. 在Ubuntu下，可以通过输入命令sudo apt-get install ipython即可完成安装，非常方便。
 
@@ -90,7 +90,7 @@ for i in a:
     print i
 }}}还有一点需要说明，就是执行普通的 Shell 命令中如果有 $ 的话需要用两个 $。比如原来的echo $PATH现在得写成!echo $$PATH。
   * '''Tab自动补全'''。iPython一个非常强大的功能是tab自动补全。如果你对Python很了解，可能会想，标准Python交互式解释器也可以tab自动补全啊。你要做的只是：{{{
-shengyan@LIZZIE:~$ python
+~$ python
 Python 2.5.1 (r251:54863, Mar  7 2008, 04:10:12) 
 [GCC 4.1.3 20070929 (prerelease) (Ubuntu 4.1.2-16ubuntu2)] on linux2
 Type "help", "copyright", "credits" or "license" for more information.
@@ -262,11 +262,11 @@ ipython -p
 }}}一个创建自己环境的方法是在$HOME/.ipython目录下创建一个iPython配置文件，名字就叫做ipythonrc-，这里是你想要的环境的名字。如果同时进行好几个项目，而这些项目又用到互不相同的特殊的库，这时候每个项目都有自己的环境就很有用了。也可以为每个项目建立一个配置文件，然后在每个配置文件中import该项目中经常用到的模块。
 
   * '''使用操作系统的Shell'''。使用默认的iPython配置文件，有几个Unix Shell命令（当然，是在Unix系统上），cd，pwd和ls都能象在bash下一样工作。运行其它的shell命令需要在命令前加!或!!。使用magic关键字%sc和%sx可以捕捉shell命令的输出。pysh环境可以被用来替换掉shell。使用-p pysh参数启动的iPython，可以接受并执行用户$PATH中的所有命令，同时还可以使用所有的Python模块，Python关键字和内置函式。例如，想要创建500个目录，命名规则是从d_0_d到d_499_d，可以使用-p pysh启动iPython，然后就象这样：{{{
-shengyan@LIZZIE[~/ttt]|1> for i in range(500):
+[~/ttt]|1> for i in range(500):
                       |.>     mkdir d_${i}_d
                       |.> 
 }}}这就会创建500个目录：{{{
-shengyan@LIZZIE[~/ttt]|2> ls -d d* | wc -l
+[~/ttt]|2> ls -d d* | wc -l
 500
 }}}注意这里混合了Python的range函式和Unix的mkdir命令。注意，虽然ipython -p pysh提供了一个强大的shell替代品，但它缺少正确的job控制。在运行某个很耗时的任务时按下Ctrl-z将会停止iPython session而不是那个子进程。
 
@@ -275,14 +275,14 @@ shengyan@LIZZIE[~/ttt]|2> ls -d d* | wc -l
 
 ##endInc
 
-##== 小结？ ==
-##经过本文对iPython的特性及其基本的使用方法的介绍，已经充分感受到iPython的强大功能了吧！那么，就把她作为一个有利的工具帮助我们开发吧！对于进一步的配置和更多的用途，有兴趣的同学可以在网络上发掘更丰富的资料。
+== 小结 ==
+经过本文对iPython的特性及其基本的使用方法的介绍，已经充分感受到iPython的强大功能了吧！那么，就把她作为一个有利的工具帮助我们开发吧！对于进一步的配置和更多的用途，有兴趣的同学可以在网络上发掘更丰富的资料。
 
-##== 相关参考 ==
-## * [http://ipython.scipy.org iPython网站]
-## * [http://ipython.scipy.org/moin/Documentation iPython英文文档]
-## * [http://ipython.scipy.org/dist iPython下载]
-## * [http://guyingbo.javaeye.com/blog/111142 iPython中一些magic函式]
+== 相关参考 ==
+ * [http://ipython.scipy.org iPython网站]
+ * [http://ipython.scipy.org/moin/Documentation iPython英文文档]
+ * [http://ipython.scipy.org/dist iPython下载]
+ * [http://guyingbo.javaeye.com/blog/111142 iPython中一些magic函式]
 ----
 -- Lizzie [[DateTime(2008-05-28T21:00:00Z)]] 
 [[PageComment2]]

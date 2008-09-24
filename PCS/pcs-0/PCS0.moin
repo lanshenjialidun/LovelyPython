@@ -52,16 +52,16 @@ Python是跨平台的动态脚本语言，可以运行在Windows、Linux/Unix、
 
 ##endInc
 
-##== 小结？ ==
-##本文详细介绍了在Windows和Linux下如何安装Python的方法。
+== 小结 ==
+本文详细介绍了在Windows和Linux下如何安装Python的方法。
 
-##== Python相关资源 ==
-## * [http://www.python.org/ Python 官方英文网站]
-## * [http://www.python.org/doc/ Python 英文官方文档及资源]
-## * [http://www.python.org/download/releases/2.5.2/ 目前Python稳定版本为2.5.2]
-## * [http://python.cn/ Python 中文社区]
-## * [http://doc.chinahtml.com/Manual/Python/tut/index.html Python手册]
-## * [http://www.wuwx.cn/blog/archives/272 Windows下Python新手安装教程]
+== Python相关资源 ==
+ * [http://www.python.org/ Python 官方英文网站]
+ * [http://www.python.org/doc/ Python 英文官方文档及资源]
+ * [http://www.python.org/download/releases/2.5.2/ 目前Python稳定版本为2.5.2]
+ * [http://python.cn/ Python 中文社区]
+ * [http://doc.chinahtml.com/Manual/Python/tut/index.html Python手册]
+ * [http://www.wuwx.cn/blog/archives/272 Windows下Python新手安装教程]
 
 ----
 -- Lizzie  [[DateTime(2008-05-22T14:00:00Z)]] 

@@ -54,8 +54,8 @@ IndentationError: unindent does not match any outer indentation level (<ipython 
 
 ##endInc
 
-##== 相关参考 ==
-## * [http://www.woodpecker.org.cn/diveintopy_5_4/getting_to_know_python/indenting_code.html 代码缩进]
+== 相关参考 ==
+ * [http://www.woodpecker.org.cn/diveintopy_5_4/getting_to_know_python/indenting_code.html 代码缩进]
 ----
 ::Lizzie [2008/06/16 21:24:00]
 [[PageComment2]]

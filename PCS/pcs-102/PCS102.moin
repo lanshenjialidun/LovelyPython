@@ -125,13 +125,13 @@ for语句后面可以跟else子句，在这里else子句含义是：如果 for �
 }}}
 
 ##endInc
-##== 小结? ==
-##For循环是比较重要的控制流语句，本文介绍for语句的基本使用。
+== 小结 ==
+For循环是比较重要的控制流语句，本文介绍for语句的基本使用。
 
-##== 相关参考 ==
-## * [http://wiki.woodpecker.org.cn/moin/ObpLovelyPython/LpyQLearn-3-process]
-## * [http://docs.python.org/tut/node6.html#SECTION006200000000000000000 For循环及相关控制流]
-## * [http://docs.python.org/ref/for.html The for statement ]
+== 相关参考 ==
+ * [http://wiki.woodpecker.org.cn/moin/ObpLovelyPython/LpyQLearn-3-process]
+ * [http://docs.python.org/tut/node6.html#SECTION006200000000000000000 For循环及相关控制流]
+ * [http://docs.python.org/ref/for.html The for statement ]
 
 ----
 ::Lizzie [2008/06/16 21:24:00]

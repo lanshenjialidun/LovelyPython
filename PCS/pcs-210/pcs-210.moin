@@ -31,7 +31,7 @@ print 'PICKLE:', data_string
 }}}
 可以看到结果如下:
 {{{
-$ python pcs-201-1.py
+~$ python pcs-201-1.py
 DATA:[{'a': 'A', 'b': 2, 'c': 3.0}]
 PICKLE: (lp1
 (dp2
@@ -60,7 +60,7 @@ print 'EQUAL?:', (data1 == data2)
 }}}
 新构造的对象等于原来的对象，但他们又不是相同的对象。
 {{{
-$ python pcs-201-2.py
+~$ python pcs-201-2.py
 BEFORE:[{'a': 'A', 'b': 2, 'c': 3.0}]
 AFTER:[{'a': 'A', 'b': 2, 'c': 3.0}]
 SAME?: False
@@ -105,7 +105,7 @@ if __name__ == '__main__':
 }}}
 当运行这个脚本时，它会创建名为命令行中输入参数的文件：
 {{{
-$ python pcs-201-3.py test.dat
+~$ python pcs-201-3.py test.dat
 WRITING: pickle (elkcip)
 WRITING: cPickle (elkciPc)
 WRITING: last (tsal)
@@ -142,7 +142,7 @@ finally:
 }}}
 运行这个脚本,可以看到：
 {{{
-$ python pcs-201-4.py test.dat
+~$ python pcs-201-4.py test.dat
 READ: pickle (elkcip)
 READ: cPickle (elkciPc)
 READ: last (tsal)

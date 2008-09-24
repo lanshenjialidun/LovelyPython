@@ -13,7 +13,7 @@ ConfigParser是用来处理ini格式的配置文件的Python标准库.
 
 == 使用 ==
 === read(self, filenames) ===
-函数功能：直接读取ini文件内容，filename可以是一文件名或是文件名列表
+函式功能：直接读取ini文件内容，filename可以是一文件名或是文件名列表
 {{{
 >>> from ConfigParser import ConfigParser
 >>> config = ConfigParser()
@@ -22,28 +22,28 @@ ConfigParser是用来处理ini格式的配置文件的Python标准库.
 }}}
 
 === sections(self) ===
-函数功能：得到所有的section，并以列表的形式返回
+函式功能：得到所有的section，并以列表的形式返回
 {{{
 >>> config.sections()
 ['portal']
 }}}
 
 === options(self, section) ===
-函数功能：得到指定section的所有option
+函式功能：得到指定section的所有option
 {{{
 >>> config.options('portal')
 ['username', 'host', 'url', 'password', 'port']
 }}}
 
 === get(self, section, option, raw=False, vars=None) ===
-函数功能：得到section中option的值，返回为string类型
+函式功能：得到section中option的值，返回为string类型
 {{{
 >>> config.get('portal', 'username')
 'dhellmann'
 }}}
 
 === set(self, section, option, value) ===
-函数功能：对section中的option进行设置值为value
+函式功能：对section中的option进行设置值为value
 {{{
 >>> config.set('portal', 'username', 'lovelypython')
 >>> config.get('portal', 'username')
@@ -75,7 +75,7 @@ url = config.get('portal', 'url')
 print url
 }}}这段代码中,config读取approachrc内容,获得字段portal中的选项url的值,可以看到approachrc中的url为http://%(host)s:%(port)s/Portal,这里的%(host)s和%(port)s又分别读取了host和port的值,最终得到了如下的结果:
 {{{
-$ python pcs-204-1.py 
+~$ python pcs-204-1.py 
 ./approachrc
 http://localhost:8080/Portal
 }}}

@@ -65,12 +65,12 @@ r+,w+和a+：以更新方式打开文件（注意w+覆盖文件）
 }}}
 
 ##endInc
-##== 小结? ==
-##对文件的操作是经常要用到的，主要是对文件的读取，写入操作。还有很多的文件操作函式，在这简略，可以通过help(file)查看。
+== 小结 ==
+对文件的操作是经常要用到的，主要是对文件的读取，写入操作。还有很多的文件操作函式，在这简略，可以通过help(file)查看。
 
-##== 相关参考 ==
-## * [http://docs.python.org/lib/bltin-file-objects.html File Objects ]
-## * [http://www.woodpecker.org.cn/diveintopython/file_handling/file_objects.html 与文件对象共事]
+== 相关参考 ==
+ * [http://docs.python.org/lib/bltin-file-objects.html File Objects ]
+ * [http://www.woodpecker.org.cn/diveintopython/file_handling/file_objects.html 与文件对象共事]
 ----
 ::Lizzie [2008/06/20 13:24:00]
 [[PageComment2]]

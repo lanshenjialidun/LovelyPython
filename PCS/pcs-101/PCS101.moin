@@ -266,12 +266,12 @@ guido 4127
 }}}
 
 ##endInc
-##== 小结? ==
-##Python中的数据类型比较丰富的，主要就是上述些内容。其实这里还有很多关于数据类型的知识，在这里没有描述。可以进一步参考文首给出的链接。
+== 小结 ==
+Python中的数据类型比较丰富的，主要就是上述些内容。其实这里还有很多关于数据类型的知识，在这里没有描述。可以进一步参考文首给出的链接。
 
-##== 相关参考 ==
-## * [http://wiki.woodpecker.org.cn/moin/ObpLovelyPython/LpyQLearn-2-data 内置数据类型]
-## * [http://wiki.woodpecker.org.cn/moin/PyAbsolutelyZipManual Python 绝对简明手册]
+== 相关参考 ==
+ * [http://wiki.woodpecker.org.cn/moin/ObpLovelyPython/LpyQLearn-2-data 内置数据类型]
+ * [http://wiki.woodpecker.org.cn/moin/PyAbsolutelyZipManual Python 绝对简明手册]
 
 ----
 ::Lizzie [2008/06/23 13:24:00]

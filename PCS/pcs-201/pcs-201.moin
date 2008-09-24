@@ -44,10 +44,10 @@ class CLI(cmd.Cmd):
 # 创建CLI实例并运行
 cli = CLI()
 cli.cmdloop()
-}}}从这个例子可以看出,首先CLI类继承了cmd.Cmd类,然后在类中定义了两条命令hello和quit,而命令q作为quit的短命令形式.也就是说,若需要另外定义一条命令,如command,只要在CLI类中增加一个do_command函数,而该命令对应的帮助信息由help_command函数给出.
+}}}从这个例子可以看出,首先CLI类继承了cmd.Cmd类,然后在类中定义了两条命令hello和quit,而命令q作为quit的短命令形式.也就是说,若需要另外定义一条命令,如command,只要在CLI类中增加一个do_command函式,而该命令对应的帮助信息由help_command函式给出.
 使用`cmd.Cmd`类编写命令行处理程序是非常容易.运行上述例子,可以进入如下的命令行:
 {{{
-$ python pcs-201.py 
+~$ python pcs-201.py 
 > ?
 
 Documented commands (type help <topic>):

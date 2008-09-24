@@ -15,7 +15,7 @@ python是支持多线程的,并且是native的线程,主要是通过thread和thr
 threading模块里面主要是对一些线程的操作对象化了,创建了叫Thread的类.
 
 ==== 第一种方法 ====
-使用线程有两种模式,一种是创建线程要执行的函数,把这个函数传递进Thread对象里,让它来执行.
+使用线程有两种模式,一种是创建线程要执行的函式,把这个函式传递进Thread对象里,让它来执行.
 {{{#!python
 import string, threading, time
 
@@ -55,7 +55,7 @@ if __name__ == '__main__':
     main(4)
 }}}这个例子中,主程序创建4个线程,每个线程对全局变量count进行加1运算.因为多个线程对同一个变量进行加1操作,为了避免冲突,在修改变量count之前加锁,之后解锁释放.运行下,可以看到:
 {{{
-$ python pcs-207-1.py 
+~$ python pcs-207-1.py 
 Thread-1 0 2
 Thread-2 0 3
 Thread-3 0 4

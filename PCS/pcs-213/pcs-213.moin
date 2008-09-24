@@ -18,7 +18,7 @@ print 'The time is:', time.time()
 }}}
 运行结果:
 {{{
-$ python pcs-213-1.py
+~$ python pcs-213-1.py
 The time is: 1209465739.3
 }}}
 === time.ctime() ===
@@ -29,15 +29,15 @@ print 'The time is      :', time.ctime()
 later = time.time() + 15
 print '15 secs from now :', time.ctime(later)
 }}}
-上例表明了如何来利用ctime()函数对当前时间进行格式化,运行下可以看到:
+上例表明了如何来利用ctime()函式对当前时间进行格式化,运行下可以看到:
 {{{
-$ python  pcs-213-2.py
+~$ python  pcs-213-2.py
 The time is      : Sun Mar  9 12:18:02 2008
 15 secs from now : Sun Mar  9 12:18:17 2008
 }}}
 
 === time.clock() ===
-time()函数返回的是现实世界的时间，而clock()函数返回的是cpu时钟。clock()函数返回值常用作性能测试，benchmarking等。它们常常反映了程序运行的真实时间，比time()函数返回的值要精确。
+time()函式返回的是现实世界的时间，而clock()函式返回的是cpu时钟。clock()函式返回值常用作性能测试，benchmarking等。它们常常反映了程序运行的真实时间，比time()函式返回的值要精确。
 {{{#!python
 #coding:utf-8
 import hashlib
@@ -54,9 +54,9 @@ for i in range(5):
         h.update(data)
     cksum = h.digest()
 }}}
-在这个例子中，ctime()把time()函数返回的浮点型表示转化为标准时间，每个迭代循环使用了clock()。如果想在机器上测试这个例子，那么可以增加循环次数，或者处理大一点的数据，这样才能看到不同点。
+在这个例子中，ctime()把time()函式返回的浮点型表示转化为标准时间，每个迭代循环使用了clock()。如果想在机器上测试这个例子，那么可以增加循环次数，或者处理大一点的数据，这样才能看到不同点。
 {{{
-$ python pcs-213-3.py 
+~$ python pcs-213-3.py 
 Sun Sep  7 16:05:44 2008 : 1220774744.580 0.010
 Sun Sep  7 16:05:44 2008 : 1220774744.891 0.240
 Sun Sep  7 16:05:45 2008 : 1220774745.221 0.490
@@ -65,7 +65,7 @@ Sun Sep  7 16:05:45 2008 : 1220774745.861 0.970
 }}}但有点注意的是,如果程序没有做任何事情，处理器时钟是不会计时。
 
 === struct_time ===
-有时候你需要获取日期的单独部分（如年、月等等），time模块定义了struct_time来存储日期和时间值并作为其部分以便获取。提供了多种函数将struct_time转化为float。
+有时候你需要获取日期的单独部分（如年、月等等），time模块定义了struct_time来存储日期和时间值并作为其部分以便获取。提供了多种函式将struct_time转化为float。
 {{{#!python
 import time
 
@@ -81,7 +81,7 @@ print ' Day of year:', t.tm_yday
 }}}
 gmtime()返回当前的UTC时间，localtime()返回当前时间域的当前时间，mktime()接收struct_time参数并将其转化为浮点型来表示。
 {{{
-$ python pcs-213-4.py 
+~$ python pcs-213-4.py 
 gmtime   : (2008, 9, 7, 8, 8, 13, 6, 251, 0)
 localtime: (2008, 9, 7, 16, 8, 13, 6, 251, 0)
 mktime   : 1220774893.0
@@ -91,7 +91,7 @@ Day of week: 6
 Day of year: 251
 }}}
 === 解析和格式化时间 ===
-函数strptime()和strftime()可以使struct_time和时间值字符串相互转化。下面示例把当前时间（字符串)转化为struct_time实例，然后再转化为字符串。
+函式strptime()和strftime()可以使struct_time和时间值字符串相互转化。下面示例把当前时间（字符串)转化为struct_time实例，然后再转化为字符串。
 {{{#!python
 import time
 
@@ -103,14 +103,14 @@ print time.strftime("%a %b %d %H:%M:%S %Y", parsed)
 }}}
 输出和输入字符串不是完全的一致，主要表现在月份前加了一个0前缀。
 {{{
-$ python pcs-213-5.py 
+~$ python pcs-213-5.py 
 Sun Sep  7 16:10:09 2008
 (2008, 9, 7, 16, 10, 9, 6, 251, -1)
 Sun Sep 07 16:10:09 2008
 }}}
 
 === 使用Time Zone(时区) ===
-无论是你的程序，还是为系统使用一个默认的时区，检测当前时间的函数依赖于当前时区的设置。改变时区设置是不会改变实际时间，只会改变表示时间的方法。
+无论是你的程序，还是为系统使用一个默认的时区，检测当前时间的函式依赖于当前时区的设置。改变时区设置是不会改变实际时间，只会改变表示时间的方法。
 通过设置环境变量TZ可以改变时区，然后调用tzset()。环境变量TZ可以对时区来详细的设置，比如白天保存时间的起始点。下面这个示例改变了time zone中的一些值，展示了这种改变如何来影响time模块中的其它设置。
 {{{#!python
 import time
@@ -134,7 +134,7 @@ for zone in [ 'US/Eastern', 'US/Pacific', 'GMT']:
     show_zone_info()
 }}}
 {{{
-$ python pcs-213-6.py 
+~$ python pcs-213-6.py 
 Default :
 	TZ    : (not set)
 	tzname: ('CST', 'CST')

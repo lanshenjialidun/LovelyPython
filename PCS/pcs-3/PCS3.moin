@@ -21,11 +21,11 @@ ActivesPython是标准的Python发行版，在Windows，Linux ，Mac OS X等等�
 
 ##endInc
 
-##== 小结 ==
-##ActivesPython是一个不错的Python编辑器和运行调试工具。界面比较简单，但功能对于初学者来说已经足够了。
+== 小结 ==
+ActivesPython是一个不错的Python编辑器和运行调试工具。界面比较简单，但功能对于初学者来说已经足够了。
 
-##== 相关参考 ==
-## * [http://www.activestate.com/ ActivesPython]
+== 相关参考 ==
+ * [http://www.activestate.com/ ActivesPython]
 
 ----
 ::Lizzie [2008/06/23 21:24:00]

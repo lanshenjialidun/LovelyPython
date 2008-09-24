@@ -33,7 +33,7 @@ try:
 except NameError, a:
     print 'An exception flew by!'
     print type(a)
-}}}raise函数第一个参数是异常名，第二个是这个异常的实例，它存储在instance.args的参数中。和except NameError,a: 中第二个参数意思差不多。
+}}}raise函式第一个参数是异常名，第二个是这个异常的实例，它存储在instance.args的参数中。和except NameError,a: 中第二个参数意思差不多。
 
 == 自定义异常 ==
 异常类中可以定义任何其它类中可以定义的东西，但是通常为了保持简单，只在其中加入几个属性信息，以供异常处理句柄提取。
@@ -50,10 +50,11 @@ except MyError, e:
 }}}如果一个新创建的模块中需要抛出几种不同的错误时，一个通常的作法是为该模块定义一个异常基类，然后针对不同的错误类型派生出对应的异常子类。
 
 ##endInc
-##== 相关参考 ==
-## * [http://wiki.woodpecker.org.cn/moin/ObpLovelyPython/LpyQLearn-3-process#id2 异常处理]
-## * [http://wiki.woodpecker.org.cn/moin/PyAbsolutelyZipManual#head-263e21b75a15eebdaa6574be53cfbddebb7a1231 try ... except ... finally / raise]
-## * [http://www.blogjava.net/JAVA-HE/archive/2008/04/10/191867.html Python  学习笔记]
+
+== 相关参考 ==
+ * [http://wiki.woodpecker.org.cn/moin/ObpLovelyPython/LpyQLearn-3-process#id2 异常处理]
+ * [http://wiki.woodpecker.org.cn/moin/PyAbsolutelyZipManual#head-263e21b75a15eebdaa6574be53cfbddebb7a1231 try ... except ... finally / raise]
+ * [http://www.blogjava.net/JAVA-HE/archive/2008/04/10/191867.html Python  学习笔记]
 
 ----
 ::Lizzie [2008/06/24 13:24:00]

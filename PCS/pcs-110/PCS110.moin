@@ -78,9 +78,10 @@ Python没有switch语句，不过if elif else组合已经足以应付大部分�
 }}}不过，第一种写法看起来更易读些。
 
 ##endInc
-##== 相关参考 ==
-## * [http://wiki.woodpecker.org.cn/moin/ObpLovelyPython/LpyQLearn-3-process 过程控制]
-## * [http://wiki.woodpecker.org.cn/moin/PyAbsolutelyZipManual Python 绝对简明手册]
+
+== 相关参考 ==
+ * [http://wiki.woodpecker.org.cn/moin/ObpLovelyPython/LpyQLearn-3-process 过程控制]
+ * [http://wiki.woodpecker.org.cn/moin/PyAbsolutelyZipManual Python 绝对简明手册]
 ----
 ::Lizzie [2008/06/23 13:24:00]
 [[PageComment2]]

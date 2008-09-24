@@ -44,7 +44,7 @@ if __name__ == '__main__':
 	main() 
 }}}这个例子中,主程序创建了两个线程后进入睡眠6秒,而两个线程分别执行loop0和loop1,线程0在loop0中睡眠了4秒,而线程1在loop1中只睡眠了2秒,这样导致线程1先结束,线程0后结束,最后主程序6秒后退出.运行之后，可以看到如下结果：
 {{{
-$ python pcs-206-1.py 
+~$ python pcs-206-1.py 
 starting at: Sun Aug 31 20:04:44 2008
 start loop 0 at: Sun Aug 31 20:04:44 2008
 start loop 1 at: Sun Aug 31 20:04:44 2008

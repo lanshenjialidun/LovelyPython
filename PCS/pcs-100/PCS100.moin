@@ -31,7 +31,7 @@ def fib2(n):
         result.append(b)
         a, b = b, a+b
     return result
-}}}在Python解释器中，使用import fibo语句导入fibo模块，使用fibo.fib(1000)来调用函数，也可以用fib = fibo.fib将模块函数赋值到本地函数。{{{
+}}}在Python解释器中，使用import fibo语句导入fibo模块，使用fibo.fib(1000)来调用函式，也可以用fib = fibo.fib将模块函式赋值到本地函式。{{{
 >>> import fibo
 >>> fibo.fib(1000)
 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987
@@ -47,7 +47,7 @@ def fib2(n):
 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987
 >>> fib2(100)
 [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
-}}}正如上述代码中，不仅可以通过import来实现模块中函数的使用，还可以通过from ...import方式来导入模块中函数。
+}}}正如上述代码中，不仅可以通过import来实现模块中函式的使用，还可以通过from ...import方式来导入模块中函式。
 
 
 == 包(package) ==
@@ -78,7 +78,7 @@ Sound/                          Top-level package
 }}}{{{__init__.py}}}是必须的，它帮助Python将该目录识别为包。在最简单的例子中，{{{__init__.py}}}是一个空文件。当然也可以让{{{__init__.py}}}做一些包的初始化动作或是设定一些变量，如{{{__all__}}}变量。
 
 == import ==
-直接导入包中的一个模块或导入模块中定义的一个函数(如模块fibo的函数fib)来使用，比如：{{{#!python
+直接导入包中的一个模块或导入模块中定义的一个函式(如模块fibo的函式fib)来使用，比如：{{{#!python
 import Sound.Effects.echo
 
 # 使用这个模块,必须使用完整的名字来调用
@@ -89,7 +89,7 @@ from Sound.Effects import echo
 # 不同的是，不需要包前缀
 echo.echofilter(input, output, delay=0.7, atten=4)
 
-# 另一种直接导入你需要的函数和变量的方法
+# 另一种直接导入你需要的函式和变量的方法
 from Sound.Effects.echo import echofilter
 # 其使用方法为
 echofilter(input, output, delay=0.7, atten=4)
@@ -117,14 +117,14 @@ from pcs import fibo
 }}}
 
 ##endInc
-##== 小结 ==
-##本文简要介绍了模块、包的相关知识，同时介绍了import、from import的使用及相关内容，更多的阅读资料可查看文首的资源链接。
+== 小结 ==
+本文简要介绍了模块、包的相关知识，同时介绍了import、from import的使用及相关内容，更多的阅读资料可查看文首的资源链接。
 
-##== 相关参考 ==
-## * [http://wiki.woodpecker.org.cn/moin/ObpLovelyPython/LpyQLearn-6-model]
-## * [http://effbot.org/zone/import-confusion.htm Importing Python Modules ]——很适合于初学者的一篇文章
-## * [http://docs.python.org/tut/node8.html Modules文档 ]
-## * [http://docs.python.org/ref/import.html import语句 ]
+== 相关参考 ==
+ * [http://wiki.woodpecker.org.cn/moin/ObpLovelyPython/LpyQLearn-6-model]
+ * [http://effbot.org/zone/import-confusion.htm Importing Python Modules ]——很适合于初学者的一篇文章
+ * [http://docs.python.org/tut/node8.html Modules文档 ]
+ * [http://docs.python.org/ref/import.html import语句 ]
 ----
 ::Lizzie [2008/06/16 21:24:00]
 [[PageComment2]]
