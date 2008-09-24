@@ -302,6 +302,7 @@ def index(**args):
     p.addHtmNode('text',"keywd","关键字",{'size':20,'maxlength':50})
     p.addGroup(["submit","btn_submit","Search It!","btn"])
     p.display()
+    print htmfoot
 }}}得了您哪! 追加8行,完成两个功能针对性的表单
 
 图 CDay2-6 使用QuickForm生成页面
