@@ -63,4 +63,18 @@ print "filter(lambda x:x>3,[1,2,3,4,5]) -> ",filter(lambda x:x>3,[1,2,3,4,5])
 {{{
 filter(lambda x:x>3,[1,2,3,4,5]) ->  [4, 5]
 }}}
+
+
+=== dir ===
+函式说明:列出一个变量所有方法和属性
+
+动态语言经常遇到的问题就是,当前的变量究竟有哪些可用的方法和属性?通过dir()函数就可以很容易的解决了:
+{{{#!python
+s="Hello Python"
+print dir(s)
+}}}
+运行结果:
+{{{
+['__add__', '__class__', '__contains__', '__delattr__', '__doc__', '__eq__', '__ge__', '__getattribute__', '__getitem__', '__getnewargs__', '__getslice__', '__gt__', '__hash__', '__init__', '__le__', '__len__', '__lt__', '__mod__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__rmod__', '__rmul__', '__setattr__', '__str__', 'capitalize', 'center', 'count', 'decode', 'encode', 'endswith', 'expandtabs', 'find', 'index', 'isalnum', 'isalpha', 'isdigit', 'islower', 'isspace', 'istitle', 'isupper', 'join', 'ljust', 'lower', 'lstrip', 'partition', 'replace', 'rfind', 'rindex', 'rjust', 'rpartition', 'rsplit', 'rstrip', 'split', 'splitlines', 'startswith', 'strip', 'swapcase', 'title', 'translate', 'upper', 'zfill']
+}}}
 ##endInc
