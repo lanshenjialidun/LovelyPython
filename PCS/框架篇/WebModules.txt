@@ -1,0 +1,412 @@
+##language:zh
+##OBP项目图书reST通用文章模板
+
+||status|| 草稿 ||HuangYi; 40%||
+
+[[TableOfContents]]
+
+那么小白决定进一步探索 python web开发更高级一点的技术了，行者建议他从基础入手。
+
+当用户在浏览器中输入网址，浏览器便找到web服务器，向它发起http请求，
+web服务器再找到web应用程序执行之，并把结果返回给客户端浏览器。
+
+那么做web开发之前首先要有web服务器才行，开发阶段最好使用一个简单方便的开发服务器。
+等开发调试完毕，再将代码部署到 apache、lighttpd 等成熟高效的web服务器，
+放心，使用python做web开发，最后部署的阶段是很轻松的，在本章的后面便会提到。
+
+== 开发服务器 ==
+
+那么 python2.5 就自带了一个叫做 wsgiref 模块，它提供一些专业 web 开发所需要的一些基础工具，比如一个开发服务器：
+
+{{{#!python
+# -*- coding: utf-8 -*-
+from wsgiref import simple_server
+
+# 定义一个输出 hello world 和环境变量的简单web应用程序
+def hello_app(environ, start_response):
+    # 输出 http 头
+    start_response('200 OK', [('Content-type','text/plain')])
+    # 准备输出的内容
+    content = []
+    content.append('Hello world')
+    for key, value in environ.items():
+        content.append('%s : %s' % (key, value))
+    # 输出，根据 wsgi 协议，返回的需要是一个迭代器，返回一个 list 就可以
+    return ['\n'.join(content)]
+
+# 构造开发服务器对象，设置绑定的地址和端口，并把 hello world 应用程序传给他
+server = simple_server.make_server('localhost', 8080, hello_app)
+# 启动开发服务器
+server.serve_forever()
+}}}
+
+把以上代码以utf-8编码保存成python程序，不妨命名为 main.py。然后执行上面这个程序后，打开浏览器，随便访问一个以 http://localhost:8080 开头的网址即可看到 environ 所包含的内容。
+
+wsgiref 带的这个开发服务器调用应用程序所使用的协议叫做 wsgi，wsgiref就是对wsgi协议的
+一个参考实现，wsgi 协议内容可以参考：URL ，在这里你只需要知道，hello_app 的第一个参数environ
+是包含web环境变量的字典，熟悉 cgi 的朋友可以看做是 cgi 里的环境变量，
+里面包含了整个web请求有关的信息(从上面这个程序输出的内容就可以看得出来)，比如请求的路径（PATH_INFO），
+，是get请求还是post请求（REQUEST_METHOD），cookie（HTTP_COOKIE），客户端的IP（REMOTE_ADDR）等等信息。
+
+第二个参数 start_response 是一个函数，在返回具体内容之前需要先调用它来输出 http 状态码和响应头。
+
+web应用程序是要和用户进行交互的，意味着我们需要能够得到用户的输入，然后作出相应地
+动作。
+通常用户通过浏览器访问网站有两种方式，一种是 get 请求，就是直接访问一个URL，另一种是
+post 请求，比如用户提交了一个表单。web应用程序可以通过 environ['REQUEST_METHOD'] 来判断是哪种类型的请求。
+get 请求的时候用户可以往URL的后面添加参数来向web应用程序传递数据，
+web应用程序可以通过 environ['QUERY_STRING'] 来获取这些参数，不过由于URL的长度往往是有限制的，
+所以不建议使用get方法来传递的比较大的数据；
+post 请求的情况下用户通过填写表单来向服务器传递数据，post 提交的数据是没有大小限制的，
+web应用程序可以通过 environ['wsgi.input'].read() 来从 socket 中逐步读取这些数据。
+
+显然，直接通过 environ 来处理用户输入还是有点麻烦的，小白很快就发现
+python世界有一些专门的模块是可以帮忙简化这个事情的。
+
+== 处理web请求和响应 ==
+
+小白发现有几个模块可以用来处理 web 请求和响应，webob 就是其中之一。
+
+安装 webob 之前我们先安装 setuptools ，一个包管理的工具，到时候可以自动为我们搜索并下载想要的
+软件包。 在这个页面 http://pypi.python.org/pypi/setuptools 下面，非windows平台可以下载 .egg 文件
+，然后修改权限直接执行之，或者下载源码包，解压后执行 python setup.py install ，
+windows平台的用户也可以直接下载 exe 后缀名的可执行安装程序，下载后直接执行就好。
+
+安装完 setuptools 后，安装 webob 就很简单了，打开一个命令行窗口，执行 easy_install webob ，
+setuptools 能够自动找到最新的版本并自动下载安装。当然，如果嫌它单线程的下载速度有点慢，你也
+可以直接到 http://pypi.python.org/pypi 搜到相应的包，手动下载，
+然后加压并执行 python setup.py install ，后面的包的安装方法和这里一样。
+
+安装完成后我们可以直接在 python shell 里对 webob 所提供的功能进行试验:
+
+{{{#!python
+>>> # 导入 Request 对象
+>>> from webob import Request
+>>> environ = {}
+>>> # 使用 Request 来包装 environ 字典
+>>> req = Request(environ)
+}}}
+
+基本使用方法就是这样了，使用一个 Request 类来包装 environ ，然后通过 Request 对象的属性和方法，
+对 environ 进行访问。由于只有在 web 环境下才能有一个完整的 environ 字典，为了方便在
+python shell 里面进行试验，webob 还提供一种方法可以模拟一个默认的web环境，请看：
+
+{{{#!python
+>>> from webob import Request
+>>> req = Request.blank('http://localhost:8080/hello?name=python')
+>>> from pprint import pprint
+>>> # 自动构建的简易 web 环境
+>>> pprint(req.environ)
+{'HTTP_HOST': 'localhost:8080',
+ 'PATH_INFO': '/hello',
+ 'QUERY_STRING': 'name=python',
+ 'REQUEST_METHOD': 'GET',
+ 'SCRIPT_NAME': '',
+ 'SERVER_NAME': 'localhost',
+ 'SERVER_PORT': '8080',
+ 'SERVER_PROTOCOL': 'HTTP/1.0',
+ 'webob._parsed_query_vars': (MultiDict([('name', 'python')]), 'name=python'),
+ 'wsgi.errors': <open file '<stderr>', mode 'w' at 0x00B6F0B0>,
+ 'wsgi.input': <cStringIO.StringI object at 0x00B6A2F0>,
+ 'wsgi.multiprocess': False,
+ 'wsgi.multithread': False,
+ 'wsgi.run_once': False,
+ 'wsgi.url_scheme': 'http',
+ 'wsgi.version': (1, 0),
+ 'wsgiorg.routing_args': ((), {})}
+>>> # 通过 Request 的属性可以更方便地进行访问
+>>> req.method
+'GET'
+>>> req.host
+'localhost:8080'
+>>> req.path
+'/hello'
+>>> req.query_string
+'name=python'
+>>> # 可以通过字典的方式直接访问 get 参数
+>>> req.GET['name']
+'python'
+>>> # 和 post 数据，显然，这不是一个 post 请求
+>>> req.POST
+<NoVars: Not a form request>
+>>> # 不过我们仍然可以模拟一个 post 请求
+>>> req.method = 'POST'
+>>> # 手动设置模拟 post 的数据
+>>> req.body = 'name=python'
+>>> # 这下就可以了
+>>> req.POST['name']
+'python'
+>>> # 还可以很方便获取 cookie 数据
+>>> # 先模拟一段客户端请求带来的cookie
+>>> req.headers['Cookie'] = 'name=python'
+>>> # 同样，通过字典的方式对 cookie 进行访问
+>>> req.cookies
+{'name': 'python'}
+}}}
+
+同样，web应用程序的响应数据，比如状态码，响应头，设置 cookie 等，
+webob 都通过 Response 对象进行了包装：
+
+{{{#!python
+>>> from webob import Response
+>>> # 构造一个 Response对象
+>>> res = Response(status=200, body='hello world')
+>>> # 设置响应头
+>>> res.headers['content-type'] = 'text/plain'
+>>> # 设置 cookie
+>>> res.set_cookie('name', 'python', max_age=360, path='/',
+...                domain='example.org', secure=True)
+>>> print res
+200 OK
+Content-Length: 11
+content-type: text/plain
+Set-Cookie: name=python; Domain=example.org; expires="Thu, 25-Sep-2008 14:28:07
+GMT"; Max-Age=360; Path=/; secure
+
+hello world
+}}}
+
+试完了基本功能，就试试把它加入我们的 web 应用程序吧，有个 webob，
+那处理业务逻辑的代码就可以通过 Request、Response 对象来跟 web 服务器打交道，
+这样我们可以把实现业务逻辑的代码分离开来：
+
+{{{#!python
+# -*- coding: utf-8 -*-
+from wsgiref import simple_server
+from webob import Request, Response
+
+# 专门实现业务的函数，现在简洁多了
+def hello_app(request):
+    content = []
+    # 获取 get 请求的参数
+    content.append('Hello %s'%request.GET['name'])
+    # 输出所有 environ 变量
+    for key, value in request.environ.items():
+        content.append('%s : %s' % (key, value))
+
+    response = Response(body='\n'.join(content))
+    response.headers['content-type'] = 'text/plain'
+    return response
+
+# 对请求和响应进行包装
+def wrapper(environ, start_response):
+    request = Request(environ)
+    response = hello_app(request)
+    # response 对象本身也实现了与 wsgi 服务器之间通讯的协议，
+    # 所以可以帮我们处理与web服务器之间的交互。
+    return response(environ, start_response)
+
+server = simple_server.make_server('localhost', 8080, wrapper)
+server.serve_forever()
+}}}
+
+这样，执行这个程序后，当我们访问地址 http://localhost:8080/hello?name=python 时，
+就可以看到 hello python 和后面跟的一串 wsgi 的环境变量了。
+
+== 模板 ==
+
+但是 web程序大部分时候都是要返回一个 html 页面的，而把一个复杂的 html 页面
+代码直接写到python代码里面就太丑陋了，应该把它放到一个模板里去，把页面展现与
+业务逻辑分离开来。
+
+python里面的模板引擎主要有mako、genshi、jinja等。mako 主要特点在于模板里面
+可以比较方便的嵌入python代码，而且执行效率一流；genshi 的特点在于基于 xml，
+非常简单易懂的模板语法，对于热爱xhtml的朋友来说是很好的选择，同时也可以嵌入python
+代码，实现一些复杂的展现逻辑；jinja 和 genshi 一样拥有很简单的模板语法，只是不
+依赖于 xml 的格式，同样很适合设计人员直接进行模板的制作，同时也可以嵌入python
+代码实现一些复杂的展现逻辑。
+
+小白看 mako 挺顺眼的，于是就钻研了它一把。
+可以到这里 http://www.makotemplates.org/download.html 找到最新版本的下载地址，下载解压，
+然后执行 python setup.py install 就可以了。 
+
+下面的代码就是写的一个简单的 mako 模板文件，里面使用 python 的 for 循环来把 data 这个字典的
+内容填充到一个html列表（mako模板的详细语法请参考：URL）。
+
+{{{
+<html>
+  <head>
+    <title>简单mako模板</title>
+  </head>
+  <body>
+    <h5>Hello ${name}!</h5>
+    <ul>
+      % for key, value in data.items():
+      <li>
+        ${key} - ${value}
+      <li>
+      % endfor
+    </ul>
+  </body>
+</html>
+}}}
+
+然后要做的就是给模板传递一个叫做 data 的字典对象了，可以编写如下三句代码实现：
+
+{{{#!python
+# -*- coding: utf-8 -*-
+# 导入模板对象
+from mako import Template
+# 使用模板文件名构造模板对象
+tmpl = Template('./simple.html')
+# 构造一个简单的字典填充模板，并print出来
+print tmpl.render(name='python', data = {'a':1, 'b':2})
+}}}
+
+执行以上程序，就可以看到通过模板输出的 html 代码了。
+功能研究清楚了，小白开始试着把它整合到这个web应用中来，
+这个时候小白发现，需要改动的部分主要集中在 hello_app 这个函数了，
+因为核心的逻辑就是在这里进行的，小白决定进行一次小小的重构，
+把 hello_app 给彻底独立出来，形成单独的模块 controller.py ，
+这样 main.py 就变成这样了：
+
+{{{#!python
+# -*- coding: utf-8 -*-
+from wsgiref import simple_server
+from webob import Request
+from controller import hello_app
+
+def wrapper(environ, start_response):
+    request = Request(environ)
+    response = hello_app(request)
+    return response(environ, start_response)
+
+server = simple_server.make_server('localhost', 8080, wrapper)
+server.serve_forever()
+}}}
+
+而 controller.py 和模板功能整合以后成为：
+
+{{{#!python
+# -*- coding: utf-8 -*-
+from webob import Response
+from mako import Template
+
+def hello_app(request):
+    tmpl = Template('./simple.html.html')
+    content = tmpl.render(name=request.GET['name'], data=request.environ)
+    return Response(body=content)
+}}}
+
+执行 python main.py ，并访问 http://localhost:8080/hello?name=python 你就可以看到通过模板输出的页面了。
+
+通过把 hello_app 分离开来， main.py 基本上就固定下来了，以后对业务逻辑的修改就只设计 controller.py 这个文件。
+
+== ORM ==
+
+作为一个动态网站，有很多数据需要持久存储，关系数据库在这方面通常都是不二选择。
+当小白向行者问道如何才能简化对数据库的访问时，行者郑重向小白推荐了 sqlalchemy 这个库。
+
+sqlalchemy 是一个 ORM （对象-关系映射）库，提供python对象与关系数据库之间的映射，
+可以通过 python 对象很方便地对关系数据库进行操纵，比如使用python代码描述数据库结构，
+创建数据库，执行插入、查询、删除等数据库操作，非常方便。除了这些 ORM 的基本功能外，
+sqlalchemy 还支持Model的继承，自引用(Self-referential)、eager loading、lazy loading 等等，
+还可以直接将 Model 映射到自定义的 SQL 语句。可以说既有不输于 Hibernate 的强大功能，
+同时不失 Python 的优雅简洁。
+
+在这里 http://www.sqlalchemy.org/download.html 找到最新版本的下载地址，下载解压，
+然后执行 python setup.py install 进行安装。
+
+代码胜千言，sqlalchemy 到底可以做什么，直接上代码展示下 sqlalchemy 的基本功能吧：
+
+{{{#!python
+# -*- coding: utf-8 -*-
+from sqlalchemy.ext.declarative import declarative_base
+
+# 创建数据库引擎，这里我们直接使用 python2.5 自带的数据库引擎：sqlite，
+# 直接在当前目录下建立名为 data.db 的数据库
+engine = create_engine('sqlite:///data.db')
+# sqlalchemy 中所有数据库操作都要由某个session来进行管理
+# 关于 session 的详细信息请参考：http://www.sqlalchemy.org/docs/05/session.html
+Session = scoped_session(sessionmaker(autocommit=False, autoflush=False, bind=engine))
+Base = declarative_base()
+
+class Dictionay(Base):
+    # python 对象对应关系数据库的表名
+    __tablename__ = 't_dictionay'
+    # 两个字段：
+    key = Column('key', String(255), primary_key=True)
+    value =  Column('value', String(255))
+
+# 创建数据库
+Base.metadata.create_all(engine)
+
+session = Session()
+for item in ['python','ruby','java']:
+    dictionay = Dictionay(key=item, value=item.upper())
+    session.add(dictionay)
+
+# 提交session，在这里才真正执行数据库的操作，添加三条记录到数据库
+session.commit()
+
+# 查询Dictionary类对应的数据
+for dictionay in session.query(Dictionary):
+    print dictionay.name, dictionay.value
+}}}
+
+直接执行这个程序就可以了。
+不过这是个单独的 demo，要把放到 web 应用里面，还需要先对它的结构重新组织一下。
+
+先剥离出一个公用的 model.py 文件。
+
+{{{#!python
+# -*- coding: utf-8 -*-
+from sqlalchemy.ext.declarative import declarative_base
+
+engine = create_engine('sqlite:///data.db')
+Session = scoped_session(sessionmaker(autocommit=False, autoflush=False, bind=engine))
+Base = declarative_base()
+
+class Dictionay(Base):
+    __tablename__ = 't_dictionay'
+    key = Column('key', String(255), primary_key=True)
+    value =  Column('value', String(255))
+}}}
+
+然后建立一个创建数据库并插入一些测试数据的单独的程序，创建数据库只需要一开始做一次就可以了。
+
+{{{#!python
+# -*- coding: utf-8 -*-
+# 导入公用的 model 模块
+from model import Base, Session, Dictionary
+
+# 创建数据库
+Base.metadata.create_all(engine)
+
+# 插入初始数据
+session = Session()
+for item in ['python','ruby','java']:
+    dictionay = Dictionay(key=item, value=item.upper())
+    session.add(dictionay)
+
+session.commit()
+}}}
+
+最后再将这个功能加入到我们的 web 程序里面来，修改 controller.py 文件：
+
+{{{#!python
+# -*- coding: utf-8 -*-
+from webob import Response
+from mako import Template
+# 导入公用的 model 模块
+from model import Session, Dictionary
+
+def hello_app(request):
+    session = Session()
+    # 查询到所有 Dictionary 对象
+    dictionaries = session.Query(Dictionary)
+    # 然后根据 Dictionary 对象的 name、value 属性把列表转换成一个字典
+    data = dict([(dictionary.name, dictionary.value) for dictionary in dictionaries])
+
+    tmpl = Template('./simple.html.html')
+    content = tmpl.render(name=request.GET['name'], data=data)
+    return Response(body=content)
+}}}
+
+执行 python main.py ，并访问 http://localhost:8080/hello?name=python，就可以看到从数据库中
+取出来的三条测试数据了。
+
+TODO 其他组件的介绍
+
+终于像模像样了，现在回过头来看一下，最终产生了一个什么样的程序，小白惊呼：“难道..这就是..传说中的..框架！”
+
