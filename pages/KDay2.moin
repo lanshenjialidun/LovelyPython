@@ -1,25 +1,24 @@
 ##pragma section-numbers off
 ##language:zh
 
-
-
 ||'''status'''|| 正式 || ZoomQuiet|| 完成度:95%||
 
-
 [[TableOfContents]]
+
 ##startInc
 = KDay 2:~ 通过表单直接完成功能！ =
-'''不管37,21直接完成心目中的功能,先！'''
+'''不管37,21!直接完成心目中的功能,先,,,'''
 
-小白秉承之前的习惯,先计划当日期望的达成目标:
+小白秉承之前的习惯,先计划当日期望达成的目标:
  1. 可以直接读取原先的问卷设计 .ini 文本, 显示到页面中的 文本框(<TEXTAREA></TEXTAREA>) 中
  1. 可以提交包含问卷设计文本框的表单,并将内容保存到服务器上的指定目录中,完成问卷的更新;
 
 == 规划 ==
 行者 ‘Rockety’ 对KarriGell 的设置有很好的介绍
 {{{脚注::
-Rockety 的Karrigell 使用体验:
-http://wiki.woodpecker.org.cn/moin/RocketyKarrigell
+Rockety 的Karrigell 使用体验,
+访问地址:http://wiki.woodpecker.org.cn/moin/RocketyKarrigell
+精巧地址:http://tinyurl.com/4qz4ab
 另外在 PCS301 中也对最常用部分的配置进行了说明
 }}}
   * 小白参考之从新规划了一下站点的开发, 对 `/path/to/Karrigell/conf/Karrigell.ini` 相关部分进行修订
@@ -126,7 +125,7 @@ print txp
 
  attachment:KDay2-2.png
 
-== 实现展现 ==
+== 展示实现 ==
 '''就是将ini 的内容整理为HTML的页面展示'''
  * 同样的快速组织一下子:
      1. `@nosent  qpage.pih` 访问的页面

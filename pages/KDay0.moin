@@ -112,7 +112,7 @@ key		= a # 正确答案
 = 练习 =
 尝试运行Karrigell
 (下载地址:http://sourceforge.net/projects/karrigell
- 快捷访问: http://tinyurl.com/6bpc3f). 
+ 精巧地址: http://tinyurl.com/6bpc3f). 
  * 下载Karrigell解压 
  * 在终端中进入Karrigell所在目录
  * 运行 `python Karrigell.py`, 看看出现什么?
