@@ -165,6 +165,13 @@ South Park - Uncle Fucker.mp3=1056768
 attachment:cday1-configparser.png
 
  * 果然好使!
+{{{注意::
+上图是截取真实的尝试过程,
+不过由于笔者使用的是增强的Python 交互环境~iPython,
+所以,在[14]处,可能有所误解,这里是使用tab ~制表符键时,iPython 自动给出的猜测输出,
+以便用户选定/回忆出真正想要的对象/文件等等,并不是其它交互环境中使用 Enter ~ 回车键!
+PCS2 iPython 分享了这一优秀的可以提高工作效率的环境体验!
+}}}
 {{{详细::
 PCS204 ConfigParser
 进一步详细的分享了使用这一常用内建模块的技巧
