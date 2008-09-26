@@ -80,7 +80,6 @@ Sound/                          Top-level package
 == import ==
 直接导入包中的一个模块或导入模块中定义的一个函式(如模块fibo的函式fib)来使用，比如：{{{#!python
 import Sound.Effects.echo
-
 # 使用这个模块,必须使用完整的名字来调用
 Sound.Effects.echo.echofilter(input, output, delay=0.7, atten=4)
 
