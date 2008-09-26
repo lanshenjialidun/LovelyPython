@@ -142,7 +142,7 @@ PCS203 epydoc
   1. 内部变量，常数 全部小写
  * 综合应用就形如
 {{{#!python
-from mypacket inport MyClass
+from mypacket import MyClass
 GLOBALVAR="是也乎"
 def doInsert(arg):
     MyClass.myFunc(GLOBALVAR)
