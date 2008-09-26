@@ -46,14 +46,15 @@
  * 小白当然原意令自个儿的小工具发扬光大下去
  * 那么改进不可避免!
  * 其实记录的摘要文本已经升级过一次级
-  * 从{{{{{{
+  * 从`os.walk()` 输出的自然结构格式:
+{{{
 /media/cdrom0/EVA/Death-Rebirth;[];['eva8-01.Mp3', 'eva8-02.Mp3',...]
     ^                          ^ ^  ^ 
     |                          | |  +- files列表，此目录的文件名 
     |                          | +- 各个数据段使用";" 分隔
     |                          +- dirs列表，子目录名，如果没有就为空
     +- 当前目录
-}}} `os.walk()` 输出的自然结构格式
+}}} 
   * 使用专门的`formatCDinfo()` 函式格式化为{{{
 ...
 -f /media/cdrom0/RyokoHirosue/Ryoko Hirosue-files.files  title.gif 
