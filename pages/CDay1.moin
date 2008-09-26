@@ -71,7 +71,7 @@
    1. 搜索匹配后输出行就是自然行,并包含必要信息
 
  * 那么其它数据格式快速考查一下:
- * `lslR` 的Linux 目录命令摘要:{{{
+ * Linux 目录摘要命令:`ls -lR` {{{
 /workspace/obp/trunk/LovelyPython/PyDays/pyd-0$ ls -lR
 .:
 drwxr-xr-x 3 zoomq zoomq  4096 2007-08-18 22:43 apidocs
