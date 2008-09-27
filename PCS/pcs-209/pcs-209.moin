@@ -32,12 +32,12 @@ fnmatch 实现了shell patterns表匹配字符串或文件名.
 >>>names = ['dlsf', 'ewro.txt', 'te.py', 'youe.py']  
 # 匹配以.py结尾的字符串
 >>> fnmatch.filter(names, '*.py')  
->>> ['te.py', 'youe.py']
+['te.py', 'youe.py']
 >>> fnmatch.filter(names, '[de]')  
->>> []  
+[]  
 # 匹配以d或e开头的字符串  
 >>>fnmatch.filter(names, '[de]*')  
->>>['dlsf', 'ewro.txt']
+['dlsf', 'ewro.txt']
 }}}
 
 === fnmatchcase(name, pat) ===
