@@ -39,7 +39,7 @@ PCS403 思維导图
  
 图 KDay6-9 .xsl解析手工增补后的.mm文件输出时情景
 
-attachment:KDay6-1.png
+attachment:kday6-mm.png
 
 哈哈哈! 由此,小白大致知道了 FreeMind 的数据格式:
  1. 所有节点是统一的 `<node>` 
@@ -54,7 +54,7 @@ attachment:KDay6-1.png
    * total 成员总数
 
 图 KDay6-2 FreeMind 中根据约定组织好的团队信息
-attachment:KDay6-2.png
+attachment:kday6-freemind.png
 
  * 这样就令 XSLT 有基础原则可以进行数据组织了
  * 同理,也可以让Python 快速理解了...
@@ -98,7 +98,7 @@ for d in dept:
   1. 找到的所有节点,组织成一个列表,已经可以循环处理,并通过 `.attrib["TEXT"]` 来获得内容了!
 
 图 KDay6-3 页面输出和XML文本对照情景
-attachment:KDay6-3.png
+attachment:kday6-xml-page.png
 
  * 就使用 `findall()` 和 `attrib["TEXT"]` 便可以判别/获取足够的信息,从 .mm 中输出数据到页面凫!
  * 哈哈哈!具体的就请读者去看相应脚本吧... 
@@ -131,7 +131,7 @@ PCS214 ElementTree
 
 图 KDay6-4 在页面输出当前名称空间的情景
 
-attachment:KDay6-4.png
+attachment:kday6-namespace.png
 
    * 不会这么简单吧! 小白发现了本来应该只在 `index.ks` 事务页面中才有的对象 '''sess''' —— 对话容器
    * 继续尝试赋值一下子?在 `deptorg.py` 中最后追加..{{{
@@ -142,7 +142,7 @@ sess.usr["deptree"]=deptree
    * KAO!  真的好用!  在`index.ks/stat` 统计页面,包含 `deptorg.py` .mm专用解析脚本 再打印 '''sess.usr''' 看一下子,唉呀呀! 真的有了! 
 
 图 KDay6-5 在页面输出从 .mm 文件中解析出来的成员信息
-attachment:KDay6-5.png
+attachment:kday6-member-info.png
 
 成了!想要的数据从.mm解析出了,传递给页面成了,也测试打印出了,go on!
 
@@ -180,7 +180,7 @@ throw new Error("My God, What version of IE are you using? IE5&+ is requiered.")
     }}} 这样的JS 行动按钮,快速完成想要的`必须问答完全部问题之检验`
 
 图 KDay6-6 查觉有未回答问题时提醒的情景
-attachment:KDay6-6.png
+attachment:kday6-no-answer.png
 
  * 好了基本可用了,只是这样一来,加重了服务端的压力,也无法进行客户端页面的就地提醒...
   * 嗯嗯,自古忠孝难全,先这么着,以后再想了....
@@ -213,7 +213,7 @@ for a in aed:
   * 行6~12: 顺势,就有了已知合理成员回答列表 `done` 和 `unknow` 未知成员列表
 
 图 KDay6-7 成员回答情况统计汇报总表情景
-attachment:KDay6-7.png 
+attachment:kday6-answer-stat.png
 
 最最后就仅仅是信息的显示问题了:
  1. 想要有 回答时间的信息?{{{
@@ -242,7 +242,7 @@ print crtright
 }}}
 
 图 KDay6-8 将答案和问题教员检出到页面
-attachment:KDay6-8.png 
+attachment:kday6-question-answer.png
 
    * 知道症结就好修改了{{{#!python
 #字典排序技巧
@@ -254,7 +254,7 @@ print crtright
 }}}
 
 图 KDay6-9
-attachment:KDay6-9.png 
+attachment:kday6-sort.png
 
  1. 要有总平均成绩?{{{
 #使用stat 列表收集所有有效成绩
@@ -269,7 +269,7 @@ reduce(lambda a,b:a+b, stat)/len(stat) 更加cool
  
 图 KDay6-10 有总平均分的情景
 
-attachment:KDay6-10.png 
+attachment:kday6-average-score.png
 
 
 == 事务测试 ==
