@@ -31,14 +31,14 @@ p.display()
 }}} 6行完成一个标准的登录表单!!!哈哈哈!赞!
 
 图 KDay3-1 使用KQF生成的试验表单
-attachment:KDay3-1.png
+attachment:kday3-login-page.png
 
 === 改造 ===
 '''毕竟是 alpha 版本,居然还是全面的table 结构!'''
  * 代码也很ugly 哪!
  
  图 KDay3-2 使用["Leo"]自动整理后的情景
- attachment:KDay3-2.png
+ attachment:kday3-leo-adjust.png
  
  * 立即着手改造单选列表生成:
 {{{#!python
@@ -137,7 +137,7 @@ def export(self):
 
 图 KDay3-3 2004年当时的JVF作品页面情景
 
-attachment:KDay3-3.png
+attachment:kday3-jvf.png
 
 {{{详细::
 JVF是AMOWA社区作品,该社区致力于创建一个实用精巧的Ajax框架;
@@ -291,7 +291,7 @@ attachment:kday3-leo-css-embed.png
 
 图 KDay3-6 演示 redalt.com 的CSS颜色分析工具
 
-attachment:KDay3-4.png
+attachment:kday3-red-alt.png
 
 === CSS ===
   * 每一需要CSS美化的页面都加`<<k_base>>` 引用,
@@ -300,14 +300,14 @@ attachment:KDay3-4.png
 
 图 KDay3-7 问卷管理和展示CSS效果
 
-attachment:KDay3-5.png
+attachment:kday3-django-css.png
  
 == 小结 ==
 '''今天发现并引入了 [http://www.orionlab.net/karrigell_quickform/Karrigell_QuickForm.html KQF]和 [http://www.amowa.net/jsvalidation/ JVF]好象有点复杂的样子……'''
 
 图 KDay3-8 最终问卷效果
 
-attachment:KDay3-6.png
+attachment:kday3-today-result.png
 
  * 当然在小白的开发故事中,这不是最终接受的方案,精彩还要继续……
  * 现在所有的基本功能点都有了,接下来的就是要实用化:
