@@ -10,7 +10,7 @@
 
 图 KDay4-1 当前开发成果在Leo 中组织的情景
 
-attachment:KDay4-1.png 
+attachment:kday4-leo-current-version.png 
 
 小白回顾当前的成果,发现仅实现了三个小功能的原型就动用了 7,8 个文件...这也忒麻烦了,有些想念 CherryPy 的对象式发布了...
 
@@ -18,7 +18,7 @@ attachment:KDay4-1.png
 '''今天,小白计划支持多用户和多问卷的问题,先从翻找内置文档开始...'''
  * 首先要解决登录后的用户,在不同页面跳转时,系统知道用户的信息,貌似有关 session 的处理可以支持这种需要
  * 找到相关实例:
-  * http://localhost/demo/ksTest.ks/index
+  * http://localhost:8081/demo/ksTest.ks/index
  * 观察代码(小白追加了自个儿的评注):
 {{{#!python
 so = Session()
@@ -56,7 +56,7 @@ def _private(x):            # 不可URL访问的支持函式
 '''小白猛然发现有函式化的HTML生成机制!'''
 
  * 同样在 KarriGell 内置文档中:
-  * http://localhost/doc/en/htmltags.htm
+  * http://localhost:8081/doc/en/htmltags.htm
  * 唉呀呀!!还真的是心想事儿成! 这是从从2.2 增加的新功能哪!
  {{{#!python
 stylesheet = LINK(rel="Stylesheet",href="doc.css")
@@ -73,7 +73,7 @@ print HTML(HEAD(header) + BODY(title + table))
 
 图 KDay4-2 KS 模式功能页面在 Leo 中的组织情景
 
-attachment:KDay4-2.png
+attachment:kday4-leo-ks.png
 
   1. `<< page declarations >>` 将引用声明什么的都归整到一个节点中
   1. `<< htmlcode >>` 就是利用["Leo"]来快速复用的各种 HTML 代码
@@ -139,7 +139,7 @@ def chkusr(**args):
 
 图 KDay4-3 根据session值自动判别用户身份
 
-attachment:KDay4-3.png 
+attachment:kday4-leo-session.png 
 
  * 问卷的使用原则是,任何人都可以登录/回答,但是:
   1. 只对有效的成员问答才会统计
@@ -202,7 +202,7 @@ print UL("".join([str(LI(
 
 图 KDay4-4 多问卷列表管理时情景
 
-attachment:KDay4-4.png
+attachment:kday4-show-index.png
 
 == 小结 ==
  * 实际上,本日,小白使用 .ks 体验了一把'''函式化页面发布''',成果就一个脚本'''index.ks'''
