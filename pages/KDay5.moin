@@ -18,7 +18,7 @@ Clone ~ 克隆节点功能,在 Leo 中的快捷键是:
 }}}从来没有什么编辑器的操作令小白如此自信过...
 
 图 KDay5-1 在Leo 中运用克隆节点的情景
-attachment:KDay5-1.png
+attachment:kday5-leo-clone.png
 
  * 因为,只要保证,所有 `<< htmlcode >>`节点和`<< pagehead >>`及`<< pagefoot >>`节点是 Clone 来的
   * 那么, 就等于统一了了所有页面的外观!
@@ -50,21 +50,26 @@ PCS210 pickle
 
 图 KDay5-2 将原生序列化对象打印到页面的情景
 
-attachment:KDay5-2.png
+attachment:kday5-pickle-object.png
 
   * 唉呀呀...有空格,以及其它符号的!一定会被解析为非期待参数的...
   * 那就得使用URL安全编码了,,,
   * 找呀找呀,找朋友,找到一个`urlsafe_b64encode(s)` 是 '''base64''' 模块中的
   * OK 组织测试一下子:{{{#!python    
-v = base64.urlsafe_b64encode(pickle.dumps(sess.usr))
-print v
+# 序列化对象以便页面间传递
+pisess = pickle.dumps(sess.usr)
+print pisess
+print "<br/>尝试URL 安全序列化-->  "
+sessurl = base64.urlsafe_b64encode(pisess)
+print sessurl
+print "尝试load 回来--> <br/> "
 print "<br/>"
-print pickle.loads(base64.urlsafe_b64decode(v))
+print pickle.loads(base64.urlsafe_b64decode(sessurl))
 }}}
 
 图 KDay5-3 原始和编码后的对象序列打印到页面的对比情景
 
-attachment:KDay5-3.png  
+attachment:kday5-pickle-base64.png  
 
   * 非常理想, 用之! 先将设想中的链接,输出到页面的<SPAN/>容器中:
 {{{#!python   
@@ -88,7 +93,7 @@ SPAN#mana{border-bottom: 2px solid #778;
 
 图 KDay5-4 问卷列表和含有页眉控制菜单的问卷页面
 
-attachment:KDay5-4.png  
+attachment:kday5-control-menu.png  
   
  * 当然的,应该只有权限用户才会看到此链接
  * 不过,开发阶段完全开放——反正将实现问卷的版本管理,这会儿不用怕的说;-)
@@ -159,7 +164,7 @@ PCS212 shutil
 '''小白是领教过啄木鸟社区的维基的,习惯了维基式版本管理的反悔模式,当然的也想自个儿弄一个,以便在问卷编辑过程中可以回退到任意一个编辑版本中'''
 
 图 KDay5-5 问卷历史版本访问列表,原始情景
-attachment:KDay5-5.png  
+attachment:kday5-history-version.png  
 
  * 几次小的尝试性修改,在 `/q` 中聚集了一批命名有模式可寻的问卷设计稿文件
   * 就是前述进行历史版本自动记录时的后缀设定:
@@ -224,7 +229,7 @@ time.strftime("%y%m%d%H%M%S", time.localtime())
   * 小白自个儿设定的是 `年月日时分秒`  的组合,使用字串的切片操作,一下子就重新组织输出好了
 
 图 KDay5-6 历史版本时间点附加输出成功情景
-attachment:KDay5-6.png
+attachment:kday5-history-time.png
 
  * 再创造个链接,追加个`?his=` 的历史版本参数标识
 
@@ -251,7 +256,7 @@ def edit(**var):
 
  图 KDay5-7 参数不匹配的错误情景
 
-attachment:KDay5-9.png 
+attachment:kday5-arg-not-match.png 
 
 
  * 有了Python 中万能的'''(**var)''' 声明,一切都总能兼容!
@@ -271,7 +276,7 @@ PCS109 系统参数
 }}}
 
 图 KDay5-8 原始 os.stat()输出字串
-attachment:KDay5-7.png
+attachment:kday5-os-stat.png
 
   * 返回元组有文件对象的: 
    1. st_mode (protection bits), 
@@ -294,7 +299,7 @@ attachment:KDay5-7.png
 }}}
 
 图 KDay5-9 os.stat()输出结果合理格式化后情景
-attachment:KDay5-8.png
+attachment:kday5-os-stat-format.png
 
 搞掂!嗬嗬嗬,小白真感受到了心想事儿成般自在了,,,
 
