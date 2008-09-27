@@ -74,6 +74,7 @@ Xpath 就是XML世界中的查询语句,可以快速从XML数据岛中过滤出�
  * `deptorg.py` 是根据对 .mm 的理解,快速组织的专用解析脚本,其中:
  {{{#!python
 from elementtree import ElementTree
+xmlFileName = "deptorg.xml"
 print open(xmlFileName,"r").read()
 tree = ElementTree.parse(xmlFileName)
 elem = tree.getroot()
