@@ -63,7 +63,6 @@ print "<br/>尝试URL 安全序列化-->  "
 sessurl = base64.urlsafe_b64encode(pisess)
 print sessurl
 print "尝试load 回来--> <br/> "
-print "<br/>"
 print pickle.loads(base64.urlsafe_b64decode(sessurl))
 }}}
 
@@ -208,14 +207,13 @@ for l in qnow:
     s = l.split(".")
     print LI(A("""%s 
              <sup>%s/%s/%s %s:%s:%s 版本</sup>
-             <sub>大小:%sb</sub>"""%(s[0]
+             """%(s[0]
              ,s[-1][:2]
              ,s[-1][2:4]
              ,s[-1][4:6]
              ,s[-1][6:8]
              ,s[-1][8:10]
              ,s[-1][10:]
-             ,os.stat(conf.qpage.qpath+l)[-4]
              ),href="edit?his=%s"%s[-1]
                 )
              )
