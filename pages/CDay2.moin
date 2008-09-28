@@ -630,10 +630,10 @@ def render(start_response, template_file, vars):
 
  使用::
   1. 创建数据库{{{
-  $ python manage.py create
+~$ python manage.py create
 }}}
   1. 初始化数据{{{
-  $ python
+~$ python
 Python 2.4.3 (#2, Apr 27 2006, 14:43:58)
 [GCC 4.0.3 (Ubuntu 4.0.3-1ubuntu5)] on linux2
 Type "help", "copyright", "credits" or "license" for more information.
@@ -646,7 +646,7 @@ Type "help", "copyright", "credits" or "license" for more information.
    updated="2006-09-01T01:01:00Z")
 }}}
   1. 独立运行{{{
-  $ python manage.py run
+~$ python manage.py run
 Serving HTTP on 0.0.0.0 port 8080 ...
 
 }}}

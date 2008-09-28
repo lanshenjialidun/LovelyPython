@@ -105,7 +105,7 @@ dotpath: /usr/bin/dot
 }}}
 
  * 这样一来小白可以随时使用类似命令
-{{{$ epydoc --config epydoc.cfg}}}获得最新的 API文档
+{{{~$ epydoc --config epydoc.cfg}}}获得最新的 API文档
  * 效果类似:
 
 图 CDay0-1 epydoc生成的API文档

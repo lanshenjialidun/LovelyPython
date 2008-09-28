@@ -159,14 +159,14 @@ drwx------ 2 zoomq zoomq  1264 2006-01-11 01:34 chardet
 -rwx------ 1 zoomq zoomq 26432 2006-01-11 01:34 COPYING
 drwxrwxrwx 4 zoomq zoomq   296 2006-01-11 01:34 docs
 -rwx------ 1 zoomq zoomq  1981 2006-01-11 01:34 setup.py
-::$ python setup.py 
+~$ python setup.py 
 usage: setup.py [global_opts] cmd1 [cmd1_opts] [cmd2 [cmd2_opts] ...]
    or: setup.py --help [cmd1 cmd2 ...]
    or: setup.py --help-commands
    or: setup.py cmd --help
 
 error: no commands supplied
-::$ sudo python setup.py install
+~$ sudo python setup.py install
 running install
 running build
 running build_py
@@ -229,7 +229,7 @@ def _smartcode(stream):
  * 那么通过改变挂接行为,应该可以改善读取不到正确文本的情况?!
 {{{
 #挂接成GBK
-c$ sudo mount -o ro,norock,iocharset=cp936 /dev/scd0 /media/cdrom0
+~$ sudo mount -o ro,norock,iocharset=cp936 /dev/scd0 /media/cdrom0
 #挂接成UTF8
 ~$ sudo mount -o ro,norock,iocharset=utf8 /dev/scd0 /media/cdrom0
 }}}

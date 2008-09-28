@@ -72,7 +72,7 @@
 
  * 那么其它数据格式快速考查一下:
  * Linux 目录摘要命令:`ls -lR` {{{
-/workspace/obp/trunk/LovelyPython/PyDays/pyd-0$ ls -lR
+~/LovelyPython/CDays/cday0$ ls -lR
 .:
 drwxr-xr-x 3 zoomq zoomq  4096 2007-08-18 22:43 apidocs
 -rwxr-xr-x 1 zoomq zoomq    87 2007-07-31 14:58 AUTHORS

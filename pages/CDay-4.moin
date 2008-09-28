@@ -147,7 +147,7 @@ for root, dirs, files in os.walk('/media/cdrom0'):
   print root,dirs,files
 }}}
 
-按照脚本运行方式尝试:`$ python CDay-4-2.py`... 
+按照脚本运行方式尝试:`~$ python CDay-4-2.py`... 
 哇!一下子输出了一大堆的东西! 嗯嗯嗯!看来管用,应该是将整个光盘的文件/目录信息都扫描出来了,
 
 {{{详细:
@@ -185,7 +185,7 @@ http://www.woodpecker.org.cn/diveintopython/file_handling/file_objects.html
 }}}
 
 
-执行尝试 `$python CDay-4-3.py`
+执行尝试 `~$python CDay-4-3.py`
 
 图 CDay-4-3 初步CDay-4-3.py脚本运行结果
 attachment:cday-4-result-with-error.png

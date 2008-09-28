@@ -156,12 +156,12 @@ IOError: [Errno 2] No such file or directory: 'cdc/mycd-1.cdc'
 
 手工建立`cdc`目录后,再运行就OK了,所以功能设计细化为:
 {{{
-$python pycdc.py -e mycd1-1.cdc
+~$python pycdc.py -e mycd1-1.cdc
 ##第2个参数是"-e";使用cdWalker()将光盘内容记录为 mycd1-1.cdc
-$python pycdc.py -e cdc/mycd1-1.cdc
+~$python pycdc.py -e cdc/mycd1-1.cdc
 ##第2个参数是"-e";而且第3个参数中含有目录指定;
 ##就将光盘内容记录到 cdc 目录中的 mycd1-1.cdc;如果 cdc 目录不存在,可以自动创建
-$python pycdc.py -d cdc -k 中国火
+~$python pycdc.py -d cdc -k 中国火
 ##第2个参数是"-d";而且第4个参数是"-k";
 ##就搜索 cdc 目录中的光盘信息，输出含有关键字“中国火”的文件或是目录，在哪张光盘中
 }}}

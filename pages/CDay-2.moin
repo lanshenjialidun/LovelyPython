@@ -279,7 +279,7 @@ grep
 古老实用高效的模式文本匹配工具，
 在所有Unix/Linux 系统中都有默认安装，
 最常作的事儿是 将一堆文本中包含某个模式的文本行找出来:
-$ cat /proc/cpuinfo | grep core
+~$ cat /proc/cpuinfo | grep core
 core id         : 0
 cpu cores       : 2
 core id         : 1
