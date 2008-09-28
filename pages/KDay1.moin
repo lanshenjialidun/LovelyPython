@@ -114,14 +114,14 @@ debugger=%(base)s/debugger
    * 嗯嗯……得感谢Unix 系统中的 link 命令！小白可以将开发中的问卷系统文件放在任何习惯的目录中,仅仅链接到KarriGell 的环境目录中就完成了自个儿的应用安装; 如果在 M$ Windows 环境中就只能真的在其中建立目录了;
 {{{
 比如说;在Linux 中,小白的 EasyPage 工程组织在:
-/home/zoomq/0penproj.s/lovpy.OBP/KDays
+~/LovelyPython/KDays
 而下载安装的 Karrigell 在:
-/home/zoomq/0penproj.s/trunk/karrigell/trunk
+~/0penproj.s/trunk/karrigell/trunk
 则小白只要运行:
-$ ln -s /home/zoomq/0penproj.s/lovpy.OBP/KDays/kday1 \
-  /home/zoomq/0penproj.s/trunk/karrigell/trunk/webapps/
-就等于在 /home/zoomq/0penproj.s/trunk/karrigell/trunk/webapps/ 中安装好了 
-/home/zoomq/0penproj.s/lovpy.OBP/KDays 中的 kday1 目录;
+$ ln -s ~/LovelyPython/KDays/kday1 \
+  ~/0penproj.s/trunk/karrigell/trunk/webapps/
+就等于在 ~/0penproj.s/trunk/karrigell/trunk/webapps/ 中安装好了 
+~/LovelyPython/KDays 中的 kday1 目录;
 然而在 M$ Windows 环境中,小白除了可以将 kday1 目录复制过去,没有任何方法;
 这样,小白想灵活的将不同目录中的不同工程目录安装到 不同版本的 Karrigell 实例环境中,就无能为力了..
 }}}
