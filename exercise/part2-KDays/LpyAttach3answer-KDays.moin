@@ -19,14 +19,14 @@
 
 运行python Karrigell.py后,若出现
 情况1:
-shengyan@LIZZIE:~/obp/KDays/Karrigell-2.4.0$ python Karrigell.py 
+~/LovelyPython/KDays/Karrigell-2.4.0$ python Karrigell.py 
 Address already in use
 Another server is running at address ,80...
 解决方法:
 这是因为Karrigell默认的80端口已被其他程序占用, 所以需修改conf/Karrigell.ini文件中Server字段的port值为8081(即把对应行的注释去掉), 再次运行Karrigell.py可以看到如下. 
 
 情况2:
-shengyan@LIZZIE:~/obp/KDays/Karrigell-2.4.0$ python Karrigell.py 
+~/LovelyPython/KDays/Karrigell-2.4.0$ python Karrigell.py 
 Karrigell 2.4.0 running on port 8081
 Press Ctrl+C to stop
 这个表明成功开启Karrigell服务.

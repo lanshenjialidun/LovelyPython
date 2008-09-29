@@ -1,0 +1,13 @@
+In [1]: myDict = {'c':13, 'b':14, 'a':12}
+
+In [2]: for k, v in sorted(myDict.items(), key=lambda x:x[0]):
+   ...:     print k, v
+   ...: 
+a 12
+b 14
+c 13
+
+In [3]: from operator import itemgetter
+
+In [4]: print sorted(myDict.iteritems(), key=itemgetter(0))
+[('a', 12), ('b', 14), ('c', 13)]
