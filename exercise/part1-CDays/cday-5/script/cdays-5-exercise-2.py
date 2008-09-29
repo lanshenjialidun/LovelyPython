@@ -15,9 +15,9 @@ print '(86/40)**5 = %f' % z
 
 import math             #导入数学计算模块
 
-a = math.fmod(145, 23)  #求余函数
-b = math.sin(0.5)       #正弦函数
-c = math.cos(0.5)       #余弦函数
+a = math.fmod(145, 23)  #求余函式
+b = math.sin(0.5)       #正弦函式
+c = math.cos(0.5)       #余弦函式
 
 print '145/23的余数 = %d' % a
 print 'sin(0.5) = %f' %b

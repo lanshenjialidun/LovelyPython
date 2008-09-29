@@ -1,7 +1,7 @@
 #!/bin/python
 #coding:utf-8
 '''cdays-3-exercise-3.py
-    @note: 使用全局变量和函数的递归调用
+    @note: 使用全局变量和函式的递归调用
 '''
 
 global col                                  #定义一些全局变量

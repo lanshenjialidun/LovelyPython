@@ -1,7 +1,7 @@
 #!/bin/python
 #coding:utf-8
 '''cdays-3-exercise-2.py 字典的使用
-    @not: 使用sys.args, 字典操作, 函数调用
+    @not: 使用sys.args, 字典操作, 函式调用
     @see: sys模块参见help(sys)
 '''
 
@@ -25,7 +25,7 @@ if __name__ == "__main__":
     if len(sys.argv) == 1:                          #判断参数个数
         print 'usage:\n\tpython cdays-3-exercise-2.py cdays-3-test.txt'
     else:
-        result = collect(open(sys.argv[1], 'r'))    #调用collect函数，返回结果
+        result = collect(open(sys.argv[1], 'r'))    #调用collect函式，返回结果
         for (right, lefts) in result.items():       #输出结果
             print "%d '%s'\t=>\t%s" % (len(lefts), right, lefts)
 
