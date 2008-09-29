@@ -35,8 +35,8 @@ print encoded_data
 输出显示原来349字节的文本在编码之后被扩展到了468个字节，从编码过程来看，每一个24位序列（3个字节）作为输入，输出时候则增加了4个字节，最后2个字符“==”，则是简单的追加，因为原始字符串的位数不能被24整除。
 {{{
 ~$ python pcs-211-1.py 
-349 bytes before encoding
-Expect 2 padding bytes
+350 bytes before encoding
+Expect 1 padding bytes
 468 bytes after encoding
 
 aW1wb3J0IGJhc2U2NAoKaW5pdGlhbF9kYXRhID0gb3BlbihfX2ZpbGVfXywgJ3J0JykucmVhZCgpCgplbmNvZGVkX2
@@ -44,7 +44,7 @@ RhdGEgPSBiYXNlNjQuYjY0ZW5jb2RlKGluaXRpYWxfZGF0YSkKCm51bV9pbml0aWFsID0gbGVuKGluaX
 F0YSkKcGFkZGluZyA9IHsgMDowLCAxOjIsIDI6MSB9W251bV9pbml0aWFsICUgM10KCnByaW50ICclZCBieXRlcyBi
 ZWZvcmUgZW5jb2RpbmcnICUgbnVtX2luaXRpYWwKcHJpbnQgJ0V4cGVjdCAlZCBwYWRkaW5nIGJ5dGVzJyAlIHB
 hZGRpbmcKcHJpbnQgJyVkIGJ5dGVzIGFmdGVyIGVuY29kaW5nJyAlIGxlbihlbmNvZGVkX2RhdGEpCnByaW50CnBy
-aW50IGVuY29kZWRfZGF0YQ==
+aW50IGVuY29kZWRfZGF0YQ=
 }}}
 
 === Base 64 解码 ===
