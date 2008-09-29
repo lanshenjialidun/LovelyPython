@@ -140,7 +140,7 @@ import os.path
 for user in [ '', 'root', 'mysql' ]:
     lookup = '~' + user
     print lookup, ':', os.path.expanduser(lookup)
-}}}'~'是表示某个用户的home目录.
+}}}'~user'是表示某个用户的home目录，'~'表示当前用户的home目录。
 {{{
 ~$ python pcs-200-7.py 
 ~ : /home/shengyan
