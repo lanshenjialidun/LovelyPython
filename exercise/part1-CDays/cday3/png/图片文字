@@ -1,0 +1,77 @@
+
+In [1]: from threading import Thread
+
+In [2]: from threading import RLock
+
+In [3]: class myThread(Thread):
+   ...:     def __init__(self, threadname):
+   ...:         Thread.__init__(self, name = threadname)
+   ...:      
+   ...:     def run(self):
+   ...:         global share_var
+   ...:         lock.acquire()
+   ...:         share_var += 1
+   ...:         lock.release()
+   ...: 
+
+In [4]: share_var = 0
+
+In [5]: lock = RLock()
+
+In [6]: thread1 = myThread('Thread1'); thread2 = myThread('thread2')
+
+In [7]: thread3 = myThread('Thread3'); thread4 = myThread('thread4')
+
+In [8]: thread1.start(); thread2.start()
+
+In [9]: thread3.start(); thread4.start()
+
+In [10]: print share_var
+4
+
+In [11]: 
+Do you really want to exit ([y]/n)? 
+~/LovelyPython/exercise/part1-CDays/cday3/script$ python cdays+3-exercise-3.py 
+Thread1 ==> 1
+Thread0 ==> 2
+Thread3 ==> 3
+Thread2 ==> 4
+Thread5 ==> 5
+Thread4 ==> 6
+Thread7 ==> 7
+Thread6 ==> 8
+Thread9 ==> 9
+Thread8 ==> 10
+~/LovelyPython/exercise/part1-CDays/cday3/script$ python cdays+3-exercise-1.py 
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+~/LovelyPython/exercise/part1-CDays/cday3/script$ python cdays+3-exercise-2.py 
+please input something for thread InputThread0:a
+please input something for thread InputThread1:b
+please input something for thread InputThread2:c
+please input something for thread InputThread3:d
+please input something for thread InputThread4:e
+please input something for thread InputThread5:f
+please input something for thread InputThread6:g
+please input something for thread InputThread7:h
+please input something for thread InputThread8:i
+please input something for thread InputThread9:j
+Thread outputThread0 get "a" from Thread InputThread0
+Thread outputThread1 get "b" from Thread InputThread1
+Thread outputThread2 get "c" from Thread InputThread2
+Thread outputThread3 get "d" from Thread InputThread3
+Thread outputThread4 get "e" from Thread InputThread4
+Thread outputThread5 get "f" from Thread InputThread5
+Thread outputThread6 get "g" from Thread InputThread6
+Thread outputThread7 get "h" from Thread InputThread7
+Thread outputThread8 get "i" from Thread InputThread8
+Thread outputThread9 get "j" from Thread InputThread9
+~/LovelyPython/exercise/part1-CDays/cday3/script$ 

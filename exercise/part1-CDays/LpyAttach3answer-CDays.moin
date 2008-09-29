@@ -35,7 +35,7 @@ else:
 
 x = 12*34+78-132/6      #表达式计算
 y = (12*(34+78)-132)/6
-z = (8.6/4)**5
+z = (86/4)**5
 
 print '12*34+78-132/6 = %d' % x
 print '(12*(34+78)-132)/6 = %d' % y
@@ -728,7 +728,6 @@ sys.path.append('/home/shengyan/workspace/obp/CDays/cdays2/')
 from cdctools import *
 .......
 }}}
-   * 即可
  1. 经过本章Karrigell的初步学习，实现一个简易的web留言系统。主要利用Karrigell_QuickForm实现提交留言并显示出来。
   * 步骤：
    1. 下载karrigell，解压后，根据默认设置直接就可以运行了，但一般修改conf/下Karrigell.ini中的port=8081，表示使用端口8081，保存

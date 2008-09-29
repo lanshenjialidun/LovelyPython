@@ -1,0 +1,52 @@
+In [1]: import os
+
+In [2]: os.walk('.')
+Out[2]: <generator object at 0x83a8f2c>
+
+In [3]: for root, dirs, files in os.walk('.'):
+   ...:     for onefile in files:
+   ...:         fname = os.path.join(root, onefile)
+   ...:         fsize = os.stat(fname).st_size
+   ...:         print '%s\t->\t%s' % (fname, fsize)
+   ...: 
+./cdays+1-my.ini	->	57
+./cdays+1-result.txt	->	238
+./cdays+1-exercise-1.py	->	1889
+./cdays+1-exercise-2.py	->	2404
+./.svn/dir-prop-base	->	208
+./.svn/entries	->	850
+./.svn/format	->	2
+./.svn/all-wcprops	->	716
+./.svn/text-base/cdays+1-exercise-2.py.svn-base	->	2404
+./.svn/text-base/cdays+1-result.txt.svn-base	->	238
+./.svn/text-base/cdays+1-my.ini.svn-base	->	57
+./.svn/text-base/cdays+1-exercise-1.py.svn-base	->	1889
+
+In [4]: 
+Do you really want to exit ([y]/n)? 
+~/LovelyPython/exercise/part1-CDays/cday1/script$ python cdays+1-exercise-1.py 
+usage:
+	python cdays+1-exercise-1.py path
+~/LovelyPython/exercise/part1-CDays/cday1/script$ python cdays+1-exercise-1.py .
+2404	->	/home/shengyan/LovelyPython/exercise/part1-CDays/cday1/script/cdays+1-exercise-2.py
+2404	->	/home/shengyan/LovelyPython/exercise/part1-CDays/cday1/script/.svn/text-base/cdays+1-exercise-2.py.svn-base
+1889	->	/home/shengyan/LovelyPython/exercise/part1-CDays/cday1/script/cdays+1-exercise-1.py
+~/LovelyPython/exercise/part1-CDays/cday1/script$ python cdays+1-exercise-2.py 
+usage:
+	python cdays+1-exercise-2.py path
+~/LovelyPython/exercise/part1-CDays/cday1/script$ python cdays+1-exercise-2.py .
+[(2404L, '/home/shengyan/LovelyPython/exercise/part1-CDays/cday1/script/cdays+1-exercise-2.py'), (2404L, '/home/shengyan/LovelyPython/exercise/part1-CDays/cday1/script/.svn/text-base/cdays+1-exercise-2.py.svn-base'), (1889L, '/home/shengyan/LovelyPython/exercise/part1-CDays/cday1/script/cdays+1-exercise-1.py')]
+~/LovelyPython/exercise/part1-CDays/cday1/script$ cat cdays+1-result.txt 
+[1]
+filesize = 2404
+filename = /home/shengyan/LovelyPython/exercise/part1-CDays/cday1/script/cdays+1-exercise-2.py
+
+[3]
+filesize = 1889
+filename = /home/shengyan/LovelyPython/exercise/part1-CDays/cday1/script/cdays+1-exercise-1.py
+
+[2]
+filesize = 2404
+filename = /home/shengyan/LovelyPython/exercise/part1-CDays/cday1/script/.svn/text-base/cdays+1-exercise-2.py.svn-base
+
+~/LovelyPython/exercise/part1-CDays/cday1/script$ 

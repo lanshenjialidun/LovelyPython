@@ -1,0 +1,43 @@
+In [1]: import urllib2
+
+In [2]: import chardet
+
+In [3]: def blog_detect(blogurl):
+   ...:     try:
+   ...:         fp = urllib2.urlopen(blogurl)
+   ...:     except Exception, e:
+   ...:         print e
+   ...:         return 0
+   ...:     blog = fp.read()
+   ...:     codedetect = chardet.detect(blog)['encoding']
+   ...:     print '%s\t<-\t%s' % (blogurl, codedetect)
+   ...:     fp.close()
+   ...:     return 1
+   ...: 
+
+In [4]: blog_detect('http://www.g.cn')
+http://www.g.cn	<-	GB2312
+Out[4]: 1
+
+In [5]: blog_detect('http://www.163.com')
+http://www.163.com	<-	GB2312
+Out[5]: 1
+
+In [6]: import urllib2
+
+In [7]: import chardet
+
+In [8]: fp = urllib2.urlopen('http://www.baidu.com')
+
+In [9]: string = fp.read()
+
+In [10]: chardet.detect(string)['encoding']
+Out[10]: 'GB2312'
+
+In [11]: utf8_string = unicode(string, 'GB2312').encode('utf-8')
+
+In [12]: chardet.detect(utf8_string)['encoding']
+Out[12]: 'utf-8'
+
+In [13]: chardet.detect(utf8_string)
+Out[13]: {'confidence': 0.98999999999999999, 'encoding': 'utf-8'}
