@@ -1,53 +1,35 @@
-In [1]: import time
+In [1]: x = 12*34+78-132/6      #表达式计算
 
-In [2]: thisyear = time.localtime()[0]
+In [2]: y = (12*(34+78)-132)/6
 
-In [3]: if thisyear % 400 == 0 or thisyear % 4 == 0 and thisyear % 100 <> 0:
-   ...:     print 'this year %s is a leap year' % thisyear
-   ...: else:
-   ...:     print 'this year %s is not a leap year' % thisyear
-   ...: 
-this year 2008 is a leap year
+In [3]: z = (86/40)**5
 
-In [4]: x = 12*34+78-132/6      #表达式计算
-
-In [5]: y = (12*(34+78)-132)/6
-
-In [6]: z = (86/4)**5
-
-In [7]: 
-
-In [8]: print '12*34+78-132/6 = %d' % x
+In [4]: print '12*34+78-132/6 = %d' % x
 12*34+78-132/6 = 464
 
-In [9]: print '(12*(34+78)-132)/6 = %d' % y
+In [5]: print '(12*(34+78)-132)/6 = %d' % y
 (12*(34+78)-132)/6 = 202
 
-In [10]: print '(86/40)**5 = %f' % z
-(86/40)**5 = 4084101.000000
+In [6]: print '(86/40)**5 = %f' % z
+(86/40)**5 = 32.000000
 
-In [11]: 
+In [7]: import math             #导入数学计算模块
 
-In [12]: import math             #导入数学计算模块
+In [8]: a = math.fmod(145, 23)  #求余函式
 
-In [13]: 
+In [9]: b = math.sin(0.5)       #正弦函式
 
-In [14]: a = math.fmod(145, 23)  #求余函数
+In [10]: c = math.cos(0.5)       #余弦函式
 
-In [15]: b = math.sin(0.5)       #正弦函数
-
-In [16]: c = math.cos(0.5)       #余弦函数
-
-In [17]: 
-
-In [18]: print '145/23的余数 = %d' % a
+In [11]: print '145/23的余数 = %d' % a
 145/23的余数 = 7
 
-In [19]: print 'sin(0.5) = %f' %b
+In [12]: print 'sin(0.5) = %f' %b
 sin(0.5) = 0.479426
 
-In [20]: print 'cos(0.5) = %f' %c
+In [13]: print 'cos(0.5) = %f' %c
 cos(0.5) = 0.877583
+
 
 In [32]: from math import sqrt                    
 In [33]: N = 100                       

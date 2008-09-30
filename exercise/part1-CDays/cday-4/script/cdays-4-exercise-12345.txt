@@ -1,6 +1,6 @@
 (1) os模块中还有很多功能，主要的有以下些：
 os.error, os.path, os.popen, os.stat_result, os.sys, os.system等等等
-详细可参见dir(os)和python帮助文档help(os)
+详细可参见dir("os")和python帮助文档help("os")
 
 (2) open()有以下几种模式
 'r': 以只读方式打开已存在文件，若文件不存在则抛出异常。此方式是默认方式

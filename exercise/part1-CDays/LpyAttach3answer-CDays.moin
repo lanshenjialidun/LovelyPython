@@ -35,7 +35,7 @@ else:
 
 x = 12*34+78-132/6      #表达式计算
 y = (12*(34+78)-132)/6
-z = (86/4)**5
+z = (86/40)**5
 
 print '12*34+78-132/6 = %d' % x
 print '(12*(34+78)-132)/6 = %d' % y
@@ -86,7 +86,7 @@ print result2
 === CDays-4 ===
  1. os 模块中还有哪些功能可以使用? -- 提示使用 dir()和help()
   * os模块中还有很多功能，主要的有以下些：
-   *os.error, os.path, os.popen, os.stat_result, os.sys, os.system等等等,详细可参见dir(os)和python帮助文档help(os)
+   *os.error, os.path, os.popen, os.stat_result, os.sys, os.system等等等,详细可参见dir("os")和python帮助文档help("os")
 
  1. open() 还有哪些模式可以使用?
   * open()有以下几种模式:
