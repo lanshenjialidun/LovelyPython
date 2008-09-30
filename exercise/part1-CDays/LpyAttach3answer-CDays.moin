@@ -25,7 +25,7 @@ else:
 }}}
   * 运行截屏
   attachment:cdays-5-exercise-1.png
- 1. 利用python作为科学计算器。熟悉Python中的常用运算符，并分别求出表达式12*34+78-132/6、(12*(34+78)-132)/6、(86/40)**5的值。并利用math模块进行数学计算，分别求出145/23的余数，0.5的sin和cos值（注意sin和cos中参数是弧度制表示）提醒:可通过import math; help(math)查看math帮助.
+ 1. 利用python作为科学计算器。熟悉Python中的常用运算符，并分别求出表达式12*34+78-132/6、(12*(34+78)-132)/6、(86/40)**5的值。并利用math模块进行数学计算，分别求出145/23的余数，0.5的sin和cos值（注意sin和cos中参数是弧度制表示）提醒:可通过import math; help("math")查看math帮助.
   * 源代码 {{{#!python
 #coding:utf-8
 '''cdays-5-exercise-2.py 求表达式的值
