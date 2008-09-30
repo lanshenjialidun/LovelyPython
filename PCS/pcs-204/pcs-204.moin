@@ -15,7 +15,7 @@ ConfigParser是用来处理ini格式的配置文件的Python标准库.
 
 == 使用 ==
 === read(self, filenames) ===
-函式功能：直接读取ini文件内容，filename可以是一文件名或是文件名列表
+函式功能：直接读取ini文件内容，filenames可以是一文件名或是文件名列表
 {{{
 >>> from ConfigParser import ConfigParser
 >>> config = ConfigParser()
