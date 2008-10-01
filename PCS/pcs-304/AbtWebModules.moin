@@ -59,25 +59,26 @@ GET 和 POST 请求，GET 请求顾名思义，一般用来从服务器获取内容，而POST往往用来修改
 
 请求头就是一些描述请求包本身的一些描述信息了，比如编码、包长度等。
 
-http 的响应的格式更简单一些，就是包括状态码、响应头和响应体，
+http 的响应的格式更简单一些，包括状态码、响应头和响应体，
 状态码表示该请求的结果，比如 200 表示成功；404表示资源没有找到；500表示服务器错误；
 301表示该资源已经换了地址，客户端需要跳转等。
 响应头和请求类似，就是一些响应包的描述数据，
-响应体就是 POST 请求时，form表单中填写的内容了。
+响应体就是输出的内容了，大部分情况就是页面的 html 代码。
 
-web服务器接收到原始的 http 请求后进行一定程度的包装再交给 web 应用程序，web应用程序再
-以一定的协议返回数据给 web服务器，web服务器然后就将数据包装成 http 响应包再发给浏览器。
-那么就完成了一个请求的整个生命周期。
+web服务器接收到原始的 http 请求后进行一定程度的包装再交给 web 应用程序，web应用程序处理后
+再以一定的格式返回数据给 web服务器，web服务器然后就将数据包装成 http 响应包最后传输给浏览器。
+那么这样就完成了一个请求的整个生命周期。
 
-其实 cgi 就是web服务器与web应用程序之间的一个协议，web服务器将请求信息放到环境变量里面，
-web应用程序再通过标准输出输出它的响应头和相应内容。
+很多人可能对 cgi 比较熟悉，cgi 就是web服务器与web应用程序之间的一个古老的协议，
+在cgi协议中，web服务器将http请求的各种信息放到cgi应用程序的环境变量里面，
+cgi应用程序再通过标准输出，输出它的响应头和相应内容给web服务器。
 
-那么 wsgiref 带的这个开发服务器与我们的应用程序之间所使用的协议叫做 wsgi，
-wsgi 协议的详细内容可以参考：http://www.python.org/dev/peps/pep-0333/ ，
-在这里你只需要知道，wsgi 和 cgi 类似，同样是将http请求包装成一种key-value对，
-只不过cgi通过环境变量，wsgi直接使用python的字典对象，直接通过参数完成传递。
+我们上面用到的这个开发服务器与我们的应用程序之间所使用的协议叫做 wsgi，
+它和 cgi 类似，同样是将http请求包装成一种key-value对，
+只不过cgi通过环境变量传给cgi应用程序，而wsgi直接使用python的字典对象，通过参数完成传递。
+wsgi 协议的详细内容可以参考：http://www.python.org/dev/peps/pep-0333/ 。
 
-比如上面 hello_app 函数接收的第一个参数 environ 就是包含web请求信息的字典，
+比如上面 hello_app 函数接收的第一个参数 environ 就是包含web请求信息的字典对象，
 上面这个web程序输出的就是这个字典的全部内容，里面有比如请求的路径（PATH_INFO），
 ，请求的方法（REQUEST_METHOD），客户端cookie（HTTP_COOKIE），客户端的IP（REMOTE_ADDR）等等信息。
 
@@ -85,17 +86,16 @@ hello_app 的第二个参数 start_response 是一个函数，web 应用在输出响应内容前需要先
 来输出状态码和响应头。
 
 动态的web应用程序是要和用户进行交互的，意味着我们需要得到用户的输入，然后作出相应地
-动作。比如通过 environ['QUERY_STRING'] 就可以获得用户 GET 请求传递的参数，不过
-还是一个原始的字符串的形式，比如：'key1=value1&key2=value2'，还需要我们自己解析其格式，
-当然通过 python 字符串方便的 split 方法，解析这样一个字符串还是很方便的。但是遇到 POST
-请求就没那么方便了，尤其是遇到文件上传的请求，那就更复杂了。
+动作。客户端有很多中方式可以向服务器传递信息，比如URL的参数、POST请求的数据、cookie，
+都可以通过 environ 获取，比如 environ['QUERY_STRING'] 就可以获取URL参数，
+不过这种方式比较底层，还需要我们自己解析其格式。
 
-这些东西这里就不深入介绍了。小白很快就发现 python 世界有一些专门的模块
-可以用来处理 environ 信息，把它变成更加方便操纵的格式。
+小白通过 google 很快就发现 python 世界有一些专门的模块
+可以用来处理http请求信息的。
 
 == 处理web请求和响应 ==
 
-小白发现也又有几个模块可以用来处理 web 请求和响应，webob 就是其中之一。
+小白发现有几个模块可以用来处理 web 请求和响应，webob 就是其中之一。
 
 安装 webob 之前我们需要先安装 setuptools ，一个包管理的工具，该工具可以自动为我们搜索并下载想要的
 软件包。 在这个页面 http://pypi.python.org/pypi/setuptools 下面，非windows平台可以下载 .egg 文件
@@ -384,20 +384,20 @@ server.serve_forever()
 
 作为一个动态网站，有很多数据需要持久存储，关系数据库在这方面通常都是不二选择。
 
-有了 webob 愉快的经历，小白遇到问题都习惯性地要了解一下有没有现成的工具可以使用，
+有了前面的愉快经历，小白遇到问题都习惯性地要了解一下有没有现成的工具可以使用，
 当小白向行者问道如何才能简化对关系数据库的操作时，行者郑重向小白推荐了 sqlalchemy 这个库。
 
 sqlalchemy 是一个 ORM （对象-关系映射）库，提供python对象与关系数据库之间的映射，
 也就是程序只需要对 python 对象进行操作，sqlalchemy 自动把这些操作映射为
 关系数据库的操作，并执行之。
-可以直接使用python代码描述数据库结构，然后 sqlalchemy 自动创建之，
-可以直接创建一个 python 对象设置好属性，或者修改一条属性，
+可以直接使用python代码描述数据结构，然后 sqlalchemy 自动创建对应的表，
+通过实例化 python 对象，设置其属性，
 sqlalchemy 就自动执行插入或者更新操作，
-还可以直接调用 python 对象方法进行查询，通过参数进行过滤等等。
+还可以直接调用 python 对象的方法进行查询，通过参数进行过滤等等。
 
 sqlalchemy 还可以自动映射 python 对象的继承，可以实现eager loading、lazy loading，
-可以直接将 Model 映射到自定义的 SQL 语句，等等等等。可以说 sqlalchemy 既有不输于
-Hibernate 的强大功能，同时不失 Python 的简洁优雅。
+可以直接将 Model 映射到自定义的 SQL 语句，支持n多的数据库等等等等。
+可以说 sqlalchemy 既有不输于 Hibernate 的强大功能，同时不失 Python 的简洁优雅。
 
 在这里 http://www.sqlalchemy.org/download.html 找到最新版本的下载地址，下载解压，
 然后执行 python setup.py install 进行安装。
@@ -444,7 +444,7 @@ for dictionay in session.query(Dictionary):
 }}}
 
 直接执行这个程序就可以了，最后输出的就是数据库中的数据了。
-不过这只是个单独的 demo，为了方便对 sqlalchemy 进行试验，也方便最好整合到 web 应用里面去，
+不过这只是个单独的 demo，为了方便对 sqlalchemy 进行试验，也方便最后整合到 web 应用里面去，
 还需要先对它的代码结构进行一下重构。
 
 首先提取出一个公用的 model.py 文件。
@@ -487,7 +487,7 @@ session.commit()
 
 现在打开 python shell ，导入 models 模块，对照 sqlalchemy 的文档（http://www.sqlalchemy.org/docs/），就可以试验 sqlalchemy 的各种功能了。
 
-{{{
+{{{#!python
 >>> from model import Session, Dictionary
 >>> sess = Session()
 >>> query = sess.Query(Dictionary)
@@ -521,18 +521,18 @@ def hello_app(request):
 
 == URL 分发 ==
 
-一个web应用程序往往要提供很多功能，那么客户端如何访问不同的功能，web应用程序又如何根据
-客户端的请求提供不同的功能呢？当然理论上来说使用前面提到的请求参数也可以达到这个目的，
-只不过不是那么漂亮了。
-
-其实 URL 就是这个问题的天然解决之道，URL 天生就是用来定位的。给每一个功能设计一个 URL，
+一个web应用程序往往要提供很多资源的展示及其相应的操作，比如查看一个列表、
+修改一篇文章，上传一副照片，
+那么客户如何访问到不同的功能，web应用程序又如何根据
+客户端的请求提供不同的功能呢？答案就是 URL 。
+给不同的资源设计不同的 URL，
 客户端请求这个 URL，web应用程序再根据用户请求的 URL 定位到具体功能并执行之。
 
 提供一个干净的 URL 有很多好处，比如可读性，通过 URL 就可以大概了解其提供什么功能；而且
-用户容易记住也方便直接输入；而且这样的URL一般都比使用参数要短；另外这样的 URL 对搜索引擎
+用户容易记住也方便直接输入；另外设计良好的 URL 一般都更短小精悍，对搜索引擎也
 更友好。
 
-同样的，在处理 URL 与实际功能之间映射的功能同样有现成的工具可以使用，selector 是其中
+当然，处理 URL 的定义与映射同样有现成的工具可以使用，selector 是其中
 一个比较简单易用的一个。
 
 在这里 http://pypi.python.org/pypi/selector 找到最新版本的下载地址，下载解压，
@@ -546,6 +546,7 @@ def hello_app(request):
 >>> def get_app():pass
 >>> def post_app():pass
 >>> # 配置 URL 与函数的映射，并且可以根据不同请求方法映射到不同的函数
+>>> # 这里我们配置了一个 blog 的 URL，可通过年月日来访问对应的 blog 列表，通过文章名字来访问文章详细信息
 >>> mappings = [('/hello/{name}', {'GET':get_app, 'POST':post_app})]
 >>> # 构建selector对象
 >>> s = Selector(mappings)
@@ -619,7 +620,20 @@ def hello_app(request, name=''):
 
 == 部署 ==
 
-TODO 部署
+web应用最终是要部署到成熟稳当高性能的web服务器上去的，
+由于我们这个 web应用程序是基于 wsgi 这样一个标准协议的，
+所以部署方式的选择有很多，因为所有针对 wsgi 的部署方法都可以用。
+
+* fcgi
+  http://www.saddi.com/software/flup/
+
+* mod_python
+  http://www.modpython.org/
+
+* mod_wsgi
+  http://code.google.com/p/modwsgi/
+
+TODO 部署方式介绍
 
 终于像模像样了，现在回过头来看一下，究竟整出来一个什么样的程序呢？小白不禁惊呼：“这不是...不就是...传说中的...框架？！”
 
