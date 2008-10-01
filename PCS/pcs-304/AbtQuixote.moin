@@ -1,7 +1,7 @@
 ## page was renamed from ObpLovelyPython/Quixote
 ##language:zh
 #pragma section-numbers on
-||'''status'''|| 草稿 || QiangningHong || 完成度20%||
+||'''status'''|| 草稿 || QiangningHong || 完成度100%||
 
 
 [[TableOfContents]]
@@ -18,16 +18,46 @@ CNRI当时在进行一个名为MEMS Exchange的项目( http://www.mems-exchange.
 
 然而，Zope带来的快乐并没有持续多长时间。几个月后，他们想提供更加复杂一点的界面，却发现用Zope写的代码难以维护和调试，在浏览器的文本编辑框里写代码也实在不是什么好的体验。由于当时除了Zope之外也没有什么别的Python web框架，他们决定：自己写一个！在2000年，编写一个新的web框架是类似于向风车挑战一样的事情，开发团队自嘲的用堂吉诃德的名字命名这个框架：Quixote。
 
-
 == 特性介绍 ==
+
+''以下使用Quixote 1.2版本为例进行介绍''
 
 Quixote有以下几个特点：
 
-1. '''简单的URL分配规则'''。
+1. 简单的URL分发规则
 
-一个Quixote应用对应着一个Python的名字空间（通常是一个包）。URL的每一级目录映射到一个子名字空间上，URL的最末一级映射到上一级名字空间中的一个函数或者方法（如果名字空间是一个类的话）上。该函数或方法返回一个字符串，就是返回给浏览器的页面。就这么简单。
+所有的web框架要解决的第一件事情就是：当用户输入一个URL，应该调用哪段代码来响应用户需求呢？这就是URL分发。与Django之类的基于正则表达式匹配来实现URL分发的框架不同，Quixote是基于URL的目录结构进行逐层查找实现的。
 
-2. '''非常类似Python的模板语言'''。
+一个Quixote应用对应着一个Python的名字空间（通常是一个包）。URL的每一级目录映射到一个子名字空间上（模块或者子包），URL的最末一级映射到上一级名字空间中的一个函数上。该函数返回一个字符串，就是返回给浏览器的页面。例如，如果你的应用是放在app这个包下的，那么 http://www.example.com/hello/john 就对应{{{app.hello.john(request)}}}。末级目录则对应于`_q_index`函数，如http://www.example.com/hello/ 对应于{{{app.hello._q_index(request)}}}。就这么简单。
+
+这种层级查找的结构还可以带来额外的好处：在目录层进行控制。在每一个目录层级进行查找之前，Quixote都会先运行当前名字空间下的_q_access(request)函数。比如你需要 http://www.example.com/settings/ 下的所有路径都只能由登录用户访问，那么只需要在 `app.settings` 这个名字空间（`app/settings.py`，或者`app/settings/__init__.py`）中定义一个`_q_access(request)`函数，在其中检查当前用户的登录状态（cookie可以从`request`对象获得），如果发现是未登录状态，抛出一个AccessError异常即可。
+
+当Quixote执行代码时碰到异常，它会首先检查当前名字空间下有没有`_q_exception_handler`函数，如果有的话，则由这个函数处理异常，返回的字符串则为出错页面。如果没有定义这个函数，或者在执行它的时候又抛出了异常，则向上一级的名字空间查找`_q_exception_handler`函数，直至找到为止。所以，我们一般只需要在`app/__init__.py`中定义`_q_exception_handler`函数，就可以方便的实现定制出错页面了（当然你连这个也不定义也可以，Quixote提供了默认的出错页面）。
+
+2. 易于实现RESTful的URL
+
+刚才我们说 http://www.example.com/hello/john 对应 {{{app.hello.john(request)}}}，那除了john之外，还有成千上万的用户的名字怎么办？不能每个为每个用户都定义一个函数吧？传统的方法是把会变的部分用URL参数的形式传进来，比如 http://www.example.com/hello/?name=bob 。但这种风格的URL既不好看，又不利于搜索引擎收录，要是能都像john一样直接成为URL的一部分多好啊！幸运的是，Quixote帮助你实现了这一点。
+
+我们只需要在 app.hello 这个名字空间中定义一个 `_q_lookup(request, component)` 函数，当Quixote查不到 `bob` 这个名字时就会调用这个函数，把需要查找的名字 `bob` 传给 `component` 参数，用这个函数返回的结果作为找到的子名字空间或函数。在我们的例子里，代码就是：
+{{{
+#!python
+# in app/hello/__init__.py
+def _q_lookup(request, name):
+    def hello(request):
+        return say_hello(name)
+    return hello
+}}}
+这里我们返回了一个函数（也可以用定义了 `__call__` 方法的类示例代替），这个函数将被调用以生成HTML页面。
+
+3. 显式标记，拒绝魔术
+
+Zen of Python中有一句“Explicit is better than implicit”，Quixote也是这个理念的贯彻者。所有可以通过URL访问到的函数和方法，必须在当级名字空间的 `_q_exports` 变量中列举出来（除了用 `_q_lookup` 实现的动态URL）。也就是说，要让 http://www.example.com/hello/bob 可以访问，必须在 `app/__init__.py` 中定义
+{{{
+#!python
+_q_exports = ['hello']
+}}}
+
+4. 非常类似Python的模板语言
 
 呃，或者说，就是Python语言。为了让程序员不用再学习一门模板语言，而是直接使用已经掌握的Python语法写模板，Quixote的模板语言PTL(Python Template Language，以.ptl作为文件名后缀）的语法和Python一模一样（除了后面要说到的[html]标记），在执行了quixote.enable_ptl()之后，这些.ptl文件就可以像普通的.py文件一样作为Python模块import进来。
 
@@ -50,17 +80,158 @@ def say_hello [html] (name):
 
 因为say_hello函数由两条语句组成，这两行语句的运行结果分别返回一个字符串，因此运行结果就是 {{{Hello, <em>Quixote</em>!}}} 。这个设定可以大大方便模板的编写。
 
-3. '''内置的安全性支持'''。
+5. 内置的安全性支持
 
-互联网上有很多寻找网站漏洞的攻击者，跨站脚本(XSS)是一个常见的攻击手段。这种攻击通常会在页面显示数据的地方插入一段恶意javascript代码，当有人浏览这个页面的时候，就会运行这段代码。比如在say_hello这个例子中，恶意用户输入的名字（也就是name参数）是`"<script>alert('haha')</script>"`的话，在模板没有安全性处理的情况下，页面就会输出{{{Hello, <em><script>alert('haha')</script></em>}}}，浏览这个页面的用户就会中招。幸好，PTL帮助我们解决了这个问题，它会自动将输入的数据进行HTML escape，就是用`&lt;`、`&gt;`等HTML实体替换掉危险的`<`、`>`等字符，这样输出的结果就是{{{Hello, <em>&lt;script&gt;alert('haha')&lt;/script&gt;</em>}}}，安全了。
+互联网上有很多寻找网站漏洞的攻击者，跨站脚本(XSS)是一个常见的攻击手段。这种攻击通常会在页面显示数据的地方插入一段恶意javascript代码，当有人浏览这个页面的时候，就会运行这段代码。比如在say_hello这个例子中，恶意用户输入的名字（也就是name参数）是`"<script>alert('haha')</script>"`的话，在模板没有安全性处理的情况下，页面就会输出{{{Hello, <em><script>alert('haha')</script></em>}}}，浏览这个页面的用户就会中招。幸好，PTL帮助我们解决了这个问题，它会自动将输入的数据进行HTML转义，就是用`&lt;`、`&gt;`等HTML实体替换掉危险的`<`、`>`等字符，这样输出的结果就是{{{Hello, <em>&lt;script&gt;alert('haha')&lt;/script&gt;</em>}}}，安全了。
 
+PTL是怎么实现这一点的呢？实际上，打了[html]标记的PTL函数中的字符串常量（比如 `"<em>%s</em>!"`）并不是普通的str对象，而会自动转成quixote.html.htmltext对象，这个对象的接口和str几乎一样，但和普通的str对象做操作时（比如+、%等运算），会自动把str对象中的HTML特殊字符进行转义。
 
+6. 高效的模板
+
+PTL的速度非常之快，在豆瓣，我们曾经拿它和号称最快的Python模板Mako进行过PK，PTL胜出。当然，这一部分是由于PTL的核心代码是用C写的（比如前面说的htmltext类），另一方面PTL的功能非常基本，完全依赖于Python语言自身的特性。
+
+7. 没有内置数据库支持
+
+Quixote专注于URL分发和模板系统，对于数据库没有提供直接支持。开发者可以根据自己的需要选择合适的数据库软件，如SQLAlchemy、SQLObject或者直接使用MySQLdb等。
 
 == 快速起步 ==
 
+那我们来看一个完整的应用示例吧，就是我们前边举的例子：通过URL获得一个名字，在页面上显示对他的欢迎信息。
+
+首先安装Quixote，在 http://quixote.ca/ 下载 Quixote 1.x版的最新版本(目前是1.2版)并安装。
+
+{{{
+#!python
+# app/__init__.py
+
+_q_exports = ['hello']
+}}}
+
+{{{
+#!python
+# app/hello/__init__.py
+
+from app.hello.hello_ui import say_hello
+
+_q_exports = []
+
+def _q_index(request):
+    return say_hello("everyone")
+
+def _q_lookup(request, name):
+    def hello(request):
+        return say_hello(name)
+    return hello
+}}}
+
+{{{
+#!python
+# app/hello/hello_ui.ptl
+
+def say_hello [html] (name):
+    header(title="Hello")
+    "Hello, "
+    """<em class="name">%s</em>!""" % name
+    footer()
+
+def header [html] (title):
+    """<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>%s</title>
+</head>
+<body>
+    """ % title
+
+def footer [html] ():
+    """</body>
+</html>
+    """
+}}}
+
+以上我们就已经创建了整个web应用。下面的问题是：怎么运行呢？
+
+有好几个方式可以用来运行Quixote应用，比如mod_python、FastCGI和CGI等。在豆瓣我们使用的是SCGI ( http://www.mems-exchange.org/software/scgi/ )，这是Quixote的开发团队制作的一个简化版本的FastCGI，使用和web服务器独立的进程运行web应用。著名的轻量级web服务器lighttpd ( http://www.lighttpd.net/ )直接内置支持SCGI，我们下面用lighttpd来运行我们的hello程序。
+
+首先安装scgi python包：到 http://python.ca/scgi/ 下载最新版本并安装。
+
+创建SCGI服务程序`scgi-server.py`：
+{{{
+#!python
+#!/usr/bin/env python
+
+from scgi.quixote_handler import QuixoteHandler, main
+from quixote import enable_ptl
+
+enable_ptl()
+
+class MyHandler(QuixoteHandler):
+    root_namespace = 'app'
+
+if __name__ == '__main__':
+    main(MyHandler)
+}}}
+这个程序运行时会在默认的4000端口上开启一个SCGI服务，端口号可以使用命令行参数 `-p` 更改。更多控制参数请使用 `python scgi-server.py --help` 查看。
+
+创建lighttpd的配置文件 `lighttpd.conf`:
+{{{
+server.modules = (
+	"mod_scgi",
+)
+server.document-root = "."
+server.port = 8080
+
+scgi.server = ( "/" =>
+		( "localhost" => (
+			"host" => "127.0.0.1",
+			"port" => 4000,
+			"check-local" => "disable",
+			)
+		)
+)
+}}}
+这个配置让lighttpd监听8080端口，把所有请求都转发给4000端口上的SCGI服务处理，再把处理结果发给用户。
+
+运行SCGI服务和lighttpd（以linux下为例）：
+{{{
+$ python scgi-server.py
+$ /usr/sbin/lighttpd -f lighttpd.conf
+}}}
+
+访问 http://localhost:8080/hello/bob ，就可以看到 "Hello, ''bob''!"了
+
+需要注意的一点是，对代码进行修改后，需要重启SCGI服务才能看到效果。我们可以做一个简单的重启SCGI服务shell脚本，以简化操作：
+{{{
+#!/bin/sh
+
+PIDFILE=/var/tmp/quixote-scgi.pid  # 默认的PID文件路径
+
+kill `cat $PIDFILE`
+sleep 1
+python scgi-server.py
+}}}
+
 == 案例讲解 ==
 
+作为老牌的web框架，Quixote已经被证明了它足够支撑起相当规模的网站。除了MEMS Exchange之外，LWN(Linux Weekly News, http://lwn.net/ )也是使用Quixote搭建的。在国内，Quixote最著名的使用者就是豆瓣网 ( http://www.douban.com/ )。
+
+豆瓣网是一个致力于帮助用户发现自己可能感兴趣的书、电影、音乐、博客等信息的网站。2005年3月正式上线，当时Python社区的web框架屈指可数，Django、TurboGears等新兴框架还没出现，因此选择了Quixote作为整个网站的基础框架。至2008年10月，豆瓣网已经发展到200万注册用户，每日1000万次点击，但仍只需要两台Quixote应用服务器即可轻松负担。这充分说明了Quixote的性能和可扩展性。
+
 == 小结 ==
+
+Quixote是一个轻量级的框架，简单，高效，代码也十分简洁易读。用豆瓣网创始人阿北的话来说：“用quixote的时候你的注意力大部分在要实现的内容上，framework不会拦在中间跳来跳去。”
+
+但是，Quixote毕竟是2000年的框架，现在看来已经略显老态。比起Django、TurboGears这些后起之秀来，确实存在某些劣势。大略有以下几点：
+
+1. 调试开发不够方便，没有内置的调试用web服务器；
+2. 修改代码后必须重启服务才能看到效果；
+3. URL的末尾带和不带"/"会被解释到不同函数；
+4. PTL模板适合Python程序员编写，却非常不适合美工独立编辑等等；
+5. 没有内置的WSGI支持；
+6. 没有内置的用户认证系统、数据库支持等等。
+
+但Quixote最大的优势也在于它的资格够老，基本上已经没有bug。在使用它时不用担心框架会出什么意想不到的问题。而且它只提供了最基本的功能，用户认证系统、数据库访问层等需要自行实现，虽然麻烦一些，但更利于根据你的应用量身定制。如果你的目标是追求稳定和性能，而非追求最新技术，Quixote仍然是一个很好的选择。
+
 ##endInc
 
 ----
