@@ -17,6 +17,13 @@ attachment:kday4-leo-current-version.png
 == 可爱的 session ==
 '''今天,小白计划支持多用户和多问卷的问题,先从翻找内置文档开始...'''
  * 首先要解决登录后的用户,在不同页面跳转时,系统知道用户的信息,貌似有关 session 的处理可以支持这种需要
+{{{注意::
+术语session ~ 一般译作"会话";
+但是其含义在不同的技术时代和上下文中都是不同的;
+在我们的实例故事中,特指那种在服务端暂时保存用户状态的Web 应用技术;
+这个方面,其它语言一般是通过DB进行保存和检索的;
+详细情况和其它支持模块,已经超出了本书的范畴,请读者自行参考相关图书;
+}}}
  * 找到相关实例:
   * http://localhost:8081/demo/ksTest.ks/index
  * 观察代码(小白追加了自个儿的评注):
@@ -68,6 +75,14 @@ rows = Sum ([TR(TD(rec.title,Class="title")
 table = TABLE(TR(TH('Title')+TH('Artist')) + rows)
 print HTML(HEAD(header) + BODY(title + table))
 }}} 可以将一个标准的HTML页面由几行 Py脚本自然生成!
+
+{{{详细::
+FP ~ Functional Programming 函式化编程;
+这是和过程化编程不同的思路和体验,
+在 PCS115 FP初体验 进行了初步的分享,
+小白也仅仅是在列表中向行者们讨教时接触到这一领域的,
+欢迎勇敢的读者自行品味;-)
+}}}
  * 那未,只要结合 KS 和 HTMLTags 功能就可以快速实现想要的复杂展示功能了!还可以方便的复用!
  * 当然的使用["Leo"] 八股化所有的.ks
 
