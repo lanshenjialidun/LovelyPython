@@ -1,0 +1,164 @@
+##language:zh
+#pragma section-numbers off
+||'''status'''|| 正式 || Limodou || 完成度100%||
+
+
+[[TableOfContents]]
+
+##startInc
+= UliWeb =
+== 作者介绍 ==
+李迎辉，网名Limodou。Python是我的最爱，但我的主业不是Python，它仍然是我的纯业余爱好。喜爱开源事业，虽然不是刻意去做，但是独立完成大大小小的许多Python开源项目，还参与了许多Python项目。最大的项目就是UliPad。而下面要介绍的Uliweb是我在web框架方面的尝试，在做此之前，研究了一段时间Django，并大力进行宣传，还编写过《Django Step by Step》教程。本文的写作一方面是应Zoom.Quiet的邀请，另一方面是为了向大家介绍我对web开发的理解，并把我个人的研究成果介绍给大家。只要你努力，一样可以以自已的方式做出让自已满意的框架。
+
+== 概述 ==
+
+Uliweb是一个新的Python Web Framework，它之所以会产生是因为现有的框架多少有些令人不满意的地方，而且许多情况下这些不满意的地方或多或少对于Web开发有影响，因此在经 过对不少框架的学习之后，我决定开发一个新的框架，希望可以综合我认为其它框架中尽可能多的优点，同时使这个新的框架尽可能的简单，易于上手和使用。不过 这个框架目前主要还是一个人在做，并且是业余在做，所以在进度上相对要慢一些。 
+
+Uliweb按照GPL v2协议开放源代码。Uliweb并不是一个从头开始的框架，它使用了一些较为成熟的库，如：用来进行命令行、URL映射、Debug等核心处理的Werkzeug；用来生成和处理请求、响应对象的webob；强大的ORM库SqlAlchemy等等。Uliweb在开发中还借鉴了象web2py的Template模板模块，Django的一些设计思想和成果。
+
+== 功能特点 ==
+
+ * 组织管理
+  * 采用MVT模型开发。 
+  * 分散开发统一管理。采用App方式的项目组织。每个App有自已的配置文件，templates目录，static目录。使得Uliweb的App重用非常方便。同时在使用上却可以将所有App看成一个整体，可以相互引用静态文件和模板。缺省是所有App都是生效的，也可以指定哪些App是生效的。所有生效App的配置文件在启动时会统一进行处理，最终合成一个完整的配置视图。  
+ * URL处理  
+  * 灵活强大的URL映射。采用Werkzeug的Routing模块，可以非常方便地定义URL，并与View函数进行绑定。同时可以根据view函数反向生成URL。支持URL参数定义，支持缺省URL定义，如：
+
+   {{{
+appname/view_module/function_name}}}
+
+ * View与Template  
+  * View模板的自动套用。当view返回dict对象时，自动根据view函数的名字查找对应的模板。 
+  * 环境方式运行。每个view函数在运行时会处于一个环境下，因此你不必写许多的import，许多对象可以直接使用，比如request, response等。可以大大减少代码量。 
+  * 模板中可以直接嵌入Python代码，不需要考虑缩近，只要在块结束时使用pass。支持模板的include和继承。  
+
+ * ORM  
+  * 支持Model与数据库的简单自动迁移，包括自动建表和表结构的修改。  
+
+ * i18n  
+  * 支持代码和模板中的i18n处理。
+  * 支持浏览器语言和cookie的自动选择，动态切换语言。
+  * 提供命令行工具可以自动提取po文件，可以以App为单位或整个项目为单位。并在处理时自动将所有语言文件进行合并处理。当发生修改时，再次提取可以自动进行合并。  
+
+ * 扩展  
+  * plugin扩展。这是一种插件处理机制。Uliweb已经预设了一些调用点，这些调用点会在特殊的地方被执行。你可以针对这些调用点编写相应的处理，并且将其放在settings.py中，当Uliweb在启动时会自动对其进行采集，当程序运行到调用点位置时，自动调用对应的插件函数。 
+  * middleware扩展。它与Django的机制完全类似。你可以在配置文件中配置middleware类。每个middleware可以处理请求和响应对象。 
+  * views模块的初始化处理。在views模块中，如果你写了一个名为 __begin__ 的函数，它将在执行要处理的view函数之前被处理，它相当于一个入口。因此你可以在这里面做一些模块级别的处理，比如检查用户的权限。因此建议你根据功能将view函数分到不同的模块中。  
+
+ * 命令行工具  
+  * 可以导出一个干净的工作环境。
+  * App的创建，会自动包含必要的目录结构，文件和代码。 
+  * 静态文件导出，可以将所有生效的App下的static导出到一个统一的目录。 
+  * 启动开发服务器。  
+
+ * 部署  
+  * 支持GAE部署。 
+  * 支持Apache下的mod_wsgi部署。  
+
+ * 开发  
+  * 提供开发服务器，并当代码修改时自动装载修改的模块。 
+  * 提供debug功能，可以查看出错的代码，包括模板中的错误。  
+
+ * 其它  
+  * Uliweb是一个Demo与源码合二为一的项目。它不仅包括所有核心代码，还同时包括了 [http://uliwebproject.appspot.com uliwebproject] 网站的源码，同时还有其它的一些Demo，所以你可以直接使用这些代码。 
+  * 对于静态文件的支持可以处理HTTP_IF_MODIFIED_SINCE和trunk方式的静态文件处理。 
+
+== 简单入门 ==
+本教程将带你领略 Uliweb 的风采，这是一个非常简单的例子，你可以按照我的步骤来操作。我们
+将生成一个空的页面，它将显示"Hello, Uliweb"信息。
+
+=== 准备 ===
+
+从 http://code.google.com/p/uliweb 下载最新版本或从svn中下载最新版本，放在一个目录下。
+因为 Uliweb 本身包含 uliwebproject 网站的代码，所以在我们这个简单的例子中其实是不需要的。
+它们都存在于apps目录下。一种方式是你将它全部删除，因为我们会创建新的app。另一种方式就是修
+改apps下的settings.py文件，只让我们新创建的app生效。再一种方法就是将代码导出到其它的工作
+目录下，这样环境比较干净，然后开始工作。这里我们将采用第三种方法。
+
+=== 创建新的项目 ===
+Uliweb 提供一个命令行工具 manage.py, 它可以执行一些命令。在Uliweb的下载目录下，进入命
+令行，然后执行：
+
+{{{
+python manage.py export ../uliweb_work
+}}}
+    
+这里export后面是一个目录，我是将它建在与uliweb同级的uliweb_work下了，你可以换成其它的目录。
+
+在执行成功后(成功不会显示任何内容)，在命令行进入新建的目录，在这个目录下是一个完整的Uliweb
+的拷贝，但是没有任何APP存在，所以是一个干净的环境。
+
+=== 创建Hello应用 ===
+
+然后让我们创建一个Hello的应用。在uliweb_work目录的命令行下执行：
+
+{{{
+python manage.py makeapp Hello
+}}}
+
+在执行成功后，你会在apps下找到：
+
+{{{
+apps/
+  __init__.py
+  settings.py
+  Hello/
+    __init__.py
+    settings.py
+    views.py
+    static/
+    templates/
+}}}
+
+好了，现在 Hello 已经创建好了。再一步就是如何创建“Hello, Uliweb”了。
+
+=== 输出"Hello, Uliweb" ===
+
+打开 Hello/views.py，你会看到
+
+{{{
+#coding=utf-8
+from uliweb.core.SimpleFrame import expose
+
+@expose('/')
+def index():
+    return '<h1>Hello, Uliweb</h1>'
+}}}
+
+以上几行代码是在执行 makeapp 之后自动创建的。甚至我们都不用写一行代码，已经有一个
+Hello, Uliweb 的View函数了。
+
+@expose('/') 是用来处理 URL Mapping的，它表示将/映射到它下面的view方法上。这样，当用户
+输入 http://localhost:8000/ 时将访问 index() 方法。如果一个函数前没有使用expose修饰，
+它将不会与任何URL对应，因此可以认为是一个局部函数。
+
+这里index()没有任何参数。如果你在expose中定义了参数，它将与之对应。但因为这个例子没有定
+义参数，因此index不需要定义参数。
+
+然后我们直接返回了一行HTML代码，它将直接输出到浏览器中。
+
+=== 启动 ===
+
+好了，让我们启动看一下结果吧。
+
+在命令行下执行
+
+{{{
+python manage.py runserver
+}}}
+
+这样就启动了一个开发服务器。然后可以打开浏览器输入: http://localhost:8000 看到结果。
+
+## 练习::
+## 可能的话
+## 设计实用练习,保证每个练习都可以扩展出去
+
+    
+##endInc
+
+----
+'''反馈'''
+
+创建 by -- ::-- ZoomQuiet [[[DateTime(2008-10-01T15:24:21Z)]]]
+||<^>[[PageComment2]]||<^>[:/PageCommentData:PageCommentData]''||
+
