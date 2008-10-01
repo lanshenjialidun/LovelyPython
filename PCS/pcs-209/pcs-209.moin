@@ -20,10 +20,7 @@ fnmatch 实现了shell patterns表匹配字符串或文件名.
 >>>False  
 >>>fnmatch.fnmatch('tlie.py','*.py')  
 >>>True
-}}}
-{{{
-注意:匹配样式是unix shell风格的.其中*表示匹配任何单个或多个字符.?表示匹配单个字符;[seq] 匹配单个seq中的字符;[!seq]匹配单个不是seq中的字符
-}}}
+}}}注意:匹配样式是unix shell风格的.其中"*"表示匹配零个或多个字符."?"表示匹配单个字符;"[seq]"匹配单个seq中的字符;"[!seq]"匹配单个不是seq中的字符
 
 === filter(names, pat) ===
 函式功能:实现列表特殊字符的过滤或筛选,返回符合匹配模式的字符列表
