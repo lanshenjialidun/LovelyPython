@@ -91,12 +91,13 @@ for d in dept:
   1. 处理XML文件为 ElementTree 对象
   1. 找到XML根
   1. 从根找到所有第二级的`<node>`节点对象列表
-  {{{注意::
+  1. 找到的所有节点,组织成一个列表,已经可以循环处理,并通过 `.attrib["TEXT"]` 来获得内容了!
+
+{{{注意::
 "node/node" 就是个 Xpath 语句,
 要求XML解析器,找出所有<node>标签中次一级的<node>标签节点!
 在 PCS402 XML 中都有相关的介绍,读者可以深入了解一下.
-  }}}
-  1. 找到的所有节点,组织成一个列表,已经可以循环处理,并通过 `.attrib["TEXT"]` 来获得内容了!
+}}}
 
 图 KDay6-3 页面输出和XML文本对照情景
 attachment:kday6-xml-page.png
