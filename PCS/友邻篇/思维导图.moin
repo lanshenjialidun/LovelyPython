@@ -1,0 +1,57 @@
+##language:zh
+#pragma section-numbers off
+||'''status'''|| 草稿|校对|正式 || liz|| 完成度50%||
+
+
+[[TableOfContents]]
+
+##startInc
+= 思维导图  =
+== 概述 ==
+Freemind是一款简单易用的开源思维图谱(MindMap)软件，或称树编辑器。通过它可以创建可折叠的树形结构，节点可以是纯文本，也可以添加颜色，图标，节点也可以具有云的形状及其它的图形。方便的折叠功能和强大的搜索功能使FreeMind成为一款颇有价值的知识库工具，同时也能够通过键盘进行控制。
+    
+== 使用 ==
+FreeMind可以应用于以下方面：
+ * 跟踪项目，包括子任务，子任务的状态以及时间纪录；
+ * 项目工作区，包括必要的链接，如文件，可知性文件，信息来源及信息；
+ * 互联网搜索工作区，使用Google及其它资源；
+ * 保留中小尺寸的备忘录，包括一些链接以扩展内容。这些备忘录也可以称作知识库；
+ * 散文写作及头脑风暴，使用颜色区分哪些散文打开的，哪些已完成，哪些未开始。节点可以显示散文的大小；
+ * 保存小型的结构化的数据库，可以动态改变，非常灵活。虽然查询功能有限，但是可以任你喜欢，保存任何信息，如联系人，名片，医疗记录等；
+ * 网络收藏夹或书签，可以任意设置颜色和字体。
+
+== 特性 ==
+ * 完全支持节点中HTML链接，链接可以是网站地址或者本地文件；
+ * 从早期版本开始，FreeMind就支持折叠功能，这是它的核心特性；
+ * 快速的点击导航，包括折叠/打开，链接点击导航。拖动图谱的背景就可移动图谱，也可使用鼠标滚轮移动；
+ * 取消操作功能；
+ * 即托即放功能，包括节点拷贝或节电样式拷贝；多个节点的拖放功能；从外部拖放文本或文件列表；
+ * 拷贝和粘贴功能，粘贴HTML中的链接和文件列表，或者拷贝纯文本和RTF(MS Wordpad, MS Word, MS Outlook消息)；
+ * 图谱输出到HTML格式；
+ * 查找功能，通过"find next"一个接一个显示查找到的纪录；
+ * 能够使用和编辑多行节点；
+ * 能够使用内置的图标,颜色,不同的字体装饰节点；
+ * 低成本低风险地转移到其它的思维图谱工具,因为FreeMind通过XML格式存储信息。
+最大的特点是使用方便，能够以xml的格式输出。推荐下载使用[http://freemind.sourceforge.net/testversions/ 0.8rc2]的版本，这个非常流畅。
+另外，FreeMind使用Java编写，支持使用Jython编写扩展插件。由于文件格式是xml，因此便于扩展，比如：存放更多的扩展属性信息。
+
+== 精彩实例 ==
+ * http://blog.outer-court.com/files/google-mindmap.gif
+ * Google 的发展思路；
+
+=== 学习图谱 ===
+ * ViQuickIn -- Vi 快速学习
+ * MoinMoinTutMap -- MoinMoin 学习图谱
+ * AskForHelp -- 提问的智慧图谱
+ * MindMapping -- 图谱链接整理
+
+== 资料 ==
+ * [http://freemind.sourceforge.net/testversions/ FreeMind最新下载]
+ * [http://www.woodpecker.org.cn/share/doc/mainmaping/ 网友使用 FreeMind 整理的 心智图谱资源 图谱]
+
+##endInc
+----
+'''反馈'''
+
+创建 by -- ::@USER@ [@TIME@]
+||<^>[[PageComment2]]||<^>[:/PageCommentData:PageCommentData]''||

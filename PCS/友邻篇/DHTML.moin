@@ -1,0 +1,42 @@
+##language:zh
+#pragma section-numbers off
+||'''status'''|| 草稿|校对|正式 || AuthorName|| 完成度15%||
+
+
+[[TableOfContents]]
+
+##startInc
+= DHTML =
+
+== 概述 ==
+DHTML，动态HTML，是以HTML为基础，运用DOM将页面元素对象化，利用CSSL控制这些对象的CSS属性以达到网页的动态视觉效果。
+一个DHTML的结构大致可分为:
+ * 传统的HTML。
+ * DOM(Document Object Model)文档对象模型，是W3C日前极力推广的web技术标准之一，它将网页中的内容抽象成对象，每个对象拥有各自的属性 (Properties)、方法(Method)和事件(Events)，这些都可以通过CSSL来进行控制。IE和NS的对象模型都是以W3C的公布的DOM为基准，加上自己的Extended Object(扩展对象)来生成的。
+ * CSS(Cascading Styles Sheets) 层叠式样式表。通过CSS样式表，可以自由定义各个网络组件的坐标位置(如静态、动态定位、或绝对坐标、相对坐标系统)，及其他新增的标签、行为 (Behaviors)、图层(Layer)、字体和Web页格式等各种不同的设置。
+ * CSSL(Clent-Side Scripting Language)客户端脚本语言，主要有JavaScript(JS)，VBScript(VBS)，JScript。Netscape主要支持 JS，IE主要支持JS，VBS和JScript。有了Script，才可以让CSS设置为“行动”，从而达到整个服务器端与客户端的动态控制。
+
+##下面分别介绍这几个部分:
+
+== HTML ==
+...
+== DOM ==
+...
+== CSS ==
+通常，在Web页中指定CSS样式表的方式有３种：
+    1．外部CSS样式表(External Styles Sheet)模式，它通过一个独立的CSS样式表文字文件(扩展名通常为 CSS)控制其他Web页。只要在需要指定样式的Web页中，设置一个链接至该CSS样式表文件，而且之后只要改变此CSS样式表内容，就可改变所有链接至该CSS样式表的Web页样式。
+    2．内嵌CSS样式表(Embedded Styles Sheet)模式，它直接在HTML＜body＞标签前设置一个样式标签，而这个设置会直接影响该Web页的样式设置。
+    3．内部CSS样式表(Internal Styles Sheet)模式，它直接对HTML里的任何单一对象(如文字、图像等)进行样式设置，这种做法其实相当于利用文字的属性检查器。CSS样式表直接定义的样式，只会影响单一选取的内容文字，而不会影响整个Web页的样式设置。
+通常这３种方式的处理顺序为：内部CSS样式表模式、内嵌CSS样式表模式，外部CSS样式表模式。
+
+== CSSL ==
+...
+
+== 实例 ==
+##endInc
+
+----
+'''反馈'''
+
+创建 by -- ::@USER@ [@TIME@]
+||<^>[[PageComment2]]||<^>[:/PageCommentData:PageCommentData]''||
