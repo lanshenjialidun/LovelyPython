@@ -179,7 +179,7 @@ attachment:cday2-start-karrigell.png
 为了独立组织各种已有代码,在 其中创建 `cdc` 子目录,
 先再将原先 `index.html` 复制一份到 `cdc` 中
 然后修订默认首页`index.html` 追加一链接{{{
-<h1><a href="cdc/">PyCDC Web</a><h1>
+<h1><a href="cdc/">PyCDC Web</a></h1>
 }}}
 
 刷个新: 
@@ -236,7 +236,7 @@ PCS114 交互参数
 ==== 导入 ====
 好了,将原先的 工具脚本导入进来就可以通过网页调用原先的功能了,但是...
 
-怎样才能从 `CDays/cday2/Karrigell-2.3.5/webapps/cdc/index.ks` 也可以`import` 到 `CDays/cday2/cdctools.py` 来复用已经成熟的功能?
+怎样才能从 "CDays/cday2/Karrigell-2.3.5/webapps/cdc/index.ks" import "CDays/cday2/cdctools.py" 来复用已经成熟的功能?
 
 好象,貌似, `import` 操作不象网页的包含动作有相对路径可以玩的?
 
@@ -287,8 +287,11 @@ attachment:cday2-import.png
 果然有行者反馈:'''Karrigell_QuickForm'''~ http://wiki.woodpecker.org.cn/moin/KwDay3
 
 FT!!连名字都一样 `快速表单`!{{{#!python
+from Karrigell_QuickForm import Karrigell_QuickForm as KQF
+#...
+
 def index(**args):
-    '''默认主
+    '''默认主页
     @note: 使用简单的表单／链接操作来完成原有功能的界面化
     @param args: 数组化的不定参数
     @return: 标准的HTML页面

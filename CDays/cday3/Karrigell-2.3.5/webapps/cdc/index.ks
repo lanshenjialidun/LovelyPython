@@ -38,7 +38,7 @@ htmfoot="""
 </body></html>"""
 
 def index(**args):
-    '''默认主
+    '''默认主页
     @note: 使用简单的表单／链接操作来完成原有功能的界面化
     @param args: 数组化的不定参数
     @return: 标准的HTML页面
