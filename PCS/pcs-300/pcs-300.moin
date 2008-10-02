@@ -76,7 +76,7 @@ cherrypy.quickstart(HelloWorld())
 
 执行后，访问 http://localhost:8080/ 和 http://localhost:8080/onepage 可以分别看到 hello world 和 one page! 。访问 http://localhost:8080/hello?name=you 也可以看到返回了 hello you 。
 
-上面处理的是 GET 参数，也就是 URL 中带的参数，CherryPy 将 POST 参数和 GET 参数是一视同仁，一律映射为方法的参数， POST 的处理其实是完全一样一样的。
+上面处理的是 GET 参数，也就是 URL 中带的参数，CherryPy 将 POST 参数和 GET 参数是一视同仁，一律映射为方法的参数， POST 的处理其实是完全一样的。
 
 另外实际的 web 应用中，当然不能把页面的html全部塞到 Python 代码里面来，实际上有很多专门的模板可以用，详见 PCSXX 大 web 框架介绍。
 关于 CherryPy 的详细内容，读者可以参考CherryPy的官方文档 http://www.cherrypy.org/wiki/TableOfContents 。
