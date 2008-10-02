@@ -85,7 +85,7 @@
 
 晕了，彻底晕了这都在说人话嘛？ 小白自个儿参照着作了点研究，确认：
  1. 进程和线程就是程序执行时请求的系统不同级别资源的名称
- 1. 多进程就象孙悟空猴毛变的多个分身,大家自个儿干自个儿的,各不相干
+ 1. 多进程就象孙悟空猴毛变的多个分身,大家自个儿干自个儿的,牵扯较少
  1. 多线程就象哪吒的三头六臂，一个人同时干多个事儿，还能相互配合
 
 嗬嗬嗬，那当然是多线程了！毕竟搜索结果是得集成在一起输出汇报的哪！
@@ -97,7 +97,7 @@
 
 所以,参考模块手册:[http://aspn.activestate.com/ASPN/docs/ActivePython/2.4/python/lib/thread-objects.html thread-objects]
  
-找个实例代码:[http://onlypython.group.javaeye.com/group/blog_post/353613   Python线程编程的两种方式] -- 作者:   [http://guanjh.javaeye.com/ guanjh]
+找个实例代码:[http://guanjh.javaeye.com/blog/88904   Python线程编程的两种方式] -- 作者:   [http://guanjh.javaeye.com/ guanjh]
 
 照猫画虎准没大错 益rz ! 
 
