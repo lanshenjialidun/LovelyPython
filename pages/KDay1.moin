@@ -170,7 +170,7 @@ attachment:kday1-page-run-cil.png
 {{{
 [Directories]
 ...
-allow_directory_listing = 1
+allow_directory_listing = all
 }}}
 在实际开发过程中,经常要查看实际发布目录中有什么内容,打开配置文件中的上述配置项, Karrigell 将自动发布没有默认首页的目录内容索引,
 
