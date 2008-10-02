@@ -1,7 +1,7 @@
 def cdWalker(cdrom,cdcfile):
     '''光盘扫描主函式
     @param cdrom: 光盘访问路径
-    @param cdcfile: 输出的光盘信息记录文件(包含路径,绝对,相对都可以)
+    @param cdcfile: 输出的光盘信息记录文件(包含路径,绝对、相对都可以)
     @return: 无,直接输出成*.cdc 文件
     @attention: 从v0.7 开始不使用此扫描函式,使用 iniCDinfo()
     '''
