@@ -1,4 +1,4 @@
-#coding:utf-8
+# -*- coding: utf-8 -*-
 #实现每隔2秒钟向test中写入一个随机数。
 import random
 import time

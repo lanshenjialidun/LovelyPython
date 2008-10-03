@@ -1,33 +1,150 @@
 ##language:zh
 #pragma section-numbers off
-##含有章节索引导航的 ZPyUG 文章通用模板
+||'''status'''|| 校对 || MarchLiu || 完成度100%||
+
 [[TableOfContents]]
-## 默许导航,请保留
-[[Include(ZPyUGnav)]]
 
-
-
-
-
-
-= PCS115 FP初体验 =
- 概述::
-    简洁的介绍 FP 的概念...
-    
- 使用::
-    以实用的小例子,快速介绍Python 中实用的FP 开发
-
- 问题::
-    指出知识点应用中常常遇见的问题,和解决思路
-
- 探讨::
-    进一步介绍相关的或是深入的知识领域...
-
-
-
-`原料`::
 ##startInc
-[[Include(PythonFunctionProgramming,,from="^##startInc$",to="^##endInc$")]]
+= PCS115 FP初体验 =
+== 概述 ==
+Python不是一门纯粹的函式编程语言，但它在也加入了一些可以有效提高编程效率的函式编程特性。
+
+函式编程，英文写作 Functional Programming。原意并非以函式来组织程序结构，直白的说，FP是指将程序的行为抽象出来，作为基本的元素，以此组织程序。它来自于与图灵机同时提出的Lambda计算模型。相对于具有高度可操作性（现代我们所见的计算机基本都是图灵机）的图灵机，Lambda模型在数学上更为优美，因此，产生了FP语言这样的技术流派，通过严格定义程序的行为来使程序可控性更好，更为优美。相对来说，FP语言也需要较深入的学习。
+
+== 高序函式（High Order Functions）支持 ==
+函式编程中，最著名的特色就是High Order。简单的说，就是定制一个算法，按规则作用于指定容器中的每一个元素。最常用的High Order通常是：
+ * 映射，也就是将算法施于每个元素，将返回值合并为一个新的容器。
+ * 过滤，将算法施于每个元素，将返回值为真的元素合并为一个新的容器。
+ * 合并，将算法（可能携带一个初值）依次施于每个元素，将返回值作为下一步计算的参数之一，与下一个元素再计算，直至最终成为一个总的结果。
+
+Python通过map、filter、reduce三个内置函式实现这三个High Order功能。
+
+=== 使用map ===
+函式 map 至少需要两个参数，第一个是一个函式，第二个是传入函式的参数。例如：
+{{{
+#!python
+
+def foo(x):
+    return x*x
+
+print map(foo, range(10))
+}}}
+以上代码得到10以内的自然数平方表。
+
+map允许接收三个或三个以上的参数，从第二个开始，每个参数都接收一个线性容器（或迭代对象），将每个元素提取出来做为第一个参数（函式）的参数列表。如果各个容器的长度不一样，短缺的部分用None补齐。例如可以这样使用：
+{{{
+#!python
+
+def foo(x, y):
+    return x**y
+
+print map(foo, range(10), range(10))
+
+}}}
+这个计算结果会很大，所以最好不要用太大的数来测试，不过得益于Python的长整数，仍然可以得到计算结果。如果这样用：map(foo, range(10), range(20))，会收到异常，因为定义的这个foo不接受None。
+
+如果map的第一个参数为None，那么返回原来的序列，如果传入了多个序列，会将其中每个位置的参数打包成tuple。如：
+{{{
+#!python
+
+print map(None, range(10), range(10))
+
+}}}
+返回[(0, 0), (1, 1), (2, 2), (3, 3), (4, 4), (5, 5), (6, 6), (7, 7), (8, 8), (9, 9)]
+
+=== 使用filter ===
+英文单词filter的字面意义有过滤的意思，实际也如此。例如可以用下面的方法得到100以内的偶数列：
+{{{
+#!python
+
+def foo(x):
+    return x%2==0
+
+print filter(foo, range(100))
+
+}}}
+如果filter的第一个参数是None，返回序列中所有的真值。例如True、非空序列，非零数值等。
+
+=== 使用reduce ===
+filter 可以方便的实现有条件选择，但是如果想要筛法计算素数列，用filter就不够高效了。计算N是否为素数最有效的方法，应该只计算已得到的素数列中，小于N的平方根的那部分。而filter并不保存前一步的计算状态（从FP理论上讲，每个filter运算之间是无关的，它们可以并行执行）。需要将上一步计算的结果作为当前计算的一部分时，Python的内置函式reduce就派上用场了。
+{{{
+#!python
+
+def foo(perms, x):
+    i = 0
+    while perms[i]**2 <= x:
+        if x%perms[i] == 0:
+            return perms
+        else:
+            i += 1
+    else:
+        perms.append(x)
+    return perms
+
+print reduce(foo, range(5, 100, 2), [2, 3])
+}}}
+因为1、2、3、4、5这几个数已经非常了解，并且大于2的偶数显然不是素数，所以这里对传统筛法做了很普通的优化。这里可以看到，通过reduce，方便的实现了计算结果的重用，节省了大量的CPU周期。在实际应用中，reduce可以用来实现统计计算或时序依赖的遍历行为。
+
+== lambda 表达式 ==
+FP 的理论基础，称之为 Lambda 模型。在很多FP语言中，Lambda这个伟大的名字就代表了函式。而Python中，lambda是一个关键字，是一个简单的匿名函式定义方式。它允许将一个表达式定义为一个可调用的对象，可以用它赋值或传递给其它函式。
+
+前面讨论了一个通过map生成乘方表的例子，实际上那个例子中的foo函式只有一行，完全可以用lambda代替它：
+{{{
+print map(lambda x:x**2, range(10))
+}}}
+Python中的lambda不像真正的FP语言中那么显要，它只是一个语法糖，用来生成一个匿名的函式对象。Lambda只接受一个单行表达式，该表达式的结果就是返回值。Python的设计者出于可读性和语法的一致性考虑，没有支持多行匿名函式的定义。但是Python可以嵌套定义函式。
+
+== 推导式 ==
+这项技术在Python中的正式命名是“List Comprehensions”，在Python Tutorial的简体中文版中译作列表推导式。其基本形式很简单，例如，前面生成平方表的例子，还可以进一步简化为：
+{{{
+#!python
+
+print [x**2 for x in range(10)]
+}}}
+列表推导式分为三部分，最左边是生成每个元素的表达式，然后是for迭代过程，最右边可以设定一个if过判断作为过滤条件。例如通过下面的方式查找1000以内，所有左右对称的数：
+{{{
+#!python
+
+def isSymmetry(it):
+    if it < 10:
+        return True
+    s = str(it)
+    mpoint = len(s)/2 + 1
+    for idx in range(1, mpoint):
+        if s[idx-1] != s[-idx]:
+            return False
+    else:
+        return True
+
+print [x for x in range(1000) if isSymmetry(x)]
+}}}
+列表推导式甚至还可以一次性执行多个for迭代，这会生成它们的全排列，例如可以通过以下方法生成一个九九乘法表：
+{{{
+#!python
+
+for s in ["%s * %s = %s"%(x, y, x*y) for x in range(1, 10) for y in range(1, 10)]:
+    print s
+
+}}}
+如果只希望输出不重复的那些，不妨：
+{{{
+#!python
+
+for s in ["%s * %s = %s"%(x, y, x*y) for x in range(1, 10) for y in range(1, 10) if x<=y]:
+    print s
+
+}}}
+因为列表推导式可以统一实现map和filter，而reduce可以转成等价的for，Python的发明人Gudio曾经想取消map、filter和reduce这三个函式。虽然在广大使用者的呼声下，最终这三个函式还是保留了下来，但是大家也一致同意，列表推导通常可以更简洁的表达从线性容器中有选择的获取并计算元素，应该优先使用列表推导式。
+
+因为列表推导式非常好用，所以在Python2.5之后，又对它做了进一步的扩展，如果一个函式接受一个可迭代对象作为参数，那么可以给它传一个不带中括号的推导式，在python tuorial中称其为“迭代推导式”，因为它不需要一次生成整个列表，只需要将可迭代对象传递给函式，如果推导式返回大量元素，这样显然可以节省内存，提高速度。例如字典的构造函式可以接受一个可迭代对象，从中得到(key, value) 元组序列来生成字典，形如以下的代码在使用Python 2.5时经常可以见到：
+{{{
+#!python
+
+d = dict(("%s * %s"%(x, y), x * y) for x in range(1, 10) for y in range(1, 10))
+for k, v in d.iteritems():
+    print "%s = %s"%(k, v)
+}}}
+
 ##endInc
 ----
 '''反馈'''

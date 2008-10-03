@@ -1,12 +1,12 @@
 ##language:zh
 #pragma section-numbers off
-||'''status'''|| 草稿|校对|正式 || liz|| 完成度80%||
+||'''status'''|| 草稿|校对|正式 || liz || 完成度80%||
 
 
 [[TableOfContents]]
 
 ##startInc
-= XML =
+= PCS402 XML =
 == XML的来源 ==
 XML源自标准通用标记语言（Standard Generalized Markup Language，SGML），SGML是一种通用的文档结构描述的符号化语言，主要是用来定义文献模型的逻辑和物理结构，但是由于其过于复杂和臃肿，只能够在大型企业和学术界使用，无法得到大规模应用。随后，于90年代提出的HTML技术得到了很大的发展，但由于HTML是面向表现的标记语言，而且结构固定，难以扩展，缺乏必要的语义信息，不适合用于信息交互。为了克服HTML和SGML的弊端，1996年W3C专家组对SGML进行裁剪，形成SGML的精简子集，这就是现在我们所知的XML。
 

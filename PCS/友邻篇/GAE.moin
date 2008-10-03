@@ -1,12 +1,12 @@
 ##language:zh
 #pragma section-numbers off
-||'''status'''|| 草稿|校对|正式 || AuthorName|| 完成度15%||
+||'''status'''|| 草稿|校对|正式 || liz || 完成度40%||
 
 
 [[TableOfContents]]
 
 ##startInc
-= GAE =
+= PCS400 GAE =
 == 概述 ==
 Google App Engine是用于在google服务器上创建和部署web应用的平台，于2008年4月发布beta版本。App Engine应用很容易被创建，维护和扩展，不需要服务器的维护，开发者只需要上载自己的应用就可发布。
 GAE帐号可以免费注册，也提供在appspot.com上的免费二级域名，也可通过Google Apps使用自己的域名。一个免费帐号拥有500MB的持久存储，足够CPU配额和每月500万页访问的带宽。

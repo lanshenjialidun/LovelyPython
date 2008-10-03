@@ -11,8 +11,10 @@
 == 概述 ==
 自省，简单来说是自我检查。Python提供这个强大的功能，方便程序员查看各个对象的信息。常用自省函式有help()、dir()、type()、id()等等。
 
-== help() ==
-用来查看很多python自带帮助文档信息，可以使用`help()`。{{{
+== 使用 ==
+=== help() ===
+用来查看很多python自带帮助文档信息，可以使用`help()`。
+{{{
 ~$ ipython
 Python 2.5.2 (r252:60911, May  7 2008, 15:19:09) 
 Type "copyright", "credits" or "license" for more information.
@@ -23,13 +25,15 @@ IPython 0.8.2 -- An enhanced Interactive Python.
 help      -> Python's own help system.
 object?   -> Details about 'object'. ?object also works, ?? prints more.
 
-In [1]: help(str)
+In [1]: help("str")
 
 In [2]: import pygments
 
-In [3]: help(pygments)
+In [3]: help("pygments")
 
-}}}如上所示，可以在python交互环境中，输入help(obj)后即可看到obj的帮助信息。就像bash中man随机帮助页一样。另外，也可以直接help()，进入帮助实用程序。如下：{{{
+}}}
+如上所示，可以在python交互环境中，输入help("obj")后即可看到obj的帮助信息。就像bash中man随机帮助页一样。另外，也可以直接help()，进入帮助实用程序。如下：
+{{{
 In [4]: help()
 
 Welcome to Python 2.5!  This is the online help utility.
@@ -60,8 +64,9 @@ def                 from                or                  yield
 del                 global              pass                
 }}}
 
-== dir() ==
-可以列出对象的所有属性。{{{
+=== dir() ===
+可以列出对象的所有属性。
+{{{
 In [6]: import os
 
 In [7]: dir(os)
@@ -74,13 +79,17 @@ Out[7]:
  'EX_NOINPUT',
 ......
 }}}
-== type() ==
-返回对象的类型。{{{
+
+=== type() ===
+返回对象的类型。
+{{{
 In [8]: type(os)
 Out[8]: <type 'module'>
 }}}
-== id() ==
-返回对象的 "唯一序号"。其中，对于引用对象来说，返回的是被引用对象的id()。{{{
+
+=== id() ===
+返回对象的 "唯一序号"。其中，对于引用对象来说，返回的是被引用对象的id()。
+{{{
 In [29]: a = 'abc'
 
 In [30]: b = a
@@ -91,8 +100,10 @@ Out[31]: 137472992
 In [32]: id(b)
 Out[32]: 137472992
 }}}
+
 == hasattr()和getattr() ==
-分别是判断对象是否有某个属性及获得某个属性值{{{
+分别是判断对象是否有某个属性及获得某个属性值。
+{{{
 
 In [35]: hasattr(a, 'split')
 Out[35]: True
@@ -101,8 +112,10 @@ In [36]: getattr(a, 'split')
 Out[36]: <built-in method split of str object at 0x831abe0>
 
 }}}
-== callable() ==
-判断对象是否可以被调用{{{
+
+=== callable() ===
+判断对象是否可以被调用。
+{{{
 
 In [37]: callable(a)
 Out[37]: False
@@ -111,8 +124,10 @@ In [38]: callable(a.split)
 Out[38]: True
 
 }}}
-== isinstance() ==
-可以确认某个变量是否某种类型。{{{
+
+=== isinstance() ===
+可以确认某个变量是否某种类型。
+{{{
 
 In [44]: isinstance(a, str)
 Out[44]: True

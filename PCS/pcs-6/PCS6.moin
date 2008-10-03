@@ -8,10 +8,11 @@
 = PCS6 Python与中文 =
 
 == 概述 ==
-中文编码总是个大问题。不过Python可以完美的支持中文，不管你的字符编码是GB2312，GBK 或者UTF-8。在这里，不准备讲述有关ASCII/Unicode编码和中文编码问题，这两部分内容可以分别参考http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html和http://www.css8.cn/css8_document/gb2312.htm上的描述。在这里，我们介绍Python中的中文编码问题。
+中文编码总是个大问题。不过Python可以完美的支持中文，不管你的字符编码是GB2312，GBK 或者UTF-8。在这里，不准备讲述有关ASCII/Unicode编码和中文编码问题，这两部分内容可以分别参考[http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html]和[http://www.css8.cn/css8_document/gb2312.htm]上的描述。下面介绍Python中的中文编码问题。
 
-== Python中文编码转换 ==
-在Python中，主要有以下四个对象来处理字符串转换操作等。{{{
+== 使用 ==
+Python中文编码转换，主要有以下四个对象来处理字符串转换操作等。
+{{{
 class str(basestring)
  |  str(object) -> string
  |  
@@ -44,9 +45,12 @@ decode(...)
     as well as any other name registerd with codecs.register_error that is
     able to handle UnicodeDecodeErrors.
 }}}
- 1. `str`表示将某对象转换成字符串表示。
- 1. `unicode`表示将某个字符串按照某个编码方式转换为一unicode对象，unicode是内部编码，世界上所有字符的统一编码集，即每个字符都有唯一的二进制表示，可以在[http://www.unicode.org/]上查到某个字符的unicode码。
-  * 在python 中，如果要正确显示中文字符，简单做法就是把字符串先转化为unicode，然后再由unicode 对象转化成任意其他你的系统可以显示你的编码。如果你的操作系统是linux的，只能正确显示UTF-8，而你要显示的文本是从一个windows系统下过来的GB2312编码的，那么你要做的就是将GB2312转化成unicode,然后由unicode转化成UTF-8，就可以正确显示了。{{{
+`str`表示将某对象转换成字符串表示。
+
+`unicode`表示将某个字符串按照某个编码方式转换为一unicode对象，unicode是内部编码，世界上所有字符的统一编码集，即每个字符都有唯一的二进制表示，可以在[http://www.unicode.org/]上查到某个字符的unicode码。
+
+在python 中，如果要正确显示中文字符，简单做法就是把字符串先转化为unicode，然后再由unicode 对象转化成任意其他你的系统可以显示你的编码。如果你的操作系统是linux的，只能正确显示UTF-8，而你要显示的文本是从一个windows系统下过来的GB2312编码的，那么你要做的就是将GB2312转化成unicode,然后由unicode转化成UTF-8，就可以正确显示了。
+{{{
 In [26]: f = open('test')
 
 In [27]: line = f.readline()
@@ -61,8 +65,11 @@ In [30]: u8line = uline.encode('utf-8')
 In [31]: u8line
 Out[31]: 'lines: 0.838643\n'
 }}}
- 1. `encode`将对象按照指定编码进行编码
- 1. `decode`将对象按照指定编码进行解码。{{{
+
+`encode`将对象按照指定编码进行编码
+
+`decode`将对象按照指定编码进行解码。
+{{{
 In [6]: s = "你好"
 
 In [7]: s.decode("gbk")

@@ -1,7 +1,6 @@
 ##language:zh
-##OBP项目图书reST通用文章模板
-###format rst
-||status|| 草稿 ||清风 & liz; 100%||
+#pragma section-numbers off
+||'''status'''|| 校对 || 清风 & Lizzie|| 完成度100%||
 
 [[TableOfContents]]
 
@@ -14,7 +13,7 @@ cmd模块为命令行接口(command-line interfaces , CLI)提供了一个简单�
 == 使用 ==
 下面先举个cmd模块使用的小例子:
 {{{#!python
-#coding: utf-8
+# -*- coding: utf-8 -*-
 import cmd
 import string, sys
 
@@ -44,7 +43,9 @@ class CLI(cmd.Cmd):
 # 创建CLI实例并运行
 cli = CLI()
 cli.cmdloop()
-}}}从这个例子可以看出,首先CLI类继承了cmd.Cmd类,然后在类中定义了两条命令hello和quit,而命令q作为quit的短命令形式.也就是说,若需要另外定义一条命令,如command,只要在CLI类中增加一个do_command函式,而该命令对应的帮助信息由help_command函式给出.
+}}}
+从这个例子可以看出,首先CLI类继承了cmd.Cmd类,然后在类中定义了两条命令hello和quit,而命令q作为quit的短命令形式.也就是说,若需要另外定义一条命令,如command,只要在CLI类中增加一个do_command函式,而该命令对应的帮助信息由help_command函式给出.
+
 使用`cmd.Cmd`类编写命令行处理程序是非常容易.运行上述例子,可以进入如下的命令行:
 {{{
 ~$ python pcs-201.py 
@@ -65,7 +66,8 @@ hello again LovelyPython !
 > find
 *** Unknown syntax: find
 > q
-}}}就像示例中所写的那样,自定义的CLI类提供了`hello`和`quit`命令,可以正常使用它们,而`find`命令是没有定义的,所以命令行提示为未知语法.最后的q命令是和quit一样的功能,即退出程序.
+}}}
+就像示例中所写的那样,自定义的CLI类提供了`hello`和`quit`命令,可以正常使用它们,而`find`命令是没有定义的,所以命令行提示为未知语法.最后的q命令是和quit一样的功能,即退出程序.
 
 == 探讨 ==
 使用cmd模块可以方便编写命令行程序,同时使用getopt和optparse这两个模块可以很方便解析命令行参数.这里向读者推荐一个比cmd更好的模块,是由Doug Hellmann编写的命令行处理类`CommandLineApp`,具体可以参见这里的[http://www.doughellmann.com/articles/CommandLineApp/index.html 描述资料]及[http://code.pythonmagazine.com/2/1 相关代码]。

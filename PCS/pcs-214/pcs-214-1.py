@@ -1,4 +1,4 @@
-# coding:utf-8
+# -*- coding: utf-8 -*-
 import xml.etree.ElementTree as ET
 
 # 创建一个根节点root,并设置其标签为"html"

@@ -1,4 +1,4 @@
-# coding:utf-8
+# -*- coding: utf-8 -*-
 import xml.etree.ElementTree as ET
 
 # 使用parse()将XML文档加载并返回ElementTree对象

@@ -1,5 +1,5 @@
 #!/bin/python
-# coding: utf-8
+# -*- coding: utf-8 -*-
 
 """ Html To Text
 @author: lizzie

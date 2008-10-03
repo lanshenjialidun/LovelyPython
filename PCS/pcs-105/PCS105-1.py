@@ -1,4 +1,4 @@
-#coding:utf-8
+# -*- coding: utf-8 -*-
 class Concept(object):
 	conceptNUM = 0   # 定义类变量
 

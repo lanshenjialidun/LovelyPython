@@ -16,7 +16,7 @@ python是支持多线程的,并且是native的线程,主要是通过thread和thr
 下面举个使用thread模块的简单例子:
 {{{#!python
 #!/usr/bin/env python 
-#encoding: utf-8
+# -*- coding: utf-8 -*-
 
 import thread 
 from time import sleep, ctime 
@@ -42,7 +42,8 @@ def main():
 
 if __name__ == '__main__': 
 	main() 
-}}}这个例子中,主程序创建了两个线程后进入睡眠6秒,而两个线程分别执行loop0和loop1,线程0在loop0中睡眠了4秒,而线程1在loop1中只睡眠了2秒,这样导致线程1先结束,线程0后结束,最后主程序6秒后退出.运行之后，可以看到如下结果：
+}}}
+这个例子中,主程序创建了两个线程后进入睡眠6秒,而两个线程分别执行loop0和loop1,线程0在loop0中睡眠了4秒,而线程1在loop1中只睡眠了2秒,这样导致线程1先结束,线程0后结束,最后主程序6秒后退出.运行之后，可以看到如下结果：
 {{{
 ~$ python pcs-206-1.py 
 starting at: Sun Aug 31 20:04:44 2008

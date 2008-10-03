@@ -1,4 +1,4 @@
-#coding:utf-8
+# -*- coding: utf-8 -*-
 #实现每隔1秒钟读取test中的内容。
 import time
 

@@ -12,12 +12,13 @@
 Python中的一切东西都是对象，即，一切兼对象！
 
 == 对象定义 ==
-Python把任何数据抽象为对象。
-每个对象都有唯一的id，特定的类型和值。
+Python把任何数据抽象为对象。每个对象都有唯一的id，特定的类型和值。
  * 每一个对象都有一个唯一的身份标识自己，任何对象的身份可以使用内建函式id()来得到。这个值可以被认为是该对象的内存地址。
  * 对象的类型决定了该对象可以保存什么类型的值，可以进行什么样的操作，以及遵循什么样的规则。可以使用内建函式type()查看Python对象的类型。注意：在Python中类型也是对象，所以type()返回的是对象而不是简单的字符串。
  * 值则是对象的数据内容。
+
 在创建一个对象后，其id不能改变，类型一般情况下不能改变，但对于某些特殊类是可以改变的，而值是可有可无并且也能动态改变。
+
 Python有一系列的基本数据类型，这些基本数据类型同样也是对象。另外，也可以创建自定义类型，如下定义了两个类，分别叫A和B：
 {{{
 In [32]: class A(object):  # 定义类A
@@ -37,7 +38,9 @@ Out[36]: <class '__main__.A'>
 
 In [37]: type(b)   # 查看对象b的类型为类B
 Out[37]: <class '__main__.B'>
-}}}a和b是两个属于不同类的对象。类A和B继承了object。Python中的object是最基类。{{{
+}}}
+a和b是两个属于不同类的对象。类A和B继承了object。Python中的object是最基类。
+{{{
 class object
  |  The most base type
 }}}
@@ -45,7 +48,8 @@ class object
 == 对象属性 ==
 不同的Python对象具有不同的属性和方法，可以使用点号`.`来访问属性。比如定义一个类Concept：
 {{{#!python
-#coding:utf-8
+# -*- coding: utf-8 -*-
+
 class Concept(object):
 	conceptNUM = 0   # 定义类变量
 
@@ -72,7 +76,8 @@ if __name__ == '__main__':
     cpt.addExtent(set(['a', 'b']))
     print 'Add Extent: ', cpt
     print cpt.conceptID
-}}}可以看到在定义了类Concept之后，在主程序中创建一个对象cpt，之后使用`.`来调用其方法和属性。其运行结果：
+}}}
+可以看到在定义了类Concept之后，在主程序中创建一个对象cpt，之后使用`.`来调用其方法和属性。其运行结果：
 {{{
 ~$ python PCS105-1.py 
 Create:  Concept 1: (set([])), (set([]))
@@ -82,7 +87,8 @@ Add Intent:  Concept 1: (set([])), (set([1, 2, 3]))
 Add Extent:  Concept 1: (set(['a', 'b'])), (set([1, 2, 3]))
 
 1
-}}}这里涉及到Python中类的相关知识，在[http://wiki.woodpecker.org.cn/moin/ObpLovelyPython/PCS111 PCS111 类]中有详细描述，在此略。对于Python对象，读者在学习过程中，一定要时刻记住`一切类型皆是对象`，对于如int等的基本数据类型也是对象，读者可以查看《Python源码剖析》来进一步了解Python中的对象机制。同时，在Python世界中，[http://wiki.woodpecker.org.cn/moin/ZoomQuiet/2008-07-01 一切循环是迭代,一切对象是字典,一切命名是引用]。
+}}}
+这里涉及到Python中类的相关知识，在[http://wiki.woodpecker.org.cn/moin/ObpLovelyPython/PCS111 PCS111 类]中有详细描述，在此略。对于Python对象，读者在学习过程中，一定要时刻记住`一切类型皆是对象`，对于如int等的基本数据类型也是对象，读者可以查看《Python源码剖析》来进一步了解Python中的对象机制。同时，在Python世界中，[http://wiki.woodpecker.org.cn/moin/ZoomQuiet/2008-07-01 一切循环是迭代,一切对象是字典,一切命名是引用]。
 
 ##endInc
 == 相关参考 ==

@@ -10,9 +10,8 @@
 == 模块(modules) ==
 模块(modules) 其实,就是普通的 Python 脚本文件，一般命名是模块名称加上.py后缀；
 这类Python 脚本文件,主要供其他程序将其引入,以便利用其提供的操作/功能/数据，Python标准库全部是以模块方式提供的.
-
 例如：fibo模块(fibo.py)是一个实现Fibonacci功能的模块。{{{#!python
-#coding:utf-8
+# -*- coding: utf-8 -*-
 # Fibonacci数列模块
 # 输出所有小于n的Fibonacci数
 def fib(n):
@@ -79,6 +78,7 @@ Sound/                          Top-level package
 
 == import ==
 直接导入包中的一个模块或导入模块中定义的一个函式(如模块fibo的函式fib)来使用，比如：{{{#!python
+# -*- coding: utf-8 -*-
 import Sound.Effects.echo
 # 使用这个模块,必须使用完整的名字来调用
 Sound.Effects.echo.echofilter(input, output, delay=0.7, atten=4)
@@ -108,6 +108,7 @@ from Package import specific_submodule as specific_submodule_alias
 
 == 搜寻路径 ==
 当你导入fibo时，Python解释器先在当前目录下搜寻fibo.py文件，如果没有找到，会依次在$PYTHONPATH指示的所有路径中搜寻。$PYTHONPATH的设定方法与$PATH是一样的，即多个目录路径的字符串。事实上，模块的搜寻路径是依照sys.path变量（多个路径组成的list变量）。当Python解释器启动时，会将当前目录、$PYTHONPATH、以及按照安装时设定的一些目录加入到sys.path变量中，所以可以修改这些参数来控制搜寻模块的路径。 比如：{{{#!python
+# -*- coding: utf-8 -*-
 import sys
 # 将fibo.py的路径添加到sys.path
 sys.path.append('/home/shengyan/workspace/')
