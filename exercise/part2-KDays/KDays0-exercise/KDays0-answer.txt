@@ -14,4 +14,4 @@ Karrigell 2.4.0 running on port 8081
 Press Ctrl+C to stop
 这个表明成功开启Karrigell服务.
 
-现在就可以在浏览器地址栏中输入localhost测试默认站点, 当第一次进入时会转入login页面进行登录, 输入用户名和密码后, 即可进入Karrigell文档首页, 里面有很多有用的资料哦, 读者可以看看. 
+现在就可以在浏览器地址栏中输入localhost:8081测试默认站点, 当第一次进入时会转入login页面进行登录, 输入用户名和密码后, 即可进入Karrigell文档首页, 里面有很多有用的资料哦, 读者可以看看. 
