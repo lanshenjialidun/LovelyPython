@@ -5491,7 +5491,7 @@ Include("qprint.py")
 &lt;a href="index.ks/index"&gt;
 进入回答&lt;/a&gt; 
 &lt;/h4&gt;</t>
-<t tx="zoomq.20080818231058.35">@ $Id: obpKwd2.leo 325 2005-12-30 04:23:49Z  $
+<t tx="zoomq.20080818231058.35">@
 qpage.py 快捷问卷模拟展示;
 @c
 

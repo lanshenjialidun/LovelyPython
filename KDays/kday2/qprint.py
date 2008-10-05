@@ -1,4 +1,3 @@
-# $Id: obpKwd2.leo 325 2005-12-30 04:23:49Z  $
 # qpage.py 快捷问卷模拟展示;
 
 #!/usr/bin/env python
