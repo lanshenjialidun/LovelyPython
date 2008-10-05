@@ -1,0 +1,134 @@
+##language:zh
+#pragma section-numbers off
+##草稿|校对|正式
+||'''status'''|| 校对 || ZoomQuiet || 完成度:100%||
+
+
+[[TableOfContents]]
+
+##startInc
+= PCS303 MoinMoin  =
+~ 纯Python 流行Wiki系统!
+
+== 概述 ==
+ Wiki::
+  * 就是维基, 名字来源自夏威夷语的 "wee kee wee kee" 意思就是~快
+  * 本质上是种快速内容发布系统,但是有别于其它的系统有其非常个性的约定:
+   * 所有人可以修订所有页面!
+    * 这是维基最最本质的特征,也因为这个,引发了维基的爆发式发展,成为流行的知识管理平台,共笔系统,,,
+   * 通过 WikiName 的约定,可以快速相互链接!
+    * WikiName ~ 就是由两个以上首字母大写的单词组成的字串,会由维基系统自动解析为一个指向维基页面的链接,如果该页面不存在就会立即建立一个空页面,等待读者自行完善;
+   * 使用 WYTIWYG ~ 所想即所得思想指导的结构化文本来组织内容,而不是HTML之类的"所见即所得"式的富文本管理器
+ 
+ MoinMoin::
+  * 是一个基于Python环境的wiki引擎程序,支持包括中文在内的多语种特性;
+  * 是遵循GNU GPL的开源项目,启动于2000年7月20日,最初由JürgenHermann撰写.
+  * 可运行在Windows,Linux/BSD/UNIX,OS X等环境下.目前能够处理英文,德文,繁简体中文,日文,俄文等约21种语言.
+  * MoinMoin的特点:
+   1. 完全使用文件来存储内容,不使用数据库
+   1. 实现了全部Wiki规范,Unicode编码支持多语种
+   1. 完整实用的wiki文本约定,编辑规则比较轻巧易学,包含所见即所得编辑环境
+   1. 拥有访问权限控制
+   1. 支持多种扩展方式: 宏,插件,预处理,语法着色,XML RPC……
+   1. 为数众多的插件中包括TeX科技文本输入,Media:FreeMind思维图谱,GraphViz示意图,gnuplot数据图表绘图等
+   1. 支持几种很实用的不同页面样式：设定方式
+   1. 使用Python编写,真正跨平台
+   1. 个人版MoinMoin不需要服务器就可以直接作为小型Wiki站点使用.
+   
+== 使用 ==
+本书撰写工程使用的啄木鸟社区维基,就是MoinMoin 支持的:
+ * 维基入口 http://wiki.woodpecker.org.cn/moin/ObpLovelyPython
+ * 精巧地址: http://bit.ly/2QA425
+ 
+ 独立版本MoinMoin安装::
+  1. 首先确认本地有Python 环境
+  1. 下载MoinMoin 官方地址: http://moinmo.in/MoinMoinDownload 
+  1. 和正常的Python 模块安装一样,解开压缩后,进入,运行 `python setup.py install` 就好
+  1. 部署一个MoinMoin实例:
+   * 一般在`/usr/local/share/moin` 会自动初始化一个实例,不过一般都喜欢自己定制个,安置到习惯的目录中:
+   * 可以自行从安装包中摄取以下目录组织到任何地方{{{
++--MyMoin
+|  +--data      初始化的默认页面目录
+|  +--htdocs    要和Web服务器配合的样式发布目录
+|  +--server    实际服务运行文件收集，因为现在MoinMoin 不仅仅只会cgi了
+\  \--underlay  系统文章收集目录
+}}}
+  1. 启动一个桌面个人独立运行版的MoinMoin
+   * 就是自个儿运行,不依赖其它服务器的维基!
+   * 复制一份原始的`wikiconfig.py`到 server 目录中,修订三行:{{{
+,,,
+data_dir = '../data/'
+data_underlay_dir = '../underlay/'
+url_prefix = '/wiki'
+,,,
+}}}
+   * 然后在 server 目录中运行`./moin start` 就可以在http://localhost:8000/ 中访问到一个新的MoinMoin 维基系统了!
+   
+ 详细安装说明::
+  * 访问地址: http://moinmo.in/HelpOnInstalling/BasicInstallation
+  * 精巧地址: http://bit.ly/1pBOQR
+
+== 美味 ==
+MoinMoin 系统提供了丰富的内容管理和发布的支持功能,其中最美味的就是页面版本历史了:
+ * MoinMoin 自动的将所有页面的所有修订历史都记录成页面版本(甚至于删除页面操作!)
+ * 读者(当然同时也是作者)可以任意浏览任何版本的历史,决定是否回退
+  * 图pcs303-1 MoinMoin 的版本历史页面
+  
+ attachment:moin-changelog.png
+ * 而且可以任意对比任何版本间的内容差异!
+  * 图pcs303-1 MoinMoin 的页面版本差异对比输出
+  
+ attachment:moin-diff.png
+
+== 探讨 ==
+MoinMoin 秉承优秀作品的特性,组织有非常丰富和完善的接口,所以,插件/扩展/样式极其丰富:
+
+ XmlRpcMarket::
+  * 远程控制接口;
+  * 访问地址: http://moinmo.in/XmlRpcMarket
+  * 精巧地址: http://bit.ly/1P1pxy
+ ThemeMarket::
+  * 样式收集;
+  * 访问地址: http://moinmo.in/ThemeMarket
+  * 精巧地址: http://bit.ly/P7n4Z
+ FormatterMarket::
+  * 格式支持收集;
+  * 访问地址: http://moinmo.in/FormatterMarket
+  * 精巧地址: http://bit.ly/7ufbL
+ ActionMarket::
+  * 功能扩展收集;支持MoinMoin各种操作行为增补;
+  * 访问地址: http://moinmo.in/ActionMarket
+  * 精巧地址: http://bit.ly/2T2vpW
+ ParserMarket::
+  * 生成器收集;支持MoinMoin各种页面解析输出增补;
+  * 访问地址: http://moinmo.in/ParserMarket
+  * 精巧地址: http://bit.ly/1gFUj3
+ MacroMarket::
+  * 宏收集;支持MoinMoin各种正文自动化处理增补;
+  * 访问地址: http://moinmo.in/MacroMarket
+  * 精巧地址: http://bit.ly/34ANV7
+ 
+== 小结 ==
+MoinMoin 系统因为不用数据库来支撑,而且使用 Python 作为核心动力从而天然具有以下妙处:
+ 1. 迁移/复制/备份/恢复,异常方便!因为系统全部信息都是文件而已;
+ 1. 非常容易扩展! 因为Python ;-)
+ 1. 非常容易复用其中的部分功能到另外系统中! 因为Python ;-)
+ 1. 非常容易进行定制!因为Python ;-)
+ 1. 非常容易部署!因为Python ;-) MoinMoin 有N多种运行方式,可以快速部署到任何系统中~只要有Python!
+ ,,,
+ 
+想运用维基系统进行知识管理,信息发布,团队协作等等信息快速管理的读者,推荐体验一下MoinMoin 吧!
+ 
+## 练习::
+## 可能的话
+## 设计实用练习,保证每个练习都可以扩展出去
+
+    
+##endInc
+
+----
+'''反馈'''
+
+创建 by -- ::@USER@ [@TIME@]
+||<^>[[PageComment2]]||<^>[:/PageCommentData:PageCommentData]''||
+
