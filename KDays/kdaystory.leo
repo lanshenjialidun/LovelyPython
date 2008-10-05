@@ -2,30 +2,30 @@
 <?xml-stylesheet ekr_stylesheet?>
 <leo_file>
 <leo_header file_format="2" tnodes="0" max_tnode_index="0" clone_windows="0"/>
-<globals body_outline_ratio="0.229133858268">
+<globals body_outline_ratio="0.347765363128">
 	<global_window_position top="27" left="10" height="716" width="1270"/>
 	<global_log_window_position top="0" left="0" height="0" width="0"/>
 </globals>
 <preferences/>
 <find_panel_settings/>
 <vnodes>
-<v t="zoomq.20080818231058.44" str_leo_pos="1,5,5,0,4"><vh>@chapters</vh></v>
+<v t="zoomq.20080818231058.44" str_leo_pos="1,1,1,6"><vh>@chapters</vh></v>
 <v t="zoomq.20080818231058.3" a="E"><vh>KDayStory</vh>
-<v t="zoomq.20080818231058.5"><vh>kday1</vh>
+<v t="zoomq.20080818231058.5" a="E"><vh>kday1</vh>
 <v t="zoomq.20080818231058.6"><vh>Kday1:尝试</vh></v>
 <v t="zoomq.20080818231058.7"><vh>尝试</vh>
 <v t="zoomq.20080818231058.10" tnodeList="zoomq.20080818231058.10"><vh>@nosent index.pih</vh></v>
 </v>
-<v t="zoomq.20080818231058.11"><vh>问卷设计</vh>
+<v t="zoomq.20080818231058.11" a="E"><vh>问卷设计</vh>
 <v t="zoomq.20080818231058.12" tnodeList="zoomq.20080818231058.12"><vh>@nosent easy051201.cfg</vh></v>
 </v>
 </v>
-<v t="zoomq.20080818231058.14"><vh>kday2</vh>
+<v t="zoomq.20080818231058.14" a="E"><vh>kday2</vh>
 <v t="zoomq.20080818231058.15"><vh>Kday2:完成</vh></v>
 <v t="zoomq.20080818231058.16" a="E"><vh>管理</vh>
 <v t="zoomq.20080818231058.18" tnodeList="zoomq.20080818231058.18"><vh>@nosent  mana.pih</vh></v>
 <v t="zoomq.20080818231058.19" tnodeList="zoomq.20080818231058.19"><vh>@nosent questionnaire.tmpl</vh></v>
-<v t="zoomq.20080818231058.20" a="E" tnodeList="zoomq.20080818231058.20,zoomq.20080818231058.21,zoomq.20080818231058.22,zoomq.20080818231058.23"><vh>@nosent  qdesign.py</vh>
+<v t="zoomq.20080818231058.20" tnodeList="zoomq.20080818231058.20,zoomq.20080818231058.21,zoomq.20080818231058.22,zoomq.20080818231058.23"><vh>@nosent qdesign.py</vh>
 <v t="zoomq.20080818231058.21"><vh>&lt;&lt; page declarations &gt;&gt;</vh></v>
 <v t="zoomq.20080818231058.22"><vh>init</vh></v>
 <v t="zoomq.20080818231058.23"><vh>&lt;&lt; try &gt;&gt;</vh></v>
@@ -45,7 +45,7 @@
 <v t="zoomq.20080818231058.33" tnodeList="zoomq.20080818231058.33,zoomq.20080818231058.34,zoomq.20080818231058.34"><vh>@nosent  qprint.pih</vh>
 <v t="zoomq.20080818231058.34"><vh>&lt;&lt;backdesign&gt;&gt;</vh></v>
 </v>
-<v t="zoomq.20080818231058.35" tnodeList="zoomq.20080818231058.35,zoomq.20080818231058.36,zoomq.20080818231058.37,zoomq.20080818231058.38,zoomq.20080818231058.39,zoomq.20080818231058.40"><vh>@nosent  qprint.py</vh>
+<v t="zoomq.20080818231058.35" a="E" tnodeList="zoomq.20080818231058.35,zoomq.20080818231058.36,zoomq.20080818231058.37,zoomq.20080818231058.38,zoomq.20080818231058.39,zoomq.20080818231058.40"><vh>@nosent  qprint.py</vh>
 <v t="zoomq.20080818231058.36"><vh>&lt;&lt; page declarations &gt;&gt;</vh></v>
 <v t="zoomq.20080818231058.37"><vh>init</vh></v>
 <v t="zoomq.20080818231058.38" a="E"><vh>qpubish()</vh>
@@ -571,7 +571,7 @@
 </v>
 </v>
 </v>
-<v t="zoomq.20080818232601.221" a="E"><vh>kday6</vh>
+<v t="zoomq.20080818232601.221"><vh>kday6</vh>
 <v t="zoomq.20080818232601.222"><vh>Kday6:统计</vh></v>
 <v t="zoomq.20080818232601.223"><vh>问卷设计</vh>
 <v t="zoomq.20080818232601.224" tnodeList="zoomq.20080818232601.224"><vh>@nosent easy051201.cfg</vh></v>
@@ -689,8 +689,8 @@
 <v t="zoomq.20080818232601.283"><vh>_ctrl()</vh></v>
 </v>
 </v>
-<v t="zoomq.20080818232601.284" a="E"><vh>组织成员</vh>
-<v t="zoomq.20080818232601.285" a="E" tnodeList="zoomq.20080818232601.285,zoomq.20080818232601.286,zoomq.20080818232601.287,zoomq.20080818232601.288,zoomq.20080818232601.289,zoomq.20080818232601.290,zoomq.20080818232601.291"><vh>@nosent  deptorg.py</vh>
+<v t="zoomq.20080818232601.284"><vh>组织成员</vh>
+<v t="zoomq.20080818232601.285" a="E" tnodeList="zoomq.20080818232601.285,zoomq.20080818232601.286,zoomq.20080818232601.287,zoomq.20080818232601.288,zoomq.20080818232601.289,zoomq.20080818232601.290,zoomq.20080818232601.291,zoomq.20080818232601.285,zoomq.20080818232601.286,zoomq.20080818232601.287,zoomq.20080818232601.288,zoomq.20080818232601.289,zoomq.20080818232601.290,zoomq.20080818232601.291,zoomq.20080818232601.285,zoomq.20080818232601.286,zoomq.20080818232601.287,zoomq.20080818232601.288,zoomq.20080818232601.289,zoomq.20080818232601.290,zoomq.20080818232601.291"><vh>@nosent deptorg.py</vh>
 <v t="zoomq.20080818232601.286"><vh>&lt;&lt; page declarations &gt;&gt;</vh></v>
 <v t="zoomq.20080818232601.287"><vh>&lt;&lt;ini&gt;&gt;</vh></v>
 <v t="zoomq.20080818232601.288" a="E"><vh>listDeptStaff</vh>
@@ -4890,8 +4890,10 @@ jvf=%(base)s/karriweb/obp/js
 
 
 </t>
-<t tx="zoomq.20080818231058.3"></t>
-<t tx="zoomq.20080818231058.5"># 快速利用Karrigell 开发功能站点
+<t tx="zoomq.20080818231058.3">@path /home/zoomq/LovelyPython/KDays</t>
+<t tx="zoomq.20080818231058.5">@path /home/zoomq/LovelyPython/KDays/kday1
+
+# 快速利用Karrigell 开发功能站点
 # Karrigell.ini 中有如下约定:
 # 如果Kariigell 运行在 D:\Karrigell\Karrigell-2.2\ 
 # 则其下应该有 karriweb\questionnaire\KwDay1\ 这样的目录，以便安置实例
@@ -5012,7 +5014,7 @@ print dir(a)
 &lt;/body&gt;&lt;/html&gt;</t>
 <t tx="zoomq.20080818231058.11"># 使用标准
 # 这个是Leo 的宏约定，让Leo 将以下的节点及时的保存到指定目录中
-@path q
+@path ~/LovelyPython/KDays/kday1/q
 
 </t>
 <t tx="zoomq.20080818231058.12">[desc]
@@ -5234,7 +5236,7 @@ attachment:snap-KwDay2Leo.png
 3. 创建处理脚本 qdesign.py
 ... 然后就瀑布样的该作什么就作什么了(^_^)
 """
-@path ./</t>
+@path kday2/</t>
 <t tx="zoomq.20080818231058.18">&lt;html&gt;
 &lt;head&gt;
 &lt;title&gt;
@@ -5280,7 +5282,7 @@ $cfgtxt
 &lt;/form&gt;
 </t>
 <t tx="zoomq.20080818231058.20">@ $Id: obpKwd2.leo 325 2005-12-30 04:23:49Z  $
-qdesign.py 快捷问卷设计
+qdesign.py 快捷问卷设计,,
 @c
 
 &lt;&lt; page declarations &gt;&gt;
@@ -5490,7 +5492,7 @@ Include("qprint.py")
 进入回答&lt;/a&gt; 
 &lt;/h4&gt;</t>
 <t tx="zoomq.20080818231058.35">@ $Id: obpKwd2.leo 325 2005-12-30 04:23:49Z  $
-qpage.py 快捷问卷模拟展示
+qpage.py 快捷问卷模拟展示;
 @c
 
 &lt;&lt; page declarations &gt;&gt;
@@ -5532,24 +5534,24 @@ tcode = time.strftime("%y%m%d%H%M%S", time.localtime())
     p = Karrigell_QuickForm('fm_kq','POST','#',dict.desc.desc)
     exp += "&lt;h1&gt;%s&lt;sup&gt;%s&lt;/sup&gt;&lt;/h1&gt;"%(dict.desc.pname
                                        ,dict.desc.learn)    
-    
+
     p.addElement('node','&lt;ul&gt;','')
     # 深入数据
     @others    
     p.addElement('node','&lt;/ul&gt;','')
-    
+
     p.addGroup(["submit","btn_submit","提交"]
                ,["reset","btn_reset","重写"])
     exp += p.export()
     exp += "&lt;p&gt;返回%s&lt;/p&gt;"%dict.desc.learn
     return exp
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
 </t>
 <t tx="zoomq.20080818231058.39">"""
 p.addRadioList('cr_ask1'
@@ -5571,7 +5573,7 @@ for i in k:
             qli[q] = ask[q]
         else:
             pass
-    
+
     p.addRadioList("cr_ask%s"%i
                ,ask["question"]
                ,qli)
@@ -11206,8 +11208,8 @@ for s in staff:
             staffdict[mem[k]] = name
         else:
             pass
-    
-    
+
+
 </t>
 <t tx="zoomq.20080818232601.290">def getStaffUser(elem):
     """列选成员所有信息
@@ -11218,7 +11220,7 @@ for s in staff:
         key =u.attrib["TEXT"]
         user[key]=u.find('./node').attrib["TEXT"].encode("utf8")       
     #print user[user.keys()[1]]
-    
+
     return user
 
 </t>
