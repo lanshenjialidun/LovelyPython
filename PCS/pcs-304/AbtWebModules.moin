@@ -1,7 +1,7 @@
 ##language:zh
 ##OBP项目图书reST通用文章模板
 
-||status|| 草稿 ||HuangYi; 90%||
+||status|| 草稿 ||HuangYi; 100%||
 
 [[TableOfContents]]
 
@@ -623,17 +623,19 @@ def hello_app(request, name=''):
 web应用最终是要部署到成熟稳当高性能的web服务器上去的，
 由于我们这个 web应用程序是基于 wsgi 这样一个标准协议的，
 所以部署方式的选择有很多，因为所有针对 wsgi 的部署方法都可以用。
+不同部署方式适合不同的场景，下面给出不同部署方式的一些参考信息，
+限于篇幅，这里就不一一说明了。
 
-* fcgi
-  http://www.saddi.com/software/flup/
+* 支持fastcgi的web服务器 + fastcgi
+  http://trac.saddi.com/flup/wiki/FlupServers
 
-* mod_python
+* apache + mod_python
   http://www.modpython.org/
 
-* mod_wsgi
+* apache + mod_wsgi
   http://code.google.com/p/modwsgi/
 
-TODO 部署方式介绍
+== 小结 ==
 
 终于像模像样了，现在回过头来看一下，究竟整出来一个什么样的程序呢？小白不禁惊呼：“这不是...不就是...传说中的...框架？！”
 
