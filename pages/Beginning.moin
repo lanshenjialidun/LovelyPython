@@ -1,7 +1,5 @@
-##在这里详述 Lpy-Beginning.
 ##language:zh
-##OBP项目图书reST通用文章模板
-##format rst
+#pragma section-numbers off
 
 ||'''status'''|| 校对 ||ZoomQuiet;97% ~ 配合后部内容不断调整ing..||
 
@@ -167,17 +165,17 @@ http://wiki.woodpecker.org.cn/moin/WoodpeckerHackers
   * 代码下载: http://openbookproject.googlecode.com/svn/trunk/LovelyPython/KDays/
 
  第三部分 Py初学者作弊条汇集::
-    * 同Py日实例故事呼应,以精简模式讲述各个关键语言知识点;并提供各种实用代码片段;
-    * 共分四节:
-     1.  环境篇 ; 分享各种Python常用环境的使用技巧;
-     1.  语法篇 ; 说明Python 语言最基础也的语法点;
-     1.  模块篇 ; 分享故事中涉及的各种常用模块的使用;
-     1.  框架篇 ; 介绍流行的几个Python Web应用框架;
-     1.  实作篇 ; 分享几例在现实工作环境中实用的问题处理方式;
-    * 代码下载:http://openbookproject.googlecode.com/svn/trunk/LovelyPython/PCS/
+  * 同Py日实例故事呼应,以精简模式讲述各个关键语言知识点;并提供各种实用代码片段;
+  * 分成以下几篇:
+   1.  环境篇 ; 分享各种Python常用环境的使用技巧;
+   1.  语法篇 ; 说明Python 语言最基础也的语法点;
+   1.  模块篇 ; 分享故事中涉及的各种常用模块的使用;
+   1.  框架篇 ; 介绍流行的几个Python Web应用框架;
+   1.  友邻篇 ; 分享一些在Python 开发之外的相关领域基础知识;
+  * 代码下载:http://openbookproject.googlecode.com/svn/trunk/LovelyPython/PCS/
 
  第四部分 附录::
-    * 对以上所有内容的再组织,方便读者使用不同的顺序和逻辑进行快速查阅--不是骗稿费哪--补充大量的实用代码片段支撑快乐开发这一体验;-)
+  * 对以上所有内容的再组织,方便读者使用不同的顺序和逻辑进行快速查阅--不是骗稿费哪--补充大量的实用代码片段支撑快乐开发这一体验;-)
 
     1.  资源索引 ; 本书以外的优秀资料链接和对比评述
     1.  箴言 ; 行者们的言论...应该包含很多经验的,不听白不听哪
@@ -307,7 +305,8 @@ def foo():
 请编辑设计明确的图标来引导
 }}}
 
- * 精巧地址: 本书包含很多外部网站的URL地址,但是图书必竟不是网页,读者可以轻易的点击进入相关网站进行深入阅读,所以,笔者尝试使用URL精简工具来帮助读者可以快速输入自动跳转到原有网站来访问;
+ 精巧地址::
+  本书包含很多外部网站的URL地址,但是图书必竟不是网页,读者可以轻易的点击进入相关网站进行深入阅读,所以,笔者尝试使用URL精简工具来帮助读者可以快速输入自动跳转到原有网站来访问;
   * 比如说: 本书的维基入口 http://wiki.woodpecker.org.cn/moin/ObpLovelyPython
   * 精巧地址: http://bit.ly/2QA425
   * 输入的字符量少了三倍! 这是借助 http://bit.ly 网站提供的网址精简服务达到的效果;

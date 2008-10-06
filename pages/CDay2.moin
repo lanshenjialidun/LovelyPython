@@ -1,5 +1,5 @@
 ##language:zh
-#pragma section-numbers on
+#pragma section-numbers off
 
 ||'''status'''|| 校对  || ZoomQuiet || 100% ||
 
@@ -65,22 +65,6 @@ SaaS ~ Software-as-a-Service（软件即服务）
  * Python WEB应用框架纵览 ~ http://wiki.woodpecker.org.cn/moin/PyWebFrameList
 密密麻麻一大片应用框架...
 
-还有人站着说话不腰痛的分析"[http://xlp223.yculblog.com/post.1634226.html 为何有如此多的python web 框架?]"
-{{{脚注:
-访问地址:http://xlp223.yculblog.com/post.1634226.html
-快速访问:http://tinyurl.com/6yajuo
-}}}
- * E文出处:[http://bitworking.org/news/Why_so_many_Python_web_frameworks Why so many Python web frameworks?]
-{{{脚注:
-访问地址:http://bitworking.org/news/Why_so_many_Python_web_frameworks
-快速访问:http://tinyurl.com/6kv9j3
-}}}
- * 不过看在人家用100行代码就完成了个 web 框架,小白实在是无话可说了 -- "介Python真不服不成哪!"
-{{{注意:
-在上述文章中,作者为了展示任何人可以通过Python快速创建自个儿的Web应用框架,
-当场使用 9个文件创建并运行了一个含有足够功能的框架!
-详细请参看本章最后的小结部分
-}}}
 "俺不想弄出个复杂的强大的有DB支持等等高级特性的网站,就是想用Python 快速完成一个有限功能的本地网站哪!" -- 小白在列表中吼到
 
 很快,行者给出了回应...
@@ -517,157 +501,6 @@ attachment:cday2-tryweb.png
 可以进一步注意到，小白已经没有学习什么新的Python 语法点了，一切已经足够小白关注需求的快速实现，
 甚至于可以直接阅读他人的代码来理解即有模块的功能了……Python 的易学／用／读的特性可见一斑!
 
-=== Joe Gregorio的超级框架 ===
- 组成::
-  1. model.py{{{#!python
-from sqlalchemy import Table, Column, String
-import dbconfig
-
-entry_table = Table('entry', dbconfig.metadata,
-             Column('id', String(100), primary_key=True),
-             Column('title', String(100)),
-             Column('content', String(30000)),
-             Column('updated', String(20), index=True)
-         )
-}}}
-  1. dbconfig.py{{{#!python
-from sqlalchemy import *
-
-metadata = BoundMetaData('sqlite:///tutorial.db')
-}}}
-  1. manage.py{{{#!python
-import os, sys
-
-def create():
-    from sqlalchemy import Table
-    import model
-    for (name, table) in vars(model).iteritems():
-        if isinstance(table, Table):
-            table.create()
-
-def run():
-    import urls
-    if os.environ.get("REQUEST_METHOD", ""):
-        from wsgiref.handlers import BaseCGIHandler
-        BaseCGIHandler(sys.stdin, sys.stdout, sys.stderr, os.environ).run(urls.urls)
-    else:
-        from wsgiref.simple_server import WSGIServer, WSGIRequestHandler
-        httpd = WSGIServer(('', 8080), WSGIRequestHandler)
-        httpd.set_app(urls.urls)
-        print "Serving HTTP on %s port %s ..." % httpd.socket.getsockname()
-        httpd.serve_forever()
-
-if __name__ == "__main__":
-   if 'create' in sys.argv:
-        create()
-   if 'run' in sys.argv:
-        run()
-
-}}}
-  1. view.py{{{#!python
-import selector
-import view
-
-urls = selector.Selector()
-urls.add('/blog/', GET=view.list)
-urls.add('/blog/{id}/', GET=view.member_get)
-urls.add('/blog/;create_form', POST=view.create, GET=view.list)
-urls.add('/blog/{id}/;edit_form', GET=view.member_get, POST=view.member_update)
-}}}
-  1. model.py{{{#!python
-import robaccia
-import model
-
-def list(environ, start_response):
-    rows = model.entry_table.select().execute()
-    return robaccia.render(start_response, 'list.html', locals())
-
-def member_get(environ, start_response):
-    id = environ['selector.vars']['id']
-    row = model.entry_table.select(model.entry_table.c.id==id).execute().fetchone()
-    return robaccia.render(start_response, 'entry.html', locals())
-
-def create(environ, start_response):
-    pass
-def create_form(environ, start_response):
-    pass
-def member_edit_form(environ, start_response):
-    pass
-def member_update(environ, start_response):
-    pass
-}}}
-  1. robaccia.py{{{#!python
-import kid
-import os
-
-extensions = {
-    'html': 'text/html',
-    'atom': 'application/atom+xml'
-    }
-
-def render(start_response, template_file, vars):
-    ext = template_file.rsplit(".")
-    contenttype = "text/html"
-    if len(ext) > 1 and (ext[1] in extensions):
-        contenttype = extensions[ext[1]]
-
-    template = kid.Template(file=os.path.join('templates', template_file), **vars)
-    body = template.serialize(encoding='utf-8')
-
-    start_response("200 OK", [('Content-Type', contenttype)])
-    return [body]
-}}}
-  1. list.html{{{
-<?xml version="1.0" encoding="utf-8"?>
-<html xmlns:py="http://purl.org/kid/ns#>">
-<head>
- <title>A Robaccia Blog</title> 
- </head>
-<div py:for="row in rows.fetchall()">
-<h2>${row.title}</h2>
-<div>${row.content}</div>
-<p><a href="./${row.id}/">${row.updated}</a></p>
-</div>
-</html>
-}}}
-
- 使用::
-  1. 创建数据库{{{
-~$ python manage.py create
-}}}
-  1. 初始化数据{{{
-~$ python
-Python 2.4.3 (#2, Apr 27 2006, 14:43:58)
-[GCC 4.0.3 (Ubuntu 4.0.3-1ubuntu5)] on linux2
-Type "help", "copyright", "credits" or "license" for more information.
->>> import model
->>> i = model.entry_table.insert()
->>> i.execute(id='first-post', title="Some Title", content="Some pithy text...",  
-   updated="2006-09-01T01:00:00Z")
-
->>> i.execute(id='second-post', title="Moving On", content="Some not so pithy words...",  
-   updated="2006-09-01T01:01:00Z")
-}}}
-  1. 独立运行{{{
-~$ python manage.py run
-Serving HTTP on 0.0.0.0 port 8080 ...
-
-}}}
-  1. 通过 cgi 在各种Web服务器中运行{{{
-#!/usr/bin/python2.4
-import manage
-manage.run()
-}}}
-
- 能力::
-  * 通过 SQLAlchemy 进行对象化高效数据库操作的
-   * SQLAlchemy官方网站 http://www.sqlalchemy.org/
-  * 使用 WSGI(Web 服务器网关接口)模式运行的
-   * WSGI官方网站 http://www.wsgi.org/wsgi/What_is_WSGI
-  * 可对URL进行映射管理的
-  * 使用 Kid 模板系统,高效输出数据的
-   * Kid官方网站 http://www.kid-templating.org/
-  * 全功能Web应用框架!
    
 == 练习 ==
 ## 设计实用练习,确保体例代码可以自由扩展出各种实用应用!
