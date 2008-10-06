@@ -5,6 +5,8 @@ syncwiki.py
 
 Created by QingFeng on 2008-09-05.
 Copyright (c) 2008 woodpecker. All rights reserved.
+ChangeLog:
+    080906 ZoomQuiet 调整搜索路径，支持从上层摄取.moin 文档，以便纯化SVN 中的目录
 """
 
 from twill.commands import *
@@ -41,7 +43,8 @@ def main(fname,pagename):
 
 if __name__ == '__main__':
     errpages,winpages=[],[]
-    cmd='find . -name "*.moin"'
+    #
+    cmd='find .. -name "*.moin"'
     login()
     for r in os.popen(cmd):
         r = r.strip()
@@ -57,3 +60,4 @@ if __name__ == '__main__':
         sleep(5)
     print "error pages:%s"%" ".join(errpages)
     print "win pages:%s"%" ".join(winpages)
+    
