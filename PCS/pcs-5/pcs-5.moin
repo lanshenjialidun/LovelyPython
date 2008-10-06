@@ -15,7 +15,7 @@
 == 使用 ==
 以下是一个普通Python脚本文件，实现合并多个html为可用文本。
 {{{#!python
-#!/bin/python
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 
 """ Html To Text
@@ -68,7 +68,7 @@ if __name__ == '__main__':
 }}}
 接下来依次介绍python脚本的各个部分：
 
-`#!/bin/python`这句话表示该脚本文件用哪个解释器来执行，这边是python解释器。另一种写法是#!/usr/bin/env python，两种写法是有区别[http://groups.google.ro/group/python-cn/msg/843a13f6d8be7eab]的。
+`#!/usr/bin/python`这句话表示该脚本文件用哪个解释器来执行，这边是python解释器。另一种写法是#!/usr/bin/env python，两种写法是有区别[http://groups.google.ro/group/python-cn/msg/843a13f6d8be7eab]的。
 
 `# -*- coding: utf-8 -*-`指定字符编码方式。有关字符编码方式和字符集的相关知识参见PCS6和[http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html]。
 
@@ -80,7 +80,7 @@ if __name__ == '__main__':
 
 最后调用函式执行。
 
-执行脚本。在命令行中输入python html_to_txt.py就可以执行。
+执行脚本。在命令行中输入python pcs-5-1.py就可以执行。
 
 
 ##endInc

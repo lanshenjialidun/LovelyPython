@@ -79,7 +79,7 @@ if __name__ == '__main__':
 }}}
 可以看到在定义了类Concept之后，在主程序中创建一个对象cpt，之后使用`.`来调用其方法和属性。其运行结果：
 {{{
-~$ python PCS105-1.py 
+~$ python pcs-105-1.py 
 Create:  Concept 1: (set([])), (set([]))
 
 Add Intent:  Concept 1: (set([])), (set([1, 2, 3]))

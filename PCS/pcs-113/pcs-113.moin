@@ -5,7 +5,7 @@
 [[TableOfContents]]
 
 ##startInc
-= PCS114 交互参数 =
+= PCS113 交互参数 =
 
 == 概述 ==
 Python中的sys模块提供一些系统变量和函式。其中的`argv`代表调用Python脚本时的命令行参数列表。argv[0]是脚本的名字（由于操作系统的不同显示绝对路径名或者相对路径名），然后为各命令行选项或参数。
@@ -49,7 +49,7 @@ if __name__ == '__main__':
 }}}
 首先申明一个OptionParser对象，然后通过add_option增加选项，根据这些选项做出不同的动作，完成不同的功能。最终效果如下：
 {{{
-~$ python pcs109.py -s key -c
+~$ python pcs-113-1.py -s key -c
 key
 create sth
 }}}

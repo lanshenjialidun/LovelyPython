@@ -1,0 +1,1 @@
+print map(None, range(10), range(10))

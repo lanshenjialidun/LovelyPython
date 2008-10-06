@@ -6,7 +6,7 @@
 [[TableOfContents]]
 
 ##startInc
-= PCS113 异常 =
+= PCS112 异常 =
 
 == 捕捉异常 ==
 使用try...except可以捕捉各种异常类型。Python中有很多内置异常类型，具体可以参见[http://www.python.org/doc/current/lib/module-exceptions.html]。
@@ -27,7 +27,8 @@ finally:
 }}}try...except可以带一个else子句，该子句只能出现在所有except子句之后。当try语句没有抛出异常时，需要执行一些代码，可以使用这个子句。 不管try子句中有没有发生异常，finally子句都一定会被执行。如果发生异常，在finally子句执行完后它会被重新抛出。try子句经由break或return退出也一样会执行finally子句。
 
 == 抛出异常 ==
-使用raise来抛出异常。{{{#!python
+使用raise来抛出异常。
+{{{#!python
 try:
     raise NameError, 'HiThere'
 except NameError, a:
