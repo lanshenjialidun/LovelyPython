@@ -9,7 +9,7 @@
 
 == 啥是 Django ==
 
-Django 是 Python 世界目前最火爆的 web 框架。它提倡将 project 分解成可重有的 app。
+Django 是 Python 世界目前最火爆的 web 框架。它提倡将 project 分解成可重用的 app。
 并且 Django 社区有很好的编写可重用 app 的传统，存在大量开源的 app 可以直接拿来用，
 帮助你以迅雷不及掩耳之势搭建功能强大的 web 应用。
 
