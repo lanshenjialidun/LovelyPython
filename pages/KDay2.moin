@@ -63,14 +63,14 @@ print Template(page, searchList=[vPool])     # 3. 渲染输出`
 <H2>$cfgtxt</H2>
 }}}
 
-{{{详细::
-PCS309 模板系统
-综合列举了流行的一些Web应用模板系统,
-分享了一些实用的模板选择和使用体验
+{{{
+详细:: 
+PCS304 Web应用框架纵论
+综合列举了流行的一些Web应用框架系统,
+同时也分享了一些实用的模板选择和使用体验
 有关 Cheetch ~ 印度豹模板系统的简要介绍在:
 http://wiki.woodpecker.org.cn/moin/CheetahTemplateOrg
 }}}
-
 == Leo 组织实现 ==
 '''小白已经习惯了通过 Leo 在一个统一界面中把握程序的全部逻辑层次/章节/元素 ;-)'''
  * 可以使用中文作章节名目:
@@ -102,6 +102,12 @@ http://wiki.woodpecker.org.cn/moin/CheetahTemplateOrg
      1. 脚本声明 `<< page declarations >>`  引用的下层部分
      1. 行为定义 `@others` 包含的所有下级节点
      1. 实际尝试 `<<try>>` 引用的下层部分
+
+{{{详细::
+PCS302 Leo文学化编程环境框架
+分享了什么是文学化编辑环境,
+以及利用文学化视角来组织软件工程时的最佳体验;
+}}}
 
 == 编辑实现 ==
 '''其实就是将指定的文件内容读出来发布到页面的输入框(<TEXTARE/>) 中'''

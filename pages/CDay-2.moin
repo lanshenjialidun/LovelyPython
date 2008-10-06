@@ -93,6 +93,13 @@ if __name__ == '__main__':      # this way the module can be
 
 这个90% 照抄过来的脚本纯粹是用来尝试 `cmd` 模块功能的,没有作任何实际工作,只是通过打印输出信息,来印证自个儿的想法...
 
+{{{详细:
+PCS404 代码重构浅说
+重构~Refactoring 是现代软件开发工程中常用技巧,
+可以保证系统在可用状态下持续不断的提高代码品质!
+在PCS404 中,浅显的说明了一下 重构 思想以及常见的重构技巧
+}}}
+
 ==== 猜测和学习 ====
 如何针对已证实有用的代码进行改造和学习?
 
@@ -137,7 +144,6 @@ if __name__ == '__main__':      # this way the module can be
 询问行者得到提示{{{
 from 某脚本文件名 import *
 }}}
-
 立即拿来改造 'pycdc-v0.4.py':
 {{{#!python
 # -*- coding: utf-8 -*-
@@ -157,7 +163,7 @@ if __name__ == '__main__':      # this way the module can be
 好象还有更大的一级`包`..具体怎么的现在用不上,就先不管了..
 
 {{{详细::
-PCS108->PCS105->PCS100 
+PCS108 函式 ->PCS105 对象 -> PCS100 逻辑分支
 进一步说明在不同级别的Python 执行单位中，
 有哪些基础技巧
 }}}
@@ -166,12 +172,15 @@ PCS108->PCS105->PCS100
 
 小白的想象法随着不断的成功,也不断的膨胀起来,那么就研究文档吧...
 {{{详细::
-PCS202 cmd
+PCS201 cmd
 详细描述cmd模块功能;
 读者可以进一步了解到此模块的所有功能;
 这是一个辅助用户快速完成一个交互式命令行环境的强力模块;
 在线相关文档是:
 http://aspn.activestate.com/ASPN/docs/ActivePython/2.4/python/lib/module-cmd.html
+
+PCS100 import
+进一步说明模块和包使用的方法和注意事项
 }}}
 
 

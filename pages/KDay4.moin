@@ -77,9 +77,10 @@ print HTML(HEAD(header) + BODY(title + table))
 }}} 可以将一个标准的HTML页面由几行 Py脚本自然生成!
 
 {{{详细::
+PCS114 FP初体验 
 FP ~ Functional Programming 函式化编程;
 这是和过程化编程不同的思路和体验,
-在 PCS115 FP初体验 进行了初步的分享,
+在 PCS114 FP初体验 进行了初步的分享,
 小白也仅仅是在列表中向行者们讨教时接触到这一领域的,
 欢迎勇敢的读者自行品味;-)
 }}}

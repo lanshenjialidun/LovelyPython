@@ -82,7 +82,8 @@ OK!你们都说Python 好用,那么来尝试一下吧! 我是菜鸟我怕谁?!
   GNU/Linux 环境中,当然推荐使用原生的 Python.org,主流的自由操作系统发行版都内置了Python 环境,或是对应的软件仓库中都有合适的Python 版本可以选择,安装和使用也非常方便;
 
 {{{详细:
-ActivePython
+PCS3 交互环境之winpy 
+含有关于ActivePython的简介
 http://www.activestate.com/Products/ActivePython/
 商业公司,但是对自由软件支持良多
 
@@ -107,7 +108,7 @@ attachment:cday-5-hello-world.png
 
 再Show 一个类似的,但是推荐的体验环境 iPython
 {{{详细::
-iPython 环境
+PCS2 交互环境之iPython
 http://ipython.scipy.org/
 是个融合了N多Unix Shell 环境特质的Python 交互式命令行环境
 ,推荐使用,你会爱上 TAB 键的;-)

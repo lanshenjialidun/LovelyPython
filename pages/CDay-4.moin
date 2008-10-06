@@ -43,7 +43,7 @@
   os.listdir()返回指定目录下的所有文件和目录名
 
 {{{详细:
-PCS200 含有
+PCS200 os(.stat; .path)
 os模块进一步细节,
 提及的:
 在简明 Python 教程--第14章 Python标准库 在
@@ -85,8 +85,8 @@ attachment:cday-4-use-script.png
 attachment:cday-4-use-ipython.png
 
 {{{详细:
-PCS2 详细说明了
-加强的交互命令行界面iPython 的甜美;
+PCS2 交互环境之iPython
+详细说明了 加强的交互命令行界面iPython 的甜美;
 简要的说 iPython 是Python 原生交互环境的加强,
 追加了很多纯正Unix 风味的响应特性
 }}}
@@ -120,8 +120,8 @@ d:/tmp\something 的混合输出
 又一阵乱搜, 发现居然有个单独的模块 `os.path` 就是进行文件路径处理的!
 
 {{{详细:
-PCS200 含有
-os模块进一步细节,
+PCS200 os(.stat; .path)
+含有os模块进一步细节,
 其中 os.path() 函式的详细说明可以在线查询
 http://aspn.activestate.com/ASPN/docs/ActivePython/2.4/python/lib/module-os.path.html
 }}}
@@ -151,14 +151,14 @@ for root, dirs, files in os.walk('/media/cdrom0'):
 哇!一下子输出了一大堆的东西! 嗯嗯嗯!看来管用,应该是将整个光盘的文件/目录信息都扫描出来了,
 
 {{{详细:
-PCS200 含有
+PCS200 os(.stat; .path)
 os模块进一步细节,
 其中 os-file-dir 可以在线查阅:
 http://aspn.activestate.com/ASPN/docs/ActivePython/2.4/python/lib/os-file-dir.html
 }}}
 
 {{{详细:
-PCS102 for循环
+PCS102 For循环
 进一步说明小白首次遇见的新语法现象；
 也是一切程序中最基本的反复运行相似语句的技巧;
 }}}
@@ -178,7 +178,7 @@ for root, dirs, files in os.walk('/media/cdrom0'):
 }}}
 
 {{{详细:
-PCS200 含有
+PCS200 os(.stat; .path)
 os模块进一步细节,
 其中 file_objects 可以在线查阅:
 http://www.woodpecker.org.cn/diveintopython/file_handling/file_objects.html
@@ -257,7 +257,7 @@ for root, dirs, files in os.walk('/media/cdrom0'):
 涉及知识点的进一步信息请查阅对应作弊条:
 PCS100 import 说明引入模块的技巧
 PCS205 内建函式 介绍一些最常用的内建函式
-PCS102 for 循环 介绍最常用的循环体
+PCS102 For 循环 介绍最常用的循环体
 PCS103 缩进 阐述了Python 最大的特点～使用缩进来区分语法单位
 PCS104 注释 介绍了Python 式的注释方式
 PCS105 对象 介绍了Python 中的一等公民

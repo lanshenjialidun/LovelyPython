@@ -130,6 +130,8 @@ def _smartcode(stream):
 {{{详细::
 PCS6 Python与中文
 进一步全面的阐述了在Python 中面对中文数据时的思路和技巧...
+PCS112 异常
+讲述了Python中异常的使用，即try ... except ...的使用等
 }}}
 
 === chardet ===

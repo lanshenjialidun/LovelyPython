@@ -142,12 +142,11 @@ print dir(a)
   attachment:kday1-leo-nosent.png
   
 {{{详细::
-PCS310 Leo
+PCS302 Leo文学化编程环境框架
 分享了什么是文学化编辑环境,
 以及利用文学化视角来组织软件工程时的最佳体验;
 这里的 @nosent 是指Leo中结点的特殊名称,
-可以引起不同的系统响应的名称,具体的参考
-PCS310 Leo
+可以引起不同的系统响应的名称,具体的参考PCS302 Leo
 }}}
   
   * 对应的,在配置文件: Karrigell.ini 中设定一下{{{

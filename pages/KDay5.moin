@@ -317,7 +317,7 @@ attachment:kday5-os-stat-format.png
 搞掂!嗬嗬嗬,小白真感受到了心想事儿成般自在了,,,
 
 {{{详细::
-PCS200 os
+PCS200 os(.stat;.path)
 介绍了相关系统信息获取支持的常用模块的进一步操作技巧
 }}}
 
