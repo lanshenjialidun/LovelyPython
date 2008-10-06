@@ -1,4 +1,4 @@
-"可爱的Python" PCS 目录说明
+"可爱的Python" 图书SVN目录 PCS 部分说明
 
 = 版本 =
  - 091006::ZoomQuiet Creat
