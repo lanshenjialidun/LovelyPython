@@ -15,7 +15,7 @@ Django ÊÇ Python ÊÀ½çÄ¿Ç°×î»ð±¬µÄ web ¿ò¼Ü¡£ËüÌá³«½« project ·Ö½â³É¿ÉÖØÓÐµÄ app¡
 
 == ÏÂÔØ°²×° ==
 
-´Ó¹Ù·½ÍøÕ¾(http://www.djangoproject.com/download/) ÏÂÔØ×îÐÂ°æ±¾£¬½âÑ¹£¬Ö´ÐÐÖ´ÐÐÃüÁî {{{python setup.py install}}} ½øÐÐ°²×°£¨µ±È»ÄãºÜ¿ÉÄÜÐèÒªÏÈ»ñµÃ³¬¼¶ÓÃ»§È¨ÏÞ£©¡£È»ºóÂÃ³Ì¿ªÊ¼¡£
+´Ó¹Ù·½ÍøÕ¾(http://www.djangoproject.com/download/) ÏÂÔØ×îÐÂ°æ±¾£¬½âÑ¹£¬Ö´ÐÐÃüÁî {{{python setup.py install}}} ½øÐÐ°²×°£¨µ±È»ÄãºÜ¿ÉÄÜÐèÒªÏÈ»ñµÃ³¬¼¶ÓÃ»§È¨ÏÞ£©¡£È»ºóÂÃ³Ì¿ªÊ¼¡£
 
 == ¿ìËÙÆð²½ ==
 
