@@ -7,33 +7,173 @@
 
 ##startInc
 = PCS401 DHTML =
-~ 让网页活跃起来的技术!
+~ 让网页活动起来!
 
 == 概述 ==
-DHTML，动态HTML，是以HTML为基础，运用DOM将页面元素对象化，利用CSSL控制这些对象的CSS属性以达到网页的动态视觉效果。
+Dynamic HTML ~动态HTML!
+ * DHTML 是一种使 HTML 页面具有动态特性的艺术。
+ * DHTML 是一种创建动态和交互 WEB 站点的技术集。
+ * 对大多数人来说，DHTML 意味着 HTML、样式表和 JavaScript 的组合!
+
 一个DHTML的结构大致可分为:
  * 传统的HTML。
  * DOM(Document Object Model)文档对象模型，是W3C日前极力推广的web技术标准之一，它将网页中的内容抽象成对象，每个对象拥有各自的属性 (Properties)、方法(Method)和事件(Events)，这些都可以通过CSSL来进行控制。IE和NS的对象模型都是以W3C的公布的DOM为基准，加上自己的Extended Object(扩展对象)来生成的。
  * CSS(Cascading Styles Sheets) 层叠式样式表。通过CSS样式表，可以自由定义各个网络组件的坐标位置(如静态、动态定位、或绝对坐标、相对坐标系统)，及其他新增的标签、行为 (Behaviors)、图层(Layer)、字体和Web页格式等各种不同的设置。
  * CSSL(Clent-Side Scripting Language)客户端脚本语言，主要有JavaScript(JS)，VBScript(VBS)，JScript。Netscape主要支持 JS，IE主要支持JS，VBS和JScript。有了Script，才可以让CSS设置为“行动”，从而达到整个服务器端与客户端的动态控制。
 
-##下面分别介绍这几个部分:
+ 通过以上技术的综合,令普通的网页可以和访问者友好交互,活动起来.
 
-== HTML ==
-...
-== DOM ==
-...
-== CSS ==
-通常，在Web页中指定CSS样式表的方式有３种：
-    1．外部CSS样式表(External Styles Sheet)模式，它通过一个独立的CSS样式表文字文件(扩展名通常为 CSS)控制其他Web页。只要在需要指定样式的Web页中，设置一个链接至该CSS样式表文件，而且之后只要改变此CSS样式表内容，就可改变所有链接至该CSS样式表的Web页样式。
-    2．内嵌CSS样式表(Embedded Styles Sheet)模式，它直接在HTML＜body＞标签前设置一个样式标签，而这个设置会直接影响该Web页的样式设置。
-    3．内部CSS样式表(Internal Styles Sheet)模式，它直接对HTML里的任何单一对象(如文字、图像等)进行样式设置，这种做法其实相当于利用文字的属性检查器。CSS样式表直接定义的样式，只会影响单一选取的内容文字，而不会影响整个Web页的样式设置。
-通常这３种方式的处理顺序为：内部CSS样式表模式、内嵌CSS样式表模式，外部CSS样式表模式。
+=== HTML DOM ===
+HTML Document Object Model ~HTML 文档对象模型:定义了访问和处理 HTML 文档的标准方法;
 
-== CSSL ==
-...
+ * HTML DOM 把 HTML 文档呈现为带有元素、属性和文本的树结构（节点树）。
+ * 比如这一简单HTML页面:{{{
+<html>
+    <head>
+        <title>
+            文档标题
+        </title>
+    </head>
+    <body>
+        <h1>我的标题</h1>
+        <a href="http://wiki.woodpecker.org.cn/moin/ObpLovelyPython">我的链接</a>
+    </body>
+</html>
+ }}}
+ * 图pcs-401-0 在游览器中看到的网页情景
 
-== 实例 ==
+attachment:dom-html.png
+ * 图pcs-401-1 DOM理解后的节点树
+attachment:ct_htmltree.gif
+
+根据 DOM，HTML 文档中的每个成分都是一个节点。
+
+ DOM 是这样规定的::
+    * 整个文档是一个文档节点
+    * 每个 HTML 标签是一个元素节点
+    * 包含在 HTML 元素中的文本是文本节点
+    * 每一个 HTML 属性是一个属性节点
+    * 注释属于注释节点
+
+ 通过 DOM 就可访问 HTML 文档中的每个节点::
+  可通过若干种方法来查找您希望操作的元素：
+    * 通过使用 getElementById() 和 getElementsByTagName() 方法
+    * 通过使用一个元素节点的 parentNode、firstChild 以及 lastChild 属性
+
+ HTML DOM 实例::
+  * 访问地址: http://www.w3school.com.cn/example/hdom_examples.asp
+  * 精巧地址: http://bit.ly/3coY8r
+
+=== DHTML CSS ===
+CSS 是种网页表现形式的定义脚本语言,长的很象 JScript; 
+比如说:
+{{{
+DIV#myfeel{
+    visibility:hidden;
+}
+}}}
+ 就是令所有用 `<div id="myfeel">` 层来包围的元素,暂时不显示!
+ 
+通常，在Web页中指定CSS样式表的方式有３种:
+ 1. 外部CSS样式表(External Styles Sheet)模式，它通过一个独立的CSS样式表文字文件(扩展名通常为 CSS)控制其他Web页。只要在需要指定样式的Web页中，设置一个链接至该CSS样式表文件，而且之后只要改变此CSS样式表内容，就可改变所有链接至该CSS样式表的Web页样式。
+ 1. 内嵌CSS样式表(Embedded Styles Sheet)模式，它直接在HTML＜body＞标签前设置一个样式标签，而这个设置会直接影响该Web页的样式设置。
+ 1. 内部CSS样式表(Internal Styles Sheet)模式，它直接对HTML里的任何单一对象(如文字、图像等)进行样式设置，这种做法其实相当于利用文字的属性检查器。CSS样式表直接定义的样式，只会影响单一选取的内容文字，而不会影响整个Web页的样式设置。
+通常这３种方式浏览器的处理顺序为：内部CSS样式表模式、内嵌CSS样式表模式，外部CSS样式表模式,
+ * 这也正是CSS 的名称的由来,一层层的逐级解析和处理网页的表现;
+
+DHTML 中的CSS,利用DOM的约定,可以配合CSSL动态的对指定的页面元素进行外观的改变;
+
+ DHTML 实例::
+  * 访问地址: http://www.w3school.com.cn/example/dhtm_examples.asp
+  * 精巧地址: http://bit.ly/1PCYzL
+
+
+== 使用 ==
+当前 DHTML 也已经框架化,形成了 Ajax 技术群:
+
+=== Ajax ===
+Ajax（异步 JavaScript 和 XML）是 Jesse James Garrett 创造的一个术语，它是指一种基于标准的技术/设计模式，用来为服务器部署的应用程序开发比浏览器更好的用户体验。通过使用 Ajax，可以编写 JavaScript 代码来改进 HTML，创建出丰富的交互性用户体验。例如，JavaScript 可以执行本地用户输入验证，为相同的数据提供不同的视图（条形图、表格、饼图等等），或者通过浏览器的 XMLHTTPRequest 对象与应用程序的服务器组件进行异步的交互。
+
+ 参考资料:
+  Ajax 框架技术汇总
+   * 访问地址: http://ajaxpatterns.org/Ajax_Frameworks
+   * 精巧地址: http://bit.ly/DRuCF
+  AJAX框架汇总
+   * 访问地址: http://docs.huihoo.com/web/ajax/ajax-frameworks.html
+   * 精巧地址: http://bit.ly/CHRHr
+  Ajax框架汇总与对比
+   * 访问地址: http://www.444p.com/example/php-ajax/aid2639-ajax_frame/
+   * 精巧地址: http://bit.ly/2C9hWG
+  Ajax 资源中心 - Ajax 开发技术从基础入门到精通掌握所必需学习的文章，教程和参考资源
+   * 访问地址: http://www.ibm.com/developerworks/cn/ajax/
+   * 精巧地址: http://bit.ly/lyptu
+
+ * 简单的说,Ajax 技术,就是利用 XMLHTTPRequest 对象,通过JScript,在页面不刷新的情况下,以JSON数据包的格式,和服务器进行数据交互,并配合CSS在网页中表现出丰富动态效果的一组技巧;
+ * 而 Ajax 框架,就是将丰富的Ajax 技巧,打包起来,形成一组方便规范的调用接口,来帮助 Web 开发人员,快速完成基于 Ajax 技术的动态网页效果;
+ * 然而 各个 Ajax 框架出现的时机和背景思想各有不同,所以并不是所有 Ajax 框架对我们的应用情景都适用的,这里建议的选择原则,就是看相关社区是否活跃,相关第三方扩展开发是否丰富!
+
+== 小结 ==
+ * DHTML 是种技术解决方案的组合,但是DHTML 更象一种艺术行为,要求开发者使用有限的工具(HTML/CSS/JScrip)充分开动想象力,为自个儿的Web 应用实现象桌面应用那样儿使用感觉的操作和交互体验!
+ * 随着 Web2.0 的兴起,Web应用要求单纯化,可扩展化,社会化,这其中 DHTML,或是进一步的--Ajax 的使用是至关重要的,因为统一了前后台数据交互的接口--`JSON`
+ 
+ JSON(JavaScript Object Notation)::
+  attachment:json160.gif
+  * 是一种轻量级的数据交换格式。易于人阅读和编写。同时也易于机器解析和生成。它基于JavaScript Programming Language, Standard ECMA-262 3rd Edition - December 1999的一个子集。
+  * JSON采用完全独立于语言的文本格式,对其解析和生成,有各种语言的现实,Python 是内置支持的!
+  * JSON建构于两种结构：
+    * “名称/值”对的集合（A collection of name/value pairs）。不同的语言中，它被理解为对象（object），纪录（record），结构（struct），字典（dictionary），哈希表（hash table），有键列表（keyed list），或者关联数组 （associative array）。
+    * 值的有序列表（An ordered list of values）。在大部分语言中，它被理解为数组（array）。
+  * JSON 长的非常象 JScript{{{
+{
+    "glossary": {
+        "title": "example glossary",
+		"GlossDiv": {
+            "title": "S",
+			"GlossList": {
+                "GlossEntry": {
+                    "ID": "SGML",
+					"SortAs": "SGML",
+					"GlossTerm": "Standard Generalized Markup Language",
+					"Acronym": "SGML",
+					"Abbrev": "ISO 8879:1986",
+					"GlossDef": {
+                        "para": "A meta-markup language, used to create markup languages such as DocBook.",
+						"GlossSeeAlso": ["GML", "XML"]
+                    },
+					"GlossSee": "markup"
+                }
+            }
+        }
+    }
+}
+
+  }}} 对应XML 的格式,表达相同的数据内容则是:{{{
+<!DOCTYPE glossary PUBLIC "-//OASIS//DTD DocBook V3.1//EN">
+ <glossary><title>example glossary</title>
+  <GlossDiv><title>S</title>
+   <GlossList>
+    <GlossEntry ID="SGML" SortAs="SGML">
+     <GlossTerm>Standard Generalized Markup Language</GlossTerm>
+     <Acronym>SGML</Acronym>
+     <Abbrev>ISO 8879:1986</Abbrev>
+     <GlossDef>
+      <para>A meta-markup language, used to create markup
+languages such as DocBook.</para>
+      <GlossSeeAlso OtherTerm="GML">
+      <GlossSeeAlso OtherTerm="XML">
+     </GlossDef>
+     <GlossSee OtherTerm="markup">
+    </GlossEntry>
+   </GlossList>
+  </GlossDiv>
+ </glossary>
+}}}
+  * 可以感觉出,使用JSON 在Ajax 应用中进行数据传输时,可以节省多少带宽了吧;-)
+  
+  
+
+
+
 ##endInc
 
 ----
