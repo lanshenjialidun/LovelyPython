@@ -1,12 +1,16 @@
 ##language:zh
 #pragma section-numbers off
-||'''status'''|| 草稿|校对|正式 || liz || 完成度80%||
+
+##草稿|校对|正式
+||'''status'''|| 校对 || liz,ZoomQuiet || 完成度:100%||
 
 
 [[TableOfContents]]
 
 ##startInc
 = PCS402 XML =
+~ 让电脑理解网页的技术
+
 == XML的来源 ==
 XML源自标准通用标记语言（Standard Generalized Markup Language，SGML），SGML是一种通用的文档结构描述的符号化语言，主要是用来定义文献模型的逻辑和物理结构，但是由于其过于复杂和臃肿，只能够在大型企业和学术界使用，无法得到大规模应用。随后，于90年代提出的HTML技术得到了很大的发展，但由于HTML是面向表现的标记语言，而且结构固定，难以扩展，缺乏必要的语义信息，不适合用于信息交互。为了克服HTML和SGML的弊端，1996年W3C专家组对SGML进行裁剪，形成SGML的精简子集，这就是现在我们所知的XML。
 
@@ -182,12 +186,41 @@ XML Schema中的简单类型可以分为三种：原子类型、列表类型和�
 XML Schema内置了40多种简单类型，常见的有：string（字符串）、Boolean（布尔类型）、URI reference（URI引用）、float（浮点数字）、double（双精度浮点数）、ID（身份号）、decimal（十进制数字）、 ENTITY（实体）和TimeDutation（时间数据）等。
 
 == 工具和资源 ==
- * [http://www.altova.com/download.html XMLSPY/Altova] Altova SchemaAgent 2007（可视化，支持拖拽）
- * [http://www.liquid-technologies.com/Product XmlStudio.aspx] Liquid XML Studio 2008 (Freeware)
- * [http://www.w3.org/TR/xml/] W3C官方教程
- * [http://www.xml.org.cn/index.html] 关于XML的专业性技术站点
- * [http://www.w3schools.com/schema/default.asp]
- * [http://www.w3.org/XML/Schema] 提供大量XML相关的编辑、解析工具
+ XML开发环境::
+  * Altova XMLSPY(商业软件,可视化，支持拖拽)
+   * 访问地址: http://www.altova.com/download.html 
+   * 精巧地址: 
+  * Liquid XML Studio 2008 (自由软件)  
+   * 访问地址: http://www.liquid-technologies.com/Download.aspx
+   * 精巧地址: http://bit.ly/dQqia
+ XML文档::
+  * W3C官方XML教程:
+   * 访问地址: http://www.w3.org/TR/xml/
+   * 精巧地址: 
+  * XML Schema ~ 提供大量XML相关的编辑、解析工具
+   * 访问地址: http://www.w3.org/XML/Schema
+   * 精巧地址: http://bit.ly/2PssD4
+  * 中国万维网联盟(W3CHINA) ~ 关于XML的专业性中文技术站点
+   * 访问地址: http://www.xml.org.cn/
+   * 精巧地址: http://bit.ly/1CPto0
+  * XML问题专栏
+   * 访问地址: http://www.ibm.com/developerworks/cn/xml/x-matters/
+   * 精巧地址: http://bit.ly/47Z8w1
+   
+== 小结 ==
+  IBM从60年代就开始发展的 GML,到 1986年标准化成SGML(ISO 8879),虽然好用,但是太复杂;
+  
+  随着互联网的发展,在1989 由CERN（Conseil Europeen pour la Recherche Nucleaire）简化成 HTML,随着Internet 的发展,HTML快速发展到4.0,但是有失控的趋势,而且面对爆炸式的网页增长,根本没有什么好办法来让电脑理解网页内容,从而更加聪明的帮助入门寻找可用的资料;
+  
+  所以 1996年合理简化SGML提出XML,1998年,成为W3C标准(XML1.0);
+  
+  但是,人们发现XML配套的技术和软件平台太少,网络中不断增长的还是对于电脑来讲一片混沌的HTML页面,于是在 2000年底,XML向HTML妥协,基于HTML4.0.1 发布了 XHMTL1.0,将HTML改进成吻合XML规范的格式,从部分方面解决了电脑理解网页的问题.
+  
+  嗯嗯嗯,这个围绕着网页的故事还在继续,而XML,已经跨出了网页的领域,在数据挖掘,分布式计算,语义网研究等等方面不断的快速成长着,就行者来看,XML可以简单理解成:
+   1. 结构化数据的容器标准;
+   1. 数据处理的结构化标准;
+  再简单的说,XML就是当前最方便和通用的数据交换格式! 凡是程序间/系统间/网站间的数据交互,优先考虑使用XML准没错!
+  
 
 ##endInc
 

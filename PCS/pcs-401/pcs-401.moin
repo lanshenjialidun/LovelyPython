@@ -6,7 +6,8 @@
 [[TableOfContents]]
 
 ##startInc
-= PCS 401 DHTML =
+= PCS401 DHTML =
+~ 让网页活跃起来的技术!
 
 == 概述 ==
 DHTML，动态HTML，是以HTML为基础，运用DOM将页面元素对象化，利用CSSL控制这些对象的CSS属性以达到网页的动态视觉效果。
