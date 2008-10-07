@@ -7,7 +7,11 @@
 ##startInc
 = PCS111 类 =
 
-== 类定义 ==
+== 概述 ==
+在 Python 中通过关键字class定义一个类, 后面加上类名, 在类中可以定义类成员和类方法.自定义的类也可以继承现有的类, Python中类的继承也有单继承和多继承.
+
+== 使用 ==
+=== 类定义 ===
 自定义的类是类似于下面的形式：
 {{{
 In [1]: class A(object):
@@ -53,7 +57,7 @@ In [7]: class A(object):
 
 }}}类中的方法和普通的函式定义是类似的。
 
-== 继承 ==
+=== 类继承 ===
 Python中允许单继承和有限的多继承。
 {{{
 In [13]: class C(A, B):
@@ -70,12 +74,16 @@ Out[19]: {'a': 1, 'b': 2, 'c': 3}
 
 }}}如果所需要的一个属性在类C中没有找到，则依次从左到右，按A，B的顺序在基类中寻找。通过{{{__dict__}}}可以看到对象的所有属性。
 
+== 小结 ==
+类的定义和使用在面向对象编程中是一重要的内容, 应该熟练掌握. 进一步有关类和面向对象的资料如下:
+ * 类与实例: http://wiki.woodpecker.org.cn/moin/ObpLovelyPython/LpyQLearn-5-object
+ * 精巧地址: http://bit.ly/36elwi
+ * 对象和面向对象: http://www.woodpecker.org.cn/diveintopython/object_oriented_framework/index.html#fileinfo.divein
+ * 精巧地址: http://bit.ly/1WOEJk
+ * A First Look at Classes: http://www.python.org/doc/2.6/tutorial/classes.html
+ * 精巧地址: http://bit.ly/3VhOJ3
 ##endInc
 
-== 相关参考 ==
- * [http://wiki.woodpecker.org.cn/moin/ObpLovelyPython/LpyQLearn-5-object 类与实例]
- * [http://www.woodpecker.org.cn/diveintopython/object_oriented_framework/index.html#fileinfo.divein 对象和面向对象]
- * [http://www.python.org/doc/current/tut/node11.html#SECTION0011300000000000000000 A First Look at Classes ]
 ----
 ::Lizzie [2008/06/24 13:24:00]
 [[PageComment2]]
