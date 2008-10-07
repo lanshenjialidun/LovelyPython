@@ -51,12 +51,14 @@ In [12]: for line in f.readlines():
 ------------------------------------------------------------
 IndentationError: unindent does not match any outer indentation level (<ipython console>, line 8)
 }}}
-使用缩进有个需要注意的地方，就是，不要混用制表符和空格，因为虽然表面上看起来是同一层次，但python解释器还是会认为是不同的代码缩进。最好仅仅用空格，并且是用4个空格作为一个缩进层次。缩进很容易被熟悉，对于我们程序员来说，应该养成熟练使用缩进的习惯，因为这不仅是语法需要，更是能够让我们形成统一、良好的编程风格。
+使用缩进有个需要注意的地方，就是，不要混用制表符和空格，因为虽然表面上看起来是同一层次，但python解释器还是会认为是不同的代码缩进。最好仅仅用空格，并且是用4个空格作为一个缩进层次。
+
+== 小结 ==
+在编写Python程序的时候, 一定要注意缩进的使用, 因为它是区分各个语句块的. 缩进很容易被熟悉，学习Python的过程中，应该逐渐养成熟练使用缩进的习惯，因为这不仅是语法需要，更是能够让我们形成统一、良好的编程风格。
+ * 代码缩进: http://www.woodpecker.org.cn/diveintopy_5_4/getting_to_know_python/indenting_code.html
+ * 精巧地址: http://bit.ly/12Ys4p
 
 ##endInc
-
-== 相关参考 ==
- * [http://www.woodpecker.org.cn/diveintopy_5_4/getting_to_know_python/indenting_code.html 代码缩进]
 ----
 ::Lizzie [2008/06/16 21:24:00]
 [[PageComment2]]

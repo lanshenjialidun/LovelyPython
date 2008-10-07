@@ -11,7 +11,8 @@
 == 概述 ==
 Python中的一切东西都是对象，即，一切兼对象！
 
-== 对象定义 ==
+== 使用 ==
+=== 对象定义 ===
 Python把任何数据抽象为对象。每个对象都有唯一的id，特定的类型和值。
  * 每一个对象都有一个唯一的身份标识自己，任何对象的身份可以使用内建函式id()来得到。这个值可以被认为是该对象的内存地址。
  * 对象的类型决定了该对象可以保存什么类型的值，可以进行什么样的操作，以及遵循什么样的规则。可以使用内建函式type()查看Python对象的类型。注意：在Python中类型也是对象，所以type()返回的是对象而不是简单的字符串。
@@ -45,7 +46,7 @@ class object
  |  The most base type
 }}}
 
-== 对象属性 ==
+=== 对象属性 ===
 不同的Python对象具有不同的属性和方法，可以使用点号`.`来访问属性。比如定义一个类Concept：
 {{{#!python
 # -*- coding: utf-8 -*-
@@ -88,12 +89,18 @@ Add Extent:  Concept 1: (set(['a', 'b'])), (set([1, 2, 3]))
 
 1
 }}}
-这里涉及到Python中类的相关知识，在[http://wiki.woodpecker.org.cn/moin/ObpLovelyPython/PCS111 PCS111 类]中有详细描述，在此略。对于Python对象，读者在学习过程中，一定要时刻记住`一切类型皆是对象`，对于如int等的基本数据类型也是对象，读者可以查看《Python源码剖析》来进一步了解Python中的对象机制。同时，在Python世界中，[http://wiki.woodpecker.org.cn/moin/ZoomQuiet/2008-07-01 一切循环是迭代,一切对象是字典,一切命名是引用]。
+这里涉及到Python中类的相关知识，在PCS111 类中有详细描述，在此略。
+
+== 小结 ==
+对于Python对象，读者在学习过程中，一定要时刻记住`一切类型皆是对象`，对于如int等的基本数据类型也是对象，读者可以查看《Python源码剖析》来进一步了解Python中的对象机制。同时，在Python世界中，一切循环是迭代,一切对象是字典,一切命名是引用]。
+ * 一切循环是迭代,一切对象是字典,一切命名是引用: http://wiki.woodpecker.org.cn/moin/ZoomQuiet/2008-07-01
+ * 精巧地址: http://bit.ly/1MfiNV
+ * Python Objects: http://www.effbot.org/zone/python-objects.htm
+ * 精巧地址: http://bit.ly/zpdxd
+ * Objects, values and types: http://www.python.org/doc/current/ref/objects.html
+ * 精巧地址: http://bit.ly/3v2u3I
 
 ##endInc
-== 相关参考 ==
- * [http://www.effbot.org/zone/python-objects.htm Python Objects]
- * [http://www.python.org/doc/current/ref/objects.html 3.1 Objects, values and types ]
 ----
 ::Lizzie [2008/06/20 21:00:00]
 [[PageComment2]]

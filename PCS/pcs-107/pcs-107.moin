@@ -52,16 +52,16 @@ In [8]: print '%(a)d %(b)f %(c)s %(d)s' % {'a':a, 'b':b, 'c':c, 'd':d}
  * s 	表示字符串（使用对象的str()将其转换为字符串形式）。
  * %  表示字符%。
 
-##endInc
 == 小结 ==
-字串格式化，即是将字符串按照一定格式输出，应该不难掌握。
+字串格式化，也就是将字符串按照一定的格式输出，应该不难掌握。更多有关字串格式化的资料可参见:
+ * String Formatting Operations: http://docs.python.org/lib/typesseq-strings.html
+ * 精巧地址: http://bit.ly/2TH7cE
+ * 格式化字符串: http://www.woodpecker.org.cn/diveintopython/native_data_types/formatting_strings.html
+ * 精巧地址: http://bit.ly/3CQSYk
+ * 字符串的格式化: http://blog.csdn.net/magicbreaker/archive/2008/06/09/2525722.aspx
+ * 精巧地址: http://bit.ly/4AVfWm
 
-
-== 相关参考 ==
- * [http://docs.python.org/lib/typesseq-strings.html String Formatting Operations]
- * [http://www.woodpecker.org.cn/diveintopython/native_data_types/formatting_strings.html 格式化字符串]
- * [http://blog.csdn.net/magicbreaker/archive/2008/06/09/2525722.aspx 字符串的格式化]
-
+##endInc
 ----
 ::Lizzie [2008/06/22 13:24:00]
 [[PageComment2]]
