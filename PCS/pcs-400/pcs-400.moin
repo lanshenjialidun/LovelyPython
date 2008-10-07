@@ -1,44 +1,152 @@
 ##language:zh
 #pragma section-numbers off
-||'''status'''|| 草稿|校对|正式 || liz || 完成度40%||
+
+##草稿|校对|正式
+||'''status'''|| 校对 || liz,ZoomQuiet || 完成度:100%||
 
 
 [[TableOfContents]]
 
 ##startInc
 = PCS400 GAE =
+`~Google 提供的免费Web应用空间！`
 == 概述 ==
-Google App Engine是用于在google服务器上创建和部署web应用的平台，于2008年4月发布beta版本。App Engine应用很容易被创建，维护和扩展，不需要服务器的维护，开发者只需要上载自己的应用就可发布。
+attachment:gae_logo.jpg
+
+GAE ~ Google App. Engine 即, Google 应用引擎;是用于在Google服务器上创建和部署Web应用的免费开发平台，于2008年4月发布beta版本。App Engine应用很容易被创建，维护和扩展，不需要服务器的维护，开发者只需要上传自己的应用就可发布。
 GAE帐号可以免费注册，也提供在appspot.com上的免费二级域名，也可通过Google Apps使用自己的域名。一个免费帐号拥有500MB的持久存储，足够CPU配额和每月500万页访问的带宽。
 
 == 特点 ==
-=== 开发环境 ===
-GAE可以很容易建立一个web应用程序，运行可靠。 环境包括以下功能：
- * 动态网页服务，完全支持通用网络技术
- * 持久存储，并提供查询，排序和交易
- * 自动扩展和负载平衡
- * 提供认证用户和使用google帐户发送电子邮件的API
- * 一个全功能的本地开发环境，在你的计算机上模拟GAE应用程序
-GAE使用Python编程语言，其运行环境包含完整的Python语言和大多数的Python标准库。
+ 开发环境::
+ GAE可以很容易建立一个web应用程序，运行可靠。 环境包括以下功能：
+  * 动态网页服务，完全支持通用网络技术
+  * 持久存储，并提供查询，排序和交易
+  * 自动扩展和负载平衡
+  * 提供认证用户和使用google帐户发送电子邮件的API
+  * 一个全功能的本地开发环境，在你的计算机上模拟GAE应用程序
+ GAE使用Python编程语言，其运行环境包含完整的Python语言和大多数的Python标准库。
 
-=== 沙箱 ===
-应用程序在一个安全，提供受限访问底层操作系统的环境中运行。这些限制允许应用程序引擎跨越多个服务器分发Web请求，启动和停止服务器，以满足交通的需求。沙盘将你的应用程序和安全可靠的运行环境，即独立于硬件，操作系统和物理位置的网络服务器隔离开。
-受限安全沙箱环境包括：
- * 应用程序只能通过URL fetch、邮件服务和API访问互联网上的其他电脑。 同时，其他电脑只能通过HTTP (HTTPS)标准接口访问本应用程序。
- * 应用程序无法写入文件系统。一个应用程序可以读取本地上传的文件。应用程序必须使用应用程序引擎数据存储接口访问所有数据。
- * 应用程序在响应Web请求时运行相应代码，而且必须在几秒钟内返回响应数据。请求处理不能生成子进程或在响应发出之后执行代码。
+ 沙箱::
+  * 应用程序在一个安全，提供受限访问底层操作系统的环境中运行。这些限制允许应用程序引擎跨越多个服务器分发Web请求，启动和停止服务器，以满足交通的需求。沙盘将你的应用程序和安全可靠的运行环境，即独立于硬件，操作系统和物理位置的网络服务器隔离开。
+  * 受限安全沙箱环境包括：
+   * 应用程序只能通过URL fetch、邮件服务和API访问互联网上的其他电脑。 同时，其他电脑只能通过HTTP (HTTPS)标准接口访问本应用程序。
+   * 应用程序无法写入文件系统。一个应用程序可以读取本地上传的文件。应用程序必须使用应用程序引擎数据存储接口访问所有数据。
+   * 应用程序在响应Web请求时运行相应代码，而且必须在几秒钟内返回响应数据。请求处理不能生成子进程或在响应发出之后执行代码。
 
-=== Python运行环境 ===
-应用引擎提供了一个使用的Python编程语言的运行环境。运行环境使用的Python版本是2.5.2 ，包括了Python标准库。当然，调用库方法不能违反沙箱的限制条件。为了方便起见，几个核心功能不支持运行环境的标准库已被禁用。应用程序代码必须是Python，C扩展代码也是不支持的。
-Python环境提供了丰富的API，如数据存储，谷歌帐户，网址获取和电子邮件服务。 应用程序引擎也提供了一个简单的Python web应用框架称为Webapp，可以方便地开始创建应用。
-应用程序引擎还包括Django Web应用框架，其版本0.96.1 。GAE中的数据库和模板部分和Django中也有所不同。也可以在应用中使用上传第三方库，只要它们没有用到任何不支持的标准库模块。
+ 纯Python运行环境::
+  * GAE提供了一个使用的Python编程语言的运行环境。运行环境使用的Python版本是2.5.2 ，包括了Python标准库。当然，调用库方法不能违反沙箱的限制条件。为了方便起见，几个核心功能不支持运行环境的标准库已被禁用。应用程序代码必须是Python，C扩展代码也是不支持的。
+  * Python环境提供了丰富的API，如数据存储，谷歌帐户，网址获取和电子邮件服务。 应用程序引擎也提供了一个简单的Python web应用框架称为Webapp，可以方便地开始创建应用。
+  * GAE还支持各种Web应用框架,只要框架支持CGI/WSGI 接口;这其中包括:
+   * attachment:cplogo.jpg CherryPy 框架
+    * 官方网站: http://www.cherrypy.org/
+    * 这是个古老的纯Python Web应用框架,关注对象化的发布管理,由于其稳定和简洁,有很多其它框架是直接在 CherryPy 的基础上再次开发而成的;
+   * attachment:webpy_logo.gif web.py 框架
+    * 官方网站: http://webpy.org/
+    * 这是极其简练高效的轻巧web应用框架,是 http://reddit.com/ (这是个非常流行的新闻推荐服务)的动力源泉
+   * attachment:pylons_logo.gif PyLons 框架
+    * 官方网站: http://pylonshq.com/
+    * 这是关注高度灵活的"大框架",PyLons 通过组合各种即有社区的作品,形成了一个高效灵活的应用框架,上述  http://reddit.com/ 在后来就迁移到了PyLons 框架中,而且开源了代码! 下载入口: http://code.reddit.com/
+   * attachment:django_logo.gif Django Web应用框架(基于版本0.96.1修订而成) 
+    * 官方网站: http://www.djangoproject.com/
+    * Django 是最流行的Python Web 应用框架之一,Python 的发明人 Giudo 也在公开场合多次表示喜欢Django框架;这是个 all in one 式的框架,支持快速架构起来一个全功能的信息发布站点;
+    * 不过GAE中的数据库和模板部分和Django中也有所不同。也可以在应用中使用上传第三方库，只要它们没有用到任何不支持的标准库模块。
 
 === 数据存储 ===
-应用引擎提供了一个强大的分布式数据存储服务，支持查询和事务。GAE的数据存储不像传统的关系数据库，是由数据对象，或“实体”构成 ，他们具有特征。查询可以根据给定的条件特征检索实体或者按照属性值进行排序。属性值可以是任何支持的数据类型。
-数据库API的数据模型接口可以定义数据实体的结构。这个数据模型可以表明某属性具有一个在某一特定范围内的值，如果没有给出值也提供一个默认值。 一个应用可以根据需求建立多个数据模型。 
+  GAE提供了一个强大的分布式数据存储服务，支持查询和事务。GAE的数据存储不像传统的关系数据库，是由数据对象，或“实体”构成 ，他们具有特征。查询可以根据给定的条件特征检索实体或者按照属性值进行排序。属性值可以是任何支持的数据类型。
+  
+  数据库API的数据模型接口可以定义数据实体的结构。这个数据模型可以表明某属性具有一个在某一特定范围内的值，如果没有给出值也提供一个默认值。 一个应用可以根据需求建立多个数据模型。 
 
+ 详细文档参考:The Datastore API - Google App Engine - Google Code
+  * 访问地址: http://code.google.com/appengine/docs/datastore/
+  * 精巧地址: http://bit.ly/Wxy90
+  
 == 实例 ==
-...GAE应用示例
+GAE 应用建立流程基本是这样的:
+ 1. 获得GAE帐号
+ 1. 下载开发包,当前(2008十月中旬)最新版本是1.1.5
+  * 下载地址: http://code.google.com/appengine/downloads.html
+  * 精巧地址: http://bit.ly/W06sN
+ 1. 在本地开发调试
+ 1. 通过开发包提供的Python脚本上传
+
+=== wekno ===
+笔者拥有一个GEA帐号,在此演示一个 GAE 中的"Hollo World" 应用建立:
+ 
+ 环境准备::
+  * 下载 `google_appengine_1.1.5.zip` 开发包
+  * 解开压缩后,在目录中建立`wekno`目录 ~ 目录名和在 GAE 中创建的应用名相同
+  * 创建相关脚本,在目录中的组织类似{{{
+google_appengine
+  +-- ,,, 其它各个SDK 中默认包含的目录
+  +-- wekno         我的GAE应用目录
+    |-- app.yaml    应用配置文件
+    \-- hollo.py    默认页面脚本
+}}}
+
+ 开发部署:
+  * 首先完成应用配置文件:app.yaml
+{{{
+application: wekno
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+- url: /.*
+  script: hollo.py
+}}}
+
+{{{注意::
+YAML ~ YAML Ain't Markup Language(反标签语言的YAML)
+和GNU一样，YAML是一个递归着说“不”的名字。不同的是，GNU对UNIX说不，YAML说不的对象是XML;
+官方网站:http://www.yaml.org/
+这是一种人性的,数据序列化语言规约,有无数种开发语言的现实;在GAE 中使用的是PyYAML:
+访问地址: http://pyyaml.org/wiki/PyYAML
+精巧地址: http://bit.ly/CuCpT
+GAE 选择YAML 来组织配置文件,以便给将来支持其它语言的开发准备好平滑坚实的地基!
+}}}
+  * 然后完成最简单的应用脚本:hollo.py
+{{{#!python
+# -*- coding: utf-8 -*-
+print 'Content-Type: text/plain'
+print ''
+print 'Hollo, World! this is WeKno!,,,'
+print '是也乎?!'
+}}}
+  * 先在本地运行测试一下:
+   * 图pcs-400-0 在SDK中运行应用
+
+attachment:GAE-0-local.png
+   * 图pcs-400-1 在本地查看效果
+
+attachment:GAE-1-8080.png
+  * 然后上传到GAE空间:
+   * 图pcs-400-2 使用脚本上传应用
+
+attachment:GAE-2-update.png
+  * 最后就可以在GAE网站中看到自个儿的应用了:
+图pcs-400-3 在GAE空间中查看效果
+
+attachment:GAE-3-appspot.png
+
+
+== 深入 ==
+毕竟到现在为止 GAE 还是beta 版本,GAE中的应用开发,和在普通的主机中自由组织自个儿的应用是不同的,有诸多限制,但是可以自在的使用各种Google 不断公开的各种应用接口:
+ * 访问地址:http://code.google.com/intl/zh-CN_ALL/more/
+ * 精巧地址:http://bit.ly/1RVuXm
+ 这是其它任何服务都无法相比的!
+ * 存储~实际在享用 GFS
+ * 数据库~实际在享用 BigTable 对象数据库
+ * 多媒体~实际可以使用YouTube 数据仓库
+ * 等等,,,
+ 
+== 小结 ==
+  Python 是市值己逾1518亿的Google公司 使用的核心开发语言之一;
+  
+  GAE 是Google 贡献给世界的免费应用空间服务,通过组合Google 的多种服务,将Google 宏伟的硬件平台,通过Python 脚本,开发给普遍人一个轻便的操作渠道,可以帮助任何人,利用 Google 的计算平台发布自个儿的应用;
+
+  两者相辅相成,直接激发了Python 这一脚本语言在世界的知名度和发展(毕竟Python 之父Guido 老爹被Google挖来公司了),所以,推荐读者也来体验一下Google 的应用引擎服务,站在巨人的肩膀上自由发挥自个儿的想象力!
+
 ##endInc
 
 ----
