@@ -6,11 +6,15 @@
 
 ##startInc
 = PCS100 import ~ 模块及包的使用 =
+== 概述 ==
+Python中, 是通过import 或from  import语句来调用模块的. 如果程序文件或模块比较多, 则会显得整个目录比较乱, 所以为了便于管理各个模块, 会把他们分门别类的存放在不同的文件夹下, 这样, 把单独存放模块的文件夹称做包. 
 
-== 模块(modules) ==
+== 使用 ==
+=== 模块(modules) ===
 模块(modules) 其实,就是普通的 Python 脚本文件，一般命名是模块名称加上.py后缀；
 这类Python 脚本文件,主要供其他程序将其引入,以便利用其提供的操作/功能/数据，Python标准库全部是以模块方式提供的.
-例如：fibo模块(fibo.py)是一个实现Fibonacci功能的模块。{{{#!python
+例如：fibo模块(fibo.py)是一个实现Fibonacci功能的模块。
+{{{#!python
 # -*- coding: utf-8 -*-
 # Fibonacci数列模块
 # 输出所有小于n的Fibonacci数
@@ -30,7 +34,8 @@ def fib2(n):
         result.append(b)
         a, b = b, a+b
     return result
-}}}在Python解释器中，使用import fibo语句导入fibo模块，使用fibo.fib(1000)来调用函式，也可以用fib = fibo.fib将模块函式赋值到本地函式。{{{
+}}}在Python解释器中，使用import fibo语句导入fibo模块，使用fibo.fib(1000)来调用函式，也可以用fib = fibo.fib将模块函式赋值到本地函式。
+{{{
 >>> import fibo
 >>> fibo.fib(1000)
 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987
@@ -49,8 +54,9 @@ def fib2(n):
 }}}正如上述代码中，不仅可以通过import来实现模块中函式的使用，还可以通过from ...import方式来导入模块中函式。
 
 
-== 包(package) ==
-包是采用"."组织模块命名空间方式，比如模块名称A.B表示是表示A 包中的模块B。这种命名空间的组织方式能够避免不同模块命名的冲突。例如：假设需要设计一组模块来处理声音文件和声音数据，就是如何组织一个包。由于存在多个不同声音格式的文件，需要一个随时能增加新模块的包来处理新增的声音格式。另外还需要对声音进行各种不同处理（例如混声、加回音、加入平衡、加入人工音效等），所以还需要另写一些模块来作这些处理。比如以下组织结构：{{{
+=== 包(package) ===
+包是采用"."组织模块命名空间方式，比如模块名称A.B表示是表示A 包中的模块B。这种命名空间的组织方式能够避免不同模块命名的冲突。例如：假设需要设计一组模块来处理声音文件和声音数据，就是如何组织一个包。由于存在多个不同声音格式的文件，需要一个随时能增加新模块的包来处理新增的声音格式。另外还需要对声音进行各种不同处理（例如混声、加回音、加入平衡、加入人工音效等），所以还需要另写一些模块来作这些处理。比如以下组织结构：
+{{{
 Sound/                          Top-level package
       __init__.py               Initialize the sound package
       Formats/                  Subpackage for file format conversions
@@ -76,8 +82,9 @@ Sound/                          Top-level package
               ...
 }}}{{{__init__.py}}}是必须的，它帮助Python将该目录识别为包。在最简单的例子中，{{{__init__.py}}}是一个空文件。当然也可以让{{{__init__.py}}}做一些包的初始化动作或是设定一些变量，如{{{__all__}}}变量。
 
-== import ==
-直接导入包中的一个模块或导入模块中定义的一个函式(如模块fibo的函式fib)来使用，比如：{{{#!python
+=== import ===
+直接导入包中的一个模块或导入模块中定义的一个函式(如模块fibo的函式fib)来使用，比如：
+{{{#!python
 # -*- coding: utf-8 -*-
 import Sound.Effects.echo
 # 使用这个模块,必须使用完整的名字来调用
@@ -94,20 +101,24 @@ from Sound.Effects.echo import echofilter
 echofilter(input, output, delay=0.7, atten=4)
 }}}
 
-== from ... import ==
-另一种写法，from Sound.Effects import * 会怎么样？ 理想情况下，可能期望会搜寻整个包目录，然后搜寻所有的模块并且一一导入。但是，在Mac以及Windows平台下，文件的名称大小写不一致，所以无法保证所有的模块都会被导入。所以唯一解决的方法就是包的作者提供一个明确索引给使用包的人。如果遵守该习惯的话，当使用包的人在导入的时候使用from Sound.Effects import *，就会查找包中的{{{__init__.py}}}中的{{{__all__}}}这个list变量，该变量就包含所有应该被导入进来的模块名称。身为包的作者有责任维护更新{{{__init__.py}}}。以{{{Sounds/Effects/__init__.py}}}为例：{{{#!python
+=== from ... import ===
+另一种写法，from Sound.Effects import * 会怎么样？ 理想情况下，可能期望会搜寻整个包目录，然后搜寻所有的模块并且一一导入。但是，在Mac以及Windows平台下，文件的名称大小写不一致，所以无法保证所有的模块都会被导入。所以唯一解决的方法就是包的作者提供一个明确索引给使用包的人。如果遵守该习惯的话，当使用包的人在导入的时候使用from Sound.Effects import *，就会查找包中的{{{__init__.py}}}中的{{{__all__}}}这个list变量，该变量就包含所有应该被导入进来的模块名称。身为包的作者有责任维护更新{{{__init__.py}}}。以{{{Sounds/Effects/__init__.py}}}为例：
+{{{#!python
  __all__ = ["echo", "surround", "reverse"]
-}}}表示当from Sound.Effects import * 时会import 这三个module。如果没有定义__all__，from Sound.Effects import *不会保证所有的子模块被导入。所以要么通过__init__.py，要么显式地import以保证子模块被导入。如下：{{{#!python
+}}}表示当from Sound.Effects import * 时会import 这三个module。如果没有定义__all__，from Sound.Effects import *不会保证所有的子模块被导入。所以要么通过__init__.py，要么显式地import以保证子模块被导入。如下：
+{{{#!python
 import Sound.Effects.echo
 import Sound.Effects.surround
 from Sound.Effects import *
 }}}值得注意的是import *不被鼓励，因为这样会降低程序的可读性，虽然有时会减少一些打字，而且有些模块在设计时故意只让某些特别的名称可以被使用。
-使用from Package import specific_submodule没有任何不对，但如果你的模块名称和其他名称冲突，就得使用as为冲突模块取个别名：{{{#!python
+使用from Package import specific_submodule没有任何不对，但如果你的模块名称和其他名称冲突，就得使用as为冲突模块取个别名：
+{{{#!python
 from Package import specific_submodule as specific_submodule_alias
 }}}
 
-== 搜寻路径 ==
-当你导入fibo时，Python解释器先在当前目录下搜寻fibo.py文件，如果没有找到，会依次在$PYTHONPATH指示的所有路径中搜寻。$PYTHONPATH的设定方法与$PATH是一样的，即多个目录路径的字符串。事实上，模块的搜寻路径是依照sys.path变量（多个路径组成的list变量）。当Python解释器启动时，会将当前目录、$PYTHONPATH、以及按照安装时设定的一些目录加入到sys.path变量中，所以可以修改这些参数来控制搜寻模块的路径。 比如：{{{#!python
+=== 搜寻路径 ===
+当你导入fibo时，Python解释器先在当前目录下搜寻fibo.py文件，如果没有找到，会依次在$PYTHONPATH指示的所有路径中搜寻。$PYTHONPATH的设定方法与$PATH是一样的，即多个目录路径的字符串。事实上，模块的搜寻路径是依照sys.path变量（多个路径组成的list变量）。当Python解释器启动时，会将当前目录、$PYTHONPATH、以及按照安装时设定的一些目录加入到sys.path变量中，所以可以修改这些参数来控制搜寻模块的路径。 比如：
+{{{#!python
 # -*- coding: utf-8 -*-
 import sys
 # 将fibo.py的路径添加到sys.path
@@ -116,15 +127,18 @@ sys.path.append('/home/shengyan/workspace/')
 from pcs import fibo
 }}}
 
-##endInc
 == 小结 ==
-本文简要介绍了模块、包的相关知识，同时介绍了import、from import的使用及相关内容，更多的阅读资料可查看文首的资源链接。
+本文简要介绍了模块、包的相关知识，同时介绍了import、from import的使用及相关内容，更多的阅读资料可查看下面的资源链接:
+ * LpyQLearn-6-model: http://wiki.woodpecker.org.cn/moin/ObpLovelyPython/LpyQLearn-6-model
+ * 精巧地址: http://bit.ly/3ZiH8s
+ * Importing Python Modules: http://effbot.org/zone/import-confusion.htm ——很适合于初学者的一篇文章
+ * 精巧地址: http://bit.ly/2xqCpU
+ * Modules文档: http://docs.python.org/tut/node8.html
+ * 精巧地址: http://bit.ly/px6V6
+ * import语句: http://docs.python.org/ref/import.html
+ * 精巧地址: http://bit.ly/3H9UUC
 
-== 相关参考 ==
- * [http://wiki.woodpecker.org.cn/moin/ObpLovelyPython/LpyQLearn-6-model]
- * [http://effbot.org/zone/import-confusion.htm Importing Python Modules ]——很适合于初学者的一篇文章
- * [http://docs.python.org/tut/node8.html Modules文档 ]
- * [http://docs.python.org/ref/import.html import语句 ]
+##endInc
 ----
 ::Lizzie [2008/06/16 21:24:00]
 [[PageComment2]]

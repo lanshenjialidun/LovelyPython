@@ -101,7 +101,7 @@ In [32]: id(b)
 Out[32]: 137472992
 }}}
 
-== hasattr()和getattr() ==
+=== hasattr()和getattr() ===
 分别是判断对象是否有某个属性及获得某个属性值。
 {{{
 
@@ -137,15 +137,16 @@ Out[45]: False
 
 }}}
 
-##endInc
-
 == 小结 ==
-以上这些都是常用的自身方法，还有其他的可参见相关资源。
+以上这些都是常用的自身方法，还有其他的可参见相关资源:
+ * 自省的威力: http://www.woodpecker.org.cn/diveintopython/power_of_introspection/index.html
+ * 精巧地址: http://bit.ly/2cYq5p
+ * Python 自省指南: http://www.ibm.com/developerworks/cn/linux/l-pyint/index.html
+ * 精巧地址: http://bit.ly/32ZEgp
+ * Python 学习笔记 - 2.自省: http://www.xwy2.com/article.asp?id=106
+ * 精巧地址: http://bit.ly/J4LZ5
 
-== 相关参考 ==
- * [http://www.woodpecker.org.cn/diveintopython/power_of_introspection/index.html 自省的威力]
- * [http://www.ibm.com/developerworks/cn/linux/l-pyint/index.html Python 自省指南]
- * [http://www.xwy2.com/article.asp?id=106 Python 学习笔记 - 2.自省]
+##endInc
 
 ----
 ::Lizzie [2008/06/20 13:24:00]

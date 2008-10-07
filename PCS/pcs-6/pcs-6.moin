@@ -8,7 +8,12 @@
 = PCS6 Python与中文 =
 
 == 概述 ==
-中文编码总是个大问题。不过Python可以完美的支持中文，不管你的字符编码是GB2312，GBK 或者UTF-8。在这里，不准备讲述有关ASCII/Unicode编码和中文编码问题，这两部分内容可以分别参考[http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html]和[http://www.css8.cn/css8_document/gb2312.htm]上的描述。下面介绍Python中的中文编码问题。
+中文编码总是个大问题。不过Python可以完美的支持中文，不管你的字符编码是GB2312，GBK 或者UTF-8。在这里，不准备讲述有关ASCII/Unicode编码和中文编码问题，这两部分内容可以分别参考: 
+ * 字符编码介绍: http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html
+ * 精巧地址: http://bit.ly/2BEWnC
+ * 汉字编码介绍: http://www.css8.cn/css8_document/gb2312.htm
+ * 精巧地址: http://bit.ly/2Oxpp7
+上的描述。下面介绍Python中的中文编码问题。
 
 == 使用 ==
 Python中文编码转换，主要有以下四个对象来处理字符串转换操作等。
@@ -89,16 +94,18 @@ Out[14]: '\xe6\xb5\xa3\xe7\x8a\xb2\xe3\x82\xbd'
 
 }}}
 
-##endInc
 == 小结 ==
-字符编码是个比较绕人的问题，因为世界上有太多不同的编码方式，如果全世界统一用一个字符集和一种编码实现方式，那么就不会有这么多问题了，但这是不可能的。
-
-== 相关参考 ==
- * [http://www.pconline.com.cn/pcedu/empolder/gj/other/0505/616631.html 谈谈Unicode编码]
- * [http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html 字符编码笔记：ASCII，Unicode和UTF-8]
- * [http://www.css8.cn/css8_document/gb2312.htm 汉字编码问题]
- * [http://webclipping.com.cn/2007/12/18/如何解决python-中文编码问题/ 如何解决python 中文编码问题]
- * [http://www.unicode.org/]
+字符编码是个比较绕人的问题，因为世界上有太多不同的编码方式，如果全世界统一用一个字符集和一种编码实现方式，那么就不会有这么多问题了，但这是不可能的。有关字符编码的知识还可以在下面的链接中找到更多:
+ * 谈谈Unicode编码: http://www.pconline.com.cn/pcedu/empolder/gj/other/0505/616631.html
+ * 精巧地址: http://bit.ly/17VlhU
+ * 字符编码笔记：ASCII，Unicode和UTF-8: http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html
+ * 精巧地址: http://bit.ly/2BEWnC
+ * 汉字编码问题: http://www.css8.cn/css8_document/gb2312.htm
+ * 精巧地址: http://bit.ly/2Oxpp7
+ * 如何解决python 中文编码问题: http://webclipping.com.cn/2007/12/18/如何解决python-中文编码问题/
+ * 精巧地址: http://bit.ly/vgeZ
+ 
+##endInc
 ----
 ::Lizzie [2008/06/20 13:24:00]
 [[PageComment2]]

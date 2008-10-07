@@ -10,14 +10,19 @@
 == 概述 ==
 iPython是一个Python的交互式Shell，比默认的Python Shell好用得多，功能也更强大。她支持语法高亮，自动完成，代码调试，对象自省，支持 Bash Shell 命令，内置了许多很有用的功能和函式等等，非常容易使用。
 
-==  安装iPython ==
+== 使用 ==
+
 目前，最新稳定的iPython版本是0.8.4，支持多种操作系统，如Linux，Unix，Mac OS X，Windows等等，这里详细介绍在Linux和Windows下的安装过程。其他系统下的安装过程可参见[http://ipython.scipy.org/moin/Download 具体说明]。
 
 === Windows下的iPython安装 ===
 在Windows下安装iPython可分为以下几步：
 
 (1) 下载[http://ipython.scipy.org/dist/ipython-0.8.4.win32-setup.exe ipython-0.8.4.win32-setup.exe]和[http://ipython.scipy.org/dist/pyreadline-1.5-win32-setup.exe pyreadline-1.5-win32-setup.exe]。
-
+ * 下载ipython-0.8.4.win32: http://ipython.scipy.org/dist/ipython-0.8.4.win32-setup.exe 
+ * 精巧地址: http://bit.ly/YqbkJ
+ * 下载pyreadline-1.5-win32: http://ipython.scipy.org/dist/pyreadline-1.5-win32-setup.exe
+ * 精巧地址: http://bit.ly/2JFKDM
+  
 (2) 双击运行安装程序，只需经过四步即可完成安装：
 
  显示一些提示信息，直接Next；
@@ -52,7 +57,9 @@ attachment:PCS2-windows-7.png
 
 === Linux下的iPython安装 ===
 (1) 下载[http://ipython.scipy.org/dist/ipython-0.8.4.tar.gz ipython-0.8.4.tar.gz]。
-
+ * 下载ipython-0.8.4.tar.gz包: http://ipython.scipy.org/dist/ipython-0.8.4.tar.gz
+ * 精巧地址: http://bit.ly/1VaGJw
+ 
 (2) 进入终端，输入如下几条命令，分别是解压、进入目录、编译、安装，一切ok的话就顺利安装iPython。
 {{{
 ~$ tar xvzf ipython-0.8.4.tar.gz
@@ -63,8 +70,13 @@ attachment:PCS2-windows-7.png
 
 (3) 在Ubuntu下，可以通过输入命令sudo apt-get install ipython即可完成安装，非常方便。
 
-== 使用iPython ==
-在顺利安装好iPython之后，就可以进入该交互环境使用了。下面介绍在Linux下iPython的使用方式，Windows下也是很类似的。下面内容很多参考自：[http://forum.ubuntu.org.cn/viewtopic.php?p=447255&sid=5ba2eaa5af49eaca994976f9c285b819 使用IPython增强交互式体验]和其英文原文[http://www.onlamp.com/pub/a/python/2005/01/27/ipython.html Enhanced Interactive Python with IPython]非常不错的资料！
+=== 使用iPython ===
+在顺利安装好iPython之后，就可以进入该交互环境使用了。下面介绍在Linux下iPython的使用方式，Windows下也是很类似的。下面内容很多参考自：
+ * 使用IPython增强交互式体验: http://forum.ubuntu.org.cn/viewtopic.php?p=447255&sid=5ba2eaa5af49eaca994976f9c285b819
+ * 精巧地址: http://bit.ly/1v24Sl
+ * 其英文原文Enhanced Interactive Python with IPython: http://www.onlamp.com/pub/a/python/2005/01/27/ipython.html
+ * 精巧地址: http://bit.ly/1h699v
+非常不错的资料！
 
 进入终端，输入ipython，即可进入如下图所示的iPython交互环境。
 
@@ -346,16 +358,16 @@ ipython -p
 最后，退出iPython。输入Ctrl-D（会要求你确认），也可以输入Exit或Quit（注意大小写）退出而不需要确认。
 
 
-##endInc
-
 == 小结 ==
 经过本文对iPython的特性及其基本的使用方法的介绍，已经充分感受到iPython的强大功能了吧！那么，就把她作为一个有利的工具帮助我们开发吧！对于进一步的配置和更多的用途，有兴趣的同学可以在网络上发掘更丰富的资料。
+ * iPython网站: http://ipython.scipy.org
+ * iPython英文文档: http://ipython.scipy.org/moin/Documentation
+ * 精巧地址: http://bit.ly/GdPZU
+ * iPython中一些magic函式: http://guyingbo.javaeye.com/blog/111142
+ * 精巧地址: http://bit.ly/3GVxE8
+ 
+##endInc
 
-== 相关参考 ==
- * [http://ipython.scipy.org iPython网站]
- * [http://ipython.scipy.org/moin/Documentation iPython英文文档]
- * [http://ipython.scipy.org/dist iPython下载]
- * [http://guyingbo.javaeye.com/blog/111142 iPython中一些magic函式]
 ----
 -- Lizzie [[DateTime(2008-05-28T21:00:00Z)]] 
 [[PageComment2]]

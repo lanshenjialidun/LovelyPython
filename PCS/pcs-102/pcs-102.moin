@@ -7,8 +7,11 @@
 
 ##startInc
 = PCS102 For 循环 =
-
 == 概述 ==
+For语句是主要的流程控制语句之一, 最基本的用法是和其他语言类似的, 不过特殊之处在于Python的for语句具有两种不同的风格形式, 下面会详细介绍.
+
+== 使用 ==
+首先举个最简单的例子:
 {{{
   for item in [1, 2, 3]:
       print item
@@ -44,7 +47,6 @@ for语句后面可以跟else子句，在这里else子句含义是：如果 for �
   没有大于等于10的数字
 }}}
 
-== 两种风格的for语句 ==
 如果熟悉C语言的话，便会看出Python的for和C的for的不同，表面上的语法差异自然容易看出，但实际上他们的含义却是有根本的不同的。要类比Python这种形式的for语句的话，可以想象某些语言的for in或者foreach之类的语法。
 {{{
 
@@ -135,15 +137,14 @@ for语句后面可以跟else子句，在这里else子句含义是：如果 for �
     get next, current is 10
 }}}
 
-##endInc
 == 小结 ==
 For循环是比较重要的控制流语句，本文介绍for语句的基本使用。
+ * For循环及相关控制流: http://docs.python.org/tut/node6.html#SECTION006200000000000000000
+ * 精巧地址: http://bit.ly/3it1MI
+ * The for statement: http://docs.python.org/ref/for.html
+ * 精巧地址: http://bit.ly/4sKUbJ
 
-== 相关参考 ==
- * [http://wiki.woodpecker.org.cn/moin/ObpLovelyPython/LpyQLearn-3-process]
- * [http://docs.python.org/tut/node6.html#SECTION006200000000000000000 For循环及相关控制流]
- * [http://docs.python.org/ref/for.html The for statement ]
-
+##endInc
 ----
 ::Lizzie [2008/06/16 21:24:00]
 [[PageComment2]]

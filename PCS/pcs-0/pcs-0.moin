@@ -8,11 +8,16 @@
 = PCS0 如何安装Python =
 == 概述 ==
 Python是跨平台的动态脚本语言，可以运行在Windows、Linux/Unix、Mac OS X等多种操作系统上，下面就Python在Windows和Linux上的安装进行详细介绍。
- 
-==  Windows下安装Python ==
+
+== 使用 ==
+===  Windows下安装Python ===
 在Windws下安装Python可以分为如下步骤：
 
-(1) [http://www.python.org/download/releases/2.5.2/ 下载]。从这里可以下载到目前最新版本[http://www.python.org/ftp/python/2.5.2/python-2.5.2.msi for Windows x86的Python2.5.2]。
+(1) [http://www.python.org/download/releases/2.5.2/ 下载]。从这里可以下载到[http://www.python.org/ftp/python/2.5.2/python-2.5.2.msi for Windows x86的Python2.5.2]。
+ * Python官方下载: http://www.python.org/download/releases/2.5.2/ 
+ * 精巧地址: http://bit.ly/1vlp1i
+ * For Windows x86的Python2.5.2: http://www.python.org/ftp/python/2.5.2/python-2.5.2.msi
+ * 精巧地址: http://bit.ly/2uCvx5
 
 (2) 下载完毕后，双击python-2.5.2.msi这个安装包，运行这个安装程序。出现安装提示：“是为所有用户安装Python，还是只为我自己”，在这里使用系统默认选项：Install for all users，也就是为所有用户安装Python，直接点击下一步。
 
@@ -42,11 +47,17 @@ attachment:PCS0-windows-step6.png
 
 attachment:PCS0-windows-step7.png
 
-==  Linux下安装Python ==
+===  Linux下安装Python ===
 一般情况下，无需自己安装Python。因为在大多数Linux版本中，如Fedora，Ubuntu等，都已经默认安装了Python，但可以根据需要自定义安装Python。下面使用源码编译安装来举个例子。
 
 (1) [http://www.python.org/download/releases/2.5.2/ 下载源码包]。这里下载的是[http://www.python.org/ftp/python/2.5.2/Python-2.5.2.tgz Python2.5.2版本的gzip压缩包]，读者也可以下载[http://www.python.org/ftp/python/2.5.2/Python-2.5.2.tar.bz2 Python2.5.2版本的bzip2压缩包]。
-
+ * Python官方下载: http://www.python.org/download/releases/2.5.2/ 
+ * 精巧地址: http://bit.ly/1vlp1i
+ * Python2.5.2版本的gzip压缩包: http://www.python.org/ftp/python/2.5.2/Python-2.5.2.tgz
+ * 精巧地址: http://bit.ly/XlFop
+ * Python2.5.2版本的bzip2压缩包: http://www.python.org/ftp/python/2.5.2/Python-2.5.2.tar.bz2
+ * 精巧地址: http://bit.ly/Inl29
+ 
 (2) 解压安装包。在终端进入压缩包所在目录，输入命令tar -zxvf Python-2.5.2.tgz (or bzcat Python-2.5.2.tar.bz2 | tar -xf -)，即可完成解压过程。
 
 (3) 进入解压后的python目录，一般先看一下安装说明README，这里详细讲述了Python 2.5.2的相关资源及其网址和各种支持的操作系统下的安装方法。读者可以根据需求适当参考该文档。下面给出Python最普通的安装过程。
@@ -73,18 +84,16 @@ attachment:PCS0-ubuntu-step4.png
  * 方法二，上述方法仅对当前用户环境进行设置，若想在系统上，全局使用Python2.5.2，则需以下步骤：
  attachment:PCS0-ubuntu-step6.png
 
-##endInc
 
 == 小结 ==
-本文详细介绍了在Windows和Linux下如何安装Python的方法。
+本文详细介绍了在Windows和Linux下如何安装Python的方法。更多关于Python介绍及其安装可到以下网站查看:
+ * Python 官方英文网站: http://www.python.org/
+ * Python 中文社区: http://python.cn/
+ * Python 英文官方文档及资源: http://www.python.org/doc/
+ * Python 手册: http://doc.chinahtml.com/Manual/Python/tut/index.html
+ * 精巧地址: http://bit.ly/XbkRB
 
-== Python相关资源 ==
- * [http://www.python.org/ Python 官方英文网站]
- * [http://www.python.org/doc/ Python 英文官方文档及资源]
- * [http://www.python.org/download/releases/2.5.2/ 目前Python稳定版本为2.5.2]
- * [http://python.cn/ Python 中文社区]
- * [http://doc.chinahtml.com/Manual/Python/tut/index.html Python手册]
- * [http://www.wuwx.cn/blog/archives/272 Windows下Python新手安装教程]
+##endInc
 
 ----
 -- Lizzie  [[DateTime(2008-05-22T14:00:00Z)]] 
