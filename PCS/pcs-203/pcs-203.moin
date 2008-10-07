@@ -23,10 +23,16 @@ running build
 running build_py
 ...
 #完毕
-}}}其他平台下的更多安装方法可参见[http://epydoc.sourceforge.net/manual-install.html 安装手册]
+}}}
+其他平台下的更多安装方法可参见:
+ * 安装手册: http://epydoc.sourceforge.net/manual-install.html
+ * 精巧地址: http://bit.ly/2lsakW
 
 === 书写格式 ===
-使用epydoc生成文档,得先在源代码中插入相关的各种格式的Docstring，它支持多种[http://wiki.woodpecker.org.cn/moin/EpydocApiTag 标签]，以下列出基本的标签：{{{
+使用epydoc生成文档,得先在源代码中插入相关的各种格式的Docstring，它支持多种[http://wiki.woodpecker.org.cn/moin/EpydocApiTag 标签]
+ * Epydoc支持标签详细介绍: http://wiki.woodpecker.org.cn/moin/EpydocApiTag
+ * 精巧地址: http://bit.ly/2JBwrl
+以下列出基本的标签：{{{
 1.   py文献信息   
  '''@author:''' ... 作者 
  '''@license:''' ... 版权 
@@ -65,7 +71,9 @@ epydoc 支持三种标签的语法.
  * '''Javadoc''':
  {{{
  @tag 内容...}}}
-更多的Tag语法及注释规范可参见[http://wiki.woodpecker.org.cn/moin/CodeCommentingRule 文档化开发注释规范]
+更多的Tag语法及注释规范可参见:
+ * 文档化开发注释规范: http://wiki.woodpecker.org.cn/moin/CodeCommentingRule
+ * 精巧地址: http://bit.ly/46BkrB
 
 === 文档生成 ===
 功能描述:将docstring生成html文档
@@ -107,9 +115,3 @@ dotpath: /usr/bin/dot
 }}}
 
 ##endInc
-== 资源链接 ==
- . [http://epydoc.sourceforge.net/ Epydoc官方文档]
- . [http://billlangjun.blogspot.com/2008/01/learning-epydoc.html Learning Epydoc]
- . [http://wiki.woodpecker.org.cn/moin/EpydocApiTag Epydoc标签]
- . [http://wiki.woodpecker.org.cn/moin/CodeCommentingRule 文档化开发注释规范]
- . [http://epydoc.sourceforge.net/manual-install.html 安装手册]

@@ -19,8 +19,15 @@ In [3]: print sys.argv
 ['/usr/bin/ipython']
 }}}
 
-== 解析系统参数 ==
-Python中提供很多模块都可以解析系统参数，比如，[http://docs.python.org/lib/module-cmd.html cmd]、[http://docs.python.org/lib/module-getopt.html getopt]和[http://docs.python.org/lib/module-optparse.html optparse]，下面举个optparse的简单例子：
+== 使用 ==
+Python中提供很多模块都可以解析系统参数，比如，cmd、getopt和optparse.
+ * cmd: http://docs.python.org/lib/module-cmd.html
+ * 精巧地址: http://bit.ly/4y8FC9、
+ * getopt: http://docs.python.org/lib/module-getopt.html
+ * 精巧地址: http://bit.ly/4kIlCa
+ * optparse: http://docs.python.org/lib/module-optparse.html
+ * 精巧地址: http://bit.ly/1XZtW8
+下面举个optparse的简单例子：
 {{{#!python
 from optparse import OptionParser
 import sys
@@ -54,13 +61,10 @@ key
 create sth
 }}}
 
+##== 小结 ==
+
 ##endInc
 
-== 相关参考 ==
- * [http://docs.python.org/lib/module-sys.html System-specific parameters and functions]
- * [http://docs.python.org/lib/module-cmd.html cmd]
- * [http://docs.python.org/lib/module-getopt.html getopt]
- * [http://docs.python.org/lib/module-optparse.html optparse]
 ----
 ::Lizzie [2008/06/23 13:24:00]
 [[PageComment2]]

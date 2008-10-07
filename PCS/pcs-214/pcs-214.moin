@@ -63,5 +63,7 @@ ElementTree还提供了很多类和函式,类有:
  * XML(text):从一个包含XML数据的字串文本中解析出XML元素
  * dump(elem): 将整个元素结构树输出至标准输出sys.stdout
  * iselement(element):判断参数元素是否为有效的元素对象
- * 等等还有很多,可以参见[http://effbot.org/zone/pythondoc-elementtree-ElementTree.htm ElementTree文档].
+ * 等等还有很多,可以参见:
+  * ElementTree文档: http://effbot.org/zone/pythondoc-elementtree-ElementTree.htm
+  * 精巧地址: http://bit.ly/3PbG6Q
 ##endInc

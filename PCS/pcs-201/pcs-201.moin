@@ -69,6 +69,10 @@ hello again LovelyPython !
 }}}
 就像示例中所写的那样,自定义的CLI类提供了`hello`和`quit`命令,可以正常使用它们,而`find`命令是没有定义的,所以命令行提示为未知语法.最后的q命令是和quit一样的功能,即退出程序.
 
-== 探讨 ==
-使用cmd模块可以方便编写命令行程序,同时使用getopt和optparse这两个模块可以很方便解析命令行参数.这里向读者推荐一个比cmd更好的模块,是由Doug Hellmann编写的命令行处理类`CommandLineApp`,具体可以参见这里的[http://www.doughellmann.com/articles/CommandLineApp/index.html 描述资料]及[http://code.pythonmagazine.com/2/1 相关代码]。
+== 小结 ==
+使用cmd模块可以方便编写命令行程序,同时使用getopt和optparse这两个模块可以很方便解析命令行参数.这里向读者推荐一个比cmd更好的模块,是由Doug Hellmann编写的命令行处理类`CommandLineApp`,具体可以参见这里:
+ * CommandLineApp描述: http://www.doughellmann.com/articles/CommandLineApp/index.html
+ * 精巧地址: http://bit.ly/1b2tsB
+ * CommandLineApp相关代码: http://code.pythonmagazine.com/2/1
+ * 精巧地址:http://bit.ly/1aUqx4
 ##endInc
