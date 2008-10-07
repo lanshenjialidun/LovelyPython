@@ -1,81 +1,182 @@
 ##language:zh
 #pragma section-numbers off
 ##||'''status'''|| 草稿|校对|正式 || AuthorName|| 完成度15%||
+
 ||'''status'''|| 校对 || ZoomQuiet || 完成度~60%;||
 
 
 [[TableOfContents]]
+
 ##startInc
+
 = 行者箴言 =
 ## 一句话本章精要精神
 ''' 光说不练徦把式，光练不说傻把式！ '''
- * 汇集本书散落在各处的程序员 箴言警句 细说来由
+ * 汇集散落在书中各处的行者"箴言"细说来由;-)
+ * 每节使用固定的述说模式:
+  1. 给出E文定义
+  1. 给出实例故事的出处
+  1. 讲述产生的背景
+  1. 展开解说相关的体验,给出进一步的阅读资料
 
 == 用之,不学! ==
 `Enjoy it! don't Learnning`
-  * 来自 [:ObpLovelyPython/CDay-5:CDay-5]
+  * 来自 [:ObpLovelyPython/CDay-5:CDay -5 Python初体验和原始需求]
 
  背景::
- * [编程杂谈]做个项目吧 http://blog.donews.com/limodou/archive/2004/12/10/199174.aspx
-  * 来自 中国Python 著名行者 Limodou 的Blog文章,他是 UliPad 的作者 
-  * 工程站点: http://code.google.com/p/ulipad/
+  "[编程杂谈]做个项目吧" 
+   * 访问地址: http://blog.donews.com/limodou/archive/2004/12/10/199174.aspx
+   * 精巧地址: http://bit.ly/YOdMc
+  * 来自中国Python 著名行者 Limodou 的Blog,是他维护着 UliPad(当时还叫 NewEdit) 这一轻便实用纯Python 实现的编辑器项目
+   * UliPad工程网站: http://code.google.com/p/ulipad/
+  * 在文中 Limodou 倡导在项目开发的实际应用中学习相关知识
  
  解说::
   这是本书的核心本愿!
+  * 在 CPyUG ~ China Python User Group(中国Python)用户组的邮件列表长期维护过程中笔者们发现:
+   "怎么可以学好Python ?" 是初学者最经常和反复提到的一个问题!
+  * 这个问题,怎么回答,其实不是简单的学习经验的分享,而是怎么传达 Pythonic 精神和自信的哲学性问题;
+  * 通过 Limodou 的倡议,大家最终确认了这一学习原则:`用之,不学!`
+  * 为学习Python 而学习,是最不可取和南辕北辙的;因为, Python 本来就是为了快速解决常见问题而创造出来的,不是为了印证什么编程理论或是模式;所以, "在战斗中学习战斗",是Python 学习的最合适态度,而且也只有在面对实际问题时,才可以真正感受到Python 的简便/友好/直觉!如果拉开架式,为了写出漂亮的OO的或是吻合什么模式的代码而且研究Python,那就失去了应用Python 来快捷解决问题的乐趣了.
+  
+  
+{{{脚注::
+CPyUG的主力邮件列表地址是:
+http://groups-beta.google.com/group/python-cn
+精巧地址: http://bit.ly/3895ZW
+啄木鸟自由软件社区,则是另外一个中国Pythoner 聚集地;
+和CPyUG 的关系可以参考:
+http://wiki.woodpecker.org.cn/moin/WoodpeckerAbt
+精巧地址: http://bit.ly/4DHYa0
+}}}
 
-
-== 寻之,不造! ==
-`Search at first,Don't try creat!`
+== 寻之!不造. ==
+`Searching at first,Don't try creat!`
  * '''寻找吧!不要先想着创造--Python 是自足的'''
-  * 来自 [:ObpLovelyPython/CDay-4:CDay-4]
+  * 来自 [:ObpLovelyPython/CDay-4:CDay -4 可用的首个Python脚本]
  * '''你能够碰到的问题,99%的情况下其它人已经遇到过了,所以,最佳的解决方式就是找到那段别人解决相似问题的代码!'''
-  * 来自 [:ObpLovelyPython/CDay-1:CDay-1]
+  * 来自 [:ObpLovelyPython/CDay-1:CDay -1 中文处理完成功能的实用化]
 
  背景::
- 图 atta1-1
+  图 atta1-1 漫画电池内置
   * attachment:atta1-1.jpg
-  * `Batteries Included`~是Python 的哲学之一!
-  * http://www.uselesspython.com/BatteriesIncluded.html 语言本身天然已经内置了足够多的模块,可以独立完成大多数常见任务的!
+  * `Batteries Included`~'''电池内置''' 是Python 的哲学之一!
+  * 详细说明: http://www.uselesspython.com/BatteriesIncluded.html 
+  * 精巧地址: http://bit.ly/2vPE15
+  * 意思是python语言本身,已经天然内置了足够多的实用模块,可以完成大多数常见任务的!
   * 成功故事之一:
-  http://www.python.org/about/success/eztrip/
-  * [编程杂谈]开始读源码吧 http://blog.donews.com/limodou/archive/2005/04/26/352565.aspx
-   * 同样来自 Limodou 的体验
+    * EZTrip.com 选择Python 进行企业整合的故事: http://www.python.org/about/success/eztrip/
+    * 精巧地址: http://bit.ly/4TrC2
+  * "[编程杂谈]开始读源码吧"
+   * 访问地址: http://blog.donews.com/limodou/archive/2005/04/26/352565.aspx
+   * 精巧地址: http://bit.ly/nS0rE
+   * 同样来自 Limodou 的体验分享,文中指出,想写出好代码,就要多看其它优秀作品的源代码;这不仅仅要提取出对自个儿用有的代码,同时也是学习他人的思路和工程设计/组织经验;
  
  解说::
-  有自由/开源软件的世界里,解决问题的途径不只有自个儿堆代码解决了(嗯嗯嗯,当然的作为程序的自尊,一般也不允许自个儿去买软件来解决问题;-) 
-   
-== 否之!守之! ==
-`Keep evolution,focus original Goal!`
- * '''不断的否定自己,但是要坚持最初的妄想'''^ --不论战术上如何变化,千万不要忘记战略目标^
-  * 来自 [:ObpLovelyPython/CDay-3:CDay-3]
+  有自由/开源软件的世界里,解决问题的最快捷途径绝对不是自个儿堆代码解决!
+  * 嗯嗯嗯,当然的出于"程序员"的自尊,以及关键性的经济条件,一般也不允许去买软件来解决问题;-) 
+  * Python 使用开源许可证:
+   * 全文访问: http://www.python.org/download/releases/2.4.2/license/
+   * 精巧地址: http://bit.ly/1xTbla
+  * 所以,各种基于Python 的项目一般都乐于公开源代码;
+  * 加之,Python 因为有丰富的C语言接口,实际上也是种方便的胶水语言--可以平滑的直接或是通过接口模块和各种开发语言協同完成任务!
+  * 故而,用Python 来解决问题,基本上不用自个儿冥思苦想整出代码来,只要用心先搜索一下根据问题域的解决方案设想,广泛调研一下,基本都可以找到一个以上的支持模块或是软件--当然是Python 写的,下载来,稍微配置或是定制/修改一下就好! 作为Pythoner ,应该有这种自觉和自信!
+  * 不过,Python 的各种支持模块/软件都是各行其是的分散在网络中,并没有象Perl 的CPAN 那样形成统一聚集地;
+  * 当前,比较集中的 Python 作品索引中心有:
+   * Python Package Index 
+    * 访问地址: http://pypi.python.org/pypi
+    * 精巧地址: http://bit.ly/2QQiMz 
+    * Python 官方网络组织的模块包索引,和 setuotools 工具协同,可以自动下载和升级各种己注册模块;
+   * The Vaults of Parnassus: Python Resources
+    * 访问地址: http://py.vaults.ca/apyllo.py
+    * 精巧地址: http://bit.ly/10KY2U
+    * 以问题域为分类,长期收集有大量的软件包信息
+   * Python Starship
+    * 访问地址: http://starship.python.net/crew/index.html
+    * 精巧地址: http://bit.ly/eMW11
 
+ CPAN::
+  attachment:cpan.jpg
+  * 访问地址: http://www.cpan.org/
+  * 即: Comprehensive Perl Archive Network ~ Perl 综合典藏网
+  * 它是一个巨大的Perl软件收藏库，收集了大量有用的Perl模块(modules)及其相关的文件。由于CPAN的收藏丰富，使用者甚多，在世界各地都有许多CPAN的镜站(mirror site)存在。
+ * CPAN亦是一支Perl程式的名字，其作用是让使用者容易从CPAN下载、安装、更新及管理其他在CPAN上的Perl程式,日常使用类似:{{{
+~$ perl -MCPAN -e shell
+#第一次进入CPAN时，CPAN将会进行一次配置(configuration)。当配置完成后，就可以利用CPAN来查询CPAN内的Perl模块，并且进行安装。一般操作如下：
+
+CPAN> d /bioperl/
+
+查询有关bioperl的模块
+
+CPAN> install modulename
+
+安装指定的模块
+}}}
+  * CPAN的成功引来很多其他编程语言社群的模仿。CTAN（Comprehensive TeX Archive Network，TeX综合典藏网）和CSAN（Comprehensive Scheme Archive Network，Scheme综合典藏网）都参考了CPAN的命名方式。另外PEAR（PHP Extension and Application Repository）也是类似CPAN的PHP程式网站!
+  * 八卦一下: 在Perl 6 之后,由于全新设计的Parrot引擎,支持其它语言的解析和字节码编译,故而,Python 有望直接使用CPN!
+  
+== 否之!守之! ==
+`Keep evolution,never lost original Goal!`
+ * '''不断的否定自己,但是要坚持最初的妄想'''^ --不论战术上如何变化,千万不要忘记战略目标^
+  * 来自 [:ObpLovelyPython/CDay-3:CDay -3 通过函式进行功能化]
 
  背景::
- * [编程杂谈]编程就象练书法 http://blog.donews.com/limodou/archive/2006/04/02/808281.aspx
-  * 同样来自 Limodou 的体验
+  "[编程杂谈]编程就象练书法" 
+  * 访问地址: http://blog.donews.com/limodou/archive/2006/04/02/808281.aspx
+  * 精巧地址: http://bit.ly/3TGsCt
+  * 同样来自 Limodou 的体验分享,文中指出:编程应该象练毛笔字--只求耕耘,不求收获;在不断的反复修订中积累经验和思路,才会有那么一天一切豁然开朗的!
  
  解说::
-   有关重构的心态经验
+  这是 Pythonic 重构心态的劝戒;
+  * 在[:ObpLovelyPython/PCS404:PCS404 代码重构浅说] 中有相关的简介；
+  * 这里特别指出的: 很多时候最初那一瞬间的设想/构思/概念 可能就是整个软件/项目/工程的最核心亮点,千万不要在代码展开编写后,逐渐被各种意外问题所迷惑,忘记了最初那个自个儿真正想完成的功能!
+  * 不断的否定自己,意思是否定自个儿现在的代码实现方式,而不是功能,并且,在重构/增补代码/功能时,有一个基础指标要守住 -- 确保现有所有功能是运行正常的,是可用的,通过测试的!
+  
 
-
-
-== 发布!持续! ==
+== 发布,持续! ==
 `Keep realese,Keep publish!`
  * '''发布!为了全人类!'''因为'''一个人如果力求完善自己，他就会看到，为此也必须同时完善他人。一个人如果不关心别人的完善，自己便不可能完善。'''
  * 发布好象不是通告一嗓子就好的事儿 ~ '''分分分!学生的命根! 文档,文档,文档!软件的颜面!'''
-  * 来自 [:ObpLovelyPython/CDay0:CDay0]
-
+  * 来自 [:ObpLovelyPython/CDay0:CDay 0 感受软件工程进行发布的准备]
 
  背景::
- * [编程杂谈]写写Blog吧 http://blog.donews.com/limodou/archive/2004/12/14/202590.aspx
-  * 同样来自 Limodou 的体验
+  "[编程杂谈]写写Blog吧"
+  * 访问地址: http://blog.donews.com/limodou/archive/2004/12/14/202590.aspx
+  * 精巧地址: http://bit.ly/49NSOE
+  * 依然来自 Limodou 的分享文章,文中指出:"分享你的心得吧",从中不仅仅可以通过文字的形成,将自个儿的想法和设计真正厘清,同时也是获得越来越多同道中人关注和相互激发的好途径!
  
  解说::
-  有关社区体验经验/文档化开发体验
+  '''一个人如果力求完善自己，他就会看到，为此也必须同时完善他人。一个人如果不关心别人的完善，自己便不可能完善。''' 源自 庄秀丽老师(任教于北京师范大学 教育技术学院)曾经的一篇Blog:
+  * ''读书摘要——拔高一个层次看分享与协作''{{{
+一个人如果力求完善自己，他就会看到，为此也必须同时完善他人。
+一个人如果不关心别人的完善，自己便不可能完善。
 
+这是因为，人要充分发展自己的天性，必须充分发展他的人际关系，也就是在社会之中。
 
+这就回到了孔子、孟子的传统，人要想完善自己，必须实行忠恕、仁义，这就包含了帮助别人。
+人要想完善自己，就必须充分发展上苍的天性，帮助别人就是参与天地化育万物的工作。
+一个人如果真正懂得了这一切，他就与天地合参，成为一体了。
 
-== 先用,再修! ==
+《中庸》所讲的“明”，便是这个意思：人做到与天地合参，便是完美。
+
+在《中庸》里，至善被称为“诚”（真诚、纯真）和“明”是连在一起的。
+《中庸》第二十一章说：“
+自诚明，谓之性。
+自明诚，谓之教。
+诚则明矣，明则诚矣。”一个人如果把他所领会的都付诸实践，他也就是圣人了。
+
+人只有在自己的实践中，才能懂得这些普通、寻常事的真正意义；也只有真正懂得它们的意义，才能做得完美。
+}}}
+  * 在 WEB2.0 时代,各SNS网站都开始号称`永远的beta 版本`,也就是持续发布和改进;
+  * 豆瓣网就是其中的实例,在不断的和资深用户交互沟通过程中,不断的增/删/改网站功能,令网站服务在使用中,不断的及时的影响用户的需求,成为好用的,人们喜欢用的系统;
+  * 再小的程序开发也应该一样,软件开发的本质目标是解决问题,而程序员写程序,就应该永远想着自个儿的代码可以长久的应用下去,可以在所有相似的情景中快速得到复用!
+  * 这就要求对代码要在运行过程中不断的根据新要求/新目标/新情况,持续修订/重构,令代码逐渐变的凝练,稳固!同时,代码本身也应该是简单明晰的,借助简略恰当的注释,甚至于不用注释,任何人都可以快速理解代码的设计思路,执行淤积,实现结构,可以立即加入到其它应用中,稳定的支撑起新的软件来!
+  * 所以,发布一直以来就应该是对内对外的双重发布:
+   1. 对内: 通过发布和整理,以及注释更新,令开发者自身,加深对代码的理解,并及时进行再次重构迭代;
+   1. 对外: 通过发布和宣传,让其它人获知软件的状态,令有缘人可以及时得到我们的代码,并通过清晰易懂的代码建立起沟通渠道,可以就相似问题域的解决进行互通有无,令好代码传播出去,延长生命周期的同时,也因为及时丰富的使用反馈,令自个儿的代码可以进一步得到增补!
+   
+
+== 先用,再修, ==
 `Running! before Enhancement`
  * '''没有完美的软件!够用并且容易使用的软件已经算是完美的了'''
   * 来自 [:ObpLovelyPython/CDay-2:CDay-2]
@@ -85,7 +186,7 @@
 
 
  背景::
- * [编程杂谈]编程就象练书法 http://blog.donews.com/limodou/archive/2006/04/02/808281.aspx
+  "[编程杂谈]编程就象练书法 http://blog.donews.com/limodou/archive/2006/04/02/808281.aspx
  
  解说::
   ` Python 八荣八耻 ` http://wiki.woodpecker.org.cn/moin/Py8Rong8Chi
@@ -98,7 +199,7 @@
 
 以模块复用为荣 , 以复制粘贴为耻;
 以多态应用为荣 , 以分支判断为耻;
-以Pythonic为荣 , 以冗余拖沓为耻;
+以Pythonic为荣, 以冗余拖沓为耻;
 以总结分享为荣 , 以跪求其解为耻;
 }}}
 
@@ -112,7 +213,8 @@
   * '''网站软件化绝对不是空话!''' 来自 [:ObpLovelyPython/CDay2:CDay2]
 
  背景::
- * SaaS 概念
+  SaaS 概念
+  * 
  
  解说::
   如果看待GUI ?  
@@ -129,10 +231,10 @@
  解说::
   * 有关软件设计经验
 
-== 想象,无垠! ==
+== 想象;无垠! ==
 `Imagine Unlimited!`
   * '''想象力才是 Pythoner 的唯一界限''' 
-  来自 [:ObpLovelyPython/CDayN:CDay+1]
+  来自 [:ObpLovelyPython/CDayN:CDay +N]日故事
 
  背景::
  * Python的动态性真是让人吃惊 
@@ -146,18 +248,17 @@
   * 有关资源深度利用经验~ 社区，交流，搜索，知识管理策略 ...
 
 = 箴言凝练 =
-`Motto zip`
-
-== 蠎 禅 ==
 一切尽在自言中:
 
-图 atta1-2
+== 蠎之禅 ==
+
+图 atta1-2 Python 内置的哲学诗文
+
 attachment:atta1-2.png
 
-在线的汉化版本收集:
-  http://wiki.woodpecker.org.cn/moin/PythonZen
-
-
+ 在线的汉化版本收集:
+  * 访问地址: http://wiki.woodpecker.org.cn/moin/PythonZen
+  * 精巧地址: http://bit.ly/2h4f5T
 {{{
 美丽好过丑陋;
 明显好过隐晦;
@@ -180,7 +281,6 @@ attachment:atta1-2.png
 --大家一起来实践这些规则吧!
 
 -- by Tim Peters
-
 }}}
 
 
