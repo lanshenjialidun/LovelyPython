@@ -7,25 +7,63 @@
 ##[[Include(ZPyUGnav)]]
 
 ##|校对|正式 
-||'''status'''|| 草稿|| ZoomQuiet|| 完成度:20% 框架分类||
+||'''status'''|| 草稿|| ZoomQuiet|| 完成度:30% 框架分类||
 
 ##startInc
 = Python 资源索引 =
-
+## 目前大多是啄木鸟上的. 还有许多....待补充 by liz
 == Python 语言 ==
  常备::
-  * 手册
+  * Python Tutorial 中文版: http://www.woodpecker.org.cn:9081/projects/pythontutorial/py2.5/html/tut/tut.html
+   * 精巧地址: http://bit.ly/1rzx1n
+  * 简明 Python 教程: http://www.woodpecker.org.cn:9081/doc/abyteofpython_cn/chinese/index.html
+   * 精巧地址: http://bit.ly/4zQc4a
+  * Python 指南: http://doc.chinahtml.com/Manual/Python/tut/tut.html
+   * 精巧地址: http://bit.ly/hTbof
+  * 开始编程之旅: http://wiki.woodpecker.org.cn/moin/StartProgramming
+   * 精巧地址: http://bit.ly/4bwSzl
+  * Python 绝对简明手册: http://wiki.woodpecker.org.cn/moin/PyAbsolutelyZipManual
+   * 精巧地址: http://bit.ly/2EEz6I
+  * Py标准库手册: http://wiki.woodpecker.org.cn/moin/PythonStandardLib
+   * 精巧地址: http://bit.ly/4iH5V5
+  * Python 常用模块体验: http://wiki.woodpecker.org.cn/moin/PyCommonUsageMod
+   * 精巧地址: http://bit.ly/1WiW4T
+  * Python开发编码规范: http://wiki.woodpecker.org.cn/moin/PythonCodingRule
+   * 精巧地址:  http://bit.ly/3HURoL
+  * ...
+  
  深入::
-  * NewClass ..
- 前沿::
-  * py3k
+  * Dive into Python: http://www.woodpecker.org.cn/diveintopython/
+   * 精巧地址: http://bit.ly/2H4vrR
+  * Python编程(第三版): http://wiki.woodpecker.org.cn/moin/PP3eD
+   * 精巧地址: http://bit.ly/NSLYJ
+  * Python食谱: http://wiki.woodpecker.org.cn/moin/PyCookbook
+   * 精巧地址: http://bit.ly/6nRiS
+  * Python 之优雅与瑕疵: http://wiki.woodpecker.org.cn/moin/PyBlemish
+   * 精巧地址: http://bit.ly/4jvqeV
+  *Effective--实效Python编程: http://wiki.woodpecker.org.cn/moin/EffectivePyPrgramming
+   * 精巧地址:  http://bit.ly/47fEwY
+  * ...
 
+ 前沿::
+  * Python 3000 进度报告: http://wiki.woodpecker.org.cn/moin/Py3000StatusUpdate
+   * 精巧地址:  http://bit.ly/2IwaEp
+  * ...
 
 == Py 数据库应用 ==
  常备::
   * 模块
+  * Python数据库开发概要: http://wiki.woodpecker.org.cn/moin/Py4Database
+   * 精巧地址: http://bit.ly/IT9wY
+  * ...
+  
  深入::
   * 支持仓库
+  * MySQL:
+  * PostgreSQL: 
+  * SQLite: 
+  * ...
+  
  前沿::
   * ODB
 
@@ -33,7 +71,9 @@
  常备::
   * 成熟框架
  深入::
-  * PIL
+  * PIL: http://wiki.woodpecker.org.cn/moin/PythonImagingLibrary
+   * 精巧地址: http://bit.ly/2iNDy0
+  * ...
   * 桌面
  前沿::
   * 3D,blander
@@ -48,28 +88,73 @@
 
 == Py 网络应用 ==
  常备::
-  * 内置
+  * 内置?
+  * Python WEB应用框架纵览: http://wiki.woodpecker.org.cn/moin/PyWebFrameList
+   * 精巧地址: http://bit.ly/1U4oHm
+  * ...
+  
  深入::
-  * 流行框架
+  * CherryPy: http://wiki.woodpecker.org.cn/moin/CherryPyQuickIn
+   * 精巧地址: http://bit.ly/1DGuQN
+  * Django: http://docs.djangoproject.com/
+   * 精巧地址: http://bit.ly/2fEoz8
+  * TurboGears: http://wiki.woodpecker.org.cn/moin/TurboGearStepByStep
+   * 精巧地址: http://bit.ly/1cTTYP
+  * Karrigell: http://karrigell.sourceforge.net/en/front.htm
+   * 精巧地址: http://bit.ly/2z3ejE
+  * web2py: http://mdp.cti.depaul.edu/
+   * 精巧地址: http://bit.ly/3x4nj9
+  * web.py: http://www.dup2.org/files/web.py%200.2%20tutorial.html
+   * 精巧地址: http://bit.ly/3RqqmN
+  * Pylons: http://wiki.pylonshq.com/display/pylonsdocs/Home
+   * 精巧地址:  http://bit.ly/3MqEPh
+  * Quixote: http://wiki.woodpecker.org.cn/moin/QuixoteQuickIn
+   * 精巧地址: http://bit.ly/3ZD3AW
+  * Zope: http://wiki.woodpecker.org.cn/moin/Zope3Book
+   * 精巧地址: http://bit.ly/265zEI
+  * Uliweb: http://uliwebproject.appspot.com/
+   * 精巧地址: http://bit.ly/dLsUk
+  * ...
+  
  前沿::
   * 邪派功法
-  * GAE
+  * GAE: http://code.google.com/appengine/docs/whatisgoogleappengine.html
+   * 精巧地址: http://bit.ly/1Girr
+  * ...
   
 == Py 扩展应用 ==
  常备::
-  * C
+  * Swig: http://www.swig.org/doc.html
+   * 精巧地址: http://bit.ly/4qUhgr
+  * ...
+  
  深入::
-  * PyRex
+  * PyRex: http://wiki.woodpecker.org.cn/moin/Pyrex
+   * 精巧地址: http://bit.ly/1mICtd
+  * PythonExtendingAndEmbedding: http://wiki.woodpecker.org.cn/moin/PythonExtendingAndEmbedding
+   * 精巧地址: http://bit.ly/26MjGC
+  * ...
+  
  前沿::
   * 动态 Jython
+  * ...
 
 == Py 文档处理 ==
  常备::
-  * 文本
+  * Text Processing in Python: http://gnosis.cx/TPiP/
+   * 精巧地址: http://bit.ly/3ZiI3k
+  * ...
+  
  深入::
   * Office
+  * ...
+  
  前沿::
-  * 结构化文本
+  * StructuredTex: http://www.zope.org//Members/jim/StructuredTextWiki/StructuredTextNGRules
+   * 精巧地址: http://bit.ly/1NeDIF
+  * AsciiDoc: http://www.methods.co.nz/asciidoc/index.html
+   * 精巧地址: http://bit.ly/3QwcTD
+  * ...
 
 == Py 科学计算 ==
  常备::
