@@ -73,6 +73,8 @@
  深入::
   * PIL: http://wiki.woodpecker.org.cn/moin/PythonImagingLibrary
    * 精巧地址: http://bit.ly/2iNDy0
+  * PyOpenGL: http://pyopengl.sourceforge.net/
+   * 精巧地址: http://bit.ly/2gOUKk
   * ...
   * 桌面
  前沿::
@@ -133,6 +135,8 @@
    * 精巧地址: http://bit.ly/1mICtd
   * PythonExtendingAndEmbedding: http://wiki.woodpecker.org.cn/moin/PythonExtendingAndEmbedding
    * 精巧地址: http://bit.ly/26MjGC
+  * Psyco: http://psyco.sourceforge.net/
+   * 精巧地址: http://bit.ly/3jrshT
   * ...
   
  前沿::
@@ -143,10 +147,16 @@
  常备::
   * Text Processing in Python: http://gnosis.cx/TPiP/
    * 精巧地址: http://bit.ly/3ZiI3k
+  * PyXML: http://pyxml.sourceforge.net/topics/
+   * 精巧地址: http://bit.ly/3Rf7ga
+  * PyHtml: http://code.google.com/p/jrfonseca/wiki/PyHTML
+   * 精巧地址: http://bit.ly/2XnwcO
   * ...
   
  深入::
   * Office
+  * ReportLab: http://www.reportlab.org/
+   * 精巧地址: http://bit.ly/PmJfm
   * ...
   
  前沿::
@@ -158,9 +168,17 @@
 
 == Py 科学计算 ==
  常备::
-  * 模块
+  * NumPy: http://numpy.scipy.org/numpybook.pdf
+   * 精巧地址: http://bit.ly/10u2O0
+  * SciPy: http://www.scipy.org/
+   * 精巧地址: http://bit.ly/4Bg9RA
+  * ...
+  
  深入::
   * 数学
+  * SAGE: http://www.sagemath.org/
+   * 精巧地址: http://bit.ly/3SNn9Z
+  * ...
  前沿::
   * 生物
 
