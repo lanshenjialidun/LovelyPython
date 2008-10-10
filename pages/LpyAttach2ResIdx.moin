@@ -7,11 +7,20 @@
 ##[[Include(ZPyUGnav)]]
 
 ##|校对|正式 
-||'''status'''|| 草稿|| ZoomQuiet|| 完成度:30% 框架分类||
+||'''status'''|| 草稿|| ZoomQuiet|| 完成度:50% Liz 将啄木鸟维基中的相关资料进行了索引||
+## 目前大多是啄木鸟上的. 还有许多....待补充 by liz
 
 ##startInc
 = Python 资源索引 =
-## 目前大多是啄木鸟上的. 还有许多....待补充 by liz
+
+ * 访问地址: http://www.python.org/about/success/
+ * 精巧地址: http://bit.ly/21PDa9
+
+ '''Python 快速介绍'''^Limodou和Zoom.Quiet 合写^
+ * 访问地址: http://www.zoomquiet.org/share/s5/intropy/
+ * 精巧地址: http://bit.ly/41i72J
+
+
 == Python 语言 ==
  常备::
   * Python Tutorial 中文版: http://www.woodpecker.org.cn:9081/projects/pythontutorial/py2.5/html/tut/tut.html
@@ -190,7 +199,7 @@
  前沿::
   * ??
 
-== Py 支持教育 ==
+== Py 教育支持 ==
  常备::
   * 中蟒
   * 周蟒
