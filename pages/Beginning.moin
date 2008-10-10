@@ -1,11 +1,11 @@
 ##language:zh
 #pragma section-numbers off
 
-||'''status'''|| 校对 ||ZoomQuiet;97% ~ 配合后部内容不断调整ing..||
+||'''status'''|| 校对 ||ZoomQuiet;98.1% ~ 配合增补内容不断调整ing..||
 
 [[TableOfContents]]
 
-= 引言 =
+= 启章 =
 
 ##startInc
 
@@ -344,11 +344,16 @@ LovelyPython/
  * 本书正如 可爱的Python 本身一样,是开放的,持续改进的,有心得的读者,任何时候想改进/改正/改善图书的文字/代码,都可以加入到图书讨论列表来,共同完善这本有趣的好书!
 
 == 相关资源 ==
- * 邮件列表: http://groups.google.com/group/lovely-python
-  * 订阅后,可以和所有本书的读者分享体验
+ * 邮件列表: http://www.zeuux.org/mailman/listinfo/zeuux-python
+  * 精巧地址: http://bit.ly/3rJucf
+  * 订阅后,就可以和所有本书的读者以及作者,以及所有订阅了此列表的中国Pythoner们分享图书以及Pythonic体验了!
  * 意见反馈：http://code.google.com/p/openbookproject/issues
-  * 反馈方式: 通过Google 公司提供的自由环境管理环境,直接通过提案的方式来提交意见
-  * 可以直接针对本书的各方面,提出自个儿的看法,我们会认真处理,同步在维基版本的图书中持续修订,看机会再版,将你的建议合并进来, 谢先 ;-)
+  * 精巧地址: http://bit.ly/U5fAB
+  * 反馈方式: 通过Google 公司提供的项目管理管理环境,使用提案(Issue)的方式来提交意见,相关使用文档:
+   * 快速使用Issue教程: http://code.google.com/p/openbookproject/wiki/UsageIssue
+   * Issue标签详解 http://code.google.com/p/openbookproject/wiki/IssueTags
+   * Issue流程概述 http://code.google.com/p/openbookproject/wiki/IssueFlow
+  * 针对本书的各方面,自由提出看法,我们会认真处理,并及时同步到在线版本的图书中，持续修订到再版就可以将你的建议合并进来, 谢先 ;-)
 
 
 ##endInc
