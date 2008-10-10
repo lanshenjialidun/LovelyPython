@@ -126,7 +126,7 @@
             port = 8080, verbose=True)
         mainloop()
 }}}
-    和多数基于事件的 Comet 实现不同, Eurasia3 可以使用原生的 Python 代码, 在任何时候远程调用浏览器上的 JavaScript 函数。
+    和多数基于事件的 Comet 实现不同, Eurasia3 可以使用原生的 Python 代码, 在任何时候远程调用浏览器上的 JavaScript 函式。
     Eurasia3 项目的 JavaScript 库 NJF 对 Comet 提供了完善的支持。
 
 === Eurasia3 VS Django ===

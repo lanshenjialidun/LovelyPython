@@ -43,9 +43,9 @@ print '(86/40)**5 = %f' % z
 
 import math             #导入数学计算模块
 
-a = math.fmod(145, 23)  #求余函数
-b = math.sin(0.5)       #正弦函数
-c = math.cos(0.5)       #余弦函数
+a = math.fmod(145, 23)  #求余函式
+b = math.sin(0.5)       #正弦函式
+c = math.cos(0.5)       #余弦函式
 
 print '145/23的余数 = %d' % a
 print 'sin(0.5) = %f' %b
@@ -250,7 +250,7 @@ for opt, arg in opts:
   * 源代码 {{{#!python
 #coding:utf-8
 '''cdays-3-exercise-2.py 字典的使用
-    @not: 使用sys.args, 字典操作, 函数调用
+    @not: 使用sys.args, 字典操作, 函式调用
     @see: sys模块参见help(sys)
 '''
 
@@ -274,7 +274,7 @@ if __name__ == "__main__":
     if len(sys.argv) == 1:                          #判断参数个数
         print 'usage:\n\tpython cdays-3-exercise-2.py cdays-3-test.txt'
     else:
-        result = collect(open(sys.argv[1], 'r'))    #调用collect函数，返回结果
+        result = collect(open(sys.argv[1], 'r'))    #调用collect函式，返回结果
         for (right, lefts) in result.items():       #输出结果
             print "%d '%s'\t=>\t%s" % (len(lefts), right, lefts)
 }}}
@@ -284,7 +284,7 @@ if __name__ == "__main__":
   * 源代码 {{{#!python
 #coding:utf-8
 '''cdays-3-exercise-3.py
-    @note: 使用全局变量和函数的递归调用
+    @note: 使用全局变量和函式的递归调用
 '''
 
 global col                                  #定义一些全局变量
@@ -337,8 +337,8 @@ if __name__ == '__main__':
   attachment:cdays-3-exercise-123.png
 
 === CDays-2 ===
- 1. 在文中grep实现例子中,没有考虑子目录的处理，因为如果直接open目录进行读操作会出现错误，所以要求读者修改这个示例代码以便考虑到子目录这种特殊情况，然后把最后探索出的 cdcGrep()嵌入 pycdc-v0.5.py 实现完成版本的 PyCDC。提示：子目录处理，可以先判断，如果是子目录，就可以递归调用cdcGrep()函数。
-  * cdcGrep()函数的修改可以是{{{#!python
+ 1. 在文中grep实现例子中,没有考虑子目录的处理，因为如果直接open目录进行读操作会出现错误，所以要求读者修改这个示例代码以便考虑到子目录这种特殊情况，然后把最后探索出的 cdcGrep()嵌入 pycdc-v0.5.py 实现完成版本的 PyCDC。提示：子目录处理，可以先判断，如果是子目录，就可以递归调用cdcGrep()函式。
+  * cdcGrep()函式的修改可以是{{{#!python
 def cdcGrep(cdcpath,keyword):
     '''光盘信息文本关键词搜索函式
     @note: 使用最简单的内置字串匹配处理来判定是否有关键词包含
@@ -414,7 +414,7 @@ if __name__ == '__main__':      # this way the module can be
     cdc = PyCDC()            # imported by other programs as well
     cdc.cmdloop()
 }}}
- 1. 编写一个类，实现简单的栈。数据的操作按照先进后出(FILO)的顺序。主要成员函数为put(item)，实现数据item插入栈中；get()，实现从栈中取一个数据。
+ 1. 编写一个类，实现简单的栈。数据的操作按照先进后出(FILO)的顺序。主要成员函式为put(item)，实现数据item插入栈中；get()，实现从栈中取一个数据。
   * 源代码 {{{#!python
 #coding:utf-8
 '''cdays-2-exercise-2.py 自定义栈

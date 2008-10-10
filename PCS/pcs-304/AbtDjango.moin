@@ -243,7 +243,7 @@ def view_page(request, title='FrontPage'):
 from django.http import HttpResponseRedirect
 }}}
 
-再添加一个 view 函数 edit_page 如下： 
+再添加一个 view 函式 edit_page 如下： 
 
 {{{#!python
 def edit_page(request, title):
