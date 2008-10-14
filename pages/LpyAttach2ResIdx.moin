@@ -7,30 +7,38 @@
 ##[[Include(ZPyUGnav)]]
 
 ##|校对|正式 
-||'''status'''|| 草稿|| ZoomQuiet|| 完成度:50% Liz 将啄木鸟维基中的相关资料进行了索引||
+||'''status'''|| 草稿|| ZoomQuiet|| 完成度:50% Liz 将啄木鸟维基中的相关资料进行了索引 ||
 ## 目前大多是啄木鸟上的. 还有许多....待补充 by liz
 
 ##startInc
 = Python 资源索引 =
+经过十数年的发展积累,Python 应用的触角早已深入了各个领域! 在网络中的资源也浩如烟海:
+ * 图atta2-1 使用Google 搜索Python 时的反馈
+attachment:2008-10-14-google-python.png
 
- * 访问地址: http://www.python.org/about/success/
- * 精巧地址: http://bit.ly/21PDa9
+在此行者们也只能根据自己的实际开发体验,推荐一些常见领域的优秀资源给好奇的读者们;-)
 
- '''Python 快速介绍'''^Limodou和Zoom.Quiet 合写^
- * 访问地址: http://www.zoomquiet.org/share/s5/intropy/
- * 精巧地址: http://bit.ly/41i72J
+ 资源集锦::
+  有些资料是索引的索引,指向大量网站和索引,帮助大家快速了解Python 的丰厚,特此推荐:
+  1.  '''Python 快速介绍'''^Limodou和Zoom.Quiet 合写^
+   * 访问地址: http://www.zoomquiet.org/share/s5/intropy/
+   * 精巧地址: http://bit.ly/41i72J
+  1. `有关Python 的成功故事` ^官方网站收集组织^
+   * 访问地址: http://www.python.org/about/success/
+   * 精巧地址: http://bit.ly/21PDa9
 
+以下,通过简单的领域分类,来展示不同层次相关应用的Python 技术:
 
 == Python 语言 ==
+`就语言本身的参考资源`
+
  常备::
-  * Python Tutorial 中文版: http://www.woodpecker.org.cn:9081/projects/pythontutorial/py2.5/html/tut/tut.html
+  * Python Tutorial 中文版: http://www.woodpecker.org.cn/share/projects/pythontutorial/py2.5/html/tut/tut.html
    * 精巧地址: http://bit.ly/1rzx1n
-  * 简明 Python 教程: http://www.woodpecker.org.cn:9081/doc/abyteofpython_cn/chinese/index.html
+   * 世上唯一 Guido 手笔的文档!
+  * 简明 Python 教程: http://www.woodpecker.org.cn/share/doc/abyteofpython_cn/chinese/index.html
    * 精巧地址: http://bit.ly/4zQc4a
-  * Python 指南: http://doc.chinahtml.com/Manual/Python/tut/tut.html
-   * 精巧地址: http://bit.ly/hTbof
-  * 开始编程之旅: http://wiki.woodpecker.org.cn/moin/StartProgramming
-   * 精巧地址: http://bit.ly/4bwSzl
+   * 印度程序员的个人Python体验和学习教程
   * Python 绝对简明手册: http://wiki.woodpecker.org.cn/moin/PyAbsolutelyZipManual
    * 精巧地址: http://bit.ly/2EEz6I
   * Py标准库手册: http://wiki.woodpecker.org.cn/moin/PythonStandardLib
@@ -231,6 +239,11 @@ http://boo.codehaus.org/Language+Features
   * PyPy
 
 ##endInc
+= 资源回收 =
+  * Python 指南: http://doc.chinahtml.com/Manual/Python/tut/tut.html
+   * 精巧地址: http://bit.ly/hTbof
+  * 开始编程之旅: http://wiki.woodpecker.org.cn/moin/StartProgramming
+   * 精巧地址: http://bit.ly/4bwSzl
 
 ----
 '''反馈'''
