@@ -9,6 +9,145 @@
 = Z序 =
 ## 一句话本章精要精神
 
+== Z is ... ==
+
+== 免责 ==
+
+== 动机 ==
+
+'''一个人如果力求完善自己,他就会看到,为此也必须同时完善他人. 一个人如果不关心别人的完善,自己便不可能完善. '''
+
+在自学并进而喜爱上这门动态脚本语言的过程中,笔者深切的体验到这句话的内涵. 
+
+所以,一有成书的机会,立马纠集一批行者将真实的日常需求开发切身体验,组织起来,尝试使用一个个简单实用的代码片段来直觉的表现Python 的美好,
+
+{{{脚注::
+名词解释:行者
+(1)∶佛教语. 即“头陀”. 行脚乞食的苦行僧人;又指方丈的侍者及在寺院服杂役尚未剃发的出家者 
+(2)∶泛指修行佛道之人 
+(3)∶《西游记》中孙悟空的别名
+在啄木鸟Python技术社区
+http://wiki.woodpecker.org.cn/moin/WoodpeckerHackers (精巧地址:http://bit.ly/TUzr3)
+被借用成为Hacker 的中文专用词,
+意指在自由软件技术世界不断探寻前行的学习者...
+}}}
+
+如果可以令读者认同并开始学习使用Python,善之善也;
+
+如果现在没有感觉,但是得个印象－－Python 是个好学易用的工具性开发语言,亦之善也;
+
+就算读者最后对Python 依然无视,可也开拓了视野,知道世界上不仅仅只有C和JAVA语言,在今后的学习/工作中也开始关注不同主流的快捷解决方案来,善也亦是!
+
+
+"Lovely Python--初学者极速入门故事" 一书是一本轻松的故事书,我们力图使用直觉式的实例结合精简的语法点串联,可以在愉快的阅读过程中体验基本的Python 开发技术/技巧/技艺...
+
+为了节约读者的时间,本书力图将内容组织成类似"老友记"式的单元剧,每一章节都可以独立参阅,所有知识点处都给出恰当的延伸阅读指引--就象网页,就是将图书按照网站的方式来进行组织;而内容中心仅仅是使用Python的愉快体验!
+
+所以本书不是教材,请不要试图通过本书成为合格的Python程序员,但是应该可以透过本书成为Python 的FANs ;-)
+
+
+== 定位 ==
+
+对预算有限的读者,需要特别说明一下 "Lovely Python--初学者极速入门故事" 和其它Python 技术图书之间的关系;
+
+如果以厨艺来作比喻的话:
+
+##应该收集排版好这些图书的封面
+ * "Learning Python" Mark Lutz / David Ascher ~ 这类入门教材图书,应该算 白米饭
+ * "Python in a Nutshell" Alex Martelli ~ 这类手册参考大书,应该算 大盘的素菜／汤
+ * "Dive Into Python" Mark Pilgrim ~ 这类技术精解图书,应该算 极入味的 荤菜
+ * "Text Processing in Python"  David Mertz ~ 这类专门领域的详解图书,应该算风味名吃
+
+众所周知：不吃主食得饿死的,不食蔬菜要生病的,光吃大荤一样没救的！到地头不来点风味会水土不服地;
+
+当然以上都算正餐,然而,人一辈子都只食正餐嘛？
+
+"Lovely Python" 就是下酒的老醋花生,解酒的胡辣汤,下饭的泡菜！
+ * PS: 中国特种部队野外装备里是使用 涪凌榨菜 作综合性盐/矿物质/维生素 补充品的 ;)
+
+"Lovely Python" 通过 CPyUG(中国Python用户组) 里先识先用了Python 的行者们亲身体验,为从来没有听说过Python 的其它语言程序员,准备的一份实用的导学性质图书;
+
+我们试图将优化的学习体验,通过故事的方式传达给只有系统学习体验的读者,来分享Pythonic 式的知识获得;
+
+我们试图将最常用的代码和思路,通过 作弊条(Cheat Sheet~提示表单) 的形式分享给有初步基础的Python 用户,来帮助大家多快好省的完成功能;
+
+"Lovely Python" 不试图成为典藏,在中国推广Python的初期,成为学习使用Python 的同好们的沟通话题,引发进一步的学习／应用／创造,就是我们的追求！
+
+
+=== 代码阅读技巧 ===
+
+`没有技巧!`
+ * 只要将代码copy 到你的机器中运行,然后保持好奇心,有针对性的尝试小小修改一点,立即运行一下,看是否吻合自个儿的预想,就是最好的代码阅读技法!
+ * Python 被设计成友好的,容易理解和使用的脚本语言,最好的学习方式就是使用她!
+ * 本书集合了一批资深中国Python 爱好者,别的不说,保证提供的所有代码都是经过反复测试,绝对可用的,期望大家在尝试后,平常也注意积累一些自个儿中意的代码片段分享回来!
+
+作为敏捷脚本语言Python 的入门图书,直接接触和运行代码是必须的,本书的所有代码都可以使用SVN(Subversion)公开的下载!下载地址:
+  * http://openbookproject.googlecode.com/svn/trunk/LovelyPython/
+  * 可爱的Python 图书源码目录约定:{{{
+LovelyPython/
++-- CDays       (CDays 实例故事代码)
++-- KDays       (KDays 实例故事代码)
++-- PCS         (Python Cheat Sheet ~ Python 作弊条 内容)
++-- exercise    (各章练习,按照章节对应收集)
+\-- pages       (图书正文 维基格式文本目录)
+}}}
+
+`提醒`:
+ * 如果读者下载了相关代码时,发觉和图书中引用的代码有不同,不要惊奇,这是勤劳的行者们,在不断的优化实例代码!
+ * 本书正如 可爱的Python 本身一样,是开放的,持续改进的,有心得的读者,任何时候想改进/改正/改善图书的文字/代码,都可以加入到图书讨论列表来,共同完善这本有趣的好书!
+
+== 相关资源 ==
+ * 邮件列表: http://www.zeuux.org/mailman/listinfo/zeuux-python
+  * 精巧地址: http://bit.ly/3rJucf
+  * 订阅后,就可以和所有本书的读者以及作者,以及所有订阅了此列表的中国Pythoner们分享图书以及Pythonic体验了!
+ * 意见反馈：http://code.google.com/p/openbookproject/issues
+  * 精巧地址: http://bit.ly/U5fAB
+  * 反馈方式: 通过Google 公司提供的项目管理管理环境,使用提案(Issue)的方式来提交意见,相关使用文档:
+   * 快速使用Issue教程: http://code.google.com/p/openbookproject/wiki/UsageIssue
+   * Issue标签详解 http://code.google.com/p/openbookproject/wiki/IssueTags
+   * Issue流程概述 http://code.google.com/p/openbookproject/wiki/IssueFlow
+  * 针对本书的各方面,自由提出看法,我们会认真处理,并及时同步到在线版本的图书中，持续修订到再版就可以将你的建议合并进来, 谢先 ;-)
+
+== 约定图书SVN结构 ==
+ 同编辑讨论: http://wiki.woodpecker.org.cn/moin/ObpLovelyPyEditorRule
+{{{
+目录约定:
+http://openbookproject.googlecode.com/svn/trunk/LovelyPython/
+|-- CDays           (CDays 实例故事代码)
+|   |-- cday-1      (按照章节对应分立子目录收集)
+|   |   |-- ..
+|   |-- ..
+|-- KDays           (KDays 实例故事代码)
+|   |-- js          (共同JS表单验证模块)
+|   |-- kday1       (按照章节对应分立子目录收集)
+|   |   `-- q
+|   |-- ..
+|-- PCS             (Python Cheat Sheet ~ Python 作弊条 内容)
+|   |-- pcs-0       (按照章节对应分立子目录收集)
+|   |   `-- png
+|   |-- pcs-1
+|   |   `-- ..
+|   |-- ..
+|-- exercise        (各章练习，按照章节对应收集)
+|   |-- part1-CDays (CDays 实例故事练习，按照章节对应收集)
+|   |   |-- cday-1  (按照章节对应收集)
+|   |   |   |-- png
+|   |   |   `-- script
+|   |   |-- cday-2
+|   |   |   +-- ..
+|   |   +-- ..
+|   |-- part2-KDays (KDays 实例故事练习，按照章节对应收集)
+|   |   +-- ..
+|   |-- part3-PCS   (PCS练习，按照章节对应收集)
+|   |   +-- ..
+|   `-- part4-Attach(附录练习，按照章节对应收集)
+|       +-- ..
+`-- pages           (图书主体正文 .moin 文本目录)
+    |-- 4editor     (正文无关:图书编辑参考维基页面文本)
+    |-- attachments (图书主体正文 对应各章附图/文)
+    `-- reST        (正文无关:图书主体正文旧 reST格式文本)
+}}}
+
 
 ##endInc
 ----
