@@ -193,7 +193,7 @@ attachment:2008-10-14-google-python.png
   
  深入::
   * 数学
-  * SAGE: http://www.sagemath.org/
+  * SAGE: http://sagemath.org/
    * 精巧地址: http://bit.ly/3SNn9Z
 Software for Algebra and Geometry Experimentation (SAGE) 是使用 Python 语言编写的，并使用交互式的 Python Shell 作为其用户界面。SAGE 的独特之处在于，它能够用作其他各种计算机代数系统的集成器，从而允许用户利用不同软件包的各自强项。
   * ...
