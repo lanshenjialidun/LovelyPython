@@ -7,7 +7,7 @@
 ##[[Include(ZPyUGnav)]]
 
 ##|校对|正式 
-||'''status'''|| 草稿|| ZoomQuiet|| 完成度:50% Liz 将啄木鸟维基中的相关资料进行了索引 ||
+||'''status'''|| 草稿|| ZoomQuiet,Liz|| 完成度:55% ||
 ## 目前大多是啄木鸟上的. 还有许多....待补充 by liz
 
 ##startInc
@@ -27,83 +27,106 @@ attachment:2008-10-14-google-python.png
    * 访问地址: http://www.python.org/about/success/
    * 精巧地址: http://bit.ly/21PDa9
 
-以下,通过简单的领域分类,来展示不同层次相关应用的Python 技术:
+以下,使用粗略的领域分类,来展示不同层次相关应用的Python 技术:
 
 == Python 语言 ==
-`就语言本身的参考资源`
+`就语言本身的学习参考资源`
 
  常备::
-  * Python Tutorial 中文版: http://www.woodpecker.org.cn/share/projects/pythontutorial/py2.5/html/tut/tut.html
+  建议放在手边随时看的:
+  * Python Tutorial 中文版
+   * 访问地址: http://wiki.woodpecker.org.cn/moin/March_Liu/PyTutorial
    * 精巧地址: http://bit.ly/1rzx1n
    * 世上唯一 Guido 手笔的文档!
-  * 简明 Python 教程: http://www.woodpecker.org.cn/share/doc/abyteofpython_cn/chinese/index.html
+  * 简明 Python 教程
+   * 访问地址: http://www.woodpecker.org.cn/share/doc/abyteofpython_cn/chinese/index.html
    * 精巧地址: http://bit.ly/4zQc4a
    * 印度程序员的个人Python体验和学习教程
-  * Python 绝对简明手册: http://wiki.woodpecker.org.cn/moin/PyAbsolutelyZipManual
+  * Python 绝对简明手册
+   * 访问地址: http://wiki.woodpecker.org.cn/moin/PyAbsolutelyZipManual
    * 精巧地址: http://bit.ly/2EEz6I
-  * Py标准库手册: http://wiki.woodpecker.org.cn/moin/PythonStandardLib
+   * 网络人称`张教主`的'''zsp007@gmail.com''' 根据自个儿的使用体验,将Python 语言中最最常用的语法使用整理而成;
+  * Py标准库手册
+   * 访问地址: http://wiki.woodpecker.org.cn/moin/PythonStandardLib
    * 精巧地址: http://bit.ly/4iH5V5
-  * Python 常用模块体验: http://wiki.woodpecker.org.cn/moin/PyCommonUsageMod
-   * 精巧地址: http://bit.ly/1WiW4T
-  * Python开发编码规范: http://wiki.woodpecker.org.cn/moin/PythonCodingRule
+   * 由 `Python江湖QQ群` 集体翻译的Python 2.0 标准模块库说明
+  
+ 深入::
+  在开发过程中,应该精读的:
+  * Dive into Python
+   * 访问地址: http://www.woodpecker.org.cn/diveintopython/
+   * 精巧地址: http://bit.ly/2H4vrR
+   * 深入Python ~ 简称`DiP`,是知名称最高的Python 编程技巧图书,使用几个不断演进的实例,从方方面面讲解Python 最细微处的开发技巧,不向初学者推荐;
+  * Python开发编码规范
+   * 访问地址: http://wiki.woodpecker.org.cn/moin/PythonCodingRule
    * 精巧地址:  http://bit.ly/3HURoL
+   * 是官方增进方案 PEP 008 "Style Guide for Python Code" 的中文翻译!
+    * 原文地址: http://www.python.org/dev/peps/pep-0008/
+    * 精巧地址: http://bit.ly/2OQ8Z3
+   * 对开发Python 应用脚本,代码的组织给出了非常详进的建议
+  * ASPN:Python
+   * 访问地址: http://aspn.activestate.com/ASPN/Python
+   * 精巧地址: http://bit.ly/3UMD8w
+   * `ASPN` 就是 ActivePython 套件的出品公司组织的网站,汇集了大量E文资料,其中的 CookBook 非常实用,有什么问题搜查一下就好;
+ 前沿::
+  Python 是个高速发展的语言,本身有什么进一步的使用技巧?未来将会如何?都有专门的地方进行讨论的:
+  * Python 之优雅与瑕疵: 
+   * 访问地址: http://wiki.woodpecker.org.cn/moin/PyBlemish
+   * 精巧地址: http://bit.ly/4jvqeV
+   * 是Python 专家 `David Mertz`的私人总结,针对Python 2.* 版本对 1.5.* 版本间变更较重大的语言部分进行了讲解;Python 本身隐密的角落相比其它语言要少的多,但是总是有可能会遇到的,幸好总是有好心人进行了分享;
+  * Python Enhancement Proposals
+   * 访问地址: http://www.python.org/dev/peps/
+   * 精巧地址: http://bit.ly/fwcW8
+   * Python 增进提案库 ~ 缩写 PEPs ; 是Python 最前沿和最官方的特性讨论中心,关心Python 未来趋势,以及现有技术细核的读者,应该认真学习;
+  * Python 3000 进度报告
+   * 访问地址: http://wiki.woodpecker.org.cn/moin/Py3000StatusUpdate
+   * 精巧地址: http://bit.ly/2IwaEp
+   * Guido 亲自通告的 Python 3000 开发情况(啄木鸟社区翻译版本),Python 3000 或是说Py3k 是一个准备重新再写的一个分支,和过往的2.* 系列版本不准备兼容,是 Guido 准备一次性解决 Python 一些固有问题的勇敢的计划;
+   * 对应的最新开发版本下载: Python 3.0rc1 Release
+    * 访问地址: http://www.python.org/download/releases/3.0/
+    * 精巧地址: http://bit.ly/1a3p5I
+
+
+== Py 文档处理 ==
+ 常备::
+  * Text Processing in Python: http://gnosis.cx/TPiP/
+   * 精巧地址: http://bit.ly/3ZiI3k
+  * PyXML: http://pyxml.sourceforge.net/topics/
+   * 精巧地址: http://bit.ly/3Rf7ga
+  * PyHtml: http://code.google.com/p/jrfonseca/wiki/PyHTML
+   * 精巧地址: http://bit.ly/2XnwcO
   * ...
   
  深入::
-  * Dive into Python: http://www.woodpecker.org.cn/diveintopython/
-   * 精巧地址: http://bit.ly/2H4vrR
-  * Python编程(第三版): http://wiki.woodpecker.org.cn/moin/PP3eD
-   * 精巧地址: http://bit.ly/NSLYJ
-  * Python食谱: http://wiki.woodpecker.org.cn/moin/PyCookbook
-   * 精巧地址: http://bit.ly/6nRiS
-  * Python 之优雅与瑕疵: http://wiki.woodpecker.org.cn/moin/PyBlemish
-   * 精巧地址: http://bit.ly/4jvqeV
-  * Effective--实效Python编程: http://wiki.woodpecker.org.cn/moin/EffectivePyPrgramming
-   * 精巧地址:  http://bit.ly/47fEwY
+  * Office
+  * ReportLab: http://www.reportlab.org/
+   * 精巧地址: http://bit.ly/PmJfm
   * ...
-
+  
  前沿::
-  * Python 3000 进度报告: http://wiki.woodpecker.org.cn/moin/Py3000StatusUpdate
-   * 精巧地址:  http://bit.ly/2IwaEp
+  * StructuredTex: http://www.zope.org//Members/jim/StructuredTextWiki/StructuredTextNGRules
+   * 精巧地址: http://bit.ly/1NeDIF
+  * AsciiDoc: http://www.methods.co.nz/asciidoc/index.html
+   * 精巧地址: http://bit.ly/3QwcTD
   * ...
 
-== Py 数据库应用 ==
+== Py DB应用 ==
  常备::
   * 模块
   * Python数据库开发概要: http://wiki.woodpecker.org.cn/moin/Py4Database
    * 精巧地址: http://bit.ly/IT9wY
-  * ...
-  
- 深入::
-  * 支持仓库
   * MySQL:
   * PostgreSQL: 
   * SQLite: 
   * ...
   
+ 深入::
+  * ORM
+  * ...
+  
  前沿::
   * ODB
 
-== Py 图形应用 ==
- 常备::
-  * 成熟框架
- 深入::
-  * PIL: http://wiki.woodpecker.org.cn/moin/PythonImagingLibrary
-   * 精巧地址: http://bit.ly/2iNDy0
-  * PyOpenGL: http://pyopengl.sourceforge.net/
-   * 精巧地址: http://bit.ly/2gOUKk
-  * ...
-  * 桌面
- 前沿::
-  * 3D,blander
-
-== Py 嵌入/移动 ==
- 常备::
-  * 手机
- 深入::
-  * 跳入系统
- 前沿::
-  * Android
 
 == Py 网络应用 ==
  常备::
@@ -141,6 +164,29 @@ attachment:2008-10-14-google-python.png
    * 精巧地址: http://bit.ly/1Girr
   * ...
   
+
+== Py 嵌入系统 ==
+ 常备::
+  * 手机
+ 深入::
+  * 嵌入系统
+ 前沿::
+  * Android
+
+
+== Py 图形应用 ==
+ 常备::
+  * 成熟框架
+ 深入::
+  * PIL: http://wiki.woodpecker.org.cn/moin/PythonImagingLibrary
+   * 精巧地址: http://bit.ly/2iNDy0
+  * PyOpenGL: http://pyopengl.sourceforge.net/
+   * 精巧地址: http://bit.ly/2gOUKk
+  * ...
+  * 桌面
+ 前沿::
+  * 3D,blander
+
 == Py 扩展应用 ==
  常备::
   * Swig: http://www.swig.org/doc.html
@@ -158,31 +204,18 @@ attachment:2008-10-14-google-python.png
   
  前沿::
   * 动态 Jython
-  * ...
+  * PyPy
+  * 原来Boo是一种有着python语法的.net语言，好处是公用CLI和.net其他语言互相协
+作无间。。
 
-== Py 文档处理 ==
- 常备::
-  * Text Processing in Python: http://gnosis.cx/TPiP/
-   * 精巧地址: http://bit.ly/3ZiI3k
-  * PyXML: http://pyxml.sourceforge.net/topics/
-   * 精巧地址: http://bit.ly/3Rf7ga
-  * PyHtml: http://code.google.com/p/jrfonseca/wiki/PyHTML
-   * 精巧地址: http://bit.ly/2XnwcO
-  * ...
-  
- 深入::
-  * Office
-  * ReportLab: http://www.reportlab.org/
-   * 精巧地址: http://bit.ly/PmJfm
-  * ...
-  
- 前沿::
-  * StructuredTex: http://www.zope.org//Members/jim/StructuredTextWiki/StructuredTextNGRules
-   * 精巧地址: http://bit.ly/1NeDIF
-  * AsciiDoc: http://www.methods.co.nz/asciidoc/index.html
-   * 精巧地址: http://bit.ly/3QwcTD
-  * ...
+我同事那个小组用了很久了，他老大用c#。他们在mono上跑，看来现在mono也相当
+的成熟了，他们的都是生产上的应用。
 
+Boo的logo挺讨人喜欢 :)
+http://boo.codehaus.org/Language+Features
+
+不知道在vs.net上面开发boo会不会很爽。
+  
 == Py 科学计算 ==
  常备::
   * NumPy: http://numpy.scipy.org/numpybook.pdf
@@ -220,24 +253,7 @@ Software for Algebra and Geometry Experimentation (SAGE) 是使用 Python 语言
   * 精巧地址: http://bit.ly/UjyDx
  
 
-== Py 影响力 ==
- 常识::
-  * 原来Boo是一种有着python语法的.net语言，好处是公用CLI和.net其他语言互相协
-作无间。。
 
-我同事那个小组用了很久了，他老大用c#。他们在mono上跑，看来现在mono也相当
-的成熟了，他们的都是生产上的应用。
-
-Boo的logo挺讨人喜欢 :)
-http://boo.codehaus.org/Language+Features
-
-不知道在vs.net上面开发boo会不会很爽。
-
- 深入::
-  * 相关项目
- 前沿::
-  * 相关进步
-  * PyPy
 
 ##endInc
 = 资源回收 =
@@ -245,6 +261,11 @@ http://boo.codehaus.org/Language+Features
    * 精巧地址: http://bit.ly/hTbof
   * 开始编程之旅: http://wiki.woodpecker.org.cn/moin/StartProgramming
    * 精巧地址: http://bit.ly/4bwSzl
+  * Python 常用模块体验: http://wiki.woodpecker.org.cn/moin/PyCommonUsageMod
+   * 精巧地址: http://bit.ly/1WiW4T
+  * Effective--实效Python编程: http://wiki.woodpecker.org.cn/moin/EffectivePyPrgramming
+   * 精巧地址:  http://bit.ly/47fEwY
+
 
 ----
 '''反馈'''
