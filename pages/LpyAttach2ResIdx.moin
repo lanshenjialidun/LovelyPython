@@ -151,19 +151,26 @@ attachment:2008-10-14-google-python.png
 
  常备::
   常见DB产品支持,,,
+  * DatabaseProgramming - PythonInfo Wiki
+   * 访问地址: http://wiki.python.org/moin/DatabaseProgramming/
+   * 精巧地址: http://bit.ly/1EYTXb
+   * Python 官方收集的数据库开发资源索引
   * ADOdb for Python
    * 访问地址: http://phplens.com/lens/adodb/adodb-py-docs.htm
    * 精巧地址: http://bit.ly/9bPgD
    * 源自PHP社区的跨DB操作支持模块,比较精巧稳定,主要使用 SQL和少量的常用操作函式;
-  * MySQLdb:
-   * 访问地址: http://mysql-python.sourceforge.net/
-   * 精巧地址: http://bit.ly/37vYpy
-   * 用于连接MySQL数据库的Python模块.
+  * DatabaseInterfaces - PythonInfo Wiki
+   * 访问地址: http://wiki.python.org/moin/DatabaseInterfaces
+   * 精巧地址: http://bit.ly/1laKvY
+   * 数据库接口 ~ 官方收集的主流DB产品操作接口模块/产品索引
   * PySqlite2: 
    * 访问地址: http://www.initd.org/pub/software/pysqlite/
    * 精巧地址: http://bit.ly/RU1kS
    * SQLite的连接组件
-  * ...
+  * MySQLdb:
+   * 访问地址: http://mysql-python.sourceforge.net/
+   * 精巧地址: http://bit.ly/37vYpy
+   * 用于连接MySQL数据库的Python模块.
   
  深入::
   进一步用OO方式操作关系DB的支持:
