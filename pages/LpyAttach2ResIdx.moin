@@ -204,17 +204,48 @@ attachment:2008-10-14-google-python.png
   
  深入::
   进一步用OO方式操作关系DB的支持:
-  * Python数据库开发概要: 
+  * Python数据库开发概要,收集了一些常见ORM框架: 
    * 访问地址: http://wiki.woodpecker.org.cn/moin/Py4Database
    * 精巧地址: http://bit.ly/IT9wY
-  * ORM
-  * ...
-  
+  * ORM ~ Object Relational Mapping 对象关系映射
+   * 访问地址: http://www.itisedu.com/phrase/200603051342455.html
+   * 精巧地址: http://bit.ly/YWmce
+   * 简单的说就是通过中间层的支持,可以使用对象引用的方式来操作关系型数据库的内容;即!不用学习SQL就可以操纵关系型数据库! 这方面,Python 有大量的优秀作品:
+    1. SQLObject
+     * 访问地址: http://sqlobject.org
+     * 最早出现的比较成熟的ORM框架,一般简称`SO`;使用体验:"使用 SQLObject 连接数据库与 Python":
+      * 访问地址: http://www-128.ibm.com/developerworks/cn/opensource/os-pythonsqlo/
+      * 精巧地址: http://bit.ly/4yZwfj
+    1. SQLAlchemy - The Database Toolkit for Python
+     * 访问地址: http://www.sqlalchemy.org
+     * 后起之秀,一般简称`SA`;使用体验:"强大的 sqlalchemy"
+      * 访问地址: http://codeplayer.blogspot.com/2007/02/sqlalchemy.html
+      * 精巧地址: http://bit.ly/2FJ76J
+    1. Storm
+     * 访问地址: https://storm.canonical.com
+     * 精巧地址: http://bit.ly/1uGBvD
+     * 指向更加OO的框架,使用体验:"Strom 上手指南"
+      * 访问地址: http://linuxfire.com.cn/~huahua/doc/Strom 上手指南.html
+      * 精巧地址: http://bit.ly/2Elrxd
+    1. 等等,,,
+          
  前沿::
-  再进一步,直接用OO来组织自个儿的DB!
-  * ODB
-  * ZODB
-
+  再进一步,直接用OO来组织自个儿的DB!即,完全不使用关系型数据库的模型,而使用纯对象关系来进行数据管理:
+  * ZODB ~ the Zope Object Database
+   * 访问地址: http://www.python.org/workshops/2000-01/proceedings/papers/fulton/zodb3.html
+   * 精巧地址: http://bit.ly/2mPSJA
+   * 包含在Zope 平台中的对象数据库,也是最先稳固到可以给企业使用的一种开源ODB产品
+  * Shelve2
+   * 访问地址: http://code.google.com/p/missile-db/wiki/Shelve2Book
+   * 精巧地址: http://bit.ly/2igRe
+   * 脱胎于Durus 对象数据库的原创ODB,已经在国内知名IT企业内部得到应用的国产作品,可以视作精简版本的ZODB!
+  * buzhug
+   * 访问地址: http://buzhug.sourceforge.net/intro.html
+   * 精巧地址: http://bit.ly/NfIAc
+   * 曾被Karrigell 框架选作默认组件的轻型对象数据库作品
+  * iODBC.org
+   * 访问地址: http://www.iodbc.org/index.php?page=languages/python/odbc-pythonHOWTO
+   * 精巧地址: http://bit.ly/2YJWDX
 
 == Py 网络应用 ==
 进入互联网时代,和网络资源互动是基础要求,这方面 Python 有各种方面的支持:
