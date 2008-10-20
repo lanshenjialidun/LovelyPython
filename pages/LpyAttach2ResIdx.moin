@@ -250,8 +250,7 @@ attachment:2008-10-14-google-python.png
 == Py 网络应用 ==
 进入互联网时代,和网络资源互动是基础要求,这方面 Python 有各种方面的支持:
  常备::
-  常见网络协议支持
-  * 内置?
+  常见网络协议支持,注意!都是内置的!
   * Smtplib: 
    * 访问地址: http://www.python.org/doc/2.5.2/lib/module-smtplib.html
    * 精巧地址: http://bit.ly/1aroqp
@@ -263,53 +262,66 @@ attachment:2008-10-14-google-python.png
   * xmpppy:
    * 访问地址: http://blog.donews.com/limodou/archive/2005/03/11/298935.aspx
    * 精巧地址: http://bit.ly/3qN1Nb
-   * Jabber服务器采用的是XMPP协议,就像Google Talk也是采用XMPP协议的IM系统,Python的xmpppy模块支持该协议,通过该模块可以与Jabber服务器通信.
-  
+   * Jabber服务器采用的是XMPP协议,就像Google Talk也是采用XMPP协议的IM系统,Python的xmpppy模块支持该协议,通过该模块可以与Jabber服务器通信.  
  深入::
-  快速网络应用开发:
+  快速网络应用开发框架:
   * Python WEB应用框架纵览: 
    * 访问地址: http://wiki.woodpecker.org.cn/moin/PyWebFrameList
    * 精巧地址: http://bit.ly/1U4oHm
+   * 也特别指出了,"为什么在Python 世界中有这么多Web应用框架"~ 因为,太容易实现了!
   * CherryPy: 
    * 访问地址: http://wiki.woodpecker.org.cn/moin/CherryPyQuickIn
    * 精巧地址: http://bit.ly/1DGuQN
-  * Django: 
-   * 访问地址: http://docs.djangoproject.com/
-   * 精巧地址: http://bit.ly/2fEoz8
-  * TurboGears:
-   * 访问地址: http://wiki.woodpecker.org.cn/moin/TurboGearStepByStep
-   * 精巧地址: http://bit.ly/1cTTYP
-  * Karrigell: 
-   * 访问地址: http://karrigell.sourceforge.net/en/front.htm
-   * 精巧地址: http://bit.ly/2z3ejE
-  * web2py: 
-   * 访问地址: http://mdp.cti.depaul.edu/
-   * 精巧地址: http://bit.ly/3x4nj9
-  * web.py: 
-   * 访问地址: http://www.dup2.org/files/web.py%200.2%20tutorial.html
-   * 精巧地址: http://bit.ly/3RqqmN
-  * Pylons: 
-   * 访问地址: http://wiki.pylonshq.com/display/pylonsdocs/Home
-   * 精巧地址:  http://bit.ly/3MqEPh
+   * 最早的稳定OO化轻型应用框架;
   * Quixote: 
    * 访问地址: http://wiki.woodpecker.org.cn/moin/QuixoteQuickIn
    * 精巧地址: http://bit.ly/3ZD3AW
-  * Zope: 
-   * 访问地址: http://wiki.woodpecker.org.cn/moin/Zope3Book
-   * 精巧地址: http://bit.ly/265zEI
+   * 豆瓣的核心动力,最早的关注高性能框架
+  * Karrigell: 
+   * 访问地址: http://karrigell.sourceforge.net/en/front.htm
+   * 精巧地址: http://bit.ly/2z3ejE
+   * 最早的关注轻松创建应用的轻型框架
+  * Django: 
+   * 访问地址: http://docs.djangoproject.com/
+   * 精巧地址: http://bit.ly/2fEoz8
+   * 最早也最知名的"一站式"高性能CMS应用框架;
+  * TurboGears:
+   * 访问地址: http://wiki.woodpecker.org.cn/moin/TurboGearStepByStep
+   * 精巧地址: http://bit.ly/1cTTYP
+   * 和Django 对抗的"大框架"概念框架;
+  * Pylons: 
+   * 访问地址: http://wiki.pylonshq.com/display/pylonsdocs/Home
+   * 精巧地址:  http://bit.ly/3MqEPh
+   * 新近一代,关注高效开发的"一站式"框架
+  * web.py: 
+   * 访问地址: http://www.dup2.org/files/web.py%200.2%20tutorial.html
+   * 精巧地址: http://bit.ly/3RqqmN
+   * 最早的稳定精简框架,使用极少量的代码实现的全功能框架;
+  * web2py: 
+   * 访问地址: http://mdp.cti.depaul.edu/
+   * 精巧地址: http://bit.ly/3x4nj9
+   * 和web.py 名字最接近的ROR类框架,关注高速应用开发;
   * Uliweb: 
-   * 访问地址: http://uliwebproject.appspot.com/
-   * 精巧地址: http://bit.ly/dLsUk
-  * ...
+   * 访问地址: http://code.google.com/p/uliweb
+   * 精巧地址: http://bit.ly/3ad6pc
+   * 最新创建的国产框架,由Limodou 总结多年Web应用体验,精心组建!
   
  前沿::
-  高性能网络任务支持:
-  * 邪派功法
+  高性能网络平台:
+  * Zope.org
+   * 访问地址: http://www.zope.org/
+   * 精巧地址: http://bit.ly/1L5AFS
+   * 是发展了很长时间的超级框架~应该算平台了,从Zope1,Zope2 到现在的Zope3 都经过了大量的重写,包含了巨量的网络应用思想和产品,详细参考:Zope和Plone的发展现状 — 中国Zope/Plone用户组(2005年)
+    * 访问地址: http://blog.czug.org/panjy/zope-plone-status
+    * 精巧地址: http://bit.ly/3Gpn1r
+   * 最新的 "Zope3中文宝典" 中文版:
+    * 访问地址: http://docs.everydo.com/zope3/introduction/background.rst
+    * 精巧地址: http://bit.ly/1XyOWD
+    * 由 EveryDo.com 推出(这是润普公司使用Plone 开发的SaaS化项目管理服务平台),本身已经在向Zope3 迁移中!
   * GAE: 
    * 访问地址: http://code.google.com/appengine/docs/whatisgoogleappengine.html
    * 精巧地址: http://bit.ly/1Girr
-   * 是google发布的免费开发应用引擎, 可以,,,
-  * ...
+   * 是 Google在2008年四月,发布的免费开发应用引擎,可以使用Python 利用Google 提供的一系列服务,在线发布应用;在一天之内吸引到了一万名程序员注册,到现在已经汇集了上十万个应用;依托Google 的"云计算"平台,可以期望形成强大的python 应用热潮;
   
 
 == Py 嵌入系统 ==
@@ -324,7 +336,9 @@ attachment:2008-10-14-google-python.png
   * 嵌入系统
  前沿::
   * Android
-
+http://code.google.com/intl/zh-CN/android/
+开放手机联盟（一个由 30 多家科技公司和手机公司组成的团体）正在开发 Android，Android 是第一个完整、开放的免费手机平台。为帮助开发人员开始开发新的应用程序，我们在 Android 软件开发套件中提供了概述。 
+http://bit.ly/1MUO9K
 
 == Py 图形应用 ==
 
