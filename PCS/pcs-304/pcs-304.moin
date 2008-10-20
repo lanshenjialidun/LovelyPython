@@ -209,21 +209,67 @@ manage.run()
    * Kid官方网站 http://www.kid-templating.org/
   * 全功能Web应用框架!
 
- 使用::
+== 使用 ==
    * 以实用的小例子,快速介绍知识点涉及技术的应用方式方法
    * 根据实例进行语法的快速讲解;注意给出资料指引
    * 经典代码举例
 
- 问题::
+== 问题 ==
    * 指出知识点应用中常常遇见的问题,和解决思路
    * 根据实用体验,说明如何理解以及实际使用时的理性思考方向
    * 
 
- 探讨::
+== 探讨 ==
    进一步介绍相关的或是深入的知识领域...
    * 组织实用的技巧类代码
+
  
- 小结::
+Eurasia3 前面已经
+ * 用 895 行单文件实现了 ZODB ( http://code.google.com/p/eurasia/source/browse/trunk/Eurasia/shelve2.py ), 
+ * 这次更过分了, Mako 只有 377 行。把类似于 Mako 的模板读进来, 解析成语法树, 然后编译成 Python 程序 (和 Mako 一样是编译型模板)。http://code.google.com/p/eurasia/source/browse/trunk/Eurasia/template.py
+ * 081020(16:24:22) 沈崴-wileishn: 
+支持 Mako 的 <%def name=""> <%call expr=""> <% python code %> ${...}
+{{{
+from template import compile, Template
+
+s = '''\
+<%def name="test2(a, b)">
+ ${caller.test3()} or ${context.get('test3', None)()}
+
+ %if a:
+  ${a}
+ %elif b:
+  ${b}
+ %else:
+  <%write('hello')%>
+ %endif
+
+ %for i in xrange(100):
+  ${str(i)}
+ %endfor
+</%def>
+
+<%def name="test(c, d)">
+ <%call expr="test2(1, 2)">
+  <%def name="test3()">
+   <%
+    x = 1
+   %>
+   hello world! in test3
+  </%def>
+ </%call>
+</%def>
+'''
+
+print compile(s)
+
+m = Template(s)
+print m.test('aaa', 'bbb')
+}}}
+
+shelve2 已经在实用了。这个模板会被用在建立 Eurasia3 项目主站上
+
+== 小结 ==
   总体回顾,给出相关阅读和思考指引
 
 ## 练习::

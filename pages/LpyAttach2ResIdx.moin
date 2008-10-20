@@ -19,15 +19,6 @@ attachment:2008-10-14-google-python.png
 
 在此行者们也只能根据自己的实际开发体验,推荐一些常见领域的优秀资源给好奇的读者们;-)
 
- 资源集锦::
-  有些资料是索引的索引,指向大量网站和索引,帮助大家快速了解Python 的丰厚,特此推荐:
-  1.  '''Python 快速介绍'''^Limodou和Zoom.Quiet 合写^
-   * 访问地址: http://www.zoomquiet.org/share/s5/intropy/
-   * 精巧地址: http://bit.ly/41i72J
-  1. `有关Python 的成功故事` ^官方网站收集组织^
-   * 访问地址: http://www.python.org/about/success/
-   * 精巧地址: http://bit.ly/21PDa9
-
 以下,使用粗略的领域分类,来展示不同层次相关应用的Python 技术:
 
 == Py 语言自身 ==
@@ -423,6 +414,22 @@ Python 对于非IT行业,一样有成功的支持:
   * 精巧地址: http://bit.ly/UjyDx
  
 
+== Py 集锦资源 ==
+有些资料是索引的索引,指向大量网站和索引,帮助大家快速了解Python 的丰厚,特此推荐:
+ 1.  '''Python 快速介绍'''^Limodou和Zoom.Quiet 合写^
+  * 访问地址: http://www.zoomquiet.org/share/s5/intropy/
+  * 精巧地址: http://bit.ly/41i72J
+ 1. `有关Python 的成功故事` ^官方网站收集组织^
+  * 访问地址: http://www.python.org/about/success/
+  * 精巧地址: http://bit.ly/21PDa9
+ 1. The Vaults of Parnassus: Python Resources
+  * 访问地址: http://py.vaults.ca/apyllo.py
+  * 精巧地址: http://bit.ly/10KY2U
+  * 蟒巢 ~ 以问题域为分类,长期收集有大量的软件包信息
+ 1. Python Starship
+  * 访问地址: http://starship.python.net/crew/index.html
+  * 精巧地址: http://bit.ly/eMW11
+  * Python 星际飞船,将各个开发人员视作发动机单元的空间服务;汇集有各种方面专家的Python 自用模块;
 
 
 ##endInc
