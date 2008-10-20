@@ -263,6 +263,15 @@ attachment:2008-10-14-google-python.png
    * 访问地址: http://blog.donews.com/limodou/archive/2005/03/11/298935.aspx
    * 精巧地址: http://bit.ly/3qN1Nb
    * Jabber服务器采用的是XMPP协议,就像Google Talk也是采用XMPP协议的IM系统,Python的xmpppy模块支持该协议,通过该模块可以与Jabber服务器通信.  
+  
+  * BitTorrent.org
+   * 访问地址: http://www.bittorrent.org
+   * 改变世界下载格局的Bt,就是用Python 写出来的,虽然已经商业化,但是原先的代码依然可以在项目环境中查阅到:
+    * 访问地址: http://bittorrent.org/trac
+   * 作为理解,可以学习仅仅15行的: Annotated TinyP2P
+    * 访问地址: http://www.exonsoft.com/~kochin/TinyP2P/tinyp2p.html
+    * 精巧地址: http://bit.ly/3XxuSu
+
  深入::
   快速网络应用开发框架:
   * Python WEB应用框架纵览: 
@@ -329,17 +338,29 @@ attachment:2008-10-14-google-python.png
 
  常备::
   常见嵌入式设备支持:
-  * 手机
-  
- 深入::
-  嵌入式系统开发支持:
-  * 嵌入系统
- 前沿::
+  * Nokia S60以上系统的Python 开发支持:
+   * 访问地址: http://wiki.forum.nokia.com/index.php/Category:Python
+   * 精巧地址: http://bit.ly/2WwvU1
+  * Openmoko.org
+   * 访问地址: http://wiki.openmoko.org/wiki/Python
+   * 精巧地址: http://bit.ly/1j6jMR
+   * 新兴的开源手机项目,提供了从硬件到软件的所有手机开发资源,Python 在其中可以开发各种手机桌面工具!
   * Android
-http://code.google.com/intl/zh-CN/android/
-开放手机联盟（一个由 30 多家科技公司和手机公司组成的团体）正在开发 Android，Android 是第一个完整、开放的免费手机平台。为帮助开发人员开始开发新的应用程序，我们在 Android 软件开发套件中提供了概述。 
-http://bit.ly/1MUO9K
+   * 访问地址: http://code.google.com/intl/zh-CN/android/
+   * 精巧地址: http://bit.ly/1MUO9K
+   * Android 由 开放手机联盟（一个由 30 多家科技公司和手机公司组成的团体）组织开发开发;Android 是第一个完整、开放的免费手机平台;准备应用在Google 新一代手机平台中!
 
+ 深入::
+  Telit 是一家专业设计和生产无线模块产品的公司,值得注意的是,它几乎在所有的最新产品中集成了嵌入式Python解释器,这样使用者就可以使用Python脚本快速地开发应用,这些Python脚本可以保存在模块内部运行,而不用另外的MCU去和模块进行AT命令交互;
+   * 访问地址: http://www.telit.com/en/products/python.php
+   * 精巧地址: http://bit.ly/4uJsAU
+
+ 前沿::
+  * 沈崴路由器建站教程 - 沈崴 - 网易博客
+   * 访问地址: http://eishn.blog.163.com/blog/static/65231820083995420860/
+   * 精巧地址: http://bit.ly/3crtkc
+   * 讲述如何在路由器中安装 StacklessPython 环境进行应用开发的操作; 也证明了,只要嵌入式系统是 GNY/Linux 类的都可以安装Python 环境为我所用!
+   
 == Py 图形应用 ==
 
  常备::
@@ -348,6 +369,7 @@ http://bit.ly/1MUO9K
    * 精巧地址: http://bit.ly/2iNDy0
    * 提供强大的图形处理的能力,并提供广泛的图像文件格式支持,该库能进行图像格式的转换,打印和显示.还提供了一些基本图像处理接口.
   * Graphviz ,,,
+CIL
   
  深入::
   * PyOpenGL: 
@@ -359,9 +381,12 @@ http://bit.ly/1MUO9K
    * 访问地址: http://www.reportlab.org/
    * 精巧地址: http://bit.ly/PmJfm
    * 是一个非常方便的生成PDF文档的python库.
+
  前沿::
   * 3D,blander
-  * 桌面
+  * TK
+  * wxPython~ UliPad
+  * Qt
   * 多媒体,,,
 
 == Py 扩展应用 ==
@@ -395,11 +420,11 @@ http://bit.ly/1MUO9K
  前沿::
   * 动态 Jython
 
-  * 原来Boo是一种有着python语法的.net语言，好处是公用CLI和.net其他语言互相协
+  * 原来Boo是一种有着python语法的.net语言,好处是公用CLI和.net其他语言互相协
 作无间。。
 
-我同事那个小组用了很久了，他老大用c#。他们在mono上跑，看来现在mono也相当
-的成熟了，他们的都是生产上的应用。
+我同事那个小组用了很久了,他老大用c#。他们在mono上跑,看来现在mono也相当
+的成熟了,他们的都是生产上的应用。
 
 Boo的logo挺讨人喜欢 :)
 http://boo.codehaus.org/Language+Features
@@ -417,7 +442,7 @@ http://boo.codehaus.org/Language+Features
   * SciPy: 
    * 访问地址: http://www.scipy.org/
    * 精巧地址: http://bit.ly/4Bg9RA
-   * 它和NumPy一起工作, 提供了许多方便和高效的数值计算函式，如数值积分或优化。
+   * 它和NumPy一起工作, 提供了许多方便和高效的数值计算函式,如数值积分或优化。
   * ...
   
  深入::
@@ -425,7 +450,7 @@ http://boo.codehaus.org/Language+Features
   * SAGE: 
    * 访问地址: http://sagemath.org/
    * 精巧地址: http://bit.ly/3SNn9Z
-Software for Algebra and Geometry Experimentation (SAGE) 是使用 Python 语言编写的，并使用交互式的 Python Shell 作为其用户界面。SAGE 的独特之处在于，它能够用作其他各种计算机代数系统的集成器，从而允许用户利用不同软件包的各自强项。
+Software for Algebra and Geometry Experimentation (SAGE) 是使用 Python 语言编写的,并使用交互式的 Python Shell 作为其用户界面。SAGE 的独特之处在于,它能够用作其他各种计算机代数系统的集成器,从而允许用户利用不同软件包的各自强项。
   * ...
  前沿::
   * 生物
