@@ -7,7 +7,7 @@
 ##[[Include(ZPyUGnav)]]
 
 ##|校对|正式 
-||'''status'''|| 草稿|| ZoomQuiet,Liz|| 完成度:55% ||
+||'''status'''|| 草稿|| ZoomQuiet,Liz|| 完成度:60% ||
 
 ##在这里看到比较多的python相关库http://xiaoc.blog.ccidnet.com/blog-htm-do-showone-uid-234679-type-blog-itemid-436104.html by liz 081019
 
@@ -83,7 +83,7 @@ attachment:2008-10-14-google-python.png
   * Python 3000 进度报告
    * 访问地址: http://wiki.woodpecker.org.cn/moin/Py3000StatusUpdate
    * 精巧地址: http://bit.ly/2IwaEp
-   * Guido 亲自通告的 Python 3000 开发情况(啄木鸟社区翻译版本),Python 3000 或是说Py3k 是一个准备重新再写的一个分支,和过往的2.* 系列版本不准备兼容,是 Guido 准备一次性解决 Python 一些固有问题的勇敢的计划;
+   * Guido 亲自撰写的 Python 3000 开发情况(啄木鸟社区翻译版本);Py3k 或是说Py3.0 是一个准备从头来写的一个分支,和过往的2.* 系列版本不准备兼容,是 Guido 准备一次性解决 Python 一些固有问题的勇敢的计划;
    * 对应的最新开发版本下载: Python 3.0rc1 Release
     * 访问地址: http://www.python.org/download/releases/3.0/
     * 精巧地址: http://bit.ly/1a3p5I
@@ -102,7 +102,7 @@ attachment:2008-10-14-google-python.png
    * 精巧地址: http://bit.ly/1svoIm
    * 这是 程序语言中的"流氓" http://inet6.blogspot.com/2007/03/pypy.html
     * 精巧地址: http://bit.ly/4h9uCA
-    * 因为和其它开发语言相比, PyPy 根本是在作弊 ;) 简单的说:
+    * 因为和其它开发语言相比, PyPy 根本是在作弊 ;-) 简单的说:
      1. PyPy是用Python 编写的 Python 语言(自称rpython)
      1. PyPy能将Python 脚本编译成原生的 C/.net(2.0)/javascript 等其它语言代码
      1. PyPy能将rpython 脚本编译成 javascript,用以生成客户端Ajax 应用
@@ -114,38 +114,77 @@ attachment:2008-10-14-google-python.png
 `文可文,非常文. 本可文,非常本. 文本,数据之始;字符,万思之母...`~对文本的处理是最基础和最常见的任务,这方面Python 有大量的愉快体验:
 
  常备::
-  * PyXML: 
-   * 访问地址: http://pyxml.sourceforge.net/topics/
-   * 精巧地址: http://bit.ly/3Rf7ga
-   * 它是Python中的一个XML工具集,通过它可以很好地解析和处理XML文档.更详细的可以参见这篇PyXML学习笔记:
-    * 访问地址: http://man.lupaworld.com/content/manage/ringkee/pyxml.htm
-    * 精巧地址: http://bit.ly/8uhLe
-  * PyHtml: 
-   * 访问地址: http://incolor.inetnebr.com/jepler/pyhtml/
-   * 精巧地址: http://bit.ly/1HGzVi
-   * 它是一个遵循Python语法的扩展,并且修改Python编译器使其允许使用HTML风格标签作为Python语句块, 可并允许这些标签和语句直接将其值作为输出, 从而使得更容易书写具有Python块缩进风格的HTML文档.
-  * ...
-  
+  面对最经常遇见的文本数据进行处理:
+  * Beautiful Soup
+   * 访问地址: http://www.crummy.com/software/BeautifulSoup/
+   * 精巧地址: http://bit.ly/3Ks24u
+   * 美味的汤 ～ 面对大量由各种HTML文本构成的数据之汤 "Beautiful Soup" 提供各种方便的工具来进行处理！
+  * Elements and Element Trees
+   * 访问地址: http://effbot.org/zone/element.htm
+   * 精巧地址: http://bit.ly/2IFCki
+   * 由 sffbot.org 社区创立的XML快速解析模块,以以及精巧高效,而受到拥戴,并在 Python 2.5 版本正式接纳为默认模块! xml.etree.ElementTree
+    * 访问地址: http://docs.python.org/library/xml.etree.elementtree.html
+    * 精巧地址: http://bit.ly/PzKeA
+  * Universal Encoding Detector
+   * 访问地址: http://chardet.feedparser.org/docs/
+   * 精巧地址: http://bit.ly/F2a5F
+   * chardet ~ 宇宙牌编码探测器;-) 方便的探知指定文本是什么编码的文字! 这是中文应用不可缺少的模块!
  深入::
+  有关文本处理的专门话题:
   * Text Processing in Python: 
    * 访问地址: http://gnosis.cx/TPiP/
-   * 精巧地址: http://bit.ly/3ZiI3k
-  * Office
-  * ReportLab: 
-   * 访问地址: http://www.reportlab.org/
-   * 精巧地址: http://bit.ly/PmJfm
-   * 是一个非常方便的生成PDF文档的python库.
-  * ...
+   * 精巧地址: http://bit.ly/3ZiI3k   
+   * 专门论述Python 文本处理方面技巧的图书,已经出版:
+   图atta2-2 TPiP 图书封面
+   attachment:tpip-cover-small.jpg 
+    * 页数: 544 pages
+    * 出版: Addison-Wesley Professional (June 12, 2003)
+    * 语言: English
+    * ISBN-10: 0321112547
+    * ISBN-13: 978-0321112545
+   * 啄木鸟社区组织有翻译工程: http://wiki.woodpecker.org.cn/moin/TPiP 有兴趣的读者可以随时加入;-)
+   
+  * 结构化文本支持:
+   * 这是种`WYTIWYG`~所想即所得的文档组织方式,通过简单的字符约定,在不影响阅读的情况下,将文章的结构声明在正文中,通过工具快速生成出各种格式文档来;
+   * http://wiki.woodpecker.org.cn/moin/AllAboutText 有部分综述;
+   * txt2tags: 
+    * 访问地址: http://txt2tags.sourceforge.net/
+    * 精巧地址: http://bit.ly/1esQt6
+    * 多模式输出结构化文本工具,是一个已稳定发展了7年的精巧工具,可以从 .t2t 格式文本,输出 HTML/XHTML/SGML/LaTeX/Lout/Man page/Wikipedia/Google Code Wiki/DokuWiki/MoinMoin/MagicPoint/PageMake 多达12种文档!
+    * 中文简介在: http://wiki.woodpecker.org.cn/moin/txt2tags
+    * 整个工具仅仅由一个`txt2tags`Python 脚本组成,不但完成了所有功能,而且提供了一个图形界面:
+    图atta2-3 t2t工具的图形界面
+    attachment:txt2tags-gui.png        
+   * reStructuredText
+    * 访问地址: http://docutils.sourceforge.net/rst.html
+    * 精巧地址: http://bit.ly/41iX8k
+    * 新结构化文本,目前最完善的结构化文本出版工具,就连Python 官方网站的文档仓库 http://docs.python.org 也是使用 reST(reStructureText 的缩写)组织的!
   
  前沿::
-  * StructuredText: 
-   * 访问地址: http://www.zope.org//Members/jim/StructuredTextWiki/StructuredTextNGRules
-   * 精巧地址: http://bit.ly/1NeDIF
-  * AsciiDoc: 
-   * 访问地址: http://www.methods.co.nz/asciidoc/index.html
-   * 精巧地址: http://bit.ly/3QwcTD
-  * ...
-
+  有关办公文档处理支持,各种Office 文档其实就是特殊DTD约束的XML文档;对于 M$ Office 产品,有好些种处理方式:
+  1. 通过 win32com 模块,调用原生接口处理文档;
+  1. 通过第三方模块:
+   * xlrd extension
+    * 访问地址: http://www.lexicon.net/sjmachin/xlrd.htm
+    * 精巧地址: http://bit.ly/2fzVO3
+    * 支持高效读取 Excel 数据的扩展
+   * pyExcelerator
+    * 访问地址: http://sourceforge.net/projects/pyexcelerator/
+    * 精巧地址: http://bit.ly/21xP59
+    * 可以对 Excel 文档进行读写的支持模块,一般使用参考:"limodou的学习记录:
+     * 访问地址: http://blog.donews.com/limodou/archive/2005/07/09/460033.aspx
+     * 精巧地址: http://bit.ly/1FX7Er
+  1. 通过OOo(OpenOffice.org 办公套件) 中转:
+   * Python-UNO bridge
+    * 访问地址: http://udk.openoffice.org/python/python-bridge.html
+    * 精巧地址: http://bit.ly/4lSYgZ
+    * 由 OOo 提供的统一操作"桥",可以对 UNO组件进行方便的操作,也就是说可以对通过OOo 打开的Office 文档,进行完全的操纵!
+  1. 通过docs.google中转:
+   * Google 文档列表数据 API - Google 代码
+    * 访问地址: http://code.google.com/intl/zh-CN/apis/documents/overview.html
+    * 精巧地址: http://bit.ly/4eBlXA
+    * https://docs.google.com 提供了一个在线办公环境,允许导入Office 文档,通过上述Google 提供的数据接口,就可以任意操纵Office文档的内容了,然后可以下载为 PDF/RDF/OOo/HTML 等等格式化文档
+    
 == Py DB应用 ==
 只要是个产品化系统,多少都得和数据库打交道,Python 一直有全面支持:
 
@@ -268,20 +307,26 @@ attachment:2008-10-14-google-python.png
 == Py 图形应用 ==
 
  常备::
-  * 成熟框架
- 深入::
   * Python Imaging Library(PIL): 
    * 访问地址: http://wiki.woodpecker.org.cn/moin/PythonImagingLibrary
    * 精巧地址: http://bit.ly/2iNDy0
    * 提供强大的图形处理的能力,并提供广泛的图像文件格式支持,该库能进行图像格式的转换,打印和显示.还提供了一些基本图像处理接口.
+  * Graphviz ,,,
+  
+ 深入::
   * PyOpenGL: 
    * 访问地址: http://pyopengl.sourceforge.net/
    * 精巧地址: http://bit.ly/2gOUKk
    * 它封装了"OpenGL应用程序编程接口",通过该模块可以在程序中集成2D和3D的图形.
   * ...
-  * 桌面
+  * ReportLab: 
+   * 访问地址: http://www.reportlab.org/
+   * 精巧地址: http://bit.ly/PmJfm
+   * 是一个非常方便的生成PDF文档的python库.
  前沿::
   * 3D,blander
+  * 桌面
+  * 多媒体,,,
 
 == Py 扩展应用 ==
 旧有系统的扩展/融合,需要 Python 这样优秀的"胶水语言":
@@ -390,6 +435,18 @@ Python 对于非IT行业,一样有成功的支持:
    * 精巧地址: http://bit.ly/1WiW4T
   * Effective--实效Python编程: http://wiki.woodpecker.org.cn/moin/EffectivePyPrgramming
    * 精巧地址:  http://bit.ly/47fEwY
+  * PyXML: 
+   * 访问地址: http://pyxml.sourceforge.net/topics/
+   * 精巧地址: http://bit.ly/3Rf7ga
+   * 它是Python中的一个XML工具集,通过它可以很好地解析和处理XML文档.更详细的可以参见这篇PyXML学习笔记:
+    * 访问地址: http://man.lupaworld.com/content/manage/ringkee/pyxml.htm
+    * 精巧地址: http://bit.ly/8uhLe
+
+  * PyHtml: 
+   * 访问地址: http://incolor.inetnebr.com/jepler/pyhtml/
+   * 精巧地址: http://bit.ly/1HGzVi
+   * 它是一个遵循Python语法的扩展,并且修改Python编译器使其允许使用HTML风格标签作为Python语句块, 可并允许这些标签和语句直接将其值作为输出, 从而使得更容易书写具有Python块缩进风格的HTML文档.
+  * ...
 
 
 ----
