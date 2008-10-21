@@ -1,7 +1,7 @@
 ##language:zh
 #pragma section-numbers off
 ##草稿|校对|正式
-||'''status'''|| 草稿 || ZoomQuiet || 完成度:55%||
+||'''status'''|| 草稿 || ZoomQuiet || 完成度:70%||
 
 
 [[TableOfContents]]
@@ -118,10 +118,12 @@
    * 主要是在windows下，有时在Ubuntu下。
    * Python 2.4+
  沈崴::
-  * 贡献:
-  * 工作: 当前学习/工作状态
-  * 经验: 使用Python 的历史经验
-  * 环境: 当前日常工作环境(软硬件)
+  * 贡献: PCS304 Eurasia3 ── 关注高性能的原创框架
+  * 工作: 上海, 高级架构师
+  * 经验: 1993 年的程序员, 2001 年初完全转到 Python。
+  * 环境: 
+   * 硬件: IBM Thinkpad (数个型号)、EeePC、AMD64、MIPSEL 等机型
+   * 系统: Debian 系 (包括 Ubuntu 704-810)、BSD 系、OpenWRT 等操作系统, 使用 Stackless Python 2.5.2
  洪强宁/QiangningHong/hongqn::
   * 贡献：PCS304 Quxiote ~ 豆瓣动力核心
   * 工作：北京豆瓣互动科技有限公司，技术负责人
