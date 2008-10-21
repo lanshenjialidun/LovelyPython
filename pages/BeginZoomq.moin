@@ -24,7 +24,8 @@
 
 == 免责 ==
 `不过,首先是得免责`:
- * 错误,都是 Zoom.Quiet 引入的,和其它人无关
+ * 我们已尽力核查本书提供的信息,尽管各地,仍无法保证櫣完成没有瑕疪,而且技术世界的变化之快,也使得本书内容永远无法追赶上Python 的发展;
+ * 作为主创人员,俺得承认,错误一般都是 Zoom.Quiet 引入的,和其它人无关;
  * 因为{{{
   一切资料来自网络互动挖掘
   一切想法来自日常学习工作
@@ -32,6 +33,21 @@
   一切知识来自社区分享印证
   一切经验来自个人失败体验 
 }}}
+ * 当然,读者如果发现本书内容上的错误,不论错别字,语意不清,甚至于是技术错误,我们都竭诚迁移接受指教;
+ * 本书正如 可爱的Python 本身一样,是开放的,持续改进的,有心得的读者,任何时候想改进/改正/改善图书的文字/代码,都可以加入到图书讨论列表来,共同完善这本有趣的好书!
+ * 请按照以下方式与行者们联系: 
+
+ 在线资源::
+ * 邮件列表: http://www.zeuux.org/mailman/listinfo/zeuux-python
+  * 精巧地址: http://bit.ly/3rJucf
+  * 订阅后,就可以和所有本书的读者以及作者,以及所有订阅了此列表的中国Pythoner们分享图书以及Pythonic体验了!
+ * 意见反馈：http://code.google.com/p/openbookproject/issues
+  * 精巧地址: http://bit.ly/U5fAB
+  * 反馈方式: 通过Google 公司提供的项目管理管理环境,使用提案(Issue)的方式来提交意见,相关使用文档:
+   * 快速使用Issue教程: http://code.google.com/p/openbookproject/wiki/UsageIssue
+   * Issue标签详解 http://code.google.com/p/openbookproject/wiki/IssueTags
+   * Issue流程概述 http://code.google.com/p/openbookproject/wiki/IssueFlow
+  * 针对本书的各方面,自由提出看法,我们会认真处理,并及时同步到在线版本的图书中，持续修订到再版就可以将你的建议合并进来, 谢先 ;-)
 
 == 动机 ==
 
@@ -114,22 +130,10 @@ LovelyPython/
 
 `提醒`:
  * 如果读者下载了相关代码时,发觉和图书中引用的代码有不同,不要惊奇,这是勤劳的行者们,在不断的优化实例代码!
- * 本书正如 可爱的Python 本身一样,是开放的,持续改进的,有心得的读者,任何时候想改进/改正/改善图书的文字/代码,都可以加入到图书讨论列表来,共同完善这本有趣的好书!
 
-== 相关资源 ==
- * 邮件列表: http://www.zeuux.org/mailman/listinfo/zeuux-python
-  * 精巧地址: http://bit.ly/3rJucf
-  * 订阅后,就可以和所有本书的读者以及作者,以及所有订阅了此列表的中国Pythoner们分享图书以及Pythonic体验了!
- * 意见反馈：http://code.google.com/p/openbookproject/issues
-  * 精巧地址: http://bit.ly/U5fAB
-  * 反馈方式: 通过Google 公司提供的项目管理管理环境,使用提案(Issue)的方式来提交意见,相关使用文档:
-   * 快速使用Issue教程: http://code.google.com/p/openbookproject/wiki/UsageIssue
-   * Issue标签详解 http://code.google.com/p/openbookproject/wiki/IssueTags
-   * Issue流程概述 http://code.google.com/p/openbookproject/wiki/IssueFlow
-  * 针对本书的各方面,自由提出看法,我们会认真处理,并及时同步到在线版本的图书中，持续修订到再版就可以将你的建议合并进来, 谢先 ;-)
 
 == 约定图书SVN结构 ==
- 同编辑讨论: http://wiki.woodpecker.org.cn/moin/ObpLovelyPyEditorRule
+##同编辑讨论: http://wiki.woodpecker.org.cn/moin/ObpLovelyPyEditorRule
 {{{
 目录约定:
 http://openbookproject.googlecode.com/svn/trunk/LovelyPython/
