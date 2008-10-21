@@ -7,7 +7,7 @@
 ##[[Include(ZPyUGnav)]]
 
 ##|校对|正式 
-||'''status'''|| 草稿|| ZoomQuiet,Liz|| 完成度:60% ||
+||'''status'''|| 草稿|| ZoomQuiet,Liz|| 完成度:70% ||
 
 ##在这里看到比较多的python相关库http://xiaoc.blog.ccidnet.com/blog-htm-do-showone-uid-234679-type-blog-itemid-436104.html by liz 081019
 
@@ -176,7 +176,7 @@ attachment:2008-10-14-google-python.png
     * 精巧地址: http://bit.ly/4eBlXA
     * https://docs.google.com 提供了一个在线办公环境,允许导入Office 文档,通过上述Google 提供的数据接口,就可以任意操纵Office文档的内容了,然后可以下载为 PDF/RDF/OOo/HTML 等等格式化文档
     
-== Py DB应用 ==
+== Py 数据库应用 ==
 只要是个产品化系统,多少都得和数据库打交道,Python 一直有全面支持:
 
  常备::
