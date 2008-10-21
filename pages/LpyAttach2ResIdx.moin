@@ -404,12 +404,11 @@ attachment:2008-10-14-google-python.png
 
  深入::
   高强度的图形处理/桌面应用:
-GIMP 的Python 接口
+
   * GIMP Python Documentation
    * 访问地址: http://www.gimp.org/docs/python/index.html
    * 精巧地址: http://bit.ly/6DxzY
-   * 
-
+   * 跨平台照片处理软件GIMP 的Python 接口,这是类似 PhotoShop 的强力照片数字暗室软件,可以借助Python 开发各种特效插件;同时也可以通过接口使用GIMP 提供的各种图片处理能力;
   * PyOpenGL: 
    * 访问地址: http://pyopengl.sourceforge.net/
    * 精巧地址: http://bit.ly/2gOUKk
@@ -418,56 +417,65 @@ GIMP 的Python 接口
    * 访问地址: http://www.reportlab.org/
    * 精巧地址: http://bit.ly/PmJfm
    * 是一个非常方便的生成PDF文档的python库.
-   
-  * TK
-  * wxPython~ UliPad
-  * Qt
-
+  * 桌面软件开发框架: 
+   1. TkInter
+    * 访问地址: http://wiki.python.org/moin/TkInter
+    * 精巧地址: http://bit.ly/4qdc6u
+    * 是Python 内置的GUI接口,支持Tk库的图形开发,而且Tk 是古老的Tcl脚本语言的GUI支持库,因其精巧快速,几乎所有操作系统都有兼容版本;
+   1. WxPython
+    * 访问地址: http://wiki.python.org/moin/WxPython
+    * 精巧地址: http://bit.ly/m8UVp
+    * 是跨平台GUI框架WxWidgets的Python 接口;发展稳定,甚至于有开门的IDE!
+    * Limodou 的作品UliPad:
+     * 访问地址: http://code.google.com/p/ulipad/
+     * 精巧地址: http://bit.ly/3EHHJV
+    * 就是使用 wxPython 开发的跨平台编辑器!
+   1. PyQt
+    * 访问地址: http://wiki.python.org/moin/PyQt
+    * 精巧地址: http://bit.ly/3OKUnu
+    * 是商业化GUI框架 Qt 的Python 接口,可以完成非常美观的跨平台软件;
+   1. Python for Delphi
+    * 访问地址: http://www.atug.com/andypatterns/pythonDelphiTalk.htm
+    * 精巧地址: http://bit.ly/2UWUiD
+    * 是古老好用的GUI框架Delphi 的Python 接口,如果对Delphi非常熟悉的开发人员一定喜欢;-)
+   1. PyGUI
+    * 访问地址: http://www.cosc.canterbury.ac.nz/greg.ewing/python_gui/
+    * 精巧地址: http://bit.ly/3CCNMI
+    * 全新开发的跨平台GUI框架,目标是一个完善的独立的GUI框架;
+   * 有关这部分的综合介绍,推荐 沈崴的"Python 史书·GUI 部"
+    * 访问地址: http://wiki.woodpecker.org.cn/moin/PyHiStory/PyGuiHistoric
+    * 精巧地址: http://bit.ly/3R8nHK 
+   * 以上都是跨平台GUI框架,实际上还有丰富的操作系统依赖的GUI框架,就不在此一一列举了;
  前沿::
-  3D技术,游戏开发:
+  3D,游戏,多媒体开发:
+  * blender.org - Python
+   * 访问地址: http://www.blender.org/education-help/python/
+   * 精巧地址: http://bit.ly/4iv8nf
+   * Blender 是个全功能3D艺术创作平台,可以支持从3D建模/动画/渲染的全套3D电影制作!而Python 贯穿其中各个方面!
+   * 实际上各种主流3D设计系统:3DS MAX,MaYa,LightWave, Panda3D, Nendo, Radiosity, Raw Triangle,
+...都有Python 的扩展系统,以便设计师经过少量的学习后就可以利用脚本快速扩展出需要的特效插件来!
 
-  * 3D,blander
-  PythonModules - Inkscape Wiki
-http://wiki.inkscape.org/wiki/index.php/PythonModules
-http://bit.ly/1IGBQr
+  * Inkscape PythonModules
+   * 访问地址: http://wiki.inkscape.org/wiki/index.php/PythonModules
+   * 精巧地址: http://bit.ly/1IGBQr
+   * Inkscape 是GNU/Linux平台中类似 Illustration/CoreGraw/FreeHand 的平面矢量设计软件,也提供了全面的Python 接口,可以扩展插件,组织自动绘制脚本,利用Inkscape 对.svg 矢量图形进行处理;
+  * pySonic
+   * 访问地址: http://pysonic.sourceforge.net/
+   * 精巧地址: http://bit.ly/4eL7h2
+   * 音乐处理支持模块;
+  * TextAloud
+   * 访问地址: http://www.nextup.com/TextAloud/
+   * 精巧地址: http://bit.ly/t24VE
+   * Python 的TTS(Text To Speech)文本朗读支持模块,当然的只有E文等拼音文字的支持;
+  * PyMedia - Python module for avi, mp3, dvd, wma, ogg processing
+   * 访问地址: http://pymedia.org/
+   * Python 多媒体处理模块,支持音频/视频的处理
+  * pygame - python game development
+   * 访问地址: http://www.pygame.org/news.html
+   * 精巧地址: http://bit.ly/3DDJPm
+   * 是基于SDL 的游戏开发综合支持模块;可以快速开发跨平台的多媒体游戏!
+   * SDL ~ Simple DirectMedia Layer 库;是为数不多的商业游戏开发公司使用的免费软件库之一。它提供跨平台的二维帧缓冲区图形和音频服务，它支持 Linux、Win32 和 BeOS。也不同程度地支持其它平台，包括 Solaris、IRIX、FreeBSD 和 MacOS。除了大量的服务，包括线程、独立于字节存储次序的宏和 CD 音频，SDL 还提供了一个简单的 API，它允许您尽可能接近本机硬件。使用 SDL 有三重优点：稳定、简单和灵活。
 
-
-blender.org - Python
-http://www.blender.org/education-help/python/
-http://bit.ly/4iv8nf
-
-3DS MAX,MaYa,LightWave, Panda3D, Nendo, Radiosity, Raw Triangle,
-...主流3D建模/渲染引擎都有
-
-Dia Python Plugin
-http://www.gnome.org/projects/dia/python.html
-http://bit.ly/2mO8Wf
-
-
-  * 多媒体,,,
-pySonic
-http://pysonic.sourceforge.net/
-http://bit.ly/4eL7h2
-
-
-PyMedia - Python module for avi, mp3, dvd, wma, ogg processing - pymedia
-http://pymedia.org/
-http://bit.ly/4ni3OE
-
-Text reader for your PC - TextAloud is the text to speech converter that reads emails, documents and more.
-http://www.nextup.com/TextAloud/
-http://bit.ly/t24VE
-
-
-pygame - python game development
-http://www.pygame.org/news.html
-http://bit.ly/3DDJPm
- SDL 是什么？
-Simple DirectMedia Layer 库，简称 SDL，是为数不多的商业游戏开发公司使用的免费软件库之一。它提供跨平台的二维帧缓冲区图形和音频服务，它支持 Linux、Win32 和 BeOS。也不同程度地支持其它平台，包括 Solaris、IRIX、FreeBSD 和 MacOS。除了大量的服务，包括线程、独立于字节存储次序的宏和 CD 音频，SDL 还提供了一个简单的 API，它允许您尽可能接近本机硬件。使用 SDL 有三重优点：稳定、简单和灵活。
-
-    * 稳定。如果 SDL 不向 API 提供可靠的支持，那么那些爱好者和商业公司就不能使用它。因为使用了 SDL，就添加了错误修正并增强了性能，也就加强了 API 的强健性。就像内核开发是分步进行的，SDL 的开发也是分步进行的，其中一部分是可靠稳定的 API，其它部分是新功能和构思的沙箱。
-    * 简单。SDL 被设计成一个简单的 API，以最少的代码实现您的构思。比如，我最近从 Linux 演示组 Optimum中移植了一些演示程序，我将它们的 X11 代码替换成 SDL 代码（请参见下面的列表）。您可以看到，SDL 代码非常易于编写和理解。 
-    
 
 == Py 应用扩展 ==
 旧有系统的扩展/融合,需要 Python 这样优秀的"胶水语言":
@@ -556,8 +564,11 @@ http://www.selenic.com/mercurial/wiki/index.cgi
 http://www.zenoss.com/
 
  前沿::
-  * ??
-
+  * Tribon Solutions ~ Python Success Stories
+   * 访问地址: http://www.python.org/about/success/tribon/
+   * 精巧地址: http://bit.ly/1vVEDy
+   * 船舶制造CAD系统,支持专业的船舶建造图纸辅助设计!而Python 是这个系统中重要的插件开发语言,有丰富的模块库;
+   
 == Py 教育支持 ==
 `十年树木,百年树人. 国之大计,教育为本!` Python 以其好学易用的特性,在教育的各个方面有出色的支持:
 
