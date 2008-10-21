@@ -1,26 +1,48 @@
 ##language:zh
 #pragma section-numbers off
 
-||status|| 草稿 ||清风; 100%||
+||status|| 草稿 || 清风 & liz; 100%||
 
 [[TableOfContents]]
 
 ##startInc
-== PCS301 Karrigell ==
-##这篇里面是否将链接扩展出来？
-=== 概述 ===
-'''Pure Python 实现的又一个 Web 应用平台！'''
- * 但是 Karrigell 区别于其它平台的不同在于...
-  * [http://www.donews.net/limodou/archive/2005/03/14/302380.aspx Python 下的轻型web framework - limodou的学习记录]
- * Limodou 先有体验 -- [http://www.donews.net/limodou/archive/2005/04/23/347349.aspx "Karrigell学习"我为什么选择了Karrigell - limodou的学习记录]
-  * 记录了一个系列的学习使用 Karrigell 时的发现，体会，感触……非常有指导意义！
- * 来自ChumpKlutz(朽木)原创翻译:
-  * [http://blog.csdn.net/ChumpKlutz/category/243254.aspx Karrigell官方文档中文版]
-  * [http://blog.csdn.net/ChumpKlutz/archive/2007/09/12/1781990.aspx Karrigell Web 开发入门]
-  * 这两份翻译的PDF版可到这里下载：
-   * [http://code.google.com/p/gopython/downloads/list PDF下载页面]
+= PCS301 Karrigell =
+'''纯 Python 实现的又一个 Web 应用平台！'''
 
-== 练习 ==
+== 概述 ==
+##http://wiki.woodpecker.org.cn/moin/KarriGell
+##简单介绍Karrigell是什么, 特点, 和其他框架不同的地方.
+Karrigel是一个易用的Python Web应用框架,语法清晰直观.它独立于任何数据库,ORM和模板引擎,也可以让开发人员选择不同的编码风格.它内置一个功能强大的web服务器和一个纯Python写成的数据库引擎PyDbLite.它可以通过配置来与其它Web服务器(如Apache,Xitami,LightTPD)一起工作;还可以结合Python的其它数据库(sqlite, mySql, PostGreSQL, ZODB, 等) 接口来创建数据库应用程序.
+
+Karrigell 已经有的功能：
+ * 自带web server
+ * 内置的session处理
+ * 认证机制
+ * 多语言支持
+ * 集成了 Gadfly 数据库
+ * 自带模板处理功能
+
+Karrigell 区别于其它平台的不同在于...
+ * "Karrigell学习"我为什么选择了Karrigell - limodou的学习记录
+  * 访问地址: http://www.donews.net/limodou/archive/2005/04/23/347349.aspx
+  * 精巧地址: http://bit.ly/1ZodzQ
+ * Python 下的轻型web framework - limodou的学习记录
+  * 访问地址: http://www.donews.net/limodou/archive/2005/03/14/302380.aspx
+  * 精巧地址: http://bit.ly/37X6NY
+
+更多有关学习 Karrigell 的记录...来自ChumpKlutz(朽木)原创翻译
+ * Karrigell官方文档中文版
+  * 访问地址: http://blog.csdn.net/ChumpKlutz/category/243254.aspx
+  * 精巧地址:  http://bit.ly/4DWPHf
+ * Karrigell Web 开发入门系列
+  * 访问地址: http://blog.csdn.net/ChumpKlutz/archive/2007/09/12/1781990.aspx
+  * 精巧地址:  http://bit.ly/3ADgnA
+ * 这两份翻译的PDF版可到这里下载
+  * 访问地址: http://code.google.com/p/gopython/downloads/list
+  * 精巧地址: http://bit.ly/tODOJ
+
+== 使用 ==
+故事CDay2中和故事KDays全篇都是介绍KarriGell的,这里还要重复吗?
 
 ##endInc
 -- 清风  [[DateTime(2008-04-25T14:33:00Z)]] 
