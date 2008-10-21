@@ -337,7 +337,7 @@ attachment:2008-10-14-google-python.png
 上网已经不在是电脑的专利,越来越多的设备/设施在联入网络,提供数据和接受控制,Python 在这方面也非常适合:
 
  常备::
-  常见嵌入式设备支持:
+  常见嵌入式系统设备~手机平台的支持:
   * Nokia S60以上系统的Python 开发支持:
    * 访问地址: http://wiki.forum.nokia.com/index.php/Category:Python
    * 精巧地址: http://bit.ly/2WwvU1
@@ -350,20 +350,21 @@ attachment:2008-10-14-google-python.png
    * 精巧地址: http://bit.ly/1MUO9K
    * Android 由 开放手机联盟（一个由 30 多家科技公司和手机公司组成的团体）组织开发开发;Android 是第一个完整、开放的免费手机平台;准备应用在Google 新一代手机平台中!
 
- 深入::
-  Telit 是一家专业设计和生产无线模块产品的公司,值得注意的是,它几乎在所有的最新产品中集成了嵌入式Python解释器,这样使用者就可以使用Python脚本快速地开发应用,这些Python脚本可以保存在模块内部运行,而不用另外的MCU去和模块进行AT命令交互;
-   * 访问地址: http://www.telit.com/en/products/python.php
-   * 精巧地址: http://bit.ly/4uJsAU
 
  前沿::
+  对于更加广泛的有嵌入式GNU/Linux系统的设备,Python 同样可以进驻!
   * 沈崴路由器建站教程 - 沈崴 - 网易博客
    * 访问地址: http://eishn.blog.163.com/blog/static/65231820083995420860/
    * 精巧地址: http://bit.ly/3crtkc
    * 讲述如何在路由器中安装 StacklessPython 环境进行应用开发的操作; 也证明了,只要嵌入式系统是 GNY/Linux 类的都可以安装Python 环境为我所用!
+  * Telit 是一家专业设计和生产无线模块产品的公司,值得注意的是,它几乎在所有的最新产品中集成了嵌入式Python解释器,这样使用者就可以使用Python脚本快速地开发应用,这些Python脚本可以保存在模块内部运行,而不用另外的MCU去和模块进行AT命令交互;
+   * 访问地址: http://www.telit.com/en/products/python.php
+   * 精巧地址: http://bit.ly/4uJsAU
    
-== Py 图形应用 ==
-
+== Py 多媒体支持 ==
+图形桌面是人们最经常接触的界面,多媒体应用更加是人们最喜爱的应用,这方面Python 也有不凡的支持:
  常备::
+  普通的图形支持:
   * Python Imaging Library(PIL): 
    * 访问地址: http://wiki.woodpecker.org.cn/moin/PythonImagingLibrary
    * 精巧地址: http://bit.ly/2iNDy0
@@ -372,6 +373,7 @@ attachment:2008-10-14-google-python.png
 CIL
   
  深入::
+  高强度的图形处理/桌面应用:
   * PyOpenGL: 
    * 访问地址: http://pyopengl.sourceforge.net/
    * 精巧地址: http://bit.ly/2gOUKk
@@ -381,15 +383,17 @@ CIL
    * 访问地址: http://www.reportlab.org/
    * 精巧地址: http://bit.ly/PmJfm
    * 是一个非常方便的生成PDF文档的python库.
-
- 前沿::
-  * 3D,blander
+   
   * TK
   * wxPython~ UliPad
   * Qt
+
+ 前沿::
+  3D技术,游戏开发:
+  * 3D,blander
   * 多媒体,,,
 
-== Py 扩展应用 ==
+== Py 应用扩展 ==
 旧有系统的扩展/融合,需要 Python 这样优秀的"胶水语言":
 
  常备::
