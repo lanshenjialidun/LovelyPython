@@ -1,7 +1,7 @@
 ##language:zh
 #pragma section-numbers off
 ##草稿|校对|正式
-||'''status'''|| 草稿 || ZoomQuiet || 完成度:70%||
+||'''status'''|| 草稿 || ZoomQuiet || 完成度:72%||
 
 
 [[TableOfContents]]
@@ -92,15 +92,14 @@
   * 工作: 北京,豆瓣,程序员
   * 经验: 从一个抓网页的小程序开始结识Python，关注Python在互联网方面的应用，并喜欢用Boost:python给python写扩展。常在博客上记录一些Python学习心得,访问地址: http://zsp.javaeye.com/
   * 环境: Dell INSPIRON 2200 + WindowsXP + SSH远程登陆Gentoo编程
- Liz::
-  * 贡献:
-  * 工作: 当前学习/工作状态
-  * 经验: 使用Python 的历史经验
+ 盛艳(Liz)::
+  * 贡献: 实例故事练习题设计和解答;PCS环境篇/语法篇(除PCS114 FP初体验)
+  * 工作: 扬州大学信息学院计算机系研二学生,主研究方向是数据挖掘,概念格.
+  * 经验: 从2007年10月开始学习Python,非常喜欢她的风格,目前还在不断深入学习中.主要进行Web应用开发和编写些小脚本,非常高兴能够摻合《可爱的Python》的编写,以后会继续努力,为社区贡献一份力量.  
   * 环境: 当前日常工作环境(软硬件)
     * 方正尊越A360 
     * Ubuntu 8.04
     * Python 2.5.2
-
  刘鑫::
   * 贡献: PCS114;
   * 工作: 珠海,金山软件股份有限公司,软件架构师
