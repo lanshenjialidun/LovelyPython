@@ -321,6 +321,10 @@ attachment:2008-10-14-google-python.png
   
  前沿::
   高性能网络平台:
+  * Twisted
+   * 访问地址: http://twistedmatrix.com/trac/
+   * 精巧地址: http://bit.ly/1VhU8T
+   * Twisted Matrix 是一种越来越受欢迎的纯 Python 框架，用来进行网络服务和应用程序的编程。虽然 Twisted Matrix 中有大量松散耦合的模块化组件，但该框架的中心概念还是非阻塞异步服务器这一思想,可以帮助程序员快速构建出,能在繁重负载的情况下依然极高的效率的系统!   
   * Zope.org
    * 访问地址: http://www.zope.org/
    * 精巧地址: http://bit.ly/1L5AFS
@@ -372,17 +376,44 @@ attachment:2008-10-14-google-python.png
   * Python Imaging Library(PIL): 
    * 访问地址: http://wiki.woodpecker.org.cn/moin/PythonImagingLibrary
    * 精巧地址: http://bit.ly/2iNDy0
-   * 提供强大的图形处理的能力,并提供广泛的图像文件格式支持,该库能进行图像格式的转换,打印和显示.还提供了一些基本图像处理接口.
-  * Graphviz ,,,
-CIL
-  
+   * 提供强大的图片处理的能力,并提供广泛的图像文件格式支持,该库能进行图像格式的转换,打印和显示.还提供了一些基本图像处理接口.
+  * PythonMagick
+   * 访问地址: http://www.imagemagick.org/download/python/
+   * 精巧地址: http://bit.ly/PHicT
+   * 支持Python 自然的使用 ImageMagick® 提供的强大功能, 可以创建/编辑/转换近100种图片格式文档!以及增加图形特效;
+  * Urwid
+   * 访问地址: http://excess.org/urwid/  
+   * 精巧地址: http://bit.ly/3oztKf
+   * CLI ~ 命令行界面构建支持模块,可以快速创建在命令行窗口中基于字符的图形应用;
+  * 各类图表支持:
+   1. ChartDirector for Python
+    * 访问地址: http://www.advsofteng.com/cdpython.html
+    * 精巧地址: http://bit.ly/3JrKi1
+    * 图表导演 ~ 是个商业软件,但是自由许可版本,没有限制任何功能,仅仅是在底部追加了一小条公司名称;可以快速根据数据创建各种漂亮的趋势图表;
+   1. biggles 
+    * 访问地址: http://biggles.sourceforge.net/libplot/
+    * 精巧地址: http://bit.ly/1DT3jD
+    * 调用 GNU plotutils 来生成各种曲线图的Python 接口;
+   1. Python Call Graph
+    * 访问地址: http://pycallgraph.slowchop.com/
+    * 精巧地址: http://bit.ly/2TW8nX
+    * 以及 pygraphviz - NetworkX
+    * 访问地址: https://networkx.lanl.gov/wiki/pygraphviz
+    * 精巧地址: http://bit.ly/4xX6eW
+    * 都是来对象化调用Graphviz(http://www.graphviz.org) 绘制树图的接口;
+
  深入::
   高强度的图形处理/桌面应用:
+GIMP 的Python 接口
+  * GIMP Python Documentation
+   * 访问地址: http://www.gimp.org/docs/python/index.html
+   * 精巧地址: http://bit.ly/6DxzY
+   * 
+
   * PyOpenGL: 
    * 访问地址: http://pyopengl.sourceforge.net/
    * 精巧地址: http://bit.ly/2gOUKk
    * 它封装了"OpenGL应用程序编程接口",通过该模块可以在程序中集成2D和3D的图形.
-  * ...
   * ReportLab: 
    * 访问地址: http://www.reportlab.org/
    * 精巧地址: http://bit.ly/PmJfm
@@ -394,8 +425,49 @@ CIL
 
  前沿::
   3D技术,游戏开发:
+
   * 3D,blander
+  PythonModules - Inkscape Wiki
+http://wiki.inkscape.org/wiki/index.php/PythonModules
+http://bit.ly/1IGBQr
+
+
+blender.org - Python
+http://www.blender.org/education-help/python/
+http://bit.ly/4iv8nf
+
+3DS MAX,MaYa,LightWave, Panda3D, Nendo, Radiosity, Raw Triangle,
+...主流3D建模/渲染引擎都有
+
+Dia Python Plugin
+http://www.gnome.org/projects/dia/python.html
+http://bit.ly/2mO8Wf
+
+
   * 多媒体,,,
+pySonic
+http://pysonic.sourceforge.net/
+http://bit.ly/4eL7h2
+
+
+PyMedia - Python module for avi, mp3, dvd, wma, ogg processing - pymedia
+http://pymedia.org/
+http://bit.ly/4ni3OE
+
+Text reader for your PC - TextAloud is the text to speech converter that reads emails, documents and more.
+http://www.nextup.com/TextAloud/
+http://bit.ly/t24VE
+
+
+pygame - python game development
+http://www.pygame.org/news.html
+http://bit.ly/3DDJPm
+ SDL 是什么？
+Simple DirectMedia Layer 库，简称 SDL，是为数不多的商业游戏开发公司使用的免费软件库之一。它提供跨平台的二维帧缓冲区图形和音频服务，它支持 Linux、Win32 和 BeOS。也不同程度地支持其它平台，包括 Solaris、IRIX、FreeBSD 和 MacOS。除了大量的服务，包括线程、独立于字节存储次序的宏和 CD 音频，SDL 还提供了一个简单的 API，它允许您尽可能接近本机硬件。使用 SDL 有三重优点：稳定、简单和灵活。
+
+    * 稳定。如果 SDL 不向 API 提供可靠的支持，那么那些爱好者和商业公司就不能使用它。因为使用了 SDL，就添加了错误修正并增强了性能，也就加强了 API 的强健性。就像内核开发是分步进行的，SDL 的开发也是分步进行的，其中一部分是可靠稳定的 API，其它部分是新功能和构思的沙箱。
+    * 简单。SDL 被设计成一个简单的 API，以最少的代码实现您的构思。比如，我最近从 Linux 演示组 Optimum中移植了一些演示程序，我将它们的 X11 代码替换成 SDL 代码（请参见下面的列表）。您可以看到，SDL 代码非常易于编写和理解。 
+    
 
 == Py 应用扩展 ==
 旧有系统的扩展/融合,需要 Python 这样优秀的"胶水语言":
@@ -465,13 +537,24 @@ Software for Algebra and Geometry Experimentation (SAGE) 是使用 Python 语言
 Download - BioPython
 http://biopython.org/wiki/Download
 http://bit.ly/Ipaud
-== Py 工程应用 ==
+== Py 行业应用 ==
 Python 对于非IT行业,一样有成功的支持:
 
  常备::
-  * 模块
+  * Welcome - Bazaar Version Control
+http://bazaar-vcs.org/
+    Welcome | Canonical
+    http://www.canonical.com/
+    Launchpad
+    https://launchpad.net/
+
+Mercurial - Mercurial
+http://www.selenic.com/mercurial/wiki/index.cgi
+
  深入::
-  * 产品
+  * Zenoss Home - Commercial Open Source Application, Systems and Network Monitoring - Zenoss
+http://www.zenoss.com/
+
  前沿::
   * ??
 
