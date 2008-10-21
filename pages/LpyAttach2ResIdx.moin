@@ -278,6 +278,10 @@ attachment:2008-10-14-google-python.png
    * 访问地址: http://wiki.woodpecker.org.cn/moin/PyWebFrameList
    * 精巧地址: http://bit.ly/1U4oHm
    * 也特别指出了,"为什么在Python 世界中有这么多Web应用框架"~ 因为,太容易实现了!
+  * 进一步的请参考官方网站的汇总介绍:WebProgramming - PythonInfo Wiki
+   * 访问地址: http://wiki.python.org/moin/WebProgramming
+   * 精巧地址: http://bit.ly/jzKnm
+  以下介绍一些流行框架:
   * CherryPy: 
    * 访问地址: http://wiki.woodpecker.org.cn/moin/CherryPyQuickIn
    * 精巧地址: http://bit.ly/1DGuQN
