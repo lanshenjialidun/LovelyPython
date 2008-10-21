@@ -32,17 +32,17 @@ Quixote有以下几个特点：
 
 所有的web框架要解决的第一件事情就是：当用户输入一个URL，应该调用哪段代码来响应用户需求呢？这就是URL分发。与Django之类的基于正则表达式匹配来实现URL分发的框架不同，Quixote是基于URL的目录结构进行逐层查找实现的。
 
-一个Quixote应用对应着一个Python的名字空间（通常是一个包）。URL的每一级目录映射到一个子名字空间上（模块或者子包），URL的最末一级映射到上一级名字空间中的一个函式上。该函式返回一个字符串，就是返回给浏览器的页面。例如，如果你的应用是放在app这个包下的，那么 http://www.example.com/hello/john 就对应{{{app.hello.john(request)}}}。末级目录则对应于`_q_index`函式，如http://www.example.com/hello/ 对应于{{{app.hello._q_index(request)}}}。就这么简单。
+一个Quixote应用对应着一个Python的名字空间（通常是一个包）。URL的每一级目录映射到一个子名字空间上（模块或者子包），URL的最末一级映射到上一级名字空间中的一个函数上。该函数返回一个字符串，就是返回给浏览器的页面。例如，如果你的应用是放在app这个包下的，那么 http://www.example.com/hello/john 就对应{{{app.hello.john(request)}}}。末级目录则对应于`_q_index`函数，如http://www.example.com/hello/ 对应于{{{app.hello._q_index(request)}}}。就这么简单。
 
-这种层级查找的结构还可以带来额外的好处：在目录层进行控制。在每一个目录层级进行查找之前，Quixote都会先运行当前名字空间下的_q_access(request)函式。比如你需要 http://www.example.com/settings/ 下的所有路径都只能由登录用户访问，那么只需要在 `app.settings` 这个名字空间（`app/settings.py`，或者`app/settings/__init__.py`）中定义一个`_q_access(request)`函式，在其中检查当前用户的登录状态（cookie可以从`request`对象获得），如果发现是未登录状态，抛出一个AccessError异常即可。
+这种层级查找的结构还可以带来额外的好处：在目录层进行控制。在每一个目录层级进行查找之前，Quixote都会先运行当前名字空间下的_q_access(request)函数。比如你需要 http://www.example.com/settings/ 下的所有路径都只能由登录用户访问，那么只需要在 `app.settings` 这个名字空间（`app/settings.py`，或者`app/settings/__init__.py`）中定义一个`_q_access(request)`函数，在其中检查当前用户的登录状态（cookie可以从`request`对象获得），如果发现是未登录状态，抛出一个 `quixote.errors.AccessError` 异常即可。
 
-当Quixote执行代码时碰到异常，它会首先检查当前名字空间下有没有`_q_exception_handler`函式，如果有的话，则由这个函式处理异常，返回的字符串则为出错页面。如果没有定义这个函式，或者在执行它的时候又抛出了异常，则向上一级的名字空间查找`_q_exception_handler`函式，直至找到为止。所以，我们一般只需要在`app/__init__.py`中定义`_q_exception_handler`函式，就可以方便的实现定制出错页面了（当然你连这个也不定义也可以，Quixote提供了默认的出错页面）。
+当Quixote执行代码时碰到异常，它会首先检查当前名字空间下有没有`_q_exception_handler`函数，如果有的话，则由这个函数处理异常，返回的字符串则为出错页面。如果没有定义这个函数，或者在执行它的时候又抛出了异常，则向上一级的名字空间查找`_q_exception_handler`函数，直至找到为止。所以，我们一般只需要在`app/__init__.py`中定义`_q_exception_handler`函数，就可以方便的实现定制出错页面了（当然你连这个也不定义也可以，Quixote提供了默认的出错页面）。
 
 2. 易于实现RESTful的URL
 
-刚才我们说 http://www.example.com/hello/john 对应 {{{app.hello.john(request)}}}，那除了john之外，还有成千上万的用户的名字怎么办？不能每个为每个用户都定义一个函式吧？传统的方法是把会变的部分用URL参数的形式传进来，比如 http://www.example.com/hello/?name=bob 。但这种风格的URL既不好看，又不利于搜索引擎收录，要是能都像john一样直接成为URL的一部分多好啊！幸运的是，Quixote帮助你实现了这一点。
+刚才我们说 http://www.example.com/hello/john 对应 {{{app.hello.john(request)}}}，那除了john之外，还有成千上万的用户的名字怎么办？不能每个为每个用户都定义一个函数吧？传统的方法是把会变的部分用URL参数的形式传进来，比如 http://www.example.com/hello/?name=bob 。但这种风格的URL既不好看，又不利于搜索引擎收录，要是能都像john一样直接成为URL的一部分多好啊！幸运的是，Quixote帮助你实现了这一点。
 
-我们只需要在 app.hello 这个名字空间中定义一个 `_q_lookup(request, component)` 函式，当Quixote查不到 `bob` 这个名字时就会调用这个函式，把需要查找的名字 `bob` 传给 `component` 参数，用这个函式返回的结果作为找到的子名字空间或函式。在我们的例子里，代码就是：
+我们只需要在 app.hello 这个名字空间中定义一个 `_q_lookup(request, component)` 函数，当Quixote查不到 `bob` 这个名字时就会调用这个函数，把需要查找的名字 `bob` 传给 `component` 参数，用这个函数返回的结果作为找到的子名字空间或函数。在我们的例子里，代码就是：
 {{{
 #!python
 # in app/hello/__init__.py
@@ -51,11 +51,11 @@ def _q_lookup(request, name):
         return say_hello(name)
     return hello
 }}}
-这里我们返回了一个函式（也可以用定义了 `__call__` 方法的类示例代替），这个函式将被调用以生成HTML页面。
+这里我们返回了一个函数（也可以用定义了 `__call__` 方法的类实例代替），这个函数将被调用以生成HTML页面。
 
 3. 显式标记，拒绝魔术
 
-Zen of Python中有一句“Explicit is better than implicit”，Quixote也是这个理念的贯彻者。所有可以通过URL访问到的函式和方法，必须在当级名字空间的 `_q_exports` 变量中列举出来（除了用 `_q_lookup` 实现的动态URL）。也就是说，要让 http://www.example.com/hello/bob 可以访问，必须在 `app/__init__.py` 中定义
+Zen of Python中有一句“Explicit is better than implicit”，Quixote也是这个理念的贯彻者。所有可以通过URL访问到的函数和方法，必须在当级名字空间的 `_q_exports` 变量中列举出来（除了用 `_q_lookup` 实现的动态URL）。也就是说，要让 http://www.example.com/hello/bob 可以访问，必须在 `app/__init__.py` 中定义
 {{{
 #!python
 _q_exports = ['hello']
@@ -65,7 +65,7 @@ _q_exports = ['hello']
 
 呃，或者说，就是Python语言。为了让程序员不用再学习一门模板语言，而是直接使用已经掌握的Python语法写模板，Quixote的模板语言PTL(Python Template Language，以.ptl作为文件名后缀）的语法和Python一模一样（除了后面要说到的[html]标记），在执行了quixote.enable_ptl()之后，这些.ptl文件就可以像普通的.py文件一样作为Python模块import进来。
 
-但是既然是模板语言，就会有一些专门为了生成字符串的语法糖。在函式定义时，加上一个 [html] 标签就可以改变这个函式的表现，使得每执行一条语句，运行的结果如果不是None的话，就会以字符串的形式添加到函式的返回值里，而无需再使用return语句了。假设hello.ptl的内容如下：
+但是既然是模板语言，就会有一些专门为了生成字符串的语法糖。在函数定义时，加上一个 [html] 标签就可以改变这个函数的表现，使得每执行一条语句，运行的结果如果不是None的话，就会以字符串的形式添加到函数的返回值里，而无需再使用return语句了。假设hello.ptl的内容如下：
 {{{
 #!python
 def say_hello [html] (name):
@@ -82,13 +82,13 @@ def say_hello [html] (name):
 >>> print say_hello("Quixote")
 }}}
 
-因为say_hello函式由两条语句组成，这两行语句的运行结果分别返回一个字符串，因此运行结果就是 {{{Hello, <em>Quixote</em>!}}} 。这个设定可以大大方便模板的编写。
+因为say_hello函数由两条语句组成，这两行语句的运行结果分别返回一个字符串，因此运行结果就是 {{{Hello, <em>Quixote</em>!}}} 。这个设定可以大大方便模板的编写。
 
 5. 内置的安全性支持
 
 互联网上有很多寻找网站漏洞的攻击者，跨站脚本(XSS)是一个常见的攻击手段。这种攻击通常会在页面显示数据的地方插入一段恶意javascript代码，当有人浏览这个页面的时候，就会运行这段代码。比如在say_hello这个例子中，恶意用户输入的名字（也就是name参数）是`"<script>alert('haha')</script>"`的话，在模板没有安全性处理的情况下，页面就会输出{{{Hello, <em><script>alert('haha')</script></em>}}}，浏览这个页面的用户就会中招。幸好，PTL帮助我们解决了这个问题，它会自动将输入的数据进行HTML转义，就是用`&lt;`、`&gt;`等HTML实体替换掉危险的`<`、`>`等字符，这样输出的结果就是{{{Hello, <em>&lt;script&gt;alert('haha')&lt;/script&gt;</em>}}}，安全了。
 
-PTL是怎么实现这一点的呢？实际上，打了[html]标记的PTL函式中的字符串常量（比如 `"<em>%s</em>!"`）并不是普通的str对象，而会自动转成quixote.html.htmltext对象，这个对象的接口和str几乎一样，但和普通的str对象做操作时（比如+、%等运算），会自动把str对象中的HTML特殊字符进行转义。
+PTL是怎么实现这一点的呢？实际上，打了[html]标记的PTL函数中的字符串常量（比如 `"<em>%s</em>!"`）并不是普通的str对象，而会自动转成quixote.html.htmltext对象，这个对象的接口和str几乎一样，但和普通的str对象做操作时（比如+、%等运算），会自动把str对象中的HTML特殊字符进行转义。
 
 6. 高效的模板
 
@@ -229,8 +229,8 @@ Quixote是一个轻量级的框架，简单，高效，代码也十分简洁易�
 
 1. 调试开发不够方便，没有内置的调试用web服务器；
 2. 修改代码后必须重启服务才能看到效果；
-3. URL的末尾带和不带"/"会被解释到不同函式；
-4. PTL模板适合Python程序员编写，却非常不适合美工独立编辑等等；
+3. URL的末尾带和不带"/"会被解释到不同函数；
+4. PTL模板适合Python程序员编写，却非常不适合美工独立编辑；
 5. 没有内置的WSGI支持；
 6. 没有内置的用户认证系统、数据库支持等等。
 
