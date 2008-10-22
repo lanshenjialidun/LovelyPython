@@ -118,6 +118,10 @@ attachment:2008-10-14-google-python.png
    * 访问地址: http://chardet.feedparser.org/docs/
    * 精巧地址: http://bit.ly/F2a5F
    * chardet ~ 宇宙牌编码探测器;-) 方便的探知指定文本是什么编码的文字! 这是中文应用不可缺少的模块!
+  * cssutils - CSS library for Python
+   * 访问地址: http://cthedot.de/cssutils/
+   * 精巧地址: http://bit.ly/2rmUQ0
+   * CSS文档专用处理支持
  深入::
   有关文本处理的专门话题:
   * Text Processing in Python: 
