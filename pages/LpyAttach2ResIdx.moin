@@ -1,13 +1,11 @@
-## page was renamed from ObpLovelyPython/LpyAttach-residx
 ##language:zh
 #pragma section-numbers off
-##含有章节索引导航的 ZPyUG 文章通用模板
 [[TableOfContents]]
 ## 默许导航,请保留
 ##[[Include(ZPyUGnav)]]
 
 ##|校对|正式 
-||'''status'''|| 草稿|| ZoomQuiet,Liz|| 完成度:70% ||
+||'''status'''|| 草稿|| ZoomQuiet,Liz|| 完成度:90% ||
 
 ##在这里看到比较多的python相关库http://xiaoc.blog.ccidnet.com/blog-htm-do-showone-uid-234679-type-blog-itemid-436104.html by liz 081019
 
@@ -324,7 +322,7 @@ attachment:2008-10-14-google-python.png
   * Twisted
    * 访问地址: http://twistedmatrix.com/trac/
    * 精巧地址: http://bit.ly/1VhU8T
-   * Twisted Matrix 是一种越来越受欢迎的纯 Python 框架，用来进行网络服务和应用程序的编程。虽然 Twisted Matrix 中有大量松散耦合的模块化组件，但该框架的中心概念还是非阻塞异步服务器这一思想,可以帮助程序员快速构建出,能在繁重负载的情况下依然极高的效率的系统!   
+   * Twisted Matrix 是一种越来越受欢迎的纯 Python 框架,用来进行网络服务和应用程序的编程. 虽然 Twisted Matrix 中有大量松散耦合的模块化组件,但该框架的中心概念还是非阻塞异步服务器这一思想,可以帮助程序员快速构建出,能在繁重负载的情况下依然极高的效率的系统!   
   * Zope.org
    * 访问地址: http://www.zope.org/
    * 精巧地址: http://bit.ly/1L5AFS
@@ -356,7 +354,7 @@ attachment:2008-10-14-google-python.png
   * Android
    * 访问地址: http://code.google.com/intl/zh-CN/android/
    * 精巧地址: http://bit.ly/1MUO9K
-   * Android 由 开放手机联盟（一个由 30 多家科技公司和手机公司组成的团体）组织开发开发;Android 是第一个完整、开放的免费手机平台;准备应用在Google 新一代手机平台中!
+   * Android 由 开放手机联盟（一个由 30 多家科技公司和手机公司组成的团体）组织开发开发;Android 是第一个完整／开放的免费手机平台;准备应用在Google 新一代手机平台中!
 
 
  前沿::
@@ -433,7 +431,8 @@ attachment:2008-10-14-google-python.png
    1. PyQt
     * 访问地址: http://wiki.python.org/moin/PyQt
     * 精巧地址: http://bit.ly/3OKUnu
-    * 是商业化GUI框架 Qt 的Python 接口,可以完成非常美观的跨平台软件;
+    * 是商业化GUI框架 Qt 的Python 接口,可以完成非常美观的跨平台软件;QT就是实现了KDE环境的那个库,由一系列的模块组成,有qt, qtcanvas, qtgl,
+qtnetwork, qtsql, qttable, qtui and qtxml,包含有300个类和超过5750个的函数和方法. PyQt还支持一个叫qtext的模块,它包含一个QScintilla库. 该库是Scintillar编辑器类的Qt接口. 
    1. Python for Delphi
     * 访问地址: http://www.atug.com/andypatterns/pythonDelphiTalk.htm
     * 精巧地址: http://bit.ly/2UWUiD
@@ -474,51 +473,67 @@ attachment:2008-10-14-google-python.png
    * 访问地址: http://www.pygame.org/news.html
    * 精巧地址: http://bit.ly/3DDJPm
    * 是基于SDL 的游戏开发综合支持模块;可以快速开发跨平台的多媒体游戏!
-   * SDL ~ Simple DirectMedia Layer 库;是为数不多的商业游戏开发公司使用的免费软件库之一。它提供跨平台的二维帧缓冲区图形和音频服务，它支持 Linux、Win32 和 BeOS。也不同程度地支持其它平台，包括 Solaris、IRIX、FreeBSD 和 MacOS。除了大量的服务，包括线程、独立于字节存储次序的宏和 CD 音频，SDL 还提供了一个简单的 API，它允许您尽可能接近本机硬件。使用 SDL 有三重优点：稳定、简单和灵活。
+   * SDL ~ Simple DirectMedia Layer 库;是为数不多的商业游戏开发公司使用的免费软件库之一. 它提供跨平台的二维帧缓冲区图形和音频服务,它支持 Linux／Win32 和 BeOS. 也不同程度地支持其它平台,包括 Solaris／IRIX／FreeBSD 和 MacOS. 除了大量的服务,包括线程／独立于字节存储次序的宏和 CD 音频,SDL 还提供了一个简单的 API,它允许您尽可能接近本机硬件. 使用 SDL 有三重优点：稳定／简单和灵活. 
 
 
 == Py 应用扩展 ==
-旧有系统的扩展/融合,需要 Python 这样优秀的"胶水语言":
+原有系统的扩展/融合,使用 Python 这般优秀的"胶水语言"来粘合新系统非常的轻松:
 
  常备::
-  * Swig: 
-   * 访问地址: http://www.swig.org/doc.html
-   * 精巧地址: http://bit.ly/4qUhgr
-   * python和其他语言的"黏合剂".
-  * ctype
+  * C/C++ 到Python,一般有两种基本模式:
+   * `扩展`：最终用户运行Python解译器程序,并导入用C++编写的Python"扩展模块".  想像一个C++写的库,给它一个Python接口, 这样Python程序员就可以使用它.  从Python来看,这些模块就像是常规的Python模块;
+   * `内嵌`：最终用户运行C++写的程序,反过来调用Python解译器,就像调用一个库函数.  想像一下为现有的应用程序加入脚本能力;
+    
+   1. Swig: 
+    * 访问地址: http://www.swig.org
+    * 是一个自动的扩展构造工具. 它读入注释的C/C++头文件,为python／tcl／perl等多种脚本语言产生wrap代码. SWIG可以包装大量C++特性到Python的扩展模块中. 
+   1. SIP, a Python/C++ Bindings Generator
+    * 访问地址: http://www.controlvideo.de/sip/
+    * 精巧地址: http://bit.ly/Nb0RR
+    * 由Phil Thompson创建,是一个C++模块构造器,专门为C++的类创造wrapper. 它曾经被用于创建PyQt和PyKDE扩展模块,因此比较出名. 支持C++特征很齐全,但比较复杂
+   1. Boost Python Library
+    * 访问地址: http://www.boost.org
+    * 由David Abrahams创建. 该库提供了更多与众不同的C++ wrap到python扩展中,而只需要对要扩展的C++类写很少的附加信息. Boost为C++提供了许多实用的库,如Regex（正则表达式库）／Graph（图组件和算法）／concept check（检查泛型编程中的concept）／Thread（可移植的C++多线程库）／Python（把C++类和函数映射到Python之中）／ Pool（内存池管理）等等. Boost总体来说是实用价值很高,质量很高的库. 并且强调对跨平台的支持. 但是Boost中也有很多是实验性质的东西,在实际的开发中实用需要谨慎. 
+
+  * Python 到 C:ctypes
    * 访问地址: http://python.net/crew/theller/ctypes/
    * 精巧地址: http://bit.ly/3yjAHy
-   * 用来调用dll/shared libraries(动态链接库/共享库).
-  
+   * ctypes是一个Python模块,使用他可以在Python中创建和操作C语言的数据类型,这样可以在动态链接库中传递参数到C的函数中去;ctypes可以在windows/linux等多个平台上使用,甚至支持Windows上的COM开发
+  * Python 到 Fortran:pyfort
+   * 访问地址:http://pyfortran.sourceforge.net
+   * 用来产生Fortran语言生成的扩展模块
+  * Python 到 Perl:PyPerl
+   * 访问地址: http://wiki.python.org/moin/PyPerl  
+   * 精巧地址: http://bit.ly/3vR3ET
+   * 支持将Perl 应用嵌入到Python 中!
  深入::
   * PyRex: 
    * 访问地址: http://wiki.woodpecker.org.cn/moin/Pyrex
    * 精巧地址: http://bit.ly/1mICtd
-   * 
-  * PythonExtendingAndEmbedding: 
-   * 访问地址: http://wiki.woodpecker.org.cn/moin/PythonExtendingAndEmbedding
-   * 精巧地址: http://bit.ly/26MjGC
-   *
-  * Psyco: 
-   * 访问地址: http://psyco.sourceforge.net/
-   * 精巧地址: http://bit.ly/3jrshT
-   * 一个Python代码加速度器,可使Python代码的执行速度提高到与编译语言一样的水平.
-  * ...
+   * 用Python样的脚本写程序,然后自动转换成C代码,编译成纯C程序的方式来扩展应用!
+  * The Jython Project
+   * 访问地址: http://www.jython.org
+   * JAVA平台上实现的Python,支持用户使用Python 的语法编写脚本,来调用一切JAVA的库;
+  * IronPython
+   * 访问地址: http://www.codeplex.com/IronPython
+   * 精巧地址: http://bit.ly/8bXUo
+   * 在.net 平台上实现的Python,支持用户使用Python 的语法编写脚本,来调用一切.NET的库;
+  * BOO
+   * 访问地址: http://boo.codehaus.org
+   * 精巧地址: http://bit.ly/1FA6rS
+   * 和IronPython 类似,是个有着Python语法的.net 语言,不同之处是可以象脚本语言一样直接运行在命令行下面;一样可以轻松和.net其他语言互相协作无间!
   
  前沿::
-  * 动态 Jython
+  * 用SSE2
+   * 访问地址: http://wiki.woodpecker.org.cn/moin/PyWorkWithEES2
+   * 精巧地址: http://bit.ly/2jZbSm
+   * 支持使用SSE指令集的外部库,用以进行高性能计算,在极限条件下(不作分支判断,只在一个循环中做加减乘除计算)与纯Python计算相比可以提升2000倍. 
+  * 和Flash
+   * 访问地址: http://wiki.woodpecker.org.cn/moin/UsageFlashInPyProj
+   * 精巧地址: http://bit.ly/E1oCT
+   * 支持建立Python调用Flash的本地应用(不同于Adobe的Apollo);没有用到浏览器嵌入flash网页的方法,直接在pythonwin或者wxpython建立的窗口中插入Flash ocx!
 
-  * 原来Boo是一种有着python语法的.net语言,好处是公用CLI和.net其他语言互相协
-作无间。。
 
-我同事那个小组用了很久了,他老大用c#。他们在mono上跑,看来现在mono也相当
-的成熟了,他们的都是生产上的应用。
-
-Boo的logo挺讨人喜欢 :)
-http://boo.codehaus.org/Language+Features
-
-不知道在vs.net上面开发boo会不会很爽。
-  
 == Py 科学计算 ==
 支持科研方面,Python 也从来没有落后:
 
@@ -530,44 +545,51 @@ http://boo.codehaus.org/Language+Features
   * SciPy: 
    * 访问地址: http://www.scipy.org/
    * 精巧地址: http://bit.ly/4Bg9RA
-   * 它和NumPy一起工作, 提供了许多方便和高效的数值计算函式,如数值积分或优化。
-  * ...
+   * 它和NumPy一起工作, 提供了许多方便和高效的数值计算函式,如数值积分或优化. 
   
  深入::
-  * 数学
   * SAGE: 
    * 访问地址: http://sagemath.org/
    * 精巧地址: http://bit.ly/3SNn9Z
-Software for Algebra and Geometry Experimentation (SAGE) 是使用 Python 语言编写的,并使用交互式的 Python Shell 作为其用户界面。SAGE 的独特之处在于,它能够用作其他各种计算机代数系统的集成器,从而允许用户利用不同软件包的各自强项。
-  * ...
- 前沿::
-  * 生物
-Download - BioPython
-http://biopython.org/wiki/Download
-http://bit.ly/Ipaud
+   * Software for Algebra and Geometry Experimentation ~ 代数与几何实验室! 是使用 Python 语言编写的数学方面专用模块,并使用交互式的 Python Shell 作为其用户界面. SAGE 的独特之处在于,它能够用作其他各种计算机代数系统的集成器,从而允许用户利用不同软件包的各自强项. 
+  * BioPython
+   * 访问地址: http://biopython.org/wiki/Download
+   * 精巧地址: http://bit.ly/Ipaud
+   * 生物学Python,支持各种遗传学的DNA数据分析等等;
+   
 == Py 行业应用 ==
-Python 对于非IT行业,一样有成功的支持:
+Python 在各种行业,一直有经典的支持:
 
  常备::
-  * Welcome - Bazaar Version Control
-http://bazaar-vcs.org/
-    Welcome | Canonical
-    http://www.canonical.com/
-    Launchpad
-    https://launchpad.net/
-
-Mercurial - Mercurial
-http://www.selenic.com/mercurial/wiki/index.cgi
-
+  * Bazaar Version Control
+   * 访问地址: http://bazaar-vcs.org/
+   * 缩写为 Bzr 的一种分布式版本管理系统,是Launchpad(https://launchpad.net/) 这一强大开源软件项目管理平台的基础系统,该平台上组织了包含Ubuntu 等等大型优秀软件工程! 使用Python 实际!
+  * Mercurial
+   * 访问地址: http://www.selenic.com/mercurial/wiki/index.cgi
+   * 精巧地址: http://bit.ly/BHEAo
+   * 缩写为 Hg 的另一种优秀分布式版本管理系统,是Mozilla 等等大型开源软件工程使用的成熟系统!
+   * 有关分布式版本管理的综合对比,参考:DistributedScm - 分布式配置管理
+    * 访问地址: http://wiki.woodpecker.org.cn/moin/DistributedScm
+    * 精巧地址: http://bit.ly/3myGFW
  深入::
-  * Zenoss Home - Commercial Open Source Application, Systems and Network Monitoring - Zenoss
-http://www.zenoss.com/
-
+  * Zenoss
+   * 访问地址: http://www.zenoss.com/
+   * 被sourceforge评为2007年3月的明星项目!是基于Zope(纯Python平台)实现的企业级IT管理软件!
+   * 是智能监控软件,他允许IT管理员依靠单一的WEB控制台来监控网络架构的状态和健康度.可以发现和管理公司IT环境的各类资产(包括服务器、网络、和其他结构设备). Zenoss可以创建关键资产清单和对应的组件级别(接口、服务、进程,已安装的软件等). 建立好模型后,就可以监控与报告IT架构中各种资源的状态和性能容限了. Zenoss同时提供与CMDB关联的事件和错误管理系统,以协助提高各类事件和提醒的管理效率. 以此提高IT管理人员的效率!
+  * scons
+   * 访问地址: http://www.scons.org/ 
+   * Java有Ant这个巨火的构建工具,而在Python就是scons了!
+   * 简单点说，就是一个替代“autotools + make”的编译工具；用Python语言写的 -- 配置文件也是python，能够在多平台上工作；支持并行编译、ccache等技术，能有效提供编译速度;
+   
  前沿::
   * Tribon Solutions ~ Python Success Stories
    * 访问地址: http://www.python.org/about/success/tribon/
    * 精巧地址: http://bit.ly/1vVEDy
    * 船舶制造CAD系统,支持专业的船舶建造图纸辅助设计!而Python 是这个系统中重要的插件开发语言,有丰富的模块库;
+  * Ice for Python
+   * 访问地址: http://www.zeroc.com/icepy.html
+   * 精巧地址: http://bit.ly/18rWrB
+   * ZeroC发布的面向网格计算的Ice(Internet Communications Engine),支持复制／负载均衡及应用程序的分发,并提供了一个网格应用程序维护管理工具；同样有 Python 的支持,可以快速完成类似 `SETI@home` 的分布式计算应用!
    
 == Py 教育支持 ==
 `十年树木,百年树人. 国之大计,教育为本!` Python 以其好学易用的特性,在教育的各个方面有出色的支持:
@@ -626,6 +648,10 @@ http://www.zenoss.com/
    * 精巧地址: http://bit.ly/1HGzVi
    * 它是一个遵循Python语法的扩展,并且修改Python编译器使其允许使用HTML风格标签作为Python语句块, 可并允许这些标签和语句直接将其值作为输出, 从而使得更容易书写具有Python块缩进风格的HTML文档.
   * ...
+  * Psyco: 
+   * 访问地址: http://psyco.sourceforge.net/
+   * 精巧地址: http://bit.ly/3jrshT
+   * 一个Python代码加速度器,可使Python代码的执行速度提高到与编译语言一样的水平.
 
 
 ----
