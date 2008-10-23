@@ -5,7 +5,7 @@
 ##[[Include(ZPyUGnav)]]
 
 ##|校对|正式 
-||'''status'''|| 草稿|| ZoomQuiet,Liz|| 完成度:90% ||
+||'''status'''|| 草稿|| ZoomQuiet,Liz|| 完成度:99% ||
 
 
 ##startInc
@@ -584,7 +584,7 @@ Python 在各种行业,一直有经典的支持:
   * scons
    * 访问地址: http://www.scons.org/ 
    * Java有Ant这个巨火的构建工具,而在Python就是scons了!
-   * 简单点说，就是一个替代“autotools + make”的编译工具；用Python语言写的 -- 配置文件也是python，能够在多平台上工作；支持并行编译、ccache等技术，能有效提供编译速度;
+   * 简单点说,就是一个替代“autotools + make”的编译工具；用Python语言写的 -- 配置文件也是python,能够在多平台上工作；支持并行编译、ccache等技术,能有效提供编译速度;
    
  前沿::
   * Tribon Solutions ~ Python Success Stories
@@ -600,17 +600,35 @@ Python 在各种行业,一直有经典的支持:
 `十年树木,百年树人. 国之大计,教育为本!` Python 以其好学易用的特性,在教育的各个方面有出色的支持:
 
  常备::
-  教学支持:
-  * 中蟒
+  程序开发中文教学支持:
+  * 中蟒(中文 Python)编程语言
+   * 访问地址: http://www.chinesepython.org/cgi_bin/cgb.cgi/home.html
+   * 精巧地址: http://bit.ly/1cVBcm
+   * 是基于Python 2.1.3 的代码,从内部增补中文关键字特性的脚本语言,支持用户使用中文来编写可执行代码;由于涉及源代码修订,所以,跟进Python 的发布,比较慢;
   * 周蟒
+   * 访问地址: http://code.google.com/p/zhpy/
+   * 精巧地址: http://bit.ly/q0wVN
+   * 是Python 语言的"替身"(借用一部日本漫画中的专用名词来定义);又名`zhpy`,是一个轻量的,与 Python 语言互相兼容的中文 Python 语言; 让使用者可以使用纯中文语句 (繁体或简体) 来编写程式; 周蟒中文编程语言的目标是协助使用者透过中文编程语言学习编程语言,进而接触世界上大部份的编程语言,而不是脱离现实世界; 
+   * 周蠎,其实就是一个纯Python 应用,相当于用Python 实现了一个可以自动翻译中文脚本为E文脚本的编译器,从而可以包裹在Python 语言之外,安全自然的支持中文编程,令广大没有学习过E文的人们,也可以享受Python 的简洁明快; 
+
  深入::
   知识管理:
-  * 维基
+  * MoinMoin
+   * 访问地址: http://moinmo.in
+   * 是纯Python 实现的全功能维基引擎,不使用DB,从而有极高的可维护和扩展性;是世界主流维基系统之一,很多大型社区的知识管理都使用 MoinMoin 架设;
+   * 进一步介绍,推荐:"维基入门及 MoinMoin 基本使用"
+    * 访问地址: http://www.zoomquiet.org/share/s5/DriveIntoMoin/061031-DIMoin/
+    * 精巧地址: http://bit.ly/48jLdA
+
  前沿::
-  教育体制支持:
-  * attachment:Pippy-icon.png Pippy ~ OLPC 计划使用的窗口系统 Sugar 的开发脚本
-  * 教程地址: http://wiki.laptop.org/go/Pippy
-  * 精巧地址: http://bit.ly/UjyDx
+  教育格局探索:
+  * OLPC http://laptop.org/
+   * One Laptop Per Child ~ 每个儿童一台笔记本电脑 计划是
+   * 由MIT 发起的项目,旨在生产和发售低成本笔记本电脑给发展中国家的儿童,以便激发教育改革;为儿童们"学习获取知识"而特意设计的`XO`笔记本电脑,使用的桌面环境是 Sugar (简化版本的GNU/Linux);
+   * attachment:Pippy-icon.png Pippy 
+   * 教程地址: http://wiki.laptop.org/go/Pippy
+   * 精巧地址: http://bit.ly/UjyDx
+   * 基于Sugar 桌面应用软件的主力开发语言就是Python,而 Pippy 就是Sugar 的应用接口仓库;
  
 
 == Py 集锦资源 ==
