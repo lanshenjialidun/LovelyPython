@@ -22,7 +22,7 @@ In [3]: print sys.argv
 == 使用 ==
 Python中提供很多模块都可以解析系统参数，比如，cmd、getopt和optparse.
  * cmd: http://docs.python.org/lib/module-cmd.html
- * 精巧地址: http://bit.ly/4y8FC9、
+ * 精巧地址: http://bit.ly/4y8FC9
  * getopt: http://docs.python.org/lib/module-getopt.html
  * 精巧地址: http://bit.ly/4kIlCa
  * optparse: http://docs.python.org/lib/module-optparse.html
