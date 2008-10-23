@@ -7,7 +7,6 @@
 ##|校对|正式 
 ||'''status'''|| 草稿|| ZoomQuiet,Liz|| 完成度:90% ||
 
-##在这里看到比较多的python相关库http://xiaoc.blog.ccidnet.com/blog-htm-do-showone-uid-234679-type-blog-itemid-436104.html by liz 081019
 
 ##startInc
 = Python 资源索引 =
@@ -135,11 +134,13 @@ attachment:2008-10-14-google-python.png
     * 语言: English
     * ISBN-10: 0321112547
     * ISBN-13: 978-0321112545
-   * 啄木鸟社区组织有翻译工程: http://wiki.woodpecker.org.cn/moin/TPiP 有兴趣的读者可以随时加入;-)
+   * 啄木鸟社区组织有翻译工程: http://wiki.woodpecker.org.cn/moin/TPiP (精巧地址：http://bit.ly/3IvsMk) 有兴趣的读者可以随时加入;-)
    
   * 结构化文本支持:
    * 这是种`WYTIWYG`~所想即所得的文档组织方式,通过简单的字符约定,在不影响阅读的情况下,将文章的结构声明在正文中,通过工具快速生成出各种格式文档来;
-   * http://wiki.woodpecker.org.cn/moin/AllAboutText 有部分综述;
+   * 部分综述:
+    * 访问地址: http://wiki.woodpecker.org.cn/moin/AllAboutText
+    * 精巧地址：http://bit.ly/4wDWKD
    * txt2tags: 
     * 访问地址: http://txt2tags.sourceforge.net/
     * 精巧地址: http://bit.ly/1esQt6
