@@ -5,6 +5,7 @@
 
 [[TableOfContents]]
 
+##startInc
 = 最流行框架快速体验教程 =
 
 == 啥是 Django ==
@@ -314,4 +315,4 @@ def edit_page(request, title):
 
 到这里，这个 wiki 就算是顺利完工了！相信大家对使用 django 进行web开发也有了基本的认识了。
 
-
+##endInc
