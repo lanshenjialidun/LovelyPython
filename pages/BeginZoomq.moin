@@ -45,8 +45,11 @@
   * 精巧地址: http://bit.ly/U5fAB
   * 反馈方式: 通过Google 公司提供的项目管理管理环境,使用提案(Issue)的方式来提交意见,相关使用文档:
    * 快速使用Issue教程: http://code.google.com/p/openbookproject/wiki/UsageIssue
+    * 精巧地址: http://bit.ly/xxSHq
    * Issue标签详解 http://code.google.com/p/openbookproject/wiki/IssueTags
+    * 精巧地址: http://bit.ly/DOCdK
    * Issue流程概述 http://code.google.com/p/openbookproject/wiki/IssueFlow
+    * 精巧地址: http://bit.ly/IXkNt
   * 针对本书的各方面,自由提出看法,我们会认真处理,并及时同步到在线版本的图书中，持续修订到再版就可以将你的建议合并进来, 谢先 ;-)
 
 == 动机 ==
@@ -117,8 +120,9 @@ http://wiki.woodpecker.org.cn/moin/WoodpeckerHackers (精巧地址:http://bit.ly
  * Python 被设计成友好的,容易理解和使用的脚本语言,最好的学习方式就是使用她!
  * 本书集合了一批资深中国Python 爱好者,别的不说,保证提供的所有代码都是经过反复测试,绝对可用的,期望大家在尝试后,平常也注意积累一些自个儿中意的代码片段分享回来!
 
-作为敏捷脚本语言Python 的入门图书,直接接触和运行代码是必须的,本书的所有代码都可以使用SVN(Subversion)公开的下载!下载地址:
-  * http://openbookproject.googlecode.com/svn/trunk/LovelyPython/
+作为敏捷脚本语言Python 的入门图书,直接接触和运行代码是必须的,本书的所有代码都可以使用SVN(Subversion)公开的下载!
+  * 下载地址: http://openbookproject.googlecode.com/svn/trunk/LovelyPython/
+   *精巧地址：http://bit.ly/4nTW4K
   * 可爱的Python 图书源码目录约定:{{{
 LovelyPython/
 +-- CDays       (CDays 实例故事代码)
