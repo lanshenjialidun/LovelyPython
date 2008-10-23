@@ -62,12 +62,13 @@ PCS401 DHTML
   * {{{注意:
 所有实例代码使用SVN提供下载,访问URL:
 http://openbookproject.googlecode.com/svn/trunk/LovelyPython/KDays/
+精巧地址：http://bit.ly/2aAaUy
 SVN ~ 是 Subversion 的简称,是种非常流行和稳健康的版本管理系统;
 简单的讲,就是一个中央服务器及配套工具集;可以方便的管理所有开发时的各种文件;
 神奇的是,可以帮助你安全的取回任何时间点上的文件/目录 -- 即使文件/目录曾经被删除过;
 进一步介绍在:
 http://wiki.woodpecker.org.cn/moin/SubVerSion
-快捷访问: http://tinyurl.com/6pfmx2
+精巧地址：http://bit.ly/b7w9K
 }}}
  1. 实例故事,不是教程,小白只会讲述要点,具体的都含在脚本代码中了,读者只要下载运行,尝试按照自个儿理解的修订一下,看一看运行的反应,立即可以深入到系统的各个层面,理解到最细微之处;
  1. 实例脚本全部使用 ["Leo"] 组织!小白也推荐读者可以尝试通过 ["Leo"] 来观察代码,这样可以感受到小白组织代码时的思路,以及轻松的掌握代码的整体框架;
@@ -112,7 +113,7 @@ key		= a # 正确答案
 = 练习 =
 尝试运行Karrigell
 (下载地址:http://sourceforge.net/projects/karrigell
- 精巧地址: http://tinyurl.com/6bpc3f). 
+ 精巧地址: http://bit.ly/1i7NyI). 
  * 下载Karrigell解压 
  * 在终端中进入Karrigell所在目录
  * 运行 `python Karrigell.py`, 看看出现什么?

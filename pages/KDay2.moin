@@ -70,6 +70,7 @@ PCS304 Web应用框架纵论
 同时也分享了一些实用的模板选择和使用体验
 有关 Cheetch ~ 印度豹模板系统的简要介绍在:
 http://wiki.woodpecker.org.cn/moin/CheetahTemplateOrg
+精巧地址：http://bit.ly/31kKBK
 }}}
 == Leo 组织实现 ==
 '''小白已经习惯了通过 Leo 在一个统一界面中把握程序的全部逻辑层次/章节/元素 ;-)'''
@@ -200,8 +201,9 @@ attachment:kday2-exp-query.png
 
 
 == 实例下载 ==
-使用SVN下载地址:
- * http://openbookproject.googlecode.com/svn/trunk/LovelyPython/KDays/kday2
+使用SVN
+ * 实例下载: http://openbookproject.googlecode.com/svn/trunk/LovelyPython/KDays/kday2
+ * 精巧地址: http://bit.ly/H6sXX
  本日成果::
 {{{
 kday2/

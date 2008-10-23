@@ -107,7 +107,8 @@ attachment:kday6-xml-page.png
 
 通过SVN的下载地址:
  * http://openbookproject.googlecode.com/svn/trunk/LovelyPython/KDays/kday6/xslmm/deptorg.py
- 
+ * 精巧地址: http://bit.ly/15OMam
+
 {{{详细::
 PCS214 ElementTree
 进一步介绍了这一因为自身的优秀品质,被吸收为内置模块的第三方XML处理模块;
@@ -335,7 +336,9 @@ kday5/
 
 == 实例下载 ==
 使用SVN下载地址:
- * http://openbookproject.googlecode.com/svn/trunk/LovelyPython/KDays/kday6
+ * 实例下载: http://openbookproject.googlecode.com/svn/trunk/LovelyPython/KDays/kday6
+ * 精巧地址: http://bit.ly/4phPmS
+
 
 == 练习 ==
     到目前为止, 我们已经实现了登录, 编辑, 显示, 删除, 搜索博客文章, 应该说作为个人博客已经差不多了, 当然我们还能继续扩展, 比如以下几点: 

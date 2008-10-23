@@ -58,7 +58,7 @@ PCS301 Karrigell
  立即开始!::
   * 下载KarriGell{{{
  下载地址: http://sourceforge.net/projects/karrigell
- 快捷访问: http://tinyurl.com/6bpc3f }}} 一般是个单独的压缩文件,比如说:`Karrigell-2.4.0.tar.bz2`
+ 快捷访问: http://bit.ly/1i7NyI }}} 一般是个单独的压缩文件,比如说:`Karrigell-2.4.0.tar.bz2`
   * 首先,使用工具解开压缩(推荐使用 7-zip 这一自由软件,通吃一切常见压缩包! http://7-zip.org/zh-cn/)
   * 然后,进入 KarriGell 所在目录, 将conf/Karrigell.ini中的#port=8081去掉注释，表示将网站发布到 `:8081` 端口,避开用户可能的己有默认`:80`网站
   * 最后,在命令行下面输入：`python Karrigell.py`
@@ -192,7 +192,8 @@ PCS208 dict4ini
 
 == 实例下载 ==
  使用SVN下载地址::
-  * http://openbookproject.googlecode.com/svn/trunk/LovelyPython/KDays/kday1
+  * 实例下载: http://openbookproject.googlecode.com/svn/trunk/LovelyPython/KDays/kday1
+  * 精巧地址：http://bit.ly/4qP7S8
  本日成果::
 {{{
 kday1/

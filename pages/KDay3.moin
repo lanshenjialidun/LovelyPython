@@ -130,7 +130,9 @@ def export(self):
 '''现在的问题是有什么现成的可以模式化的定义表单检验的前端JS组件? '''
  *  TiosnG !`[ti'aosn'gu]`
   * There is one site named Google! -- 哈哈哈!!运用这个流传在行者们中的咒语,翻查了一下,确认 `Validation` ~ 有效性检查是小白想要的检验的学名,于是得到...
-  * '''JVF'''~[http://cosoft.org.cn/projects/jsvalidation JavaScript Validation Framework] -- Javascript 有效检验框架 国人作品!
+  * '''JVF'''~JavaScript Validation Framework -- Javascript 有效检验框架 国人作品!
+   * 访问地址: http://cosoft.org.cn/projects/jsvalidation
+   * 精巧地址: http://bit.ly/2icRKJ
 
 ## mechiland@gmail.com jzchen80@hotmail.com
 
@@ -269,8 +271,9 @@ RESPONSE['Content-Type'] = "text/html; charset=utf-8"
 }}}
 
 {{{脚注:
-行者们讨论中文乱码问题的原始记要在 啄木鸟社区维基:
-http://wiki.woodpecker.org.cn/moin/MiscItems/2008-08-05
+行者们讨论中文乱码问题的原始记要在
+啄木鸟社区维基: http://wiki.woodpecker.org.cn/moin/MiscItems/2008-08-05
+精巧地址: http://bit.ly/2y9Y33
 }}}
 
 == 合理滥用Leo ==
@@ -286,7 +289,9 @@ attachment:kday3-leo-css-embed.png
 === CSS设计技巧 ===
 '''复用以前自个儿的积累是非常好的事儿!'''
  * 颜色的设计是个问题,不过有好工具来偷!
- '''[http://www.redalt.com/Tools/ilyc.php Red Alt - I Like Your Colors]'''
+ '''Red Alt - I Like Your Colors'''
+  * 访问地址: http://www.redalt.com/Tools/ilyc.php
+  * 精巧地址: http://bit.ly/91GT9
 
 图 KDay3-6 演示 redalt.com 的CSS颜色分析工具
 
@@ -315,9 +320,11 @@ attachment:kday3-today-result.png
 
 == 实例下载 ==
 使用SVN下载地址:
- * http://openbookproject.googlecode.com/svn/trunk/LovelyPython/KDays/kday3
+ * 实例下载: http://openbookproject.googlecode.com/svn/trunk/LovelyPython/KDays/kday3
+ * 精巧地址: http://bit.ly/2OscFJ
  * 注意有在上层安置的 JS-JVF 目录:
   * http://openbookproject.googlecode.com/svn/trunk/LovelyPython/KDays/js
+  * 精巧地址: http://bit.ly/2lzYbl
  本日成果::
 {{{
 kday3
