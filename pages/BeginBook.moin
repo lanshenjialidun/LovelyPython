@@ -42,11 +42,14 @@
     1.  CDay 3  线程化;高级特性粘边儿的优化;
     1.  CDay N  无尽的探索;嗯嗯嗯!一切仅仅是开始....
   * 代码下载: http://openbookproject.googlecode.com/svn/trunk/LovelyPython/CDays/
+   * 精巧地址: http://bit.ly/1IWqQW
   * 练习题解答: http://openbookproject.googlecode.com/svn/trunk/LovelyPython/exercise/
+   * 精巧地址: http://bit.ly/2GtIPI
 
  第二部分 KDays 实用网站开发故事::
   * 讲述如何 Pythonic 的运用即有框架在网络中解决实际问题;
   * 代码下载: http://openbookproject.googlecode.com/svn/trunk/LovelyPython/KDays/
+   * 精巧地址: http://bit.ly/6fAUg
 
  第三部分 Py初学者作弊条汇集::
   * 同Py日实例故事呼应,以精简模式讲述各个关键语言知识点;并提供各种实用代码片段;
@@ -56,7 +59,8 @@
    1.  模块篇 ; 分享故事中涉及的各种常用模块的使用;
    1.  框架篇 ; 介绍流行的几个Python Web应用框架;
    1.  友邻篇 ; 分享一些在Python 开发之外的相关领域基础知识;
-  * 代码下载:http://openbookproject.googlecode.com/svn/trunk/LovelyPython/PCS/
+  * 代码下载: http://openbookproject.googlecode.com/svn/trunk/LovelyPython/PCS/
+   * 精巧地址: http://bit.ly/1IWqQW
 
  第四部分 附录::
   * 对以上所有内容的再组织,方便读者使用不同的顺序和逻辑进行快速查阅--不是骗稿费哪--补充大量的实用代码片段支撑快乐开发这一体验;-)
