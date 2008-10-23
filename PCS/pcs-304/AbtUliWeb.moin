@@ -60,7 +60,7 @@ appname/view_module/function_name}}}
   * 提供debug功能，可以查看出错的代码，包括模板中的错误。  
 
  * 其它  
-  * Uliweb是一个Demo与源码合二为一的项目。它不仅包括所有核心代码，还同时包括了 [http://uliwebproject.appspot.com uliwebproject] 网站的源码，同时还有其它的一些Demo，所以你可以直接使用这些代码。 
+  * Uliweb是一个Demo与源码合二为一的项目。它不仅包括所有核心代码，还同时包括了 uliwebproject (http://uliwebproject.appspot.com) 网站的源码，同时还有其它的一些Demo，所以你可以直接使用这些代码。 
   * 对于静态文件的支持可以处理HTTP_IF_MODIFIED_SINCE和trunk方式的静态文件处理。 
 
 == 简单入门 ==
@@ -69,7 +69,7 @@ appname/view_module/function_name}}}
 
 === 准备 ===
 
-从 http://code.google.com/p/uliweb 下载最新版本或从svn中下载最新版本，放在一个目录下。
+从 http://code.google.com/p/uliweb (精巧地址: http://bit.ly/OKSj3) 下载最新版本或从svn中下载最新版本，放在一个目录下。
 因为 Uliweb 本身包含 uliwebproject 网站的代码，所以在我们这个简单的例子中其实是不需要的。
 它们都存在于apps目录下。一种方式是你将它全部删除，因为我们会创建新的app。另一种方式就是修
 改apps下的settings.py文件，只让我们新创建的app生效。再一种方法就是将代码导出到其它的工作

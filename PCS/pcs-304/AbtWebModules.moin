@@ -77,7 +77,8 @@ cgi应用程序再通过标准输出，输出它的响应头和相应内容给web服务器。
 我们上面用到的这个开发服务器与我们的应用程序之间所使用的协议叫做 wsgi，
 它和 cgi 类似，同样是将http请求包装成一种key-value对，
 只不过cgi通过环境变量传给cgi应用程序，而wsgi直接使用python的字典对象，通过参数完成传递。
-wsgi 协议的详细内容可以参考：http://www.python.org/dev/peps/pep-0333/ 。
+ * wsgi 协议的详细内容可以参考：http://www.python.org/dev/peps/pep-0333/
+ * 精巧地址：http://bit.ly/2oXpal
 
 比如上面 hello_app 函数接收的第一个参数 environ 就是包含web请求信息的字典对象，
 上面这个web程序输出的就是这个字典的全部内容，里面有比如请求的路径（PATH_INFO），
@@ -99,13 +100,13 @@ hello_app 的第二个参数 start_response 是一个函数，web 应用在输出响应内容前需要先
 小白发现有几个模块可以用来处理 web 请求和响应，webob 就是其中之一。
 
 安装 webob 之前我们需要先安装 setuptools ，一个包管理的工具，该工具可以自动为我们搜索并下载想要的
-软件包。 在这个页面 http://pypi.python.org/pypi/setuptools 下面，非windows平台可以下载 .egg 文件
+软件包。 在这个页面 http://pypi.python.org/pypi/setuptools (精巧地址: http://bit.ly/4fXVjD)下面，非windows平台可以下载 .egg 文件
 ，然后修改权限直接执行之，或者下载源码包，解压后执行 python setup.py install ，
 windows平台的用户也可以直接下载 exe 后缀名的可执行安装程序，下载后直接运行就好了。
 
 安装完 setuptools 后，安装 webob 就很简单了，打开一个命令行窗口，执行 easy_install webob ，
 setuptools 能够自动找到最新的版本并自动下载安装。当然，如果嫌它单线程的下载速度有点慢，你也
-可以直接到 http://pypi.python.org/pypi 搜到相应的包，手动下载，
+可以直接到 http://pypi.python.org/pypi (精巧地址: http://bit.ly/2CA9SG)搜到相应的包，手动下载，
 然后加压并执行 python setup.py install ，后面的包的安装方法和这里类似。
 
 安装完成后我们可以直接在 python shell 里对 webob 所提供的功能进行试验:
@@ -290,12 +291,13 @@ python里面的模板引擎主要有mako、genshi、jinja等。mako 主要特点在于模板里面
 代码实现一些复杂的展现逻辑。
 
 小白看 mako 挺顺眼的，于是就钻研了它一把。
-可以到这里 http://pypi.python.org/pypi/Mako 找到最新版本的下载地址，下载解压，
+可以到这里 http://pypi.python.org/pypi/Mako (精巧地址: http://bit.ly/4wqXP6) 找到最新版本的下载地址，下载解压，
 然后执行 python setup.py install 就可以了。
 
 下面的代码就是写的一个简单的 mako 模板文件，里面直接输出一个 name 对象，
 并使用 python 的 for 循环来把传递给它的 data 字典的内容填充到一个html列表
-（mako模板的详细语法请参考：http://www.makotemplates.org/docs/syntax.html）。
+ * mako模板的详细语法请参考：http://www.makotemplates.org/docs/syntax.html
+ * 精巧地址：http://bit.ly/3mjkE4
 
 {{{
 <html>
@@ -400,7 +402,7 @@ sqlalchemy 还可以自动映射 python 对象的继承，可以实现eager loading、lazy loading
 可以直接将 Model 映射到自定义的 SQL 语句，支持n多的数据库等等等等。
 可以说 sqlalchemy 既有不输于 Hibernate 的强大功能，同时不失 Python 的简洁优雅。
 
-在这里 http://www.sqlalchemy.org/download.html 找到最新版本的下载地址，下载解压，
+在这里 http://www.sqlalchemy.org/download.html (精巧地址: http://bit.ly/3iyaV0)找到最新版本的下载地址，下载解压，
 然后执行 python setup.py install 进行安装。
 
 代码胜千言，sqlalchemy 到底可以做什么，直接上代码展示下 sqlalchemy 的基本功能吧：
@@ -486,7 +488,10 @@ for item in ['python','ruby','java']:
 session.commit()
 }}}
 
-现在打开 python shell ，导入 models 模块，对照 sqlalchemy 的文档（http://www.sqlalchemy.org/docs/），就可以试验 sqlalchemy 的各种功能了。
+现在打开 python shell ，导入 models 模块，对照 sqlalchemy 的文档，就可以试验 sqlalchemy 的各种功能了。
+ * sqlalchemy 的文档: http://www.sqlalchemy.org/docs/
+ * 精巧地址：http://bit.ly/45KMCI
+
 
 {{{#!python
 >>> from model import Session, Dictionary
@@ -536,7 +541,7 @@ def hello_app(request):
 当然，处理 URL 的定义与映射同样有现成的工具可以使用，selector 是其中
 一个比较简单易用的一个。
 
-在这里 http://pypi.python.org/pypi/selector 找到最新版本的下载地址，下载解压，
+在这里 http://pypi.python.org/pypi/selector (精巧地址: http://bit.ly/3gJAOo) 找到最新版本的下载地址，下载解压，
 然后执行 python setup.py install 就可以了。
 
 先来看一个 selector 的示例：
@@ -627,14 +632,14 @@ web应用最终是要部署到成熟稳当高性能的web服务器上去的，
 不同部署方式适合不同的场景，下面给出不同部署方式的一些参考信息，
 限于篇幅，这里就不一一说明了。
 
-* 支持fastcgi的web服务器 + fastcgi
-  http://trac.saddi.com/flup/wiki/FlupServers
+* 支持fastcgi的web服务器 + fastcgi : http://trac.saddi.com/flup/wiki/FlupServers
+ * 精巧地址: http://bit.ly/1BTNRF
 
-* apache + mod_python
-  http://www.modpython.org/
-
-* apache + mod_wsgi
-  http://code.google.com/p/modwsgi/
+* apache + mod_python :  http://www.modpython.org/
+ * 精巧地址: http://bit.ly/3aVHzs
+ 
+* apache + mod_wsgi :  http://code.google.com/p/modwsgi/
+ * 精巧地址: http://bit.ly/3SldeH
 
 == 小结 ==
 

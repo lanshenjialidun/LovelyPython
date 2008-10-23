@@ -42,7 +42,9 @@
  
  独立版本MoinMoin安装::
   1. 首先确认本地有Python 环境
-  1. 下载MoinMoin 官方地址: http://moinmo.in/MoinMoinDownload 
+  1. 下载MoinMoin
+   * 官方地址: http://moinmo.in/MoinMoinDownload 
+   * 精巧地址: http://bit.ly/2uFwpK
   1. 和正常的Python 模块安装一样,解开压缩后,进入,运行 `python setup.py install` 就好
   1. 部署一个MoinMoin实例:
    * 一般在`/usr/local/share/moin` 会自动初始化一个实例,不过一般都喜欢自己定制个,安置到习惯的目录中:

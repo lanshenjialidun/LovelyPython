@@ -159,8 +159,10 @@
 
 === 开始使用 Eurasia3 ===
     Eurasia3 是跨平台的, 在类 Unix 系统上能得到最好的性能, 同时你需要 Stackless Python 2.5, 带有 greenlet 扩展的 Python 2.5 也是可以的。
-    Eurasia3 的代码托管在 http://code.google.com/p/eurasia , 你可以在那里下载到 Eurasia3 的最新版本。
-    你可以加入 Eurasia 用户组 https://groups.google.com/group/eurasia-users 以获得关于 Eurasia3 的最新动态和技术支持。
+    Eurasia3 的代码托管在 http://code.google.com/p/eurasia (精巧地址: http://bit.ly/3l4HFj), 你可以在那里下载到 Eurasia3 的最新版本。
+  你可以加入 Eurasia 用户组以获得关于 Eurasia3 的最新动态和技术支持。
+   * 访问地址: https://groups.google.com/group/eurasia-users 
+   * 精巧地址: http://bit.ly/3oF8o8
 
 ## 练习::
 ## 可能的话

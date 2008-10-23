@@ -203,10 +203,12 @@ manage.run()
   * 通过 SQLAlchemy 进行对象化高效数据库操作的
    * SQLAlchemy官方网站 http://www.sqlalchemy.org/
   * 使用 WSGI(Web 服务器网关接口)模式运行的
-   * WSGI官方网站 http://www.wsgi.org/wsgi/What_is_WSGI
+   * WSGI官方网站: http://www.wsgi.org/wsgi/What_is_WSGI
+   * 精巧地址: http://bit.ly/3IkgU4
   * 可对URL进行映射管理的
   * 使用 Kid 模板系统,高效输出数据的
    * Kid官方网站 http://www.kid-templating.org/
+   * 精巧地址: http://bit.ly/2YDxPd
   * 全功能Web应用框架!
 
 == 使用 ==
@@ -225,8 +227,12 @@ manage.run()
 
  
 Eurasia3 前面已经
- * 用 895 行单文件实现了 ZODB ( http://code.google.com/p/eurasia/source/browse/trunk/Eurasia/shelve2.py ), 
- * 这次更过分了, Mako 只有 377 行。把类似于 Mako 的模板读进来, 解析成语法树, 然后编译成 Python 程序 (和 Mako 一样是编译型模板)。http://code.google.com/p/eurasia/source/browse/trunk/Eurasia/template.py
+ * 用 895 行单文件实现了 ZODB
+  * 下载地址: http://code.google.com/p/eurasia/source/browse/trunk/Eurasia/shelve2.py
+  * 精巧地址: http://bit.ly/1yzuqZ
+ * 这次更过分了, Mako 只有 377 行。把类似于 Mako 的模板读进来, 解析成语法树, 然后编译成 Python 程序 (和 Mako 一样是编译型模板)
+  * 下载地址: http://code.google.com/p/eurasia/source/browse/trunk/Eurasia/template.py
+  * 精巧地址: http://bit.ly/1rjgdz
  * 081020(16:24:22) 沈崴-wileishn: 
 支持 Mako 的 <%def name=""> <%call expr=""> <% python code %> ${...}
 {{{

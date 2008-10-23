@@ -16,7 +16,7 @@ Django 是 Python 世界目前最火爆的 web 框架。它提倡将 project 分
 
 == 下载安装 ==
 
-从官方网站(http://www.djangoproject.com/download/) 下载最新版本，解压，执行执行命令 {{{python setup.py install}}} 进行安装（当然你很可能需要先获得超级用户权限）。然后旅程开始。
+从官方网站(http://www.djangoproject.com/download/  精巧地址: http://bit.ly/1XFW64) 下载最新版本，解压，执行执行命令 {{{python setup.py install}}} 进行安装（当然你很可能需要先获得超级用户权限）。然后旅程开始。
 
 == 快速起步 ==
 
@@ -146,7 +146,8 @@ Creating table wiki_wikipage
 }}}
 
 现在再去看下 http://localhost:8000/admin/ ，是不是发现里面有了Wiki页面的管理后台了？哈哈，爽吧。
-(关于定制admin的详细内容：http://docs.djangoproject.com/en/dev/ref/contrib/admin/#ref-contrib-admin )
+ * 关于定制admin的详细内容: http://docs.djangoproject.com/en/dev/ref/contrib/admin/#ref-contrib-admin
+ * 精巧地址: http://bit.ly/iSN2L
 
 现在不妨利用这个管理后台在里面添加一个标题为 FrontPage 的页面吧，后面用得着。
 
@@ -180,7 +181,10 @@ def view_page(request, title='FrontPage'):
 </html>
 }}}
 
-模板文件中使用 {{ }} 表示把中间的对象的值填充在相应的位置。模板中还有许多其他的语法，比如分支、循环、继承等。(关于django模板语法的详细内容见 http://docs.djangoproject.com/en/dev/topics/templates/#topics-templates ) 我们还在这个页面里加了一个编辑的链接，编辑功能我们后面会实现。
+模板文件中使用 {{ }} 表示把中间的对象的值填充在相应的位置。模板中还有许多其他的语法，比如分支、循环、继承等。
+ * 关于django模板语法的详细内容见:http://docs.djangoproject.com/en/dev/topics/templates/#topics-templates
+ * 精巧地址：http://bit.ly/3QtFpW
+我们还在这个页面里加了一个编辑的链接，编辑功能我们后面会实现。
 
 最后我们再给页面展示设置一个 url，修改 urls.py ，增加一条 url 映射规则如下： 
 
@@ -311,7 +315,8 @@ def edit_page(request, title):
 现在访问一个不存在 wiki 页面，比如： http://localhost:8000/simple_wiki/Python ，
 点击创建页面链接，填写表单，点击提交，然后跳转到展示的页面。
 需要注意的是，创建者Email 这一个字段，django 会自动验证其格式是否正确，否则会提示用户相应的错误信息。
-(更多表单处理的介绍：http://docs.djangoproject.com/en/dev/topics/forms/#topics-forms-index )
+ * 更多表单处理的介绍：http://docs.djangoproject.com/en/dev/topics/forms/#topics-forms-index 
+ * 精巧地址: http://bit.ly/4FjXrA
 
 到这里，这个 wiki 就算是顺利完工了！相信大家对使用 django 进行web开发也有了基本的认识了。
 

@@ -80,7 +80,7 @@ ZCA是Zope总结经验教训的一个产物，也是Zope最有价值的产品之
 
 由于Zope内核采用ZCA开发，Zope更加可扩展，这也是Zope适合企业级开发的一个原因。
 
-你可在这里查看ZCA的文档: http://docs.everydo.com/zope3/ca
+你可在这里查看ZCA的文档: http://docs.everydo.com/zope3/ca (精巧地址: http://bit.ly/1UCdvX)
 
 == Repoze: 让Zope融入Python世界 ==
 
