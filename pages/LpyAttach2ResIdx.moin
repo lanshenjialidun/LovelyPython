@@ -436,8 +436,7 @@ attachment:2008-10-14-google-python.png
    1. PyQt
     * 访问地址: http://wiki.python.org/moin/PyQt
     * 精巧地址: http://bit.ly/3OKUnu
-    * 是商业化GUI框架 Qt 的Python 接口,可以完成非常美观的跨平台软件;QT就是实现了KDE环境的那个库,由一系列的模块组成,有qt, qtcanvas, qtgl,
-qtnetwork, qtsql, qttable, qtui and qtxml,包含有300个类和超过5750个的函数和方法. PyQt还支持一个叫qtext的模块,它包含一个QScintilla库. 该库是Scintillar编辑器类的Qt接口. 
+    * 是商业化GUI框架 Qt 的Python 接口,可以完成非常美观的跨平台软件;QT就是实现了KDE环境的那个库,由一系列的模块组成,有qt, qtcanvas, qtgl,qtnetwork, qtsql, qttable, qtui and qtxml,包含有300个类和超过5750个的函数和方法. PyQt还支持一个叫qtext的模块,它包含一个QScintilla库. 该库是Scintillar编辑器类的Qt接口. 
    1. Python for Delphi
     * 访问地址: http://www.atug.com/andypatterns/pythonDelphiTalk.htm
     * 精巧地址: http://bit.ly/2UWUiD
@@ -651,6 +650,7 @@ Python 在各种行业,一直有经典的支持:
 
 ##endInc
 = 资源回收 =
+`无法分类，或不是完备的资源指引`
   * Python 指南: http://doc.chinahtml.com/Manual/Python/tut/tut.html
    * 精巧地址: http://bit.ly/hTbof
   * 开始编程之旅: http://wiki.woodpecker.org.cn/moin/StartProgramming
