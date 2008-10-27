@@ -28,7 +28,7 @@ attachment:2008-10-14-google-python.png
    * 精巧地址: http://bit.ly/1rzx1n
    * Python 教程是世上唯一 Guido van Rossum 撰写的文档!这里是由知名行者刘鑫长期维护的中文版本;
   * 简明 Python 教程 中文版
-   * 访问地址: http://www.woodpecker.org.cn/share/doc/abyteofPython _cn/chinese/index.html
+   * 访问地址: http://www.woodpecker.org.cn/share/doc/abyteofpython_cn/chinese/index.html
    * 精巧地址: http://bit.ly/4zQc4a
    * 印度程序员的个人Python 体验和学习教程
   * Python 绝对简明手册
@@ -36,7 +36,7 @@ attachment:2008-10-14-google-python.png
    * 精巧地址: http://bit.ly/2EEz6I
    * 网络人称`张教主`的'''zsp007@gmail.com''' 根据自个儿的使用体验,将Python 语言中最最常用的语法使用整理而成;
   * Py标准库手册
-   * 访问地址: http://wiki.woodpecker.org.cn/moin/Python StandardLib
+   * 访问地址: http://wiki.woodpecker.org.cn/moin/PythonStandardLib
    * 精巧地址: http://bit.ly/4iH5V5
    * 由 `Python 江湖QQ群` 集体翻译的Python 2.0 标准模块库说明
   
@@ -47,7 +47,7 @@ attachment:2008-10-14-google-python.png
    * 精巧地址: http://bit.ly/2H4vrR
    * 深入Python ~ 简称`DiP`,是知名称最高的Python 编程技巧图书,使用几个不断演进的实例,从方方面面讲解Python 最细微处的开发技巧,不向初学者推荐;
   * Python 开发编码规范
-   * 访问地址: http://wiki.woodpecker.org.cn/moin/Python CodingRule
+   * 访问地址: http://wiki.woodpecker.org.cn/moin/PythonCodingRule
    * 精巧地址:  http://bit.ly/3HURoL
    * 是官方增进方案 PEP 008 "Style Guide for Python Code" 的中文翻译!
     * 原文地址: http://www.python.org/dev/peps/pep-0008/
@@ -170,7 +170,7 @@ attachment:2008-10-14-google-python.png
      * 精巧地址: http://bit.ly/1FX7Er
   1. 通过OOo(OpenOffice.org 办公套件) 中转:
    * Python -UNO bridge
-    * 访问地址: http://udk.openoffice.org/Python /Python -bridge.html
+    * 访问地址: http://udk.openoffice.org/python/python-bridge.html
     * 精巧地址: http://bit.ly/4lSYgZ
     * 由 OOo 提供的统一操作"桥",可以对 UNO组件进行方便的操作,也就是说可以对通过OOo 打开的Office 文档,进行完全的操纵!
   1. 通过docs.google中转:
@@ -217,7 +217,7 @@ attachment:2008-10-14-google-python.png
     1. SQLObject
      * 访问地址: http://sqlobject.org
      * 最早出现的比较成熟的ORM框架,一般简称`SO`;使用体验:"使用 SQLObject 连接数据库与 Python ":
-      * 访问地址: http://www-128.ibm.com/developerworks/cn/opensource/os-Python sqlo/
+      * 访问地址: http://www-128.ibm.com/developerworks/cn/opensource/os-pythonsqlo/
       * 精巧地址: http://bit.ly/4yZwfj
     1. SQLAlchemy - The Database Toolkit for Python 
      * 访问地址: http://www.sqlalchemy.org
@@ -247,7 +247,7 @@ attachment:2008-10-14-google-python.png
    * 精巧地址: http://bit.ly/NfIAc
    * 曾被Karrigell 框架选作默认组件的轻型对象数据库作品
   * iODBC.org
-   * 访问地址: http://www.iodbc.org/index.php?page=languages/Python /odbc-Python HOWTO
+   * 访问地址: http://www.iodbc.org/index.php?page=languages/python/odbc-pythonHOWTO
    * 精巧地址: http://bit.ly/2YJWDX
 
 == Py 网络应用 ==
@@ -381,11 +381,11 @@ attachment:2008-10-14-google-python.png
  常备::
   普通的图形支持:
   * Python Imaging Library(PIL): 
-   * 访问地址: http://wiki.woodpecker.org.cn/moin/Python ImagingLibrary
+   * 访问地址: http://wiki.woodpecker.org.cn/moin/PythonImagingLibrary
    * 精巧地址: http://bit.ly/2iNDy0
    * 提供强大的图片处理的能力,并提供广泛的图像文件格式支持,该库能进行图像格式的转换,打印和显示.还提供了一些基本图像处理接口.
   * Python Magick
-   * 访问地址: http://www.imagemagick.org/download/Python /
+   * 访问地址: http://www.imagemagick.org/download/python
    * 精巧地址: http://bit.ly/PHicT
    * 支持Python 自然的使用 ImageMagick® 提供的强大功能, 可以创建/编辑/转换近100种图片格式文档!以及增加图形特效;
   * Urwid
@@ -412,7 +412,7 @@ attachment:2008-10-14-google-python.png
  深入::
   高级的图形/桌面应用支持:
   * GIMP Python Documentation
-   * 访问地址: http://www.gimp.org/docs/Python /index.html
+   * 访问地址: http://www.gimp.org/docs/python
    * 精巧地址: http://bit.ly/6DxzY
    * 跨平台照片处理软件GIMP 的Python 接口,这是类似 PhotoShop 的强力照片数字暗室软件,可以借助Python 开发各种特效插件;同时也可以通过接口使用GIMP 提供的各种图片处理能力;
   * PyOpenGL: 
@@ -458,13 +458,13 @@ attachment:2008-10-14-google-python.png
  前沿::
   3D,游戏,多媒体开发:
   * blender.org - Python 
-   * 访问地址: http://www.blender.org/education-help/Python /
+   * 访问地址: http://www.blender.org/education-help/python/
    * 精巧地址: http://bit.ly/4iv8nf
    * Blender 是个全功能3D艺术创作平台,可以支持从3D建模/动画/渲染的全套3D电影制作!而Python 贯穿其中各个方面!
    * 实际上各种主流3D设计系统:3DS MAX,MaYa,LightWave, Panda3D, Nendo, Radiosity, Raw Triangle,
 ...都有Python 的扩展系统,以便设计师经过少量的学习后就可以利用脚本快速扩展出需要的特效插件来!
   * Inkscape Python Modules
-   * 访问地址: http://wiki.inkscape.org/wiki/index.php/Python Modules
+   * 访问地址: http://wiki.inkscape.org/wiki/index.php/PythonModules
    * 精巧地址: http://bit.ly/1IGBQr
    * Inkscape 是GNU/Linux平台中类似 Illustration/CoreGraw/FreeHand 的平面矢量设计软件,也提供了全面的Python 接口,可以扩展插件,组织自动绘制脚本,利用Inkscape 对.svg 矢量图形进行处理;
   * pySonic
@@ -684,7 +684,7 @@ Python 在各种行业,一直有经典的支持:
 ##endInc
 = 资源回收 =
 `无法分类，或不是完备的资源指引`
-  * Python 指南: http://doc.chinahtml.com/Manual/Python /tut/tut.html
+  * Python 指南: http://doc.chinahtml.com/Manual/python/tut/tut.html
    * 精巧地址: http://bit.ly/hTbof
   * 开始编程之旅: http://wiki.woodpecker.org.cn/moin/StartProgramming
    * 精巧地址: http://bit.ly/4bwSzl
