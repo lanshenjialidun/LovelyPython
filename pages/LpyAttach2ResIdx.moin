@@ -28,33 +28,33 @@ attachment:2008-10-14-google-python.png
    * 精巧地址: http://bit.ly/1rzx1n
    * Python 教程是世上唯一 Guido van Rossum 撰写的文档!这里是由知名行者刘鑫长期维护的中文版本;
   * 简明 Python 教程 中文版
-   * 访问地址: http://www.woodpecker.org.cn/share/doc/abyteofpython_cn/chinese/index.html
+   * 访问地址: http://www.woodpecker.org.cn/share/doc/abyteofPython _cn/chinese/index.html
    * 精巧地址: http://bit.ly/4zQc4a
-   * 印度程序员的个人Python体验和学习教程
+   * 印度程序员的个人Python 体验和学习教程
   * Python 绝对简明手册
    * 访问地址: http://wiki.woodpecker.org.cn/moin/PyAbsolutelyZipManual
    * 精巧地址: http://bit.ly/2EEz6I
    * 网络人称`张教主`的'''zsp007@gmail.com''' 根据自个儿的使用体验,将Python 语言中最最常用的语法使用整理而成;
   * Py标准库手册
-   * 访问地址: http://wiki.woodpecker.org.cn/moin/PythonStandardLib
+   * 访问地址: http://wiki.woodpecker.org.cn/moin/Python StandardLib
    * 精巧地址: http://bit.ly/4iH5V5
-   * 由 `Python江湖QQ群` 集体翻译的Python 2.0 标准模块库说明
+   * 由 `Python 江湖QQ群` 集体翻译的Python 2.0 标准模块库说明
   
  深入::
   在开发过程中,应该精读的:
-  * Dive into Python
-   * 访问地址: http://www.woodpecker.org.cn/diveintopython/
+  * Dive into Python 
+   * 访问地址: http://www.woodpecker.org.cn/diveintoPython /
    * 精巧地址: http://bit.ly/2H4vrR
    * 深入Python ~ 简称`DiP`,是知名称最高的Python 编程技巧图书,使用几个不断演进的实例,从方方面面讲解Python 最细微处的开发技巧,不向初学者推荐;
-  * Python开发编码规范
-   * 访问地址: http://wiki.woodpecker.org.cn/moin/PythonCodingRule
+  * Python 开发编码规范
+   * 访问地址: http://wiki.woodpecker.org.cn/moin/Python CodingRule
    * 精巧地址:  http://bit.ly/3HURoL
    * 是官方增进方案 PEP 008 "Style Guide for Python Code" 的中文翻译!
     * 原文地址: http://www.python.org/dev/peps/pep-0008/
     * 精巧地址: http://bit.ly/2OQ8Z3
    * 对开发Python 应用脚本,代码的组织给出了非常详进的建议
-  * ASPN:Python
-   * 访问地址: http://aspn.activestate.com/ASPN/Python
+  * ASPN:Python 
+   * 访问地址: http://aspn.activestate.com/ASPN/Python 
    * 精巧地址: http://bit.ly/3UMD8w
    * `ASPN` 就是 ActivePython 套件的出品公司组织的网站,汇集了大量E文资料,其中的 CookBook 非常实用,有什么问题搜查一下就好;
   * Python 之优雅与瑕疵: 
@@ -91,10 +91,10 @@ attachment:2008-10-14-google-python.png
    * 这是 程序语言中的"流氓" http://inet6.blogspot.com/2007/03/pypy.html
     * 精巧地址: http://bit.ly/4h9uCA
     * 因为和其它开发语言相比, PyPy 根本是在作弊 ;-) 简单的说:
-     1. PyPy是用Python 编写的 Python 语言(自称rpython)
+     1. PyPy是用Python 编写的 Python 语言(自称rPython )
      1. PyPy能将Python 脚本编译成原生的 C/.net(2.0)/javascript 等其它语言代码
-     1. PyPy能将rpython 脚本编译成 javascript,用以生成客户端Ajax 应用
-     1. PyPy能将rpython 脚本流程展示成视图
+     1. PyPy能将rPython 脚本编译成 javascript,用以生成客户端Ajax 应用
+     1. PyPy能将rPython 脚本流程展示成视图
      1. 可以通过 JIT 自制编译器
     * 即! PyPy 通过Python 实现了,将Py语法组织的脚本和其它任意语言自由转换! 也就是说 PyPy 可以支持人们用Python 开发出各种语言的应用! 实在太有才了,绝对应该关注!
    
@@ -107,7 +107,7 @@ attachment:2008-10-14-google-python.png
    * 访问地址: http://www.crummy.com/software/BeautifulSoup/
    * 精巧地址: http://bit.ly/3Ks24u
    * 美味的汤 ～ 面对大量由各种HTML文本构成的数据之汤 "Beautiful Soup" 提供各种方便的工具来进行处理！
-  * Elements and Element Trees
+  * Elements and Element Trees
    * 访问地址: http://effbot.org/zone/element.htm
    * 精巧地址: http://bit.ly/2IFCki
    * 由 sffbot.org 社区创立的XML快速解析模块,以以及精巧高效,而受到拥戴,并在 Python 2.5 版本正式接纳为默认模块! xml.etree.ElementTree
@@ -117,13 +117,13 @@ attachment:2008-10-14-google-python.png
    * 访问地址: http://chardet.feedparser.org/docs/
    * 精巧地址: http://bit.ly/F2a5F
    * chardet ~ 宇宙牌编码探测器;-) 方便的探知指定文本是什么编码的文字! 这是中文应用不可缺少的模块!
-  * cssutils - CSS library for Python
+  * cssutils - CSS library for Python 
    * 访问地址: http://cthedot.de/cssutils/
    * 精巧地址: http://bit.ly/2rmUQ0
    * CSS文档专用处理支持
  深入::
   有关文本处理的专门话题:
-  * Text Processing in Python: 
+  * Text Processing in Python : 
    * 访问地址: http://gnosis.cx/TPiP/
    * 精巧地址: http://bit.ly/3ZiI3k   
    * 专门论述Python 文本处理方面技巧的图书,已经出版:
@@ -169,8 +169,8 @@ attachment:2008-10-14-google-python.png
      * 访问地址: http://blog.donews.com/limodou/archive/2005/07/09/460033.aspx
      * 精巧地址: http://bit.ly/1FX7Er
   1. 通过OOo(OpenOffice.org 办公套件) 中转:
-   * Python-UNO bridge
-    * 访问地址: http://udk.openoffice.org/python/python-bridge.html
+   * Python -UNO bridge
+    * 访问地址: http://udk.openoffice.org/Python /Python -bridge.html
     * 精巧地址: http://bit.ly/4lSYgZ
     * 由 OOo 提供的统一操作"桥",可以对 UNO组件进行方便的操作,也就是说可以对通过OOo 打开的Office 文档,进行完全的操纵!
   1. 通过docs.google中转:
@@ -184,15 +184,15 @@ attachment:2008-10-14-google-python.png
 
  常备::
   常见DB产品支持,,,
-  * DatabaseProgramming - PythonInfo Wiki
+  * DatabaseProgramming - Python Info Wiki
    * 访问地址: http://wiki.python.org/moin/DatabaseProgramming/
    * 精巧地址: http://bit.ly/1EYTXb
    * Python 官方收集的数据库开发资源索引
-  * ADOdb for Python
+  * ADOdb for Python 
    * 访问地址: http://phplens.com/lens/adodb/adodb-py-docs.htm
    * 精巧地址: http://bit.ly/9bPgD
    * 源自PHP社区的跨DB操作支持模块,比较精巧稳定,主要使用 SQL和少量的常用操作函式;
-  * DatabaseInterfaces - PythonInfo Wiki
+  * DatabaseInterfaces - Python Info Wiki
    * 访问地址: http://wiki.python.org/moin/DatabaseInterfaces
    * 精巧地址: http://bit.ly/1laKvY
    * 数据库接口 ~ 官方收集的主流DB产品操作接口模块/产品索引
@@ -203,11 +203,11 @@ attachment:2008-10-14-google-python.png
   * MySQLdb:
    * 访问地址: http://mysql-python.sourceforge.net/
    * 精巧地址: http://bit.ly/37vYpy
-   * 用于连接MySQL数据库的Python模块.
+   * 用于连接MySQL数据库的Python 模块.
   
  深入::
   进一步用OO方式操作关系DB的支持:
-  * Python数据库开发概要,收集了一些常见ORM框架: 
+  * Python 数据库开发概要,收集了一些常见ORM框架: 
    * 访问地址: http://wiki.woodpecker.org.cn/moin/Py4Database
    * 精巧地址: http://bit.ly/IT9wY
   * ORM ~ Object Relational Mapping 对象关系映射
@@ -216,10 +216,10 @@ attachment:2008-10-14-google-python.png
    * 简单的说就是通过中间层的支持,可以使用对象引用的方式来操作关系型数据库的内容;即!不用学习SQL就可以操纵关系型数据库! 这方面,Python 有大量的优秀作品:
     1. SQLObject
      * 访问地址: http://sqlobject.org
-     * 最早出现的比较成熟的ORM框架,一般简称`SO`;使用体验:"使用 SQLObject 连接数据库与 Python":
-      * 访问地址: http://www-128.ibm.com/developerworks/cn/opensource/os-pythonsqlo/
+     * 最早出现的比较成熟的ORM框架,一般简称`SO`;使用体验:"使用 SQLObject 连接数据库与 Python ":
+      * 访问地址: http://www-128.ibm.com/developerworks/cn/opensource/os-Python sqlo/
       * 精巧地址: http://bit.ly/4yZwfj
-    1. SQLAlchemy - The Database Toolkit for Python
+    1. SQLAlchemy - The Database Toolkit for Python 
      * 访问地址: http://www.sqlalchemy.org
      * 后起之秀,一般简称`SA`;使用体验:"强大的 sqlalchemy"
       * 访问地址: http://codeplayer.blogspot.com/2007/02/sqlalchemy.html
@@ -247,7 +247,7 @@ attachment:2008-10-14-google-python.png
    * 精巧地址: http://bit.ly/NfIAc
    * 曾被Karrigell 框架选作默认组件的轻型对象数据库作品
   * iODBC.org
-   * 访问地址: http://www.iodbc.org/index.php?page=languages/python/odbc-pythonHOWTO
+   * 访问地址: http://www.iodbc.org/index.php?page=languages/Python /odbc-Python HOWTO
    * 精巧地址: http://bit.ly/2YJWDX
 
 == Py 网络应用 ==
@@ -265,7 +265,7 @@ attachment:2008-10-14-google-python.png
   * xmpppy:
    * 访问地址: http://blog.donews.com/limodou/archive/2005/03/11/298935.aspx
    * 精巧地址: http://bit.ly/3qN1Nb
-   * Jabber服务器采用的是XMPP协议,就像Google Talk也是采用XMPP协议的IM系统,Python的xmpppy模块支持该协议,通过该模块可以与Jabber服务器通信.  
+   * Jabber服务器采用的是XMPP协议,就像Google Talk也是采用XMPP协议的IM系统,Python 的xmpppy模块支持该协议,通过该模块可以与Jabber服务器通信.  
   
   * BitTorrent.org
    * 访问地址: http://www.bittorrent.org
@@ -281,7 +281,7 @@ attachment:2008-10-14-google-python.png
    * 访问地址: http://wiki.woodpecker.org.cn/moin/PyWebFrameList
    * 精巧地址: http://bit.ly/1U4oHm
    * 也特别指出了,"为什么在Python 世界中有这么多Web应用框架"~ 因为,太容易实现了!
-  * 进一步的请参考官方网站的汇总介绍:WebProgramming - PythonInfo Wiki
+  * 进一步的请参考官方网站的汇总介绍:WebProgramming - Python Info Wiki
    * 访问地址: http://wiki.python.org/moin/WebProgramming
    * 精巧地址: http://bit.ly/jzKnm
   以下介绍一些流行框架:
@@ -300,15 +300,19 @@ attachment:2008-10-14-google-python.png
   * Django: 
    * 访问地址: http://docs.djangoproject.com/
    * 精巧地址: http://bit.ly/2fEoz8
-   * 最早也最知名的"一站式"高性能CMS应用框架;
+   * 最早也最知名的"一站式"高性能CMS应用框架,能自动生成的后台管理界面,非常适合快速开发;
+  * Eurasia
+   * 访问地址: http://code.google.com/p/eurasia/
+   * 精巧地址: http://bit.ly/15ID3O
+   * 国产框架,沈崴的力作, 是应用于百万级长连接, 或每秒上万次 CGI 请求的 Web 框架。 比如,网页聊天,网页游戏.
   * TurboGears:
    * 访问地址: http://wiki.woodpecker.org.cn/moin/TurboGearStepByStep
    * 精巧地址: http://bit.ly/1cTTYP
-   * 和Django 对抗的"大框架"概念框架;
+   * 和Django 对抗的"大框架"概念框架,TurboGears2将在下面pylons框架的基础上开发;
   * Pylons: 
    * 访问地址: http://wiki.pylonshq.com/display/pylonsdocs/Home
    * 精巧地址:  http://bit.ly/3MqEPh
-   * 新近一代,关注高效开发的"一站式"框架
+   * 新近一代,关注高效开发的"一站式"框架.基于WSGI,开发理念和TurboGears类似,尽量复用现有的Python 组件,但是相对底层一些.
   * web.py: 
    * 访问地址: http://www.dup2.org/files/web.py%200.2%20tutorial.html
    * 精巧地址: http://bit.ly/3RqqmN
@@ -341,7 +345,7 @@ attachment:2008-10-14-google-python.png
   * GAE: 
    * 访问地址: http://code.google.com/appengine/docs/whatisgoogleappengine.html
    * 精巧地址: http://bit.ly/1Girr
-   * 是 Google在2008年四月,发布的免费开发应用引擎,可以使用Python 利用Google 提供的一系列服务,在线发布应用;在一天之内吸引到了一万名程序员注册,到现在已经汇集了上十万个应用;依托Google 的"云计算"平台,可以期望形成强大的python 应用热潮;
+   * 是 Google在2008年四月,发布的免费开发应用引擎,可以使用Python 利用Google 提供的一系列服务,在线发布应用;在一天之内吸引到了一万名程序员注册,到现在已经汇集了上十万个应用;依托Google 的"云计算"平台,可以期望形成强大的Python 应用热潮;
   
 
 == Py 嵌入系统 ==
@@ -350,10 +354,10 @@ attachment:2008-10-14-google-python.png
  常备::
   常见嵌入式系统设备~手机平台的支持:
   * Nokia S60以上系统的Python 开发支持:
-   * 访问地址: http://wiki.forum.nokia.com/index.php/Category:Python
+   * 访问地址: http://wiki.forum.nokia.com/index.php/Category:Python 
    * 精巧地址: http://bit.ly/2WwvU1
   * Openmoko.org
-   * 访问地址: http://wiki.openmoko.org/wiki/Python
+   * 访问地址: http://wiki.openmoko.org/wiki/Python 
    * 精巧地址: http://bit.ly/1j6jMR
    * 新兴的开源手机项目,提供了从硬件到软件的所有手机开发资源,Python 在其中可以开发各种手机桌面工具!
   * Android
@@ -368,7 +372,7 @@ attachment:2008-10-14-google-python.png
    * 访问地址: http://eishn.blog.163.com/blog/static/65231820083995420860/
    * 精巧地址: http://bit.ly/3crtkc
    * 讲述如何在路由器中安装 StacklessPython 环境进行应用开发的操作; 也证明了,只要嵌入式系统是 GNY/Linux 类的都可以安装Python 环境为我所用!
-  * Telit 是一家专业设计和生产无线模块产品的公司,值得注意的是,它几乎在所有的最新产品中集成了嵌入式Python解释器,这样使用者就可以使用Python脚本快速地开发应用,这些Python脚本可以保存在模块内部运行,而不用另外的MCU去和模块进行AT命令交互;
+  * Telit 是一家专业设计和生产无线模块产品的公司,值得注意的是,它几乎在所有的最新产品中集成了嵌入式Python 解释器,这样使用者就可以使用Python 脚本快速地开发应用,这些Python 脚本可以保存在模块内部运行,而不用另外的MCU去和模块进行AT命令交互;
    * 访问地址: http://www.telit.com/en/products/python.php
    * 精巧地址: http://bit.ly/4uJsAU
    
@@ -377,11 +381,11 @@ attachment:2008-10-14-google-python.png
  常备::
   普通的图形支持:
   * Python Imaging Library(PIL): 
-   * 访问地址: http://wiki.woodpecker.org.cn/moin/PythonImagingLibrary
+   * 访问地址: http://wiki.woodpecker.org.cn/moin/Python ImagingLibrary
    * 精巧地址: http://bit.ly/2iNDy0
    * 提供强大的图片处理的能力,并提供广泛的图像文件格式支持,该库能进行图像格式的转换,打印和显示.还提供了一些基本图像处理接口.
-  * PythonMagick
-   * 访问地址: http://www.imagemagick.org/download/python/
+  * Python Magick
+   * 访问地址: http://www.imagemagick.org/download/Python /
    * 精巧地址: http://bit.ly/PHicT
    * 支持Python 自然的使用 ImageMagick® 提供的强大功能, 可以创建/编辑/转换近100种图片格式文档!以及增加图形特效;
   * Urwid
@@ -389,7 +393,7 @@ attachment:2008-10-14-google-python.png
    * 精巧地址: http://bit.ly/3oztKf
    * CLI ~ 命令行界面构建支持模块,可以快速创建在命令行窗口中基于字符的图形应用;
   * 各类图表支持:
-   1. ChartDirector for Python
+   1. ChartDirector for Python 
     * 访问地址: http://www.advsofteng.com/cdpython.html
     * 精巧地址: http://bit.ly/3JrKi1
     * 图表导演 ~ 是个商业软件,但是自由许可版本,没有限制任何功能,仅仅是在底部追加了一小条公司名称;可以快速根据数据创建各种漂亮的趋势图表;
@@ -400,16 +404,15 @@ attachment:2008-10-14-google-python.png
    1. Python Call Graph
     * 访问地址: http://pycallgraph.slowchop.com/
     * 精巧地址: http://bit.ly/2TW8nX
-    * 以及 pygraphviz - NetworkX
-    * 访问地址: https://networkx.lanl.gov/wiki/pygraphviz
-    * 精巧地址: http://bit.ly/4xX6eW
+    * 以及 PyGraphviz:
+     * 访问地址: https://networkx.lanl.gov/wiki/pygraphviz
+     * 精巧地址: http://bit.ly/4xX6eW
     * 都是来对象化调用Graphviz(http://www.graphviz.org) 绘制树图的接口;
 
  深入::
-  高强度的图形处理/桌面应用:
-
+  高级的图形/桌面应用支持:
   * GIMP Python Documentation
-   * 访问地址: http://www.gimp.org/docs/python/index.html
+   * 访问地址: http://www.gimp.org/docs/Python /index.html
    * 精巧地址: http://bit.ly/6DxzY
    * 跨平台照片处理软件GIMP 的Python 接口,这是类似 PhotoShop 的强力照片数字暗室软件,可以借助Python 开发各种特效插件;同时也可以通过接口使用GIMP 提供的各种图片处理能力;
   * PyOpenGL: 
@@ -419,14 +422,14 @@ attachment:2008-10-14-google-python.png
   * ReportLab: 
    * 访问地址: http://www.reportlab.org/
    * 精巧地址: http://bit.ly/PmJfm
-   * 是一个非常方便的生成PDF文档的python库.
+   * 是一个非常方便的生成PDF文档的Python 库.
   * 桌面软件开发框架: 
    1. TkInter
     * 访问地址: http://wiki.python.org/moin/TkInter
     * 精巧地址: http://bit.ly/4qdc6u
     * 是Python 内置的GUI接口,支持Tk库的图形开发,而且Tk 是古老的Tcl脚本语言的GUI支持库,因其精巧快速,几乎所有操作系统都有兼容版本;
-   1. WxPython
-    * 访问地址: http://wiki.python.org/moin/WxPython
+   1. WxPython 
+    * 访问地址: http://wiki.python.org/moin/WxPython 
     * 精巧地址: http://bit.ly/m8UVp
     * 是跨平台GUI框架WxWidgets的Python 接口;发展稳定,甚至于有开门的IDE!
     * Limodou 的作品UliPad:
@@ -437,12 +440,15 @@ attachment:2008-10-14-google-python.png
     * 访问地址: http://wiki.python.org/moin/PyQt
     * 精巧地址: http://bit.ly/3OKUnu
     * 是商业化GUI框架 Qt 的Python 接口,可以完成非常美观的跨平台软件;QT就是实现了KDE环境的那个库,由一系列的模块组成,有qt, qtcanvas, qtgl,qtnetwork, qtsql, qttable, qtui and qtxml,包含有300个类和超过5750个的函数和方法. PyQt还支持一个叫qtext的模块,它包含一个QScintilla库. 该库是Scintillar编辑器类的Qt接口. 
+   1. PyGTK+
+    * 访问地址: http://www.pygtk.org/
+    * 是GTK+(http://www.gtk.org/ 基于C的跨平台GUI框架) 的Python 接口,用以快速使用Python 来创建基于GTK+ 的桌面图形界面;
    1. Python for Delphi
-    * 访问地址: http://www.atug.com/andypatterns/pythonDelphiTalk.htm
+    * 访问地址: http://www.atug.com/andypatterns/Python DelphiTalk.htm
     * 精巧地址: http://bit.ly/2UWUiD
     * 是古老好用的GUI框架Delphi 的Python 接口,如果对Delphi非常熟悉的开发人员一定喜欢;-)
    1. PyGUI
-    * 访问地址: http://www.cosc.canterbury.ac.nz/greg.ewing/python_gui/
+    * 访问地址: http://www.cosc.canterbury.ac.nz/greg.ewing/Python _gui/
     * 精巧地址: http://bit.ly/3CCNMI
     * 全新开发的跨平台GUI框架,目标是一个完善的独立的GUI框架;
    * 有关这部分的综合介绍,推荐 沈崴的"Python 史书·GUI 部"
@@ -451,15 +457,14 @@ attachment:2008-10-14-google-python.png
    * 以上都是跨平台GUI框架,实际上还有丰富的操作系统依赖的GUI框架,就不在此一一列举了;
  前沿::
   3D,游戏,多媒体开发:
-  * blender.org - Python
-   * 访问地址: http://www.blender.org/education-help/python/
+  * blender.org - Python 
+   * 访问地址: http://www.blender.org/education-help/Python /
    * 精巧地址: http://bit.ly/4iv8nf
    * Blender 是个全功能3D艺术创作平台,可以支持从3D建模/动画/渲染的全套3D电影制作!而Python 贯穿其中各个方面!
    * 实际上各种主流3D设计系统:3DS MAX,MaYa,LightWave, Panda3D, Nendo, Radiosity, Raw Triangle,
 ...都有Python 的扩展系统,以便设计师经过少量的学习后就可以利用脚本快速扩展出需要的特效插件来!
-
-  * Inkscape PythonModules
-   * 访问地址: http://wiki.inkscape.org/wiki/index.php/PythonModules
+  * Inkscape Python Modules
+   * 访问地址: http://wiki.inkscape.org/wiki/index.php/Python Modules
    * 精巧地址: http://bit.ly/1IGBQr
    * Inkscape 是GNU/Linux平台中类似 Illustration/CoreGraw/FreeHand 的平面矢量设计软件,也提供了全面的Python 接口,可以扩展插件,组织自动绘制脚本,利用Inkscape 对.svg 矢量图形进行处理;
   * pySonic
@@ -473,7 +478,7 @@ attachment:2008-10-14-google-python.png
   * PyMedia - Python module for avi, mp3, dvd, wma, ogg processing
    * 访问地址: http://pymedia.org/
    * Python 多媒体处理模块,支持音频/视频的处理
-  * pygame - python game development
+  * pygame - Python game development
    * 访问地址: http://www.pygame.org/news.html
    * 精巧地址: http://bit.ly/3DDJPm
    * 是基于SDL 的游戏开发综合支持模块;可以快速开发跨平台的多媒体游戏!
@@ -484,25 +489,24 @@ attachment:2008-10-14-google-python.png
 原有系统的扩展/融合,使用 Python 这般优秀的"胶水语言"来粘合新系统非常的轻松:
 
  常备::
-  * C/C++ 到Python,一般有两种基本模式:
-   * `扩展`：最终用户运行Python解译器程序,并导入用C++编写的Python"扩展模块".  想像一个C++写的库,给它一个Python接口, 这样Python程序员就可以使用它.  从Python来看,这些模块就像是常规的Python模块;
-   * `内嵌`：最终用户运行C++写的程序,反过来调用Python解译器,就像调用一个库函数.  想像一下为现有的应用程序加入脚本能力;
-    
+  * C/C++ 到Python ,一般有两种基本模式:
+   * `扩展`：最终用户运行Python 解译器程序,并导入用C++编写的Python "扩展模块".  想像一个C++写的库,给它一个Python 接口, 这样Python 程序员就可以使用它.  从Python 来看,这些模块就像是常规的Python 模块;
+   * `内嵌`：最终用户运行C++写的程序,反过来调用Python 解译器,就像调用一个库函数.  想像一下为现有的应用程序加入脚本能力;    
    1. Swig: 
     * 访问地址: http://www.swig.org
-    * 是一个自动的扩展构造工具. 它读入注释的C/C++头文件,为python／tcl／perl等多种脚本语言产生wrap代码. SWIG可以包装大量C++特性到Python的扩展模块中. 
-   1. SIP, a Python/C++ Bindings Generator
+    * 是一个自动的扩展构造工具. 它读入注释的C/C++头文件,为Python ／tcl／perl等多种脚本语言产生wrap代码. SWIG可以包装大量C++特性到Python 的扩展模块中. 
+   1. SIP, a Python /C++ Bindings Generator
     * 访问地址: http://www.controlvideo.de/sip/
     * 精巧地址: http://bit.ly/Nb0RR
     * 由Phil Thompson创建,是一个C++模块构造器,专门为C++的类创造wrapper. 它曾经被用于创建PyQt和PyKDE扩展模块,因此比较出名. 支持C++特征很齐全,但比较复杂
    1. Boost Python Library
     * 访问地址: http://www.boost.org
-    * 由David Abrahams创建. 该库提供了更多与众不同的C++ wrap到python扩展中,而只需要对要扩展的C++类写很少的附加信息. Boost为C++提供了许多实用的库,如Regex（正则表达式库）／Graph（图组件和算法）／concept check（检查泛型编程中的concept）／Thread（可移植的C++多线程库）／Python（把C++类和函数映射到Python之中）／ Pool（内存池管理）等等. Boost总体来说是实用价值很高,质量很高的库. 并且强调对跨平台的支持. 但是Boost中也有很多是实验性质的东西,在实际的开发中实用需要谨慎. 
+    * 由David Abrahams创建. 该库提供了更多与众不同的C++ wrap到Python 扩展中,而只需要对要扩展的C++类写很少的附加信息. 
 
   * Python 到 C:ctypes
    * 访问地址: http://python.net/crew/theller/ctypes/
    * 精巧地址: http://bit.ly/3yjAHy
-   * ctypes是一个Python模块,使用他可以在Python中创建和操作C语言的数据类型,这样可以在动态链接库中传递参数到C的函数中去;ctypes可以在windows/linux等多个平台上使用,甚至支持Windows上的COM开发
+   * ctypes是一个Python 模块,使用他可以在Python 中创建和操作C语言的数据类型,这样可以在动态链接库中传递参数到C的函数中去;ctypes可以在windows/linux等多个平台上使用,甚至支持Windows上的COM开发
   * Python 到 Fortran:pyfort
    * 访问地址:http://pyfortran.sourceforge.net
    * 用来产生Fortran语言生成的扩展模块
@@ -514,52 +518,81 @@ attachment:2008-10-14-google-python.png
   * PyRex: 
    * 访问地址: http://wiki.woodpecker.org.cn/moin/Pyrex
    * 精巧地址: http://bit.ly/1mICtd
-   * 用Python样的脚本写程序,然后自动转换成C代码,编译成纯C程序的方式来扩展应用!
+   * 用Python 样的脚本写程序,然后自动转换成C代码,编译成纯C程序的方式来扩展应用!
   * The Jython Project
    * 访问地址: http://www.jython.org
-   * JAVA平台上实现的Python,支持用户使用Python 的语法编写脚本,来调用一切JAVA的库;
-  * IronPython
-   * 访问地址: http://www.codeplex.com/IronPython
+   * JAVA平台上实现的Python ,支持用户使用Python 的语法编写脚本,来调用一切JAVA的库;
+  * IronPython 
+   * 访问地址: http://www.codeplex.com/IronPython 
    * 精巧地址: http://bit.ly/8bXUo
-   * 在.net 平台上实现的Python,支持用户使用Python 的语法编写脚本,来调用一切.NET的库;
+   * 在.net 平台上实现的Python ,支持用户使用Python 的语法编写脚本,来调用一切.NET的库;
   * BOO
    * 访问地址: http://boo.codehaus.org
    * 精巧地址: http://bit.ly/1FA6rS
-   * 和IronPython 类似,是个有着Python语法的.net 语言,不同之处是可以象脚本语言一样直接运行在命令行下面;一样可以轻松和.net其他语言互相协作无间!
+   * 和IronPython 类似,是个有着Python 语法的.net 语言,不同之处是可以象脚本语言一样直接运行在命令行下面;一样可以轻松和.net其他语言互相协作无间!
   
  前沿::
+  * Psyco: 
+   * 访问地址: http://psyco.sourceforge.net/
+   * 精巧地址: http://bit.ly/3jrshT
+   * 一个Python 代码加速度器,可使Python 代码的执行速度提高到与编译语言一样的水平.
   * 用SSE2
    * 访问地址: http://wiki.woodpecker.org.cn/moin/PyWorkWithEES2
    * 精巧地址: http://bit.ly/2jZbSm
-   * 支持使用SSE指令集的外部库,用以进行高性能计算,在极限条件下(不作分支判断,只在一个循环中做加减乘除计算)与纯Python计算相比可以提升2000倍. 
+   * 支持使用SSE指令集的外部库,用以进行高性能计算,在极限条件下(不作分支判断,只在一个循环中做加减乘除计算)与纯Python 计算相比可以提升2000倍. 
   * 和Flash
    * 访问地址: http://wiki.woodpecker.org.cn/moin/UsageFlashInPyProj
    * 精巧地址: http://bit.ly/E1oCT
-   * 支持建立Python调用Flash的本地应用(不同于Adobe的Apollo);没有用到浏览器嵌入flash网页的方法,直接在pythonwin或者wxpython建立的窗口中插入Flash ocx!
+   * 支持建立Python 调用Flash的本地应用(不同于Adobe的Apollo);没有用到浏览器嵌入flash网页的方法,直接在Python win或者wxPython 建立的窗口中插入Flash ocx!
 
 
 == Py 科学计算 ==
 支持科研方面,Python 也从来没有落后:
+  常备::
+   * Numeric/Numarray/NumPy
+    * 访问地址: http://numpy.scipy.org/
+    * 精巧地址: http://bit.ly/10u2O0
+    * Numarray是Python 的一个扩展库,主要用于处理任意维数的固定类型数组,简单说是一个矩阵库,它的底层代码是用C编写的
+    * Numeric/Numarray/NumPy/SciPy之间关系参见网站： http://www.scipy.org/History_of_SciPy。或者参看这个blog的中文翻译： Scipy和Numpy的前世今生 http://my.opera.com/zhangyunfeng/blog/show.dml/256938 
+   * SciPy:
+    * 访问地址: http://www.scipy.org/
+    * 精巧地址: http://bit.ly/4Bg9RA
+    * 它和NumPy一起工作, 提供了许多方便和高效的数值计算函式,如数值积分或优化
+    * pylab
+     * 访问地址: http://www.scipy.org/PyLab
+     * 被设计用来取代NumPy, SciPy, Matplotlib, IPython 组合的科学计算环境，目前还没有完成
+   * openbabel
+    * 访问地址: http://openbabel.org
+    * openbabel是转换分子建模和计算化学中各种数据格式的模块
 
- 常备::
-  * Numarray/NumPy: 
-   * 访问地址: http://numpy.scipy.org/numpybook.pdf
-   * 精巧地址: http://bit.ly/10u2O0
-   * Numarray是Python的一个扩展库,主要用于处理任意维数的固定类型数组,简单说是一个矩阵库,它的底层代码是用C编写的,NumPy是Numarray的后继者,用来代替NumArray.
-  * SciPy: 
-   * 访问地址: http://www.scipy.org/
-   * 精巧地址: http://bit.ly/4Bg9RA
-   * 它和NumPy一起工作, 提供了许多方便和高效的数值计算函式,如数值积分或优化. 
-  
+ 数据可视化::
+   * matplotlib
+    * 访问地址: http://matplotlib.sourceforge.net/
+    * matplotlib是一个Python 2D图形库，可以从数据生成印刷质量的输出。
+   * vtk-Python 
+    * 访问地址：http://cens.ioc.ee/projects/pyvtk/
+    * 精巧地址: http://bit.ly/2sSQyn
+    * vtk(http://www.vtk.org/)是一个3D图形库,使用pyvtk可以在Python 中操作vtk文件 
+    * mayavi
+     * 访问地址: http://mayavi.sourceforge.net/
+     * mayavi是一个使用Python 和vtk可视化数据的工具，包含了一个用tkinter写的GUI
+   * pymol
+    * 访问地址: http://pymol.org/
+    * pymol是一个查看分子3D结构的工具
+
  深入::
-  * SAGE: 
-   * 访问地址: http://sagemath.org/
-   * 精巧地址: http://bit.ly/3SNn9Z
-   * Software for Algebra and Geometry Experimentation ~ 代数与几何实验室! 是使用 Python 语言编写的数学方面专用模块,并使用交互式的 Python Shell 作为其用户界面. SAGE 的独特之处在于,它能够用作其他各种计算机代数系统的集成器,从而允许用户利用不同软件包的各自强项. 
-  * BioPython
-   * 访问地址: http://biopython.org/wiki/Download
-   * 精巧地址: http://bit.ly/Ipaud
-   * 生物学Python,支持各种遗传学的DNA数据分析等等;
+   * BioPython 
+    * 访问地址: http://biopython.org/wiki/Download
+    * 精巧地址: http://bit.ly/Ipaud
+    * 生物学Python ,支持各种遗传学的DNA数据分析等等;
+   * mmtk
+    * 访问地址: http://dirac.cnrs-orleans.fr/MMTK/
+    * 精巧地址: http://bit.ly/PlEPL
+    * 用Python 写的功能强大分子建模工具包
+   * SAGE:
+    * 访问地址: http://sagemath.org/
+    * 精巧地址: http://bit.ly/3SNn9Z
+    * Software for Algebra and Geometry Experimentation ~ 代数与几何实验室! 是使用 Python 语言编写的数学方面专用模块,并使用交互式的 Python Shell 作为其用户界面. SAGE 的独特之处在于,它能够用作其他各种计算机代数系统的集成器,从而允许用户利用不同软件包的各自强项.
    
 == Py 行业应用 ==
 Python 在各种行业,一直有经典的支持:
@@ -569,7 +602,7 @@ Python 在各种行业,一直有经典的支持:
    * 访问地址: http://bazaar-vcs.org/
    * 缩写为 Bzr 的一种分布式版本管理系统,是Launchpad(https://launchpad.net/) 这一强大开源软件项目管理平台的基础系统,该平台上组织了包含Ubuntu 等等大型优秀软件工程! 使用Python 实际!
   * Mercurial
-   * 访问地址: http://www.selenic.com/mercurial/wiki/index.cgi
+   * 访问地址: http://www.selenic.com/mercurial/
    * 精巧地址: http://bit.ly/BHEAo
    * 缩写为 Hg 的另一种优秀分布式版本管理系统,是Mozilla 等等大型开源软件工程使用的成熟系统!
    * 有关分布式版本管理的综合对比,参考:DistributedScm - 分布式配置管理
@@ -578,19 +611,19 @@ Python 在各种行业,一直有经典的支持:
  深入::
   * Zenoss
    * 访问地址: http://www.zenoss.com/
-   * 被sourceforge评为2007年3月的明星项目!是基于Zope(纯Python平台)实现的企业级IT管理软件!
+   * 被sourceforge评为2007年3月的明星项目!是基于Zope(纯Python 平台)实现的企业级IT管理软件!
    * 是智能监控软件,他允许IT管理员依靠单一的WEB控制台来监控网络架构的状态和健康度.可以发现和管理公司IT环境的各类资产(包括服务器、网络、和其他结构设备). Zenoss可以创建关键资产清单和对应的组件级别(接口、服务、进程,已安装的软件等). 建立好模型后,就可以监控与报告IT架构中各种资源的状态和性能容限了. Zenoss同时提供与CMDB关联的事件和错误管理系统,以协助提高各类事件和提醒的管理效率. 以此提高IT管理人员的效率!
   * scons
    * 访问地址: http://www.scons.org/ 
-   * Java有Ant这个巨火的构建工具,而在Python就是scons了!
-   * 简单点说,就是一个替代“autotools + make”的编译工具；用Python语言写的 -- 配置文件也是python,能够在多平台上工作；支持并行编译、ccache等技术,能有效提供编译速度;
+   * Java有Ant这个巨火的构建工具,而在Python 就是scons了!
+   * 简单点说,就是一个替代“autotools + make”的编译工具；用Python 语言写的 -- 配置文件也是Python ,能够在多平台上工作；支持并行编译、ccache等技术,能有效提供编译速度;
    
  前沿::
   * Tribon Solutions ~ Python Success Stories
    * 访问地址: http://www.python.org/about/success/tribon/
    * 精巧地址: http://bit.ly/1vVEDy
    * 船舶制造CAD系统,支持专业的船舶建造图纸辅助设计!而Python 是这个系统中重要的插件开发语言,有丰富的模块库;
-  * Ice for Python
+  * Ice for Python 
    * 访问地址: http://www.zeroc.com/icepy.html
    * 精巧地址: http://bit.ly/18rWrB
    * ZeroC发布的面向网格计算的Ice(Internet Communications Engine),支持复制／负载均衡及应用程序的分发,并提供了一个网格应用程序维护管理工具；同样有 Python 的支持,可以快速完成类似 `SETI@home` 的分布式计算应用!
@@ -600,7 +633,7 @@ Python 在各种行业,一直有经典的支持:
 
  常备::
   程序开发中文教学支持:
-  * 中蟒(中文 Python)编程语言
+  * 中蟒(中文 Python )编程语言
    * 访问地址: http://www.chinesepython.org/cgi_bin/cgb.cgi/home.html
    * 精巧地址: http://bit.ly/1cVBcm
    * 是基于Python 2.1.3 的代码,从内部增补中文关键字特性的脚本语言,支持用户使用中文来编写可执行代码;由于涉及源代码修订,所以,跟进Python 的发布,比较慢;
@@ -627,7 +660,7 @@ Python 在各种行业,一直有经典的支持:
    * attachment:Pippy-icon.png Pippy 
    * 教程地址: http://wiki.laptop.org/go/Pippy
    * 精巧地址: http://bit.ly/UjyDx
-   * 基于Sugar 桌面应用软件的主力开发语言就是Python,而 Pippy 就是Sugar 的应用接口仓库;
+   * 基于Sugar 桌面应用软件的主力开发语言就是Python ,而 Pippy 就是Sugar 的应用接口仓库;
  
 
 == Py 集锦资源 ==
@@ -651,30 +684,29 @@ Python 在各种行业,一直有经典的支持:
 ##endInc
 = 资源回收 =
 `无法分类，或不是完备的资源指引`
-  * Python 指南: http://doc.chinahtml.com/Manual/Python/tut/tut.html
+  * Python 指南: http://doc.chinahtml.com/Manual/Python /tut/tut.html
    * 精巧地址: http://bit.ly/hTbof
   * 开始编程之旅: http://wiki.woodpecker.org.cn/moin/StartProgramming
    * 精巧地址: http://bit.ly/4bwSzl
   * Python 常用模块体验: http://wiki.woodpecker.org.cn/moin/PyCommonUsageMod
    * 精巧地址: http://bit.ly/1WiW4T
-  * Effective--实效Python编程: http://wiki.woodpecker.org.cn/moin/EffectivePyPrgramming
+  * Effective--实效Python 编程: http://wiki.woodpecker.org.cn/moin/EffectivePyPrgramming
    * 精巧地址:  http://bit.ly/47fEwY
   * PyXML: 
    * 访问地址: http://pyxml.sourceforge.net/topics/
    * 精巧地址: http://bit.ly/3Rf7ga
-   * 它是Python中的一个XML工具集,通过它可以很好地解析和处理XML文档.更详细的可以参见这篇PyXML学习笔记:
+   * 它是Python 中的一个XML工具集,通过它可以很好地解析和处理XML文档.更详细的可以参见这篇PyXML学习笔记:
     * 访问地址: http://man.lupaworld.com/content/manage/ringkee/pyxml.htm
     * 精巧地址: http://bit.ly/8uhLe
 
   * PyHtml: 
    * 访问地址: http://incolor.inetnebr.com/jepler/pyhtml/
    * 精巧地址: http://bit.ly/1HGzVi
-   * 它是一个遵循Python语法的扩展,并且修改Python编译器使其允许使用HTML风格标签作为Python语句块, 可并允许这些标签和语句直接将其值作为输出, 从而使得更容易书写具有Python块缩进风格的HTML文档.
+   * 它是一个遵循Python 语法的扩展,并且修改Python 编译器使其允许使用HTML风格标签作为Python 语句块, 可并允许这些标签和语句直接将其值作为输出, 从而使得更容易书写具有Python 块缩进风格的HTML文档.
   * ...
-  * Psyco: 
-   * 访问地址: http://psyco.sourceforge.net/
-   * 精巧地址: http://bit.ly/3jrshT
-   * 一个Python代码加速度器,可使Python代码的执行速度提高到与编译语言一样的水平.
+  * iPython 
+    * 访问地址: http://ipython.scipy.org/moin/
+    * iPython 提供一个像octave，matlab那样的交互式的shell，比默认Python shell更好用， 又可以像系统Shell一样运行console命令
 
 
 ----
