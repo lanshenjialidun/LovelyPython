@@ -7,7 +7,7 @@
 
 ##startInc
 = PCS301 Karrigell =
-'''纯 Python 实现的又一个 Web 应用平台！'''
+'''安心小车'''
 
 == 概述 ==
 ##http://wiki.woodpecker.org.cn/moin/KarriGell
@@ -19,8 +19,133 @@ Karrigell 已经有的功能：
  * 内置的session处理
  * 认证机制
  * 多语言支持
- * 集成了 Gadfly 数据库
+ * 集成了 PyDbLite(之前是Gadfly,再之前是buzhug)数据库
+  * 访问地址: http://quentel.pierre.free.fr/PyDbLite/index.html
  * 自带模板处理功能
+
+[Karrigell]Karrigell Web框架开发简介 - ChumpKlutz(朽木)的专栏 - CSDNBlog
+http://blog.csdn.net/ChumpKlutz/archive/2007/09/12/1781641.aspx
+  
+Karrigell是一个语法简洁直观的Python Web框架。它支持任何一种数据库，ORM或者模板引擎，也可以让开发人员选择不同的编码方式。
+  
+Karrigell包自带一个功能强大的web服务器和一个用Python写成的数据库引擎PyDbLite，在自带的demo程序中使用到了这个引擎。
+  
+Karrigell可以通过配置来与其它的web服务器一起工作如Apache,Xitami,LightTPD；Karrigell还可以结合Python的其它数据库(sqlite, mySql, PostGreSQL, ZODB, etc) 接口来创建数据库应用程序。
+  
+Karrigell还自带了一个对MySQL数据库表进行CRUD操作的应用程序，可以方便的创建和编辑MySQL并且可以在线生成脚本。
+   
+要想使用Karrigell创建动态页面，你需要知道HTML和Python的一些知识。你也要选择Karrigell提供的不同的编码方式。下面是“Hello world”程序使用的5种不同的编码方式：
+      
+Python script (hello.py)
+	
+Karrigell service (hello.ks)
+print "Hello, world !"
+	
+def index():
+    print "Hello, world !"
+HTML Inside Python (hello.hip)
+	
+Python Inside HTML (hello.pih)
+"Hello, world !"
+	
+Hello, world !
+CGI script (hello.py
+in folder cgi-bin)
+	
+ 
+print "Content-type: text/html"
+print
+print "Hello, world !"
+	
+ 
+
+如果要想像这样写一些Python代码的话，例如打印0到9的数字序列：
+Python script
+	
+Karrigell service
+print "<h1>Squares</h1>"
+for i in range(10):
+    print "%s :<b>%s</b>" %(i,i*i)
+	
+def index():
+    print "<h1>Squares</h1>"
+    for i in range(10):
+        print "%s :<b>%s</b>" %(i,i*i)
+HTML Inside Python
+	
+Python Inside HTML
+"<h1>Squares</h1>"
+for i in range(10):
+    "%s :<b>%s</b>" %(i,i*i)
+	
+<h1>Squares</h1>
+<%
+for i in range(10):
+    print "%s :<b>%s</b>" %(i,i*i)
+%>
+CGI script
+	
+ 
+print 'Content-type: text/html'
+print
+print "<h1>Squares</h1>"
+for i in range(10):
+    print "%s :<b>%s</b>" %(i,i*i)
+	
+ 
+  
+总之我们可以使用：
+
+    *
+      可以使用普通的Python脚本
+    *
+      Karrigell services是一种Python脚本，它的每一个函数都匹配一个不同的URL：foo.ks/bar匹配foo.ks脚本中的bar()函数(如果没有指定函数,默认使用index()函数)
+    *
+      HTML inside Python是另一种写Python脚本的方式，在运行时当遇到print语句就会把要输出的字符串发送给客户端浏览器
+    *
+      Python inside HTML是一种非常像ASP,JSP,PHP的写法，Python写在HTML页面<的% %>标记中
+    *
+      还可以直接使用CGI脚本：参见文档的cgi module章节 
+
+Python代码在一个包含HTTP环境，表单字段，自定义异常的命名空间下运行。当一个表单包括字段<INPUT name="myfield">，它的值可以在脚本中使用_myfield来得到。
+
+在身份认证和Session方面，可以在脚本中使用两个叫做Authentication和Session的函数来处理。Authentication的第一个参数是一个测试函数，用来检查是否接受输入的AUTH_USER和AUTH_PASSWORD。Session()用来初始化一个session对象并设置或读取它的属性值或者得到一个session。
+
+Include(file_or_script)函数在当前脚本插入脚本或者文件的输出结果；例如它可用在页头或者页尾。
+Karrigell自带一个详细的documentation (en français)和一组示例文件，包括一个迷你版的Wiki服务器。
+ 
+可以到Sourceforge project page 或者后面的链接去下载一个最新的稳定版本，也可以download当前正在开发的不稳定版本。
+  
+PS：本文翻译自Karrigell的官方网站：http://www.karrigell.com/，如有转贴请注明ChumpKlutz原创翻译
+
+== 使用 ==
+故事CDay2中和故事KDays全篇都是介绍KarriGell的,这里还要重复吗?
+
+
+
+HYRY Studio
+http://hyry.dip.jp/index.py
+http://bit.ly/2hfbkQ
+このサイトの技術と開発履歴
+
+HYRY Blog
+http://hyry.dip.jp/blogt.py?catlog=Python学习
+http://bit.ly/2qgnkh
+
+== 问题 ==
+   * 指出知识点应用中常常遇见的问题,和解决思路
+   * 根据实用体验,说明如何理解以及实际使用时的理性思考方向
+   * 
+服务发布
+BSD 中,,,
+
+== 探讨 ==
+   进一步介绍相关的或是深入的知识领域...
+   * 组织实用的技巧类代码
+ 高性能,,,
+ 
+== 小结 ==
+  总体回顾,给出相关阅读和思考指引
 
 Karrigell 区别于其它平台的不同在于...
  * "Karrigell学习"我为什么选择了Karrigell - limodou的学习记录
@@ -41,8 +166,7 @@ Karrigell 区别于其它平台的不同在于...
   * 访问地址: http://code.google.com/p/gopython/downloads/list
   * 精巧地址: http://bit.ly/tODOJ
 
-== 使用 ==
-故事CDay2中和故事KDays全篇都是介绍KarriGell的,这里还要重复吗?
+
 
 ##endInc
 -- 清风  [[DateTime(2008-04-25T14:33:00Z)]] 
