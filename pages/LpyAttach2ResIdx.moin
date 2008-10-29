@@ -5,7 +5,7 @@
 ##[[Include(ZPyUGnav)]]
 
 ##|校对|正式 
-||'''status'''|| 草稿|| ZoomQuiet,Liz|| 完成度:99% ||
+||'''status'''|| 草稿|| ZoomQuiet,Liz|| 完成度:101% CPyUG行者不断增补ing||
 
 
 ##startInc
@@ -117,10 +117,15 @@ attachment:2008-10-14-google-python.png
    * 访问地址: http://chardet.feedparser.org/docs/
    * 精巧地址: http://bit.ly/F2a5F
    * chardet ~ 宇宙牌编码探测器;-) 方便的探知指定文本是什么编码的文字! 这是中文应用不可缺少的模块!
+  * pyzh 
+   * 访问地址: http://code.google.com/p/pyzh/ 
+   * 精巧地址: http://is.gd/51no
+   * python的中文本地化工具包. 包含:汉字到拼音的转换, 中英文字数统计,公历到阴历转换,中文分词,中英文文本折行, 支持多种编码的繁简转换
   * cssutils - CSS library for Python 
    * 访问地址: http://cthedot.de/cssutils/
    * 精巧地址: http://bit.ly/2rmUQ0
    * CSS文档专用处理支持
+
  深入::
   有关文本处理的专门话题:
   * Text Processing in Python : 
@@ -265,8 +270,7 @@ attachment:2008-10-14-google-python.png
   * xmpppy:
    * 访问地址: http://blog.donews.com/limodou/archive/2005/03/11/298935.aspx
    * 精巧地址: http://bit.ly/3qN1Nb
-   * Jabber服务器采用的是XMPP协议,就像Google Talk也是采用XMPP协议的IM系统,Python 的xmpppy模块支持该协议,通过该模块可以与Jabber服务器通信.  
-  
+   * Jabber服务器采用的是XMPP协议,就像Google Talk也是采用XMPP协议的IM系统,Python 的xmpppy模块支持该协议,通过该模块可以与Jabber服务器通信.   
   * BitTorrent.org
    * 访问地址: http://www.bittorrent.org
    * 改变世界下载格局的Bt,就是用Python 写出来的,虽然已经商业化,但是原先的代码依然可以在项目环境中查阅到:
@@ -304,7 +308,7 @@ attachment:2008-10-14-google-python.png
   * Eurasia
    * 访问地址: http://code.google.com/p/eurasia/
    * 精巧地址: http://bit.ly/15ID3O
-   * 国产框架,沈崴的力作, 是应用于百万级长连接, 或每秒上万次 CGI 请求的 Web 框架。 比如,网页聊天,网页游戏.
+   * 国产框架,沈崴的力作, 是应用于百万级长连接, 或每秒上万次 CGI 请求的 Web 框架.  比如,网页聊天,网页游戏.
   * TurboGears:
    * 访问地址: http://wiki.woodpecker.org.cn/moin/TurboGearStepByStep
    * 精巧地址: http://bit.ly/1cTTYP
@@ -346,7 +350,25 @@ attachment:2008-10-14-google-python.png
    * 访问地址: http://code.google.com/appengine/docs/whatisgoogleappengine.html
    * 精巧地址: http://bit.ly/1Girr
    * 是 Google在2008年四月,发布的免费开发应用引擎,可以使用Python 利用Google 提供的一系列服务,在线发布应用;在一天之内吸引到了一万名程序员注册,到现在已经汇集了上十万个应用;依托Google 的"云计算"平台,可以期望形成强大的Python 应用热潮;
-  
+  * Thrift
+   * 访问地址: http://incubator.apache.org/thrift/
+   * 精巧网址: http://bit.ly/1U29Di
+   * 跨语言网络中间件. 最早由Facebook开发,现已成为Apache的一个子项目. 
+  * pyevent
+   * 访问地址: http://code.google.com/p/pyevent/
+   * 精巧网址: http://bit.ly/2GAKcb
+   * libevent的python封装, libevent支持网络IO、定时器、信号量,在高性能网络编程中有广泛的应用. 
+  * `搜索引擎:`
+   * Xapian:
+    * 访问地址: http://xapian.org
+    * C++编写的居于概率模型的搜索引擎后端,提供了python接口. 豆瓣部分搜索功能基于其开发. 
+   * pychseg
+    * 访问地址: http://code.google.com/p/pychseg/
+    * 精巧地址: http://bit.ly/2cK366
+    * 基于MMSEG的中文分词算法Python实现. 
+   * Ozearch
+    * 访问地址: http://ozearch.org/
+    * 源於Oriental Search Engine. 是由樹德科技大學洪朝貴教授所命名,它同時也是一個意象文字, 代表的是Oz的耳朵能聽的懂中文.立志开发一个对中文进行最优化支持的搜索引擎;当然是纯Python 开发的 ;-)
 
 == Py 嵌入系统 ==
 上网已经不在是电脑的专利,越来越多的设备/设施在联入网络,提供数据和接受控制,Python 在这方面也非常适合:
@@ -392,7 +414,7 @@ attachment:2008-10-14-google-python.png
    * 访问地址: http://excess.org/urwid/  
    * 精巧地址: http://bit.ly/3oztKf
    * CLI ~ 命令行界面构建支持模块,可以快速创建在命令行窗口中基于字符的图形应用;
-  * 各类图表支持:
+  * 各类绘图支持:
    1. ChartDirector for Python 
     * 访问地址: http://www.advsofteng.com/cdpython.html
     * 精巧地址: http://bit.ly/3JrKi1
@@ -408,6 +430,14 @@ attachment:2008-10-14-google-python.png
      * 访问地址: https://networkx.lanl.gov/wiki/pygraphviz
      * 精巧地址: http://bit.ly/4xX6eW
     * 都是来对象化调用Graphviz(http://www.graphviz.org) 绘制树图的接口;
+   1. CaptchaImage
+    * 访问地址: http://pypi.python.org/pypi/captchaimage/
+    * 精巧网址: http://bit.ly/v9WAm
+    * 接口非常简洁的python验证码生成,linux下适用.原版在安装时有些小问题,提供一个修改版http://wiki.woodpecker.org.cn/moin/zsp/captchaimage ,修改版的精巧网址 http://is.gd/51sT
+   1.PyCAPTCHA
+     * 访问地址: http://pypi.python.org/pypi/PyCAPTCHA/0.4
+     * 精巧网址: http://bit.ly/BZjjR
+     * 精巧网址: 另一个验证码生成,更强大,不过相对用起来也繁琐一点
 
  深入::
   高级的图形/桌面应用支持:
@@ -502,18 +532,28 @@ attachment:2008-10-14-google-python.png
    1. Boost Python Library
     * 访问地址: http://www.boost.org
     * 由David Abrahams创建. 该库提供了更多与众不同的C++ wrap到Python 扩展中,而只需要对要扩展的C++类写很少的附加信息. 
-
-  * Python 到 C:ctypes
+  * Python 到 C: ctypes
    * 访问地址: http://python.net/crew/theller/ctypes/
    * 精巧地址: http://bit.ly/3yjAHy
    * ctypes是一个Python 模块,使用他可以在Python 中创建和操作C语言的数据类型,这样可以在动态链接库中传递参数到C的函数中去;ctypes可以在windows/linux等多个平台上使用,甚至支持Windows上的COM开发
-  * Python 到 Fortran:pyfort
-   * 访问地址:http://pyfortran.sourceforge.net
-   * 用来产生Fortran语言生成的扩展模块
-  * Python 到 Perl:PyPerl
+  * Python 到 Perl: PyPerl
    * 访问地址: http://wiki.python.org/moin/PyPerl  
    * 精巧地址: http://bit.ly/3vR3ET
    * 支持将Perl 应用嵌入到Python 中!
+  * Python 到 Erlang: Candygram
+   * 访问地址: http://candygram.sourceforge.net/
+   * 精巧地址: http://bit.ly/1NqWth
+   * 这是一个桥接模块,用以帮助Python应用快速接入Erlang 实现的分布式服务!
+  * Python 到 Fortran: pyfort
+   * 访问地址:http://pyfortran.sourceforge.net
+   * 用来产生Fortran语言生成的扩展模块
+  * Python 到 D语言: Pyd
+   * 访问地址:http://pyd.dsource.org/
+   * 方便D语言开发python模块的库,目前开发处于停滞状态. 作者声称,等D语言2.0版本稳定下来,会来一次重写. 
+  * Python 到 Lua: Lunatic Python
+   * 访问地址: http://labix.org/lunatic-python
+   * 精巧地址: http://bit.ly/3Vets0
+   * 在Python中调用Lua,或在Lua中用Python
  深入::
   * PyRex: 
    * 访问地址: http://wiki.woodpecker.org.cn/moin/Pyrex
@@ -553,14 +593,14 @@ attachment:2008-10-14-google-python.png
     * 访问地址: http://numpy.scipy.org/
     * 精巧地址: http://bit.ly/10u2O0
     * Numarray是Python 的一个扩展库,主要用于处理任意维数的固定类型数组,简单说是一个矩阵库,它的底层代码是用C编写的
-    * Numeric/Numarray/NumPy/SciPy之间关系参见网站： http://www.scipy.org/History_of_SciPy。或者参看这个blog的中文翻译： Scipy和Numpy的前世今生 http://my.opera.com/zhangyunfeng/blog/show.dml/256938 
+    * Numeric/Numarray/NumPy/SciPy之间关系参见网站： http://www.scipy.org/History_of_SciPy. 或者参看这个blog的中文翻译： Scipy和Numpy的前世今生 http://my.opera.com/zhangyunfeng/blog/show.dml/256938 
    * SciPy:
     * 访问地址: http://www.scipy.org/
     * 精巧地址: http://bit.ly/4Bg9RA
     * 它和NumPy一起工作, 提供了许多方便和高效的数值计算函式,如数值积分或优化
     * pylab
      * 访问地址: http://www.scipy.org/PyLab
-     * 被设计用来取代NumPy, SciPy, Matplotlib, IPython 组合的科学计算环境，目前还没有完成
+     * 被设计用来取代NumPy, SciPy, Matplotlib, IPython 组合的科学计算环境,目前还没有完成
    * openbabel
     * 访问地址: http://openbabel.org
     * openbabel是转换分子建模和计算化学中各种数据格式的模块
@@ -568,14 +608,14 @@ attachment:2008-10-14-google-python.png
  数据可视化::
    * matplotlib
     * 访问地址: http://matplotlib.sourceforge.net/
-    * matplotlib是一个Python 2D图形库，可以从数据生成印刷质量的输出。
+    * matplotlib是一个Python 2D图形库,可以从数据生成印刷质量的输出. 
    * vtk-Python 
     * 访问地址：http://cens.ioc.ee/projects/pyvtk/
     * 精巧地址: http://bit.ly/2sSQyn
     * vtk(http://www.vtk.org/)是一个3D图形库,使用pyvtk可以在Python 中操作vtk文件 
     * mayavi
      * 访问地址: http://mayavi.sourceforge.net/
-     * mayavi是一个使用Python 和vtk可视化数据的工具，包含了一个用tkinter写的GUI
+     * mayavi是一个使用Python 和vtk可视化数据的工具,包含了一个用tkinter写的GUI
    * pymol
     * 访问地址: http://pymol.org/
     * pymol是一个查看分子3D结构的工具
@@ -683,7 +723,7 @@ Python 在各种行业,一直有经典的支持:
 
 ##endInc
 = 资源回收 =
-`无法分类，或不是完备的资源指引`
+`无法分类,或不是完备的资源指引`
   * Python 指南: http://doc.chinahtml.com/Manual/python/tut/tut.html
    * 精巧地址: http://bit.ly/hTbof
   * 开始编程之旅: http://wiki.woodpecker.org.cn/moin/StartProgramming
@@ -706,7 +746,7 @@ Python 在各种行业,一直有经典的支持:
   * ...
   * iPython 
     * 访问地址: http://ipython.scipy.org/moin/
-    * iPython 提供一个像octave，matlab那样的交互式的shell，比默认Python shell更好用， 又可以像系统Shell一样运行console命令
+    * iPython 提供一个像octave,matlab那样的交互式的shell,比默认Python shell更好用, 又可以像系统Shell一样运行console命令
 
 
 ----
