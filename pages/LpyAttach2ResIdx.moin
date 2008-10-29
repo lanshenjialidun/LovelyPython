@@ -97,6 +97,9 @@ attachment:2008-10-14-google-python.png
      1. PyPy能将rPython 脚本流程展示成视图
      1. 可以通过 JIT 自制编译器
     * 即! PyPy 通过Python 实现了,将Py语法组织的脚本和其它任意语言自由转换! 也就是说 PyPy 可以支持人们用Python 开发出各种语言的应用! 实在太有才了,绝对应该关注!
+  * tinypy
+   * http://www.tinypy.org/   
+   * 出于一些苛刻环境中对Python 的召唤,将"电池"卸下后,Python 执行环境可以仅仅64K大小!
    
 == Py 文本处理 ==
 `文可文,非常文. 本可文,非常本. 文本,数据之始;字符,万思之母...`~对文本的处理是最基础和最常见的任务,这方面Python 有大量的愉快体验:
