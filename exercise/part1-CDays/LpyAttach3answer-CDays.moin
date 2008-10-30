@@ -100,7 +100,7 @@ print result2
   * for..in循环对于任何序列（列表，元组，字符串）都适用。但从广义说来可以使用任何种类的由任何对象组成的序列
  1. 格式化声明,还有哪些格式可以进行约定?
   * 格式化申明
-  * 详细：[http://docs.python.org/lib/typesseq-strings.html]
+  * 详细：http://docs.python.org/lib/typesseq-strings.html (精巧地址: http://bit.ly/2TH7cF)
    * d  	Signed integer decimal.  	
    * i 	Signed integer decimal. 	
    * o 	Unsigned octal. 	
