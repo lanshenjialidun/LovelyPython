@@ -115,6 +115,7 @@ PCS207 threading
 
 追加准备进行并发搜索的线程对象:
 {{{#!python
+# -*- coding: utf-8 -*-
 from threading import Thread                    # 导入线程支持模块
 class grepIt(Thread):
     def __init__ (self,cdcfile,keyword):
@@ -129,6 +130,7 @@ class grepIt(Thread):
 
 嗬嗬嗬,忒简单了,就几行,而且,实际行为就一个!`markIni()` 也是改造自原先的`cdcGrep()`
 {{{#!python
+# -*- coding: utf-8 -*-
 def markIni(cdcfile,keyword):
     '''配置文件模式匹配函式:
     '''
@@ -153,6 +155,7 @@ def markIni(cdcfile,keyword):
 
 在末尾追加实际搜索调用,并声明成模块测试:
 {{{#!python
+# -*- coding: utf-8 -*-
 def grpSearch(cdcpath,keyword):
     '''多线程群体搜索函式:
     '''
