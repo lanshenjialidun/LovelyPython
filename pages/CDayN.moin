@@ -66,7 +66,7 @@ http://www.zoomquiet.org/share/s5/intropy/070322-introPy/
  选择一个简单有趣的来尝试就好 ;)
 
 {{{详细::
-PCS310 LEO
+PCS302 Leo文学化编程环境框架
 作为纯Python 实现的轻巧文学化编辑环境，
 LEO已经演化成了文学化应用平台，各种插件层出不穷，
 LEO本质上只是Tk的一个跨平台文本编辑软件；
