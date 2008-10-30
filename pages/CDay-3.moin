@@ -211,7 +211,7 @@ PCS200 os
 
 == 练习 ==
 
-(1) 根据DiPy 10.6. 处理命令行参数(http://www.woodpecker.org.cn/diveintopython/scripts_and_streams/command_line_arguments.html )使用getopt.getopt()优化当前功能函式。
+(1) 根据DiPy 10.6. 处理命令行参数(http://www.woodpecker.org.cn/diveintopython/scripts_and_streams/command_line_arguments.html 精巧地址:http://bit.ly/1x5gMw)使用getopt.getopt()优化当前功能函式。
 
 
 

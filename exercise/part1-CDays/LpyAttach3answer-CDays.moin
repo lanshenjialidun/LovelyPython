@@ -184,7 +184,7 @@ open('cdays-4-result.txt', 'w').write('%s' % '\n'.join(result)) #保存入结果
   attachment:cdays-4-exercise-6.png
 
 === CDays-3 ===
- 1. 根据DiPy 10.6. 处理[http://www.woodpecker.org.cn/diveintopython/scripts_and_streams/command_line_arguments.html 命令行参数]使用getopt.getopt()优化当前功能函式。
+ 1. 根据DiPy 10.6. 处理命令行参数(http://www.woodpecker.org.cn/diveintopython/scripts_and_streams/command_line_arguments.html 精巧地址:http://bit.ly/1x5gMw)使用getopt.getopt()优化当前功能函式。
   * 源代码 {{{#!python
 # coding=utf-8
 '''Lovely Python -3 PyDay 
