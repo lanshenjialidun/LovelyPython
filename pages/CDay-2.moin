@@ -176,9 +176,8 @@ PCS201 cmd
 详细描述cmd模块功能;
 读者可以进一步了解到此模块的所有功能;
 这是一个辅助用户快速完成一个交互式命令行环境的强力模块;
-在线相关文档是:
-http://aspn.activestate.com/ASPN/docs/ActivePython/2.4/python/lib/module-cmd.html
-
+在线相关文档是: http://aspn.activestate.com/ASPN/docs/ActivePython/2.4/python/lib/module-cmd.html
+精简地址:http://bit.ly/bVos1
 PCS100 import
 进一步说明模块和包使用的方法和注意事项
 }}}
@@ -255,6 +254,8 @@ attachment:cday-2-pycdc-v0.5-result.png
 
 结合己有经验,可以非常简单的就实现!
 {{{#!python
+# -*- coding: utf-8 -*-
+
 def cdcGrep(cdcpath,keyword):
     filelist = os.listdir(cdcpath)          # 搜索目录中的文件
     for cdc in filelist:                    # 循环文件列表
