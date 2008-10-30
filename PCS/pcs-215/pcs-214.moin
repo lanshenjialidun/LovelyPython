@@ -1,0 +1,69 @@
+##language:zh
+#pragma section-numbers off
+
+||status|| 草稿 ||清风 & liz; 100%||
+
+[[TableOfContents]]
+##startInc
+= PCS214 ElementTree =
+== 概述 ==
+ElementTree是Python的XML处理模块,它提供了一个轻量级的对象模型.它是在Python2.5以后成为Python标准库的一部分，但在Python 2.4之前需要单独安装.
+
+== 使用 ==
+先看一个最简单的例子,
+{{{#!python
+# -*- coding: utf-8 -*-
+import xml.etree.ElementTree as ET
+
+# 创建一个根节点root,并设置其标签为"html"
+root = ET.Element("html")
+# 创建根节点的一个子节点head,并设置其标签为"head"
+head = ET.SubElement(root, "head")
+# 创建节点head的一个子节点title,并设置其标签为"title",设置其内容为"Title"
+title = ET.SubElement(head, "title")
+title.text = "Title"
+
+# 创建根节点的一个子节点body,并设置其标签为"body",设置bgcolor属性为#ffffff,设置其内容为"Hello, World!"
+body = ET.SubElement(root, "body")
+body.set("bgcolor", "#ffffff")
+body.text = "Hello, World!"
+
+# 将这个根节点包裹在ElementTree对象中,并且保存为XML格式文档
+tree = ET.ElementTree(root)
+tree.write("hello.xhtml")
+}}}
+使用Element新建XML节点,并设置相应值,然后将其封装在ElementTree中,构成最终XML树保存到本地文件中.运行这个程序,可以看到在当前目录下生成了一个hello.xhtml文件,用firefox或其他浏览器打开,可以看到下图:
+
+attachment:pcs-214-1.png
+
+使用ElementTree的parser()函式可以快速加载一个完整的XML文档并生成一个ElementTree对象,例如:
+{{{#!python
+# -*- coding: utf-8 -*-
+import xml.etree.ElementTree as ET
+
+# 使用parse()将XML文档加载并返回ElementTree对象
+tree = ET.parse("hello.xhtml")
+
+# 寻找head节点下title节点的值
+print tree.findtext("head/title")
+
+# 使用getroot()函式返回根节点
+root = tree.getroot()
+
+# ...接下来可以做些其他操作
+
+# 保存为本地XML文档
+tree.write("out.xml")
+}}}
+ElementTree还提供了很多类和函式,类有:
+ * ElementTree:经常使用的元素结构封装类.
+ * TreeBuilder:普通元素结构构造器.
+ * XMLTreeBuilder:对XML源数据构造成XML结构树,它是基于expat解析器实现的
+函式有:
+ * XML(text):从一个包含XML数据的字串文本中解析出XML元素
+ * dump(elem): 将整个元素结构树输出至标准输出sys.stdout
+ * iselement(element):判断参数元素是否为有效的元素对象
+ * 等等还有很多,可以参见:
+  * ElementTree文档: http://effbot.org/zone/pythondoc-elementtree-ElementTree.htm
+  * 精巧地址: http://bit.ly/3PbG6Q
+##endInc

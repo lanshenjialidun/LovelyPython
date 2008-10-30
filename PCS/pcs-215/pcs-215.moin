@@ -1,0 +1,109 @@
+##language:zh
+#pragma section-numbers off
+
+||status|| 草稿 ||孔建军; 100%||
+
+[[TableOfContents]]
+##startInc
+= PCS215 ElementTree =
+== 概述 ==
+生活中，处处充满着随机。在丰富多彩的Python世界中，random模块用于生成随机数、随机字符和随机字符串。
+
+== 使用 ==
+=== random.randint() ===
+函式功能：生成随机整数
+{{{#!python
+# coding:utf-8
+import random
+#打印随机生成的整数（1～9）
+
+print '随机生成 1～9 的整数：%d' %random.randint(1, 9)
+}}}
+可以通过参数限定生成随机整数的范围。
+运行结果: 
+{{{
+~$: python pcs-215-1.py 
+随机生成 1～9 的整数：6
+}}}
+
+=== random.randrange() ===
+函式功能：随机选取指定整数序列中的某个元素
+{{{#!python
+# coding:utf-8
+import random
+#打印随机生成的偶数（20～200）
+
+print '随机生成 20～200 的偶数：%d' %random.randrange(20, 201, 2)
+}}}
+改变第三个参数便可以更加灵活的生成想要的随机数。如当第三个参数为10时，生成的随机数便是10的倍数。
+运行结果: 
+{{{
+~$: python pcs-215-2.py 
+随机生成 20～200 的偶数：198
+}}}
+
+=== random.random() ===
+=== random.uniform() ===
+函式功能：生成随机浮点数
+{{{#!python
+# coding:utf-8
+import random
+#打印随机生成的浮点数
+
+print '随机生成 0～1 的浮点数：%f' %random.random()
+print '随机生成 1～20 的浮点数：%f' %random.uniform(1, 20)
+}}}
+注意，random.random()不能传递参数，它只能生成0～1的浮点数。相比直线random.uniform()方法更加灵活。
+运行结果: 
+{{{
+~$ python pcs-215-3.py 
+随机生成 0～1 的浮点数：0.259886
+随机生成 1～20 的浮点数：17.918067
+}}}
+
+=== random.choice() ===
+=== random.sample() ===
+函式功能：生成随机字符、字符串
+{{{#!python
+# coding:utf-8
+import random, string
+#打印随机生成的字符、字符串
+
+print '随机生成的字符(a~z)：%c' %random.choice('abcdefghijklmnopqrstuvwxyz')
+print '随机生成的字符串(春、夏、秋、冬)：%s' %random.choice(['spring', 'summer', 'fall', 'winter'])
+print '随机生成的字符串：%s' %string.join(random.sample('abcdefghijklmnopqrstuvwxyz', 4), '')
+}}}
+random.sample()方法返回的是一个列表，这里使用string.join()方法将其转化成字符串。
+运行结果: 
+{{{
+~$ python pcs-215-4.py 
+随机生成的字符(a~z)：p
+随机生成的字符串(春、夏、秋、冬)：winter
+随机生成的字符串：qudt
+}}}
+
+=== random.shuffle() ===
+函式功能：打乱排序
+{{{#!python
+# coding:utf-8
+import random
+#打印随机排序结果
+
+items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+print '%s' %items
+random.shuffle(items)
+print '随机排序结果为：\n%s' %items
+}}}
+注意，调用random.shuffle()方法直接修改了items的值，其返回None。
+运行结果: 
+{{{
+~$ python pcs-215-5.py 
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+随机排序结果为：
+[2, 1, 8, 9, 4, 3, 5, 6, 7, 0]
+}}}
+
+== 问题==
+1、在生成字符串时，要根据具体的要求选择合适的方法，要同时注意程序的效率和代码的可读性。其实单个字符就是非常特殊的字符串。
+2、生成随机值时，传递的限制范围的参数，得注意是否包含边界处的值。
+##endInc
