@@ -45,6 +45,7 @@ sa.
 }}}
 一旦数据被序列化，就可以把他写入到文件、socket、管道等等中。之后你可以读取这个文件，读取这些数据来构造具有相同值的新对象。
 {{{#!python
+# -*- coding: utf-8 -*-
 data1 = [ { 'a':'A', 'b':2, 'c':3.0 } ]
 print 'BEFORE:',
 pprint.pprint(data1)
@@ -68,6 +69,7 @@ EQUAL?: True
 }}}
 在处理自定义类时，应该保证这些被序列化的类会在进程名空间出现 。只有数据实例才能被序列化，而不能是定义的类。在反序列化时，类的名字被用于寻找构造器以便创建新对象。接下来这个例子，是将一个类实例写入到文件中：
 {{{#!python
+# -*- coding: utf-8 -*-
 try:
    import cPickle as pickle
 except:
@@ -112,6 +114,7 @@ WRITING: last (tsal)
 }}}
 一个简单的尝试是将刚才的序列化对象装载进来,如下：
 {{{#!python
+# -*- coding: utf-8 -*-
 try:
    import cPickle as pickle
 except:

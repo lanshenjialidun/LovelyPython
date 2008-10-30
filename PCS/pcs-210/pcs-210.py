@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 try:
    import cPickle as pickle
 except:
