@@ -254,7 +254,7 @@ http://en.wikipedia.org/wiki/Cracker
 破坏者
 未经授权而企图进入电脑系统者。这种入侵者通常是恶意进入他人的系统，
 而且有许多技巧可以破坏他人的系统。
-这个名词是骇客（Hacker）在1985年为对抗新闻媒体滥用hacker而提出的。
+这个名词是骇客（Cracker）在1985年为对抗新闻媒体滥用hacker而提出的。
 1981-1982年前曾有人推动使用毛虫代表与cracker一样的意义，但并未成功。
 }}}
 
@@ -286,7 +286,8 @@ Python 内置的字符模板支持特性;
 -f /media/cdrom0/RyokoHirosue/成长物语  RH991101.mp3 
 -f /media/cdrom0/RyokoHirosue/成长物语  RH991102.mp3 
 }}}
- * `d`代表目录;`f`代表文件
+ * `d`代表目录;`f`代表文件,他们分别是directory(目录)和file(文件)的缩写
+
  
 == 小结 ==
 
