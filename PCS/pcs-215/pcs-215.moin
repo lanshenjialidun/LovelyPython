@@ -5,7 +5,9 @@
 
 [[TableOfContents]]
 ##startInc
-= PCS215 ElementTree =
+
+= PCS215 Random =
+
 == 概述 ==
 生活中，处处充满着随机。在丰富多彩的Python世界中，random模块用于生成随机数、随机字符和随机字符串。
 
@@ -22,7 +24,7 @@ print '随机生成 1～9 的整数：%d' %random.randint(1, 9)
 可以通过参数限定生成随机整数的范围。
 运行结果: 
 {{{
-~$: python pcs-215-1.py 
+~$ python pcs-215-1.py 
 随机生成 1～9 的整数：6
 }}}
 
@@ -38,12 +40,11 @@ print '随机生成 20～200 的偶数：%d' %random.randrange(20, 201, 2)
 改变第三个参数便可以更加灵活的生成想要的随机数。如当第三个参数为10时，生成的随机数便是10的倍数。
 运行结果: 
 {{{
-~$: python pcs-215-2.py 
+~$ python pcs-215-2.py 
 随机生成 20～200 的偶数：198
 }}}
 
-=== random.random() ===
-=== random.uniform() ===
+=== random.random()和random.uniform() ===
 函式功能：生成随机浮点数
 {{{#!python
 # coding:utf-8
@@ -61,8 +62,7 @@ print '随机生成 1～20 的浮点数：%f' %random.uniform(1, 20)
 随机生成 1～20 的浮点数：17.918067
 }}}
 
-=== random.choice() ===
-=== random.sample() ===
+=== random.choice()和random.sample() ===
 函式功能：生成随机字符、字符串
 {{{#!python
 # coding:utf-8
@@ -103,7 +103,13 @@ print '随机排序结果为：\n%s' %items
 [2, 1, 8, 9, 4, 3, 5, 6, 7, 0]
 }}}
 
-== 问题==
+== 问题 ==
 1、在生成字符串时，要根据具体的要求选择合适的方法，要同时注意程序的效率和代码的可读性。其实单个字符就是非常特殊的字符串。
+
 2、生成随机值时，传递的限制范围的参数，得注意是否包含边界处的值。
 ##endInc
+----
+'''反馈'''
+
+创建 by -- ::-- ["lizzie"] [[[DateTime(2008-10-30T04:46:55Z)]]]
+||<^>[[PageComment2]]||<^>[:/PageCommentData:PageCommentData]''||
