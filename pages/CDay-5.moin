@@ -17,7 +17,8 @@
 嗯嗯嗯,所谓实例故事,就是设计一个具体情景,让代表读者的初学者,同代表作者的行者沟通,从而完成一件事儿,在过程中引导式的展示给大家Python的乐趣;
 
 当然读者不一定什么都不知道,作者可能也高明不过读者,
-但是,有个具体的事儿,也好说将起来不是?
+但是,有个具体的事,也就好具体的讲起来.
+
 
 好的,这就开始,依照正统说书的,也得来个定场诗什么的活跃一下气氛,先:
 
@@ -46,10 +47,13 @@
 
 {{{详细::
 邮件列表有古老的规范和礼节
-http://www.woodpecker.org.cn/share/classes/050730-CPUG/usMaillist/
+访问地址: http://www.woodpecker.org.cn/share/classes/050730-CPUG/usMaillist/
+精简地址: http://bit.ly/43WKcR
 
 CPyUG社区有丰富的列表资源
-http://wiki.woodpecker.org.cn/moin/CPUGres
+访问地址: http://wiki.woodpecker.org.cn/moin/CPUGres
+精简地址: http://bit.ly/vrqUk
+
 }}}
 
  小结::
@@ -173,7 +177,7 @@ attachment:cday-5-hello-world-ipython.png
 作为开始,今天小白决定使用Python 来解决光盘内容管理,这一实际问题;
 安装了python 环境,运行了 "Hello World!" 实例.
 
-OK!轻松的开始,但是,你知道,你同时于获得了免费的绝对强大的科学计算器嘛?
+OK!轻松的开始,但是,你知道,你同时也获得了免费的绝对强大的科学计算器嘛?
 
 
 == 练习 ==
