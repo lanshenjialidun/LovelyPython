@@ -6,10 +6,10 @@
 [[TableOfContents]]
 ##startInc
 
-= PCS215 Random =
+= PCS215 random =
 
 == 概述 ==
-生活中，处处充满着随机。在丰富多彩的Python世界中，random模块用于生成随机数、随机字符和随机字符串。
+生活中，处处充满着随机。在丰富多彩的Python世界中，random模块用于生成随机数、随机字符和随机字符串等。
 
 == 使用 ==
 === random.randint() ===

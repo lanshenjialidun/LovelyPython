@@ -37,7 +37,7 @@ Zope的完整名字是 Z Object Publishing Environment，也就是Z对象发布�
 
 我们来看看一个典型的路径:
 
-  http://zopen.cn/products/dms
+  http://zopen.cn/products/dms(精巧地址：http://bit.ly/3CZazP)
 
 传统的web服务应用，会有一个控制器，将上面的URL路径映射到实际的功能模块。这个是以功能为中心的。
 
@@ -96,7 +96,7 @@ WSGI是解决这一问题的途径。WSGI (Web Service Gateway Interface)，定�
 
 目前，Zope的可插拔认证系统、Zope的事务管理、对象发布，均被Repoze给WSGI化重写了。Zope坚硬的外壳，已经被Repoze敲开，营养已经被Repoze所吸收，Repoze太狠了!
 
-Repoze又推出了自己的开发框架repoze.bfg(http://static.repoze.org/bfgdocs/) ，这个是利用了ZCA的一个可以一眼见底"轻量级"开发框架，和pylons和Django有神似的地方。
+Repoze又推出了自己的开发框架repoze.bfg(http://static.repoze.org/bfgdocs/ 精巧地址：http://bit.ly/1Sz2Ou) ，这个是利用了ZCA的一个可以一眼见底"轻量级"开发框架，和pylons和Django有神似的地方。
 
 Repoze.bfg实际上是Zope的一个分支，Repoze.bfg未来非常值得期待。虽然现在还处在早期，但是早有蜻蜓落上头，已经有很多应用基于Repoze.bfg开发了。我相信，Repoze是Zope的终极出路，是众望所归。
 

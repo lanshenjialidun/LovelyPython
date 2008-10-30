@@ -136,7 +136,7 @@ admin.site.register(WikiPage, WikiPageAdmin)
 }}}
 
 记得要保存成 utf-8 编码的文件，本教程中所有文件一律保存成 utf-8 编码的。
-(Model定义的详细内容见： http://docs.djangoproject.com/en/dev/topics/db/models/ )
+(Model定义的详细内容见： http://docs.djangoproject.com/en/dev/topics/db/models/ 精巧地址：http://bit.ly/8PVye)
 
 然后创建相应的数据表。执行命令： 
 
