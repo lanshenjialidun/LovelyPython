@@ -46,9 +46,9 @@
 == 社区 ==
 `那些风花雪夜`
 
-  2007.2.1 在邮件列表中一个小白苦恼的心聲
+  2007.2.1 在邮件列表中一个小白苦恼的心声
   http://wiki.woodpecker.org.cn/moin/ObpBroadview/2007-02-01
-  激发出了行者们成书的狂想,经过讨论,定名,定内容,定大纲, 可爱的 Python 就在社区活跃分子的相互鼓励中开始了:
+  激发出了行者们成书的狂想,经过讨论,定名,定内容,定大纲,《可爱的Python》就在社区活跃分子的相互鼓励中开始了:
   
   建立维基主页: http://wiki.woodpecker.org.cn/moin/ObpLovelyPython
   
@@ -211,7 +211,7 @@
  * 9月16日下午，收到哲思社区徐继哲大哥的一份电子邮件，希望我能组建一个五人的审校团队对《Lovely Python》一书进行技术审校，虽然Python学习了快一年了，但来做一本书的审校确实心里没底。我和高辉、张斌沟通后立马确认接收审校任务，后来潘猛、龚民、冯立强也参与了进来。龚民由于工作繁忙没能参与多少具体审校，但也解答了我们很多关于审校流程的问题。刚开始参与审校，工具的使用和流程都不是很清楚，多亏以前王聪他们参与过《Python源码剖析》一书，中间我们犯了很多错误，Issue主题规范问题、重复提交错误、错误描述不准确、wiki更新问题、沟通问题～～后来慢慢适应了。我们根据书本内容和一些具体情况，准备进行三次审校（初审、对换审校、最终审校），并把任务明确到wiki上面，方便与编辑等沟通交流。还有Zoom.Quiet做事很高度认真、负责，值得学习。
  * 审校此书感受最深的就是团队的沟通和交流，没有这些是没法异地合作的。还有相互之间的工作协调，这样才能事半功倍。参与审校也是对Python的重新学习过程，弥补了很多知识上的漏洞。也再次感受到了Python语言的魅力和精髓。审校过程中，框架篇也在不断更新，调整比较大，感觉在审校的同时没有给书本创作提供太多建议，这也与自身能力有关，以后再努力吧。
  * 这次参与审校算是以哲思成员的身份，算是给社区做小贡献。希望有更多的人参与到社区当中，体验共享、奉献的快乐。
- * 在参与审校的同时，也用Python编写了一些实用的程序，用KarriGell框架做了一个自动生成配置文件的工具，用于我们西邮Linux兴趣小组实验室的实名上网。还有一个用wxPython开发的图形界面的拼音查询工具，我把她放到了facebook上，也得到了很多人陌生人的改进建议，看来还是开放源码好;) 还有一个调用telnetlib库实现的高速端口扫描工具。很是兴奋～～！有同学都叫我“高产作家”了，呵呵～玩笑;)
+ * 在参与审校的同时，也用Python编写了一些实用的程序，用KarriGell框架做了一个自动生成配置文件的工具，用于我们西邮Linux兴趣小组实验室的实名上网。还有一个用wxPython开发的图形界面的拼音查询工具，我把她放到了facebook上，也得到了很多人陌生人的改进建议，看来还是开放源码好 ;) 还有一个调用telnetlib库实现的高速端口扫描工具。很是兴奋～～！有同学都叫我“高产作家”了，呵呵～玩笑;)
  * 总的来说收获都很大，Happy Hacking ;)
 
 == 美女蛇.绝恋 ==
@@ -232,17 +232,33 @@ Lawrence的抗议  / 直到最后的救赎为止 。不知Woman / 又怎会明�
 === 初解点注 ===
 `张教主挖的坑忒深了，怕读者无法领会其趣，笔者尝试点解一下`:
  1. 断桥,断桥残雪,西湖十景 http://baike.baidu.com/view/13790.htm
+ 精巧地址：http://bit.ly/42HxWy
+
  1. Guido,Guido van Rossum,Python 创造者,http://www.codersatwork.com/coder/Guido%20van%20Rossum.html
+ 精巧地址：http://bit.ly/4duc66
+
  1. Lawrence的抗议,http://developers.solidot.org/developers/08/06/26/009255.shtml
+ 精巧地址：http://bit.ly/29YKVr
+
  1. 不知Woman,http://techfaux.com/2008/06/17/peta-targets-computer-programmers-with-string-of-bizarre-protests/
+ 精巧地址：http://bit.ly/2h7X0x
+ 
  1. 金山,http://www.kingsoft.com/;金山寺,http://zhidao.baidu.com/question/34235974.html 
+ 精巧地址：http://bit.ly/1o2U9w
+
  1. Zoom.Quiet,http://wiki.woodpecker.org.cn/moin/ZoomQuiet
+ 精巧地址：http://bit.ly/35AIbc
+
  1. 啄木鸟,http://wiki.woodpecker.org.cn
  1. 木头,limodou,http://hi.baidu.com/limodou
+ 精巧地址：http://bit.ly/4qjbvn
+
  1. 蛇儿,python,http://python.org
- 1. 3000年,Python 3000 版本特性,http://tinyurl.com/yo5273 
- http://www.artima.com/weblogs/viewpost.jsp?thread=208549
+ 1. 3000年,Python 3000 版本特性,http://www.artima.com/weblogs/viewpost.jsp?thread=208549
+ 精巧地址：http://tinyurl.com/yo5273 
+
  1. 黑客帝国,http://board.verycd.com/t347321.html
+ 精巧地址：http://bit.ly/26awRN
 
 
 ##endInc
