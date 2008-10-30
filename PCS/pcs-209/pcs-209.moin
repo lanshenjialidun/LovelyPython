@@ -17,9 +17,9 @@ fnmatch 实现了shell patterns表匹配字符串或文件名.
 >>>import fnmatch
 # 匹配以.py结尾的字符串
 >>>fnmatch.fnmatch('*py','*.py')  
->>>False  
+False  
 >>>fnmatch.fnmatch('tlie.py','*.py')  
->>>True
+True
 }}}注意:匹配样式是unix shell风格的.其中"*"表示匹配零个或多个字符."?"表示匹配单个字符;"[seq]"匹配单个seq中的字符;"[!seq]"匹配单个不是seq中的字符
 
 === filter(names, pat) ===
