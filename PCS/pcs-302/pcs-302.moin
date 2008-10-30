@@ -2,7 +2,7 @@
 #pragma section-numbers off
 [[TableOfContents]]
 
-||'''status'''|| 初稿 || ZoomQuiet;100% ||
+||'''status'''|| 初稿 || ZoomQuiet;101%,增补Tk 的快速8.5替换方法 ||
 
 
 ##startInc
@@ -242,6 +242,29 @@ $ sudo ln -s python2.5 python
  提醒::
   * 如果处理后,还有问题,请及时升级 Leo 到最新版本, 2008-09-02 时,Leo 已经是 4.5.0 版本了,新版本对各种特性都有精心提升,可以支持最粗暴的操作,建议及时安装体验;-)  
   
+ 瞒天过海::
+   * 由于Tk8.5 和 Tk8.4 的 API 改动并不大，所以其实可以瞒天过海用 Tk8.5 直接代替 Tk8.4 而不需要重新编译任何东西!(这是行者Jiahua Huang <jhuangjiahua@gmail.com>探索出的好招;-) ~ 当然是指GNU/Linux 类的自由软件平台中,毕竟这是允许用户全权操控的环境哪;
+   * 可以在终端窗口粘贴执行下边命令{{{
+# 安装 Tk8.5
+sudo apt-get install tk8.5 tcl8.5
+
+# 备个份先
+sudo cp /usr/lib/libtcl8.4.so.0 /usr/lib/libtcl8.4.so.0.old
+sudo cp /usr/lib/libtk8.4.so.0  /usr/lib/libtk8.4.so.0.old
+sudo cp /usr/lib/python2.5/lib-dynload/_tkinter.so
+/usr/lib/python2.5/lib-dynload/_tkinter.so.old
+
+# 再用 Tk8.5 覆盖 Tk8.4
+sudo cp /usr/bin/tclsh8.5 /usr/bin/tclsh8.4
+sudo cp /usr/bin/wish8.5  /usr/bin/wish8.4
+sudo cp /usr/lib/libtcl8.5.so.0 /usr/lib/libtcl8.4.so.0
+sudo cp /usr/lib/libtk8.5.so.0  /usr/lib/libtk8.4.so.0
+
+# 篡改 "Tk8.4" 的版本号
+sudo sed -i 's/8\.5/8.4/g' /usr/lib/libtk8.4.so.0
+sudo sed -i 's/8\.5/8.4/g' /usr/lib/libtcl8.4.so.0
+}}}
+得了您咹!齐活儿!
 
 == 探讨 ==
 Leo 社区是稳健活跃的,Leo 的开发和升级也是积极的,Leo 的FANs 们已经发展出了不少高级或是神奇的使用方法:
