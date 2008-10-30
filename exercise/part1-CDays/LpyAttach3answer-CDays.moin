@@ -721,6 +721,8 @@ if __name__ == "__main__":
   * 不复制 cdctools.py 到webapp 目录中，也可以令 index.ks 引用到，可以通过以下方式：
    * 修改python的环境变量PYTHONPATH，把cdctools.py的所在目录路径加入
    * 在程序里动态的修改sys.path {{{#!python
+# -*- coding: utf-8 -*-
+
 import sys
 
 # cdctools.py的路径添加到sys.path
@@ -810,6 +812,8 @@ def index(**args):
 {'z.MCollection.29.cdc': [], 'mfj-00.cdc': [], 'MCollec.39.cdc': [], 'z.Animation.00.cdc': ['[L:\\mAnimi\\Gainax\\EVAalbumESP]\r\n'], 'z.MFC.pop.02.cdc': []}这里的有效搜索信息就会增加到history_search.dump文件中。当再次搜索该词时，出现：{'z.Animation.00.cdc': ['[L:\\mAnimi\\Gainax\\EVAalbumESP]\r\n']}，因为导出格式一致，所以页面上无须修改。
 }}}
   * 源码：{{{#!python
+# -*- coding: utf-8 -*-
+
 HISTORY_SEARCH = './history_search.dump'
 def cdcGrep(cdcpath,keyword):
     '''光盘信息文本关键词搜索函式

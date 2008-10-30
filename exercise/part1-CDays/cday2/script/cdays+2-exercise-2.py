@@ -1,5 +1,6 @@
 #!/bin/python
-#coding:utf-8
+# -*- coding: utf-8 -*-
+
 '''cdays+2-exercise-2.py
     @author: U{shengyan<mailto:shengyan1985@gmail.com>}
     @version:$Id$

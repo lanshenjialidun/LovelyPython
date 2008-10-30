@@ -37,7 +37,7 @@
  1. Qt
 3大GUI 框架可以快速组织桌面软件界面出来，但是！
 
-就算是写出来，也没无法简单的发布成友好的坚固的稳定的傻瓜化的安装程序哪...
+就算是写出来，也无法简单的发布成友好的坚固的稳定的傻瓜化的安装程序哪...
 
 列表中一问才知道,虽然有N多发布打包框架,但是都至少得包含完整的Python 虚拟机环境,仅这一项就是5Mb,想来核心代码不超过200行的东西,发布成过Mb大小的东西,小白就感觉脸红...这不白玩Python 了?一点也不 Cool!
 
@@ -271,6 +271,7 @@ attachment:cday2-import.png
 果然有行者反馈:'''Karrigell_QuickForm'''~ http://wiki.woodpecker.org.cn/moin/KwDay3
 
 FT!!连名字都一样 `快速表单`!{{{#!python
+# -*- coding: utf-8 -*-
 from Karrigell_QuickForm import Karrigell_QuickForm as KQF
 #...
 
@@ -343,6 +344,8 @@ attachment:cday2-search.png
 不过...这搜索匹配结果的输出也忒糙了点儿,随手改进一下吧:
 
 {{{#!python
+# -*- coding: utf-8 -*-
+
 def cdcGrep(cdcpath,keyword):
     export = ""
     filelist = os.listdir(cdcpath)          # 搜索目录中的文件
@@ -378,6 +381,8 @@ PCS210 pickle
 }}}
 
 {{{#!python
+# -*- coding: utf-8 -*-
+
 def cdcGrep(cdcpath,keyword):
     expDict = {}
     filelist = os.listdir(cdcpath)          # 搜索目录中的文件
