@@ -39,7 +39,11 @@
   
 
 = Ee~Ii =
- Epydoc ::
+  Emacs ::
+  * Emacs编辑器是最受欢迎、传播范围最广、也是最强大和最灵活的UNIX文本编辑器。与其他文本编辑器的重要区别在于它是一个完备的工作环境，使用 Emacs可以完成各种日常工作。GNU Emacs是GNU开发的Emacs变体，也是最广泛使用的Emacs编辑器。更多参见: http://www.zeuux.org/science/learning-emacs.cn.html(精巧地址: http://bit.ly/1RfpLJ)
+  * PCS 7
+  
+  Epydoc ::
   * 即Easy Py Documentor的缩写，一个用于Python模块自动生成API文档的生成器。
   * CDay 0 
   
@@ -109,7 +113,7 @@
   
  TisonG::
   * 是以下E文的缩写::`There is one site named Google!`来自python-cn 列表中的俚语,专门用以回应那些没有预先探索直接就想解决极基础问题的态度不好的小白的专语;) 算是 "提问的智慧" 的最精简概述...
-  * http://wiki.woodpecker.org.cn/moin/AskForHelp
+  * http://wiki.woodpecker.org.cn/moin/AskForHelp(精巧地址: http://bit.ly/2JGVxM)
   * Kday 1
   
  Stackless Python  ::
