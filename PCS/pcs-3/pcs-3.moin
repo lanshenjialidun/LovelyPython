@@ -10,24 +10,24 @@
 = PCS3 交互环境之winpy =
 
 == 概述 ==
-ActivesPython是标准的Python发行版，在Windows，Linux ，Mac OS X等等都能使用。
+ActivePython是标准的Python发行版，在Windows，Linux ，Mac OS X等等都能使用。
 
 == 使用 ==
-这里只介绍ActivesPython在Windows下的安装：
+这里只介绍ActivePython在Windows下的安装：
 
-(1) 下载ActivesPython.
- * ActivesPython官方下载: http://downloads.activestate.com/ActivePython/windows/2.5/ActivePython-2.5.2.2-win32-x86.msi
+(1) 下载ActivePython.
+ * ActivePython官方下载: http://downloads.activestate.com/ActivePython/windows/2.5/ActivePython-2.5.2.2-win32-x86.msi
  * 精巧地址: http://bit.ly/3UaHr8
 
-(2) 双击安装文件，运行安装程序。该过程和很多软件在windows下的安装很类似，在这里就不描述了。主要注意的地方是在ActivesPython安装时需选对Python路径（这表示事先得安装好Python），其他都可以默认。
+(2) 双击安装文件，运行安装程序。该过程和很多软件在windows下的安装很类似，在这里就不描述了。主要注意的地方是在ActivePython安装时需选对Python路径（这表示事先得安装好Python），其他都可以默认。
 
-(3) 安装完毕。打开ActivesPython的PythonWin，可以看到如下的界面：
+(3) 安装完毕。打开ActivePython的PythonWin，可以看到如下的界面：
 attachment:PCS3-1.png
 
 其中包含的一个交互界面，其使用方式和python默认环境非常类似。具体可参考PCS1。
 
 == 小结 ==
-ActivesPython是一个不错的Python编辑器和运行调试工具。界面比较简单，但功能对于初学者来说已经足够了。
+ActivePython是一个不错的Python编辑器和运行调试工具。界面比较简单，但功能对于初学者来说已经足够了。
 
 ##endInc
 
