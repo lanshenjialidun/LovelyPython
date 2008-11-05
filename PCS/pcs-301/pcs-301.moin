@@ -17,6 +17,7 @@ Karrigel是一个易用的Python Web应用框架,使用方式清晰直观:
  * 内置有一个功能强大的web服务器
  * 内置一个纯Python的对象型数据库PyDbLite(之前是Gadfly,再之前是buzhug).
   * 访问地址: http://quentel.pierre.free.fr/PyDbLite/index.html
+  * 精巧地址: http://bit.ly/4ebSc8
  * 可以通过配置来与其它Web服务器(如Apache,Xitami,LightTPD,Ngnix等等)一起工作;还可以结合Python的其它数据库(sqlite, mySql, PostGreSQL, ZODB, 等) 接口来创建数据库应用程序.
  * 有内置的session处理
  * 有认证机制
@@ -120,7 +121,7 @@ for i in range(10):
 Karrigell 自带的发布服务运行简单,零配置,在网站开发/或是运营初期完全不用通过 CGI/fastCGI/SCGI/WSGI 等等接口和专业Web 服务器绑定,使用自个儿就成; 但是,问题在于,总是要开个命令行来启动,关闭命令行窗口,服务也就关闭了,那么如何方便的将 Karrigell 应用作为系统服务进行发布呢?
 
  * M$ Windows 下面? ~甭琢磨了，不会轻易让你这么玩的,,,
- * Uunix 下面? ~ 太太自然了，和一切服务一样！伪造成服务类的脚本来启动就好！
+ * Unix 下面? ~ 太太自然了，和一切服务一样！伪造成服务类的脚本来启动就好！
  
  以FreeBSD中为例,说明配置步骤::
   1. 创建启动脚本(比如说叫:runK.sh):{{{

@@ -23,7 +23,7 @@ CherryPy 是个非常简洁易用——面向对象的 web 框架。咦，面向
 
 == 下载安装 ==
 
-从 http://www.cherrypy.org/wiki/CherryPyDownload (精巧地址: http://bit.ly/41FZYA)找到最新版本的下载地址并下载之，解压，然后和几乎所有python模块的安装一样，执行 {{{python setup.py install}}} ，则大功搞成，可以开始写程序了。
+从 http://www.cherrypy.org/wiki/CherryPyDownload (精巧地址: http://bit.ly/41FZYA )找到最新版本的下载地址并下载之，解压，然后和几乎所有python模块的安装一样，执行 {{{python setup.py install}}} ，则大功搞成，可以开始写程序了。
 
 == 开始写程序 ==
 

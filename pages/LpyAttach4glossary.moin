@@ -16,6 +16,10 @@
  Ajax ::
   * Asynchronous JavaScript and XML，异步JavaScript和XML，是指一种创建交互式网页应用的网页开发技术。
   * CDay N 
+ 
+ Apache ::
+  * 
+  * PCS 301
   
  ASCII ::
   *  即“美国国家标准资讯交换码”（American Standard Code forInternational Interchange）的缩写。在1970年由美国国家标准化委员会通过的编码规格，它规定了128个基础英文字符的二进制编码规则。
@@ -25,9 +29,17 @@
   * 在台湾和香港等地广为使用的计算机汉字编码方案，使用的是繁体。
   * CDay -1
   
+ CGI ::
+  * 
+  * PCS 301
+  
+ Cheetah ::
+  * 
+  * PCS 301
+  
  CherryPy  ::
   * 面向对象的web 开发平台。提供完全的基于web的应用功能编写，不用太多的底层知识。
-  * Kday 0
+  * Kday 0 / PCS 300
   
  CSS ::
   * Cascading Style Sheet，级联样式单，又常称这为风格样式单Style Sheet，用来进行网页风格设计。
@@ -39,11 +51,11 @@
   
 
 = Ee~Ii =
-  Emacs ::
+ Emacs ::
   * Emacs编辑器是最受欢迎、传播范围最广、也是最强大和最灵活的UNIX文本编辑器。与其他文本编辑器的重要区别在于它是一个完备的工作环境，使用 Emacs可以完成各种日常工作。GNU Emacs是GNU开发的Emacs变体，也是最广泛使用的Emacs编辑器。更多参见: http://www.zeuux.org/science/learning-emacs.cn.html(精巧地址: http://bit.ly/1RfpLJ)
   * PCS 7
   
-  Epydoc ::
+ Epydoc ::
   * 即Easy Py Documentor的缩写，一个用于Python模块自动生成API文档的生成器。
   * CDay 0 
   
@@ -91,7 +103,7 @@
   
  Karrigell ::
   * 纯Python实现的 Web应用开发平台。
-  * CDay 2
+  * CDay 2 / PCS 301
   
  Leo ::
   * 可以作为一个通用的数据管理环境，或是一个项目管理器，或是一个提纲式的程序编辑器。
@@ -99,9 +111,17 @@
   
 
 = Oo~Yy =
- PHP::
+ ORM ::
+  * 
+  * PCS 301
+  
+ PHP ::
   * Personal Hypertext Preprocesser，个人超文本解析语言。
   * Kday 1
+
+ PyDbLite ::
+  * 
+  * PCS 301
   
  Refactoring ::
   * 重构，即在不改变程序外在行为的前提下，对代码做出修改，改进程序内部结构的过程。
@@ -153,10 +173,6 @@
   
  函式 ::
   * 具体实现某个功能，由一些语句组成的代码块，一般情况下都有函式名字。
-  * CDay -3
-  
- 系统参数 ::
-  * 运行程序或脚本时，操作系统传给该程序的一些变量。
   * CDay -3
   
  伪代码 ::
