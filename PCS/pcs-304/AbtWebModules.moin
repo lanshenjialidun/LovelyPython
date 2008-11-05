@@ -100,13 +100,13 @@ hello_app µÄµÚ¶ş¸ö²ÎÊı start_response ÊÇÒ»¸öº¯Êı£¬web Ó¦ÓÃÔÚÊä³öÏìÓ¦ÄÚÈİÇ°ĞèÒªÏÈ
 Ğ¡°×·¢ÏÖÓĞ¼¸¸öÄ£¿é¿ÉÒÔÓÃÀ´´¦Àí web ÇëÇóºÍÏìÓ¦£¬webob ¾ÍÊÇÆäÖĞÖ®Ò»¡£
 
 °²×° webob Ö®Ç°ÎÒÃÇĞèÒªÏÈ°²×° setuptools £¬Ò»¸ö°ü¹ÜÀíµÄ¹¤¾ß£¬¸Ã¹¤¾ß¿ÉÒÔ×Ô¶¯ÎªÎÒÃÇËÑË÷²¢ÏÂÔØÏëÒªµÄ
-Èí¼ş°ü¡£ ÔÚÕâ¸öÒ³Ãæ http://pypi.python.org/pypi/setuptools (¾«ÇÉµØÖ·: http://bit.ly/4fXVjD)ÏÂÃæ£¬·ÇwindowsÆ½Ì¨¿ÉÒÔÏÂÔØ .egg ÎÄ¼ş
+Èí¼ş°ü¡£ ÔÚÕâ¸öÒ³Ãæ http://pypi.python.org/pypi/setuptools ( ¾«ÇÉµØÖ·: http://bit.ly/4fXVjD )ÏÂÃæ£¬·ÇwindowsÆ½Ì¨¿ÉÒÔÏÂÔØ .egg ÎÄ¼ş
 £¬È»ºóĞŞ¸ÄÈ¨ÏŞÖ±½ÓÖ´ĞĞÖ®£¬»òÕßÏÂÔØÔ´Âë°ü£¬½âÑ¹ºóÖ´ĞĞ python setup.py install £¬
 windowsÆ½Ì¨µÄÓÃ»§Ò²¿ÉÒÔÖ±½ÓÏÂÔØ exe ºó×ºÃûµÄ¿ÉÖ´ĞĞ°²×°³ÌĞò£¬ÏÂÔØºóÖ±½ÓÔËĞĞ¾ÍºÃÁË¡£
 
 °²×°Íê setuptools ºó£¬°²×° webob ¾ÍºÜ¼òµ¥ÁË£¬´ò¿ªÒ»¸öÃüÁîĞĞ´°¿Ú£¬Ö´ĞĞ easy_install webob £¬
 setuptools ÄÜ¹»×Ô¶¯ÕÒµ½×îĞÂµÄ°æ±¾²¢×Ô¶¯ÏÂÔØ°²×°¡£µ±È»£¬Èç¹ûÏÓËüµ¥Ïß³ÌµÄÏÂÔØËÙ¶ÈÓĞµãÂı£¬ÄãÒ²
-¿ÉÒÔÖ±½Óµ½ http://pypi.python.org/pypi (¾«ÇÉµØÖ·: http://bit.ly/2CA9SG)ËÑµ½ÏàÓ¦µÄ°ü£¬ÊÖ¶¯ÏÂÔØ£¬
+¿ÉÒÔÖ±½Óµ½ http://pypi.python.org/pypi ( ¾«ÇÉµØÖ·: http://bit.ly/2CA9SG )ËÑµ½ÏàÓ¦µÄ°ü£¬ÊÖ¶¯ÏÂÔØ£¬
 È»ºó¼ÓÑ¹²¢Ö´ĞĞ python setup.py install £¬ºóÃæµÄ°üµÄ°²×°·½·¨ºÍÕâÀïÀàËÆ¡£
 
 °²×°Íê³ÉºóÎÒÃÇ¿ÉÒÔÖ±½ÓÔÚ python shell Àï¶Ô webob ËùÌá¹©µÄ¹¦ÄÜ½øĞĞÊÔÑé:
@@ -123,7 +123,7 @@ setuptools ÄÜ¹»×Ô¶¯ÕÒµ½×îĞÂµÄ°æ±¾²¢×Ô¶¯ÏÂÔØ°²×°¡£µ±È»£¬Èç¹ûÏÓËüµ¥Ïß³ÌµÄÏÂÔØËÙ¶ÈÓ
 ¶Ô environ ½øĞĞ·ÃÎÊ¡£ÓÉÓÚÖ»ÓĞÔÚ web »·¾³ÏÂ²ÅÄÜµÃµ½Ò»¸öÕæÊµµÄ environ ×Öµä£¬ÎªÁË·½±ã´ó¼ÒÔÚ
 python shell ÀïÃæ¶ÔÆä½øĞĞÊÔÑé£¬webob »¹Ìá¹©Ò»ÖÖ·½·¨¿ÉÒÔÄ£ÄâÒ»¸ö¼òÒ×µÄwebÇëÇó£¬Çë¿´£º
 
-{{{#!python
+{{{#
 >>> from webob import Request
 >>> # ¹¹½¨Ò»¸ö¼òÒ×µÄ web ÇëÇó
 >>> req = Request.blank('http://localhost:8080/hello?name=python')
@@ -291,7 +291,7 @@ pythonÀïÃæµÄÄ£°åÒıÇæÖ÷ÒªÓĞmako¡¢genshi¡¢jinjaµÈ¡£mako Ö÷ÒªÌØµãÔÚÓÚÄ£°åÀïÃæ
 ´úÂëÊµÏÖÒ»Ğ©¸´ÔÓµÄÕ¹ÏÖÂß¼­¡£
 
 Ğ¡°×¿´ mako Í¦Ë³ÑÛµÄ£¬ÓÚÊÇ¾Í×êÑĞÁËËüÒ»°Ñ¡£
-¿ÉÒÔµ½ÕâÀï http://pypi.python.org/pypi/Mako (¾«ÇÉµØÖ·: http://bit.ly/4wqXP6) ÕÒµ½×îĞÂ°æ±¾µÄÏÂÔØµØÖ·£¬ÏÂÔØ½âÑ¹£¬
+¿ÉÒÔµ½ÕâÀï http://pypi.python.org/pypi/Mako ( ¾«ÇÉµØÖ·: http://bit.ly/4wqXP6 ) ÕÒµ½×îĞÂ°æ±¾µÄÏÂÔØµØÖ·£¬ÏÂÔØ½âÑ¹£¬
 È»ºóÖ´ĞĞ python setup.py install ¾Í¿ÉÒÔÁË¡£
 
 ÏÂÃæµÄ´úÂë¾ÍÊÇĞ´µÄÒ»¸ö¼òµ¥µÄ mako Ä£°åÎÄ¼ş£¬ÀïÃæÖ±½ÓÊä³öÒ»¸ö name ¶ÔÏó£¬
@@ -493,7 +493,7 @@ session.commit()
  * ¾«ÇÉµØÖ·£ºhttp://bit.ly/45KMCI
 
 
-{{{#!python
+{{{#
 >>> from model import Session, Dictionary
 >>> sess = Session()
 >>> query = sess.Query(Dictionary)
@@ -546,7 +546,7 @@ def hello_app(request):
 
 ÏÈÀ´¿´Ò»¸ö selector µÄÊ¾Àı£º
 
-{{{#!python
+{{{#
 >>> from selector import Selector
 >>> # Ğ´Á½¸ö²âÊÔº¯Êı
 >>> def get_app():pass
