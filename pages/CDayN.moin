@@ -66,6 +66,11 @@ http://www.zoomquiet.org/share/s5/intropy/070322-introPy/ (精简地址:http://b
  选择一个简单有趣的来尝试就好 ;)
 
 {{{详细::
+PCS217  Tkinter编程
+Tkinter是Python中的一种比较流行的图形编程接口。
+Tkinter模块是Python的标准Tk GUI工具包的接口。
+TK和Tkinter是为数不多的跨平台的脚本图形界面接口。
+
 PCS302 Leo文学化编程环境框架
 作为纯Python 实现的轻巧文学化编辑环境，
 LEO已经演化成了文学化应用平台，各种插件层出不穷，
