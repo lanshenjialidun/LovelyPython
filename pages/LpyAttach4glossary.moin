@@ -20,6 +20,10 @@
  Apache ::
   * 
   * PCS 301 / PCS 304
+ 
+ API ::
+  * 
+  * CDay 0 / PCS 7 / PCS 203 / PCS 302 / PCS 400
   
  ASCII ::
   *  即“美国国家标准资讯交换码”（American Standard Code forInternational Interchange）的缩写。在1970年由美国国家标准化委员会通过的编码规格，它规定了128个基础英文字符的二进制编码规则。
@@ -40,6 +44,10 @@
  CherryPy  ::
   * 面向对象的web 开发平台。提供完全的基于web的应用功能编写，不用太多的底层知识。
   * CDay 2 / KDay 0 / KDay 1 / KDay 4 / PCS 300 / PCS 304 /  PCS 400
+ 
+ CLI ::
+  * 
+  * PCS 201
   
  CSS ::
   * Cascading Style Sheet，级联样式单，又常称这为风格样式单Style Sheet，用来进行网页风格设计。
@@ -59,6 +67,10 @@
   * 即Easy Py Documentor的缩写，一个用于Python模块自动生成API文档的生成器。
   * CDay 0 / PCS 203
  
+ Epytext ::
+  * 轻量级的标记语言，用于标记各种文档字符串，主要是在一些特定的标签上添加相关的信息，例如参数类型等等
+  * PCS 203
+  
  FastCGI ::
   *
   * PCS 304 / PCS 301
@@ -93,7 +105,7 @@
   
  GUI ::
   * 是Graphical User Interface 的简称，即图形用户接口。
-  * CDay 2 / CDay N / PCS 207
+  * CDay 2 / CDay N / PCS 217
   
  HTML ::
   * Hyper Text Mark-up Language，超文本标记语言的缩写，用于制作网页，该语言编写出来的源码能被各浏览器解析形成网页供人们浏览。
@@ -109,6 +121,10 @@
   
 
 = Jj~Nn =
+ Javadoc ::
+  * 用于Java源代码的文档化标记语言
+  * PCS 203
+  
  JS ::
   * JavaScript，是一种基于对象(Object)和事件驱动(Event Driven)并具有安全性能的脚本语言。
   * CDay N / KDay 3 / KDay 5 / KDay 6 / PCS 401
@@ -116,6 +132,10 @@
  Karrigell ::
   * 纯Python实现的 Web应用开发平台。
   * CDay 2 / KDay 0 / KDay 1 / KDay 2 / KDay 3 / KDay 3 / KDay 4 / KDay 5 / PCS 301
+ 
+ LaTex ::
+  * 
+  * PCS 203
   
  Leo ::
   * 可以作为一个通用的数据管理环境，或是一个项目管理器，或是一个提纲式的程序编辑器。
@@ -125,6 +145,10 @@
   * 文学化编程
   * PCS 302
 
+ MIME ::
+  * 
+  * PCS 211
+  
 = Oo~Yy =
  ORM ::
   * 对象-关系映射
@@ -141,6 +165,14 @@
  Refactoring ::
   * 重构，即在不改变程序外在行为的前提下，对代码做出修改，改进程序内部结构的过程。
   * CDay -2 / KDay 1 / PCS 404
+ 
+ ReStructuredText ::
+  * 一种易用的，所见即所得的文本标签语法
+  * PCS 203
+  
+ RFC ::
+  *
+  * PCS 211
   
  Shell ::
   * 一个命令行解释器，它的作用就是遵循一定的语法将输入的命令加以解释并传给系统。
@@ -162,29 +194,34 @@
  SQLAlchemy ::
   *
   * PCS 304
+ 
+ Tkinter ::
+  * 是Python中的一种比较流行的图形编程接口
+  * CDay N / PCS 7 / PCS 217 / PCS 302
   
  Ubuntu ::
   * 一个基于Debian的操作系统, 可自由的获得，并提供社区和专业的支持。Ubuntu 宣言: 软件应免费提供，软件工具应能以人们本地语种的形式可用且不牺牲任何功能，人们应拥有定制及改变他们软件的自由，这包括以任何他们认为适宜的方式。
   * CDay -4 / CDay -1 / PCS 0 / PCS 2 / PCS 302 / PCS 304
 
-
-
-####### stop here
  Unicode ::
   * 一种在计算机上使用的字符编码。它为每种语言中的每个字符设定了统一并且唯一的二进制编码，以满足跨语言、跨平台进行文本转换、处理的要求。
-  * CDay -4 / PCS 6
+  * CDay -4 / CDay -1 / PCS 6 / PCS 208 / PCS 303
   
  Wiki ::
   * 一种网上共同协作的超文本系统，可由多人共同对网站内容进行维护和更新。
-  * Kday 5
+  * Kday 5 / PCS 303 / PCS 304
  
+ Widget ::
+  *
+  * PCS 217 / PCS 304
+  
  WSGI ::
   *
-  *
+  * PCS 301 / PCS 304
   
  XML ::
   * eXtensible Markup Language的缩写，意为可扩展的标记语言，一套定义语义标记的规则，这些标记将文档分成许多部件并对这些部件加以标识。它也是元标记语言，即定义了用于定义其他与特定领域有关的、语义的、结构化的标记语言的句法语言。
-  * CDay N / PCS 2
+  * CDay N / KDay 3 / KDay 5 / KDay 6 / KDay N / PCS 2 / PCS 214 / PCS 303 / PCS304 / PCS 400 / PCS 401 / PCS 402 / PCS 403
   
  XUL ::
   * 一种XML语言，能使用包括XSLT、XPath和DOM函式在内许多已存在的标准来处理一个用户界面，XUL功能非常强大，以至于Mozilla软件的所有用户界面都是用XUL实现的。
@@ -199,19 +236,19 @@
   
  数据类型::
   * 具有相同特征的数据的一种抽象概括。
-  * CDay -4
+  * CDay -4 / PCS 101 / PCS 105 / PCS 208 / PCS 400 / PCS 402
   
  函式 ::
   * 具体实现某个功能，由一些语句组成的代码块，一般情况下都有函式名字。
-  * CDay -3
+  * CDay -4 / CDay -3 / CDay -2 / CDay -1 / CDay 0 / CDay 1 / CDay 2 / CDay 3 / CDay N / KDay 2 / KDay 4 / KDay 5/ KDay 6 / PCS 2 / PCS 4 / PCS 7 / PCS 100 / PCS 101 / PCS 104 / PCS 105 / PCS 108 / PCS 109 / PCS 111 / PCS 112 / PCS 113 / PCS 114 / PCS 200 / PCS201 / PCS 204 / PCS205 / PCS207 / PCS209 / PCS 211 /PCS 212 / PCS 213 / PCS 214 / PCS 215 / PCS 216 / PCS 301 / PCS 302 / PCS304
   
  伪代码 ::
   * 解决问题的方法和步骤描述，使用类似于代码的语言表述，但不是真正可执行的代码。
-  * CDay -3
+  * CDay -3 / PCS 302
   
  自由软件 ::
   * 指用户运行、拷贝、研究、改进软件的自由，更准确地说，是指三种层次的自由：研究程序运行机制，并根据你自己的需要修改它的自由；重新分发拷贝，以使其他人能够共享软件的自由；改进程序，为使他人受益而散发它的自由。 
-  * CDay -1
+  * CDay -5 / CDay -1 / CDay 0 / KDay 1 / PCS 302 / PCS 304 / PCS 402
   
 
 ##endInc

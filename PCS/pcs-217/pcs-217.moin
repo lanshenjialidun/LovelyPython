@@ -15,7 +15,7 @@ Tkinter包含了若干模块. Tk接口被封装在一个名为 _tkinter二进制
 
 Tkinter中的GUI总是有一个root窗口,不管你是主动或者被动获得.主窗口就是程序开始运行的时候创建的,在主窗口中你通常是放置了你主要的部件.另外,Tkinter脚本可以依据需要创建很多独立的窗口,主要的方法就是通过创建Toplevel对象。每一个Toplevel对象都创建一个显示的窗口，不需要通过mainloop方法调用。
 
-在Tkinter编程中应注意的问题：
+在Tkinter编程中应注意的问题：		
 
 在Tk接口的附加模块中,Tkinter包含了一些Python模块,保存在标准库的一个子目录里,称为 tkinter。 其中有两个重要的模块,一个是Tkinter本身,另一个叫做Tkconstants:前者自动导入后者,所以你如果使用Tkinter,仅仅导入一个模块就可以
 {{{
@@ -32,7 +32,7 @@ from Tkinter import *
 #导入Tkinter模块
 
 root = Tk()
-#创建一个root Widget
+#创建一个root 
 w = Label(root,text = "Hello,world!")
 #w是root的子窗口，而text是w的一个选项，表示w中要显示的内容
 w.pack()
@@ -76,7 +76,7 @@ app = App(root)
 root.mainloop()
 }}}
 运行程序：
-{{{#!python
+{{{#
 ~$ python pcs-217-2.py
 }}}
 如果你按"hello"的按钮，会在控制台上打印"Welcome to the world of Python!"
