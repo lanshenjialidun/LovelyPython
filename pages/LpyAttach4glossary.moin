@@ -1,8 +1,7 @@
 ## page was renamed from ObpLovelyPython/LpyAttach-Glossary
 ##language:zh
 #pragma section-numbers off
-##||'''status'''|| 草稿|校对|正式 || AuthorName|| 完成度15%||
-||'''status'''|| 草稿  || Liz || 完成度 75% ||
+||'''status'''|| 草稿  || Liz || 完成度 95% ||
 
 
 [[TableOfContents]]
@@ -10,65 +9,65 @@
 ##startInc
 = Aa~Dd =
  ActivePython ::
-  * 一个由ActiveState软件公司发布的二进制Python执行版本的商业产品，但有自由使用版权的完善的Python开发应用环境。
+  * 一个由ActiveState软件公司发布的二进制Python执行版本的商业产品,但有自由使用版权的完善的Python开发应用环境.
   * CDay -5 / CDay -4 / CDay -2 / CDay 1 / CDay 3 / PCS 3
   
  Ajax ::
-  * Asynchronous JavaScript and XML，异步JavaScript和XML，是指一种创建交互式网页应用的网页开发技术。
+  * Asynchronous JavaScript and XML,异步JavaScript和XML,是指一种创建交互式网页应用的网页开发技术.
   * CDay N / KDay 3 / PCS 304 / PCS 401
  
  Apache ::
-  * 
+  * 一种开放源码的HTTP服务器,可以在大多数计算机操作系统中运行,是最流行的Web服务器端软件之一.它快速,可靠并且可通过简单的API扩展,Perl/Python等解释器可被编译到服务器中.
   * PCS 301 / PCS 304
  
  API ::
-  * 
+  * 应用程序编程接口(Application Program Interface)
   * CDay 0 / PCS 7 / PCS 203 / PCS 302 / PCS 400
   
  ASCII ::
-  *  即“美国国家标准资讯交换码”（American Standard Code forInternational Interchange）的缩写。在1970年由美国国家标准化委员会通过的编码规格，它规定了128个基础英文字符的二进制编码规则。
+  *  即“美国国家标准资讯交换码”(American Standard Code forInternational Interchange)的缩写.在1970年由美国国家标准化委员会通过的编码规格,它规定了128个基础英文字符的二进制编码规则.
   * CDay -2 / CDay -1 / PCS 5 / PCS6 / PCS 202
   
  BIG5 ::
-  * 在台湾和香港等地广为使用的计算机汉字编码方案，使用的是繁体。
+  * 在台湾和香港等地广为使用的计算机汉字编码方案,使用的是繁体.
   * CDay -1
   
  CGI ::
-  * 
+  * 公共网关接口(Common Gateway Interface)是HTTP服务器与你机器上的程序进行“交谈”的一种工具,其程序须运行在网络服务器上.
   * CDay 2 / PCS 2 / PCS 301 / PCS 303 / PCS 304 / PCS 400
   
  Cheetah ::
-  * 
+  * 一个用Python写的模板系统与代码生成工具.Cheetah提供了一门简单语言,用来定义提供基本流控制和对象访问的构造模板.
   * KDay 2 / KDay 3 / KDay 4 / KDay N / PCS 301
   
  CherryPy  ::
-  * 面向对象的web 开发平台。提供完全的基于web的应用功能编写，不用太多的底层知识。
+  * 面向对象的web 开发平台.提供完全的基于web的应用功能编写,不用太多的底层知识.
   * CDay 2 / KDay 0 / KDay 1 / KDay 4 / PCS 300 / PCS 304 /  PCS 400
  
  CLI ::
-  * 
+  * 命令行接口(Command Line Interface)
   * PCS 201
   
  CSS ::
-  * Cascading Style Sheet，级联样式单，又常称这为风格样式单Style Sheet，用来进行网页风格设计。
+  * Cascading Style Sheet,级联样式单,又常称这为风格样式单Style Sheet,用来进行网页风格设计.
   * CDay 2 / CDay N / KDay 0 / KDay 3 / KDay 4 / KDay 5 / KDay N / PCS 401
   
  DHTML  ::
-  * 动态HTML（Dynamic HTML，简称DHTML），是HTML、CSS和客户端脚本(JavaScript)的一种集成。
+  * 动态HTML(Dynamic HTML,简称DHTML),是HTML,CSS和客户端脚本(JavaScript)的一种集成.
   * KDay 0 / KDay 3 / PCS 401
   
 
 = Ee~Ii =
  Emacs ::
-  * Emacs编辑器是最受欢迎、传播范围最广、也是最强大和最灵活的UNIX文本编辑器。与其他文本编辑器的重要区别在于它是一个完备的工作环境，使用 Emacs可以完成各种日常工作。GNU Emacs是GNU开发的Emacs变体，也是最广泛使用的Emacs编辑器。更多参见: http://www.zeuux.org/science/learning-emacs.cn.html(精巧地址: http://bit.ly/1RfpLJ)
+  * Emacs编辑器是最受欢迎,传播范围最广,也是最强大和最灵活的UNIX文本编辑器.与其他文本编辑器的重要区别在于它是一个完备的工作环境,使用 Emacs可以完成各种日常工作.GNU Emacs是GNU开发的Emacs变体,也是最广泛使用的Emacs编辑器.更多参见: http://www.zeuux.org/science/learning-emacs.cn.html(精巧地址: http://bit.ly/1RfpLJ)
   * PCS 7
   
  Epydoc ::
-  * 即Easy Py Documentor的缩写，一个用于Python模块自动生成API文档的生成器。
+  * 即Easy Py Documentor的缩写,一个用于Python模块自动生成API文档的生成器.
   * CDay 0 / PCS 203
  
  Epytext ::
-  * 轻量级的标记语言，用于标记各种文档字符串，主要是在一些特定的标签上添加相关的信息，例如参数类型等等
+  * 轻量级的标记语言,用于标记各种文档字符串,主要是在一些特定的标签上添加相关的信息,例如参数类型等等
   * PCS 203
   
  FastCGI ::
@@ -76,47 +75,47 @@
   * PCS 304 / PCS 301
   
  FP ::
-  * 函式编程，是使用例如 Lisp、Scheme、Haskell、ML、OCAML、Clean、Mercury、Erlang（或其它一些）语言进行编程时所做的。函式是第一类（对象）。即，可以对“数据”进行的每样操作都可以使用函式本身做到（例如将一个函式传递给另一个函式）。
+  * 函式编程,是使用例如 Lisp,Scheme,Haskell,ML,OCAML,Clean,Mercury,Erlang(或其它一些)语言进行编程时所做的.函式是第一类(对象).即,可以对“数据”进行的每样操作都可以使用函式本身做到(例如将一个函式传递给另一个函式).
   * CDay N / KDay 4 / PCS 114
  
  FreeBSD ::
-  *
+  * 是一种先进的操作系统,支持 x86 兼容(包括 Pentium® 和 Athlon™))amd64 兼容((括 Opteron™、A,hlon™64 和 EM64T)、,ARM,IA-64,PC-98以及 UltraSPARC® 架构的计算机。Fr.eBSD 源于 BSD ──美国加州大学伯克利分校开发 UNIX® 版本它由来自世界各地的志愿者开发和维护. FreeBSD 为不同架构的计算机系统提供了不同程度的支持， 请,考 系统平台网页了解更多内容.
   * PCS 301
   
  FreeMind ::
-  * 一个支持跨平台的实用的开源思维导图/心智(MindMap)软件。
+  * 一个支持跨平台的实用的开源思维导图/心智(MindMap)软件.
   * KDay 6 / PCS 303 / PCS 403
   
  GAE ::
-  * Google App Engine，给Web开发人员提供的托管平台并且也提供了大量的API。
+  * Google App Engine,给Web开发人员提供的托管平台并且也提供了大量的API.
   * CDay N / PCS 304 / PCS 400
   
  GBK ::
-  * 一个汉字编码标准，全称《汉字内码扩展规范》(GBK)，英文名称 Chinese Internal Code Specification 。GBK 向下与 GB 2312 编码兼容，向上支持 ISO 10646.1 国际标准，是前者向后者过渡过程中的一个承上启下的标准。
+  * 一个汉字编码标准,全称《汉字内码扩展规范》(GBK),英文名称 Chinese Internal Code Specification .GBK 向下与 GB 2312 编码兼容,向上支持 ISO 10646.1 国际标准,是前者向后者过渡过程中的一个承上启下的标准.
   * CDay -1 / PCS 6
   
  GraphViz ::
-  *
+  * 一组图形绘制工具,可用于Unix或Windows系统上,还包括一个web service界面.图形绘制着重解决的是结构信息的可视化问题,它是通过把抽象的图和网络用几何的表现方式来构造出来.自动产生图形绘制在一些关键性技术中,如数据库设计,软件工程,VLSI和网络设计中都有很重要的应用.
   * CDay 0 / PCS 303
   
  Grep ::
-  * 古老实用高效的模式文本匹配工具，在所有Unix/Linux 系统中都有默认安装。http://www.gnu.org/software/grep/
+  * 古老实用高效的模式文本匹配工具,在所有Unix/Linux 系统中都有默认安装.http://www.gnu.org/software/grep/
   * CDay -2 / CDay 0 / CDay 1 / CDay 2 / CDay 3 
   
  GUI ::
-  * 是Graphical User Interface 的简称，即图形用户接口。
+  * 是Graphical User Interface 的简称,即图形用户接口.
   * CDay 2 / CDay N / PCS 217
   
  HTML ::
-  * Hyper Text Mark-up Language，超文本标记语言的缩写，用于制作网页，该语言编写出来的源码能被各浏览器解析形成网页供人们浏览。
+  * Hyper Text Mark-up Language,超文本标记语言的缩写,用于制作网页,该语言编写出来的源码能被各浏览器解析形成网页供人们浏览.
   * CDay 2 / KDay 0 / KDay 1 / KDay 2 / KDay 3 / KDay 4 / KDay 5 / KDay N / PCS 301 / PCS 303 / PCS 304 / PCS401 / PCS 402 / PCS 403
   
  iPython ::
-  * 一个Python的交互式Shell，比默认的Python Shell好用得多，功能也更强大。
+  * 一个Python的交互式Shell,比默认的Python Shell好用得多,功能也更强大.
   * CDay -5 / CDay -4 / CDay 1/ PCS 2 / PCS 103
   
  ISO9660 ::
-  * 国际上认可的CD媒体逻辑级标准，它定义了CD-ROM上文件和目录的格式。此标准允许有不同操作系统的不同计算机访问同样的数据格式。所有计算机平台将数据作为一个文件系统放在光盘。文件系统被设计成为UNIX，VAX\VMS，MS-DOS和Mac及它们的各种派生系统所公认，ISO9660意味着与不同操作系统兼容。 
+  * 国际上认可的CD媒体逻辑级标准,它定义了CD-ROM上文件和目录的格式.此标准允许有不同操作系统的不同计算机访问同样的数据格式.所有计算机平台将数据作为一个文件系统放在光盘.文件系统被设计成为UNIX,VAX\VMS,MS-DOS和Mac及它们的各种派生系统所公认,ISO9660意味着与不同操作系统兼容. 
   * CDay -1 
   
 
@@ -126,19 +125,19 @@
   * PCS 203
   
  JS ::
-  * JavaScript，是一种基于对象(Object)和事件驱动(Event Driven)并具有安全性能的脚本语言。
+  * JavaScript,是一种基于对象(Object)和事件驱动(Event Driven)并具有安全性能的脚本语言.
   * CDay N / KDay 3 / KDay 5 / KDay 6 / PCS 401
   
  Karrigell ::
-  * 纯Python实现的 Web应用开发平台。
+  * 纯Python实现的 Web应用开发平台.
   * CDay 2 / KDay 0 / KDay 1 / KDay 2 / KDay 3 / KDay 3 / KDay 4 / KDay 5 / PCS 301
  
  LaTex ::
-  * 
+  * 基于TeX的的一种比较流行的发行版本, 是一种免费的字处理软件. 
   * PCS 203
   
  Leo ::
-  * 可以作为一个通用的数据管理环境，或是一个项目管理器，或是一个提纲式的程序编辑器。
+  * 可以作为一个通用的数据管理环境,或是一个项目管理器,或是一个提纲式的程序编辑器.
   * KDay 0 / KDay 1/ Kday 2 / Kday 3 / Kday 4 / Kday 5 / PCS 302
  
  Literate Programming ::
@@ -146,7 +145,7 @@
   * PCS 302
 
  MIME ::
-  * 
+  * 多用途互联网络电子邮件格式的扩展(Multipurpose Internet Mail Extensions ), 用MIME关键字来区分文件编码格式文件种类(包括多媒体).
   * PCS 211
   
 = Oo~Yy =
@@ -155,32 +154,28 @@
   * KDay 2 / PCS 301 / PCS 304
   
  PHP ::
-  * Personal Hypertext Preprocesser，个人超文本解析语言。
+  * 个人超文本解析语言(Personal Hypertext Preprocesser)
   * CDay 2 / KDay 0 / KDay 1 / KDay 5 / KDay N / PCS 301
 
- PyDbLite ::
-  * 
-  * PCS 301
-  
  Refactoring ::
-  * 重构，即在不改变程序外在行为的前提下，对代码做出修改，改进程序内部结构的过程。
+  * 重构,即在不改变程序外在行为的前提下,对代码做出修改,改进程序内部结构的过程.
   * CDay -2 / KDay 1 / PCS 404
  
  ReStructuredText ::
-  * 一种易用的，所见即所得的文本标签语法
+  * 一种易用的,所见即所得的文本标签语法
   * PCS 203
   
  RFC ::
-  *
+  * Request For Comments, 由一系列草案组成,起始于1969年(第一个RFC文档发布于1969年 4月7日,参见“RFC30年”,RFC2555”),RFC文档是一系列关于Internet(早期为ARPANET)的技术资料汇编.这些文档详细讨论了计算机网络的方方面面,重点在网络协议,进程,程序,概念以及一些会议纪要,意见,各种观点等.
   * PCS 211
   
  Shell ::
-  * 一个命令行解释器，它的作用就是遵循一定的语法将输入的命令加以解释并传给系统。
+  * 一个命令行解释器,它的作用就是遵循一定的语法将输入的命令加以解释并传给系统.
   * CDay -5 / PCS 1 / PCS 2
   
  TisonG::
-  * 是以下E文的缩写::`There is one site named Google!`来自python-cn 列表中的俚语,专门用以回应那些没有预先探索直接就想解决极基础问题的态度不好的小白的专语;) 算是 "提问的智慧" 的最精简概述...
-  * http://wiki.woodpecker.org.cn/moin/AskForHelp(精巧地址: http://bit.ly/2JGVxM)
+  * There is one site named Google!来自python-cn 列表中的俚语,专门用以回应那些没有预先探索直接就想解决极基础问题的态度不好的小白的专语,算是 "提问的智慧" 的最精简概述...
+  * http://wiki.woodpecker.org.cn/moin/AskForHelp ( 精巧地址: http://bit.ly/2JGVxM )
   * KDay 1
  
  SCGI ::
@@ -188,31 +183,31 @@
   * PCS 301 / PCS 304
   
  Stackless Python  ::
-  * 一种不在 C 堆栈上保存状态的 Python 实现。
+  * 一种不在 C 堆栈上保存状态的 Python 实现.
   * CDay N / PCS 301 / PCS 304
  
  SQLAlchemy ::
-  *
+  * 是Python的SQL工具包和对象关系映射, 支持多种数据库，有SQLite, Postgres, MySQL, and Oracle.
   * PCS 304
  
  Tkinter ::
-  * 是Python中的一种比较流行的图形编程接口
+  * 是Python中的一种比较流行的图形编程接口.
   * CDay N / PCS 7 / PCS 217 / PCS 302
   
  Ubuntu ::
-  * 一个基于Debian的操作系统, 可自由的获得，并提供社区和专业的支持。Ubuntu 宣言: 软件应免费提供，软件工具应能以人们本地语种的形式可用且不牺牲任何功能，人们应拥有定制及改变他们软件的自由，这包括以任何他们认为适宜的方式。
+  * 一个基于Debian的操作系统, 可自由的获得,并提供社区和专业的支持.Ubuntu 宣言: 软件应免费提供,软件工具应能以人们本地语种的形式可用且不牺牲任何功能,人们应拥有定制及改变他们软件的自由,这包括以任何他们认为适宜的方式.
   * CDay -4 / CDay -1 / PCS 0 / PCS 2 / PCS 302 / PCS 304
 
  Unicode ::
-  * 一种在计算机上使用的字符编码。它为每种语言中的每个字符设定了统一并且唯一的二进制编码，以满足跨语言、跨平台进行文本转换、处理的要求。
+  * 一种在计算机上使用的字符编码.它为每种语言中的每个字符设定了统一并且唯一的二进制编码,以满足跨语言,跨平台进行文本转换,处理的要求.
   * CDay -4 / CDay -1 / PCS 6 / PCS 208 / PCS 303
   
  Wiki ::
-  * 一种网上共同协作的超文本系统，可由多人共同对网站内容进行维护和更新。
+  * 一种网上共同协作的超文本系统,可由多人共同对网站内容进行维护和更新.
   * Kday 5 / PCS 303 / PCS 304
  
  Widget ::
-  *
+  * 没有中文名的Web 2.0产物,可以是一个图像图像的部件(小插件),也可以是图形背后的一段程序,可以嵌在手机,网页和其他人机交互的界面(例如电脑桌面)上,其目的是:1)帮助用户享用各种应用程序和网络服务(Internet services),2)方便快捷；3)好玩,速度快.
   * PCS 217 / PCS 304
   
  WSGI ::
@@ -220,34 +215,34 @@
   * PCS 301 / PCS 304
   
  XML ::
-  * eXtensible Markup Language的缩写，意为可扩展的标记语言，一套定义语义标记的规则，这些标记将文档分成许多部件并对这些部件加以标识。它也是元标记语言，即定义了用于定义其他与特定领域有关的、语义的、结构化的标记语言的句法语言。
+  * eXtensible Markup Language的缩写,意为可扩展的标记语言,一套定义语义标记的规则,这些标记将文档分成许多部件并对这些部件加以标识.它也是元标记语言,即定义了用于定义其他与特定领域有关的,语义的,结构化的标记语言的句法语言.
   * CDay N / KDay 3 / KDay 5 / KDay 6 / KDay N / PCS 2 / PCS 214 / PCS 303 / PCS304 / PCS 400 / PCS 401 / PCS 402 / PCS 403
   
  XUL ::
-  * 一种XML语言，能使用包括XSLT、XPath和DOM函式在内许多已存在的标准来处理一个用户界面，XUL功能非常强大，以至于Mozilla软件的所有用户界面都是用XUL实现的。
+  * 一种XML语言,能使用包括XSLT,XPath和DOM函式在内许多已存在的标准来处理一个用户界面,XUL功能非常强大,以至于Mozilla软件的所有用户界面都是用XUL实现的.
   * CDay N
   
 
 = Zz~其它 =
 
  邮件列表 ::
-  * 一种仅仅通过邮件进行群体异步交流的服务形式,是比BBS 更加古老和有效的沟通方式。
+  * 一种仅仅通过邮件进行群体异步交流的服务形式,是比BBS 更加古老和有效的沟通方式.
   * CDay -5
   
  数据类型::
-  * 具有相同特征的数据的一种抽象概括。
+  * 具有相同特征的数据的一种抽象概括.
   * CDay -4 / PCS 101 / PCS 105 / PCS 208 / PCS 400 / PCS 402
   
  函式 ::
-  * 具体实现某个功能，由一些语句组成的代码块，一般情况下都有函式名字。
+  * 具体实现某个功能,由一些语句组成的代码块,一般情况下都有函式名字.
   * CDay -4 / CDay -3 / CDay -2 / CDay -1 / CDay 0 / CDay 1 / CDay 2 / CDay 3 / CDay N / KDay 2 / KDay 4 / KDay 5/ KDay 6 / PCS 2 / PCS 4 / PCS 7 / PCS 100 / PCS 101 / PCS 104 / PCS 105 / PCS 108 / PCS 109 / PCS 111 / PCS 112 / PCS 113 / PCS 114 / PCS 200 / PCS201 / PCS 204 / PCS205 / PCS207 / PCS209 / PCS 211 /PCS 212 / PCS 213 / PCS 214 / PCS 215 / PCS 216 / PCS 301 / PCS 302 / PCS304
   
  伪代码 ::
-  * 解决问题的方法和步骤描述，使用类似于代码的语言表述，但不是真正可执行的代码。
+  * 解决问题的方法和步骤描述,使用类似于代码的语言表述,但不是真正可执行的代码.
   * CDay -3 / PCS 302
   
  自由软件 ::
-  * 指用户运行、拷贝、研究、改进软件的自由，更准确地说，是指三种层次的自由：研究程序运行机制，并根据你自己的需要修改它的自由；重新分发拷贝，以使其他人能够共享软件的自由；改进程序，为使他人受益而散发它的自由。 
+  * 指用户运行,拷贝,研究,改进软件的自由,更准确地说,是指三种层次的自由:研究程序运行机制,并根据你自己的需要修改它的自由；重新分发拷贝,以使其他人能够共享软件的自由；改进程序,为使他人受益而散发它的自由. 
   * CDay -5 / CDay -1 / CDay 0 / KDay 1 / PCS 302 / PCS 304 / PCS 402
   
 
