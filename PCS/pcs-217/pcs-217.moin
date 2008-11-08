@@ -1,7 +1,7 @@
 ##language:zh
 #pragma section-numbers off
 
-||status|| 草稿 ||高辉; 90%||
+||status|| 草稿 ||高辉; 95%||
 
 [[TableOfContents]]
 ##startInc
@@ -76,16 +76,17 @@ app = App(root)
 root.mainloop()
 }}}
 运行程序：
-{{{#
+{{{
 ~$ python pcs-217-2.py
 }}}
 如果你按"hello"的按钮，会在控制台上打印"Welcome to the world of Python!"
+
 截图：
 
 == Geometry Manager(几何管理器) ==
 在图形设计过程，经常会涉及到一些布局的美化和合理放置，从而使用户看起来效果会更友好。为了解决这个问题，在Tkinter中引入了这样一个概念。
 
-Tk提供了几个Geometry Manager，主要是为了帮助开发者完成在布局中的widget的放置。一般Tk有三种几何管理器：Pack、Grid、Place，这里只着重介绍一下Pack管理器
+Tk提供了几个Geometry Manager，主要是为了帮助开发者完成在布局中的widget的放置。一般Tk有三种几何管理器：Pack、Grid、Place，这里只着重介绍一下Pack管理器。
 
 Pack管理器的使用方法很简单 w.pack(options)，其中，w是一个widget。常用的options有：
 {{{
@@ -99,7 +100,12 @@ Y   ： 表示只扩大子窗口的高度
 BOTH ：表示同时扩大子窗口的宽度和高度
 }}}
 值得注意的是，fill是指子窗口的大小和parcel的大小的关系。决定子窗口怎样改变自己的大小，来适应parcel的大小。
-##endInc
+
 
 == 思考 ==
-在利用Tkinter来设计图形界面时，如果不使用root()，会出现什么结果？
+1、在利用Tkinter来设计图形界面时，如果不使用root()，会出现什么结果？
+
+2、和wxPython等Python图形模块相比，Tkinter的使用有什么那些优缺？
+
+3、图形界面的异常处理于一般异常有何不同？必须考虑那些具体问题？
+##endInc
