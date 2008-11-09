@@ -1,7 +1,7 @@
 ## page was renamed from ObpLovelyPython/LpyAttach-Glossary
 ##language:zh
 #pragma section-numbers off
-||'''status'''|| 草稿  || Liz || 完成度 95% ||
+||'''status'''|| 草稿  || Liz || 完成度 100% ||
 
 
 [[TableOfContents]]
@@ -33,7 +33,7 @@
   * CDay -1
   
  CGI ::
-  * 公共网关接口(Common Gateway Interface)是HTTP服务器与你机器上的程序进行“交谈”的一种工具,其程序须运行在网络服务器上.
+  * 公共网关接口(Common Gateway Interface)是Web服务器与外部程序之间通信方式的标准.
   * CDay 2 / PCS 2 / PCS 301 / PCS 303 / PCS 304 / PCS 400
   
  Cheetah ::
@@ -59,7 +59,7 @@
 
 = Ee~Ii =
  Emacs ::
-  * Emacs编辑器是最受欢迎,传播范围最广,也是最强大和最灵活的UNIX文本编辑器.与其他文本编辑器的重要区别在于它是一个完备的工作环境,使用 Emacs可以完成各种日常工作.GNU Emacs是GNU开发的Emacs变体,也是最广泛使用的Emacs编辑器.更多参见: http://www.zeuux.org/science/learning-emacs.cn.html(精巧地址: http://bit.ly/1RfpLJ)
+  * Emacs编辑器是最受欢迎,传播范围最广,也是最强大和最灵活的UNIX文本编辑器.与其他文本编辑器的重要区别在于它是一个完备的工作环境,使用 Emacs可以完成各种日常工作.GNU Emacs是GNU开发的Emacs变体,也是最广泛使用的Emacs编辑器.
   * PCS 7
   
  Epydoc ::
@@ -71,7 +71,7 @@
   * PCS 203
   
  FastCGI ::
-  *
+  * 简单来说, FastCGI是CGI的扩展, 另一种Web服务器接口实现.
   * PCS 304 / PCS 301
   
  FP ::
@@ -79,7 +79,7 @@
   * CDay N / KDay 4 / PCS 114
  
  FreeBSD ::
-  * 是一种先进的操作系统,支持 x86 兼容(包括 Pentium® 和 Athlon™))amd64 兼容((括 Opteron™、A,hlon™64 和 EM64T)、,ARM,IA-64,PC-98以及 UltraSPARC® 架构的计算机。Fr.eBSD 源于 BSD ──美国加州大学伯克利分校开发 UNIX® 版本它由来自世界各地的志愿者开发和维护. FreeBSD 为不同架构的计算机系统提供了不同程度的支持， 请,考 系统平台网页了解更多内容.
+  * 是一种先进的操作系统,支持 x86 兼容(包括 Pentium® 和 Athlon™))amd64 兼容((括 Opteron™、A,h,on™64 和 EM64T)、),RM,IA-64,PC-98以及 UltraSPARC® 架构的计算机。Fr.eBSD 源于 BSD ──美国加州大学伯克利分校开发 UNIX® 版本它由来自世界各地的志愿者开发和维护. FreeBSD 为不同架构的计算机系统提供了不同程度的支持, 请,考 系统平台网页了解更多内容.
   * PCS 301
   
  FreeMind ::
@@ -99,7 +99,7 @@
   * CDay 0 / PCS 303
   
  Grep ::
-  * 古老实用高效的模式文本匹配工具,在所有Unix/Linux 系统中都有默认安装.http://www.gnu.org/software/grep/
+  * 古老实用高效的模式文本匹配工具,在所有Unix/Linux 系统中都有默认安装.
   * CDay -2 / CDay 0 / CDay 1 / CDay 2 / CDay 3 
   
  GUI ::
@@ -141,7 +141,7 @@
   * KDay 0 / KDay 1/ Kday 2 / Kday 3 / Kday 4 / Kday 5 / PCS 302
  
  Literate Programming ::
-  * 文学化编程
+  * 文学化编程, 指编程要像写作一样, 有完整的文档说明,可以在编写程序的同时编写相关描述说明.
   * PCS 302
 
  MIME ::
@@ -150,11 +150,11 @@
   
 = Oo~Yy =
  ORM ::
-  * 对象-关系映射
+  * 对象关系映射(Object Relational Mapping,简称ORM)模式是一种为了解决面向对象与关系数据库存在的互不匹配的现象的技术.简单的说,ORM是通过使用描述对象和数据库之间映射的元数据,将程序中的对象自动持久化到关系数据库中.
   * KDay 2 / PCS 301 / PCS 304
   
  PHP ::
-  * 个人超文本解析语言(Personal Hypertext Preprocesser)
+  * 超文本预处理器, Hypertext Preprocessor, 是一种被广泛应用的开放源代码的多用途脚本语言, 可嵌入到 HTML中, 非常适合 WEB 开发.
   * CDay 2 / KDay 0 / KDay 1 / KDay 5 / KDay N / PCS 301
 
  Refactoring ::
@@ -162,7 +162,7 @@
   * CDay -2 / KDay 1 / PCS 404
  
  ReStructuredText ::
-  * 一种易用的,所见即所得的文本标签语法
+  * 一种易用的,所见即所得的文本标签语法.
   * PCS 203
   
  RFC ::
@@ -174,12 +174,11 @@
   * CDay -5 / PCS 1 / PCS 2
   
  TisonG::
-  * There is one site named Google!来自python-cn 列表中的俚语,专门用以回应那些没有预先探索直接就想解决极基础问题的态度不好的小白的专语,算是 "提问的智慧" 的最精简概述...
-  * http://wiki.woodpecker.org.cn/moin/AskForHelp ( 精巧地址: http://bit.ly/2JGVxM )
+  * There is one site named Google!来自python-cn 列表中的俚语,专门用以回应那些没有预先探索直接就想解决极基础问题的态度不好的小白的专语,算是 "提问的智慧" 的最精简概述.
   * KDay 1
  
  SCGI ::
-  * 
+  * Simple Common Gateway Interface, 是Http服务器和Web应用的通用接口协议, 用于替代CGI协议. 它类似于FastCGI, 但它更容易实施.
   * PCS 301 / PCS 304
   
  Stackless Python  ::
@@ -187,7 +186,7 @@
   * CDay N / PCS 301 / PCS 304
  
  SQLAlchemy ::
-  * 是Python的SQL工具包和对象关系映射, 支持多种数据库，有SQLite, Postgres, MySQL, and Oracle.
+  * 是Python的SQL工具包和对象关系映射, 支持多种数据库,有SQLite, Postgres, MySQL, and Oracle.
   * PCS 304
  
  Tkinter ::
@@ -207,11 +206,11 @@
   * Kday 5 / PCS 303 / PCS 304
  
  Widget ::
-  * 没有中文名的Web 2.0产物,可以是一个图像图像的部件(小插件),也可以是图形背后的一段程序,可以嵌在手机,网页和其他人机交互的界面(例如电脑桌面)上,其目的是:1)帮助用户享用各种应用程序和网络服务(Internet services),2)方便快捷；3)好玩,速度快.
+  * 没有中文名的Web 2.0产物,可以是一个图像图像的部件(小插件),也可以是图形背后的一段程序,可以嵌在手机,网页和其他人机交互的界面(例如电脑桌面)上,其目的是:1)帮助用户享用各种应用程序和网络服务(Internet services),2)方便快捷;3)好玩,速度快.
   * PCS 217 / PCS 304
   
  WSGI ::
-  *
+  * Web Server Gateway Interface, 是Python应用程序或框架和Web服务器之间的一种接口.
   * PCS 301 / PCS 304
   
  XML ::
@@ -242,7 +241,7 @@
   * CDay -3 / PCS 302
   
  自由软件 ::
-  * 指用户运行,拷贝,研究,改进软件的自由,更准确地说,是指三种层次的自由:研究程序运行机制,并根据你自己的需要修改它的自由；重新分发拷贝,以使其他人能够共享软件的自由；改进程序,为使他人受益而散发它的自由. 
+  * 指用户运行,拷贝,研究,改进软件的自由,更准确地说,是指三种层次的自由:研究程序运行机制,并根据你自己的需要修改它的自由;重新分发拷贝,以使其他人能够共享软件的自由;改进程序,为使他人受益而散发它的自由. 
   * CDay -5 / CDay -1 / CDay 0 / KDay 1 / PCS 302 / PCS 304 / PCS 402
   
 
