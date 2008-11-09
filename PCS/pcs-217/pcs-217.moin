@@ -9,47 +9,48 @@
 = PCS217 Tkinter =
 
 == 概述 ==
-Tkinter是Python中的一种比较流行的图形编程接口。Tkinter模块("TK接口")是Python的标准Tk GUI工具包的接口。TK和Tkinter是为数不多的跨平台的脚本图形界面接口,被应用在多个系统中，如Unix、Windows和Macintosh系统。
+Tkinter是Python中的一种比较流行的图形编程接口.Tkinter模块("TK接口")是Python的标准Tk GUI工具包的接口.TK和Tkinter是为数不多的跨平台的脚本图形界面接口,被应用在多个系统中,如Unix、Windows和Macintosh系统.
 
-Tkinter包含了若干模块. Tk接口被封装在一个名为 _tkinter二进制模块里( tkinter 的早期版本). 这个模块包含了Tk的低级接口,因而它不会被程序员直接应用.它通常表现为一个共享库(或DLL文件),通过Tkinter.py来使用，但在一些版本中它与Python解释器结合在一起。
+Tkinter包含了若干模块. Tk接口被封装在一个名为 _tkinter二进制模块里( tkinter 的早期版本). 这个模块包含了Tk的低级接口,因而它不会被程序员直接应用.它通常表现为一个共享库(或DLL文件),通过Tkinter.py来使用,但在一些版本中它与Python解释器结合在一起.
 
-Tkinter中的GUI总是有一个root窗口,不管你是主动或者被动获得.主窗口就是程序开始运行的时候创建的,在主窗口中你通常是放置了你主要的部件.另外,Tkinter脚本可以依据需要创建很多独立的窗口,主要的方法就是通过创建Toplevel对象。每一个Toplevel对象都创建一个显示的窗口，不需要通过mainloop方法调用。
+Tkinter中的GUI总是有一个root窗口,不管你是主动或者被动获得.主窗口就是程序开始运行的时候创建的,在主窗口中你通常是放置了你主要的部件.另外,Tkinter脚本可以依据需要创建很多独立的窗口,主要的方法就是通过创建Toplevel对象.每一个Toplevel对象都创建一个显示的窗口,不需要通过mainloop方法调用.
 
-在Tkinter编程中应注意的问题：		
-
-在Tk接口的附加模块中,Tkinter包含了一些Python模块,保存在标准库的一个子目录里,称为 tkinter。 其中有两个重要的模块,一个是Tkinter本身,另一个叫做Tkconstants:前者自动导入后者,所以你如果使用Tkinter,仅仅导入一个模块就可以
+== 在Tkinter编程中应注意的问题 ==
+在Tk接口的附加模块中,Tkinter包含了一些Python模块,保存在标准库的一个子目录里,称为 tkinter. 其中有两个重要的模块,一个是Tkinter本身,另一个叫做Tkconstants:前者自动导入后者,所以你如果使用Tkinter,仅仅导入一个模块就可以
 {{{
-           import Tkinter
+import Tkinter
 或者
-           from Tkinter import *
+from Tkinter import *
 }}}
-那么让我们来体验一下Tkinter的图形设计的魅力吧。
+那么让我们来体验一下Tkinter的图形设计的魅力吧.
 
-下来我们就来编写一个最常见的程序“Hello，world”。
+下来我们就来编写一个最常见的程序“Hello,world”.
 {{{#!python
-#coding:utf-8
+# -*- coding: utf-8 -*-
 from Tkinter import *
 #导入Tkinter模块
 
 root = Tk()
 #创建一个root 
 w = Label(root,text = "Hello,world!")
-#w是root的子窗口，而text是w的一个选项，表示w中要显示的内容
+#w是root的子窗口,而text是w的一个选项,表示w中要显示的内容
 w.pack()
-#在pack后，计算好Label的大小，最终显示在屏幕上
+#在pack后,计算好Label的大小,最终显示在屏幕上
 root.mainloop()
-#mainloop()除里内部的widget的更新，和来自Windows Manager的通信
+#mainloop()除里内部的widget的更新,和来自Windows Manager的通信
 }}}
-运行程序：
+运行程序:
 {{{
 ~$ python pcs-217-1.py
 }}}
-截图：
+运行结果如下图所示:
+attachment:PCS217-helloworld-1.png
+图 1 hello world示例1
 
 
-当然，对于上面这样的小程序，我们可以直接将其写在一个文件里。但是对于一个较大的程序，最好将它写在一个类中，如下：
+当然,对于上面这样的小程序,我们可以直接将其写在一个文件里.但是对于一个较大的程序,最好将它写在一个类中,如下:
 {{{#!python
-#coding:utf-8
+# -*- coding: utf-8 -*-
 from Tkinter import *
 
 class App:
@@ -75,37 +76,38 @@ root = Tk()
 app = App(root)
 root.mainloop()
 }}}
-运行程序：
+运行程序:
 {{{
 ~$ python pcs-217-2.py
 }}}
-如果你按"hello"的按钮，会在控制台上打印"Welcome to the world of Python!"
+如果你按"hello"的按钮,会在控制台上打印"Welcome to the world of Python!"
 
-截图：
+运行结果如下图所示:
+attachment:PCS217-helloworld-2.png
+图 2 hello world示例2
 
 == Geometry Manager(几何管理器) ==
-在图形设计过程，经常会涉及到一些布局的美化和合理放置，从而使用户看起来效果会更友好。为了解决这个问题，在Tkinter中引入了这样一个概念。
+在图形设计过程,经常会涉及到一些布局的美化和合理放置,从而使用户看起来效果会更友好.为了解决这个问题,在Tkinter中引入了这样一个概念.
 
-Tk提供了几个Geometry Manager，主要是为了帮助开发者完成在布局中的widget的放置。一般Tk有三种几何管理器：Pack、Grid、Place，这里只着重介绍一下Pack管理器。
+Tk提供了几个Geometry Manager,主要是为了帮助开发者完成在布局中的widget的放置.一般Tk有三种几何管理器:Pack、Grid、Place,这里只着重介绍一下Pack管理器.
 
-Pack管理器的使用方法很简单 w.pack(options)，其中，w是一个widget。常用的options有：
+Pack管理器的使用方法很简单 w.pack(options),其中,w是一个widget.常用的options有:
 {{{
-side  表示把w放在那个边上，可以是TOP，BOTTOM，LEFT，RIGHT
+side  表示把w放在那个边上,可以是TOP,BOTTOM,LEFT,RIGHT
 padx和pady 表示parcel的每一个边和w之间预留的空间
-ipadx和ipady  表示w的每一个边和w内包含的内容之间的预留的空间，w会因此变大
-fill 可以是None,x,y,both。如果parcel太大了，那就会根据fill的值来增加子窗口的大小：
-None ：表示维持子窗口原来的大小
-X   ： 表示只扩大子窗口的宽度
-Y   ： 表示只扩大子窗口的高度
-BOTH ：表示同时扩大子窗口的宽度和高度
+ipadx和ipady  表示w的每一个边和w内包含的内容之间的预留的空间,w会因此变大
+fill 可以是None,x,y,both.如果parcel太大了,那就会根据fill的值来增加子窗口的大小:
+None :表示维持子窗口原来的大小
+X   : 表示只扩大子窗口的宽度
+Y   : 表示只扩大子窗口的高度
+BOTH :表示同时扩大子窗口的宽度和高度
 }}}
-值得注意的是，fill是指子窗口的大小和parcel的大小的关系。决定子窗口怎样改变自己的大小，来适应parcel的大小。
-
+值得注意的是,fill是指子窗口的大小和parcel的大小的关系.决定子窗口怎样改变自己的大小,来适应parcel的大小.
 
 == 思考 ==
-1、在利用Tkinter来设计图形界面时，如果不使用root()，会出现什么结果？
+1、在利用Tkinter来设计图形界面时,如果不使用root(),会出现什么结果？
 
-2、和wxPython等Python图形模块相比，Tkinter的使用有什么那些优缺？
+2、和wxPython等Python图形模块相比,Tkinter的使用有什么那些优缺？
 
 3、图形界面的异常处理于一般异常有何不同？必须考虑那些具体问题？
 ##endInc

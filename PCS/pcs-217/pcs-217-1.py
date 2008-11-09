@@ -1,4 +1,4 @@
-#coding:utf-8
+# -*- coding: utf-8 -*-
 from Tkinter import *
 #导入Tkinter模块
 
