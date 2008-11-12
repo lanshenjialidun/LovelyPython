@@ -1,5 +1,4 @@
 ##language:zh
-##OBP项目图书reST通用文章模板
 
 ||status|| 草稿 ||HuangYi; 100%||
 
@@ -194,8 +193,7 @@ python shell 里面对其进行试验，webob 还提供一种方法可以模拟一个简易的web请求，请
 200 OK
 Content-Length: 11
 content-type: text/plain
-Set-Cookie: name=python; Domain=example.org; expires="Thu, 25-Sep-2008 14:28:07
-GMT"; Max-Age=360; Path=/; secure
+Set-Cookie: name=python; Domain=example.org; expires="Thu, 25-Sep-2008 14:28:07 GMT"; Max-Age=360; Path=/; secure
 
 hello world
 }}}
@@ -402,7 +400,7 @@ sqlalchemy 还可以自动映射 python 对象的继承，可以实现eager loading、lazy loading
 可以直接将 Model 映射到自定义的 SQL 语句，支持n多的数据库等等等等。
 可以说 sqlalchemy 既有不输于 Hibernate 的强大功能，同时不失 Python 的简洁优雅。
 
-在这里 http://www.sqlalchemy.org/download.html (精巧地址: http://bit.ly/3iyaV0)找到最新版本的下载地址，下载解压，
+在这里 http://www.sqlalchemy.org/download.html (精巧地址: http://bit.ly/3iyaV0 )找到最新版本的下载地址，下载解压，
 然后执行 python setup.py install 进行安装。
 
 代码胜千言，sqlalchemy 到底可以做什么，直接上代码展示下 sqlalchemy 的基本功能吧：
@@ -632,14 +630,12 @@ web应用最终是要部署到成熟稳当高性能的web服务器上去的，
 不同部署方式适合不同的场景，下面给出不同部署方式的一些参考信息，
 限于篇幅，这里就不一一说明了。
 
-* 支持fastcgi的web服务器 + fastcgi : http://trac.saddi.com/flup/wiki/FlupServers
- * 精巧地址: http://bit.ly/1BTNRF
-
-* apache + mod_python :  http://www.modpython.org/
- * 精巧地址: http://bit.ly/3aVHzs
- 
-* apache + mod_wsgi :  http://code.google.com/p/modwsgi/
- * 精巧地址: http://bit.ly/3SldeH
+ * 支持fastcgi的web服务器 + fastcgi : http://trac.saddi.com/flup/wiki/FlupServers
+  * 精巧地址: http://bit.ly/1BTNRF
+ * apache + mod_python :  http://www.modpython.org/
+  * 精巧地址: http://bit.ly/3aVHzs
+ * apache + mod_wsgi :  http://code.google.com/p/modwsgi/
+  * 精巧地址: http://bit.ly/3SldeH
 
 == 小结 ==
 
@@ -652,3 +648,4 @@ session管理、用户验证和权限管理，表单生成与校验等等。
 想要更深入的学习，阅读 python 世界那些成熟框架的源代码是个不错的选择。
 
 ##endInc
+
