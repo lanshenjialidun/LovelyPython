@@ -1,5 +1,6 @@
-﻿##language:zh
-##OBP项目图书reST通用文章模板
+##language:zh
+#pragma section-numbers off
+##草稿|校对|正式
 
 ||status|| 草稿 ||HuangYi; 100%||
 
@@ -321,3 +322,4 @@ def edit_page(request, title):
 到这里，这个 wiki 就算是顺利完工了！相信大家对使用 django 进行web开发也有了基本的认识了。
 
 ##endInc
+
