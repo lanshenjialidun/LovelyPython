@@ -1,36 +1,42 @@
 ##language:zh
 #pragma section-numbers off
 ##草稿|校对|正式
-||'''status'''|| 校对 ||  ZoomQuiet|| 完成度:15%||
+||'''status'''|| 校对 ||  ZoomQuiet|| 完成度:25%||
 
 
 [[TableOfContents]]
 
 ##startInc
-= PCS304 Web应用框架纵览 =
+
+= PCS304 Python Web应用框架综论 =
 ## 一句话精述
 
- 概述::
-    简洁的介绍知识点的来由
-
-== 为啥介多框架?! ==
-
-还有人站着说话不腰痛的分析"[http://xlp223.yculblog.com/post.1634226.html 为何有如此多的python web 框架?]"
+ * Web ~ 互联网的泛称;
+ * Web应用 ~ 基于互联网的应用简称;
+ * 框架 ~ Framework,是整个或部分系统的可重用设计,表现为一组抽象构件及构件实例间交互的方法;另一种定义认为,框架是可被应用开发者定制的应用骨架;(前者是从应用方面而后者是从目的方面给出的定义)
+  * 框架是可复用的设计构件库
+  * 框架就是某种应用的半成品
+  * 框架是一个可复用设计,由一组抽象类及其实例间协作关系来表达的
+  * 框架是在一个给定的问题领域内,一个应用程序的一部分设计与实现
+  * 框架是为解决代码复用问题的一个最靠谱的尝试
+  * 框架是,,,
+ * Python Web应用框架 ~ 由Python实现的面向互联网应用开发的框架!
+  * 对于开发者,就是一堆模块和使用这些模块的文档,基于这些框架,可以快速的完成有很高品质的互联网应用系统;而不用要求开发者有多么高深的相关领域经验;
+  * 可以说,框架就是游戏里的组合技,掌握了,就立即可以从菜鸟变成高手!
+ * 不过,在Python 世界,仅仅针对互联网应用的专门框架,就有不下20种!以至有人专门研究:"[http://xlp223.yculblog.com/post.1634226.html 为何有如此多的Python Web实用框架?]"
 {{{脚注:
 访问地址:http://xlp223.yculblog.com/post.1634226.html
 精巧地址:http://tinyurl.com/6yajuo
 }}}
- * E文出处:[http://bitworking.org/news/Why_so_many_Python_web_frameworks Why so many Python web frameworks?]
+ * 原文出处:[http://bitworking.org/news/Why_so_many_Python_web_frameworks Why so many Python web frameworks?]
 {{{脚注:
 访问地址:http://bitworking.org/news/Why_so_many_Python_web_frameworks
 精巧地址:http://tinyurl.com/6kv9j3
 }}}
-
-{{{注意:
-在上述文章中,作者为了展示任何人可以通过Python快速创建自个儿的Web应用框架,
-当场使用 9个文件创建并运行了一个含有足够功能的框架!
-详细请参看本章最后的小结部分
-}}}
+在此文章中,作者为了展示任何人可以通过Python快速创建自个儿的Web应用框架,
+当场使用 8个文件(6个Python脚本,一个页面模板文件,一个服务器脚本)创建并运行了一个含有足够功能的应用框架! 
+以些来回答了'''为何有如此多的Python Web实用框架?''':
+ * 因为,`实现一个忒简单了!`
 
 === Joe Gregorio的超级框架 ===
  组成::
@@ -79,7 +85,7 @@ if __name__ == "__main__":
    if 'run' in sys.argv:
         run()
 }}}
- 1. main.cgi ~ 服务器运行脚本{{{
+  1. main.cgi ~ 服务器运行脚本{{{
 #!/usr/bin/python2.4
 import manage
 manage.run()
@@ -128,7 +134,7 @@ extensions = {
 def render(start_response, template_file, vars):
     ext = template_file.rsplit(".")
     contenttype = "text/html"
-if len(ext) > 1 and (ext[1] in extensions):
+    if len(ext) > 1 and (ext[1] in extensions):
         contenttype = extensions[ext[1]]
 
     template = kid.Template(file=os.path.join('templates', template_file), **vars)
@@ -155,7 +161,7 @@ if len(ext) > 1 and (ext[1] in extensions):
   1. 创建数据库{{{
 ~$ python manage.py create
 }}}
-  1. 初始化数据{{{
+  1. 通过交互环境,初始化数据{{{
 ~$ python
 Python 2.4.3 (#2, Apr 27 2006, 14:43:58)
 [GCC 4.0.3 (Ubuntu 4.0.3-1ubuntu5)] on linux2
@@ -173,27 +179,87 @@ Type "help", "copyright", "credits" or "license" for more information.
 Serving HTTP on 0.0.0.0 port 8080 ...
 
 }}}
-  1. 通过 cgi 在各种Web服务器中运行{{{
-#!/usr/bin/python2.4
-import manage
-manage.run()
-}}}
+   * 也可以部署前述 main.cgi 到各种Web服务器中运行发布应用
 
  能力::
-  * 通过 SQLAlchemy 进行对象化高效数据库操作的
+  * 通过 SQLAlchemy 进行高效对象化的数据库操作
    * SQLAlchemy官方网站 http://www.sqlalchemy.org/
-  * 使用 WSGI(Web 服务器网关接口)模式运行的
+  * 使用 WSGI(Web 服务器网关接口)模式运行
    * WSGI官方网站: http://www.wsgi.org/wsgi/What_is_WSGI
    * 精巧地址: http://bit.ly/3IkgU4
-  * 可对URL进行映射管理的
-  * 使用 Kid 模板系统,高效输出数据的
+  * 可对URL进行映射管理
+  * 使用 Kid 模板系统,高效输出数据
    * Kid官方网站 http://www.kid-templating.org/
    * 精巧地址: http://bit.ly/2YDxPd
-  * 全功能Web应用框架!
+
+是一个完备的,全功能Web应用框架!通过极少的配置和开发,就可以完成一个动态数据展示页面!
 
 == 现状 ==
+正是因为使用Python 能够轻易的将各种即有模块组合出一个Web应用框架来;
 
-== 由来 ==
+所以,不象其它语言世界,仅仅有唯一或是极少数Web应用框架,,,
+
+在Python 世界,有太多太多的应用框架,,,以致于大家被选择哪个所深深困惑! 即怕选择错框架,带来开发的麻烦;又怕一但选定了框架,将来享受不到其它框架更加美妙的特性,,,患得患失中,痛苦渡日;-)
+
+这里行者们根据一些使用过的框架,综合考虑各种因素,大致的给出比较靠谱的Python Web应用框架理解来,以便帮助大家面对异常丰厚的Python Web应用框架,如何保持"平常心",正确对待各种框架;
+
+=== 回顾 ===
+按照笔者接触到框架的时间顺序来排列大致是这样的:
+ 1. Zope
+ 1. Twisted
+ 1. Snakelets
+ 1. CherryPy
+ 1. Quixote
+ 1. Karrigell
+ 1. WukooPy
+ 1. web.py
+ 1. Django
+ 1. TurboGears
+ 1. Pylons
+ 1. Eurasia
+ 1. Web2py
+ 1. Uliweb
+ 
+ 这里没有给出详细的框架开发社区地址,和笔者遇到框架的详细日期和情景,只是大致的列出先后接触/了解/应用框架的顺序;以此为基础,分享一些,对于Python Web应用框架的体会:
+ * 各个框架都有鲜明的个性! 关注的问题领域各不相同;
+ * 各个框架都有明确的社区, 有专门的开发团队来维护~当然有的甚至于就是一个开发人员;
+ * 各个框架都能在不同程度上和其它框架/模块联用(这是Python 的胶水特质决定的);
+ 
+=== 分类 ===
+进一步的,根据前述"Joe Gregorio的超级框架",可以明确一个功能完备的Web应用框架,至少应该包含以下关键方面:
+ 1. 服务发布
+ 1. URL分发
+ 1. 模板支持
+ 1. 数据库处理
+
+各种框架一般前三个方面都支持的不错,根据对第4个方面的态度,那么可以大致将所有Python Web应用框架分成以下几类:
+
+ 平台性框架::
+ 这类框架,认为框架不应该依赖数据库,是关注应用的高效构建和运行平台的;Zope和Twisted属于这类,都是非常个性和深遂的框架!
+  * Zope 开发时间长,引发的影响大,甚至于有人认为:"未来互联网就是Zope";开创了一系列Web应用开发的新技术和理念,形成了宏大的社区和模块树; 但是学习曲线实在太陡,不过,过来人都说:"只要是作Web应用开发,学到底就会发现,其实一切都在Zope 中实现过了!"
+  * Twisted 也是老牌社区的作品,关注网络应用底层支持,支持几乎所有网络协议,关注企业级的网络服务构建;只是缺少立等可取的应用框架,一切都得用Twisted 去现实,是算提供了成套钻石级工具的工具箱! 
+  
+ 轻小型框架::
+ 这类框架,认为数据库不是应用的必要因素,是关注友好开发的;CherryPy/Quixote/Karrigell/web.py等等都属于这类框架,标志特性是没有内置的数据库(类似MySQL 的关系型主流数据库)支持模块;
+  * 突出的共同特色有:
+   * 配置简便
+   * 模板系统简单轻便,或是可以自由使用外部模板系统
+   * 调试相对方便,有的甚至有专门的问题回溯机制
+  
+ 一站式框架:: 
+ 这类框架,认为数据库是应用的重要因素,是可以配合数据库由自身快速独立的实现一个功能型网站!Django/TurboGears/Eurasia/UliWeb等等都属于这类框架;
+  * 突出的共同特色有:
+   * 标志特性是有ORM 数据库支持模块
+   * 有内置的事务性功能支持(比如说登录认证)
+ 
+=== 选择 ===
+
+    |  +-- 如何来理解各种框架?
+    |  +-- 框架的框架
+    |  +-- 轻型框架
+    |  +-- 一站式框架
+    |  \-- 模板系统
+    +-- 细说(按照历史顺序,选择经典框架来介绍,没有PCS独立章节的,和故事没有直接提及的)
 
 
 == 探讨 ==
@@ -279,7 +345,7 @@ Python Web应用框架纵论 ::
     +-- 细说(按照历史顺序,选择经典框架来介绍,没有PCS独立章节的,和故事没有直接提及的)
     |  +-- Zope/Plone (请潘俊勇撰写)
     |  +-- Quixote (请 阿北或是朞其它豆瓣成员 撰写)
-    |  +-- Quixote (请 阿北 撰写)
+    |  +-- Eruasia (请 沈崴 撰写)
     |  +-- Django (HY自写)
     |  \-- UliWeb (请Limodou撰写)
     +-- 选择
@@ -293,6 +359,6 @@ Python Web应用框架纵论 ::
 ----
 '''反馈'''
 
-创建 by -- ::-- ["kongove"] [[[DateTime(2008-11-08T10:16:37Z)]]]
+创建 by @USER@ [@TIME@]
 ||<^>[[PageComment2]]||<^>[:/PageCommentData:PageCommentData]''||
 
