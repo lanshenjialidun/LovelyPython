@@ -43,104 +43,104 @@
 
     轻便线程 MicroThread 可以在单线程中模拟出成百上千万 "看上去像是原生" 的线程, 且每秒可以完成百万级的调度, 正是我们想要的。Eurasia3 便是这种基于 Asynchronous IO 和 Stackless Python 轻便线程的框架, Eurasia3 隐藏了底层细节, 对用户而言 Eurasia3 看上去和传统框架其实并没有什么区别, 就像这样。
 
-{{{
-        from Eurasia.web import config, mainloop, Response
-        def controller(request):
-            response = Response(request)
-            response['Content-Type'] = 'text/plain'
-            response.write('hello world!')
-            response.close()
+{{{#!python
+from Eurasia.web import config, mainloop, Response
+def controller(request):
+    response = Response(request)
+    response['Content-Type'] = 'text/plain'
+    response.write('hello world!')
+    response.close()
 
-        config(controller=controller, port=8080)
-        mainloop()
+config(controller=controller, port=8080)
+mainloop()
 }}}
 
     Eurasia3 带有完备的 Web 开发支持, 除 Response 外还包含表单读取、文件上传、POST 报文读取等接口, 他们都简洁到可以一言以蔽之。
 
 {{{
-        表单词典       = Form(request)
-        文件句柄       = SimpleUpload(request)
-        请求头部       = request['Http-Header']
-        请求报文       = request.read(size) / request.readline(size)
+表单词典       = Form(request)
+文件句柄       = SimpleUpload(request)
+请求头部       = request['Http-Header']
+请求报文       = request.read(size) / request.readline(size)
 }}}
 
     Eurasia3 唯一需要用户自己处理的是 request.path, 即 URL。如何对待 URL, 是个见仁见智的问题, 甚至是许多框架的关键分歧。Eurasia3 采取了更为聪明灵活的策略, 不下定论, 把选择的权利交还给用户。不过这也让 Eurasia3 看上去似乎更像是一个底层框架。事实上 Eurasia3 项目已经模拟出了 CherryPy、Eurasia2 等框架, 以后无论是基于 Pylons、Quxiote 还是 Django 等框架的程序都可以运行在 Eurasia3 上, 并能在一个程序中混用多个框架。
 
     然而最让 Eurasia3 感兴趣的还是去实现一个 Plone, 于是就有了 MissileDB 数据库。在 Eurasia3 中编写数据库应用就像是这个样子。
 
-{{{
-        from shelve2 import open, Persistent, BTree
-        class User(Persistent):
-            def __init__(self, username, password):
-                self.username = username
-                self.password = password
+{{{#!python
+from shelve2 import open, Persistent, BTree
+class User(Persistent):
+    def __init__(self, username, password):
+        self.username = username
+        self.password = password
 
-            def hello(self):
-                print 'Hello Im %s, can I make friends with you?' %self.username
+    def hello(self):
+        print 'Hello Im %s, can I make friends with you?' %self.username
 
-        db = open('test.fs', 'c')
-        db['user'] = db.new(BTree)()
-        db['user']['william'] = db.new(User)('william', '******')
-        db.close()
+db = open('test.fs', 'c')
+db['user'] = db.new(BTree)()
+db['user']['william'] = db.new(User)('william', '******')
+db.close()
 
-        db = open('test.fs')
-        db['user']['william'].hello()
+db = open('test.fs')
+db['user']['william'].hello()
 }}}
 
     基于 Eurasia3 能让你的应用获得数倍乃至数十倍的性能提升。但 Eurasia3 主要还是为高并发和长连接设计的, 所以在这方面的支持要自然得多。
 
-{{{
-        # -*- coding: utf-8 -*-
-        html = '''\ # HTML 页面
-        HTTP/1.1 200 OK
-        Content-Type: text/html
+{{{#!python
+# -*- coding: utf-8 -*-
+html = '''\ # HTML 页面
+HTTP/1.1 200 OK
+Content-Type: text/html
 
-        <html>
-        <head>
-            <title>Comet Example</title>
-        </head>
-        <body>
-        <script language="JavaScript">
+<html>
+<head>
+    <title>Comet Example</title>
+</head>
+<body>
+<script language="JavaScript">
 
-        function message(msg)
-        {
-            confirm(msg);
-        };
+function message(msg)
+{
+    confirm(msg);
+};
 
-        </script>
-        <!-- 建立 Comet 长连接 -->
-        <iframe src="comet" style="display: none;"></iframe>
-        </body>
-        </html>'''
+</script>
+<!-- 建立 Comet 长连接 -->
+<iframe src="comet" style="display: none;"></iframe>
+</body>
+</html>'''
 
-        import Eurasia
-        from Eurasia.web import config, mainloop, Comet
+import Eurasia
+from Eurasia.web import config, mainloop, Comet
 
-        sleep = Eurasia.modules['time'].sleep
+sleep = Eurasia.modules['time'].sleep
 
-        def controller(request):
-            # 如果 URL 不是 Comet, 输出普通页面
-            if request.path[-5:] != 'comet':
-                request.write(html)
-                request.close()
-                return
+def controller(request):
+    # 如果 URL 不是 Comet, 输出普通页面
+    if request.path[-5:] != 'comet':
+        request.write(html)
+        request.close()
+        return
 
-            # Comet 长连接
-            browser = Comet(request)
-            browser.begin()
-            browser.message('start')
+    # Comet 长连接
+    browser = Comet(request)
+    browser.begin()
+    browser.message('start')
 
-            sleep(2)
-            for i in xrange(1, 3):
-                browser.message(i)
-                sleep(2)
+    sleep(2)
+    for i in xrange(1, 3):
+        browser.message(i)
+        sleep(2)
 
-            browser.message('finish')
-            browser.end()
+    browser.message('finish')
+    browser.end()
 
-        config(controller=controller,
-            port = 8080, verbose=True)
-        mainloop()
+config(controller=controller,
+    port = 8080, verbose=True)
+mainloop()
 }}}
 
     和多数基于事件的 Comet 实现不同, Eurasia3 可以使用原生的 Python 代码, 在任何时候远程调用浏览器上的 JavaScript 函数。
@@ -151,31 +151,31 @@
 
     这是一个伪命题, Eurasia3 并不是一种和 Django, 或者 Pylons、Zope 直接竞争的东西。它看上去要更底层一点, 更接近于 Twisted ── 其实 Eurasia3 同样可以用来开发 TCP 服务器。
 
-{{{
-        from Eurasia.web import config, mainloop
-        def echo(sockfile):
-            while True:
-                data = sockfile.readline(1024)
-                if data == 'quit':
-                    sockfile.close()
-                    break
-                else:
-                    sockfile.write(data)
+{{{#!python
+from Eurasia.web import config, mainloop
+def echo(sockfile):
+    while True:
+        data = sockfile.readline(1024)
+        if data == 'quit':
+            sockfile.close()
+            break
+        else:
+            sockfile.write(data)
 
-        config(tcphandler=echo, port=8080)
-        mainloop()
+config(tcphandler=echo, port=8080)
+mainloop()
 }}}
 
     和 Web 应用一样, 代码出奇地简单, 你看不到任何底层细节, 然而这个 echo 服务器却可以轻松支持数十万用户同时 telnet 上来。简约是 Eurasia3 的设计原则, 它试图以最简单的方式提供最强大的功能。所以 Eurasia3 并不完全像它看上去那样是一个底层框架, 尽管非常简洁, Eurasia3 实际上已经提供了足够多的功能。
 
-        * 完备的 Web 开发支持
-        * 多地址、多端口虚拟主机支持
-        * 常规请求每秒 8000 次以上的简单动态页面响应能力
-        * 数十乃至数百万的同时在线支持, 只要你有足够的内存
-        * 长连接 Comet 应用开发支持, 支持以 Python 原生代码远程调用浏览器 JavaScript
-        * 无须外部模块程序便可以无修改地运行在 FastCGI 上, Eurasia3 本身就是另一种高效的 FastCGI 框架
-        * 高性能 TCP 服务器开发支持
-        * 多核 CPU 支持
+    * 完备的 Web 开发支持
+    * 多地址、多端口虚拟主机支持
+    * 常规请求每秒 8000 次以上的简单动态页面响应能力
+    * 数十乃至数百万的同时在线支持, 只要你有足够的内存
+    * 长连接 Comet 应用开发支持, 支持以 Python 原生代码远程调用浏览器 JavaScript
+    * 无须外部模块程序便可以无修改地运行在 FastCGI 上, Eurasia3 本身就是另一种高效的 FastCGI 框架
+    * 高性能 TCP 服务器开发支持
+    * 多核 CPU 支持
 
 
 == 开始使用 Eurasia3 ==
