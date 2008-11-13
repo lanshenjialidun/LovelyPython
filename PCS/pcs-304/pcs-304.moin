@@ -34,7 +34,7 @@
 
 === Joe Gregorio的超级框架 ===
  组成::
-  1. model.py{{{#!python
+  1. model.py ~ 数据库设计模板脚本{{{#!python
 from sqlalchemy import Table, Column, String
 import dbconfig
 
@@ -45,12 +45,11 @@ entry_table = Table('entry', dbconfig.metadata,
              Column('updated', String(20), index=True)
          )
 }}}
-  1. dbconfig.py{{{#!python
+  1. dbconfig.py ~ 数据库连接配置脚本{{{#!python
 from sqlalchemy import *
-
 metadata = BoundMetaData('sqlite:///tutorial.db')
 }}}
-  1. manage.py{{{#!python
+  1. manage.py ~ 服务管理脚本{{{#!python
 import os, sys
 
 def create():
@@ -61,6 +60,8 @@ def create():
             table.create()
 
 def run():
+    '''使用WSGI模式启动服务
+    '''
     import urls
     if os.environ.get("REQUEST_METHOD", ""):
         from wsgiref.handlers import BaseCGIHandler
@@ -77,9 +78,13 @@ if __name__ == "__main__":
         create()
    if 'run' in sys.argv:
         run()
-
 }}}
-  1. view.py{{{#!python
+ 1. main.cgi ~ 服务器运行脚本{{{
+#!/usr/bin/python2.4
+import manage
+manage.run()
+}}}
+  1. urls.py ~ 基于URL的对象选择器{{{#!python
 import selector
 import view
 
@@ -89,7 +94,7 @@ urls.add('/blog/{id}/', GET=view.member_get)
 urls.add('/blog/;create_form', POST=view.create, GET=view.list)
 urls.add('/blog/{id}/;edit_form', GET=view.member_get, POST=view.member_update)
 }}}
-  1. model.py{{{#!python
+  1. view.py ~ 基于WSGI应用的多个视图{{{#!python
 import robaccia
 import model
 
@@ -111,19 +116,19 @@ def member_edit_form(environ, start_response):
 def member_update(environ, start_response):
     pass
 }}}
-  1. robaccia.py{{{#!python
+  1. robaccia.py ~ 模板处置脚本{{{#!python
 import kid
 import os
 
 extensions = {
     'html': 'text/html',
     'atom': 'application/atom+xml'
-    }
+}
 
 def render(start_response, template_file, vars):
     ext = template_file.rsplit(".")
     contenttype = "text/html"
-    if len(ext) > 1 and (ext[1] in extensions):
+if len(ext) > 1 and (ext[1] in extensions):
         contenttype = extensions[ext[1]]
 
     template = kid.Template(file=os.path.join('templates', template_file), **vars)
@@ -132,7 +137,7 @@ def render(start_response, template_file, vars):
     start_response("200 OK", [('Content-Type', contenttype)])
     return [body]
 }}}
-  1. list.html{{{
+  1. list.html ~ 页面应用模板{{{
 <?xml version="1.0" encoding="utf-8"?>
 <html xmlns:py="http://purl.org/kid/ns#>">
 <head>
