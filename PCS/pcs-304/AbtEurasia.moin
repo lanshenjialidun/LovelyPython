@@ -1,39 +1,48 @@
 ##language:zh
 #pragma section-numbers off
-||'''status'''|| 草稿|校对|正式 || 沈崴|| 完成度85%||
-
+||'''status'''|| 校对 || 沈崴 || 完成度 100% ||
 
 [[TableOfContents]]
 
 ##startInc
-= Eurasia   =
-`~ 关注高性能的原创框架`
+
+= Eurasia3 =
+`~关注高性能的原创框架`
 
 == 作者 ==
- 沈崴::
-  * 生平
-  * 职业
-  * 动机
-== 概述 ==
-     Eurasia3 高性能应用服务器, 同时也是一套简洁高效的开发框架。除此之外, Eurasia3 项目还开发了对象数据库 MissileDB 和 JavaScript 框架 NJF, 形成了一套完整的开发体系。Eurasia3 应用服务器及其组件基于 Python2.5, 基本上采用 BSD 协议开源发布, 可以用于闭源的商业应用; 也有少数组件使用自由软件的授权协议, 使用时必须遵守自由软件规范。然后, 使用 Eurasia3 是免费的。
-    下面, 作为 Eurasia3 的开发者, 我将和大家一起走进 Eurasia3 的世界, 去了解 Eurasia3 的历史、其特性, 去感受 Eurasia3 的设计思想。
 
-== 历史 ==
-=== Eurasia 项目沿革 ===
+    沈崴, 高级架构师。在 Zoom.Quiet 的胁迫下写下此文, 作为 Eurasia3 的作者, 我很高兴和大家一起走进 Eurasia3 的世界, 去了解 Eurasia3 的历史、其特性, 去感受 Eurasia3 的设计思想。
+
+== 概述 ==
+    Eurasia3 高性能应用服务器, 同时也是一套简洁高效的开发框架。除此之外, Eurasia3 项目还开发了对象数据库 MissileDB 和 JavaScript 框架 NJF, 形成了一套完整的开发体系。Eurasia3 应用服务器及其组件基于 Python2.5, 基本上采用 BSD 协议开源发布, 可以用于闭源的商业应用; 也有少数组件使用自由软件的授权协议, 使用时必须遵守自由软件规范。然后, 使用 Eurasia3 是免费的。
+
+
+== Eurasia 沿革 ==
+
     尽管 Eurasia3 的客户端框架从 1999 年就已经开始设计了, 但是 Eurasia 项目正式出现是在 2004 年。
-    当时我正致力于人工智能的研发, 现在这套程序已成功发展为国内乃至世界上最大的人工智能应用之一, 值得一提的是它完全是使用 Python 设计开发的。虽然最早我使用 Yacc/Lex 来设计人工智能描述语言, 不过后来我们的团队很快编写了上百万行的智能, 为此我必须修改程序, 将描述语言改成了 Python 的无栈实现。同时带有一整套 PyQT 编写的 IDE 开发环境。
+
+    当时我正致力于人工智能的研发, 现在这套程序已成功发展为国内乃至世界上最大的人工智能应用之一, 值得一提的是它完全是使用 Python 设计开发的。虽然最早我使用 Yacc/Lex 来设计人工智能描述语言, 不过后来我们的团队在这个基础上很快编写了上百万行的人工智能代码, 为此我必须修改程序, 将描述语言改成了 Python 的无栈实现。同时带有一整套 PyQT 编写的 IDE 开发环境。
+
     然而接下来, 怎样有效管理如此之多的逻辑数据便成了一大难题, 为此 Plone 和 Zope3 被尝试用来搭建数据平台, 管理界面也从 Tkinter 转到 Web 上来。这产生了 Eurasia 项目, 它基于 Plone/Archetypes、采用 ZODB 对象数据库。Eurasia 使用 NJF 提供 AJAX 操作界面 ── 此时 NJF 开发已近五年。
+
     随后我们使用 Plone 以 Archetypes 的开发速度很快建立起庞大的知识管理、办公系统和信息网络。此后, 我开始考虑将 Plone 用于外网。在当时, Plone 性能不佳是众所周知的事情, 故一般仅用作内部系统。这和 Zope2 的实际性能严重不符, 显然 Plone 复杂的页面用到了太多 IO, 用轻量级的界面替换即可。这样 Eurasia2 就产生了。
+
     Eurasia2 的产生非常具有戏剧性, 因为在 Eurasia2 设计好后我发现了一个几乎一模一样的东西, 那就是 TurboGears。作为一个非常讨厌重复制造轮子的人, 可以肯定的是如果先发现 TurboGears, 我绝然不会开发 Eurasia2。然而事实却是 Eurasia2 和 TurboGears 不仅理念雷同, 而且几乎是同时开始设计、同时完工, 对我来说这是一个令人震惊的巧合。
+
     Eurasia2 和 TurboGears 最大的区别是 Eurasia2 采用 Plone 作为后台数据库和管理系统, 这意味着 Eurasia2 可以直接利用 Plone 的权限和工作流, 所以相对地 TurboGears 还是造了太多轮子, Eurasia2 胜出。在 Eurasia 的基础上 Eurasia2 使用了 CherryPy 等轻量级技术, 把 Plone 从内网延伸到了外网, 在诸如招聘系统等公网项目中得到了实用。
+
     2006 年 9 月, 经过讨论, 为回馈开源社区, Eurasia 2.0.2 以 BSD 协议开源。在这一年仿佛是突然被发明出来一样 AJAX 变成了炙手可热的东西, 一下子火了。然而对 Eurasia 而言, AJAX 已是落日余晖, 我清楚地知道一个新的时代即将到来。就在 Eurasia2 发布的同时, 一个新的框架已经从构想逐渐走向现实。
+
     在技术界有些人喜欢发明概念, 比如 Comet, 而另一种人务实行动。在商人还没有来得及提出概念的时候, Eurasia3 出现了。
 
-== Eurasia3 ==
-=== 简介 ===
+== Eurasia3 简介 ==
+
     Eurasia3 作为 Eurasia2 的下一代技术最初源于一系列关于网页游戏的尝试。我试图在没有插件和 Flash 的情况下, 在浏览器上实现即时类游戏效果, 并维持数万人在线。
+
     漫游地图, 把周边玩家和怪物的行动即时反馈给你 ── 很多人认为单靠浏览器和 HTTP 协议是无法实现的, 你得用 Socket。这没错, 不过别忽略 HTTP 长连接, 事实上它就是 TCP。目前多数框架都支持长连接, 问题在于要维持数万、数十万乃至数百万人同时在线。Asynchronous 单线程循环很合适, 但到了应用层过于复杂, 故多数框架主要使用线程来维持连接状态。一万个长连接就需要一万个线程或进程, 这显得很荒谬。
+
     轻便线程 MicroThread 可以在单线程中模拟出成百上千万 "看上去像是原生" 的线程, 且每秒可以完成百万级的调度, 正是我们想要的。Eurasia3 便是这种基于 Asynchronous IO 和 Stackless Python 轻便线程的框架, Eurasia3 隐藏了底层细节, 对用户而言 Eurasia3 看上去和传统框架其实并没有什么区别, 就像这样。
+
 {{{
         from Eurasia.web import config, mainloop, Response
         def controller(request):
@@ -45,15 +54,20 @@
         config(controller=controller, port=8080)
         mainloop()
 }}}
+
     Eurasia3 带有完备的 Web 开发支持, 除 Response 外还包含表单读取、文件上传、POST 报文读取等接口, 他们都简洁到可以一言以蔽之。
+
 {{{
         表单词典       = Form(request)
         文件句柄       = SimpleUpload(request)
         请求头部       = request['Http-Header']
         请求报文       = request.read(size) / request.readline(size)
 }}}
+
     Eurasia3 唯一需要用户自己处理的是 request.path, 即 URL。如何对待 URL, 是个见仁见智的问题, 甚至是许多框架的关键分歧。Eurasia3 采取了更为聪明灵活的策略, 不下定论, 把选择的权利交还给用户。不过这也让 Eurasia3 看上去似乎更像是一个底层框架。事实上 Eurasia3 项目已经模拟出了 CherryPy、Eurasia2 等框架, 以后无论是基于 Pylons、Quxiote 还是 Django 等框架的程序都可以运行在 Eurasia3 上, 并能在一个程序中混用多个框架。
+
     然而最让 Eurasia3 感兴趣的还是去实现一个 Plone, 于是就有了 MissileDB 数据库。在 Eurasia3 中编写数据库应用就像是这个样子。
+
 {{{
         from shelve2 import open, Persistent, BTree
         class User(Persistent):
@@ -72,7 +86,9 @@
         db = open('test.fs')
         db['user']['william'].hello()
 }}}
+
     基于 Eurasia3 能让你的应用获得数倍乃至数十倍的性能提升。但 Eurasia3 主要还是为高并发和长连接设计的, 所以在这方面的支持要自然得多。
+
 {{{
         # -*- coding: utf-8 -*-
         html = '''\ # HTML 页面
@@ -126,11 +142,15 @@
             port = 8080, verbose=True)
         mainloop()
 }}}
-    和多数基于事件的 Comet 实现不同, Eurasia3 可以使用原生的 Python 代码, 在任何时候远程调用浏览器上的 JavaScript 函式。
+
+    和多数基于事件的 Comet 实现不同, Eurasia3 可以使用原生的 Python 代码, 在任何时候远程调用浏览器上的 JavaScript 函数。
+
     Eurasia3 项目的 JavaScript 库 NJF 对 Comet 提供了完善的支持。
 
-=== Eurasia3 VS Django ===
+== Eurasia3 VS Django ==
+
     这是一个伪命题, Eurasia3 并不是一种和 Django, 或者 Pylons、Zope 直接竞争的东西。它看上去要更底层一点, 更接近于 Twisted ── 其实 Eurasia3 同样可以用来开发 TCP 服务器。
+
 {{{
         from Eurasia.web import config, mainloop
         def echo(sockfile):
@@ -145,6 +165,7 @@
         config(tcphandler=echo, port=8080)
         mainloop()
 }}}
+
     和 Web 应用一样, 代码出奇地简单, 你看不到任何底层细节, 然而这个 echo 服务器却可以轻松支持数十万用户同时 telnet 上来。简约是 Eurasia3 的设计原则, 它试图以最简单的方式提供最强大的功能。所以 Eurasia3 并不完全像它看上去那样是一个底层框架, 尽管非常简洁, Eurasia3 实际上已经提供了足够多的功能。
 
         * 完备的 Web 开发支持
@@ -157,17 +178,13 @@
         * 多核 CPU 支持
 
 
-=== 开始使用 Eurasia3 ===
+== 开始使用 Eurasia3 ==
+
     Eurasia3 是跨平台的, 在类 Unix 系统上能得到最好的性能, 同时你需要 Stackless Python 2.5, 带有 greenlet 扩展的 Python 2.5 也是可以的。
-    Eurasia3 的代码托管在 http://code.google.com/p/eurasia (精巧地址: http://bit.ly/3l4HFj), 你可以在那里下载到 Eurasia3 的最新版本。
-  你可以加入 Eurasia 用户组以获得关于 Eurasia3 的最新动态和技术支持。
-   * 访问地址: https://groups.google.com/group/eurasia-users 
-   * 精巧地址: http://bit.ly/3oF8o8
 
-## 练习::
-## 可能的话
-## 设计实用练习,保证每个练习都可以扩展出去
+    Eurasia3 的代码托管在 http://code.google.com/p/eurasia , 你可以在那里下载到 Eurasia3 的最新版本。
 
+    你可以加入 Eurasia 用户组 https://groups.google.com/group/eurasia-users 以获得关于 Eurasia3 的最新动态和技术支持。
     
 ##endInc
 
