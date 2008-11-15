@@ -1,7 +1,7 @@
 ##language:zh
 #pragma section-numbers off
 
-||status|| 草稿 ||高辉; 95%||
+||status|| 草稿 ||高辉; 100%||
 
 [[TableOfContents]]
 ##startInc
@@ -44,7 +44,9 @@ root.mainloop()
 ~$ python pcs-217-1.py
 }}}
 运行结果如下图所示:
+
 attachment:PCS217-helloworld-1.png
+
 图 1 hello world示例1
 
 
@@ -83,7 +85,9 @@ root.mainloop()
 如果你按"hello"的按钮,会在控制台上打印"Welcome to the world of Python!"
 
 运行结果如下图所示:
+
 attachment:PCS217-helloworld-2.png
+
 图 2 hello world示例2
 
 == Geometry Manager(几何管理器) ==
