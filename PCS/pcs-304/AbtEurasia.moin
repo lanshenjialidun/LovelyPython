@@ -7,21 +7,21 @@
 ##startInc
 
 = Eurasia3 =
-`~关注高性能的原创框架`
+`关注高性能的原创框架`
 
 == 作者 ==
 
     沈崴, 高级架构师。在 Zoom.Quiet 的胁迫下写下此文, 作为 Eurasia3 的作者, 我很高兴和大家一起走进 Eurasia3 的世界, 去了解 Eurasia3 的历史、其特性, 去感受 Eurasia3 的设计思想。
 
 == 概述 ==
-    Eurasia3 高性能应用服务器, 同时也是一套简洁高效的开发框架。除此之外, Eurasia3 项目还开发了对象数据库 MissileDB 和 JavaScript 框架 NJF, 形成了一套完整的开发体系。Eurasia3 应用服务器及其组件基于 Python2.5, 基本上采用 BSD 协议开源发布, 可以用于闭源的商业应用; 也有少数组件使用自由软件的授权协议, 使用时必须遵守自由软件规范。然后, 使用 Eurasia3 是免费的。
+    Eurasia3 高性能应用服务器, 同时也是一套简洁高效的开发框架。除此之外, Eurasia3 项目还开发了对象数据库 MissileDB 和 JavaScript 框架 NJF, 形成了一套完整的开发体系。Eurasia3 应用服务器及其组件基于 Python2.5, 基本上采用 BSD 协议开源发布, 可以用于闭源的商业应用; 也有少数组件使用自由软件的授权协议, 使用时必须遵守自由软件规范。最后, 使用 Eurasia3 是免费的。
 
 
 == Eurasia 沿革 ==
 
     尽管 Eurasia3 的客户端框架从 1999 年就已经开始设计了, 但是 Eurasia 项目正式出现是在 2004 年。
 
-    当时我正致力于人工智能的研发, 现在这套程序已成功发展为国内乃至世界上最大的人工智能应用之一, 值得一提的是它完全是使用 Python 设计开发的。虽然最早我使用 Yacc/Lex 来设计人工智能描述语言, 不过后来我们的团队在这个基础上很快编写了上百万行的人工智能代码, 为此我必须修改程序, 将描述语言改成了 Python 的无栈实现。同时带有一整套 PyQT 编写的 IDE 开发环境。
+    当时我正致力于人工智能的研发, 现在这套程序已成功发展为国内乃至世界上最大的人工智能应用之一, 值得一提的是它完全是使用 Python 设计开发的。虽然最早我使用 Yacc/Lex 来设计人工智能描述语言, 不过后来我们的团队很快编写了上百万行的人工智能, 这使得原来的编译器不堪重负, 为此我必须修改程序, 将描述语言改成了 Python 的无栈实现。同时带有一整套 PyQT 编写的 IDE 开发环境。
 
     然而接下来, 怎样有效管理如此之多的逻辑数据便成了一大难题, 为此 Plone 和 Zope3 被尝试用来搭建数据平台, 管理界面也从 Tkinter 转到 Web 上来。这产生了 Eurasia 项目, 它基于 Plone/Archetypes、采用 ZODB 对象数据库。Eurasia 使用 NJF 提供 AJAX 操作界面 ── 此时 NJF 开发已近五年。
 
@@ -31,7 +31,7 @@
 
     Eurasia2 和 TurboGears 最大的区别是 Eurasia2 采用 Plone 作为后台数据库和管理系统, 这意味着 Eurasia2 可以直接利用 Plone 的权限和工作流, 所以相对地 TurboGears 还是造了太多轮子, Eurasia2 胜出。在 Eurasia 的基础上 Eurasia2 使用了 CherryPy 等轻量级技术, 把 Plone 从内网延伸到了外网, 在诸如招聘系统等公网项目中得到了实用。
 
-    2006 年 9 月, 经过讨论, 为回馈开源社区, Eurasia 2.0.2 以 BSD 协议开源。在这一年仿佛是突然被发明出来一样 AJAX 变成了炙手可热的东西, 一下子火了。然而对 Eurasia 而言, AJAX 已是落日余晖, 我清楚地知道一个新的时代即将到来。就在 Eurasia2 发布的同时, 一个新的框架已经从构想逐渐走向现实。
+    2006 年 9 月, 经过讨论, 为回馈开源社区, Eurasia 2.0.2 以 BSD 协议开源。在这一年仿佛是突然被发明出来一样, AJAX 变成了炙手可热的东西, 一下子火了。然而对 Eurasia 而言, AJAX 已是落日余晖, 我清楚地知道一个新的时代即将到来。就在 Eurasia2 发布的同时, 一个新的框架已经从构想逐渐走向现实。
 
     在技术界有些人喜欢发明概念, 比如 Comet, 而另一种人务实行动。在商人还没有来得及提出概念的时候, Eurasia3 出现了。
 
@@ -70,6 +70,10 @@ mainloop()
 
 {{{#!python
 from shelve2 import open, Persistent, BTree
+
+# 定义持久化对象 (Persistent) User, User 对象可以直接以对象形式保存在数据库中,
+# 不需要进行对象关系映射 (Object Relational Mapping), 这也是对象数据库的特点
+#
 class User(Persistent):
     def __init__(self, username, password):
         self.username = username
@@ -78,16 +82,17 @@ class User(Persistent):
     def hello(self):
         print 'Hello Im %s, can I make friends with you?' %self.username
 
-db = open('test.fs', 'c')
-db['user'] = db.new(BTree)()
-db['user']['william'] = db.new(User)('william', '******')
+db = open('test.fs', 'c')     # 创建并打开数据库 "test.fs"
+db['user'] = db.new(BTree)()  # 创建 BTree 结点 "user", 相当于在关系数据库中建表
+obj = db.new(User)('william', '******') # 创建一个 User 对象
+db['user']['william'] = obj   # 把 User 对象存入数据库
 db.close()
 
-db = open('test.fs')
-db['user']['william'].hello()
+db = open('test.fs')          # 重新打开数据库
+db['user']['william'].hello() # 访问数据库中的对象
 }}}
 
-    基于 Eurasia3 能让你的应用获得数倍乃至数十倍的性能提升。但 Eurasia3 主要还是为高并发和长连接设计的, 所以在这方面的支持要自然得多。
+    基于 Eurasia3 能让你的应用获得数倍乃至数十倍的性能提升。但 Eurasia3 主要还是为高并发和长连接设计的, 所以在这方面的支持要自然得多。下面这个例子将向你展示 Eurasia3 如何与浏览器建立长连接, 并且进行长连接通信的过程。
 
 {{{#!python
 # -*- coding: utf-8 -*-
@@ -102,13 +107,14 @@ Content-Type: text/html
 <body>
 <script language="JavaScript">
 
+// 待会服务器会远程调用这个函数
 function message(msg)
 {
     confirm(msg);
 };
 
 </script>
-<!-- 建立 Comet 长连接 -->
+<!-- 建立 Comet 长连接, 借助 iframe -->
 <iframe src="comet" style="display: none;"></iframe>
 </body>
 </html>'''
@@ -119,24 +125,25 @@ from Eurasia.web import config, mainloop, Comet
 sleep = Eurasia.modules['time'].sleep
 
 def controller(request):
-    # 如果 URL 不是 Comet, 输出普通页面
+    # 输出普通页面 (当 URL 不是 comet 时)
     if request.path[-5:] != 'comet':
         request.write(html)
         request.close()
         return
 
-    # Comet 长连接
     browser = Comet(request)
-    browser.begin()
-    browser.message('start')
+    browser.begin()           # 开始和客户端之间的通讯
+    browser.message('start')  # 使用原生 Python 代码直接调用浏览器端
+                              # 名为 "message" 的 JavaScript 函数
+                              # 发送消息 "start"
 
-    sleep(2)
+    sleep(2)                  # 每隔 2 秒调用一次客户端 message 函数
     for i in xrange(1, 3):
         browser.message(i)
         sleep(2)
 
     browser.message('finish')
-    browser.end()
+    browser.end()             # 断开长连接
 
 config(controller=controller,
     port = 8080, verbose=True)
@@ -145,7 +152,7 @@ mainloop()
 
     和多数基于事件的 Comet 实现不同, Eurasia3 可以使用原生的 Python 代码, 在任何时候远程调用浏览器上的 JavaScript 函数。
 
-    Eurasia3 项目的 JavaScript 库 NJF 对 Comet 提供了完善的支持。
+   Eurasia3 项目的 JavaScript 库 NJF 对 Comet 提供了完善的支持。
 
 == Eurasia3 VS Django ==
 
@@ -162,7 +169,7 @@ def echo(sockfile):
         else:
             sockfile.write(data)
 
-config(tcphandler=echo, port=8080)
+config(tcphandler=echo, port=8080) # 与前面不同, 这里使用 tcphandler
 mainloop()
 }}}
 
@@ -180,11 +187,13 @@ mainloop()
 
 == 开始使用 Eurasia3 ==
 
-    Eurasia3 是跨平台的, 在类 Unix 系统上能得到最好的性能, 同时你需要 Stackless Python 2.5, 带有 greenlet 扩展的 Python 2.5 也是可以的。
+   Eurasia3 是跨平台的, 在 Unix/Linux 系统上能得到最好的性能, 同时你需要 Stackless Python 2.5, 带有 greenlet 扩展的 Python 2.5 也是可以的。
 
-    Eurasia3 的代码托管在 http://code.google.com/p/eurasia , 你可以在那里下载到 Eurasia3 的最新版本。
+    Eurasia3 的代码托管在 http://code.google.com/p/eurasia (精巧地址: http://bit.ly/3l4HFj), 你可以在那里下载到 Eurasia3 的最新版本。
 
-    你可以加入 Eurasia 用户组 https://groups.google.com/group/eurasia-users 以获得关于 Eurasia3 的最新动态和技术支持。
+    同时, 可以加入 Eurasia 用户组以获得关于 Eurasia3 的最新动态和技术支持。
+   * Eurasia 用户组: https://groups.google.com/group/eurasia-users
+   * 精巧地址: http://bit.ly/3oF8o8
     
 ##endInc
 
