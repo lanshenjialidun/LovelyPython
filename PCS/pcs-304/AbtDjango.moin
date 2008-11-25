@@ -1,4 +1,4 @@
-##language:zh
+#language:zh
 #pragma section-numbers off
 ##草稿|校对|正式
 
@@ -11,9 +11,21 @@
 
 == 啥是 Django ==
 
-Django 是 Python 世界目前最火爆的 web 框架。它提倡将 project 分解成可重有的 app。
-并且 Django 社区有很好的编写可重用 app 的传统，存在大量开源的 app 可以直接拿来用，
-帮助你以迅雷不及掩耳之势搭建功能强大的 web 应用。
+Django 诞生于新闻网站。为了满足新闻网站快速的需求变更以及高度互动的特性，World Online 的员工Adrian Holovaty
+和 Simon Willison 创建了这样一套 web 系统，逐渐抽出一个独立的框架，并于 2005 年夏天开源了。
+从此，django 迅速成了python社区人气最旺的web框架。
+
+经过django社区3年来活跃的开发，django已经具备了丰富的功能和很好的稳定性。已经有大量各种领域的网站基于 django 建立 (http://www.djangosites.org/  精巧地址: ) ，帮助你以迅雷不及掩耳之势搭建功能强大的 web 应用。
+
+django 自称 MTV 框架，但实际上类似于传统 MVC 框架，M同样指数据模型，
+T 指的是模板（Template），用来描述数据的展现，V 指的是视图（View），实际上类似传统 MVC 框架的控制器，是业务逻辑主要存在的地方
+，并且，在 django 中可以通过 url dispatcher 对 URL 与 View 之间的映射进行配置， View 则被 url dispatcher 回调。
+
+django 最大的特点就是开发快速，同时又拥有很丰富的功能。并且 django 通过聪明的设计，可以将每一个 project 分解成相对独立的 app，
+每个 app 可以有自己的 url映射，数据模型，视图，模板等，大大提高了web代码的重用性。
+同时 django 社区有很好的编写可重用 app 的传统，小到用户注册登录的处理，大到后台管理，评论评级系统，都有现成的独立可重用的 app 可以直接使用（http://djangoplugables.com/），帮助你以迅雷不及掩耳之势搭建功能强大的 web 应用。
+
+下面就跟我一起领略 django 带来的极速 web 开发之旅吧。
 
 == 下载安装 ==
 
