@@ -1,133 +1,135 @@
 ##language:zh
 
-||status|| �ݸ� ||HuangYi; 100%||
+||status|| 草稿 ||HuangYi; 100%||
 
 [[TableOfContents]]
 
 ##startInc
-��ôС�׾�����һ������̽�� python web���������ˣ����߽������ӻ������֡�
+那么小白决定进一步深入探索 python web开发技术了，行者建议他从基础入手。
 
-���û����������������ַ����������ҵ�web����������������http����
-web���������ҵ�webӦ�ó���ִ��֮�����ѽ�����ظ��ͻ����������
+当用户在浏览器中输入网址，浏览器便找到web服务器，向它发起http请求，
+web服务器再找到web应用程序执行之，并把结果返回给客户端浏览器。
 
-��ô˵��web��������Ҫ��web���������У�һ˵��web��������ҿ��ܻ����뵽
-apache��lighttpd �ȳ����ȶ���Ч��web��������
-�����ڿ����׶������һ���򵥷���Ŀ����������������������׵��ԡ�
-�ȿ���������ϣ��ٽ����벿�𵽳����ȶ���Ч��web��������
-��ʹ��python��web�����������Ľ׶��Ƿǳ����ɵģ��ڱ��µĺ������ᵽ��
+这么说做web开发首先要有web服务器才行，一说到web服务器大家可能会联想到
+apache、lighttpd 等成熟稳定高效的web服务器，
+但是在开发阶段最好有一个简单方便的开发服务器，容易重启容易调试。
+等开发调试完毕，再将代码部署到成熟稳定高效的web服务器。
+而使用python做web开发，最后部署的阶段是非常轻松的，在本章的后面便会提到。
 
-== ���������� ==
+== 开发服务器 ==
 
-��ô python2.5 ���Դ���һ������ wsgiref ģ�飬���ṩһЩרҵ web ��������Ҫ��һЩ�������ߣ�����һ��������������
+那么 python2.5 就自带了一个叫做 wsgiref 模块，它提供一些专业 web 开发所需要的一些基础工具，比如一个开发服务器：
 
 {{{#!python
 # -*- coding: utf-8 -*-
 from wsgiref import simple_server
 
-# ����һ����� hello world �ͻ��������ļ�webӦ�ó���
+# 定义一个输出 hello world 和环境变量的简单web应用程序
 def hello_app(environ, start_response):
-    # ��� http ͷ��text/plain ��ʾ�Ǵ��ı�
+    # 输出 http 头，text/plain 表示是纯文本
     start_response('200 OK', [('Content-type','text/plain')])
-    # ׼�����������
+    # 准备输出的内容
     content = []
     content.append('Hello world')
     for key, value in environ.items():
         content.append('%s : %s' % (key, value))
-    # ��������� wsgi Э�飬���ص���Ҫ��һ��������������һ�� list �Ϳ���
+    # 输出，根据 wsgi 协议，返回的需要是一个迭代器，返回一个 list 就可以
     return ['\n'.join(content)]
 
-# ���쿪���������������ð󶨵ĵ�ַ�Ͷ˿ڣ����� hello world Ӧ�ó��򴫸���
+# 构造开发服务器对象，设置绑定的地址和端口，并把 hello world 应用程序传给他
 server = simple_server.make_server('localhost', 8080, hello_app)
-# ��������������
+# 启动开发服务器
 server.serve_forever()
 }}}
 
-�����ϴ�����utf-8���뱣���python���򣬲�������Ϊ main.py��
-Ȼ��ִ�������������󣬴��������������һ���� http://localhost:8080
-��ͷ����ַ���ɿ��� environ �����������ݡ�
+把以上代码以utf-8编码保存成python程序，不妨命名为 main.py，
+然后执行上面这个程序后，打开浏览器，随便访问一个以 http://localhost:8080
+开头的网址即可看到 environ 所包含的内容。
 
-����ǰ��֮ǰ�Ȳ���һ�����֧�֣��������webӦ��֮��ʹ�õ��� http Э�飬���涨��
-�������Ӧ�ĸ�ʽ��
+attachment:PCS304-webmodule-helloworld.png
 
-������Ҫ��������ķ����������URL������ͷ�������塣����ķ���
-http �涨���� GET��POST��PUT��DELETE��ֻ����ͨ������������web����һ��ֻ�漰
-GET �� POST ����GET �������˼�壬һ�������ӷ�������ȡ���ݣ���POST���������޸����ݣ�
-һ��ͨ���ύ html �� form �������� POST ����
-����Э�������� GET��POST ��������������� GET ����û�������壬�� POST �����У�
-����ζ�� POST �������ͨ����������web���������ʹ��������ݣ��������ϴ��ļ�����Ȼ GET ����
-Ҳ����ͨ�� URL �����Լ��������web������������Ϣ������ url?arg1=value1&arg2=value2 ��
+继续前进之前先补充一点基础知识，浏览器和web应用之间使用的是 http 协议，它规定了
+请求和响应的格式。
 
-����ͷ����һЩ���������������һЩ������Ϣ�ˣ�������롢�����ȵȡ�
+请求主要包括请求的方法、请求的URL、请求头、请求体。请求的方法
+http 规定的有 GET、POST、PUT、DELETE，只不过通过浏览器发起的web请求一般只涉及
+GET 和 POST 请求，GET 请求顾名思义，一般用来从服务器获取内容，而POST往往用来修改内容，
+一般通过提交 html 的 form 表单发起 POST 请求。
+而从协议上来看 GET、POST 请求最大的区别就是 GET 请求没有请求体，而 POST 请求有，
+这意味这 POST 请求可以通过请求体向web服务器传送大量的数据，甚至是上传文件，当然 GET 请求
+也可以通过 URL 本身以及其参数向web服务器传递信息，比如 url?arg1=value1&arg2=value2 。
 
-http ����Ӧ�ĸ�ʽ����һЩ������״̬�롢��Ӧͷ����Ӧ�壬
-״̬���ʾ������Ľ�������� 200 ��ʾ�ɹ���404��ʾ��Դû���ҵ���500��ʾ����������
-301��ʾ����Դ�Ѿ����˵�ַ���ͻ�����Ҫ��ת�ȡ�
-��Ӧͷ���������ƣ�����һЩ��Ӧ�����������ݣ�
-��Ӧ���������������ˣ��󲿷��������ҳ��� html ���롣
+请求头就是一些描述请求包本身的一些描述信息了，比如编码、包长度等。
 
-web���������յ�ԭʼ�� http ��������һ���̶ȵİ�װ�ٽ��� web Ӧ�ó���webӦ�ó�������
-����һ���ĸ�ʽ�������ݸ� web��������web������Ȼ��ͽ����ݰ�װ�� http ��Ӧ���������������
-��ô�����������һ������������������ڡ�
+http 的响应的格式更简单一些，包括状态码、响应头和响应体，
+状态码表示该请求的结果，比如 200 表示成功；404表示资源没有找到；500表示服务器错误；
+301表示该资源已经换了地址，客户端需要跳转等。
+响应头和请求类似，就是一些响应包的描述数据，
+响应体就是输出的内容了，大部分情况就是页面的 html 代码。
 
-�ܶ��˿��ܶ� cgi �Ƚ���Ϥ��cgi ����web��������webӦ�ó���֮���һ�����ϵ�Э�飬
-��cgiЭ���У�web��������http����ĸ�����Ϣ�ŵ�cgiӦ�ó���Ļ����������棬
-cgiӦ�ó�����ͨ����׼��������������Ӧͷ����Ӧ���ݸ�web��������
+web服务器接收到原始的 http 请求后进行一定程度的包装再交给 web 应用程序，web应用程序处理后
+再以一定的格式返回数据给 web服务器，web服务器然后就将数据包装成 http 响应包最后传输给浏览器。
+那么这样就完成了一个请求的整个生命周期。
 
-���������õ���������������������ǵ�Ӧ�ó���֮����ʹ�õ�Э����� wsgi��
-���� cgi ���ƣ�ͬ���ǽ�http�����װ��һ��key-value�ԣ�
-ֻ����cgiͨ��������������cgiӦ�ó��򣬶�wsgiֱ��ʹ��python���ֵ����ͨ��������ɴ��ݡ�
- * wsgi Э�����ϸ���ݿ��Բο���http://www.python.org/dev/peps/pep-0333/
- * ���ɵ�ַ��http://bit.ly/2oXpal
+很多人可能对 cgi 比较熟悉，cgi 就是web服务器与web应用程序之间的一个古老的协议，
+在cgi协议中，web服务器将http请求的各种信息放到cgi应用程序的环境变量里面，
+cgi应用程序再通过标准输出，输出它的响应头和相应内容给web服务器。
 
-�������� hello_app �������յĵ�һ������ environ ���ǰ���web������Ϣ���ֵ����
-�������web��������ľ�������ֵ��ȫ�����ݣ������б��������·����PATH_INFO����
-������ķ�����REQUEST_METHOD�����ͻ���cookie��HTTP_COOKIE�����ͻ��˵�IP��REMOTE_ADDR���ȵ���Ϣ��
+我们上面用到的这个开发服务器与我们的应用程序之间所使用的协议叫做 wsgi，
+它和 cgi 类似，同样是将http请求包装成一种key-value对，
+只不过cgi通过环境变量传给cgi应用程序，而wsgi直接使用python的字典对象，通过参数完成传递。
+ * wsgi 协议的详细内容可以参考：http://www.python.org/dev/peps/pep-0333/
+ * 精巧地址：http://bit.ly/2oXpal
 
-hello_app �ĵڶ������� start_response ��һ��������web Ӧ���������Ӧ����ǰ��Ҫ�ȵ�����
-�����״̬�����Ӧͷ��
+比如上面 hello_app 函数接收的第一个参数 environ 就是包含web请求信息的字典对象，
+上面这个web程序输出的就是这个字典的全部内容，里面有比如请求的路径（PATH_INFO），
+，请求的方法（REQUEST_METHOD），客户端cookie（HTTP_COOKIE），客户端的IP（REMOTE_ADDR）等等信息。
 
-��̬��webӦ�ó�����Ҫ���û����н����ģ���ζ��������Ҫ�õ��û������룬Ȼ��������Ӧ��
-�������ͻ����кܶ��з�ʽ�����������������Ϣ������URL�Ĳ�����POST��������ݡ�cookie��
-������ͨ�� environ ��ȡ������ environ['QUERY_STRING'] �Ϳ��Ի�ȡURL������
-�������ַ�ʽ�Ƚϵײ㣬����Ҫ�����Լ��������ʽ��
+hello_app 的第二个参数 start_response 是一个函数，web 应用在输出响应内容前需要先调用它
+来输出状态码和响应头。
 
-С��ͨ�� google �ܿ�ͷ��� python ������һЩר�ŵ�ģ��
-������������http������Ϣ�ġ�
+动态的web应用程序是要和用户进行交互的，意味着我们需要得到用户的输入，然后作出相应地
+动作。客户端有很多中方式可以向服务器传递信息，比如URL的参数、POST请求的数据、cookie，
+都可以通过 environ 获取，比如 environ['QUERY_STRING'] 就可以获取URL参数，
+不过这种方式比较底层，还需要我们自己解析其格式。
 
-== ����web�������Ӧ ==
+小白通过 google 很快就发现 python 世界有一些专门的模块
+可以用来处理http请求信息的。
 
-С�׷����м���ģ������������� web �������Ӧ��webob ��������֮һ��
+== 处理web请求和响应 ==
 
-��װ webob ֮ǰ������Ҫ�Ȱ�װ setuptools ��һ���������Ĺ��ߣ��ù��߿����Զ�Ϊ����������������Ҫ��
-�������� �����ҳ�� http://pypi.python.org/pypi/setuptools ( ���ɵ�ַ: http://bit.ly/4fXVjD )���棬��windowsƽ̨�������� .egg �ļ�
-��Ȼ���޸�Ȩ��ֱ��ִ��֮����������Դ�������ѹ��ִ�� python setup.py install ��
-windowsƽ̨���û�Ҳ����ֱ������ exe ��׺���Ŀ�ִ�а�װ�������غ�ֱ�����оͺ��ˡ�
+小白发现有几个模块可以用来处理 web 请求和响应，webob 就是其中之一。
 
-��װ�� setuptools �󣬰�װ webob �ͺܼ��ˣ���һ�������д��ڣ�ִ�� easy_install webob ��
-setuptools �ܹ��Զ��ҵ����µİ汾���Զ����ذ�װ����Ȼ������������̵߳������ٶ��е�������Ҳ
-����ֱ�ӵ� http://pypi.python.org/pypi ( ���ɵ�ַ: http://bit.ly/2CA9SG )�ѵ���Ӧ�İ����ֶ����أ�
-Ȼ���ѹ��ִ�� python setup.py install ������İ��İ�װ�������������ơ�
+安装 webob 之前我们需要先安装 setuptools ，一个包管理的工具，该工具可以自动为我们搜索并下载想要的
+软件包。 在这个页面 http://pypi.python.org/pypi/setuptools ( 精巧地址: http://bit.ly/4fXVjD )下面，非windows平台可以下载 .egg 文件
+，然后修改权限直接执行之，或者下载源码包，解压后执行 python setup.py install ，
+windows平台的用户也可以直接下载 exe 后缀名的可执行安装程序，下载后直接运行就好了。
 
-��װ��ɺ����ǿ���ֱ���� python shell ��� webob ���ṩ�Ĺ��ܽ�������:
+安装完 setuptools 后，安装 webob 就很简单了，打开一个命令行窗口，执行 easy_install webob ，
+setuptools 能够自动找到最新的版本并自动下载安装。当然，如果嫌它单线程的下载速度有点慢，你也
+可以直接到 http://pypi.python.org/pypi ( 精巧地址: http://bit.ly/2CA9SG )搜到相应的包，手动下载，
+然后加压并执行 python setup.py install ，后面的包的安装方法和这里类似。
+
+安装完成后我们可以直接在 python shell 里对 webob 所提供的功能进行试验:
 
 {{{#!python
->>> # ���� Request ����
+>>> # 导入 Request 对象
 >>> from webob import Request
 >>> environ = {}
->>> # ʹ�� Request ����װ environ �ֵ�
+>>> # 使用 Request 来包装 environ 字典
 >>> req = Request(environ)
 }}}
 
-����ʹ�÷������������ˣ�ʹ��һ�� Request ������װ environ ��Ȼ��ͨ�� Request ��������Ժͷ�����
-�� environ ���з��ʡ�����ֻ���� web �����²��ܵõ�һ����ʵ�� environ �ֵ䣬Ϊ�˷�������
-python shell �������������飬webob ���ṩһ�ַ�������ģ��һ�����׵�web�����뿴��
+基本使用方法就是这样了，使用一个 Request 类来包装 environ ，然后通过 Request 对象的属性和方法，
+对 environ 进行访问。由于只有在 web 环境下才能得到一个真实的 environ 字典，为了方便大家在
+python shell 里面对其进行试验，webob 还提供一种方法可以模拟一个简易的web请求，请看：
 
 {{{#
 >>> from webob import Request
->>> # ����һ�����׵� web ����
+>>> # 构建一个简易的 web 请求
 >>> req = Request.blank('http://localhost:8080/hello?name=python')
 >>> from pprint import pprint
->>> # �鿴�� web �����������
+>>> # 查看该 web 请求具体内容
 >>> pprint(req.environ)
 {'HTTP_HOST': 'localhost:8080',
  'PATH_INFO': '/hello',
@@ -146,7 +148,7 @@ python shell �������������飬webob ���ṩһ�ַ�������ģ��һ�����׵�web������
  'wsgi.url_scheme': 'http',
  'wsgi.version': (1, 0),
  'wsgiorg.routing_args': ((), {})}
->>> # ͨ�� Request �����Կ��Ը�����ض�����з���
+>>> # 通过 Request 的属性可以更方便地对其进行访问
 >>> req.method
 'GET'
 >>> req.host
@@ -155,40 +157,40 @@ python shell �������������飬webob ���ṩһ�ַ�������ģ��һ�����׵�web������
 '/hello'
 >>> req.query_string
 'name=python'
->>> # �������ֵ�ķ�ʽ���� GET ����
+>>> # 可以用字典的方式访问 GET 参数
 >>> req.GET['name']
 'python'
->>> # ���� POST ����Ҳ���ƣ�������Ȼ���ⲻ��һ�� POST ����
+>>> # 访问 POST 数据也类似，不过显然，这不是一个 POST 请求
 >>> req.POST
 <NoVars: Not a form request>
->>> # ��������Ҳ����ģ��һ�� POST ����
+>>> # 不过我们也可以模拟一个 POST 请求
 >>> req.method = 'POST'
->>> # �ֶ�����ģ�� POST ����������
+>>> # 手动设置模拟 POST 的请求数据
 >>> req.body = 'name=python'
->>> # ���¾Ϳ�����
+>>> # 这下就可以了
 >>> req.POST['name']
 'python'
->>> # �����Ժܷ����ȡ cookie ����
->>> # ��ģ��һ�δ�����cookie�Ŀͻ�������
+>>> # 还可以很方便获取 cookie 数据
+>>> # 先模拟一段带来的cookie的客户端请求
 >>> req.headers['Cookie'] = 'name=python'
->>> # ͬ����ͨ���ֵ�ķ�ʽ�� cookie ���з���
+>>> # 同样，通过字典的方式对 cookie 进行访问
 >>> req.cookies
 {'name': 'python'}
 }}}
 
-ͬ����webӦ�ó������Ӧ���ݣ�����״̬�룬��Ӧͷ������ cookie �ȣ�
-����ͨ�� webob �ṩ�� Response ���������а�װ��
+同样，web应用程序的响应数据，比如状态码，响应头，设置 cookie 等，
+可以通过 webob 提供的 Response 对象来进行包装：
 
 {{{#!python
 >>> from webob import Response
->>> # ����һ�� Response����
+>>> # 构造一个 Response对象
 >>> res = Response(status=200, body='hello world')
->>> # ������Ӧͷ
+>>> # 设置响应头
 >>> res.headers['content-type'] = 'text/plain'
->>> # ���� cookie
+>>> # 设置 cookie
 >>> res.set_cookie('name', 'python', max_age=360, path='/',
 ...                domain='example.org', secure=True)
->>> # ����ԭʼ�� http ��Ӧ��
+>>> # 构建原始的 http 响应包
 >>> print res
 200 OK
 Content-Length: 11
@@ -198,23 +200,23 @@ Set-Cookie: name=python; Domain=example.org; expires="Thu, 25-Sep-2008 14:28:07 
 hello world
 }}}
 
-�����˻������ܣ������԰����������ǵ� web Ӧ�ó���ɡ�
-ͨ�� webob ���������Ӧ���а�װ�����ǿ����ô���ҵ���߼��Ĵ������
-Request���󣬷��� Response �����������ǿ��Լ� hello_app �����Ĵ��룬
-��������רע��ҵ���߼���
+试完了基本功能，就试试把它加入我们的 web 应用程序吧。
+通过 webob 对请求和响应进行包装，我们可以让处理业务逻辑的代码接受
+Request对象，返回 Response 对象，这样我们可以简化 hello_app 本身的代码，
+让它更加专注于业务逻辑：
 
 {{{#!python
 # -*- coding: utf-8 -*-
 from wsgiref import simple_server
 from webob import Request, Response
 
-# ����˳��������һ�����ܣ����Ǹ����û��� URL ���洫�ݵĲ���
-# ��ʾ��Ӧ������
+# 我们顺便增加了一个功能，就是根据用户在 URL 后面传递的参数
+# 显示相应的内容
 def hello_app(request):
     content = []
-    # ��ȡ get ����Ĳ���
+    # 获取 get 请求的参数
     content.append('Hello %s'%request.GET['name'])
-    # ������� environ ����
+    # 输出所有 environ 变量
     for key, value in request.environ.items():
         content.append('%s : %s' % (key, value))
 
@@ -222,32 +224,34 @@ def hello_app(request):
     response.headers['content-type'] = 'text/plain'
     return response
 
-# ���������Ӧ���а�װ
+# 对请求和响应进行包装
 def wsgi_wrapper(environ, start_response):
     request = Request(environ)
     response = hello_app(request)
-    # response ������Ҳʵ������ wsgi ������֮��ͨѶ��Э�飬
-    # ���Կ��԰����Ǵ�����web������֮��Ľ�����
+    # response 对象本身也实现了与 wsgi 服务器之间通讯的协议，
+    # 所以可以帮我们处理与web服务器之间的交互。
     return response(environ, start_response)
 
-server = simple_server.make_server('localhost', 8080, wrapper)
+server = simple_server.make_server('localhost', 8080, wsgi_wrapper)
 server.serve_forever()
 }}}
 
-������ִ���������󣬵����Ƿ��ʵ�ַ http://localhost:8080/hello?name=python ʱ��
-�Ϳ��Կ��� hello python �ͺ������һ�� wsgi �Ļ��������ˡ�
+这样，执行这个程序后，当我们访问地址 http://localhost:8080/hello?name=python 时，
+就可以看到 hello python 和后面跟的一串 wsgi 的环境变量了。
 
-Ϊ���� wsgi_wrapper ����ͨ��һ�㣬���԰�����Ƴ�װ�������ο�PCS108��ʽһ���е�װ�������֣�
-����ʽ��
+attachment:PCS304-webmodule-hellopython.png
+
+为了让 wsgi_wrapper 更加通用一点，可以把它设计成装饰器（参考PCS108函式一节中的装饰器部分）
+的形式：
 
 {{{#!python
 # -*- coding: utf-8 -*-
 from wsgiref import simple_server
 from webob import Request, Response
 
-# д��װ������ wsgi_wrapper
+# 写成装饰器的 wsgi_wrapper
 def wsgi_wrapper(func):
-    def wrapper(environ, start_response):
+    def new_func(environ, start_response):
         request = Request(environ)
         response = func(request)
         return response(environ, start_response)
@@ -255,7 +259,7 @@ def wsgi_wrapper(func):
     new_func.__doc__ = func.__doc__
     return new_func
 
-# װ����
+# 装饰器
 @wsgi_wrapper
 def hello_app(request):
     content = []
@@ -271,36 +275,37 @@ server = simple_server.make_server('localhost', 8080, hello_app)
 server.serve_forever()
 }}}
 
-== ģ�� ==
+== 模板 ==
 
-������Ȼ����ʵ����ת�Ǹ��� web�������ֱ�ӷ�����ô�򵥵Ĵ��ı���Ϣ����Ȼ
-ajax ��ʱ�������� json��xml �������ض���ʽ���ݵ�web����ҲԽ��Խ�ࡣ
-���Ͼ����ܶ�ʱ������Ҫ����һ�� html ҳ��ģ�����һ�����ӵ� html ҳ��
-����ֱ��д��python���������̫��ª�ˣ���û�а취���԰�����ҵ�������뿪����
-��ͨ��ĳ�ַ�ʽ��������������أ�
+不过显然，现实生活转那个的 web程序很少直接返回这么简单的纯文本信息，虽然
+ajax 的时代，返回 json、xml 这样的特定格式数据的web程序也越来越多。
+但毕竟，很多时候还是需要返回一个 html 页面的，而把一个复杂的 html 页面
+代码直接写到python代码里面就太丑陋了，有没有办法可以把它和业务代码分离开来，
+再通过某种方式向其中填充内容呢？
 
-ģ����Ƕ��������Ĵ𰸡�
+模板就是对这个问题的答案。
 
-python�����ģ��������Ҫ��mako��genshi��jinja�ȡ�mako ��Ҫ�ص�����ģ������
-���ԱȽϷ����Ƕ��python���룬����ִ��Ч��һ����genshi ���ص����ڻ��� xml��
-�ǳ����׶���ģ���﷨�������Ȱ�xhtml��������˵�Ǻܺõ�ѡ��ͬʱҲ����Ƕ��python
-���룬ʵ��һЩ���ӵ�չ���߼���jinja �� genshi һ��ӵ�кܼ򵥵�ģ���﷨��ֻ�ǲ�
-������ xml �ĸ�ʽ��ͬ�����ʺ������Աֱ�ӽ���ģ���������ͬʱҲ����Ƕ��python
-����ʵ��һЩ���ӵ�չ���߼���
+python里面的模板引擎主要有mako、genshi、jinja等。mako 主要特点在于模板里面
+可以比较方便的嵌入python代码，而且执行效率一流；genshi 的特点在于基于 xml，
+非常简单易懂的模板语法，对于热爱xhtml的朋友来说是很好的选择，同时也可以嵌入python
+代码，实现一些复杂的展现逻辑；jinja 和 genshi 一样拥有很简单的模板语法，只是不
+依赖于 xml 的格式，同样很适合设计人员直接进行模板的制作，同时也可以嵌入python
+代码实现一些复杂的展现逻辑。
 
-С�׿� mako ͦ˳�۵ģ����Ǿ���������һ�ѡ�
-���Ե����� http://pypi.python.org/pypi/Mako ( ���ɵ�ַ: http://bit.ly/4wqXP6 ) �ҵ����°汾�����ص�ַ�����ؽ�ѹ��
-Ȼ��ִ�� python setup.py install �Ϳ����ˡ�
+小白看 mako 挺顺眼的，于是就钻研了它一把。
+可以到这里 http://pypi.python.org/pypi/Mako ( 精巧地址: http://bit.ly/4wqXP6 ) 找到最新版本的下载地址，下载解压，
+然后执行 python setup.py install 就可以了。
 
-����Ĵ������д��һ���򵥵� mako ģ���ļ�������ֱ�����һ�� name ����
-��ʹ�� python �� for ѭ�����Ѵ��ݸ����� data �ֵ��������䵽һ��html�б�
- * makoģ�����ϸ�﷨��ο���http://www.makotemplates.org/docs/syntax.html
- * ���ɵ�ַ��http://bit.ly/3mjkE4
+下面的代码就是写的一个简单的 mako 模板文件，里面直接输出一个 name 对象，
+并使用 python 的 for 循环来把传递给它的 data 字典的内容填充到一个html列表
+ * mako模板的详细语法请参考：http://www.makotemplates.org/docs/syntax.html
+ * 精巧地址：http://bit.ly/3mjkE4
 
 {{{
+## -*- coding: utf-8 -*-
 <html>
   <head>
-    <title>��makoģ��</title>
+    <title>简单mako模板</title>
   </head>
   <body>
     <h5>Hello ${name}!</h5>
@@ -315,30 +320,31 @@ python�����ģ��������Ҫ��mako��genshi��jinja�ȡ�mako ��Ҫ�ص�����ģ������
 </html>
 }}}
 
-Ȼ��Ҫ���ľ��Ǹ�ģ�崫��name��data����������Ⱦģ�壬Ȼ��������յ� html �����ˣ�
-���Ա�д�����������ʵ�֣�
+先把上面这些代码保存到 simple.html 文件，然后我们要做的就是给模板传递name和data两个对象，渲染模板，
+然后输出最终的 html 代码。下面三句代码可以完成这些工作：
 
 {{{#!python
 # -*- coding: utf-8 -*-
-# ����ģ�����
-from mako import Template
-# ʹ��ģ���ļ�������ģ�����
-tmpl = Template('./simple.html')
-# ����һ���򵥵��ֵ����ģ�壬��print����
+# 导入模板对象
+from mako.template import Template
+# 使用模板文件名构造模板对象
+tmpl = Template(filename='./simple.html', output_encoding='utf-8')
+# 构造一个简单的字典填充模板，并print出来
 print tmpl.render(name='python', data = {'a':1, 'b':2})
 }}}
 
-ִ�����ϳ��򣬾Ϳ��Կ���ͨ��ģ������� html �����ˡ�
-�����о�����ˣ�С�׿�ʼ���Ű������ϵ����webӦ��������
-���ʱ��С�׷��֣���Ҫ�Ķ��Ĳ�����Ҫ������ hello_app ��������ˣ�
-��Ϊҵ���߼�����������������ˣ��ڼ���ģ���ͬʱ��С�׾�������һ��СС���ع���
-�� wsgi_wrapper �����ŵ�ͨ��ģ�� utils.py��
+执行以上程序，就可以看到通过模板输出的 html 代码了。
+功能研究清楚了，小白开始试着把它整合到这个web应用中来，
+这个时候小白发现，需要改动的部分主要集中在 hello_app 这个函数了，
+因为业务逻辑都集中在这里进行了，在加入模板的同时，小白决定进行一次小小的重构，
+把 wsgi_wrapper 单独放到通用模块 utils.py：
 
 {{{#!python
+# -*- coding: utf-8 -*-
 from webob import Request
 
 def wsgi_wrapper(func):
-    def wrapper(environ, start_response):
+    def new_func(environ, start_response):
         request = Request(environ)
         response = func(request)
         return response(environ, start_response)
@@ -347,7 +353,7 @@ def wsgi_wrapper(func):
     return new_func
 }}}
 
-�� hello_app �����׶����������γɵ�����ģ�� controller.py ��
+把 hello_app 给彻底独立出来，形成单独的模块 controller.py ：
 
 {{{#!python
 # -*- coding: utf-8 -*-
@@ -355,15 +361,15 @@ from utils import wsgi_wrapper
 from webob import Response
 from mako import Template
 
-# ������ģ�幦�ܵ� hello_app
+# 整合了模板功能的 hello_app
 @wsgi_wrapper
 def hello_app(request):
-    tmpl = Template('./simple.html')
+    tmpl = Template(filename='./simple.html', output_encoding='utf-8')
     content = tmpl.render(name=request.GET['name'], data=request.environ)
     return Response(body=content)
 }}}
 
-���� main.py �ͱ�������ˣ�
+这样 main.py 就变成这样了：
 
 {{{#!python
 # -*- coding: utf-8 -*-
@@ -374,81 +380,38 @@ server = simple_server.make_server('localhost', 8080, hello_app)
 server.serve_forever()
 }}}
 
-ִ�� python main.py �������� http://localhost:8080/hello?name=python ��Ϳ��Կ���ͨ��ģ�������ҳ���ˡ�
+执行 python main.py ，并访问 http://localhost:8080/hello?name=python 你就可以看到通过模板输出的页面了。
 
-�ع�֮�󣬽ṹ��Ȼ�������˺ܶ࣬�����������������������˵�����ܸ����������
-�������������ˣ��ٺ١�
+attachment:PCS304-webmodule-template.png
 
-���������ļ� python ����������� 21 �У����ʼ������ 11 �� ;-)
+重构之后，结构当然是清晰了很多，不过对于我们这个代码量来说，可能更大的意义是
+方便我贴代码了，嘿嘿。
+
+现在三个文件 python 代码加起来是 21 行，比最开始增加了 11 行 ;-)
 
 == ORM ==
 
-��Ϊһ����̬��վ���кܶ�������Ҫ�־ô洢����ϵ���ݿ����ⷽ��ͨ�����ǲ���ѡ��
+作为一个动态网站，有很多数据需要持久存储，关系数据库在这方面通常都是不二选择。
 
-����ǰ�����쾭����С���������ⶼϰ���Ե�Ҫ�˽�һ����û���ֳɵĹ��߿���ʹ�ã�
-��С���������ʵ���β��ܼ򻯶Թ�ϵ���ݿ�Ĳ���ʱ������֣����С���Ƽ��� sqlalchemy ����⡣
+有了前面的愉快经历，小白遇到问题都习惯性地要了解一下有没有现成的工具可以使用，
+当小白向行者问道如何才能简化对关系数据库的操作时，行者郑重向小白推荐了 sqlalchemy 这个库。
 
-sqlalchemy ��һ�� ORM ������-��ϵӳ�䣩�⣬�ṩpython�������ϵ���ݿ�֮���ӳ�䣬
-Ҳ���ǳ���ֻ��Ҫ�� python ������в�����sqlalchemy �Զ�����Щ����ӳ��Ϊ
-��ϵ���ݿ�Ĳ�������ִ��֮��
-����ֱ��ʹ��python�����������ݽṹ��Ȼ�� sqlalchemy �Զ�������Ӧ�ı���
-ͨ��ʵ���� python �������������ԣ�
-sqlalchemy ���Զ�ִ�в�����߸��²�����
-������ֱ�ӵ��� python ����ķ������в�ѯ��ͨ���������й��˵ȵȡ�
+sqlalchemy 是一个 ORM （对象-关系映射）库，提供python对象与关系数据库之间的映射，
+也就是程序只需要对 python 对象进行操作，sqlalchemy 自动把这些操作映射为
+关系数据库的操作，并执行之。
+可以直接使用python代码描述数据结构，然后 sqlalchemy 自动创建对应的表，
+通过实例化 python 对象，设置其属性，
+sqlalchemy 就自动执行插入或者更新操作，
+还可以直接调用 python 对象的方法进行查询，通过参数进行过滤等等。
 
-sqlalchemy �������Զ�ӳ�� python ����ļ̳У�����ʵ��eager loading��lazy loading��
-����ֱ�ӽ� Model ӳ�䵽�Զ���� SQL ��䣬֧��n������ݿ�ȵȵȵȡ�
-����˵ sqlalchemy ���в����� Hibernate ��ǿ���ܣ�ͬʱ��ʧ Python �ļ�����š�
+sqlalchemy 还可以自动映射 python 对象的继承，可以实现eager loading、lazy loading，
+可以直接将 Model 映射到自定义的 SQL 语句，支持n多的数据库等等等等。
+可以说 sqlalchemy 既有不输于 Hibernate 的强大功能，同时不失 Python 的简洁优雅。
 
-������ http://www.sqlalchemy.org/download.html (���ɵ�ַ: http://bit.ly/3iyaV0 )�ҵ����°汾�����ص�ַ�����ؽ�ѹ��
-Ȼ��ִ�� python setup.py install ���а�װ��
+在这里 http://www.sqlalchemy.org/download.html (精巧地址: http://bit.ly/3iyaV0 )找到最新版本的下载地址，下载解压，
+然后执行 python setup.py install 进行安装。
 
-����ʤǧ�ԣ�sqlalchemy ���׿�����ʲô��ֱ���ϴ���չʾ�� sqlalchemy �Ļ������ܰɣ�
-
-{{{#!python
-# -*- coding: utf-8 -*-
-from sqlalchemy import *
-from sqlalchemy.orm import sessionmaker, scoped_session
-from sqlalchemy.ext.declarative import declarative_base
-
-# �������ݿ����棬��������ֱ��ʹ�� python2.5 �Դ������ݿ����棺sqlite��
-# ֱ���ڵ�ǰĿ¼�½�����Ϊ data.db �����ݿ�
-engine = create_engine('sqlite:///data.db')
-# sqlalchemy ���������ݿ������Ҫ��ĳ��session�����й���
-# ���� session ����ϸ��Ϣ��ο���http://www.sqlalchemy.org/docs/05/session.html
-Session = scoped_session(sessionmaker(autocommit=False, autoflush=False, bind=engine))
-Base = declarative_base()
-
-class Dictionay(Base):
-    # python �����Ӧ��ϵ���ݿ�ı���
-    __tablename__ = 't_dictionay'
-    # �����Զ�����������ֱ�Ϊ�����ݿ��ֶ������ֶ����ͣ�����ѡ��
-    key = Column('key', String(255), primary_key=True)
-    value =  Column('value', String(255))
-
-# �������ݿ�
-Base.metadata.create_all(engine)
-
-session = Session()
-for item in ['python','ruby','java']:
-    # ����һ������
-    dictionay = Dictionay(key=item, value=item.upper())
-    # ���� sqlalchemy �����ö���ӵ����ݿ�
-    session.add(dictionay)
-
-# �ύsession�������������ִ�����ݿ�Ĳ���������������¼�����ݿ�
-session.commit()
-
-# ��ѯ���ݿ���Dictionary�����Ӧ������
-for dictionay in session.query(Dictionary):
-    print dictionay.name, dictionay.value
-}}}
-
-ֱ��ִ���������Ϳ����ˣ��������ľ������ݿ��е������ˡ�
-������ֻ�Ǹ������� demo��Ϊ�˷���� sqlalchemy �������飬Ҳ����������ϵ� web Ӧ������ȥ��
-����Ҫ�ȶ����Ĵ���ṹ����һ���ع���
-
-������ȡ��һ�����õ� model.py �ļ���
+代码胜千言，sqlalchemy 到底可以做什么，直接上代码展示下 sqlalchemy 的基本功能吧：
 
 {{{#!python
 # -*- coding: utf-8 -*-
@@ -456,105 +419,157 @@ from sqlalchemy import *
 from sqlalchemy.orm import sessionmaker, scoped_session
 from sqlalchemy.ext.declarative import declarative_base
 
+# 创建数据库引擎，这里我们直接使用 python2.5 自带的数据库引擎：sqlite，
+# 直接在当前目录下建立名为 data.db 的数据库
+engine = create_engine('sqlite:///data.db')
+# sqlalchemy 中所有数据库操作都要由某个session来进行管理
+# 关于 session 的详细信息请参考：http://www.sqlalchemy.org/docs/05/session.html
+Session = scoped_session(sessionmaker(autocommit=False, autoflush=False, bind=engine))
+Base = declarative_base()
+
+class Dictionary(Base):
+    # python 对象对应关系数据库的表名
+    __tablename__ = 't_dictionary'
+    # 定义自动，参数含义分别为：数据库字段名，字段类型，其他选项
+    key = Column('key', String(255), primary_key=True)
+    value =  Column('value', String(255))
+
+# 创建数据库
+Base.metadata.create_all(engine)
+
+session = Session()
+for item in ['python','ruby','java']:
+    # 构造一个对象
+    dictionary = Dictionary(key=item, value=item.upper())
+    # 告诉 sqlalchemy ，将该对象加到数据库
+    session.add(dictionary)
+
+# 提交session，在这里才真正执行数据库的操作，添加三条记录到数据库
+session.commit()
+
+# 查询数据库中Dictionary对象对应的数据
+for dictionary in session.query(Dictionary):
+    print dictionary.key, dictionary.value
+}}}
+
+直接执行这个程序就可以了，中间会建立数据库，插入测试数据，最后输出的就是数据库中的内容了。
+不过这只是个单独的 demo，为了方便对 sqlalchemy 进行试验，也方便最后整合到 web 应用里面去，
+还需要先对它的代码结构进行一下重构。
+
+首先提取出一个公用的 model.py 文件。
+
+{{{#!python
+# -*- coding: utf-8 -*-
+from sqlalchemy import *
+from sqlalchemy.orm import sessionmaker, scoped_session
+from sqlalchemy.ext.declarative import declarative_base
+
 engine = create_engine('sqlite:///data.db')
 Session = scoped_session(sessionmaker(autocommit=False, autoflush=False, bind=engine))
 Base = declarative_base()
 
-class Dictionay(Base):
-    __tablename__ = 't_dictionay'
+class Dictionary(Base):
+    __tablename__ = 't_dictionary'
     key = Column('key', String(255), primary_key=True)
     value =  Column('value', String(255))
 }}}
 
-��Ϊ�������ݿ��Լ���ʼ���������ݵĹ���ֻ��Ҫ��һ�ξͿ����ˣ����ǰ�������ִ���ŵ�һ��
-�����ĳ�������ȥ��
+因为创建数据库以及初始化测试数据的工作只需要做一次就可以了，我们把这个部分代码放到一个
+单独的程序 createdb.py 里面去。
 
 {{{#!python
 # -*- coding: utf-8 -*-
-# ���빫�õ� model ģ��
-from model import Base, Session, Dictionary
+# 导入公用的 model 模块
+from model import Base, Session, Dictionary, engine
 
-# �������ݿ�
+# 创建数据库
 Base.metadata.create_all(engine)
 
-# �����ʼ����
+# 插入初始数据
 session = Session()
 for item in ['python','ruby','java']:
-    dictionay = Dictionay(key=item, value=item.upper())
-    session.add(dictionay)
+    dictionary = Dictionary(key=item, value=item.upper())
+    session.add(dictionary)
 
 session.commit()
 }}}
 
-���ڴ� python shell ������ models ģ�飬���� sqlalchemy ���ĵ����Ϳ������� sqlalchemy �ĸ��ֹ����ˡ�
- * sqlalchemy ���ĵ�: http://www.sqlalchemy.org/docs/
- * ���ɵ�ַ��http://bit.ly/45KMCI
-
+现在打开 python shell ，导入 models 模块，对照 sqlalchemy 的文档，就可以试验 sqlalchemy 的各种功能了。
+ * sqlalchemy 的文档: http://www.sqlalchemy.org/docs/
+ * 精巧地址：http://bit.ly/45KMCI
 
 {{{#
 >>> from model import Session, Dictionary
 >>> sess = Session()
->>> query = sess.Query(Dictionary)
+>>> query = sess.query(Dictionary)
+>>> for dictionary in query.all():
+...     print dictionary.key
+...
+python
+ruby
+java
 }}}
 
-Ȼ���ٽ��������Ҳ���Ͻ����ǵ� web �����������ɣ��޸� controller.py �ļ���
+然后再将这个功能也整合进我们的 web 程序里面来吧，修改 controller.py 文件：
 
 {{{#!python
 # -*- coding: utf-8 -*-
 from utils import wsgi_wrapper
 from webob import Response
-from mako import Template
-# ���빫�õ� model ģ��
+from mako.template import Template
+# 导入公用的 model 模块
 from model import Session, Dictionary
 
 @wsgi_wrapper
 def hello_app(request):
     session = Session()
-    # ��ѯ������ Dictionary ����
-    dictionaries = session.Query(Dictionary)
-    # Ȼ����� Dictionary ����� name��value ���԰��б�ת����һ���ֵ�
-    data = dict([(dictionary.name, dictionary.value) for dictionary in dictionaries])
+    # 查询到所有 Dictionary 对象
+    dictionaries = session.query(Dictionary)
+    # 然后根据 Dictionary 对象的 key、value 属性把列表转换成一个字典
+    data = dict([(dictionary.key, dictionary.value) for dictionary in dictionaries])
 
-    tmpl = Template('./simple.html')
+    tmpl = Template(filename='./simple.html', output_encoding='utf-8')
     content = tmpl.render(name=request.GET['name'], data=data)
     return Response(body=content)
 }}}
 
-ִ�� python main.py �������� http://localhost:8080/hello?name=python���Ϳ��Կ��������ݿ���
-ȡ�������������������ˡ�
+执行 python main.py ，并访问 http://localhost:8080/hello?name=python，就可以看到从数据库中
+取出来的三条测试数据了。
 
-== URL �ַ� ==
+attachment:PCS304-webmodule-db.png
 
-һ��webӦ�ó�������Ҫ�ṩ�ܶ���Դ��չʾ������Ӧ�Ĳ���������鿴һ���б���
-�޸�һƪ���£��ϴ�һ����Ƭ��
-��ô�ͻ���η��ʵ���ͬ�Ĺ��ܣ�webӦ�ó�������θ���
-�ͻ��˵������ṩ��ͬ�Ĺ����أ��𰸾��� URL ��
-����ͬ����Դ��Ʋ�ͬ�� URL��
-�ͻ���������� URL��webӦ�ó����ٸ����û������ URL ��λ�����幦�ܲ�ִ��֮��
+== URL 分发 ==
 
-�ṩһ���ɾ��� URL �кܶ�ô�������ɶ��ԣ�ͨ�� URL �Ϳ��Դ���˽����ṩʲô���ܣ�����
-�û����׼�סҲ����ֱ�����룻����������õ� URL һ�㶼����С����������������Ҳ
-���Ѻá�
+一个web应用程序往往要提供很多资源的展示及其相应的操作，比如查看一个列表、
+修改一篇文章，上传一副照片，
+那么客户如何访问到不同的功能，web应用程序又如何根据
+客户端的请求提供不同的功能呢？答案就是 URL 。
+给不同的资源设计不同的 URL，
+客户端请求这个 URL，web应用程序再根据用户请求的 URL 定位到具体功能并执行之。
 
-��Ȼ������ URL �Ķ�����ӳ��ͬ�����ֳɵĹ��߿���ʹ�ã�selector ������
-һ���Ƚϼ����õ�һ����
+提供一个干净的 URL 有很多好处，比如可读性，通过 URL 就可以大概了解其提供什么功能；而且
+用户容易记住也方便直接输入；另外设计良好的 URL 一般都更短小精悍，对搜索引擎也
+更友好。
 
-������ http://pypi.python.org/pypi/selector (���ɵ�ַ: http://bit.ly/3gJAOo) �ҵ����°汾�����ص�ַ�����ؽ�ѹ��
-Ȼ��ִ�� python setup.py install �Ϳ����ˡ�
+当然，处理 URL 的定义与映射同样有现成的工具可以使用，selector 是其中
+一个比较简单易用的一个。
 
-������һ�� selector ��ʾ����
+在这里 http://pypi.python.org/pypi/selector (精巧地址: http://bit.ly/3gJAOo) 找到最新版本的下载地址，下载解压，
+然后执行 python setup.py install 就可以了。
+
+先来看一个 selector 的示例：
 
 {{{#
 >>> from selector import Selector
->>> # д�������Ժ���
+>>> # 写两个测试函数
 >>> def get_app():pass
 >>> def post_app():pass
->>> # ���� URL �뺯����ӳ�䣬���ҿ��Ը��ݲ�ͬ���󷽷�ӳ�䵽��ͬ�ĺ���
->>> # ��������������һ�� blog �� URL����ͨ�������������ʶ�Ӧ�� blog �б���ͨ����������������������ϸ��Ϣ
+>>> # 配置 URL 与函数的映射，并且可以根据不同请求方法映射到不同的函数
+>>> # 这里我们配置了一个 blog 的 URL，可通过年月日来访问对应的 blog 列表，通过文章名字来访问文章详细信息
 >>> mappings = [('/hello/{name}', {'GET':get_app, 'POST':post_app})]
->>> # ����selector����
+>>> # 构建selector对象
 >>> s = Selector(mappings)
->>> # ���� URL������ӳ�䵽�ĺ������Լ���URL�н������������ݵȡ�
+>>> # 解析 URL，返回映射到的函数，以及从URL中解析出来的数据等。
 >>> s.select('/hello/Python', 'GET')
 (<function get_app at 0x00D58870>, {'name': 'Python'}, ['POST', 'GET'], '/hell
 o/Python')
@@ -563,53 +578,54 @@ o/Python')
 o/Python')
 }}}
 
-selector ����ʹ�����õĹ���ȥ���� URL �����ƥ�䣬�ٸ������󷽷��ҵ���Ӧ�ĺ�����
-URL �Ĺ�����԰���һЩ��̬�Ĳ��֣�ʹ�ô����Ž������֣���������� {name:alpha} ��
-ð��ǰ��������֣�ð�ź���Ĳ��ֶ������ʽ��ð���Լ�ð�ź���Ĳ��ֿ�ѡ�ġ�
-�����Ĺ����У�selector �Ȼ�ȡ��URL·���е���һ�Σ����ָ���˸�ʽ�����ƥ�䣬
-���ƥ��Ͱ�ƥ�䵽��������ǰ��ָ�������ִ��������
-���� URL �Ĺ����л�õ����ݴ�ŵ� environ['wsgiorg.routing_args'] �У�
-Ȼ�������Ӧ�ó���Ϳ���ʹ����Щ����������Ӧ�Ĳ�����
+selector 首先使用配置的规则去解析 URL ，如果匹配，再根据请求方法找到对应的函数，
+URL 的规则可以包含一些动态的部分，使用大括号进行区分，比如上面的 {name:alpha} ，
+冒号前面的是名字，冒号后面的部分定义其格式，冒号以及冒号后面的部分可选的。
+解析的过程中，selector 先获取到URL路径中的这一段，如果指定了格式则进行匹配，
+如果匹配就把匹配到的内容以前面指定的名字存放起来。
+解析 URL 的过程中获得的数据存放到 environ['wsgiorg.routing_args'] 中，
+然后后续的应用程序就可以使用这些参数进行相应的操作。
 
-�������Ȱ� urls �����õ����ŵ�һ���ļ��У�urls.py��
+我们首先把 urls 的配置单独放到一个文件中，urls.py：
 
 {{{#!python
+# -*- coding: utf-8 -*-
 from controller import hello_app
 mappings = [('/hello/{name}', {'GET':hello_app})]
 }}}
 
-�޸� main.py��
+修改 main.py：
 {{{#!python
 # -*- coding: utf-8 -*-
 from wsgiref import simple_server
 from urls import mappings
 from selector import Selector
 
-# ���� url �ַ���
+# 构建 url 分发器
 app = Selector(mappings)
 server = simple_server.make_server('localhost', 8080, app)
 server.serve_forever()
 }}}
 
-Ȼ���� hello_app �оͿ���ͨ�� environ['wsgiorg.routing_args'] ��ȡ�� name �����ˣ�
-������ wsgi_wrapper ��ʵ�����Խ�һ���� hello_app �Ĺ�����
-ֱ�Ӱѽ����õ��Ĳ�������������������ȥ���޸� utils.py��
+然后，在 hello_app 中就可以通过 environ['wsgiorg.routing_args'] 获取到 name 参数了，
+不过在 wsgi_wrapper 其实还可以进一步简化 hello_app 的工作：
+直接把解析得到的参数当作函数参数传过去！修改 utils.py：
 
 {{{#!python
 from webob import Request
 
 def wsgi_wrapper(func):
-    def wrapper(environ, start_response):
+    def new_func(environ, start_response):
         request = Request(environ)
-        url_args = environ.get('wsgiorg.routing_args', {})
-        response = func(request, **url_args)
+        position_args, keyword_args = environ.get('wsgiorg.routing_args', ((), {}))
+        response = func(request, *position_args, **keyword_args)
         return response(environ, start_response)
     new_func.__name__ = func.__name__
     new_func.__doc__ = func.__doc__
     return new_func
 }}}
 
-�� hello_app �Ϳ��Ըĳ������ˣ�
+那 hello_app 就可以改成这样了：
 
 {{{#!python
 ...
@@ -620,32 +636,33 @@ def hello_app(request, name=''):
     return Response(body=content)
 }}}
 
-ִ�� main.py ��Ȼ����� http://localhost:8080/hello/Python �����ɿ���Ч����
+执行 main.py ，然后访问 http://localhost:8080/hello/Python ，即可看到和上面那个相同的页面。
 
-== ���� ==
+== 部署 ==
 
-webӦ��������Ҫ���𵽳����ȵ������ܵ�web��������ȥ�ģ�
-����������� webӦ�ó����ǻ��� wsgi ����һ����׼Э��ģ�
-���Բ���ʽ��ѡ���кܶ࣬��Ϊ������� wsgi �Ĳ��𷽷��������á�
-��ͬ����ʽ�ʺϲ�ͬ�ĳ��������������ͬ����ʽ��һЩ�ο���Ϣ��
-����ƪ��������Ͳ�һһ˵���ˡ�
+web应用最终是要部署到成熟稳当高性能的web服务器上去的，
+由于我们这个 web应用程序是基于 wsgi 这样一个标准协议的，
+所以部署方式的选择有很多，因为所有针对 wsgi 的部署方法都可以用。
+不同部署方式适合不同的场景，下面给出不同部署方式的一些参考信息，
+限于篇幅，这里就不一一说明了。
 
- * ֧��fastcgi��web������ + fastcgi : http://trac.saddi.com/flup/wiki/FlupServers
-  * ���ɵ�ַ: http://bit.ly/1BTNRF
+ * 支持fastcgi的web服务器 + fastcgi : http://trac.saddi.com/flup/wiki/FlupServers
+  * 精巧地址: http://bit.ly/1BTNRF
  * apache + mod_python :  http://www.modpython.org/
-  * ���ɵ�ַ: http://bit.ly/3aVHzs
+  * 精巧地址: http://bit.ly/3aVHzs
  * apache + mod_wsgi :  http://code.google.com/p/modwsgi/
-  * ���ɵ�ַ: http://bit.ly/3SldeH
+  * 精巧地址: http://bit.ly/3SldeH
 
-== С�� ==
+== 小结 ==
 
-������ģ�����ˣ����ڻع�ͷ����һ�£�����������һ��ʲô���ĳ����أ�С�ײ������������ⲻ��...������...��˵�е�...��ܣ�����
+终于像模像样了，现在回过头来看一下，究竟整出来一个什么样的程序呢？小白不禁惊呼：“这不是...不就是...传说中的...框架？！”
 
-��Ȼ���������ܻ�ֻ���������һЩ���ܣ�����һ�����������˵���ٻ��л��桢
-session�������û���֤��Ȩ�޹���������������У��ȵȡ�
-��Ȼ����һ���ɹ��ҳ���Ŀ�ܲ���һ�����׵����飬����ֻ��С�׶� python web ������һ�����̽����
-��Щ����ֻ��һ�� demo��ϣ���Դ����������ܾ��������������һ���Ĳο���ֵ��
-��Ҫ�������ѧϰ���Ķ� python ������Щ�����ܵ�Դ�����Ǹ�������ѡ��
+当然我们这个框架还只有最基本的一些功能，对于一个完整框架来说至少还有缓存、
+session管理、用户验证和权限管理，表单生成与校验等等。
+当然创建一个成功且成熟的框架不是一件容易的事情，本文只是小白对 python web 开发的一个深度探索，
+这些代码只是一个 demo，希望对大家理解成熟框架究竟是如何做的有一定的参考价值。
+想要更深入的学习，阅读 python 世界那些成熟框架的源代码是个不错的选择。
 
 ##endInc
+
 
