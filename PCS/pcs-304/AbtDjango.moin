@@ -343,13 +343,14 @@ def edit_page(request, title):
 尤其值得注意的一点是，这个表单已经拥有了输入验证的能力，比如如果“创建者Email”字段格式不正确，
 会有相应的错误提示，并让用户重新输入。
 
-attachment:PCS304_django_wiki_createpage.png
-
-attachment:PCS304_django_wiki_createsuccess.png
-
-需要注意的是，创建者Email 这一个字段，django 会自动验证其格式是否正确，否则会提示用户相应的错误信息。
  * 更多表单处理的介绍：http://docs.djangoproject.com/en/dev/topics/forms/#topics-forms-index 
  * 精巧地址: http://bit.ly/4FjXrA
+
+attachment:PCS304_django_wiki_createpage.png
+
+填写一个合法的Email地址，提交成功后，便跳转到刚才创建的这个页面：
+
+attachment:PCS304_django_wiki_createsuccess.png
 
 到这里，这个 wiki 就算是顺利完工了！相信大家对使用 django 进行web开发也有了基本的认识了。
 
