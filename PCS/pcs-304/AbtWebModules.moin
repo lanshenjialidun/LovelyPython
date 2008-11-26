@@ -259,7 +259,7 @@ def wsgi_wrapper(func):
     new_func.__doc__ = func.__doc__
     return new_func
 
-# 装饰器
+# 应用程序
 @wsgi_wrapper
 def hello_app(request):
     content = []
@@ -275,9 +275,11 @@ server = simple_server.make_server('localhost', 8080, hello_app)
 server.serve_forever()
 }}}
 
+其功能和前面的程序完全等价。
+
 == 模板 ==
 
-不过显然，现实生活转那个的 web程序很少直接返回这么简单的纯文本信息，虽然
+不过显然，现实生活中的web程序很少像这个一样直接返回这么简单的纯文本信息，虽然
 ajax 的时代，返回 json、xml 这样的特定格式数据的web程序也越来越多。
 但毕竟，很多时候还是需要返回一个 html 页面的，而把一个复杂的 html 页面
 代码直接写到python代码里面就太丑陋了，有没有办法可以把它和业务代码分离开来，
@@ -333,7 +335,28 @@ tmpl = Template(filename='./simple.html', output_encoding='utf-8')
 print tmpl.render(name='python', data = {'a':1, 'b':2})
 }}}
 
-执行以上程序，就可以看到通过模板输出的 html 代码了。
+保存成 test_template.py，并执行这个程序，就可以看到通过模板输出的 html 代码了。
+
+{{{
+$ python test_template.py 
+<html>
+  <head>
+    <title>简单mako模板</title>
+  </head>
+  <body>
+    <h5>Hello python!</h5>
+    <ul>
+      <li>
+        a - 1
+      <li>
+      <li>
+        b - 2
+      <li>
+    </ul>
+  </body>
+</html>
+}}}
+
 功能研究清楚了，小白开始试着把它整合到这个web应用中来，
 这个时候小白发现，需要改动的部分主要集中在 hello_app 这个函数了，
 因为业务逻辑都集中在这里进行了，在加入模板的同时，小白决定进行一次小小的重构，
