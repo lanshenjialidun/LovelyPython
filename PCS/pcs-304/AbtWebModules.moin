@@ -124,7 +124,7 @@ setuptools 能够自动找到最新的版本并自动下载安装。当然，如
 对 environ 进行访问。由于只有在 web 环境下才能得到一个真实的 environ 字典，为了方便大家在
 python shell 里面对其进行试验，webob 还提供一种方法可以模拟一个简易的web请求，请看：
 
-{{{#
+{{{#!python
 >>> from webob import Request
 >>> # 构建一个简易的 web 请求
 >>> req = Request.blank('http://localhost:8080/hello?name=python')
