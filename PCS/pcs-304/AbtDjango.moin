@@ -21,11 +21,15 @@ django 自称 MTV 框架，但实际上基本概念跟传统的 MVC 框架大同
 T 指的是模板（Template），用来描述数据的展现，V 指的是视图（View），实际上类似传统 MVC 框架的控制器，是业务逻辑主要存在的地方
 ，并且，在 django 中可以通过URL分发器对 URL 与 View 之间的映射进行配置， 而 View 则被 URL分发器回调。
 
+对于 django 程序来说，一个请求的生命周期大概如下图所示：
+
+attachment:PCS304_django_figure_process.png
+
 django 最大的特点就是快速开发，同时又拥有很丰富的功能。并且 django 通过聪明的设计，可以将每一个 project 分解成相对独立的 app，
 每个 app 可以有自己的 url映射，数据模型，视图，模板等，大大提高了web代码的重用性。
 同时 django 社区有很好的编写可重用 app 的传统，小到用户注册登录的处理，大到后台管理，评论评级系统等，
 都有现成的独立可重用的 app 可以直接使用（http://djangoplugables.com/ ），
-帮助你以迅雷不及掩耳之势搭建功能强大的 web 应用。
+帮助你以迅雷不及掩耳之势搭建功能强大的 web 应用。不过本节处于学习的目的，只使用 django 自带的东西。
 
 下面就跟我一起领略 django 带来的极速 web 开发之旅吧。
 
@@ -300,8 +304,8 @@ def edit_page(request, title):
             # 如果不存在该页面，则应该创建该页面
             action = u'创建'
             form = WikiPageForm(request.POST)
-            # 否则应该编辑
         else:
+            # 否则应该编辑
             form = WikiPageForm(request.POST, instance=page)
         if form.errors:
             # 表单验证失败，需要提示用户错误信息，并让用户重新输入内容
@@ -352,6 +356,12 @@ attachment:PCS304_django_wiki_createpage.png
 
 attachment:PCS304_django_wiki_createsuccess.png
 
-到这里，这个 wiki 就算是顺利完工了！相信大家对使用 django 进行web开发也有了基本的认识了。
+到这里，这个 wiki 就算是顺利完工了！
+
+== 小结 ==
+
+本节内容向大家展示了 django 的快速开发，当然在 python 的世界里 django 算不上是上手最快的框架，
+但考虑到我们的应用程序中提供的丰富的成熟的功能（后台管理，表单验证等），这个开发速度已经是相当不错了。
+而且我们得到的是一个简洁清晰，容易扩充的代码。所以，还等什么，使用 django 开始构建自己的 web 应用吧。
 
 ##endInc
