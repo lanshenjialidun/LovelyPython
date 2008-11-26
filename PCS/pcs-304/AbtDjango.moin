@@ -340,6 +340,8 @@ def edit_page(request, title):
 
 现在访问一个不存在 wiki 页面，比如： http://localhost:8000/simple_wiki/Python ，
 点击创建页面链接，填写表单，点击提交，然后跳转到展示的页面。
+尤其值得注意的一点是，这个表单已经拥有了输入验证的能力，比如如果“创建者Email”字段格式不正确，
+会有相应的错误提示，并让用户重新输入。
 
 attachment:PCS304_django_wiki_createpage.png
 
