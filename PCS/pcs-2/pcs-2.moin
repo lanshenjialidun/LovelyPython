@@ -11,7 +11,7 @@
 iPython是一个Python的交互式Shell，比默认的Python Shell好用得多，功能也更强大。她支持语法高亮，自动完成，代码调试，对象自省，支持 Bash Shell 命令，内置了许多很有用的功能和函式等等，非常容易使用。
 
 == 使用 ==
-目前，最新稳定的iPython版本是0.8.4，支持多种操作系统，如Linux，Unix，Mac OS X，Windows等等，这里详细介绍在Linux和Windows下的安装过程。其他系统下的安装过程可参见http://ipython.scipy.org/moin/Download(精巧地址: http://bit.ly/1sRzxv)上的具体说明。
+目前，最新稳定的iPython版本是0.8.4，支持多种操作系统，如GNU/Linux，Unix，Mac OS X，Windows等等，这里详细介绍在GNU/Linux和Windows下的安装过程。其他系统下的安装过程可参见http://ipython.scipy.org/moin/Download(精巧地址: http://bit.ly/1sRzxv)上的具体说明。
 
 === Windows下的iPython安装 ===
 在Windows下安装iPython可分为以下几步：
@@ -54,7 +54,7 @@ attachment:PCS2-windows-6.png
 
 attachment:PCS2-windows-7.png
 
-=== Linux下的iPython安装 ===
+=== GNU/Linux下的iPython安装 ===
 (1) 下载 ipython-0.8.4.tar.gz。
  * 下载ipython-0.8.4.tar.gz包: http://ipython.scipy.org/dist/ipython-0.8.4.tar.gz
   * 精巧地址: http://bit.ly/1VaGJw
@@ -70,7 +70,7 @@ attachment:PCS2-windows-7.png
 (3) 在Ubuntu下，可以通过输入命令sudo apt-get install ipython即可完成安装，非常方便。
 
 === 使用iPython ===
-在顺利安装好iPython之后，就可以进入该交互环境使用了。下面介绍在Linux下iPython的使用方式，Windows下也是很类似的。下面内容很多参考自：
+在顺利安装好iPython之后，就可以进入该交互环境使用了。下面介绍在GNU/Linux下iPython的使用方式，Windows下也是很类似的。下面内容很多参考自：
  * 使用IPython增强交互式体验: http://forum.ubuntu.org.cn/viewtopic.php?p=447255&sid=5ba2eaa5af49eaca994976f9c285b819
   * 精巧地址: http://bit.ly/1v24Sl
  * 其英文原文Enhanced Interactive Python with IPython: http://www.onlamp.com/pub/a/python/2005/01/27/ipython.html

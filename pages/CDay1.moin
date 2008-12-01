@@ -39,7 +39,7 @@
  * 找到的其中评比文章 http://tech.sina.com.cn/c/2003-12-05/25149.html (精简地址:http://bit.ly/3U8vbr)
  * 而小白拍脑袋想出来的文本格式的光盘信息摘要形式,也是历史悠久:
   * 完全类似象Total Commander的[http://www.totalcmd.net/plugring/diskdir_extended.html DiskDir], [http://www.totalcmd.net/plugring/catalogmaker.html CatalogMaker] 等插件生成的 Catalog摘要 一样
-  * 而在Linux 下面,自古FTP 服务器就提供通过`ls -lR` 生成的文本摘要
+  * 而在GNU/Linux下面,自古FTP 服务器就提供通过`ls -lR` 生成的文本摘要
 
 === 对比及推导 ===
 那么哪种比较好?
@@ -71,7 +71,7 @@
    1. 搜索匹配后输出行就是自然行,并包含必要信息
 
  * 那么其它数据格式快速考查一下:
- * Linux 目录摘要命令:`ls -lR` {{{
+ * GNU/Linux 目录摘要命令:`ls -lR` {{{
 ~/LovelyPython/CDays/cday0$ ls -lR
 .:
 drwxr-xr-x 3 zoomq zoomq  4096 2007-08-18 22:43 apidocs

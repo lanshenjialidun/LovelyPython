@@ -196,7 +196,7 @@ scgi.server = ( "/" =>
 }}}
 这个配置让lighttpd监听8080端口，把所有请求都转发给4000端口上的SCGI服务处理，再把处理结果发给用户。
 
-运行SCGI服务和lighttpd（以linux下为例）：
+运行SCGI服务和lighttpd（以GNU/Linux下为例）：
 {{{
 $ python scgi-server.py
 $ /usr/sbin/lighttpd -f lighttpd.conf

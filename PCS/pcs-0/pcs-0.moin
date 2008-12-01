@@ -7,7 +7,7 @@
 ##startInc
 = PCS0 如何安装Python =
 == 概述 ==
-Python是跨平台的动态脚本语言，可以运行在Windows、Linux/Unix、Mac OS X等多种操作系统上，下面就Python在Windows和Linux上的安装进行详细介绍。
+Python是跨平台的动态脚本语言，可以运行在Windows、Linux/Unix、Mac OS X等多种操作系统上，下面就Python在Windows和GNU/Linux上的安装进行详细介绍。
 
 == 使用 ==
 ===  Windows下安装Python ===
@@ -47,8 +47,8 @@ attachment:PCS0-windows-step6.png
 
 attachment:PCS0-windows-step7.png
 
-===  Linux下安装Python ===
-一般情况下，无需自己安装Python。因为在大多数Linux版本中，如Fedora，Ubuntu等，都已经默认安装了Python，但可以根据需要自定义安装Python。下面使用源码编译安装来举个例子。
+===  GNU/Linux下安装Python ===
+一般情况下，无需自己安装Python。因为在大多数GNU/Linux版本中，如Fedora，Ubuntu等，都已经默认安装了Python，但可以根据需要自定义安装Python。下面使用源码编译安装来举个例子。
 
 (1) 下载源码包。这里下载的是Python2.5.2版本的gzip压缩包，读者也可以下载 Python2.5.2版本的bzip2压缩包。
  * Python官方下载: http://www.python.org/download/releases/2.5.2/ 
@@ -86,7 +86,7 @@ attachment:PCS0-ubuntu-step4.png
 
 
 == 小结 ==
-本文详细介绍了在Windows和Linux下如何安装Python的方法。更多关于Python介绍及其安装可到以下网站查看:
+本文详细介绍了在Windows和GNU/Linux下如何安装Python的方法。更多关于Python介绍及其安装可到以下网站查看:
  * Python 官方英文网站: http://www.python.org/
  * Python 中文社区: http://python.cn/
  * Python 英文官方文档及资源: http://www.python.org/doc/

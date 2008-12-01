@@ -113,7 +113,7 @@ debugger=%(base)s/debugger
   * Yeah! 就是这里,非常直观,那么定义一个自个儿开发的站点目录在 KarriGell 系统目录中就好
    * 嗯嗯……得感谢Unix 系统中的 link 命令！小白可以将开发中的问卷系统文件放在任何习惯的目录中,仅仅链接到KarriGell 的环境目录中就完成了自个儿的应用安装; 如果在 M$ Windows 环境中就只能真的在其中建立目录了;
 {{{
-比如说;在Linux 中,小白的 EasyPage 工程组织在:
+比如说;在GNU/Linux 中,小白的 EasyPage 工程组织在:
 ~/LovelyPython/KDays
 而下载安装的 Karrigell 在:
 ~/0penproj.s/trunk/karrigell/trunk

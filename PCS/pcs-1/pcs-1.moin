@@ -12,13 +12,13 @@ Python命令行，又称为Python Shell，是默认的Python交互环境。
 
 == 使用 ==
 ===  进入Python Shell ===
-若在Windows下，假设已经安装好Python了，也设置好相应环境变量。若在Linux下，通常情况是已经安装好Python了，默认安装在/usr/bin/python下，该路径已经放进你的shell搜索路径中。
+若在Windows下，假设已经安装好Python了，也设置好相应环境变量。若在GNU/Linux下，通常情况是已经安装好Python了，默认安装在/usr/bin/python下，该路径已经放进你的shell搜索路径中。
 
-打开Windows的命令行或Linux的终端，输入python，即可进入Python交互式环境。
+打开Windows的命令行或GNU/Linux的终端，输入python，即可进入Python交互式环境。
 
 attachment:PCS1-1.png
 
-进入后，可以编写代码，调试，测试及查看相关帮助。若所做工作完成，退出命令行，可以使用Ctrl+z+Enter（Windows下）或Ctrl+D（Linux下）以0值退出（就是说，没有什么错误，正常退出）。如果这没有起作用，可以输入以下命令退出：“import sys; sys.exit()”。
+进入后，可以编写代码，调试，测试及查看相关帮助。若所做工作完成，退出命令行，可以使用Ctrl+z+Enter（Windows下）或Ctrl+D（GNU/Linux下）以0值退出（就是说，没有什么错误，正常退出）。如果这没有起作用，可以输入以下命令退出：“import sys; sys.exit()”。
 
 === 使用交互环境 ===
 进入Python Shell后如上图所示，下面具体介绍如何使用该环境。

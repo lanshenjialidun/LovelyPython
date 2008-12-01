@@ -10,7 +10,7 @@
 = PCS3 交互环境之winpy =
 
 == 概述 ==
-ActivePython是标准的Python发行版，在Windows，Linux ，Mac OS X等等都能使用。
+ActivePython是标准的Python发行版，在Windows，GNU/Linux ，Mac OS X等等都能使用。
 
 == 使用 ==
 这里只介绍ActivePython在Windows下的安装：
