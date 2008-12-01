@@ -396,7 +396,7 @@ attachment:2008-10-14-google-python.png
   * 沈崴路由器建站教程 - 沈崴 - 网易博客
    * 访问地址: http://eishn.blog.163.com/blog/static/65231820083995420860/
    * 精巧地址: http://bit.ly/3crtkc
-   * 讲述如何在路由器中安装 StacklessPython 环境进行应用开发的操作; 也证明了,只要嵌入式系统是 GNY/Linux 类的都可以安装Python 环境为我所用!
+   * 讲述如何在路由器中安装 StacklessPython 环境进行应用开发的操作; 也证明了,只要嵌入式系统是 GNU/Linux 类的都可以安装Python 环境为我所用!
   * Telit 是一家专业设计和生产无线模块产品的公司,值得注意的是,它几乎在所有的最新产品中集成了嵌入式Python 解释器,这样使用者就可以使用Python 脚本快速地开发应用,这些Python 脚本可以保存在模块内部运行,而不用另外的MCU去和模块进行AT命令交互;
    * 访问地址: http://www.telit.com/en/products/python.php
    * 精巧地址: http://bit.ly/4uJsAU
@@ -436,7 +436,7 @@ attachment:2008-10-14-google-python.png
    1. CaptchaImage
     * 访问地址: http://pypi.python.org/pypi/captchaimage/
     * 精巧网址: http://bit.ly/v9WAm
-    * 接口非常简洁的python验证码生成,linux下适用.原版在安装时有些小问题,提供一个修改版http://wiki.woodpecker.org.cn/moin/zsp/captchaimage ,修改版的精巧网址 http://is.gd/51sT
+    * 接口非常简洁的python验证码生成,GNU/Linux下适用.原版在安装时有些小问题,提供一个修改版http://wiki.woodpecker.org.cn/moin/zsp/captchaimage ,修改版的精巧网址 http://is.gd/51sT
    1.PyCAPTCHA
      * 访问地址: http://pypi.python.org/pypi/PyCAPTCHA/0.4
      * 精巧网址: http://bit.ly/BZjjR
