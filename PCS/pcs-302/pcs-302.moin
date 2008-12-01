@@ -55,11 +55,15 @@ Leo 是基于 Noweb 数据工具的 文学化编程环境:
 #GNU/Linux;Unix 中
 $ python /path/to/leo/launchLeo.py
 #Windows 中:
-> python C:\path\to\leo\launchLeo.py
- 就可以获得 Leo 环境了! 当然,可以创建快捷方式来不通过命令行快速调用Leo
+C:\> python C:\path\to\leo\launchLeo.py
+}}}
+就可以获得 Leo 环境了! 当然,可以创建快捷方式来不通过命令行快速调用Leo
+ * Tkinter是Python的GUI开发内置组件,一般GNU/Linux 软件仓库都有,但是可能没有被默认安装;安装Tkinter：
+{{{
+$ sudo apt-get install python-tk
 }}}
 
-默认的Leo 界面是由一个提纲窗口,一个正文窗口和一个提示窗口组成的;基本的操作就是在提纲窗口中组织章节/节点结构,在正文窗口中组织对应章节/节点的内容;
+默认的Leo 界面是由一个`提纲窗口`,一个`正文窗口`和一个`提示窗口`组成的;基本的操作就是在提纲窗口中组织章节/节点结构,在正文窗口中组织对应章节/节点的内容;
 
 === 基础 ===
 在Leo 中核心的和唯一的操作单元就是提纲节点(outline)! 自然的最基础和关键的操作是对 提纲节点(outline) 的操作:
