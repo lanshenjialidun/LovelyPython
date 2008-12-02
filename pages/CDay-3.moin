@@ -55,7 +55,7 @@ cdWalker('/media/cdrom0','cd1.cdc')
 cdWalker('/media/cdrom0','cd2.cdc')
 }}}
 
-小白获得了第一个python 函式并成功的运行了两次，将同张光盘的内容记录到不同的文件中，嗯嗯嗯！非常easy
+小白获得了第一个Python 函式并成功的运行了两次，将同张光盘的内容记录到不同的文件中，嗯嗯嗯！非常easy
 
 {{{详细::
 PCS108 函式

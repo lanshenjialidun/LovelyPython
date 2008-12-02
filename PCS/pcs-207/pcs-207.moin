@@ -8,7 +8,7 @@
 
 = PCS207 threading =
 == 概述 ==
-python是支持多线程的,并且是native的线程,主要是通过thread和threading这两个模块来实现的.thread是比较底层的模块,threading是thread的包装,可以更加方便的被使用.这里需要提一下的是python对线程的支持还不够完善,不能利用多CPU,但是下个版本的python中已经考虑改进这点.
+Python是支持多线程的,并且是native的线程,主要是通过thread和threading这两个模块来实现的.thread是比较底层的模块,threading是thread的包装,可以更加方便的被使用.这里需要提一下的是Python对线程的支持还不够完善,不能利用多CPU,但是下个版本的Python中已经考虑改进这点.
 
 == 使用 ==
 threading模块里面主要是对一些线程的操作对象化了,创建了叫Thread的类.

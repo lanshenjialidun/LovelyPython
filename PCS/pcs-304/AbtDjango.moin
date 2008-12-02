@@ -13,7 +13,7 @@
 
 Django 诞生于新闻网站。为了满足新闻网站快速的需求变更以及高度互动的特性，World Online 的员工Adrian Holovaty
 和 Simon Willison 创建了这样一套 web 系统，并从中逐渐抽出一个独立的框架，于 2005 年夏天开源了。
-从此，django 迅速成了python社区人气最旺的web框架。
+从此，django 迅速成了Python社区人气最旺的web框架。
 
 经过django社区3年来活跃的开发，django已经具备了丰富的功能和很好的稳定性。已经有大量各种领域的网站基于 django 建立 (http://www.djangosites.org/  精巧地址: ) 。
 
@@ -63,7 +63,7 @@ attachment:PCS304_django_welcome.png
 后面在编写代码的过程中，如果代码出现比较严重的错误，比如语法错误，服务器可能
 会挂掉，到时候重新启动一下就OK了。
 
-下面我们得配置下数据库先，图方便，我们就直接使用python2.5自带的数据库引擎 sqlite 吧。编辑 settings.py ，设置以下两项： 
+下面我们得配置下数据库先，图方便，我们就直接使用Python2.5自带的数据库引擎 sqlite 吧。编辑 settings.py ，设置以下两项： 
 
 {{{#!python
 DATABASE_ENGINE = 'sqlite3'
@@ -86,7 +86,7 @@ INSTALLED_APPS = (
 )
 }}}
 
-我们再给自动的 admin 后台管理界面设置一个访问的入口，也就是 url。编辑 urls.py 文件，去掉下面几行代码的注释即可（注意保持python的缩进）： 
+我们再给自动的 admin 后台管理界面设置一个访问的入口，也就是 url。编辑 urls.py 文件，去掉下面几行代码的注释即可（注意保持Python的缩进）： 
 
 {{{#!python
 ...
@@ -360,7 +360,7 @@ attachment:PCS304_django_wiki_createsuccess.png
 
 == 小结 ==
 
-本节内容向大家展示了 django 的快速开发，当然在 python 的世界里 django 算不上是上手最快的框架，
+本节内容向大家展示了 django 的快速开发，当然在 Python 的世界里 django 算不上是上手最快的框架，
 但考虑到我们的应用程序中提供的丰富的成熟的功能（后台管理，表单验证等），这个开发速度已经是相当不错了。
 而且我们得到的是一个简洁清晰，容易扩充的代码。所以，还等什么，使用 django 开始构建自己的 web 应用吧。
 

@@ -1,6 +1,6 @@
 
 (1) 不复制 cdctools.py 到webapp 目录中，也可以令 index.ks 引用到，可以通过以下方式：
-1、修改python的环境变量PYTHONPATH，把cdctools.py的所在目录路径加入
+1、修改Python的环境变量PYTHONPATH，把cdctools.py的所在目录路径加入
 2、在程序里动态的修改sys.path
 import sys
 # cdctools.py的路径添加到sys.path

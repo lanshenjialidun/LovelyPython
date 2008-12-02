@@ -86,12 +86,12 @@ print result2
 === CDays-4 ===
  1. os 模块中还有哪些功能可以使用? -- 提示使用 dir()和help()
   * os模块中还有很多功能，主要的有以下些：
-   *os.error, os.path, os.popen, os.stat_result, os.sys, os.system等等等,详细可参见dir("os")和python帮助文档help("os")
+   *os.error, os.path, os.popen, os.stat_result, os.sys, os.system等等等,详细可参见dir("os")和Python帮助文档help("os")
 
  1. open() 还有哪些模式可以使用?
   * open()有以下几种模式:
    * 'r': 以只读方式打开已存在文件，若文件不存在则抛出异常。此方式是默认方式
-   * 'U'或者'rU': python惯例构造了通用换行支持;提供'U'模式以文本方式打开一个文件,但是行可能随时结束:Unix的结束符规定为'\n',苹果系统则为'\r',还有windows规定为'\r\n',所有这些规定在python程序中统一为'\n'.
+   * 'U'或者'rU': Python惯例构造了通用换行支持;提供'U'模式以文本方式打开一个文件,但是行可能随时结束:Unix的结束符规定为'\n',苹果系统则为'\r',还有windows规定为'\r\n',所有这些规定在Python程序中统一为'\n'.
    * 'w': 以可写方式打开存在或者不存在的文件，若文件不存在则先新建该文件，若文件存在则覆盖该文件
    * 'a': 用于追加，对unix系统而言,所有的内容都将追加到文件末尾而不管指针的当前位置如何
    * 'b': 以二进制方式打开。打开一个二进制文件必须用该模式。增加'b'模式是用来兼容系统对当二进制和文本文件的处理不同
@@ -719,7 +719,7 @@ if __name__ == "__main__":
 === CDays2 ===
  1. 如果在Karrigell 实例中，不复制 cdctools.py 到webapps 目录中，也可以令 index.ks 引用到？
   * 不复制 cdctools.py 到webapp 目录中，也可以令 index.ks 引用到，可以通过以下方式：
-   * 修改python的环境变量PYTHONPATH，把cdctools.py的所在目录路径加入
+   * 修改Python的环境变量PYTHONPATH，把cdctools.py的所在目录路径加入
    * 在程序里动态的修改sys.path {{{#!python
 # -*- coding: utf-8 -*-
 

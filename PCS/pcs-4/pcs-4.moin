@@ -13,7 +13,7 @@
 
 == 使用 ==
 === help() ===
-用来查看很多python自带帮助文档信息，可以使用`help()`。
+用来查看很多Python自带帮助文档信息，可以使用`help()`。
 {{{
 ~$ ipython
 Python 2.5.2 (r252:60911, May  7 2008, 15:19:09) 
@@ -32,7 +32,7 @@ In [2]: import pygments
 In [3]: help("pygments")
 
 }}}
-如上所示，可以在python交互环境中，输入help("obj")后即可看到obj的帮助信息。就像bash中man随机帮助页一样。另外，也可以直接help()，进入帮助实用程序。如下：
+如上所示，可以在Python交互环境中，输入help("obj")后即可看到obj的帮助信息。就像bash中man随机帮助页一样。另外，也可以直接help()，进入帮助实用程序。如下：
 {{{
 In [4]: help()
 

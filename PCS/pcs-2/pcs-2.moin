@@ -46,7 +46,7 @@ attachment:PCS2-windows-5.png
 
 接下去，只需下一步直至安装完毕即可。
 
-(4) 设置环境变量Path里面加上python安装目录下面的scripts目录:
+(4) 设置环境变量Path里面加上Python安装目录下面的scripts目录:
 
 attachment:PCS2-windows-6.png
 
@@ -71,9 +71,9 @@ attachment:PCS2-windows-7.png
 
 === 使用iPython ===
 在顺利安装好iPython之后，就可以进入该交互环境使用了。下面介绍在GNU/Linux下iPython的使用方式，Windows下也是很类似的。下面内容很多参考自：
- * 使用IPython增强交互式体验: http://forum.ubuntu.org.cn/viewtopic.php?p=447255&sid=5ba2eaa5af49eaca994976f9c285b819
+ * 使用iPython增强交互式体验: http://forum.ubuntu.org.cn/viewtopic.php?p=447255&sid=5ba2eaa5af49eaca994976f9c285b819
   * 精巧地址: http://bit.ly/1v24Sl
- * 其英文原文Enhanced Interactive Python with IPython: http://www.onlamp.com/pub/a/python/2005/01/27/ipython.html
+ * 其英文原文Enhanced Interactive Python with iPython: http://www.onlamp.com/pub/a/python/2005/01/27/ipython.html
   * 精巧地址: http://bit.ly/1h699v
 非常不错的资料！
 
@@ -110,7 +110,7 @@ iPython会检查传给它的命令是否包含magic关键字。如果命令是�
 %pwd
     显示当前目录
 %pycat filename
-    用语法高亮显示一个 python 文件(不用加.py后缀名)
+    用语法高亮显示一个 Python 文件(不用加.py后缀名)
 %save filename n1-n2 n3-n4 ... n5 .. n6 ...
     将执行过多代码保存为文件
 %time statement

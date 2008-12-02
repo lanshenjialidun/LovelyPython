@@ -28,7 +28,7 @@ else:
 }}}`elif`就是`else if`的缩写。
 
 === 使用if代替switch ===
-Python没有switch语句，不过if elif else组合已经足以应付大部分情况。而对于另外的一种switch应用场景，python 还有更加优雅的方式来处理：
+Python没有switch语句，不过if elif else组合已经足以应付大部分情况。而对于另外的一种switch应用场景，Python 还有更加优雅的方式来处理：
 {{{
     # 伪码 根据输入的不同参数选择程序的不同行为
     switch( sys.argv[1] ):

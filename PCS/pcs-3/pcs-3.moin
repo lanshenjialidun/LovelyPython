@@ -24,7 +24,7 @@ ActivePython是标准的Python发行版，在Windows，GNU/Linux ，Mac OS X等�
 (3) 安装完毕。打开ActivePython的PythonWin，可以看到如下的界面：
 attachment:PCS3-1.png
 
-其中包含的一个交互界面，其使用方式和python默认环境非常类似。具体可参考PCS1。
+其中包含的一个交互界面，其使用方式和Python默认环境非常类似。具体可参考PCS1。
 
 == 小结 ==
 ActivePython是一个不错的Python编辑器和运行调试工具。界面比较简单，但功能对于初学者来说已经足够了。

@@ -5,7 +5,7 @@
 [[TableOfContents]]
 
 ##startInc
-那么小白决定进一步深入探索 python web开发技术了，行者建议他从基础入手。
+那么小白决定进一步深入探索 Python web开发技术了，行者建议他从基础入手。
 
 当用户在浏览器中输入网址，浏览器便找到web服务器，向它发起http请求，
 web服务器再找到web应用程序执行之，并把结果返回给客户端浏览器。
@@ -14,11 +14,11 @@ web服务器再找到web应用程序执行之，并把结果返回给客户端�
 apache、lighttpd 等成熟稳定高效的web服务器，
 但是在开发阶段最好有一个简单方便的开发服务器，容易重启容易调试。
 等开发调试完毕，再将代码部署到成熟稳定高效的web服务器。
-而使用python做web开发，最后部署的阶段是非常轻松的，在本章的后面便会提到。
+而使用Python做web开发，最后部署的阶段是非常轻松的，在本章的后面便会提到。
 
 == 开发服务器 ==
 
-那么 python2.5 就自带了一个叫做 wsgiref 模块，它提供一些专业 web 开发所需要的一些基础工具，比如一个开发服务器：
+那么 Python2.5 就自带了一个叫做 wsgiref 模块，它提供一些专业 web 开发所需要的一些基础工具，比如一个开发服务器：
 
 {{{#!python
 # -*- coding: utf-8 -*-
@@ -42,7 +42,7 @@ server = simple_server.make_server('localhost', 8080, hello_app)
 server.serve_forever()
 }}}
 
-把以上代码以utf-8编码保存成python程序，不妨命名为 main.py，
+把以上代码以utf-8编码保存成Python程序，不妨命名为 main.py，
 然后执行上面这个程序后，打开浏览器，随便访问一个以 http://localhost:8080
 开头的网址即可看到 environ 所包含的内容。
 
@@ -77,7 +77,7 @@ cgi应用程序再通过标准输出，输出它的响应头和相应内容给we
 
 我们上面用到的这个开发服务器与我们的应用程序之间所使用的协议叫做 wsgi，
 它和 cgi 类似，同样是将http请求包装成一种key-value对，
-只不过cgi通过环境变量传给cgi应用程序，而wsgi直接使用python的字典对象，通过参数完成传递。
+只不过cgi通过环境变量传给cgi应用程序，而wsgi直接使用Python的字典对象，通过参数完成传递。
  * wsgi 协议的详细内容可以参考：http://www.python.org/dev/peps/pep-0333/
  * 精巧地址：http://bit.ly/2oXpal
 
@@ -93,7 +93,7 @@ hello_app 的第二个参数 start_response 是一个函数，web 应用在输�
 都可以通过 environ 获取，比如 environ['QUERY_STRING'] 就可以获取URL参数，
 不过这种方式比较底层，还需要我们自己解析其格式。
 
-小白通过 google 很快就发现 python 世界有一些专门的模块
+小白通过 google 很快就发现 Python 世界有一些专门的模块
 可以用来处理http请求信息的。
 
 == 处理web请求和响应 ==
@@ -110,7 +110,7 @@ setuptools 能够自动找到最新的版本并自动下载安装。当然，如
 可以直接到 http://pypi.python.org/pypi ( 精巧地址: http://bit.ly/2CA9SG )搜到相应的包，手动下载，
 然后加压并执行 python setup.py install ，后面的包的安装方法和这里类似。
 
-安装完成后我们可以直接在 python shell 里对 webob 所提供的功能进行试验:
+安装完成后我们可以直接在 Python shell 里对 webob 所提供的功能进行试验:
 
 {{{#!python
 >>> # 导入 Request 对象
@@ -122,7 +122,7 @@ setuptools 能够自动找到最新的版本并自动下载安装。当然，如
 
 基本使用方法就是这样了，使用一个 Request 类来包装 environ ，然后通过 Request 对象的属性和方法，
 对 environ 进行访问。由于只有在 web 环境下才能得到一个真实的 environ 字典，为了方便大家在
-python shell 里面对其进行试验，webob 还提供一种方法可以模拟一个简易的web请求，请看：
+Python shell 里面对其进行试验，webob 还提供一种方法可以模拟一个简易的web请求，请看：
 
 {{{#!python
 >>> from webob import Request
@@ -282,16 +282,16 @@ server.serve_forever()
 不过显然，现实生活中的web程序很少像这个一样直接返回这么简单的纯文本信息，虽然
 ajax 的时代，返回 json、xml 这样的特定格式数据的web程序也越来越多。
 但毕竟，很多时候还是需要返回一个 html 页面的，而把一个复杂的 html 页面
-代码直接写到python代码里面就太丑陋了，有没有办法可以把它和业务代码分离开来，
+代码直接写到Python代码里面就太丑陋了，有没有办法可以把它和业务代码分离开来，
 再通过某种方式向其中填充内容呢？
 
 模板就是对这个问题的答案。
 
-python里面的模板引擎主要有mako、genshi、jinja等。mako 主要特点在于模板里面
-可以比较方便的嵌入python代码，而且执行效率一流；genshi 的特点在于基于 xml，
-非常简单易懂的模板语法，对于热爱xhtml的朋友来说是很好的选择，同时也可以嵌入python
+Python里面的模板引擎主要有mako、genshi、jinja等。mako 主要特点在于模板里面
+可以比较方便的嵌入Python代码，而且执行效率一流；genshi 的特点在于基于 xml，
+非常简单易懂的模板语法，对于热爱xhtml的朋友来说是很好的选择，同时也可以嵌入Python
 代码，实现一些复杂的展现逻辑；jinja 和 genshi 一样拥有很简单的模板语法，只是不
-依赖于 xml 的格式，同样很适合设计人员直接进行模板的制作，同时也可以嵌入python
+依赖于 xml 的格式，同样很适合设计人员直接进行模板的制作，同时也可以嵌入Python
 代码实现一些复杂的展现逻辑。
 
 小白看 mako 挺顺眼的，于是就钻研了它一把。
@@ -299,7 +299,7 @@ python里面的模板引擎主要有mako、genshi、jinja等。mako 主要特点
 然后执行 python setup.py install 就可以了。
 
 下面的代码就是写的一个简单的 mako 模板文件，里面直接输出一个 name 对象，
-并使用 python 的 for 循环来把传递给它的 data 字典的内容填充到一个html列表
+并使用 Python 的 for 循环来把传递给它的 data 字典的内容填充到一个html列表
  * mako模板的详细语法请参考：http://www.makotemplates.org/docs/syntax.html
  * 精巧地址：http://bit.ly/3mjkE4
 
@@ -410,7 +410,7 @@ attachment:PCS304-webmodule-template.png
 重构之后，结构当然是清晰了很多，不过对于我们这个代码量来说，可能更大的意义是
 方便我贴代码了，嘿嘿。
 
-现在三个文件 python 代码加起来是 21 行，比最开始增加了 11 行 ;-)
+现在三个文件 Python 代码加起来是 21 行，比最开始增加了 11 行 ;-)
 
 == ORM ==
 
@@ -419,15 +419,15 @@ attachment:PCS304-webmodule-template.png
 有了前面的愉快经历，小白遇到问题都习惯性地要了解一下有没有现成的工具可以使用，
 当小白向行者问道如何才能简化对关系数据库的操作时，行者郑重向小白推荐了 sqlalchemy 这个库。
 
-sqlalchemy 是一个 ORM （对象-关系映射）库，提供python对象与关系数据库之间的映射，
-也就是程序只需要对 python 对象进行操作，sqlalchemy 自动把这些操作映射为
+sqlalchemy 是一个 ORM （对象-关系映射）库，提供Python对象与关系数据库之间的映射，
+也就是程序只需要对 Python 对象进行操作，sqlalchemy 自动把这些操作映射为
 关系数据库的操作，并执行之。
-可以直接使用python代码描述数据结构，然后 sqlalchemy 自动创建对应的表，
-通过实例化 python 对象，设置其属性，
+可以直接使用Python代码描述数据结构，然后 sqlalchemy 自动创建对应的表，
+通过实例化 Python 对象，设置其属性，
 sqlalchemy 就自动执行插入或者更新操作，
-还可以直接调用 python 对象的方法进行查询，通过参数进行过滤等等。
+还可以直接调用 Python 对象的方法进行查询，通过参数进行过滤等等。
 
-sqlalchemy 还可以自动映射 python 对象的继承，可以实现eager loading、lazy loading，
+sqlalchemy 还可以自动映射 Python 对象的继承，可以实现eager loading、lazy loading，
 可以直接将 Model 映射到自定义的 SQL 语句，支持n多的数据库等等等等。
 可以说 sqlalchemy 既有不输于 Hibernate 的强大功能，同时不失 Python 的简洁优雅。
 
@@ -442,7 +442,7 @@ from sqlalchemy import *
 from sqlalchemy.orm import sessionmaker, scoped_session
 from sqlalchemy.ext.declarative import declarative_base
 
-# 创建数据库引擎，这里我们直接使用 python2.5 自带的数据库引擎：sqlite，
+# 创建数据库引擎，这里我们直接使用 Python2.5 自带的数据库引擎：sqlite，
 # 直接在当前目录下建立名为 data.db 的数据库
 engine = create_engine('sqlite:///data.db')
 # sqlalchemy 中所有数据库操作都要由某个session来进行管理
@@ -451,7 +451,7 @@ Session = scoped_session(sessionmaker(autocommit=False, autoflush=False, bind=en
 Base = declarative_base()
 
 class Dictionary(Base):
-    # python 对象对应关系数据库的表名
+    # Python 对象对应关系数据库的表名
     __tablename__ = 't_dictionary'
     # 定义自动，参数含义分别为：数据库字段名，字段类型，其他选项
     key = Column('key', String(255), primary_key=True)
@@ -517,7 +517,7 @@ for item in ['python','ruby','java']:
 session.commit()
 }}}
 
-现在打开 python shell ，导入 models 模块，对照 sqlalchemy 的文档，就可以试验 sqlalchemy 的各种功能了。
+现在打开 Python shell ，导入 models 模块，对照 sqlalchemy 的文档，就可以试验 sqlalchemy 的各种功能了。
  * sqlalchemy 的文档: http://www.sqlalchemy.org/docs/
  * 精巧地址：http://bit.ly/45KMCI
 
@@ -682,9 +682,9 @@ web应用最终是要部署到成熟稳当高性能的web服务器上去的，
 
 当然我们这个框架还只有最基本的一些功能，对于一个完整框架来说至少还有缓存、
 session管理、用户验证和权限管理，表单生成与校验等等。
-当然创建一个成功且成熟的框架不是一件容易的事情，本文只是小白对 python web 开发的一个深度探索，
+当然创建一个成功且成熟的框架不是一件容易的事情，本文只是小白对 Python web 开发的一个深度探索，
 这些代码只是一个 demo，希望对大家理解成熟框架究竟是如何做的有一定的参考价值。
-想要更深入的学习，阅读 python 世界那些成熟框架的源代码是个不错的选择。
+想要更深入的学习，阅读 Python 世界那些成熟框架的源代码是个不错的选择。
 
 ##endInc
 

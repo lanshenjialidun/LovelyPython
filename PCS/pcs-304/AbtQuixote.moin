@@ -157,7 +157,7 @@ def footer [html] ():
 
 有好几个方式可以用来运行Quixote应用，比如mod_python、FastCGI和CGI等。在豆瓣我们使用的是SCGI ( http://www.mems-exchange.org/software/scgi/ 精巧地址: http://bit.ly/2GMFUb )，这是Quixote的开发团队制作的一个简化版本的FastCGI，使用和web服务器独立的进程运行web应用。著名的轻量级web服务器lighttpd ( http://www.lighttpd.net/ )直接内置支持SCGI，我们下面用lighttpd来运行我们的hello程序。
 
-首先安装scgi python包：到 http://python.ca/scgi/ 下载最新版本并安装。
+首先安装scgi Python包：到 http://python.ca/scgi/ 下载最新版本并安装。
 
 创建SCGI服务程序`scgi-server.py`：
 {{{

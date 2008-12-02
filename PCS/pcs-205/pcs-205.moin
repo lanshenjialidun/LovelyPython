@@ -11,7 +11,7 @@ Python除了语言简洁,容易上手等优点,还有一个重要的优点,就�
 
 == 使用 ==
 === enumerate ===
-enumerate是python 2.3中新增的内置函式,它的英文说明为:
+enumerate是Python 2.3中新增的内置函式,它的英文说明为:
 {{{
 enumerate(iterable)
     Return an enumerate object. iterable must be a sequence, an iterator, or some other object which supports iteration. The next() method of the iterator returned by enumerate() returns a tuple containing a count (from zero) and the corresponding value obtained from iterating over iterable. enumerate() is useful for obtaining an indexed series: (0, seq[0]), (1, seq[1]), (2, seq[2]), .... New in version 2.3. 

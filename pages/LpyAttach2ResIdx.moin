@@ -123,7 +123,7 @@ attachment:2008-10-14-google-python.png
   * pyzh 
    * 访问地址: http://code.google.com/p/pyzh/ 
    * 精巧地址: http://is.gd/51no
-   * python的中文本地化工具包. 包含:汉字到拼音的转换, 中英文字数统计,公历到阴历转换,中文分词,中英文文本折行, 支持多种编码的繁简转换
+   * Python的中文本地化工具包. 包含:汉字到拼音的转换, 中英文字数统计,公历到阴历转换,中文分词,中英文文本折行, 支持多种编码的繁简转换
   * cssutils - CSS library for Python 
    * 访问地址: http://cthedot.de/cssutils/
    * 精巧地址: http://bit.ly/2rmUQ0
@@ -360,7 +360,7 @@ attachment:2008-10-14-google-python.png
   * pyevent
    * 访问地址: http://code.google.com/p/pyevent/
    * 精巧网址: http://bit.ly/2GAKcb
-   * libevent的python封装, libevent支持网络IO、定时器、信号量,在高性能网络编程中有广泛的应用. 
+   * libevent的Python封装, libevent支持网络IO、定时器、信号量,在高性能网络编程中有广泛的应用. 
   * `搜索引擎:`
    * Xapian:
     * 访问地址: http://xapian.org
@@ -551,7 +551,7 @@ attachment:2008-10-14-google-python.png
    * 用来产生Fortran语言生成的扩展模块
   * Python 到 D语言: Pyd
    * 访问地址:http://pyd.dsource.org/
-   * 方便D语言开发python模块的库,目前开发处于停滞状态. 作者声称,等D语言2.0版本稳定下来,会来一次重写. 
+   * 方便D语言开发Python模块的库,目前开发处于停滞状态. 作者声称,等D语言2.0版本稳定下来,会来一次重写. 
   * Python 到 Lua: Lunatic Python
    * 访问地址: http://labix.org/lunatic-python
    * 精巧地址: http://bit.ly/3Vets0

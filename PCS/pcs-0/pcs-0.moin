@@ -62,7 +62,7 @@ attachment:PCS0-windows-step7.png
 
 (3) 进入解压后的python目录，一般先看一下安装说明README，这里详细讲述了Python 2.5.2的相关资源及其网址和各种支持的操作系统下的安装方法。读者可以根据需求适当参考该文档。下面给出Python最普通的安装过程。
 
-(4) ./configure，进行配置。这里有个最常设置的选项是prefix，默认值为/usr/local/lib，设置该选项来指定python的安装目录，即./configure --prefix=$HOME/python2.5.2，$HOME为用户主目录。
+(4) ./configure，进行配置。这里有个最常设置的选项是prefix，默认值为/usr/local/lib，设置该选项来指定Python的安装目录，即./configure --prefix=$HOME/python2.5.2，$HOME为用户主目录。
 
 attachment:PCS0-ubuntu-step1.png
 
