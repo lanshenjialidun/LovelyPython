@@ -187,7 +187,7 @@ mainloop()
 
 == 开始使用 Eurasia3 ==
 
-   Eurasia3 是跨平台的, 在 Unix/Linux 系统上能得到最好的性能, 同时你需要 Stackless Python 2.5, 带有 greenlet 扩展的 Python 2.5 也是可以的。
+   Eurasia3 是跨平台的, 在 Unix、GNU/Linux 系统上能得到最好的性能, 同时你需要 Stackless Python 2.5, 带有 greenlet 扩展的 Python 2.5 也是可以的。
 
     Eurasia3 的代码托管在 http://code.google.com/p/eurasia (精巧地址: http://bit.ly/3l4HFj), 你可以在那里下载到 Eurasia3 的最新版本。
 

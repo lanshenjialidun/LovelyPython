@@ -23,7 +23,7 @@
  MoinMoin::
   * 是一个基于Python环境的wiki引擎程序,支持包括中文在内的多语种特性;
   * 是遵循GNU GPL的开源项目,启动于2000年7月20日,最初由JürgenHermann撰写.
-  * 可运行在Windows,Linux/BSD/UNIX,OS X等环境下.目前能够处理英文,德文,繁简体中文,日文,俄文等约21种语言.
+  * 可运行在Windows、GNU/Linux、BSD、UNIX、OS X等环境下.目前能够处理英文,德文,繁简体中文,日文,俄文等约21种语言.
   * MoinMoin的特点:
    1. 完全使用文件来存储内容,不使用数据库
    1. 实现了全部Wiki规范,Unicode编码支持多语种

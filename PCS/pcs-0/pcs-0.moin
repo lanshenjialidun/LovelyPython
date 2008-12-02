@@ -7,7 +7,7 @@
 ##startInc
 = PCS0 如何安装Python =
 == 概述 ==
-Python是跨平台的动态脚本语言，可以运行在Windows、Linux/Unix、Mac OS X等多种操作系统上，下面就Python在Windows和GNU/Linux上的安装进行详细介绍。
+Python是跨平台的动态脚本语言，可以运行在Windows、GNU/Linux、Unix、Mac OS X等多种操作系统上，下面就Python在Windows和GNU/Linux上的安装进行详细介绍。
 
 == 使用 ==
 ===  Windows下安装Python ===

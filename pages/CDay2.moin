@@ -143,7 +143,7 @@ def index():
 [Server]
 # set the port on which Karrigell will serve requests
 # default is 80
-# on Unix/Linux, if you are not logged as root you may not be able
+# on Unix、GNU/Linux, if you are not logged as root you may not be able
 # to start on a port below 1024 for security reasons
 #port=8081
 }}}

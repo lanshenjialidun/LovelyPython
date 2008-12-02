@@ -63,7 +63,7 @@ PCS301 Karrigell
   * 然后,进入 KarriGell 所在目录, 将conf/Karrigell.ini中的#port=8081去掉注释，表示将网站发布到 `:8081` 端口,避开用户可能的己有默认`:80`网站
   * 最后,在命令行下面输入：`python Karrigell.py`
    * M$用户的命令行环境调用: 开始->命令->输入"cmd" (或是你习惯的任何M$终端软件)
-  * Unix/Linux用户: 应用程序->附件->终端 (或是其它任何你喜欢的终端软件)
+  * Unix、GNU/Linux用户: 应用程序->附件->终端 (或是其它任何你喜欢的终端软件)
   * bingo! 通过 http://localhost:8081/ 小白就已经获得了一个展示有各种应用的 KarriGell 站点了！ 
 
 
@@ -155,7 +155,7 @@ PCS302 Leo文学化编程环境框架
 k=%(base)s/webapps/KDays
 ...
 }}}
-  * OK! 重启一下子KarriGell ,当然, `Ctrl+C` 是在Linux/Unix 系统中的通用操作,令 KarriGell 的Python 进程停止
+  * OK! 重启一下子KarriGell ,当然, `Ctrl+C` 是在GNU/Linux、Unix 系统中的通用操作,令 KarriGell 的Python 进程停止
   * 然后再运行 `python Karrigell.py`
   * 那么访问: http://localhost:8081/k
    * 嗬嗬,一切如愿！ KarriGell 正如小白想象的有了实时的反应,不象CherryPy 每次修改,都要重启服务

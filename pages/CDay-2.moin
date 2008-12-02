@@ -287,7 +287,7 @@ True
 {{{脚注::
 grep
 古老实用高效的模式文本匹配工具，
-在所有Unix/Linux 系统中都有默认安装，
+在所有Unix、GNU/Linux 系统中都有默认安装，
 最常作的事儿是 将一堆文本中包含某个模式的文本行找出来:
 ~$ cat /proc/cpuinfo | grep core
 core id         : 0

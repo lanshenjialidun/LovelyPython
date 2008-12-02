@@ -514,7 +514,7 @@ attachment:2008-10-14-google-python.png
    * 访问地址: http://www.pygame.org/news.html
    * 精巧地址: http://bit.ly/3DDJPm
    * 是基于SDL 的游戏开发综合支持模块;可以快速开发跨平台的多媒体游戏!
-   * SDL ~ Simple DirectMedia Layer 库;是为数不多的商业游戏开发公司使用的免费软件库之一. 它提供跨平台的二维帧缓冲区图形和音频服务,它支持 Linux／Win32 和 BeOS. 也不同程度地支持其它平台,包括 Solaris／IRIX／FreeBSD 和 MacOS. 除了大量的服务,包括线程／独立于字节存储次序的宏和 CD 音频,SDL 还提供了一个简单的 API,它允许您尽可能接近本机硬件. 使用 SDL 有三重优点：稳定／简单和灵活. 
+   * SDL ~ Simple DirectMedia Layer 库;是为数不多的商业游戏开发公司使用的免费软件库之一. 它提供跨平台的二维帧缓冲区图形和音频服务,它支持 GNU/Linux、Win32 和 BeOS. 也不同程度地支持其它平台,包括 Solaris／IRIX／FreeBSD 和 MacOS. 除了大量的服务,包括线程／独立于字节存储次序的宏和 CD 音频,SDL 还提供了一个简单的 API,它允许您尽可能接近本机硬件. 使用 SDL 有三重优点：稳定／简单和灵活. 
 
 
 == Py 应用扩展 ==
@@ -537,7 +537,7 @@ attachment:2008-10-14-google-python.png
   * Python 到 C: ctypes
    * 访问地址: http://python.net/crew/theller/ctypes/
    * 精巧地址: http://bit.ly/3yjAHy
-   * ctypes是一个Python 模块,使用他可以在Python 中创建和操作C语言的数据类型,这样可以在动态链接库中传递参数到C的函数中去;ctypes可以在windows/linux等多个平台上使用,甚至支持Windows上的COM开发
+   * ctypes是一个Python 模块,使用他可以在Python 中创建和操作C语言的数据类型,这样可以在动态链接库中传递参数到C的函数中去;ctypes可以在windows、GNU/Linux等多个平台上使用,甚至支持Windows上的COM开发
   * Python 到 Perl: PyPerl
    * 访问地址: http://wiki.python.org/moin/PyPerl  
    * 精巧地址: http://bit.ly/3vR3ET
