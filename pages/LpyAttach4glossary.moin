@@ -21,7 +21,7 @@
   * PCS 301 / PCS 304
  
  API ::
-  * 应用程序编程接口(Application Program Interface)
+  * 应用程序编程接口(Application Program Interface)是用来控制系统各个部件的外观和行为的一套预先定义的函式,可供开发人员直接使用.
   * CDay 0 / PCS 7 / PCS 203 / PCS 302 / PCS 400
   
  ASCII ::
