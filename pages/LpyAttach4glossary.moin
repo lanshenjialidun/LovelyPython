@@ -94,6 +94,10 @@
   * 一个汉字编码标准,全称《汉字内码扩展规范》(GBK),英文名称 Chinese Internal Code Specification .GBK 向下与 GB 2312 编码兼容,向上支持 ISO 10646.1 国际标准,是前者向后者过渡过程中的一个承上启下的标准.
   * CDay -1 / PCS 6
   
+ GNU/Linux ::
+  * GNU工程编写和提供的程序与Linux内核一起组成的操作系统.
+  * CDay -5 / PCS0 / PCS2 / PCS3 / PCS302
+
  GraphViz ::
   * 一组图形绘制工具,可用于Unix或Windows系统上,还包括一个web service界面.图形绘制着重解决的是结构信息的可视化问题,它是通过把抽象的图和网络用几何的表现方式来构造出来.自动产生图形绘制在一些关键性技术中,如数据库设计,软件工程,VLSI和网络设计中都有很重要的应用.
   * CDay 0 / PCS 303
