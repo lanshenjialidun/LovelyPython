@@ -41,6 +41,6 @@ if __name__ == "__main__":
         else:
             top = get_top_three(abs_path)
             for (s, f) in top:
-                print '%s\t->\t%s' % (s, f)
+                print '%s\t->\t%s' % (f, s)
             
             
