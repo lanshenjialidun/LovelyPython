@@ -49,7 +49,7 @@ os模块进一步细节,
 提及的:
 在简明 Python 教程--第14章 Python标准库 在
 访问地址: http://www.woodpecker.org.cn/share/doc/abyteofpython_cn/chinese/ch14s03.html
-精简地址: http://bit.ly/2F1XXY
+精巧地址: http://bit.ly/2F1XXY
 
 }}}
 看起来可以使用,所以,创建我们第一个执行脚本 `CDay-4-1.py`:
@@ -127,7 +127,7 @@ PCS200 os(.stat; .path)
 含有os模块进一步细节,
 其中 os.path() 函式的详细说明可以在线查询
 访问地址: http://aspn.activestate.com/ASPN/docs/ActivePython/2.4/python/lib/module-os.path.html
-精简地址: http://bit.ly/2XD0k0
+精巧地址: http://bit.ly/2XD0k0
 
 }}}
 
@@ -160,7 +160,7 @@ PCS200 os(.stat; .path)
 os模块进一步细节,
 其中 os-file-dir 可以在线查阅:
 访问地址: http://aspn.activestate.com/ASPN/docs/ActivePython/2.4/python/lib/os-file-dir.html
-精简地址: http://bit.ly/eJj4f
+精巧地址: http://bit.ly/eJj4f
 
 }}}
 
@@ -189,7 +189,7 @@ PCS200 os(.stat; .path)
 os模块进一步细节,
 其中 file_objects 可以在线查阅:
 访问地址: http://www.woodpecker.org.cn/diveintopython/file_handling/file_objects.html
-精简地址: http://bit.ly/1e41SW
+精巧地址: http://bit.ly/1e41SW
 
 }}}
 
@@ -217,7 +217,7 @@ attachment:cday-4-result-with-error.png
 这是理解,应用Python 的关键句之一,详细的参考:
 万物皆对象
 访问地址: http://www.woodpecker.org.cn/diveintopython/getting_to_know_python/everything_is_an_object.html
-精简地址: http://bit.ly/2tiwrd
+精巧地址: http://bit.ly/2tiwrd
 
 }}}
 

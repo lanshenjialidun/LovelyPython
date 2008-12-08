@@ -61,8 +61,8 @@ SaaS ~ Software-as-a-Service（软件即服务）
 '''有时候选择太多,也是种痛苦...'''
 
 再次呜乎矣哉! 小白这刚刚一动念头就搜索到这种页面:
- * WebFrameworks ~ http://wiki.python.org/moin/WebFrameworks (精简地址:http://bit.ly/3jxUSJ)
- * Python WEB应用框架纵览 ~ http://wiki.woodpecker.org.cn/moin/PyWebFrameList (精简地址:http://bit.ly/1U4oHm)
+ * WebFrameworks ~ http://wiki.python.org/moin/WebFrameworks (精巧地址:http://bit.ly/3jxUSJ)
+ * Python WEB应用框架纵览 ~ http://wiki.woodpecker.org.cn/moin/PyWebFrameList (精巧地址:http://bit.ly/1U4oHm)
 密密麻麻一大片应用框架...
 
 "俺不想弄出个复杂的强大的有DB支持等等高级特性的网站,就是想用Python 快速完成一个有限功能的本地网站哪!" -- 小白在列表中吼到
@@ -125,7 +125,7 @@ def index():
  }}}-- 看起来好象支持函式化的组合? 就这种了!
 
 
- 文档:: '''http://karrigell.sourceforge.net/en/front.htm'''（精简地址:http://bit.ly/2z3ejE）有进一步的细节介绍
+ 文档:: '''http://karrigell.sourceforge.net/en/front.htm'''（精巧地址:http://bit.ly/2z3ejE）有进一步的细节介绍
  
  不过小白已经有足够的信心立即使用Karrigell 来启动自个儿的应该了
 
@@ -241,7 +241,7 @@ attachment:cday2-import.png
 ==== 表单 ====
 好了,组织好了,接下来就是表单组织,最后连接上即有功能就得!
 
- HTMLTags:: '''http://karrigell.sourceforge.net/en/htmltags.htm'''（精简地址:http://bit.ly/fdz7w）有说,Karrigell 提供一个非常OOP的支持模块可以快速的函式样儿的组织生成HTML代码:
+ HTMLTags:: '''http://karrigell.sourceforge.net/en/htmltags.htm'''（精巧地址:http://bit.ly/fdz7w）有说,Karrigell 提供一个非常OOP的支持模块可以快速的函式样儿的组织生成HTML代码:
  {{{print HTML( HEAD(TITLE('Test document')) +
         BODY(H1('This is a test document')+
              TEXT('First line')+BR()+
@@ -268,7 +268,7 @@ attachment:cday2-import.png
 
 还是吼一声:"Karrigell 有表单快速生成模块嘛...."
 
-果然有行者反馈:'''Karrigell_QuickForm'''~ http://wiki.woodpecker.org.cn/moin/KwDay3 (精简地址:http://bit.ly/3VBSKI)
+果然有行者反馈:'''Karrigell_QuickForm'''~ http://wiki.woodpecker.org.cn/moin/KwDay3 (精巧地址:http://bit.ly/3VBSKI)
 
 
 FT!!连名字都一样 `快速表单`!{{{#!python
@@ -305,7 +305,7 @@ PCS100 import
 ==== 搜索功能 ====
 随便输入,提交,没有任何问题,但是怎么获得提交的信息?
 
-http://karrigell.sourceforge.net/en/programming.htm (精简地址:http://bit.ly/2z6wju)-- 有说:
+http://karrigell.sourceforge.net/en/programming.htm (精巧地址:http://bit.ly/2z6wju)-- 有说:
  * 嗯嗯嗯! 瞧着这 `QUERY` 内置变量就是亲切哪
 追加:
 {{{
