@@ -16,7 +16,7 @@
 
 == 动机 ==
 
-'''一个人如果力求完善自己,就会意识到,为此也必须同时完善他人. 一个人如果不关心他人的完善,自己便不可能完善. '''
+`一个人如果力求完善自己,就会意识到,为此也必须同时完善他人. 一个人如果不关心他人的完善,自己便不可能完善.`
 ~ 这是从一位教育研究者的个人Blog中看到的;
 {{{注意::
 北京师范大学 庄秀丽 老师;
@@ -205,6 +205,74 @@ print map(foo, range(10))
   * 输入的字符量少了三倍! 这是借助 http://bit.ly 网站提供的网址精简服务达到的效果;
   * 提醒:毕竟这是借用外国的免费服务进行的精简,如果读者输入后不能自动跳转的话,可能是网络问题也可能是服务问题,那就只能麻烦读者重新使用原有的URL进入了;
 
+
+=== 代码阅读技巧 ===
+`没有技巧!`
+ * 只要将代码copy 到你的机器中运行,然后保持好奇心,有针对性的尝试小小修改一点,立即运行一下,看是否吻合自个儿的预想,就是最好的代码阅读技法!
+ * Python 被设计成友好的,容易理解和使用的脚本语言,最好的学习方式就是使用之!
+ * 本书集合了一批资深中国Python 爱好者,别的不说,保证提供的所有代码都是经过反复测试,真实可用的,期望大家在尝试后,平常也注意积累一些自个儿中意的代码片段,如果可以进一步分享回来那就太好了!
+
+作为敏捷脚本语言Python 的入门图书,直接接触和运行代码是必须的,本书的所有代码都可以使用SVN(Subversion)公开的下载:
+  * 下载地址: http://openbookproject.googlecode.com/svn/trunk/LovelyPython/
+  * 可爱的Python 图书源码目录约定:{{{
+LovelyPython/
++-- CDays       (CDays 实例故事代码)
++-- KDays       (KDays 实例故事代码)
++-- PCS         (Python Cheat Sheet ~ Python 作弊条 内容)
++-- exercise    (各章练习,按照章节对应收集)
+\-- pages       (图书正文 维基格式文本目录)
+}}}
+{{{注意::
+SVN(Subversion) 是一个流行的非常强大的版本管理系统,使用手册在:
+ 访问地址: http://www.subversion.org.cn/svnbook/1.4/index.html
+ 精巧地址: http://bit.ly/rgVp
+一般讲使用官方社区提供的图形化工具--TortoiseSVN(优秀的免费开源客户端)可以非常自然的在桌面上使用远程版本仓库,使用手册在:
+ 访问地址: http://svndoc.iusesvn.com/tsvn/1.5/
+ 精巧地址: http://bit.ly/uPrd
+ 下载地址: http://tortoisesvn.net/downloads
+}}}
+
+`提醒`:
+ * 如果读者下载了相关代码时,发觉和图书中引用的代码有不同,不要惊奇,那是勤劳的行者们,在不断的优化实例代码!
+
+== 图书SVN目录约定 ==
+##同编辑讨论: http://wiki.woodpecker.org.cn/moin/ObpLovelyPyEditorRule
+{{{
+目录约定:
+http://openbookproject.googlecode.com/svn/trunk/LovelyPython/
+|-- CDays           (CDays 实例故事代码)
+|   |-- cday-1      (按照章节对应分立子目录收集)
+|   |   |-- ...
+|   |-- ...
+|-- KDays           (KDays 实例故事代码)
+|   |-- js          (共同JS表单验证模块)
+|   |-- kday1       (按照章节对应分立子目录收集)
+|   |   `-- q
+|   |-- ...
+|-- PCS             (Python Cheat Sheet ~ Python 作弊条 内容)
+|   |-- pcs-0       (按照章节对应分立子目录收集)
+|   |   `-- png
+|   |-- pcs-1
+|   |   `-- ...
+|   |-- ...
+|-- exercise        (各章练习，按照章节对应收集)
+|   |-- part1-CDays (CDays 实例故事练习，按照章节对应收集)
+|   |   |-- cday-1  (按照章节对应收集)
+|   |   |   |-- png
+|   |   |   `-- script
+|   |   |-- cday-2
+|   |   |   +-- ...
+|   |   +-- ...
+|   |-- part2-KDays (KDays 实例故事练习，按照章节对应收集)
+|   |   +-- ...
+|   |-- part3-PCS   (PCS练习，按照章节对应收集)
+|   |   +-- ...
+|   `-- part4-Attach(附录练习，按照章节对应收集)
+|       +-- ...
+|-- pages           (图书主体正文 .moin 文本目录)
+|   `-- attachments (图书主体正文 对应各章附图/文)
+`-- README.txt      (工程说明文档)
+}}}
 
 
 ##endInc

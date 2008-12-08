@@ -38,36 +38,36 @@
 http://openbookproject.googlecode.com/svn/trunk/LovelyPython/
 |-- CDays           (CDays 实例故事代码)
 |   |-- cday-1      (按照章节对应分立子目录收集)
-|   |   |-- ..
-|   |-- ..
+|   |   |-- ...
+|   |-- ...
 |-- KDays           (KDays 实例故事代码)
 |   |-- js          (共同JS表单验证模块)
 |   |-- kday1       (按照章节对应分立子目录收集)
 |   |   `-- q
-|   |-- ..
+|   |-- ...
 |-- PCS             (Python Cheat Sheet ~ Python 作弊条 内容)
 |   |-- pcs-0       (按照章节对应分立子目录收集)
 |   |   `-- png
 |   |-- pcs-1
-|   |   `-- ..
-|   |-- ..
+|   |   `-- ...
+|   |-- ...
 |-- exercise        (各章练习，按照章节对应收集)
 |   |-- part1-CDays (CDays 实例故事练习，按照章节对应收集)
 |   |   |-- cday-1  (按照章节对应收集)
 |   |   |   |-- png
 |   |   |   `-- script
 |   |   |-- cday-2
-|   |   |   +-- ..
-|   |   +-- ..
+|   |   |   +-- ...
+|   |   +-- ...
 |   |-- part2-KDays (KDays 实例故事练习，按照章节对应收集)
-|   |   +-- ..
+|   |   +-- ...
 |   |-- part3-PCS   (PCS练习，按照章节对应收集)
-|   |   +-- ..
+|   |   +-- ...
 |   `-- part4-Attach(附录练习，按照章节对应收集)
-|       +-- ..
-`-- pages           (图书主体正文 .moin 文本目录)
-    |-- 4editor     (正文无关:图书编辑参考维基页面文本)
-    |-- attachments (图书主体正文 对应各章附图/文)
-    `-- reST        (正文无关:图书主体正文旧 reST格式文本)
+|       +-- ...
+|-- pages           (图书主体正文 .moin 文本目录)
+|   `-- attachments (图书主体正文 对应各章附图/文)
+`-- README.txt      (工程说明文档)
+    
 }}}
 
