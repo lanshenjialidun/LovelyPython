@@ -147,8 +147,14 @@
   * 出现章节: CDay N / KDay 3 / KDay 5 / KDay 6 / PCS401
   
  Karrigell ::
-  * 纯Python实现的 Web应用开发平台.
+  * 纯Python实现的 一种轻型Web应用快速开发框架
   * 出现章节: CDay 2 / KDay 0 / KDay 1 / KDay 2 / KDay 3 / KDay 3 / KDay 4 / KDay 5 / PCS301
+
+ Kaopulity::
+  靠谱 ~ 源自东北方言,从FreeBSD社区流传出来;在技术领域特指那种可以感受得到的心中有准谱的主动/认真/有担当的行为/性格/策略等等;
+  * 访问地址: http://wiki.woodpecker.org.cn/moin/KaoPulity
+  * 精巧地址: http://bit.ly/mFms
+  * 出现章节: CDay 0 / KDay 0 / KDay 6 / 行者箴言 / 后记故事
  
  LaTex ::
   * 基于TeX的的一种比较流行的发行版本, 是一种免费的字处理软件. 
