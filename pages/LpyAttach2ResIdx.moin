@@ -72,7 +72,7 @@ attachment:2008-10-14-google-python.png
    * 访问地址: http://wiki.woodpecker.org.cn/moin/Py3000StatusUpdate
    * 精巧地址: http://bit.ly/2IwaEp
    * Guido 亲自撰写的 Python 3000 开发情况(啄木鸟社区翻译版本);Py3k 或是说Py3.0 是一个准备从头来写的一个分支,和过往的2.* 系列版本不准备兼容,是 Guido 准备一次性解决 Python 一些固有问题的勇敢的计划;
-   * 对应的最新开发版本下载: Python 3.0rc1 Release
+   * 对应的最新开发版本下载: Python 3.0 Release (2008-12-3)
     * 访问地址: http://www.python.org/download/releases/3.0/
     * 精巧地址: http://bit.ly/1a3p5I
   * Stackless.com
