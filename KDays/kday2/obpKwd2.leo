@@ -58,7 +58,7 @@
 <t tx="ZoomQuiet.20051204223324">[desc]
 pname		= 啄木鸟问卷 之 “基本知晓”
 desc		= 自学问卷v0.7
-learn   = &lt;a href='http://wiki.woodpecker.org.cn/moin/CPUG'&gt;CPUG首页&lt;/a&gt;
+learn   = &lt;a href='http://wiki.woodpecker.org.cn/moin/CPUG'&gt;CPyUG首页&lt;/a&gt;
 # 问卷状态: 0 设计中|1 发布中|2 发布过
 done		= 0
 
@@ -80,7 +80,7 @@ f		= 不知道……
 key		= c # 正确答案
 
 [ask/3]
-question= 啄木鸟和CPUG的关系是？
+question= 啄木鸟和CPyUG的关系是？
 a		= 联盟
 b		= 下属
 c		= 所有者

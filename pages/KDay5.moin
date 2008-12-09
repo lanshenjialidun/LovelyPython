@@ -334,7 +334,7 @@ kday5/
 |-- Karrigell_QuickForm.py  KQF快速表单模块
 |-- dict4ini.py         Limodou 贡献的 ini 解析模块
 |-- q/                  问卷设计文本收藏目录
-|   |-- CPUG051211.cfg  多问卷实例-CPUG社区问卷
+|   |-- CPUG051211.cfg  多问卷实例-CPyUG社区问卷
 |   |-- Python051221.cfg    -Python基础问卷
 |   |-- easy051201.cfg      -实验问卷草稿
 |   |-- easy051201.cfg.051222112545 -实验问题编辑历史快照

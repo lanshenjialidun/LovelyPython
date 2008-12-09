@@ -343,7 +343,7 @@ def index():
     """
     # 八股化的页面函式组织... clone 统一的页头输出章节！
     
-    print _htmhead("CPUG·啄木鸟社区·自学问卷管理 obpKwDay6- Powered by Karrigell")
+    print _htmhead("CPyUG·啄木鸟社区·自学问卷管理 obpKwDay6- Powered by Karrigell")
     
     
     
@@ -465,7 +465,7 @@ def login():
     """
     print sess.usr
     
-    print _htmhead("CPUG·啄木鸟社区·自学问卷管理 obpKwDay6- Powered by Karrigell")
+    print _htmhead("CPyUG·啄木鸟社区·自学问卷管理 obpKwDay6- Powered by Karrigell")
     
     
     
@@ -479,7 +479,7 @@ def login():
                             ,'chkusr'
                             ,"登录自学问卷")
     p.addHtmNode('text','uname'
-                 ,"CPUG名号"
+                 ,"CPyUG名号"
                  ,{'size':40,'maxlength':37})
     p.addGroup(["submit","btn_submit","提交","btn"]
                ,["reset","btn_reset","重写","btn"])
@@ -528,7 +528,7 @@ def page(qpname,do):
     """从原 mana.pih 重构过来 统一的问卷管理 .ks
     """
     
-    print _htmhead("CPUG·啄木鸟社区·自学问卷管理 obpKwDay6- Powered by Karrigell")
+    print _htmhead("CPyUG·啄木鸟社区·自学问卷管理 obpKwDay6- Powered by Karrigell")
     
     
     
@@ -584,7 +584,7 @@ def stat(**args):
     """平均成绩快速统计
     """
     
-    print _htmhead("CPUG·啄木鸟社区·自学问卷管理 obpKwDay6- Powered by Karrigell")
+    print _htmhead("CPyUG·啄木鸟社区·自学问卷管理 obpKwDay6- Powered by Karrigell")
     
     
     
@@ -697,7 +697,7 @@ def bye(**args):
     """不使用客户端验证后替代的服务端检验页面
     """
     
-    print _htmhead("CPUG·啄木鸟社区·自学问卷管理 obpKwDay6- Powered by Karrigell")
+    print _htmhead("CPyUG·啄木鸟社区·自学问卷管理 obpKwDay6- Powered by Karrigell")
     
     
     

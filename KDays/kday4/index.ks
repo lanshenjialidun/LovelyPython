@@ -343,7 +343,7 @@ def index():
     """
     # 八股化的页面函式组织... clone 统一的页头输出章节！
     
-    print _htmhead("CPUG·啄木鸟社区·自学问卷管理 - Powered by Karrigell")
+    print _htmhead("CPyUG·啄木鸟社区·自学问卷管理 - Powered by Karrigell")
     
     
     
@@ -458,7 +458,7 @@ def login():
     """
     print sess.usr
     
-    print _htmhead("CPUG·啄木鸟社区·自学问卷管理 - Powered by Karrigell")
+    print _htmhead("CPyUG·啄木鸟社区·自学问卷管理 - Powered by Karrigell")
     
     
     
@@ -472,7 +472,7 @@ def login():
                             ,'chkusr'
                             ,"登录自学问卷")
     p.addHtmNode('text','uname'
-                 ,"CPUG名号"
+                 ,"CPyUG名号"
                  ,{'size':40,'maxlength':37})
     p.addGroup(["submit","btn_submit","提交","btn"]
                ,["reset","btn_reset","重写","btn"])
@@ -522,7 +522,7 @@ def page(qpname,do):
         - 应该说可以完全参照以前的 .pih 来完成
     """
     
-    print _htmhead("CPUG·啄木鸟社区·自学问卷管理 - Powered by Karrigell")
+    print _htmhead("CPyUG·啄木鸟社区·自学问卷管理 - Powered by Karrigell")
     
     
     

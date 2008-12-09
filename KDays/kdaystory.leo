@@ -1066,7 +1066,7 @@
 <t tx="ZoomQuiet.20051204223324">[desc]
 pname		= 啄木鸟问卷 之 “基本知晓”
 desc		= 自学问卷v0.7
-learn   = &lt;a href='http://wiki.woodpecker.org.cn/moin/CPUG'&gt;CPUG首页&lt;/a&gt;
+learn   = &lt;a href='http://wiki.woodpecker.org.cn/moin/CPUG'&gt;CPyUG首页&lt;/a&gt;
 # 问卷状态: 0 设计中|1 发布中|2 发布过
 done		= 1
 
@@ -1088,7 +1088,7 @@ f		= 不知道……
 key		= c # 正确答案
 
 [ask/3]
-question= 啄木鸟和CPUG的关系是？
+question= 啄木鸟和CPyUG的关系是？
 a		= 联盟
 b		= 下属
 c		= 所有者
@@ -1951,7 +1951,7 @@ print UL("".join([str(LI(
                     )
 </t>
 <t tx="ZoomQuiet.20051224165419.14">
-print _htmhead("CPUG·啄木鸟社区·自学问卷管理 obpKwDays- Powered by Karrigell")
+print _htmhead("CPyUG·啄木鸟社区·自学问卷管理 obpKwDays- Powered by Karrigell")
 
 
 
@@ -2035,7 +2035,7 @@ def login():
                         ,'chkusr'
                         ,"登录自学问卷")
 p.addHtmNode('text','uname'
-             ,"CPUG名号"
+             ,"CPyUG名号"
              ,{'size':40,'maxlength':37})
 p.addGroup(["submit","btn_submit","提交","btn"]
            ,["reset","btn_reset","重写","btn"])
@@ -2480,14 +2480,14 @@ print UL("".join([str(LI(
                     ])
                     )</t>
 <t tx="ZoomQuiet.20051224182004">[desc]
-pname		= 啄木鸟问卷 之 “CPUG常识”
+pname		= 啄木鸟问卷 之 “CPyUG常识”
 desc		= 自学问卷v0.6
-learn   = &lt;a href='http://wiki.woodpecker.org.cn/moin/CPUG'&gt;CPUG首页&lt;/a&gt;
+learn   = &lt;a href='http://wiki.woodpecker.org.cn/moin/CPUG'&gt;CPyUG首页&lt;/a&gt;
 # 问卷状态: 0 设计中|1 发布中|2 发布过
 done		= 2
 
 [ask/1]
-question= CPUG是什么意思？
+question= CPyUG是什么意思？
 a		= 中国Perl用户组
 b		= 中国PHP用户组
 c		= 中国Python用户组
@@ -2495,14 +2495,14 @@ d		= 不知道……
 key		= c # 正确答案
 
 [ask/2]
-question= CPUG社区首页在哪里？
+question= CPyUG社区首页在哪里？
 a		= woodpecker.org.cn
 b		= python.cn
 c		= 不知道……
 key		= b # 正确答案
 
 [ask/3]
-question= CPUG 的核心宗旨是什么？
+question= CPyUG 的核心宗旨是什么？
 a		= 组织Python项目
 b		= 推广Python 语言应用
 c       = 发展成员进行收费创利
@@ -2512,7 +2512,7 @@ key		= b # 正确答案
 <t tx="ZoomQuiet.20051224182004.1">[desc]
 pname		= 啄木鸟问卷 之 “Python FAQ”
 desc		= 自学问卷v0.7.3
-learn   = &lt;a href='http://wiki.woodpecker.org.cn/moin/CPUG'&gt;CPUG首页&lt;/a&gt;
+learn   = &lt;a href='http://wiki.woodpecker.org.cn/moin/CPUG'&gt;CPyUG首页&lt;/a&gt;
 # 问卷状态: 0 设计中|1 发布中|2 发布过
 done		= 0
 
@@ -5020,7 +5020,7 @@ print dir(a)
 <t tx="zoomq.20080818231058.12">[desc]
 pname		= 啄木鸟问卷 之 “基本知晓”
 desc		= 自学问卷v0.7
-learn   = &lt;a href='http://wiki.woodpecker.org.cn/moin/CPUG'&gt;CPUG首页&lt;/a&gt;
+learn   = &lt;a href='http://wiki.woodpecker.org.cn/moin/CPUG'&gt;CPyUG首页&lt;/a&gt;
 # 问卷状态: 0 设计中|1 发布中|2 发布过
 done		= 0
 
@@ -5042,7 +5042,7 @@ f		= 不知道……
 key		= c # 正确答案
 
 [ask/3]
-question= 啄木鸟和CPUG的关系是？
+question= 啄木鸟和CPyUG的关系是？
 a		= 联盟
 b		= 下属
 c		= 所有者
@@ -5615,7 +5615,7 @@ p.addGroup(["submit","btn_submit","提交"]
 <t tx="zoomq.20080818231058.42">[desc]
 pname		= 啄木鸟问卷 之 “基本知晓”
 desc		= 自学问卷v0.7
-learn   = &lt;a href='http://wiki.woodpecker.org.cn/moin/CPUG'&gt;CPUG首页&lt;/a&gt;
+learn   = &lt;a href='http://wiki.woodpecker.org.cn/moin/CPUG'&gt;CPyUG首页&lt;/a&gt;
 # 问卷状态: 0 设计中|1 发布中|2 发布过
 done		= 0
 
@@ -5637,7 +5637,7 @@ f		= 不知道……
 key		= c # 正确答案
 
 [ask/3]
-question= 啄木鸟和CPUG的关系是？
+question= 啄木鸟和CPyUG的关系是？
 a		= 联盟
 b		= 下属
 c		= 所有者
@@ -5936,7 +5936,7 @@ attachment:snap-KwDay3done.png
 <t tx="zoomq.20080818232347.6">[desc]
 pname		= 啄木鸟问卷 之 “基本知晓”
 desc		= 自学问卷v0.7
-learn   = &lt;a href='http://wiki.woodpecker.org.cn/moin/CPUG'&gt;CPUG首页&lt;/a&gt;
+learn   = &lt;a href='http://wiki.woodpecker.org.cn/moin/CPUG'&gt;CPyUG首页&lt;/a&gt;
 # 问卷状态: 0 设计中|1 发布中|2 发布过
 done		= 0
 
@@ -5958,7 +5958,7 @@ f		= 不知道……
 key		= c # 正确答案
 
 [ask/3]
-question= 啄木鸟和CPUG的关系是？
+question= 啄木鸟和CPyUG的关系是？
 a		= 联盟
 b		= 下属
 c		= 所有者
@@ -7552,7 +7552,7 @@ attachment:snap-KwDay4list.png
 <t tx="zoomq.20080818232601.6">[desc]
 pname		= 啄木鸟问卷 之 “基本知晓”
 desc		= 自学问卷v0.7
-learn   = &lt;a href='http://wiki.woodpecker.org.cn/moin/CPUG'&gt;CPUG首页&lt;/a&gt;
+learn   = &lt;a href='http://wiki.woodpecker.org.cn/moin/CPUG'&gt;CPyUG首页&lt;/a&gt;
 # 问卷状态: 0 设计中|1 发布中|2 发布过
 done		= 1
 
@@ -7574,7 +7574,7 @@ f		= 不知道……
 key		= c # 正确答案
 
 [ask/3]
-question= 啄木鸟和CPUG的关系是？
+question= 啄木鸟和CPyUG的关系是？
 a		= 联盟
 b		= 下属
 c		= 所有者
@@ -7596,14 +7596,14 @@ c       = 邮件列表
 d       = 以上全有
 key		= d # 正确答案</t>
 <t tx="zoomq.20080818232601.7">[desc]
-pname		= 啄木鸟问卷 之 “CPUG常识”
+pname		= 啄木鸟问卷 之 “CPyUG常识”
 desc		= 自学问卷v0.6
-learn   = &lt;a href='http://wiki.woodpecker.org.cn/moin/CPUG'&gt;CPUG首页&lt;/a&gt;
+learn   = &lt;a href='http://wiki.woodpecker.org.cn/moin/CPUG'&gt;CPyUG首页&lt;/a&gt;
 # 问卷状态: 0 设计中|1 发布中|2 发布过
 done		= 2
 
 [ask/1]
-question= CPUG是什么意思？
+question= CPyUG是什么意思？
 a		= 中国Perl用户组
 b		= 中国PHP用户组
 c		= 中国Python用户组
@@ -7611,14 +7611,14 @@ d		= 不知道……
 key		= c # 正确答案
 
 [ask/2]
-question= CPUG社区首页在哪里？
+question= CPyUG社区首页在哪里？
 a		= woodpecker.org.cn
 b		= python.cn
 c		= 不知道……
 key		= b # 正确答案
 
 [ask/3]
-question= CPUG 的核心宗旨是什么？
+question= CPyUG 的核心宗旨是什么？
 a		= 组织Python项目
 b		= 推广Python 语言应用
 c       = 发展成员进行收费创利
@@ -7628,7 +7628,7 @@ key		= b # 正确答案
 <t tx="zoomq.20080818232601.8">[desc]
 pname		= 啄木鸟问卷 之 “Python FAQ”
 desc		= 自学问卷v0.7.3
-learn   = &lt;a href='http://wiki.woodpecker.org.cn/moin/CPUG'&gt;CPUG首页&lt;/a&gt;
+learn   = &lt;a href='http://wiki.woodpecker.org.cn/moin/CPUG'&gt;CPyUG首页&lt;/a&gt;
 # 问卷状态: 0 设计中|1 发布中|2 发布过
 done		= 0
 
@@ -7981,7 +7981,7 @@ INPUT.chkrd { background-color: transparent; border: 0px}
 }
 </t>
 <t tx="zoomq.20080818232601.17">
-print _htmhead("CPUG·啄木鸟社区·自学问卷管理 obpKwDay4 - Powered by Karrigell")
+print _htmhead("CPyUG·啄木鸟社区·自学问卷管理 obpKwDay4 - Powered by Karrigell")
 
 
 
@@ -8182,7 +8182,7 @@ def login():
                         ,'chkusr'
                         ,"登录自学问卷")
 p.addHtmNode('text','uname'
-             ,"CPUG名号"
+             ,"CPyUG名号"
              ,{'size':40,'maxlength':37})
 p.addGroup(["submit","btn_submit","提交","btn"]
            ,["reset","btn_reset","重写","btn"])
@@ -9802,7 +9802,7 @@ reduce(lambda a,b:a+b, stat)/len(stat) 更加cool
 <t tx="zoomq.20080818232601.224">[desc]
 pname		= 啄木鸟问卷 之 “基本知晓”
 desc		= 自学问卷v0.7
-learn   = &lt;a href='http://wiki.woodpecker.org.cn/moin/CPUG'&gt;CPUG首页&lt;/a&gt;
+learn   = &lt;a href='http://wiki.woodpecker.org.cn/moin/CPUG'&gt;CPyUG首页&lt;/a&gt;
 # 问卷状态: 0 设计中|1 发布中|2 发布过
 done		= 1
 
@@ -9824,7 +9824,7 @@ f		= 不知道……
 key		= c # 正确答案
 
 [ask/3]
-question= 啄木鸟和CPUG的关系是？
+question= 啄木鸟和CPyUG的关系是？
 a		= 联盟
 b		= 下属
 c		= 所有者
@@ -9846,14 +9846,14 @@ c       = 邮件列表
 d       = 以上全有
 key		= d # 正确答案</t>
 <t tx="zoomq.20080818232601.225">[desc]
-pname		= 啄木鸟问卷 之 “CPUG常识”
+pname		= 啄木鸟问卷 之 “CPyUG常识”
 desc		= 自学问卷v0.6
-learn   = &lt;a href='http://wiki.woodpecker.org.cn/moin/CPUG'&gt;CPUG首页&lt;/a&gt;
+learn   = &lt;a href='http://wiki.woodpecker.org.cn/moin/CPUG'&gt;CPyUG首页&lt;/a&gt;
 # 问卷状态: 0 设计中|1 发布中|2 发布过
 done		= 2
 
 [ask/1]
-question= CPUG是什么意思？
+question= CPyUG是什么意思？
 a		= 中国Perl用户组
 b		= 中国PHP用户组
 c		= 中国Python用户组
@@ -9861,14 +9861,14 @@ d		= 不知道……
 key		= c # 正确答案
 
 [ask/2]
-question= CPUG社区首页在哪里？
+question= CPyUG社区首页在哪里？
 a		= woodpecker.org.cn
 b		= python.cn
 c		= 不知道……
 key		= b # 正确答案
 
 [ask/3]
-question= CPUG 的核心宗旨是什么？
+question= CPyUG 的核心宗旨是什么？
 a		= 组织Python项目
 b		= 推广Python 语言应用
 c       = 发展成员进行收费创利
@@ -9878,7 +9878,7 @@ key		= b # 正确答案
 <t tx="zoomq.20080818232601.226">[desc]
 pname		= 啄木鸟问卷 之 “Python FAQ”
 desc		= 自学问卷v0.7.3
-learn   = &lt;a href='http://wiki.woodpecker.org.cn/moin/CPUG'&gt;CPUG首页&lt;/a&gt;
+learn   = &lt;a href='http://wiki.woodpecker.org.cn/moin/CPUG'&gt;CPyUG首页&lt;/a&gt;
 # 问卷状态: 0 设计中|1 发布中|2 发布过
 done		= 0
 
@@ -10231,7 +10231,7 @@ INPUT.chkrd { background-color: transparent; border: 0px}
 }
 </t>
 <t tx="zoomq.20080818232601.235">
-print _htmhead("CPUG·啄木鸟社区·自学问卷管理 obpKwDay6- Powered by Karrigell")
+print _htmhead("CPyUG·啄木鸟社区·自学问卷管理 obpKwDay6- Powered by Karrigell")
 
 
 
@@ -10439,7 +10439,7 @@ def login():
                         ,'chkusr'
                         ,"登录自学问卷")
 p.addHtmNode('text','uname'
-             ,"CPUG名号"
+             ,"CPyUG名号"
              ,{'size':40,'maxlength':37})
 p.addGroup(["submit","btn_submit","提交","btn"]
            ,["reset","btn_reset","重写","btn"])
@@ -13301,7 +13301,7 @@ attachment:snap-KwDay5his.png
 <t tx="zoomq.20080818233010.6">[desc]
 pname		= 啄木鸟问卷 之 “基本知晓”
 desc		= 自学问卷v0.7
-learn   = &lt;a href='http://wiki.woodpecker.org.cn/moin/CPUG'&gt;CPUG首页&lt;/a&gt;
+learn   = &lt;a href='http://wiki.woodpecker.org.cn/moin/CPUG'&gt;CPyUG首页&lt;/a&gt;
 # 问卷状态: 0 设计中|1 发布中|2 发布过
 done		= 1
 
@@ -13323,7 +13323,7 @@ f		= 不知道……
 key		= c # 正确答案
 
 [ask/3]
-question= 啄木鸟和CPUG的关系是？
+question= 啄木鸟和CPyUG的关系是？
 a		= 联盟
 b		= 下属
 c		= 所有者
@@ -13345,14 +13345,14 @@ c       = 邮件列表
 d       = 以上全有
 key		= d # 正确答案</t>
 <t tx="zoomq.20080818233010.7">[desc]
-pname		= 啄木鸟问卷 之 “CPUG常识”
+pname		= 啄木鸟问卷 之 “CPyUG常识”
 desc		= 自学问卷v0.6
-learn   = &lt;a href='http://wiki.woodpecker.org.cn/moin/CPUG'&gt;CPUG首页&lt;/a&gt;
+learn   = &lt;a href='http://wiki.woodpecker.org.cn/moin/CPUG'&gt;CPyUG首页&lt;/a&gt;
 # 问卷状态: 0 设计中|1 发布中|2 发布过
 done		= 2
 
 [ask/1]
-question= CPUG是什么意思？
+question= CPyUG是什么意思？
 a		= 中国Perl用户组
 b		= 中国PHP用户组
 c		= 中国Python用户组
@@ -13360,14 +13360,14 @@ d		= 不知道……
 key		= c # 正确答案
 
 [ask/2]
-question= CPUG社区首页在哪里？
+question= CPyUG社区首页在哪里？
 a		= woodpecker.org.cn
 b		= python.cn
 c		= 不知道……
 key		= b # 正确答案
 
 [ask/3]
-question= CPUG 的核心宗旨是什么？
+question= CPyUG 的核心宗旨是什么？
 a		= 组织Python项目
 b		= 推广Python 语言应用
 c       = 发展成员进行收费创利
@@ -13377,7 +13377,7 @@ key		= b # 正确答案
 <t tx="zoomq.20080818233010.8">[desc]
 pname		= 啄木鸟问卷 之 “Python FAQ”
 desc		= 自学问卷v0.7.3
-learn   = &lt;a href='http://wiki.woodpecker.org.cn/moin/CPUG'&gt;CPUG首页&lt;/a&gt;
+learn   = &lt;a href='http://wiki.woodpecker.org.cn/moin/CPUG'&gt;CPyUG首页&lt;/a&gt;
 # 问卷状态: 0 设计中|1 发布中|2 发布过
 done		= 0
 
@@ -13730,7 +13730,7 @@ INPUT.chkrd { background-color: transparent; border: 0px}
 }
 </t>
 <t tx="zoomq.20080818233010.17">
-print _htmhead("CPUG·啄木鸟社区·自学问卷管理 obpKwDay5- Powered by Karrigell")
+print _htmhead("CPyUG·啄木鸟社区·自学问卷管理 obpKwDay5- Powered by Karrigell")
 
 
 
@@ -13931,7 +13931,7 @@ def login():
                         ,'chkusr'
                         ,"登录自学问卷")
 p.addHtmNode('text','uname'
-             ,"CPUG名号"
+             ,"CPyUG名号"
              ,{'size':40,'maxlength':37})
 p.addGroup(["submit","btn_submit","提交","btn"]
            ,["reset","btn_reset","重写","btn"])
