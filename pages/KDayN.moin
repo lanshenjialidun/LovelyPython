@@ -1,7 +1,7 @@
 ##language:zh
 #pragma section-numbers off
 
-||'''status'''|| 正式 || ZoomQuiet|| 完成度:97%||
+||'''status'''|| 正式 || ZoomQuiet|| 完成度:100%||
 
 [[TableOfContents]]
 
@@ -14,7 +14,7 @@
 
 图 KdayN-1 问卷开发元素变迁趋势图
 
-attachment:KdayN-1.gif
+attachment:KDayN-1.png
 
  可以想到的优化方向::
   1. 减少硬盘的读取次数
@@ -101,7 +101,4 @@ attachment:KdayN-1.gif
 ::-- ZoomQuiet [[[DateTime(2005-12-11T04:52:04Z)]]]
 
 [[PageComment2]]
-
-
-
 
