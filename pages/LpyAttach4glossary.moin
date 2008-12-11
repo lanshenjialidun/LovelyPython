@@ -25,7 +25,8 @@
  
  Apache ::
   * 一种开放源码的HTTP服务器,可以在大多数计算机操作系统中运行,是最流行的Web服务器端软件之一.它快速,可靠并且可通过简单的API扩展,Perl/Python等解释器可被编译到服务器中.
-  * 出现章节: PCS301 / PCS304
+  * 访问地址: http://apache.org
+  * 出现章节: KDay 5 / PCS301 / PCS304
  
  API ::
   * 应用程序编程接口(Application Program Interface)是用来控制系统各个部件的外观和行为的一套预先定义的函式,可供开发人员直接使用.
@@ -87,6 +88,7 @@
  
  FreeBSD ::
   * 是一种先进的操作系统,支持 x86 兼容(包括 Pentium® 和 Athlon™))amd64 兼容((括 Opteron™、A,h,on™64 和 EM64T)、),RM,IA-64,PC-98以及 UltraSPARC® 架构的计算机。FreeBSD 源于 BSD ──美国加州大学伯克利分校开发 UNIX® 版本它由来自世界各地的志愿者开发和维护. FreeBSD 为不同架构的计算机系统提供了不同程度的支持, 请,考 系统平台网页了解更多内容.
+  * 访问地址: http://freebsd.org
   * 出现章节: PCS301
   
  FreeMind ::
@@ -103,7 +105,7 @@
   
  GNU/Linux ::
   * GNU工程编写和提供的程序与Linux内核一起组成的操作系统.
-  * 出现章节: CDay -5 / PCS0 / PCS2 / PCS3 / PCS302
+  * 出现章节: CDay -5 / CDay 1 / CDay 2 / KDay 1 / PCS0 /PCS1 / PCS2 / PCS3 / PCS6/ PCS302 / PCS303 / PCS304
 
  GraphViz ::
   * 一组图形绘制工具,可用于Unix或Windows系统上,还包括一个web service界面.图形绘制着重解决的是结构信息的可视化问题,它是通过把抽象的图和网络用几何的表现方式来构造出来.自动产生图形绘制在一些关键性技术中,如数据库设计,软件工程,VLSI和网络设计中都有很重要的应用.
@@ -111,18 +113,18 @@
   
  Grep ::
   * 古老实用高效的模式文本匹配工具,在所有Unix、GNU/Linux 系统中都有默认安装.
-  * 出现章节: CDay -2 / CDay 0 / CDay 1 / CDay 2 / CDay 3 
+  * 出现章节: CDay -2
   
  GUI ::
   * 是Graphical User Interface 的简称,即图形用户接口.
-  * 出现章节: CDay 2 / CDay N / PCS217
+  * 出现章节: 书序 / CDay 2 / CDay N / PCS217 / PCS302 / PCS304
   
  Hacker ::
   * 黑客 ~ 绝对不是主流媒体报道的那种以高智商和技术任意攻入他人系统的Cracker(骇客)!Hacker 特指那些以提高技术为精神追求的开发人员,进而可以引申到一切领域中,不畏权威,孜孜不倦的提升领域技能并作出重大贡献的人！
   * 通行的解释请参考:Eric S. Raymond五部曲:Hacker文化简史
    * 访问地址：http://man.lupaworld.com/content/develop/joyfire/project/7.html
    * 精巧地址: http://bit.ly/ovif
-  * 出现章节: 书序
+  * 出现章节: 书序 / CDay -1
   
  HTML ::
   * Hyper Text Mark-up Language,超文本标记语言的缩写,用于制作网页,该语言编写出来的源码能被各浏览器解析形成网页供人们浏览.
@@ -130,7 +132,7 @@
   
  iPython ::
   * 一个Python的交互式Shell,比默认的Python Shell好用得多,功能也更强大.
-  * 出现章节: CDay -5 / CDay -4 / CDay 1/ PCS2 / PCS103
+  * 出现章节: CDay -5 / CDay -4 / CDay 1/ PCS2 / PCS4 / PCS103 / PCS113
   
  ISO9660 ::
   * 国际上认可的CD媒体逻辑级标准,它定义了CD-ROM上文件和目录的格式.此标准允许有不同操作系统的不同计算机访问同样的数据格式.所有计算机平台将数据作为一个文件系统放在光盘.文件系统被设计成为UNIX,VAX\VMS,MS-DOS和Mac及它们的各种派生系统所公认,ISO9660意味着与不同操作系统兼容. 
@@ -144,7 +146,7 @@
   
  JS ::
   * JavaScript,是一种基于对象(Object)和事件驱动(Event Driven)并具有安全性能的脚本语言.
-  * 出现章节: CDay N / KDay 3 / KDay 5 / KDay 6 / PCS401
+  * 出现章节: CDay N / KDay 3 / KDay 5 / KDay 6 / PCS304 / PCS401
   
  Karrigell ::
   * 纯Python实现的 一种轻型Web应用快速开发框架
@@ -167,10 +169,6 @@
  Literate Programming ::
   * 文学化编程, 指编程要像写作一样, 有完整的文档说明,可以在编写程序的同时编写相关描述说明.
   * 出现章节: PCS302
-
- Licence ::
-  * 法律许可证
-  * 出现章节: CDay 2 / CDay 3
 
  MIME ::
   * 多用途互联网络电子邮件格式的扩展(Multipurpose Internet Mail Extensions ), 用MIME关键字来区分文件编码格式文件种类(包括多媒体).
@@ -199,7 +197,7 @@
   
  Shell ::
   * 一个命令行解释器,它的作用就是遵循一定的语法将输入的命令加以解释并传给系统.
-  * 出现章节: CDay -5 / PCS1 / PCS2
+  * 出现章节: CDay -5 / PCS1 / PCS2 / PCS209
   
  TisonG::
   * There is one site named Google!
@@ -227,11 +225,12 @@
  
  Tkinter ::
   * 是Python中的一种比较流行的图形编程接口.
-  * 出现章节: CDay N / PCS7 / PCS217 / PCS302
+  * 出现章节: CDay N / PCS7 / PCS217 / PCS302 / PCS 304
   
  Ubuntu ::
   * 一个基于Debian的操作系统, 可自由的获得,并提供社区和专业的支持.Ubuntu 宣言: 软件应免费提供,软件工具应能以人们本地语种的形式可用且不牺牲任何功能,人们应拥有定制及改变他们软件的自由,这包括以任何他们认为适宜的方式.
-  * 出现章节: CDay -4 / CDay -1 / PCS0 / PCS2 / PCS302 / PCS304
+  * 访问地址: http://www.ubuntu.com
+  * 出现章节: 书序 / CDay -4 / CDay -1 / PCS0 / PCS1 / PCS2 / PCS302 / PCS304
 
  Unicode ::
   * 一种在计算机上使用的字符编码.它为每种语言中的每个字符设定了统一并且唯一的二进制编码,以满足跨语言,跨平台进行文本转换,处理的要求.
@@ -266,7 +265,7 @@
   
  环境变量 ::
   * 环境变量相当于给系统或用户应用程序设置的一些参数,具体作用和具体的环境变量相关。如path,是系统运行一个无完整路径的程序时,需要查找的目录。
-  * 出现章节: CDay 2 / PCS0 / PCS1 / PCS2 / PCS200 / PCS213 / PCS304
+  * 出现章节: PCS0 / PCS1 / PCS2 / PCS200 / PCS213 / PCS304
 
  数据类型 ::
   * 具有相同特征的数据的一种抽象概括.
@@ -282,7 +281,7 @@
 
  邮件列表 ::
   * 一种仅仅通过邮件进行群体异步交流的服务形式,是比BBS 更加古老和有效的沟通方式.
-  * 出现章节: CDay -5
+  * 出现章节: 书序 / CDay -5
  
   字符编码 ::
   * 字符编码是指对计算机内存储的字母和符号进行二进制编码的方式。
@@ -295,7 +294,7 @@
    2. 为了帮助你的邻居，将软件拷贝给他的自由。
    3. 为了能够让整个社团受益，公开发行改进之后的软件的自由。（显然，这个自由度的前提是能够访问软件的源代码）
    }}}
-  * 出现章节: CDay -5 / CDay -1 / CDay 0 / KDay 1 / PCS302 / PCS304 / PCS402
+  * 出现章节: 书序 / CDay -5 / CDay -1 / CDay 0 / KDay 1 / PCS302 / PCS304 / PCS402
   
 
 ##endInc
