@@ -16,11 +16,15 @@
 
 = Aa~Dd =
  ActivePython ::
-  * 一个由ActiveState软件公司发布的二进制Python执行版本的商业产品,但有自由使用版权的完善的Python开发应用环境.
+  * 是由ActiveState软件公司开发的Python应用开发环境, 支持多种操作系统(Windows, Linux, Mac OS X, Solaris, AIX, HP-UX).
+  * 访问地址: http://www.activestate.com/Products/activepython/index.mhtml
+  * 精巧地址: http://bit.ly/NlWN
   * 出现章节: CDay -5 / CDay -4 / CDay -2 / CDay 1 / CDay 3 / PCS3
   
  Ajax ::
-  * Asynchronous JavaScript and XML,异步JavaScript和XML,是指一种创建交互式网页应用的网页开发技术.
+  * 全称为Asynchronous JavaScript and XML, 即异步JavaScript和XML,它是指一组用于创建交互Web应用或富Internet应用的Web应用开发技术. 使用Ajax, Web应用可以异步的从服务器端获取数据.
+  * 访问地址: http://en.wikipedia.org/wiki/AJAX
+  * 精巧地址: http://bit.ly/liAv
   * 出现章节: CDay N / KDay 3 / PCS304 / PCS401
  
  Apache ::
@@ -29,31 +33,38 @@
   * 出现章节: KDay 5 / PCS301 / PCS304
  
  API ::
-  * 应用程序编程接口(Application Program Interface)是用来控制系统各个部件的外观和行为的一套预先定义的函式,可供开发人员直接使用.
+  * 全称为Application Program Interface, 即应用程序编程接口, 是用来控制系统各个部件的外观和行为的一套预先定义的函式,可供开发人员直接使用.
   * 出现章节: CDay 0 / PCS7 / PCS203 / PCS302 / PCS400
   
  ASCII ::
-  *  即“美国国家标准资讯交换码”(American Standard Code forInternational Interchange)的缩写.在1970年由美国国家标准化委员会通过的编码规格,它规定了128个基础英文字符的二进制编码规则.
+  *  全称为American Standard Code for International Interchange, 即美国国家标准信息交换码, 它是在1970年由美国国家标准化委员会通过的编码规格, 规定了128个基础英文字符的二进制编码规则.
+  * 访问地址: http://www.asciitable.com/
   * 出现章节: CDay -2 / CDay -1 / PCS5 / PCS6 / PCS202
   
  BIG5 ::
-  * 在台湾和香港等地广为使用的计算机汉字编码方案,使用的是繁体.
+  * 又称大五码, 主要为香港与台湾使用, 是一个繁体字编码. 其每个汉字由两个字节构成, 第一个字节的范围从0x81-0xFE(即129-255), 共126种. 第二个字节的范围不连续, 分别为0x40-0x7E(即64-126),0xA1-0xFE(即161-254), 共157种.
+  * 访问地址: http://www.css8.cn/css8_document/gb2312.htm
+  * 精巧地址: http://bit.ly/OTND
   * 出现章节: CDay -1
   
  CGI ::
-  * 公共网关接口(Common Gateway Interface)是Web服务器与外部程序之间通信方式的标准.
+  * 全称为Common Gateway Interface, 即公共网关接口, 它是Web服务器与你的或其它机器上的程序进行“交谈”的一种工具, 其程序须运行在网络服务器上.
+  * 访问地址: http://zhidao.baidu.com/question/7007298.html
+  * 精巧地址: http://bit.ly/APVY
   * 出现章节: CDay 2 / PCS2 / PCS301 / PCS303 / PCS304 / PCS400
   
  Cheetah ::
-  * 一个用Python写的模板系统与代码生成工具.Cheetah提供了一门简单语言,用来定义提供基本流控制和对象访问的构造模板.
+  * 一个使用Python编写的开源模板引擎与代码生成工具. 
+  * 访问地址: http://www.cheetahtemplate.org/
   * 出现章节: KDay 2 / KDay 3 / KDay 4 / KDay N / PCS301
   
  CherryPy  ::
-  * 面向对象的web 开发平台.提供完全的基于web的应用功能编写,不用太多的底层知识.
+  * 具有Pythonic的面向对象的Web 开发框架. 提供完全的基于Web的应用功能编写, 不用太多的底层知识. CherryPy允许开发者像编写普通的面向对象的Python 程序一样创建Web 应用.
+  * 访问地址: http://www.cherrypy.org/
   * 出现章节: CDay 2 / KDay 0 / KDay 1 / KDay 4 / PCS300 / PCS304 /  PCS400
  
  CLI ::
-  * 命令行接口(Command Line Interface)
+  * 全称为Command Line Interface, 即命令行接口,,,
   * 出现章节: PCS201
   
  CSS ::
