@@ -150,7 +150,7 @@ def doInsert(arg):
 
 {{{详细::
 PCS7 Python编码规范
-完整的翻译了 pep-0008 Guido 原创的"Python风格指南"
+完整的翻译了 PEP-0008 Guido 原创的"Python风格指南"
 http://www.python.org/dev/peps/pep-0008/ (精巧地址:http://bit.ly/2OQ8Z3)
 这是写出靠谱的Python脚本的基础中的基础素养,
 至少应该认真反复精读3回的;

@@ -61,7 +61,7 @@ http://www.zoomquiet.org/share/s5/intropy/070322-introPy/ (精巧地址:http://b
  * win32com
  * 等等
 
- 甚至可以使用 mozilla 框架的 XUL 接口来利用 FireFox 的界面生成软件；
+ 甚至可以使用 Mozilla 的 XUL 框架接口来直接利用 FireFox 的界面组成软件；或是同现有的开放桌面小部件平台联合,比如说 Yahoo!Widget; 等等...
 
  选择一个简单有趣的来尝试就好 ;)
 

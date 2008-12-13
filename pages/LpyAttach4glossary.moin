@@ -1,16 +1,16 @@
 ## page was renamed from ObpLovelyPython/LpyAttach-Glossary
 ##language:zh
 #pragma section-numbers off
-||'''status'''|| 校对  || Liz,ZoomQuiet || 完成度 98.8% ||
+||'''status'''|| 校对  || Liz,ZoomQuiet || 完成度 100% ||
 
 
 [[TableOfContents]]
 
 ##startInc
  术语::
- 指在特定领域中形成并使用的专门用语,在计算机领域由于电脑技术发展之迅猛,术语每年都会被创造出来很多!这里收集并简要解释一下图书中涉及到的术语; 使用的条目格式如下:{{{
+ 在特定领域中形成专门用来指代特定意义的词语; 计算机领域术语,由于电脑技术发展之迅猛,每年都有很大数量的术语被创造出来很多! 这里仅收集并简要解释了图书中涉及到的; 术语条目格式如下:{{{
  术语词条::
-  * 精简解释,,,
+  * 精简解释(不进行专业的细致解说,仅通俗的说明主体含义,并尽可能的给出官方资源)
   * 出现章节: CDay -5 / PCS231  
 }}}
 
@@ -22,18 +22,18 @@
   * 出现章节: CDay -5 / CDay -4 / CDay -2 / CDay 1 / CDay 3 / PCS3
   
  Ajax ::
-  * 全称为Asynchronous JavaScript and XML, 即异步JavaScript和XML,它是指一组用于创建交互Web应用或富Internet应用的Web应用开发技术. 使用Ajax, Web应用可以异步的从服务器端获取数据.
+  * 全称为Asynchronous JavaScript and XML, 即异步JavaScript和XML,它是指一组用于创建交互Web应用或富Internet应用的Web应用开发技术. 使用Ajax, Web应用可以异步的从服务器端获取数据.从而摆脱每点击一次就得等待的原始Web 数据交互方式,将用户体验提升;
   * 访问地址: http://en.wikipedia.org/wiki/AJAX
   * 精巧地址: http://bit.ly/liAv
   * 出现章节: CDay N / KDay 3 / PCS304 / PCS401
  
  Apache ::
-  * 一种开放源码的HTTP服务器,可以在大多数计算机操作系统中运行,是最流行的Web服务器端软件之一.它快速,可靠并且可通过简单的API扩展,Perl/Python等解释器可被编译到服务器中.
+  * 一种开放源码的HTTP服务器,可以在大多数计算机操作系统中运行,是最流行的Web服务器端软件之一.它快速,可靠并且可通过简单的API扩展,PHP/Perl/Python等等开发语言的解释器都可方便的编译到Apache服务器中.
   * 访问地址: http://apache.org
   * 出现章节: KDay 5 / PCS301 / PCS304
  
  API ::
-  * 全称为Application Program Interface, 即应用程序编程接口, 是用来控制系统各个部件的外观和行为的一套预先定义的函式,可供开发人员直接使用.
+  * 全称为Application Program Interface, 即应用程序编程接口; 是用来控制系统各个部件的外观和行为的一套预先定义的函式,可供开发人员直接使用,来获得当前系统的相关功能.
   * 出现章节: CDay 0 / PCS7 / PCS203 / PCS302 / PCS400
   
  ASCII ::
@@ -42,13 +42,13 @@
   * 出现章节: CDay -2 / CDay -1 / PCS5 / PCS6 / PCS202
   
  BIG5 ::
-  * 又称大五码, 主要为香港与台湾使用, 是一个繁体字编码. 其每个汉字由两个字节构成, 第一个字节的范围从0x81-0xFE(即129-255), 共126种. 第二个字节的范围不连续, 分别为0x40-0x7E(即64-126),0xA1-0xFE(即161-254), 共157种.
+  * 俗称"大五码", 主要为香港与台湾使用, 是一个繁体编码字库解决方案. 其每个汉字由两个字节构成, 第一个字节的范围从0x81-0xFE(即129-255), 共126种. 第二个字节的范围不连续, 分别为0x40-0x7E(即64-126),0xA1-0xFE(即161-254), 共157种. 共包含了13,053汉字.
   * 访问地址: http://www.css8.cn/css8_document/gb2312.htm
   * 精巧地址: http://bit.ly/OTND
   * 出现章节: CDay -1
   
  CGI ::
-  * 全称为Common Gateway Interface, 即公共网关接口, 它是Web服务器与你的或其它机器上的程序进行“交谈”的一种工具, 其程序须运行在网络服务器上.
+  * 全称为Common Gateway Interface, 即公共网关接口, 它是Web服务器与你的或其它机器上的程序进行“交谈”的一种工具, 其程序须运行在网络服务器上.CGI通过上为每个请求在服务器创建专用线程来进行数据处理并返回给用户,是服务器端应用程序开发的事实标准.
   * 访问地址: http://zhidao.baidu.com/question/7007298.html
   * 精巧地址: http://bit.ly/APVY
   * 出现章节: CDay 2 / PCS2 / PCS301 / PCS303 / PCS304 / PCS400
@@ -68,37 +68,39 @@
   * 出现章节: PCS201
   
  CSS ::
-  * 全称为Cascading Style Sheet, 即级联样式单, 用来对网页的显示风格进行定义.
+  * 全称为Cascading Style Sheet, 即级联样式单(层叠样式表), 用来对网页的显示风格进行定义.
   * 出现章节: CDay 2 / CDay N / KDay 0 / KDay 3 / KDay 4 / KDay 5 / KDay N / PCS401
   
  DHTML  ::
-  * 全称为Dynamic HTML, 即动态HTML, 是HTML, CSS和客户端脚本(如JavaScript等)的一种集成. 使用DHTML技术, 可以创建出能与用户交互并包含动态内容的页面.
+  * 全称为Dynamic HTML, 即动态HTML, 是HTML, CSS和客户端脚本(如JavaScript等)的一种集成. 使用DHTML技术, 可以创建出能与用户交互并包含动态效果的页面.
   * 出现章节: KDay 0 / KDay 3 / PCS401
   
 
 = Ee~Ii =
  Emacs ::
-  * Emacs是强大灵活的UNIX文本编辑器, 与其他文本编辑器的重要区别在于它是一个完备的工作环境. GNU Emacs是GNU开发的Emacs变体, 也是最广泛使用的Emacs编辑器.
+  * Emacs是强大灵活的UNIX文本编辑器, 与其他文本编辑器的重要区别在于它是一个完备的工作环境--有个流传甚广的笑话称:"Emacs 提供了一切,除了一个文本编辑器;-)". GNU Emacs是最广泛使用的Emacs编辑器,其它还有很多支持不同环境的变体;
   * 访问地址: http://www.gnu.org/software/emacs/
   * 精巧地址: http://bit.ly/Rdhc
   * 出现章节: PCS7
   
  Epydoc ::
-  * 全称为Easy Py Documentor, 它是一个针对Python模块的API文档自动生成器.
+  * 全称为Easy Py Documentor, 它是一个针对Python模块的API文档自动生成器.通过自动的从程序的注释中抽取吻合规范的内容自动形成完整的网站式说明文档;
   * 访问地址: http://epydoc.sourceforge.net/
   * 精巧地址: http://bit.ly/5wh1
   * 出现章节: CDay 0 / PCS203
  
  Epytext ::
   * 轻量级的标记语言, 用于标记各种文档字符串, 主要是在一些特定的标签上添加相关的信息, 例如参数类型等等.
+  * 访问地址: http://epydoc.sourceforge.net/epytext.html
   * 出现章节: PCS203
   
  FastCGI ::
-  * FastCGI是CGI的扩展, 另一种Web服务器与其他应用程序通讯的接口实现.
+  * FastCGI是语言无关的、可伸缩架构的CGI开放扩展,其主要行为是将CGI解释器进程保持在内存中并因此获得较高的性能. FastCGI通过启动若干独立于Web服务器的进程来响应客户请求.
+  * 访问地址: http://www.fastcgi.com
   * 出现章节: PCS304 / PCS301
-  
+
  FP ::
-  * 全称为Function Programming, 即函式编程, 有多种函式编程语言, 如Lisp, Scheme, Haskell, ML, OCAML, Clean, Mercury, Erlang. 在FP中, 函式是第一类(对象), 即对数据进行的所有操作都可以通过函式来完成.
+  * 全称为Function Programming, 即函式编程, 有多种函式编程语言, 如Lisp, Scheme, Haskell, ML, OCAML, Clean, Mercury, Erlang. 在FP中, 函式是第一类(对象), 即对数据进行的所有操作都可以而且仅仅通过函式来完成.
   * 出现章节: CDay N / KDay 4 / PCS114
  
  FreeBSD ::
@@ -107,7 +109,7 @@
   * 出现章节: PCS301
   
  FreeMind ::
-  * 一个跨平台的实用开源思维导图/心智(MindMap)软件.
+  * 一个JAVA实现的开源跨平台轻便开源思维导图/心智图谱(MindMap)软件.数据存储格式是 XML + Zip 压缩.
   * 访问地址: http://freemind.sourceforge.net/wiki/index.php/Main_Page
   * 精巧地址: http://bit.ly/O7Uw
   * 出现章节: KDay 6 / PCS303 / PCS403
@@ -119,22 +121,22 @@
   * 出现章节: CDay N / PCS304 / PCS400
   
  GBK ::
-  * 全称为《汉字内码扩展规范》, 它是一个汉字编码标准, 它向下与 GB 2312 编码兼容, 向上支持 ISO 10646.1 国际标准, 是前者向后者过渡过程中的一个承上启下的汉字编码标准.
+  * 全称为《汉字内码扩展规范》, 它是一个汉字编码标准, 它向下与 GB 2312 编码兼容, 向上支持 ISO 10646.1 国际标准, 是前者向后者过渡过程中的一个承上启下的汉字编码标准.共提供了23,940字的编码空间, 实际定义了 21,886汉字,可用户定义1,894汉字.
   * 出现章节: CDay -1 / PCS6
   
  GNU/Linux ::
-  * 由Linux内核和GNU工程提供的一系列用于Unix的实用软件工具一起组成的类Unix操作系统.
-  * 访问地址: http://man.chinaunix.net/linux/debian/zh_CN.i386/ch01s02.html
-  * 精巧地址: http://bit.ly/Ftdw
+  * 由Linux内核(Linus Torvalds 1991 发布,是遵从GPLv2许可证的自由软件)和GNU工程提供的一系列用于Unix的实用软件工具一起组成的类Unix操作系统.Linux 精确意义上只是操作系统本身,不含任何实用软件的;所以,现在流行的 Ubuntu/Debian/RedHat/SUSE/Gentoo 等等,都是 GNU/Linux 的一种发行版,是由上千种软件集成而成的;
+  * 访问地址: http://zh.wikipedia.org/wiki/GNU/Linux_naming_controversy
+  * 精巧地址: http://bit.ly/kvSG
   * 出现章节: CDay -5 / CDay 1 / CDay 2 / KDay 1 / PCS0 /PCS1 / PCS2 / PCS3 / PCS6/ PCS302 / PCS303 / PCS304
 
  GraphViz ::
-  * 它是一个跨平台的开源图形可视化工具.
+  * 是AT&T实验室分享的一个跨平台开源图形可视化工具.支持中文,可以通过脚本生成各种结构图,由于其简单而稳定,被许多工具包含在内部,作为各种关系图的生成器.
   * 访问地址: http://www.graphviz.org/
   * 出现章节: CDay 0 / PCS303
   
- Grep ::
-  * 古老但非常实用高效的模式匹配工具, 在所有Unix、GNU/Linux 系统中都有默认安装.
+ grep ::
+  * 古老但非常实用高效的模式匹配工具, 在所有Unix、GNU/Linux 系统中都有默认安装. 一般用来从大堆的文本中搜索出指定模式的字串.
   * 访问地址: http://www.gnu.org/software/grep/doc/
   * 精巧地址: http://bit.ly/vVBm
   * 出现章节: CDay -2
@@ -155,7 +157,7 @@
   * 出现章节: CDay 2 / KDay 0 / KDay 1 / KDay 2 / KDay 3 / KDay 4 / KDay 5 / KDay N / PCS301 / PCS303 / PCS304 / PCS401 / PCS402 / PCS403
   
  iPython ::
-  * 一个Python的交互式Shell, 比默认的Python Shell好用得多, 功能也更强大.
+  * 一个增强的Python 交互环境, 比默认的Python Shell好用得多, 功能也更强大.
   * 访问地址: http://ipython.scipy.org/
   * 出现章节: CDay -5 / CDay -4 / CDay 1/ PCS2 / PCS4 / PCS103 / PCS113
   
@@ -165,8 +167,9 @@
   
 
 = Jj~Nn =
- Javadoc ::
-  * 用于Java源代码的文档化标记语言.
+ javadoc ::
+  * 用于Java源代码的文档化标记语言.它从程序源代码中抽取类、方法、成员等注释形成一个和源代码配套的API帮助文档;也就是说，只要在编写程序时以一套特定的标签作注释，在程序编写完成后，通过Javadoc就可以同时形式程序的开发文档了.
+  * 访问地址: http://java.sun.com/j2se/javadoc/
   * 出现章节: PCS203
   
  JS ::
@@ -185,19 +188,19 @@
   * 精巧地址: http://bit.ly/mFms
   * 出现章节: CDay 0 / KDay 0 / KDay 6 / 行者箴言 / 后记故事
  
- LaTex ::
-  * 是一种免费的字处理软件. 
+ LaTeX ::
+  * 由Donald.E.Knuth(高德纳-计算机科学巨著"The Art of Computer Programming"的作者)在1978年发布的TeX是功能强大并且十分灵活的排版语言. 而LaTeX是当今世界上最流行和使用最为广泛的 TeX 宏集. 用TeX/LaTeX 来排版输出很稳定/高效,特别是对科学符号的排版非常的精美,所以,多数科学论文都要求使用TeX 生成;但是,TeX 不适合组织无逻辑结构的东西，比如报纸，画报，广告等.
   * 访问地址: http://www.latex-project.org/
   * 出现章节: PCS203
   
  Leo ::
-  * 全称为Literate Editor with Outlines, 即基于提纲的文学化编辑器.
+  * 全称为Literate Editor with Outlines, 即基于提纲的文学化编辑环境.
   * 访问地址: http://sourceforge.net/projects/leo
   * 精巧地址: http://bit.ly/2mefKP
   * 出现章节: KDay 0 / KDay 1/ Kday 2 / Kday 3 / Kday 4 / Kday 5 / PCS302
  
  Literate Programming ::
-  * 文学化编程, 指编程要像写作一样, 有完整的文档说明, 可以在编写程序的同时编写相关描述说明.
+  * 文学化编程 ~ 一种非常另类的编程思想,由 Donald.E.Knuth 在1981 年提出; 认为程序中最重要的应该是类似文学作品中的层次和关系; 并给出了一个语言无关的CWEB 标准用来人性化的标识和组合程序代码块;
   * 访问地址: http://www.literateprogramming.com/
   * 精巧地址: http://bit.ly/3I9Rxg
   * 出现章节: PCS302
@@ -208,30 +211,36 @@
   
 = Oo~Yy =
  ORM ::
-  * Object Relational Mapping, 即对象关系映射,是一种为了解决面向对象与关系数据库存在的互不匹配的现象的技术. 简单的说, ORM是通过使用描述对象和数据库之间映射的元数据, 将程序中的对象自动持久化到关系数据库中.
+  * Object Relational Mapping, 即对象关系映射,是一种为了解决面向对象的编程与关系数据库存在的互不匹配的现象的技术. 简单的说, ORM是通过使用描述对象和数据库之间映射的元数据, 将程序中的对象自动持久化到关系数据库中.
   * 出现章节: KDay 2 / PCS301 / PCS304
   
+  
+ PEP ::
+  * 全称: Python Enhancement Proposals, Python 增进提案库; 收集并标识了所有对Python 增强的建议接受或是实现情况,几乎所有Python 重要改进都出自这里,是学习Python 核心新特性的重要文档依据;
+  * 访问地址: http://www.python.org/dev/peps/
+  * 出现章节: CDay 0
+
  PHP ::
   * 全称为Hypertext Preprocessor, 即超文本预处理器, 是一种被广泛应用的开放源代码的多用途脚本语言, 可嵌入到 HTML中, 非常适合 WEB 开发.
   * 访问地址: http://www.php.net/
   * 出现章节: CDay 2 / KDay 0 / KDay 1 / KDay 5 / KDay N / PCS301
 
- Refactoring ::
+ Refactory ::
   * 重构, 即在不改变程序外在行为的前提下, 对代码做出修改以改进程序内部结构的过程.
   * 出现章节: CDay -2 / KDay 1 / PCS404
  
  ReStructuredText ::
-  * 一种易用的, 所见即所得的文本标签语法.
+  * 即"新结构化文本"(缩写 reST),是对"结构化文本"(RtructuredText,缩写 ST);是一种易用的有很长历史的标准的文档组织规范,是一种"所想即所得"(WYTIWYG~What You Think Is What You Get)的文本标签语法; 通过简单的纯文本字符串约定,在正文内容间隙声明了文章的各种结构体,从而可以通过丰富的支持工具自动化的生成HTML页面;
   * 出现章节: PCS203
   
  RFC ::
-  * 全称为Request For Comments, RFC文档是一系列关于Internet的技术资料汇编, 这些文档详细讨论了计算机网络的方方面面, 重点在网络协议, 进程, 程序, 概念以及一些会议纪要, 意见, 各种观点等.
+  * 全称为Request For Comments, RFC文档是一系列关于Internet的技术资料汇编, 这些文档详细讨论了计算机网络的方方面面, 重点在网络协议, 进程, 程序, 概念以及一些会议纪要, 意见, 各种观点等. 一般视作最权威和丰富的互联网领域论文中心.
   * 访问地址: http://www.ietf.org/rfc.html
   * 精巧地址: http://bit.ly/hfyN
   * 出现章节: PCS211
   
  Shell ::
-  * 命令行解释器,它遵循一定的语法将输入的命令加以解释并传给系统.
+  * 命令行解释器,一种类Unix 系统中的基础软件,它遵循一定的语法将输入的命令加以解释并传给系统.
   * 出现章节: CDay -5 / PCS1 / PCS2 / PCS209
   
  TisonG::
@@ -246,12 +255,13 @@
    * 精巧地址: http://bit.ly/CRxP
   * 出现章节: KDay 1
  
- SCGI? ::
-  * 全称为Simple Common Gateway Interface, 即简单公共网关接口, 是Http服务器和Web应用的通用接口协议, 用于替代CGI协议. 它类似于FastCGI, 但它更容易实施.
+ SCGI ::
+  * 全称为Simple Common Gateway Interface, 即简单公共网关接口, SCGI与FastCGI相似，也是CGI的一个替代协议,但是与FastCGI相比,SCGI更容易实现;具有和FastCGI一样优秀的性能，同时又在稳定性方面远远超过FastCGI, 该方案在Python Web领域应用较多.
+  * 访问地址: http://python.ca/scgi/protocol.txt
   * 出现章节: PCS301 / PCS304
   
  Stackless Python ::
-  * 是一个增强版的Python语言.
+  * Stackless Python 是Python编程语言的一个增强版本,是 100% 二进制兼容的;Stackless Python 对实际的 Python C 代码只做了小小更改--不在 C 堆栈上保存状态,而且堆栈(要多少有多少)但都是纯 "Python 堆栈",这使程序员从基于线程的编程方式中获得好处,并避免传统线程所带来的性能与复杂度问题;一般应用在迸发/并发场景中,尤其是网络游戏开发领域.
   * 访问地址: http://www.stackless.com/
   * 出现章节: CDay N / PCS301 / PCS304
  
@@ -261,7 +271,7 @@
   * 出现章节: PCS304
  
  Tkinter ::
-  * 是Python中的一种比较流行的图形编程接口.
+  * 是Python默认内置的古老而简单实用的跨平台图形编程接口.
   * 访问地址: http://wiki.python.org/moin/TkInter
   * 精巧地址: http://bit.ly/4qdc6u
   * 出现章节: CDay N / PCS7 / PCS217 / PCS302 / PCS 304
@@ -277,7 +287,7 @@
   * 出现章节: CDay -4 / CDay -1 / PCS6 / PCS208 / PCS303
 
  URL ::
-  * 全称为Uniform Resource Locator, 即统一资源定位符, 指示因特网上标准的资源定位地址.
+  * 全称为Uniform Resource Locator, 即统一资源定位符, 是互联网上标准的资源定位地址.
   * 出现章节: CDay 0 / CDay 1 / CDay 2 / CDay 3 / KDay 0 / KDay 1 / KDay 4 / KDay 5 / KDay 6 / KDay N / PCS300 / PCS304 / PCS400
   
  Wiki ::
@@ -285,19 +295,23 @@
   * 出现章节: Kday 5 / PCS303 / PCS304
  
  Widget ::
-  * 没有中文名的Web 2.0产物, 可以是一个图像图像的部件(小插件), 也可以是图形背后的一段程序, 可以嵌在手机, 网页和其他人机交互的界面(例如电脑桌面)上.
-  * 出现章节: PCS217 / PCS304
+  * 小部件, 指界面中的一个小面积组件,实际可以是一个图形软件的部件(小插件), 也可以是图形背后的一段程序, 可以嵌在手机, 网页和其他人机交互的界面(例如电脑桌面)上.
+  * 另外, Widget 也是由雅虎推出的免费并开放源码的桌面应用程序平台的名称.它由Widget引擎和Widget工具两部分组成.能够极大的便利网络操作和完善桌面应用.Widget引擎提供了一个Ajax应用程序平台，在Windows和Mac OS X的操作系统环境下都可以使用.安装引擎后就能在此平台上运行各式各样的Widget工具.
+  * 访问地址: http://cn.widget.yahoo.com/
+  * 出现章节: CDay N / PCS217
   
- WSGI? ::
-  * 全称为Web Server Gateway Interface, 是Python应用程序或框架和Web服务器之间的一种接口.
+ WSGI ::
+  * 出自:PEP 333 -- Python Web Server Gateway Interface, Web 服务器网关接口; 是Python社区发明的应用程序或框架和Web服务器之间的一种通用接口, 可以令开发更加简洁和标准.
+  * 访问地址:http://www.python.org/dev/peps/pep-0333/
   * 出现章节: PCS301 / PCS304
   
  XML ::
   * 全称为eXtensible Markup Language, 即可扩展的标记语言, 一套定义语义标记的规则. 这些标记将文档分成许多部件并对这些部件加以标识.它也是元标记语言,即定义了用于定义其他与特定领域有关的,语义的,结构化的标记语言的句法语言.
   * 出现章节: CDay N / KDay 3 / KDay 5 / KDay 6 / KDay N / PCS2 / PCS214 / PCS303 / PCS304 / PCS400 / PCS401 / PCS402 / PCS403
   
- XUL? ::
-  * 一种XML语言, 能使用包括XSLT, XPath和DOM函式在内的许多已存在的标准来处理一个用户界面.
+ XUL ::
+  * 全称:XML User-interface Language , 基于 XML 的用户接口语言;是一种新的富客户端（Rich Client）技术,使用XML标准, 由 Mozilla/Firefox 支持,能使用包括XSLT, XPath和DOM函式在内的许多已存在的标准来解析和生成一个可以有丰富元素用户界面.实际上 Mazilla整个就是由xul设计而得的!
+  * 访问地址: http://www.xulplanet.com/
   * 出现章节: CDay N
   
 
@@ -308,19 +322,20 @@
   * 出现章节: PCS0 / PCS1 / PCS2 / PCS200 / PCS213 / PCS304
 
  数据类型 ::
-  * 具有相同特征的数据的一种抽象概括.
+  * 具有相同特征的数据的一种抽象概括. 一般在程序语言中,将一些对常见的类型数据的常用处理都预先封装好了内置模块,那么这类有内置天然支持的数据,就是"数据类型";比如说"自然数",自然数的数学计算是有别于"字符串"的常见,常用的处理;则,"自然数"这一类的数据,就会有对应的"数据类型".
   * 出现章节: CDay -4 / PCS101 / PCS105 / PCS208 / PCS400 / PCS402
   
  函式 ::
-  * 具体实现某个功能, 由一些语句组成的代码块, 一般情况下都有函式名字.
+  * 是一连串 CPU 可以执行的命令之组合;同数学中的函数本质上没有不同,都是通过传入实际数据通过约定的流程进行计算,获得结果; 但是,在计算机程序中返回值不一定是数字,于有可能是其它各种类别的对象, 所以,本书使用 "函式" 取代其它图书中一般使用的 "函数";
   * 出现章节: CDay -4 / CDay -3 / CDay -2 / CDay -1 / CDay 0 / CDay 1 / CDay 2 / CDay 3 / CDay N / KDay 2 / KDay 4 / KDay 5/ KDay 6 / PCS2 / PCS4 / PCS7 / PCS100 / PCS101 / PCS104 / PCS105 / PCS108 / PCS109 / PCS111 / PCS112 / PCS113 / PCS114 / PCS200 / PCS201 / PCS204 / PCS205 / PCS207 / PCS209 / PCS211 /PCS212 / PCS213 / PCS214 / PCS215 / PCS216 / PCS301 / PCS302 / PCS304
   
  伪代码 ::
-  * 解决问题的方法和步骤描述, 使用类似于代码的语言表述, 但不是真正可执行的代码。
+  * 用自然语言或是速记符号来表达的解决问题的方法和步骤描述, 使用类似于代码的语言表述, 但不是真正可执行的代码; 可以说是仅供人脑来运行的代码;-)
   * 出现章节: CDay -3 / PCS302
 
  邮件列表 ::
-  * 一种仅仅通过邮件进行群体异步交流的服务形式, 是比BBS 更加古老和有效的沟通方式.
+  * Mailing List,是Internet上的一种重要工具,一种仅仅通过邮件进行群体异步交流的服务形式, 是比BBS 更加古老和有效的沟通方式.邮件列表具有使用简单方便的特点，只要能够使用Email，就可以使用邮件列表. 最流行的邮件列表服务器就是基于Python 开发的 mailman:
+  * 访问地址: http://www.gnu.org/software/mailman/index.html　　
   * 出现章节: 书序 / CDay -5
  
   字符编码 ::
