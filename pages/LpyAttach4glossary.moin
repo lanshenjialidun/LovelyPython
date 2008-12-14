@@ -48,7 +48,7 @@
   * 出现章节: CDay -1
   
  CGI ::
-  * 全称为Common Gateway Interface, 即公共网关接口, 它是Web服务器与你的或其它机器上的程序进行“交谈”的一种工具, 其程序须运行在网络服务器上.CGI通过上为每个请求在服务器创建专用线程来进行数据处理并返回给用户,是服务器端应用程序开发的事实标准.
+  * 全称为Common Gateway Interface, 即公共网关接口, 它是Web服务器与你的或其它机器上的程序进行“交谈”的一种工具, 其程序须运行在网络服务器上.CGI为每个请求在服务器创建专用线程来进行数据处理并返回给用户,是服务器端应用程序开发的事实标准.
   * 访问地址: http://zhidao.baidu.com/question/7007298.html
   * 精巧地址: http://bit.ly/APVY
   * 出现章节: CDay 2 / PCS2 / PCS301 / PCS303 / PCS304 / PCS400
@@ -84,7 +84,7 @@
   * 出现章节: PCS7
   
  Epydoc ::
-  * 全称为Easy Py Documentor, 它是一个针对Python模块的API文档自动生成器.通过自动的从程序的注释中抽取吻合规范的内容自动形成完整的网站式说明文档;
+  * 全称为Easy Py Documentor, 它是一个针对Python模块的API文档自动生成器.通过自动的从程序注释中抽取吻合规范的内容, 自动生成完整的网站式说明文档;
   * 访问地址: http://epydoc.sourceforge.net/
   * 精巧地址: http://bit.ly/5wh1
   * 出现章节: CDay 0 / PCS203
@@ -92,6 +92,7 @@
  Epytext ::
   * 轻量级的标记语言, 用于标记各种文档字符串, 主要是在一些特定的标签上添加相关的信息, 例如参数类型等等.
   * 访问地址: http://epydoc.sourceforge.net/epytext.html
+  * 精巧地址: http://bit.ly/ZBXr
   * 出现章节: PCS203
   
  FastCGI ::
@@ -121,7 +122,7 @@
   * 出现章节: CDay N / PCS304 / PCS400
   
  GBK ::
-  * 全称为《汉字内码扩展规范》, 它是一个汉字编码标准, 它向下与 GB 2312 编码兼容, 向上支持 ISO 10646.1 国际标准, 是前者向后者过渡过程中的一个承上启下的汉字编码标准.共提供了23,940字的编码空间, 实际定义了 21,886汉字,可用户定义1,894汉字.
+  * 全称为《汉字内码扩展规范》, 它是一个汉字编码标准, 它向下与 GB 2312 编码兼容, 向上支持 ISO 10646.1 国际标准, 是前者向后者过渡过程中的一个承上启下的汉字编码标准.总共提供了23,940字的编码空间, 实际定义了 21,886汉字,可用户定义1,894汉字.
   * 出现章节: CDay -1 / PCS6
   
  GNU/Linux ::
@@ -168,7 +169,7 @@
 
 = Jj~Nn =
  javadoc ::
-  * 用于Java源代码的文档化标记语言.它从程序源代码中抽取类、方法、成员等注释形成一个和源代码配套的API帮助文档;也就是说，只要在编写程序时以一套特定的标签作注释，在程序编写完成后，通过Javadoc就可以同时形式程序的开发文档了.
+  * 用于Java源代码的文档化标记语言.它从程序源代码中抽取类、方法、成员等注释形成一个和源代码配套的API帮助文档;也就是说，只要在编写程序时以一套特定的标签作注释，在程序编写完成后，通过Javadoc就可以同时生成程序的开发文档了.
   * 访问地址: http://java.sun.com/j2se/javadoc/
   * 出现章节: PCS203
   
@@ -218,6 +219,7 @@
  PEP ::
   * 全称: Python Enhancement Proposals, Python 增进提案库; 收集并标识了所有对Python 增强的建议接受或是实现情况,几乎所有Python 重要改进都出自这里,是学习Python 核心新特性的重要文档依据;
   * 访问地址: http://www.python.org/dev/peps/
+  * 精巧地址: http://bit.ly/fwcW8
   * 出现章节: CDay 0
 
  PHP ::
@@ -230,7 +232,7 @@
   * 出现章节: CDay -2 / KDay 1 / PCS404
  
  ReStructuredText ::
-  * 即"新结构化文本"(缩写 reST),是对"结构化文本"(RtructuredText,缩写 ST);是一种易用的有很长历史的标准的文档组织规范,是一种"所想即所得"(WYTIWYG~What You Think Is What You Get)的文本标签语法; 通过简单的纯文本字符串约定,在正文内容间隙声明了文章的各种结构体,从而可以通过丰富的支持工具自动化的生成HTML页面;
+  * 即"新结构化文本"(缩写 reST),是对"结构化文本"(RtructuredText,缩写 ST);是一种易用的有很长历史的标准文档组织规范,是一种"所想即所得"(WYTIWYG~What You Think Is What You Get)的文本标签语法; 通过简单的纯文本字符串约定,在正文内容间隙声明了文章的各种结构体,从而可以通过丰富的支持工具自动化的生成HTML页面;
   * 出现章节: PCS203
   
  RFC ::
@@ -258,6 +260,7 @@
  SCGI ::
   * 全称为Simple Common Gateway Interface, 即简单公共网关接口, SCGI与FastCGI相似，也是CGI的一个替代协议,但是与FastCGI相比,SCGI更容易实现;具有和FastCGI一样优秀的性能，同时又在稳定性方面远远超过FastCGI, 该方案在Python Web领域应用较多.
   * 访问地址: http://python.ca/scgi/protocol.txt
+  * 精巧地址: http://bit.ly/3nldNn
   * 出现章节: PCS301 / PCS304
   
  Stackless Python ::
@@ -335,7 +338,8 @@
 
  邮件列表 ::
   * Mailing List,是Internet上的一种重要工具,一种仅仅通过邮件进行群体异步交流的服务形式, 是比BBS 更加古老和有效的沟通方式.邮件列表具有使用简单方便的特点，只要能够使用Email，就可以使用邮件列表. 最流行的邮件列表服务器就是基于Python 开发的 mailman:
-  * 访问地址: http://www.gnu.org/software/mailman/index.html　　
+  * 访问地址: http://www.gnu.org/software/mailman/index.html
+  * 精巧地址: http://bit.ly/178Eb
   * 出现章节: 书序 / CDay -5
  
   字符编码 ::
