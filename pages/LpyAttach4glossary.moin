@@ -8,7 +8,7 @@
 
 ##startInc
  术语::
- 在特定领域中形成专门用来指代特定意义的词语; 计算机领域术语,由于电脑技术发展之迅猛,每年都有很大数量的术语被创造出来很多! 这里仅收集并简要解释了图书中涉及到的; 术语条目格式如下:{{{
+ 在特定领域中形成专门用来指代特定意义的词语; 计算机领域术语,由于电脑技术发展之迅猛,每年都有很大数量的术语被创造出来! 这里仅收集并简要解释了图书中涉及到的; 术语条目格式如下:{{{
  术语词条::
   * 精简解释(不进行专业的细致解说,仅通俗的说明主体含义,并尽可能的给出官方资源)
   * 出现章节: CDay -5 / PCS231  
@@ -16,7 +16,7 @@
 
 = Aa~Dd =
  ActivePython ::
-  * 是由ActiveState软件公司开发的Python应用开发环境, 支持多种操作系统(Windows, Linux, Mac OS X, Solaris, AIX, HP-UX).
+  * 是由ActiveState软件公司开发的Python应用开发环境, 支持多种操作系统(Windows, Linux/Linux, Mac OS X, Solaris, AIX, HP-UX).
   * 访问地址: http://www.activestate.com/Products/activepython/index.mhtml
   * 精巧地址: http://bit.ly/NlWN
   * 出现章节: CDay -5 / CDay -4 / CDay -2 / CDay 1 / CDay 3 / PCS3
@@ -42,7 +42,7 @@
   * 出现章节: CDay -2 / CDay -1 / PCS5 / PCS6 / PCS202
   
  BIG5 ::
-  * 俗称"大五码", 主要为香港与台湾使用, 是一个繁体编码字库解决方案. 其每个汉字由两个字节构成, 第一个字节的范围从0x81-0xFE(即129-255), 共126种. 第二个字节的范围不连续, 分别为0x40-0x7E(即64-126),0xA1-0xFE(即161-254), 共157种. 共包含了13,053汉字.
+  * 俗称"大五码", 主要为香港与台湾使用, 是一个繁体编码字库解决方案. 其每个汉字由两个字节构成, 第一个字节的范围从0x81-0xFE(即129-255), 共126种. 第二个字节的范围不连续, 分别为0x40-0x7E(即64-126),0xA1-0xFE(即161-254), 共157种. 共包含了13,053个汉字.
   * 访问地址: http://www.css8.cn/css8_document/gb2312.htm
   * 精巧地址: http://bit.ly/OTND
   * 出现章节: CDay -1
@@ -97,7 +97,7 @@
   
  FastCGI ::
   * FastCGI是语言无关的、可伸缩架构的CGI开放扩展,其主要行为是将CGI解释器进程保持在内存中并因此获得较高的性能. FastCGI通过启动若干独立于Web服务器的进程来响应客户请求.
-  * 访问地址: http://www.fastcgi.com
+  * 访问地址: http://www.fastcgi.com/
   * 出现章节: PCS304 / PCS301
 
  FP ::
@@ -106,7 +106,7 @@
  
  FreeBSD ::
   * FreeBSD 是一种类Uinx的免费操作系统, 源于BSD(由美国加州大学伯克利分校开发的UNIX版本), 可以运行于 x86 兼容(包括 Pentium® 和 Athlon™), amd64 兼容(包括 Opteron™, Athlon™64 和 EM64T), ARM, IA-64, PC-98以及 UltraSPARC® 架构的计算机上.
-  * 访问地址: http://freebsd.org
+  * 访问地址: http://freebsd.org/
   * 出现章节: PCS301
   
  FreeMind ::
@@ -282,7 +282,7 @@
   
  Ubuntu ::
   * 一个基于Debian的操作系统, 可自由的获得, 并提供社区和专业的支持. Ubuntu 宣言: 软件应免费提供, 软件工具应能以人们本地语种的形式可用且不牺牲任何功能, 人们应拥有定制及改变他们软件的自由, 这包括以任何他们认为适宜的方式.
-  * 访问地址: http://www.ubuntu.com
+  * 访问地址: http://www.ubuntu.com/
   * 出现章节: 书序 / CDay -4 / CDay -1 / PCS0 / PCS1 / PCS2 / PCS302 / PCS304
 
  Unicode ::
