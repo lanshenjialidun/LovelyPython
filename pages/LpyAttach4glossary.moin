@@ -16,7 +16,7 @@
 
 = Aa~Dd =
  ActivePython ::
-  * 是由ActiveState软件公司开发的Python应用开发环境, 支持多种操作系统(Windows, Linux/Linux, Mac OS X, Solaris, AIX, HP-UX).
+  * 是由ActiveState软件公司开发的Python应用开发环境, 支持多种操作系统(Windows, GNU/Linux, Mac OS X, Solaris, AIX, HP-UX).
   * 访问地址: http://www.activestate.com/Products/activepython/index.mhtml
   * 精巧地址: http://bit.ly/NlWN
   * 出现章节: CDay -5 / CDay -4 / CDay -2 / CDay 1 / CDay 3 / PCS3
@@ -29,7 +29,7 @@
  
  Apache ::
   * 一种开放源码的HTTP服务器,可以在大多数计算机操作系统中运行,是最流行的Web服务器端软件之一.它快速,可靠并且可通过简单的API扩展,PHP/Perl/Python等等开发语言的解释器都可方便的编译到Apache服务器中.
-  * 访问地址: http://apache.org
+  * 访问地址: http://apache.org/
   * 出现章节: KDay 5 / PCS301 / PCS304
  
  API ::
@@ -48,7 +48,7 @@
   * 出现章节: CDay -1
   
  CGI ::
-  * 全称为Common Gateway Interface, 即公共网关接口, 它是Web服务器与你的或其它机器上的程序进行“交谈”的一种工具, 其程序须运行在网络服务器上.CGI为每个请求在服务器创建专用线程来进行数据处理并返回给用户,是服务器端应用程序开发的事实标准.
+  * 全称为Common Gateway Interface, 即公共网关接口, 它是Web服务器与你的或其它机器上的程序进行“交谈”的一种工具, 其程序须运行在网络服务器上.CGI通过为每个请求在服务器创建专用线程来进行数据处理并返回给用户,是服务器端应用程序开发的事实标准.
   * 访问地址: http://zhidao.baidu.com/question/7007298.html
   * 精巧地址: http://bit.ly/APVY
   * 出现章节: CDay 2 / PCS2 / PCS301 / PCS303 / PCS304 / PCS400
