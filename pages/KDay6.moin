@@ -172,7 +172,7 @@ for (var i = 0; i < prefix.length; i++) {
 //^_^
 throw new Error("My God, What version of IE are you using? IE5&+ is requiered.");
 }
-}}}啍啍...'''BS'''!居然不能支持 FireFox 的,难道以前小白的成功反而是灵异现象?!
+}}}啍啍...'''BS'''!居然不能支持 FireFox ,难道以前小白的成功反而是灵异现象?!这段js中, 使用了IE特有的ActiveXObject, 所以放到FireFox中就不能正常运行. 
 
  * 小白彻底无言了!直接使用服务端的判定吧!
  * 创立 `bye()` 判别处理页面 并在失败时输出{{{
