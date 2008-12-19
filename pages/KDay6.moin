@@ -174,8 +174,56 @@ throw new Error("My God, What version of IE are you using? IE5&+ is requiered.")
 }
 }}}啍啍...'''BS'''!居然不能支持 FireFox ,难道以前小白的成功反而是灵异现象?!这段js中, 使用了IE特有的ActiveXObject, 所以放到FireFox中就不能正常运行. 
 
- * 小白彻底无言了!直接使用服务端的判定吧!
- * 创立 `bye()` 判别处理页面 并在失败时输出{{{
+ * 小白彻底无言了!直接使用服务端的判定吧!那就直接在服务器端判断提交时是否已经回答全部问题。
+ * 创立 `bye()` 判别处理页面 {{{#!python
+def bye(**args):
+    """不使用客户端验证后替代的服务端检验页面
+    """
+    print _htmhead("CPyUG·啄木鸟社区·自学问卷管理 obpKwDay6- Powered by Karrigell")
+    print H1("%s"%(qcfg.desc.pname))
+    qk = QUERY.keys()
+    if "btn_submit" in qk:
+        #print QUERY
+        qp = DictIni(conf.qpage.qpath+sess.usr["qp"]+".cfg")
+        qli = [i for i in qp.ask.keys()]
+        a = []
+        as = ""
+        # 扫描并记录设计问卷的所有题目
+        for k in qk:
+            if "btn_submit"==k:
+                pass
+            else:
+                as+=QUERY[k]+"\n"
+                a.append(k[6:])
+        lost=[]
+        qli.sort()
+        # 对比,计数 已经回答的
+        for q in qli:
+            if q not in a:
+                lost.append(q)
+        
+        if 0==len(lost):
+            answer = "%s%s.%s.aq"%(conf.qpage.apath
+                                  ,sess.usr["qp"]#pubq.split(".")[-2]
+                                  ,sess.usr["name"])
+            open(answer,'w').write(as)
+            ## 正常跳转到统计页面
+            raise HTTP_REDIRECTION,"stat"
+        print BR()*2
+        print H4("没有回答完全！")
+        for l in lost:
+            print LI("问题%s 没有回答!"%l)
+        print """<h4><input type="button"
+            value="点击返回重新回答"
+            class="btn"
+            onClick="history.back();"/>
+        </h4>
+        """                  
+    else:
+        raise HTTP_REDIRECTION,"index"
+    print htmfoot
+    }}}经过这样处理就可以判定问卷的所有题目是不是已经全部回答完了...
+ * 接着如果判定失败时输出{{{
 <input type="button"
     value="点击返回重新回答"
     class="btn"
@@ -191,7 +239,7 @@ attachment:kday6-no-answer.png
 == 统计汇报 ==
 '''终于进入最后的功能完成了!小白已经开始志得意满起来了,因为,实在没有什么难度了卟?'''
  * 接下来的功能就单纯了:
-  1. 所有人的回答输出记录成简单的文件,比如说：每个题目的回答为一行
+  1. 把所有人的回答条目简单记录成一个文件, 格式为: 每行依次对应每个题目的回答
   1. 套用问卷列表的技巧,需要时可以搜索出对应问卷的所有成员回答记录
   1. 批量读到列表中,和成员信息字典匹配一下子,就可以人性化的输出了
 相关代码:
@@ -238,7 +286,7 @@ def _grade(right,answer):
 }}}
 
   *唉呀呀?!小白突然发现,为什么不管怎么回答都是0分?
-   * 原来,是字典的无序和回答的有序!造成的,验证一下:{{{#!python
+   * 原来, 保存答案的字典是无序的, 而回答是有顺序的! 这就造成了正确答案和回答的答案不匹配, 可以验证一下:{{{#!python
 print crtqp.ask.keys()
 crtright = [crtqp.ask[i]["key"] for i in crtqp.ask.keys()]
 print crtright
@@ -247,7 +295,7 @@ print crtright
 图 KDay6-8 将答案和问题教员检出到页面
 attachment:kday6-question-answer.png
 
-   * 知道症结就好修改了{{{#!python
+   * 知道症结就好修改了, 直接排下序就好~{{{#!python
 #字典排序技巧
 ak = crtqp.ask.keys()
 ak.sort()
