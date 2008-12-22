@@ -50,7 +50,8 @@ def addRadioGroup(self,name,value):
 	    radio = radio + "<input type='radio' name='"+name+"' value='"+a+"'>"+"<label><font face=verdana size=2>"+b+"</font></label><br>"
         self.form_list.append(radio+"</td>")
 	self.form_list.append("</tr>")
-}}} 増补了个基于列表的干净版本的单选框生成器:
+}}}这是原版的单选列表生成器 从名字就可以看出 `addRadioGroup` ~ 追加单选按钮组;生成的就是常见的一组选项,只接受其中一个选择,选择另外的,原先选择的就自动清除; 但是,郁闷的是,原版的是将"单选按钮组"塞到一个表格行中,而小白经过了CSS的学习,期望使用 列表配合CSS 完成一个看起来和之前一样,但是HTML 代码更加少,控制更加自由的"单选按钮组",所以: 
+ * 増补了个基于列表的干净版本的单选框生成器:
 {{{#!python
 def addRadioList(self,name,desc,value,id=""):
     """add a radio element export as UL LI group
@@ -66,11 +67,11 @@ def addRadioList(self,name,desc,value,id=""):
         name='%s' 
         value='%s'>  
         <label>%s</label>      
-        """        
+        """             # 列表项模板字串
     for a,b in t:
         radio = radio + tmpl%(name,a,b)
     self.form_list.append(radio+"</ul></li>")
-}}}
+}}} 仿照原先的名字,不触动原版的生成器函式,自定了个`addRadioList`~ 追加单选按钮列表!而且使用了Python 内置的文本模板,令代码更加清晰;-)
 
 === 利用 ===
 '''直接将昨天的展示函式修改一下子就应该好用的!'''
