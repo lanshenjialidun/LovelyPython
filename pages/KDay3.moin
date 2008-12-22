@@ -143,7 +143,7 @@ def export(self):
 
 ## mechiland@gmail.com jzchen80@hotmail.com
 
-图 KDay3-3 2004年当时的JVF作品页面情景
+图 KDay3-4 2004年当时的JVF作品页面情景
 
 attachment:kday3-jvf.png
 
@@ -256,7 +256,7 @@ attachment:kday3-jvf-alert.png
 == 页面编码 ==
 从开始使用 Karrigell ,小白在 FireFox 浏览器中就发现有中文乱码问题...
 
-图 KDay3-4 页面乱码现象
+图 KDay3-5 页面乱码现象
 
 attachment:kday3-bad-page-encode.png
 
@@ -287,7 +287,7 @@ RESPONSE['Content-Type'] = "text/html; charset=utf-8"
 '''到现在页面都是白板!不能忍了!使用CSS!'''
  * 小白先不理会 KarriGell 的外部文件引用效率,决定简单些,直接将CSS,写入页面,反正有["Leo"]来维护
 
-图 KDay3-5 通过Leo 每个页面复用嵌入的css 定义
+图 KDay3-6 通过Leo 每个页面复用嵌入的css 定义
 
 attachment:kday3-leo-css-embed.png
 
@@ -300,7 +300,7 @@ attachment:kday3-leo-css-embed.png
   * 访问地址: http://www.redalt.com/Tools/ilyc.php
   * 精巧地址: http://bit.ly/91GT9
 
-图 KDay3-6 演示 redalt.com 的CSS颜色分析工具
+图 KDay3-7 演示 redalt.com 的CSS颜色分析工具
 
 attachment:kday3-red-alt.png
 
@@ -309,14 +309,14 @@ attachment:kday3-red-alt.png
   * 引用都是从`复用代码` 中clone 过来的同一节点
   * 包含的就是`k_base.css` 小白根据 Django 社区的样式修剪成的一个通用CSS设计,套用到当前的系统中
 
-图 KDay3-7 问卷管理和展示CSS效果
+图 KDay3-8 问卷管理和展示CSS效果
 
 attachment:kday3-django-css.png
  
 == 小结 ==
 '''今天发现并引入了 [http://www.orionlab.net/karrigell_quickform/Karrigell_QuickForm.html KQF]和 [http://www.amowa.net/jsvalidation/ JVF]好象有点复杂的样子……'''
 
-图 KDay3-8 最终问卷效果
+图 KDay3-9 最终问卷效果
 
 attachment:kday3-today-result.png
 
