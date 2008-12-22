@@ -1,4 +1,4 @@
-# $Id: qpage.py 325 2005-12-30 04:23:49Z  $
+# $Id: obpKwd3.leo 325 2005-12-30 04:23:49Z  $
 # qpage.py 快捷问卷模拟展示
 
 #!/usr/bin/env python
@@ -8,6 +8,7 @@ import time,shutil
 import sys,os,string,re
 
 from dict4ini import DictIni
+
 #初始化参数集中维护！
 ## 又一个，看来要重构！
 qpath = "q/"
@@ -29,8 +30,8 @@ def expage(dict):
         <sub>%s</sub></h3>"""%(dict.desc.pname
                                 ,dict.desc.desc
                                 ,dict.desc.learn)
-    
-    
+
+
     #print dict.ask["1"]
     exp +="<ul>"
     # 将字串的字典键值依照数字方式排序
@@ -53,16 +54,16 @@ def expage(dict):
         exp +="</ul>"
         exp +="</li>"
     exp +="</ul>"
-    
+
     exp += "</div>" # id=qpage
     return exp
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
 
 open(pubq,"w").write(QUERY["cfgfile"])
 qcfg = DictIni(cfgf)

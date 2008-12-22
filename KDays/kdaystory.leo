@@ -2,16 +2,16 @@
 <?xml-stylesheet ekr_stylesheet?>
 <leo_file>
 <leo_header file_format="2" tnodes="0" max_tnode_index="0" clone_windows="0"/>
-<globals body_outline_ratio="0.347765363128">
+<globals body_outline_ratio="0.247244094488">
 	<global_window_position top="27" left="10" height="716" width="1270"/>
 	<global_log_window_position top="0" left="0" height="0" width="0"/>
 </globals>
 <preferences/>
 <find_panel_settings/>
 <vnodes>
-<v t="zoomq.20080818231058.44" str_leo_pos="1,1,1,6"><vh>@chapters</vh></v>
+<v t="zoomq.20080818231058.44" str_leo_pos="1,2,3,7,2,1"><vh>@chapters</vh></v>
 <v t="zoomq.20080818231058.3" a="E"><vh>KDayStory</vh>
-<v t="zoomq.20080818231058.5" a="E"><vh>kday1</vh>
+<v t="zoomq.20080818231058.5"><vh>kday1</vh>
 <v t="zoomq.20080818231058.6"><vh>Kday1:尝试</vh></v>
 <v t="zoomq.20080818231058.7"><vh>尝试</vh>
 <v t="zoomq.20080818231058.10" tnodeList="zoomq.20080818231058.10"><vh>@nosent index.pih</vh></v>
@@ -25,7 +25,7 @@
 <v t="zoomq.20080818231058.16" a="E"><vh>管理</vh>
 <v t="zoomq.20080818231058.18" tnodeList="zoomq.20080818231058.18"><vh>@nosent  mana.pih</vh></v>
 <v t="zoomq.20080818231058.19" tnodeList="zoomq.20080818231058.19"><vh>@nosent questionnaire.tmpl</vh></v>
-<v t="zoomq.20080818231058.20" tnodeList="zoomq.20080818231058.20,zoomq.20080818231058.21,zoomq.20080818231058.22,zoomq.20080818231058.23"><vh>@nosent qdesign.py</vh>
+<v t="zoomq.20080818231058.20" a="E" tnodeList="zoomq.20080818231058.20,zoomq.20080818231058.21,zoomq.20080818231058.22,zoomq.20080818231058.23"><vh>@nosent qdesign.py</vh>
 <v t="zoomq.20080818231058.21"><vh>&lt;&lt; page declarations &gt;&gt;</vh></v>
 <v t="zoomq.20080818231058.22"><vh>init</vh></v>
 <v t="zoomq.20080818231058.23"><vh>&lt;&lt; try &gt;&gt;</vh></v>
@@ -33,7 +33,7 @@
 <v t="zoomq.20080818231058.24" tnodeList="zoomq.20080818231058.24,zoomq.20080818231058.25,zoomq.20080818231058.25"><vh>@nosent  qpage.pih</vh>
 <v t="zoomq.20080818231058.25"><vh>&lt;&lt;导航&gt;&gt;</vh></v>
 </v>
-<v t="zoomq.20080818231058.26" tnodeList="zoomq.20080818231058.26,zoomq.20080818231058.27,zoomq.20080818231058.28,zoomq.20080818231058.29,zoomq.20080818231058.30,zoomq.20080818231058.31,zoomq.20080818231058.32"><vh>@nosent  qpage.py</vh>
+<v t="zoomq.20080818231058.26" a="E" tnodeList="zoomq.20080818231058.26,zoomq.20080818231058.27,zoomq.20080818231058.28,zoomq.20080818231058.29,zoomq.20080818231058.30,zoomq.20080818231058.31,zoomq.20080818231058.32"><vh>@nosent  qpage.py</vh>
 <v t="zoomq.20080818231058.27"><vh>&lt;&lt; page declarations &gt;&gt;</vh></v>
 <v t="zoomq.20080818231058.28"><vh>init</vh></v>
 <v t="zoomq.20080818231058.29" a="E"><vh>expage</vh>
@@ -45,7 +45,7 @@
 <v t="zoomq.20080818231058.33" tnodeList="zoomq.20080818231058.33,zoomq.20080818231058.34,zoomq.20080818231058.34"><vh>@nosent  qprint.pih</vh>
 <v t="zoomq.20080818231058.34"><vh>&lt;&lt;backdesign&gt;&gt;</vh></v>
 </v>
-<v t="zoomq.20080818231058.35" a="E" tnodeList="zoomq.20080818231058.35,zoomq.20080818231058.36,zoomq.20080818231058.37,zoomq.20080818231058.38,zoomq.20080818231058.39,zoomq.20080818231058.40"><vh>@nosent  qprint.py</vh>
+<v t="zoomq.20080818231058.35" tnodeList="zoomq.20080818231058.35,zoomq.20080818231058.36,zoomq.20080818231058.37,zoomq.20080818231058.38,zoomq.20080818231058.39,zoomq.20080818231058.40"><vh>@nosent  qprint.py</vh>
 <v t="zoomq.20080818231058.36"><vh>&lt;&lt; page declarations &gt;&gt;</vh></v>
 <v t="zoomq.20080818231058.37"><vh>init</vh></v>
 <v t="zoomq.20080818231058.38" a="E"><vh>qpubish()</vh>
@@ -54,19 +54,19 @@
 <v t="zoomq.20080818231058.40"><vh>&lt;&lt; try &gt;&gt;</vh></v>
 </v>
 </v>
-<v t="zoomq.20080818231058.41"><vh>问卷设计</vh>
+<v t="zoomq.20080818231058.41" a="E"><vh>问卷设计</vh>
 <v t="zoomq.20080818231058.42" tnodeList="zoomq.20080818231058.42"><vh>@nosent easy051201.cfg</vh></v>
 </v>
 </v>
-<v t="zoomq.20080818232347.3"><vh>kday3</vh>
+<v t="zoomq.20080818232347.3" a="E"><vh>kday3</vh>
 <v t="zoomq.20080818232347.4"><vh>Kday3:发现</vh></v>
 <v t="zoomq.20080818232347.5"><vh>问卷设计</vh>
 <v t="zoomq.20080818232347.6" tnodeList="zoomq.20080818232347.6"><vh>@nosent easy051201.cfg</vh></v>
 </v>
-<v t="zoomq.20080818232347.7" a="E"><vh>复用代码</vh>
+<v t="zoomq.20080818232347.7"><vh>复用代码</vh>
 <v t="zoomq.20080818232347.8"><vh>&lt;&lt;k_base&gt;&gt;</vh>
 <v t="zoomq.20080818232347.9"><vh>k_base.css</vh></v>
-<v t="zoomq.20080818232347.10" a="E"><vh>EPserver.css</vh>
+<v t="zoomq.20080818232347.10"><vh>EPserver.css</vh>
 <v t="zoomq.20080818232347.11"><vh>&lt;&lt;表单&gt;&gt;</vh></v>
 <v t="zoomq.20080818232347.12"><vh>&lt;&lt;色系&gt;&gt;</vh></v>
 <v t="zoomq.20080818232347.13"><vh>&lt;&lt;效果&gt;&gt;</vh></v>
@@ -76,10 +76,10 @@
 <v t="zoomq.20080818232347.14" a="E"><vh>管理</vh>
 <v t="zoomq.20080818232347.15" tnodeList="zoomq.20080818232347.15"><vh>@nosent __init__.py</vh></v>
 <v t="zoomq.20080818232347.16" tnodeList="zoomq.20080818232347.16"><vh>@nosent tryKQF.py</vh></v>
-<v t="zoomq.20080818232347.17" a="E" tnodeList="zoomq.20080818232347.17,zoomq.20080818232347.8,zoomq.20080818232347.9,zoomq.20080818232347.10,zoomq.20080818232347.11,zoomq.20080818232347.12,zoomq.20080818232347.13"><vh>@nosent  mana.pih</vh>
-<v t="zoomq.20080818232347.8"><vh>&lt;&lt;k_base&gt;&gt;</vh>
+<v t="zoomq.20080818232347.17" tnodeList="zoomq.20080818232347.17,zoomq.20080818232347.8,zoomq.20080818232347.9,zoomq.20080818232347.10,zoomq.20080818232347.11,zoomq.20080818232347.12,zoomq.20080818232347.13"><vh>@nosent  mana.pih</vh>
+<v t="zoomq.20080818232347.8" a="E"><vh>&lt;&lt;k_base&gt;&gt;</vh>
 <v t="zoomq.20080818232347.9"><vh>k_base.css</vh></v>
-<v t="zoomq.20080818232347.10" a="E"><vh>EPserver.css</vh>
+<v t="zoomq.20080818232347.10"><vh>EPserver.css</vh>
 <v t="zoomq.20080818232347.11"><vh>&lt;&lt;表单&gt;&gt;</vh></v>
 <v t="zoomq.20080818232347.12"><vh>&lt;&lt;色系&gt;&gt;</vh></v>
 <v t="zoomq.20080818232347.13"><vh>&lt;&lt;效果&gt;&gt;</vh></v>
@@ -96,47 +96,48 @@
 <v t="zoomq.20080818232347.24"><vh>&lt;&lt;导航&gt;&gt;</vh></v>
 <v t="zoomq.20080818232347.8"><vh>&lt;&lt;k_base&gt;&gt;</vh>
 <v t="zoomq.20080818232347.9"><vh>k_base.css</vh></v>
-<v t="zoomq.20080818232347.10" a="E"><vh>EPserver.css</vh>
+<v t="zoomq.20080818232347.10"><vh>EPserver.css</vh>
 <v t="zoomq.20080818232347.11"><vh>&lt;&lt;表单&gt;&gt;</vh></v>
 <v t="zoomq.20080818232347.12"><vh>&lt;&lt;色系&gt;&gt;</vh></v>
 <v t="zoomq.20080818232347.13"><vh>&lt;&lt;效果&gt;&gt;</vh></v>
 </v>
 </v>
 </v>
-<v t="zoomq.20080818232347.25" tnodeList="zoomq.20080818232347.25,zoomq.20080818232347.26,zoomq.20080818232347.27,zoomq.20080818232347.28,zoomq.20080818232347.29,zoomq.20080818232347.30,zoomq.20080818232347.31"><vh>@nosent  qpage.py</vh>
+<v t="zoomq.20080818232347.25" a="E" tnodeList="zoomq.20080818232347.25,zoomq.20080818232347.26,zoomq.20080818232347.27,zoomq.20080818232347.28,zoomq.20080818232347.29,zoomq.20080818232347.30,zoomq.20080818232347.31"><vh>@nosent  qpage.py</vh>
 <v t="zoomq.20080818232347.26"><vh>&lt;&lt; page declarations &gt;&gt;</vh></v>
 <v t="zoomq.20080818232347.27"><vh>init</vh></v>
-<v t="zoomq.20080818232347.28"><vh>expage</vh>
+<v t="zoomq.20080818232347.28" a="E"><vh>expage</vh>
 <v t="zoomq.20080818232347.29"><vh>desc</vh></v>
 <v t="zoomq.20080818232347.30"><vh>askloop</vh></v>
 </v>
 <v t="zoomq.20080818232347.31"><vh>&lt;&lt; try &gt;&gt;</vh></v>
 </v>
-<v t="zoomq.20080818232347.32" a="E" tnodeList="zoomq.20080818232347.32,zoomq.20080818232347.8,zoomq.20080818232347.9,zoomq.20080818232347.10,zoomq.20080818232347.11,zoomq.20080818232347.12,zoomq.20080818232347.13,zoomq.20080818232347.33,zoomq.20080818232347.33"><vh>@nosent  qprint.pih</vh>
+<v t="zoomq.20080818232347.34" a="E" tnodeList="zoomq.20080818232347.34,zoomq.20080818232347.35,zoomq.20080818232347.36,zoomq.20080818232347.37,zoomq.20081222164140.1,zoomq.20080818232347.38,zoomq.20080818232347.39"><vh>@nosent  qprint.py</vh>
+<v t="zoomq.20080818232347.35"><vh>&lt;&lt; page declarations &gt;&gt;</vh></v>
+<v t="zoomq.20080818232347.36"><vh>init</vh></v>
+<v t="zoomq.20080818232347.37" a="E"><vh>qpubish()</vh>
+<v t="zoomq.20081222164140.1"><vh>desc</vh></v>
+<v t="zoomq.20080818232347.38"><vh>askloop</vh></v>
+</v>
+<v t="zoomq.20080818232347.39"><vh>&lt;&lt; try &gt;&gt;</vh></v>
+</v>
+<v t="zoomq.20080818232347.32" tnodeList="zoomq.20080818232347.32,zoomq.20080818232347.8,zoomq.20080818232347.9,zoomq.20080818232347.10,zoomq.20080818232347.11,zoomq.20080818232347.12,zoomq.20080818232347.13,zoomq.20080818232347.33,zoomq.20080818232347.33"><vh>@nosent  qprint.pih</vh>
 <v t="zoomq.20080818232347.33"><vh>&lt;&lt;导航&gt;&gt;</vh></v>
 <v t="zoomq.20080818232347.8"><vh>&lt;&lt;k_base&gt;&gt;</vh>
 <v t="zoomq.20080818232347.9"><vh>k_base.css</vh></v>
-<v t="zoomq.20080818232347.10" a="E"><vh>EPserver.css</vh>
+<v t="zoomq.20080818232347.10"><vh>EPserver.css</vh>
 <v t="zoomq.20080818232347.11"><vh>&lt;&lt;表单&gt;&gt;</vh></v>
 <v t="zoomq.20080818232347.12"><vh>&lt;&lt;色系&gt;&gt;</vh></v>
 <v t="zoomq.20080818232347.13"><vh>&lt;&lt;效果&gt;&gt;</vh></v>
 </v>
 </v>
 </v>
-<v t="zoomq.20080818232347.34" tnodeList="zoomq.20080818232347.34,zoomq.20080818232347.35,zoomq.20080818232347.36,zoomq.20080818232347.37,zoomq.20080818232347.38,zoomq.20080818232347.39"><vh>@nosent  qprint.py</vh>
-<v t="zoomq.20080818232347.35"><vh>&lt;&lt; page declarations &gt;&gt;</vh></v>
-<v t="zoomq.20080818232347.36"><vh>init</vh></v>
-<v t="zoomq.20080818232347.37" a="E"><vh>qpubish()</vh>
-<v t="zoomq.20080818232347.38"><vh>askloop</vh></v>
 </v>
-<v t="zoomq.20080818232347.39"><vh>&lt;&lt; try &gt;&gt;</vh></v>
-</v>
-</v>
-<v t="zoomq.20080818232347.40"><vh>KQf</vh>
+<v t="zoomq.20080818232347.40" a="E"><vh>KQf</vh>
 <v t="zoomq.20080818232347.41" a="E" tnodeList="zoomq.20080818232347.41,zoomq.20080818232347.42,zoomq.20080818232347.43,zoomq.20080818232347.44,zoomq.20080818232347.45,zoomq.20080818232347.46,zoomq.20080818232347.47,zoomq.20080818232347.48,zoomq.20080818232347.49,zoomq.20080818232347.50,zoomq.20080818232347.51,zoomq.20080818232347.52,zoomq.20080818232347.53,zoomq.20080818232347.54,zoomq.20080818232347.55,zoomq.20080818232347.56,zoomq.20080818232347.57,zoomq.20080818232347.58,zoomq.20080818232347.59,zoomq.20080818232347.60,zoomq.20080818232347.61,zoomq.20080818232347.62,zoomq.20080818232347.63,zoomq.20080818232347.64,zoomq.20080818232347.65,zoomq.20080818232347.66,zoomq.20080818232347.67,zoomq.20080818232347.68,zoomq.20080818232347.69,zoomq.20080818232347.70,zoomq.20080818232347.71,zoomq.20080818232347.72,zoomq.20080818232347.73,zoomq.20080818232347.74,zoomq.20080818232347.75,zoomq.20080818232347.76,zoomq.20080818232347.77,zoomq.20080818232347.78,zoomq.20080818232347.80,zoomq.20080818232347.81,zoomq.20080818232347.82,zoomq.20080818232347.83"><vh>@nosent Karrigell_QuickForm.py</vh>
 <v t="zoomq.20080818232347.42"><vh>&lt;&lt; Karrigell_QuickForm declarations &gt;&gt;</vh></v>
-<v t="zoomq.20080818232347.43" a="E"><vh>class Karrigell_QuickForm</vh>
-<v t="zoomq.20080818232347.44" a="E"><vh>__init__</vh>
+<v t="zoomq.20080818232347.43"><vh>class Karrigell_QuickForm</vh>
+<v t="zoomq.20080818232347.44"><vh>__init__</vh>
 <v t="zoomq.20080818232347.45"><vh>&lt;&lt;JVF&gt;&gt;</vh></v>
 </v>
 <v t="zoomq.20080818232347.46"><vh>addElement</vh>
@@ -6459,13 +6460,13 @@ shutil.copy2(cfgf,cfgf+".%s"%tcode)
     @others
     exp += "&lt;/div&gt;" # id=qpage
     return exp
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
 </t>
 <t tx="zoomq.20080818232347.29">exp += """&lt;h3&gt;%s —— 
     &lt;sup&gt;%s&lt;/sup&gt;
@@ -6590,41 +6591,28 @@ tcode = time.strftime("%y%m%d%H%M%S", time.localtime())
     """将dict 内容输出为回答问卷
     """
     exp = ""
-    p = Karrigell_QuickForm('fm_kq','POST','#',dict.desc.desc)
-    exp += "&lt;h1&gt;%s&lt;sup&gt;学习资料::%s&lt;/sup&gt;&lt;/h1&gt;"%(dict.desc.pname
-                                       ,dict.desc.learn)    
-    
-    #exp += "&lt;H6&gt;返回%s&lt;/H6&gt;"%dict.desc.learn
-    p.addElement('node','&lt;ul&gt;','')
     # 深入数据
     @others    
     p.addElement('node','&lt;/ul&gt;','')
-    
+
     # 无良的迁就……
     p.addJSValidation()
     p.saveJSRule("../js/validation-config.xml")
-    
+
     p.addGroup(["submit","btn_submit","提交","btn"]
                ,["reset","btn_reset","重写","btn"])
     exp += p.export()
-    
+
     return exp
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
 </t>
-<t tx="zoomq.20080818232347.38">"""
-p.addRadioList('cr_ask1'
-               ,"问题之一"
-               ,{'a':'Letter A'
-                 ,'b':'Letter B'
-                 ,'c':'Letter C'})
-"""
-qli = {}
+<t tx="zoomq.20080818232347.38">qli = {}
 k = [int(i) for i in dict.ask.keys()]
 k.sort()
 for i in k:
@@ -6637,11 +6625,19 @@ for i in k:
             qli[q] = ask[q]
         else:
             pass
-    
+
     p.addRadioList("cr_ask%s"%i
                ,ask["question"]
                ,qli)
     p.addJSRule("cr_ask%s"%i,"问题%s "%i)
+
+"""
+p.addRadioList('cr_ask1'
+               ,"问题之一"
+               ,{'a':'Letter A'
+                 ,'b':'Letter B'
+                 ,'c':'Letter C'})
+"""
 
 </t>
 <t tx="zoomq.20080818232347.39">#open(qpath+pubq,"w").write(QUERY["cfgfile"])
@@ -15885,6 +15881,13 @@ self.js_list.append(js_string)
 
 
 
+
+</t>
+<t tx="zoomq.20081222164140.1">p = Karrigell_QuickForm('fm_kq','POST','#',dict.desc.desc)
+exp += "&lt;h1&gt;%s&lt;sup&gt;学习资料::%s&lt;/sup&gt;&lt;/h1&gt;"%(dict.desc.pname
+                                   ,dict.desc.learn)    
+#exp += "&lt;H6&gt;返回%s&lt;/H6&gt;"%dict.desc.learn
+p.addElement('node','&lt;ul&gt;','')
 
 </t>
 </tnodes>

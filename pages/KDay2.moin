@@ -1,7 +1,7 @@
 ##language:zh
 #pragma section-numbers off
 
-||'''status'''|| 正式 || ZoomQuiet|| 完成度:95%||
+||'''status'''|| 正式 || ZoomQuiet|| 完成度:101% 根据编程意见修订||
 
 [[TableOfContents]]
 
@@ -142,8 +142,7 @@ print txp
 
 === 关键代码 ===
  * `from dict4ini import DictIni` 当然的是使用 Limodou 贡献出的 dict4ini.py ~ 字典化ini 操作模块
- * 创建`def expage(dict):` 问卷输出函式，来将ini 内容整理为相应的页面
- {{{#!python
+ * 创建`qpage.py-->def expage(dict):` 问卷输出函式，来将ini 内容整理为相应的页面以便检查是否正确理解了配置文本中的内容:{{{#!python
 exp +="<ul>"
 # 将字串的字典键值依照数字方式排序
 k = [int(i) for i in dict.ask.keys()]

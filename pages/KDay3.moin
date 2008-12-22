@@ -1,6 +1,6 @@
 ##language:zh
 #pragma section-numbers off
-||'''status'''|| 正式 || ZoomQuiet|| 完成度:97%||
+||'''status'''|| 正式 || ZoomQuiet|| 完成度:102% 响应编辑意见增补||
 [[TableOfContents]]
 
 ##startInc
@@ -73,14 +73,19 @@ def addRadioList(self,name,desc,value,id=""):
     self.form_list.append(radio+"</ul></li>")
 }}} 仿照原先的名字,不触动原版的生成器函式,自定了个`addRadioList`~ 追加单选按钮列表!而且使用了Python 内置的文本模板,令代码更加清晰;-)
 
-=== 利用 ===
+=== 复用 ===
 '''直接将昨天的展示函式修改一下子就应该好用的!'''
- * `def expage(dict):` 对应的修改为:
+
+图 KDay3-3 在Leo 中仿制函式的情景
+
+attachment:kday3-leo-qpubish.png
+ * 昨天的`expage(dict)`只是将理解的.ini内容打印到页面中,今天小白只需要将输出的格式变成可以提交的表单就好,所以,可以复用很大一部分代码;
+ * 简单的在Leo 中将`def expage(dict)`复制到对应文件并改名成`def qpubish(dict)`,在`askloop`逻辑单元前后追加点使用 `KQF` 的辅助代码,就成了,,,
+##`def expage(dict):`
 {{{#!python
 def qpubish(dict):
     exp = ""
-    p = Karrigell_QuickForm('fm_kq','POST','#',dict.desc.desc)
-    
+    p = Karrigell_QuickForm('fm_kq','POST','#',dict.desc.desc)    
     p.addElement('node','<ul>','')
     # 深入数据 基本和昨天的一样,仅仅是输出时使用 Karrigell_QuickForm 对象而已
     qli = {}
@@ -102,8 +107,8 @@ def qpubish(dict):
     p.addGroup(["submit","btn_submit","提交"]
                ,["reset","btn_reset","重写"])
 }}}
- * 注意到原先的 Karrigell_QuickForm 只有display(),要求表单页面立即输出, 但是小白现在需要进一步的HTML 处理后再输出
- * 所以有了以下修订{{{#!python
+ * 注意到原先的 Karrigell_QuickForm 只有display(),要求表单页面立即输出, 但是小白现在需要进一步的HTML 处理后再输出,
+ * 所以配合的:`class Karrigell_QuickForm-->export()`有了以下修订{{{#!python
 def export(self):
     """ export the html form code so people can do something for them self
     """
@@ -119,6 +124,7 @@ def export(self):
         elif element == 'node':
             self.form_list.append(name)
 }}}
+
 
 == JS 问题 ==
 '''一切顺心,表单顺利自动生成了,但是,Karrigell_QuickForm 提供的前端表单检验居然不支持Radio列表的!'''
