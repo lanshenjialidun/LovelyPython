@@ -2,7 +2,7 @@
 #pragma section-numbers off
 ##||'''status'''|| 草稿|校对|正式 || AuthorName|| 完成度15%||
 
-||'''status'''|| 校对 || ZoomQuiet || 完成度~85%;||
+||'''status'''|| 校对 || ZoomQuiet || 完成度~101%; 根据其它章节增补而修订微小文字||
 
 [[TableOfContents]]
 ##startInc
@@ -112,7 +112,7 @@ CPAN> install modulename
 安装指定的模块
 }}}
   * CPAN的成功引来很多其他编程语言社群的模仿. CTAN（Comprehensive TeX Archive Network, TeX综合典藏网）和CSAN（Comprehensive Scheme Archive Network, Scheme综合典藏网）都参考了CPAN的命名方式. 另外PEAR（PHP Extension and Application Repository）也是类似CPAN的PHP程式网站!
-  * 8卦一下: 在Perl 6 之后,因全新设计的Parrot引擎,支持其它语言的解析和字节码编译,故而,Python 有望直接使用CPN!
+  * 8卦一下: 在Perl 6 之后,因全新设计的Parrot引擎,支持其它语言的解析和字节码编译,故而,Python 有望直接使用CPAN!
   
 == 变之!守之! ==
 ##否之!守之! -> 變之, 守之!
