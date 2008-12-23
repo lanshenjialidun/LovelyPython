@@ -2,27 +2,27 @@
 <?xml-stylesheet ekr_stylesheet?>
 <leo_file>
 <leo_header file_format="2" tnodes="0" max_tnode_index="0" clone_windows="0"/>
-<globals body_outline_ratio="0.247244094488">
+<globals body_outline_ratio="0.297637795276">
 	<global_window_position top="27" left="10" height="716" width="1270"/>
 	<global_log_window_position top="0" left="0" height="0" width="0"/>
 </globals>
 <preferences/>
 <find_panel_settings/>
 <vnodes>
-<v t="zoomq.20080818231058.44" str_leo_pos="1,2,3,7,2,1"><vh>@chapters</vh></v>
+<v t="zoomq.20080818231058.44" str_leo_pos="1,6,4,1"><vh>@chapters</vh></v>
 <v t="zoomq.20080818231058.3" a="E"><vh>KDayStory</vh>
 <v t="zoomq.20080818231058.5"><vh>kday1</vh>
 <v t="zoomq.20080818231058.6"><vh>Kday1:尝试</vh></v>
-<v t="zoomq.20080818231058.7"><vh>尝试</vh>
+<v t="zoomq.20080818231058.7" a="E"><vh>尝试</vh>
 <v t="zoomq.20080818231058.10" tnodeList="zoomq.20080818231058.10"><vh>@nosent index.pih</vh></v>
 </v>
-<v t="zoomq.20080818231058.11" a="E"><vh>问卷设计</vh>
+<v t="zoomq.20080818231058.11"><vh>问卷设计</vh>
 <v t="zoomq.20080818231058.12" tnodeList="zoomq.20080818231058.12"><vh>@nosent easy051201.cfg</vh></v>
 </v>
 </v>
 <v t="zoomq.20080818231058.14" a="E"><vh>kday2</vh>
 <v t="zoomq.20080818231058.15"><vh>Kday2:完成</vh></v>
-<v t="zoomq.20080818231058.16" a="E"><vh>管理</vh>
+<v t="zoomq.20080818231058.16"><vh>管理</vh>
 <v t="zoomq.20080818231058.18" tnodeList="zoomq.20080818231058.18"><vh>@nosent  mana.pih</vh></v>
 <v t="zoomq.20080818231058.19" tnodeList="zoomq.20080818231058.19"><vh>@nosent questionnaire.tmpl</vh></v>
 <v t="zoomq.20080818231058.20" a="E" tnodeList="zoomq.20080818231058.20,zoomq.20080818231058.21,zoomq.20080818231058.22,zoomq.20080818231058.23"><vh>@nosent qdesign.py</vh>
@@ -48,13 +48,13 @@
 <v t="zoomq.20080818231058.35" tnodeList="zoomq.20080818231058.35,zoomq.20080818231058.36,zoomq.20080818231058.37,zoomq.20080818231058.38,zoomq.20080818231058.39,zoomq.20080818231058.40"><vh>@nosent  qprint.py</vh>
 <v t="zoomq.20080818231058.36"><vh>&lt;&lt; page declarations &gt;&gt;</vh></v>
 <v t="zoomq.20080818231058.37"><vh>init</vh></v>
-<v t="zoomq.20080818231058.38" a="E"><vh>qpubish()</vh>
+<v t="zoomq.20080818231058.38"><vh>qpublish()</vh>
 <v t="zoomq.20080818231058.39"><vh>askloop</vh></v>
 </v>
 <v t="zoomq.20080818231058.40"><vh>&lt;&lt; try &gt;&gt;</vh></v>
 </v>
 </v>
-<v t="zoomq.20080818231058.41" a="E"><vh>问卷设计</vh>
+<v t="zoomq.20080818231058.41"><vh>问卷设计</vh>
 <v t="zoomq.20080818231058.42" tnodeList="zoomq.20080818231058.42"><vh>@nosent easy051201.cfg</vh></v>
 </v>
 </v>
@@ -73,8 +73,7 @@
 </v>
 </v>
 </v>
-<v t="zoomq.20080818232347.14" a="E"><vh>管理</vh>
-<v t="zoomq.20080818232347.15" tnodeList="zoomq.20080818232347.15"><vh>@nosent __init__.py</vh></v>
+<v t="zoomq.20080818232347.14"><vh>管理</vh>
 <v t="zoomq.20080818232347.16" tnodeList="zoomq.20080818232347.16"><vh>@nosent tryKQF.py</vh></v>
 <v t="zoomq.20080818232347.17" tnodeList="zoomq.20080818232347.17,zoomq.20080818232347.8,zoomq.20080818232347.9,zoomq.20080818232347.10,zoomq.20080818232347.11,zoomq.20080818232347.12,zoomq.20080818232347.13"><vh>@nosent  mana.pih</vh>
 <v t="zoomq.20080818232347.8" a="E"><vh>&lt;&lt;k_base&gt;&gt;</vh>
@@ -103,10 +102,10 @@
 </v>
 </v>
 </v>
-<v t="zoomq.20080818232347.25" a="E" tnodeList="zoomq.20080818232347.25,zoomq.20080818232347.26,zoomq.20080818232347.27,zoomq.20080818232347.28,zoomq.20080818232347.29,zoomq.20080818232347.30,zoomq.20080818232347.31"><vh>@nosent  qpage.py</vh>
+<v t="zoomq.20080818232347.25" tnodeList="zoomq.20080818232347.25,zoomq.20080818232347.26,zoomq.20080818232347.27,zoomq.20080818232347.28,zoomq.20080818232347.29,zoomq.20080818232347.30,zoomq.20080818232347.31"><vh>@nosent  qpage.py</vh>
 <v t="zoomq.20080818232347.26"><vh>&lt;&lt; page declarations &gt;&gt;</vh></v>
 <v t="zoomq.20080818232347.27"><vh>init</vh></v>
-<v t="zoomq.20080818232347.28" a="E"><vh>expage</vh>
+<v t="zoomq.20080818232347.28"><vh>expage</vh>
 <v t="zoomq.20080818232347.29"><vh>desc</vh></v>
 <v t="zoomq.20080818232347.30"><vh>askloop</vh></v>
 </v>
@@ -115,13 +114,13 @@
 <v t="zoomq.20080818232347.34" a="E" tnodeList="zoomq.20080818232347.34,zoomq.20080818232347.35,zoomq.20080818232347.36,zoomq.20080818232347.37,zoomq.20081222164140.1,zoomq.20080818232347.38,zoomq.20080818232347.39"><vh>@nosent  qprint.py</vh>
 <v t="zoomq.20080818232347.35"><vh>&lt;&lt; page declarations &gt;&gt;</vh></v>
 <v t="zoomq.20080818232347.36"><vh>init</vh></v>
-<v t="zoomq.20080818232347.37" a="E"><vh>qpubish()</vh>
+<v t="zoomq.20080818232347.37"><vh>qpublish()</vh>
 <v t="zoomq.20081222164140.1"><vh>desc</vh></v>
 <v t="zoomq.20080818232347.38"><vh>askloop</vh></v>
 </v>
 <v t="zoomq.20080818232347.39"><vh>&lt;&lt; try &gt;&gt;</vh></v>
 </v>
-<v t="zoomq.20080818232347.32" tnodeList="zoomq.20080818232347.32,zoomq.20080818232347.8,zoomq.20080818232347.9,zoomq.20080818232347.10,zoomq.20080818232347.11,zoomq.20080818232347.12,zoomq.20080818232347.13,zoomq.20080818232347.33,zoomq.20080818232347.33"><vh>@nosent  qprint.pih</vh>
+<v t="zoomq.20080818232347.32" a="E" tnodeList="zoomq.20080818232347.32,zoomq.20080818232347.8,zoomq.20080818232347.9,zoomq.20080818232347.10,zoomq.20080818232347.11,zoomq.20080818232347.12,zoomq.20080818232347.13,zoomq.20080818232347.33,zoomq.20080818232347.33"><vh>@nosent  qprint.pih</vh>
 <v t="zoomq.20080818232347.33"><vh>&lt;&lt;导航&gt;&gt;</vh></v>
 <v t="zoomq.20080818232347.8"><vh>&lt;&lt;k_base&gt;&gt;</vh>
 <v t="zoomq.20080818232347.9"><vh>k_base.css</vh></v>
@@ -133,7 +132,7 @@
 </v>
 </v>
 </v>
-<v t="zoomq.20080818232347.40" a="E"><vh>KQf</vh>
+<v t="zoomq.20080818232347.40"><vh>KQf</vh>
 <v t="zoomq.20080818232347.41" a="E" tnodeList="zoomq.20080818232347.41,zoomq.20080818232347.42,zoomq.20080818232347.43,zoomq.20080818232347.44,zoomq.20080818232347.45,zoomq.20080818232347.46,zoomq.20080818232347.47,zoomq.20080818232347.48,zoomq.20080818232347.49,zoomq.20080818232347.50,zoomq.20080818232347.51,zoomq.20080818232347.52,zoomq.20080818232347.53,zoomq.20080818232347.54,zoomq.20080818232347.55,zoomq.20080818232347.56,zoomq.20080818232347.57,zoomq.20080818232347.58,zoomq.20080818232347.59,zoomq.20080818232347.60,zoomq.20080818232347.61,zoomq.20080818232347.62,zoomq.20080818232347.63,zoomq.20080818232347.64,zoomq.20080818232347.65,zoomq.20080818232347.66,zoomq.20080818232347.67,zoomq.20080818232347.68,zoomq.20080818232347.69,zoomq.20080818232347.70,zoomq.20080818232347.71,zoomq.20080818232347.72,zoomq.20080818232347.73,zoomq.20080818232347.74,zoomq.20080818232347.75,zoomq.20080818232347.76,zoomq.20080818232347.77,zoomq.20080818232347.78,zoomq.20080818232347.80,zoomq.20080818232347.81,zoomq.20080818232347.82,zoomq.20080818232347.83"><vh>@nosent Karrigell_QuickForm.py</vh>
 <v t="zoomq.20080818232347.42"><vh>&lt;&lt; Karrigell_QuickForm declarations &gt;&gt;</vh></v>
 <v t="zoomq.20080818232347.43"><vh>class Karrigell_QuickForm</vh>
@@ -185,14 +184,13 @@
 </v>
 </v>
 </v>
-<v t="zoomq.20080818232601.3"><vh>kday4</vh>
-<v t="zoomq.20080818232601.4"><vh>Kday4:KS</vh></v>
+<v t="zoomq.20080818232601.3" a="E"><vh>kday4</vh>
 <v t="zoomq.20080818232601.5"><vh>问卷设计</vh>
 <v t="zoomq.20080818232601.6" tnodeList="zoomq.20080818232601.6"><vh>@nosent easy051201.cfg</vh></v>
 <v t="zoomq.20080818232601.7" tnodeList="zoomq.20080818232601.7"><vh>@nosent CPUG051211.cfg</vh></v>
 <v t="zoomq.20080818232601.8" tnodeList="zoomq.20080818232601.8"><vh>@nosent Python051221.cfg</vh></v>
 </v>
-<v t="zoomq.20080818232601.9" a="E"><vh>复用代码</vh>
+<v t="zoomq.20080818232601.9"><vh>复用代码</vh>
 <v t="zoomq.20080818232601.10"><vh>&lt;&lt; htmlcode &gt;&gt;</vh>
 <v t="zoomq.20080818232601.11" a="E"><vh>&lt;&lt;k_base&gt;&gt;</vh>
 <v t="zoomq.20080818232601.12"><vh>k_base.css</vh></v>
@@ -206,9 +204,8 @@
 <v t="zoomq.20080818232601.17"><vh>&lt;&lt; pagehead &gt;&gt;</vh></v>
 <v t="zoomq.20080818232601.18"><vh>&lt;&lt; pagefoot &gt;&gt;</vh></v>
 </v>
-<v t="zoomq.20080818232601.19" tnodeList="zoomq.20080818232601.19"><vh>@nosent questionnaire.cfg</vh></v>
-<v t="zoomq.20080818232601.20" a="E"><vh>KS</vh>
-<v t="zoomq.20080818232601.21" a="E" tnodeList="zoomq.20080818232601.21,zoomq.20080818232601.22,zoomq.20080818232601.10,zoomq.20080818232601.11,zoomq.20080818232601.12,zoomq.20080818232601.13,zoomq.20080818232601.14,zoomq.20080818232601.15,zoomq.20080818232601.16,zoomq.20080818232601.23,zoomq.20080818232601.24,zoomq.20080818232601.17,zoomq.20080818232601.25,zoomq.20080818232601.26,zoomq.20080818232601.27,zoomq.20080818232601.28,zoomq.20080818232601.29,zoomq.20080818232601.18,zoomq.20080818232601.30,zoomq.20080818232601.17,zoomq.20080818232601.31,zoomq.20080818232601.18,zoomq.20080818232601.32,zoomq.20080818232601.33,zoomq.20080818232601.34,zoomq.20080818232601.17,zoomq.20080818232601.18"><vh>@nosent index.ks</vh>
+<v t="zoomq.20080818232601.20"><vh>KS</vh>
+<v t="zoomq.20080818232601.21" tnodeList="zoomq.20080818232601.21,zoomq.20080818232601.22,zoomq.20080818232601.10,zoomq.20080818232601.11,zoomq.20080818232601.12,zoomq.20080818232601.13,zoomq.20080818232601.14,zoomq.20080818232601.15,zoomq.20080818232601.16,zoomq.20080818232601.23,zoomq.20080818232601.24,zoomq.20080818232601.17,zoomq.20080818232601.25,zoomq.20080818232601.26,zoomq.20080818232601.27,zoomq.20080818232601.28,zoomq.20080818232601.29,zoomq.20080818232601.18,zoomq.20080818232601.30,zoomq.20080818232601.17,zoomq.20080818232601.31,zoomq.20080818232601.18,zoomq.20080818232601.32,zoomq.20080818232601.33,zoomq.20080818232601.34,zoomq.20080818232601.17,zoomq.20080818232601.18"><vh>@nosent index.ks</vh>
 <v t="zoomq.20080818232601.22"><vh>&lt;&lt; page declarations &gt;&gt;</vh></v>
 <v t="zoomq.20080818232601.10"><vh>&lt;&lt; htmlcode &gt;&gt;</vh>
 <v t="zoomq.20080818232601.11" a="E"><vh>&lt;&lt;k_base&gt;&gt;</vh>
@@ -245,7 +242,6 @@
 </v>
 </v>
 <v t="zoomq.20080818232601.35"><vh>管理</vh>
-<v t="zoomq.20080818232601.36"><vh>@thin __init__.py</vh></v>
 <v t="zoomq.20080818232601.37" tnodeList="zoomq.20080818232601.37"><vh>@nosent tryKQF.py</vh></v>
 <v t="zoomq.20080818232601.38" tnodeList="zoomq.20080818232601.38,zoomq.20080818232601.39,zoomq.20080818232601.40,zoomq.20080818232601.41,zoomq.20080818232601.42,zoomq.20080818232601.43,zoomq.20080818232601.44"><vh>@nosent  mana.pih</vh>
 <v t="zoomq.20080818232601.39"><vh>&lt;&lt;k_base&gt;&gt;</vh>
@@ -257,6 +253,7 @@
 </v>
 </v>
 </v>
+<v t="zoomq.20080818232601.19" tnodeList="zoomq.20080818232601.19"><vh>@nosent questionnaire.cfg</vh></v>
 <v t="zoomq.20080818232601.45" tnodeList="zoomq.20080818232601.45"><vh>@nosent questionnaire.tmpl</vh></v>
 <v t="zoomq.20080818232601.46" tnodeList="zoomq.20080818232601.46,zoomq.20080818232601.47,zoomq.20080818232601.48,zoomq.20080818232601.49"><vh>@nosent  qdesign.py</vh>
 <v t="zoomq.20080818232601.47"><vh>&lt;&lt; page declarations &gt;&gt;</vh></v>
@@ -277,13 +274,13 @@
 <v t="zoomq.20080818232601.52" tnodeList="zoomq.20080818232601.52,zoomq.20080818232601.53,zoomq.20080818232601.54,zoomq.20080818232601.55,zoomq.20080818232601.56,zoomq.20080818232601.57,zoomq.20080818232601.58"><vh>@nosent  qpage.py</vh>
 <v t="zoomq.20080818232601.53"><vh>&lt;&lt; page declarations &gt;&gt;</vh></v>
 <v t="zoomq.20080818232601.54"><vh>init</vh></v>
-<v t="zoomq.20080818232601.55"><vh>expage</vh>
+<v t="zoomq.20080818232601.55" a="E"><vh>expage</vh>
 <v t="zoomq.20080818232601.56"><vh>desc</vh></v>
 <v t="zoomq.20080818232601.57"><vh>askloop</vh></v>
 </v>
 <v t="zoomq.20080818232601.58"><vh>&lt;&lt; try &gt;&gt;</vh></v>
 </v>
-<v t="zoomq.20080818232601.59" a="E" tnodeList="zoomq.20080818232601.59,zoomq.20080818232601.39,zoomq.20080818232601.40,zoomq.20080818232601.41,zoomq.20080818232601.42,zoomq.20080818232601.43,zoomq.20080818232601.44,zoomq.20080818232601.60,zoomq.20080818232601.60"><vh>@nosent  qprint.pih</vh>
+<v t="zoomq.20080818232601.59" tnodeList="zoomq.20080818232601.59,zoomq.20080818232601.39,zoomq.20080818232601.40,zoomq.20080818232601.41,zoomq.20080818232601.42,zoomq.20080818232601.43,zoomq.20080818232601.44,zoomq.20080818232601.60,zoomq.20080818232601.60"><vh>@nosent  qprint.pih</vh>
 <v t="zoomq.20080818232601.60"><vh>&lt;&lt;导航&gt;&gt;</vh></v>
 <v t="zoomq.20080818232601.39"><vh>&lt;&lt;k_base&gt;&gt;</vh>
 <v t="zoomq.20080818232601.40"><vh>k_base.css</vh></v>
@@ -297,7 +294,7 @@
 <v t="zoomq.20080818232601.61" tnodeList="zoomq.20080818232601.61,zoomq.20080818232601.62,zoomq.20080818232601.63,zoomq.20080818232601.64,zoomq.20080818232601.65,zoomq.20080818232601.66"><vh>@nosent  qprint.py</vh>
 <v t="zoomq.20080818232601.62"><vh>&lt;&lt; page declarations &gt;&gt;</vh></v>
 <v t="zoomq.20080818232601.63"><vh>init</vh></v>
-<v t="zoomq.20080818232601.64" a="E"><vh>qpubish()</vh>
+<v t="zoomq.20080818232601.64" a="E"><vh>qpublish()</vh>
 <v t="zoomq.20080818232601.65"><vh>askloop</vh></v>
 </v>
 <v t="zoomq.20080818232601.66"><vh>&lt;&lt; try &gt;&gt;</vh></v>
@@ -355,14 +352,13 @@
 </v>
 </v>
 </v>
-<v t="zoomq.20080818233010.3"><vh>kday5</vh>
-<v t="zoomq.20080818233010.4"><vh>Kday5:重构</vh></v>
+<v t="zoomq.20080818233010.3" a="E"><vh>kday5</vh>
 <v t="zoomq.20080818233010.5"><vh>问卷设计</vh>
 <v t="zoomq.20080818233010.6" tnodeList="zoomq.20080818233010.6"><vh>@nosent easy051201.cfg</vh></v>
 <v t="zoomq.20080818233010.7" tnodeList="zoomq.20080818233010.7"><vh>@nosent CPUG051211.cfg</vh></v>
 <v t="zoomq.20080818233010.8" tnodeList="zoomq.20080818233010.8"><vh>@nosent Python051221.cfg</vh></v>
 </v>
-<v t="zoomq.20080818233010.9" a="E"><vh>复用代码</vh>
+<v t="zoomq.20080818233010.9"><vh>复用代码</vh>
 <v t="zoomq.20080818233010.10"><vh>&lt;&lt; htmlcode &gt;&gt;</vh>
 <v t="zoomq.20080818233010.11"><vh>&lt;&lt;k_base&gt;&gt;</vh>
 <v t="zoomq.20080818233010.12"><vh>k_base.css</vh></v>
@@ -514,7 +510,7 @@
 <v t="zoomq.20080818233010.85" tnodeList="zoomq.20080818233010.85,zoomq.20080818233010.86,zoomq.20080818233010.87,zoomq.20080818233010.88,zoomq.20080818233010.89,zoomq.20080818233010.90"><vh>@nosent  qprint.py</vh>
 <v t="zoomq.20080818233010.86"><vh>&lt;&lt; page declarations &gt;&gt;</vh></v>
 <v t="zoomq.20080818233010.87"><vh>init</vh></v>
-<v t="zoomq.20080818233010.88" a="E"><vh>qpubish()</vh>
+<v t="zoomq.20080818233010.88" a="E"><vh>qpublish()</vh>
 <v t="zoomq.20080818233010.89"><vh>askloop</vh></v>
 </v>
 <v t="zoomq.20080818233010.90"><vh>&lt;&lt; try &gt;&gt;</vh></v>
@@ -572,8 +568,7 @@
 </v>
 </v>
 </v>
-<v t="zoomq.20080818232601.221"><vh>kday6</vh>
-<v t="zoomq.20080818232601.222"><vh>Kday6:统计</vh></v>
+<v t="zoomq.20080818232601.221" a="E"><vh>kday6</vh>
 <v t="zoomq.20080818232601.223"><vh>问卷设计</vh>
 <v t="zoomq.20080818232601.224" tnodeList="zoomq.20080818232601.224"><vh>@nosent easy051201.cfg</vh></v>
 <v t="zoomq.20080818232601.225" tnodeList="zoomq.20080818232601.225"><vh>@nosent CPUG051211.cfg</vh></v>
@@ -630,7 +625,7 @@
 <v t="zoomq.20080818232601.235"><vh>&lt;&lt; pagehead &gt;&gt;</vh></v>
 <v t="zoomq.20080818232601.236"><vh>&lt;&lt; pagefoot &gt;&gt;</vh></v>
 </v>
-<v t="zoomq.20080818232601.254" a="E"><vh>stat</vh>
+<v t="zoomq.20080818232601.254"><vh>stat</vh>
 <v t="zoomq.20080818232601.255"><vh>初始化</vh></v>
 <v t="zoomq.20080818232601.256" a="E"><vh>统计回答</vh>
 <v t="zoomq.20080818232601.257"><vh>&lt;&lt;成员回答&gt;&gt;</vh></v>
@@ -645,7 +640,7 @@
 <v t="zoomq.20080818232601.236"><vh>&lt;&lt; pagefoot &gt;&gt;</vh></v>
 <v t="zoomq.20080818232601.235"><vh>&lt;&lt; pagehead &gt;&gt;</vh></v>
 </v>
-<v t="zoomq.20080818232601.262"><vh>_qpubish()</vh>
+<v t="zoomq.20080818232601.262" a="E"><vh>_qpublish()</vh>
 <v t="zoomq.20080818232601.263"><vh>&lt;&lt;表单类型&gt;&gt;</vh></v>
 <v t="zoomq.20080818232601.264"><vh>&lt;&lt;submit&gt;&gt;</vh></v>
 <v t="zoomq.20080818232601.265"><vh>&lt;&lt;loopask&gt;&gt;</vh></v>
@@ -767,7 +762,7 @@
 </v>
 <v t="zoomq.20080818232601.336"><vh>&lt;&lt; try &gt;&gt;</vh></v>
 </v>
-<v t="zoomq.20080818232601.337" a="E" tnodeList="zoomq.20080818232601.337,zoomq.20080818232601.317,zoomq.20080818232601.318,zoomq.20080818232601.319,zoomq.20080818232601.320,zoomq.20080818232601.321,zoomq.20080818232601.322,zoomq.20080818232601.338,zoomq.20080818232601.338"><vh>@nosent  qprint.pih</vh>
+<v t="zoomq.20080818232601.337" tnodeList="zoomq.20080818232601.337,zoomq.20080818232601.317,zoomq.20080818232601.318,zoomq.20080818232601.319,zoomq.20080818232601.320,zoomq.20080818232601.321,zoomq.20080818232601.322,zoomq.20080818232601.338,zoomq.20080818232601.338"><vh>@nosent  qprint.pih</vh>
 <v t="zoomq.20080818232601.338"><vh>&lt;&lt;导航&gt;&gt;</vh></v>
 <v t="zoomq.20080818232601.317"><vh>&lt;&lt;k_base&gt;&gt;</vh>
 <v t="zoomq.20080818232601.318"><vh>k_base.css</vh></v>
@@ -778,10 +773,10 @@
 </v>
 </v>
 </v>
-<v t="zoomq.20080818232601.339" tnodeList="zoomq.20080818232601.339,zoomq.20080818232601.340,zoomq.20080818232601.341,zoomq.20080818232601.342,zoomq.20080818232601.343,zoomq.20080818232601.344"><vh>@nosent  qprint.py</vh>
+<v t="zoomq.20080818232601.339" a="E" tnodeList="zoomq.20080818232601.339,zoomq.20080818232601.340,zoomq.20080818232601.341,zoomq.20080818232601.342,zoomq.20080818232601.343,zoomq.20080818232601.344"><vh>@nosent  qprint.py</vh>
 <v t="zoomq.20080818232601.340"><vh>&lt;&lt; page declarations &gt;&gt;</vh></v>
 <v t="zoomq.20080818232601.341"><vh>init</vh></v>
-<v t="zoomq.20080818232601.342" a="E"><vh>qpubish()</vh>
+<v t="zoomq.20080818232601.342" a="E"><vh>qpublish()</vh>
 <v t="zoomq.20080818232601.343"><vh>askloop</vh></v>
 </v>
 <v t="zoomq.20080818232601.344"><vh>&lt;&lt; try &gt;&gt;</vh></v>
@@ -839,7 +834,7 @@
 </v>
 </v>
 </v>
-<v t="Zoomq.20050615144554"><vh>kdayN</vh>
+<v t="Zoomq.20050615144554" a="E"><vh>kdayN</vh>
 <v t="ZoomQuiet.20051225185854"><vh>故事书</vh>
 <v t="ZoomQuiet.20051225190043"><vh>Kday1:尝试</vh></v>
 <v t="ZoomQuiet.20051225190043.1"><vh>Kday2:完成</vh></v>
@@ -869,7 +864,7 @@
 <v t="ZoomQuiet.20051224165419.15"><vh>&lt;&lt; pagefoot &gt;&gt;</vh></v>
 </v>
 <v t="ZoomQuiet.20051224170150" tnodeList="ZoomQuiet.20051224170150"><vh>@nosent questionnaire.cfg</vh></v>
-<v t="ZoomQuiet.20051224165357"><vh>KS</vh>
+<v t="ZoomQuiet.20051224165357" a="E"><vh>KS</vh>
 <v t="ZoomQuiet.20051224165419" tnodeList="ZoomQuiet.20051224165419,ZoomQuiet.20051224165419.1,ZoomQuiet.20051224165419.2,ZoomQuiet.20051224171010,ZoomQuiet.20051224171010.1,ZoomQuiet.20051224171010.2,ZoomQuiet.20051224171010.3,ZoomQuiet.20051224171010.4,ZoomQuiet.20051224171010.5,ZoomQuiet.20051224165419.9,ZoomQuiet.20051224165419.10,ZoomQuiet.20051224165419.14,ZoomQuiet.20051224165419.11,ZoomQuiet.20051224165419.12,ZoomQuiet.20051224181034,ZoomQuiet.20051224181034.1,ZoomQuiet.20051224165419.13,ZoomQuiet.20051224165419.15,ZoomQuiet.20051224165419.25,ZoomQuiet.20051224165419.14,ZoomQuiet.20051224165419.26,ZoomQuiet.20051224165419.15,ZoomQuiet.20051224165419.27,ZoomQuiet.20051224165419.28,ZoomQuiet.20051224165419.16,ZoomQuiet.20051224165419.14,ZoomQuiet.20051224165419.17,ZoomQuiet.20051224165419.15,ZoomQuiet.20051225180959,ZoomQuiet.20051224165419.14,ZoomQuiet.20051225180959.2,ZoomQuiet.20051225180959.3,ZoomQuiet.20051225180959.4,ZoomQuiet.20051225180959.5,ZoomQuiet.20051225180959.6,ZoomQuiet.20051224165419.15,ZoomQuiet.20051225192243.1,ZoomQuiet.20051224165419.14,ZoomQuiet.20051225192243.2,ZoomQuiet.20051224165419.15,ZoomQuiet.20051224165419.61,ZoomQuiet.20051224165419.62,ZoomQuiet.20051224165419.64,ZoomQuiet.20051224165419.63,ZoomQuiet.20051225181414"><vh>@nosent index.ks</vh>
 <v t="ZoomQuiet.20051224165419.1"><vh>&lt;&lt; page declarations &gt;&gt;</vh></v>
 <v t="ZoomQuiet.20051224165419.2"><vh>&lt;&lt; htmlcode &gt;&gt;</vh>
@@ -900,7 +895,7 @@
 </v>
 <v t="ZoomQuiet.20051224165419.27"><vh>logout</vh></v>
 <v t="ZoomQuiet.20051224165419.28"><vh>chkusr</vh></v>
-<v t="ZoomQuiet.20051224165419.16" a="E"><vh>page</vh>
+<v t="ZoomQuiet.20051224165419.16"><vh>page</vh>
 <v t="ZoomQuiet.20051224165419.17"><vh>&lt;&lt;导航&gt;&gt;</vh></v>
 <v t="ZoomQuiet.20051224165419.14"><vh>&lt;&lt; pagehead &gt;&gt;</vh></v>
 <v t="ZoomQuiet.20051224165419.15"><vh>&lt;&lt; pagefoot &gt;&gt;</vh></v>
@@ -920,7 +915,7 @@
 <v t="ZoomQuiet.20051224165419.14"><vh>&lt;&lt; pagehead &gt;&gt;</vh></v>
 <v t="ZoomQuiet.20051224165419.15"><vh>&lt;&lt; pagefoot &gt;&gt;</vh></v>
 </v>
-<v t="ZoomQuiet.20051224165419.61"><vh>_qpubish()</vh>
+<v t="ZoomQuiet.20051224165419.61"><vh>_qpublish()</vh>
 <v t="ZoomQuiet.20051224165419.62"><vh>&lt;&lt;表单类型&gt;&gt;</vh></v>
 <v t="ZoomQuiet.20051224165419.63"><vh>&lt;&lt;submit&gt;&gt;</vh></v>
 <v t="ZoomQuiet.20051224165419.64"><vh>&lt;&lt;loopask&gt;&gt;</vh></v>
@@ -940,7 +935,7 @@
 </v>
 </v>
 <v t="ZoomQuiet.20051224185506.9"><vh>&lt;&lt;ini&gt;&gt;</vh></v>
-<v t="ZoomQuiet.20051224185506.10"><vh>edit</vh>
+<v t="ZoomQuiet.20051224185506.10" a="E"><vh>edit</vh>
 <v t="ZoomQuiet.20051224185506.11"><vh>&lt;&lt;导航&gt;&gt;</vh></v>
 <v t="ZoomQuiet.20051224185506.12"><vh>&lt;&lt;设计表单&gt;&gt;</vh></v>
 <v t="ZoomQuiet.20051224185506.13"><vh>&lt;&lt; pagehead &gt;&gt;</vh></v>
@@ -952,12 +947,12 @@
 <v t="ZoomQuiet.20051224185506.13"><vh>&lt;&lt; pagehead &gt;&gt;</vh></v>
 <v t="ZoomQuiet.20051224185506.14"><vh>&lt;&lt; pagefoot &gt;&gt;</vh></v>
 </v>
-<v t="ZoomQuiet.20051224185506.18"><vh>historic</vh>
+<v t="ZoomQuiet.20051224185506.18" a="E"><vh>historic</vh>
 <v t="ZoomQuiet.20051224185506.19"><vh>列表</vh></v>
 <v t="ZoomQuiet.20051224185506.13"><vh>&lt;&lt; pagehead &gt;&gt;</vh></v>
 <v t="ZoomQuiet.20051224185506.14"><vh>&lt;&lt; pagefoot &gt;&gt;</vh></v>
 </v>
-<v t="ZoomQuiet.20051224185506.24"><vh>_qshow()</vh>
+<v t="ZoomQuiet.20051224185506.24" a="E"><vh>_qshow()</vh>
 <v t="ZoomQuiet.20051224185506.25" a="E"><vh>askloop</vh>
 <v t="ZoomQuiet.20051224185506.26"><vh>&lt;&lt;单选列表&gt;&gt;</vh></v>
 </v>
@@ -1061,7 +1056,7 @@
 <tnodes>
 <t tx="ZoomQuiet.20051201224226"># 使用标准
 # 这个是Leo 的宏约定，让Leo 将以下的节点及时的保存到指定目录中
-@path q
+@path kdayN/q
 
 </t>
 <t tx="ZoomQuiet.20051204223324">[desc]
@@ -1110,8 +1105,7 @@ b		= SVN
 c       = 邮件列表
 d       = 以上全有
 key		= d # 正确答案</t>
-<t tx="ZoomQuiet.20051222115335"># 按照约定，这样的扩展要部属到Karrigell 的根目录，所以使用相对路径回溯指向！
-@path ../../../</t>
+<t tx="ZoomQuiet.20051222115335"></t>
 <t tx="ZoomQuiet.20051222115335.1">
 &lt;&lt; Karrigell_QuickForm declarations &gt;&gt;
 
@@ -1807,7 +1801,7 @@ from Karrigell_QuickForm import Karrigell_QuickForm
     &lt;!--
     &lt;script language="javascript" src="/k/js/validation-framework.js"&gt;&lt;/script&gt;
     --&gt;
-    
+
     &lt;/head&gt;
     &lt;body&gt;    
     &lt;div id='qpage'&gt;
@@ -1820,7 +1814,7 @@ htmfoot="""
     &lt;a href="http://wiki.woodpecker.org.cn/moin/ZoomQuiet"&gt;
     Zoom.Quiet&lt;/a&gt;
  powered by :
-     
+
  &lt;a href="http://python.org"&gt;
  Python&lt;/a&gt;
  ::
@@ -1859,11 +1853,11 @@ qcfg = DictIni(cfgf)
     """
     # 八股化的页面函式组织... clone 统一的页头输出章节！
     &lt;&lt; pagehead &gt;&gt;
-    
+
     # 测试/印证外部专用处理页面对象的引入
     #
     #print sess.usr
-    
+
     if sess.usr["name"]=="NULL":
         raise HTTP_REDIRECTION,"login"
     else:
@@ -1874,7 +1868,7 @@ qcfg = DictIni(cfgf)
         print "&lt;DIV id='cntarea'&gt;"
         @others
         print "&lt;/DIV&gt;"
-    
+
     """快速设计CSS时可以方便的列印出主要页面元素来看效果
     print H1("H1")
     print H2("H2")
@@ -1883,7 +1877,7 @@ qcfg = DictIni(cfgf)
     print H5("H5")
     print H6("H6")
     """
-    
+
     # 八股化的页面函式组织... clone 统一的页脚输出章节！
     &lt;&lt; pagefoot &gt;&gt;
 
@@ -1980,28 +1974,29 @@ print htmfoot
     #print QUERY
     #base64.urlsafe_b64encode(pickle.dumps(obj))
     #pickle.loads(base64.urlsafe_b64decode(obj))
-    
+
     qcfg = DictIni(conf.qpage.qpath+qpname+".cfg")
-    
+
     if sess.usr["name"]=="NULL":
         raise HTTP_REDIRECTION,"login"
     else:
         sess.usr["qp"] = qpname
         # 051224 加入问卷状态
         sess.usr["do"] = do
-        
+
         &lt;&lt;导航&gt;&gt;
-        
+
         # 整理原问卷解析为标准函式
-        print _qpubish(qcfg,"bye",do,qpname)        
+        print _qpublish(qcfg,"bye",do,qpname)        
         """将dict 内容输出为回答问卷
             - dict 问卷设计字典
             - aim 提交目标
             - type 统计模式
             - qpname 问卷名
         """
-    
-    &lt;&lt; pagefoot &gt;&gt;</t>
+
+    &lt;&lt; pagefoot &gt;&gt;
+</t>
 <t tx="ZoomQuiet.20051224165419.17">print SPAN(A('退出', href="logout"),id="mana")
 print SPAN(A('首页', href="index"),id="mana")
 print SPAN(A("编辑管理问卷"
@@ -2010,7 +2005,7 @@ print SPAN(A("编辑管理问卷"
                         )
                 )
             ,id="mana")
-            
+
 </t>
 <t tx="ZoomQuiet.20051224165419.25">
 def login():
@@ -2020,7 +2015,7 @@ def login():
     &lt;&lt; pagehead &gt;&gt;    
     # 实际活动
     print H1("啄木鸟 之 自学问卷集")
-    
+
     @others 
 
     &lt;&lt; pagefoot &gt;&gt;
@@ -2050,7 +2045,7 @@ p.display()
     """完成 login 时顺手就创立的页面
     """
     sess.close()
-    
+
     #sess.usr = {}
     #sess.usr["name"] ="NULL"
     #print QUERY
@@ -2072,7 +2067,7 @@ p.display()
     # 不自动跳转页面，打印session 观察……
     raise HTTP_REDIRECTION,"index"
 </t>
-<t tx="ZoomQuiet.20051224165419.61">def _qpubish(dict,aim,type,qpname):
+<t tx="ZoomQuiet.20051224165419.61">def _qpublish(dict,aim,type,qpname):
     """将dict 内容输出为回答问卷
         - dict 问卷设计字典
         - aim 提交目标
@@ -2094,15 +2089,15 @@ p.display()
     # 深入数据
     # 题目循环输出
     &lt;&lt;loopask&gt;&gt;
-    
+
     # 由于JVF 的浏览器兼容问题，先放弃！
     #p.addJSValidation()
     #p.saveJSRule("../js/validation-config.xml")
-    
+
     p.addElement('node','&lt;/ul&gt;&lt;/DIV&gt;','')
-    
+
     &lt;&lt;submit&gt;&gt;
-    
+
     exp += p.export()
     #exp += "&lt;h6&gt;自学资料: %s&lt;/h6&gt;"%(dict.desc.learn)
     exp += qptitle
@@ -2163,7 +2158,7 @@ for i in k:
                ,ask["question"]
                ,qli
                ,liq)
-            
+
     ## JVF 调试太复杂不用之！
     #p.addJSRule("cr_ask%s"%i,"问题%s "%i)
 
@@ -2350,12 +2345,12 @@ SELECT{WIDTH: 100%;
 	font-family: "Arial", "Helvetica", "sans-serif"; 
 	background-color: #8DB48D; 
 	border-width: 1px ;border-color: #CCCCCC;}
-	
+
 INPUT{ font-family: "Arial", "Helvetica";
     font-size: 14px;font-weight: light; color: #993300; 
 	background-color: transparent; 
 	border: 1px solid #838A9E;}
-	
+
 INPUT.btn { font-size: 13px; 
     font-weight: light; color: whitesmoke; 
 	background-color: #487858; 
@@ -2363,7 +2358,7 @@ INPUT.btn { font-size: 13px;
     border-color: #E0F3E0 #679265 #333333 #CCCCCC;
 	height: 20px;	
 	padding:0px 1em 2px 1em;}
-	
+
 INPUT.chkrd { background-color: transparent; border: 0px}
 </t>
 <t tx="ZoomQuiet.20051224171010.4">
@@ -2428,7 +2423,7 @@ INPUT.chkrd { background-color: transparent; border: 0px}
 .action A{
 	font-size: 12px;
 	color: #406040;
-	
+
 }
 .action A:hover{
 	font-size: 12px;
@@ -2452,7 +2447,7 @@ INPUT.chkrd { background-color: transparent; border: 0px}
 
 .Webdings{
 	font-family: "Webdings";
-	
+
 }
 </t>
 <t tx="ZoomQuiet.20051224181034">print H4("发表中的问卷::")
@@ -2872,7 +2867,7 @@ else:
 
 </t>
 <t tx="ZoomQuiet.20051225171032"># 尝试使用专门脚本来解析理解mm 文件
-@path xslmm
+@path kdayN/xslmm
 
 </t>
 <t tx="ZoomQuiet.20051225171032.37"></t>
@@ -3430,7 +3425,8 @@ def stat(**args):
     print "&lt;/DIV&gt;"
     &lt;&lt; pagefoot &gt;&gt;
 
-    </t>
+
+</t>
 <t tx="ZoomQuiet.20051225180959.2">#print sess.usr
 crtqp = ""
 qpname = ""
@@ -3542,17 +3538,18 @@ else:
             # 默许没有回答的部分都是错的
             pass
             #grade +=1
-    
+
     return 100*(float(grade)/len(right))
 
-    
-    
-    
-    
 
 
-    
-    </t>
+
+
+
+
+
+
+</t>
 <t tx="ZoomQuiet.20051225185854">## 整理，叙述开发过程中的体验，成为可分享的故事书</t>
 <t tx="ZoomQuiet.20051225185912">## page was renamed from zhArticleTemplate
 ##language:zh
@@ -4820,20 +4817,20 @@ def bye(**args):
     """
     &lt;&lt; pagehead &gt;&gt;
     print H1("%s"%(qcfg.desc.pname))
-    
+
     qk = QUERY.keys()
-    
+
     if "btn_submit" in qk:
         @others
-        
+
     else:
         raise HTTP_REDIRECTION,"index"
-        
+
     &lt;&lt; pagefoot &gt;&gt;
 
     #raise HTTP_REDIRECTION,"stat"
     #raise HTTP_REDIRECTION,"logout"
-    
+
 
 
 </t>
@@ -4862,7 +4859,7 @@ if 0==len(lost):
                           ,sess.usr["name"])
     open(answer,'w').write(as)
     ## 正常跳转到统计页面
-    
+
     raise HTTP_REDIRECTION,"stat"
 
 print BR()*2
@@ -4877,8 +4874,10 @@ print """&lt;h4&gt;&lt;input type="button"
 """
 
 
-  </t>
-<t tx="Zoomq.20050615144554"># 快速利用Karrigell 开发功能站点
+
+</t>
+<t tx="Zoomq.20050615144554">@path kdayN/
+# 快速利用Karrigell 开发功能站点
 # Karrigell.ini 中有如下约定:
 # 如果Kariigell 运行在 D:\Karrigell\Karrigell-2.2\ 
 # 则其下应该有 karriweb\obp\KwDay1\ 这样的目录，以便安置实例  
@@ -4891,8 +4890,9 @@ jvf=%(base)s/karriweb/obp/js
 
 
 </t>
-<t tx="zoomq.20080818231058.3">@path /home/zoomq/LovelyPython/KDays</t>
-<t tx="zoomq.20080818231058.5">@path /home/zoomq/LovelyPython/KDays/kday1
+<t tx="zoomq.20080818231058.3">@path /home/zoomq/LovelyPython/KDays
+# 这是整个工程的根目录配置,只要修订指向你喜欢的目录就好</t>
+<t tx="zoomq.20080818231058.5">@path kday1
 
 # 快速利用Karrigell 开发功能站点
 # Karrigell.ini 中有如下约定:
@@ -5015,7 +5015,7 @@ print dir(a)
 &lt;/body&gt;&lt;/html&gt;</t>
 <t tx="zoomq.20080818231058.11"># 使用标准
 # 这个是Leo 的宏约定，让Leo 将以下的节点及时的保存到指定目录中
-@path ~/LovelyPython/KDays/kday1/q
+@path kday1/q
 
 </t>
 <t tx="zoomq.20080818231058.12">[desc]
@@ -5063,8 +5063,12 @@ a		= Wiki
 b		= SVN
 c       = 邮件列表
 d       = 以上全有
-key		= d # 正确答案</t>
-<t tx="zoomq.20080818231058.14"># 快速利用Karrigell 开发功能站点
+key		= d # 正确答案
+
+</t>
+<t tx="zoomq.20080818231058.14">@path kday2/
+
+# 快速利用Karrigell 开发功能站点
 # Karrigell.ini 中有如下约定:
 # 如果Kariigell 运行在 D:\Karrigell\Karrigell-2.2\ 
 # 则其下应该有 karriweb\obp\KwDay1\ 这样的目录，以便安置实例  
@@ -5073,7 +5077,6 @@ key		= d # 正确答案</t>
 obp=%(base)s/karriweb/obp
 
 
-@path kday3/
 </t>
 <t tx="zoomq.20080818231058.15">## page was renamed from zhArticleTemplate
 ##language:zh
@@ -5237,7 +5240,7 @@ attachment:snap-KwDay2Leo.png
 3. 创建处理脚本 qdesign.py
 ... 然后就瀑布样的该作什么就作什么了(^_^)
 """
-@path kday2/</t>
+</t>
 <t tx="zoomq.20080818231058.18">&lt;html&gt;
 &lt;head&gt;
 &lt;title&gt;
@@ -5528,7 +5531,7 @@ tcode = time.strftime("%y%m%d%H%M%S", time.localtime())
 # 先复制一下子
 #shutil.copy2(cfgf,cfgf+".%s"%tcode)
 </t>
-<t tx="zoomq.20080818231058.38">def qpubish(dict):
+<t tx="zoomq.20080818231058.38">def qpublish(dict):
     """将dict 内容输出为回答问卷
     """
     exp = ""
@@ -5546,8 +5549,6 @@ tcode = time.strftime("%y%m%d%H%M%S", time.localtime())
     exp += p.export()
     exp += "&lt;p&gt;返回%s&lt;/p&gt;"%dict.desc.learn
     return exp
-
-
 
 
 
@@ -5592,7 +5593,7 @@ print QUERY
 qcfg = DictIni(cfgf)
 print "&lt;div id='qpage'&gt;"
 #print p.export()
-print qpubish(qcfg)
+print qpublish(qcfg)
 print "&lt;/div&gt;"
 
 """
@@ -5610,7 +5611,7 @@ p.addGroup(["submit","btn_submit","提交"]
 </t>
 <t tx="zoomq.20080818231058.41"># 使用标准
 # 这个是Leo 的宏约定，让Leo 将以下的节点及时的保存到指定目录中
-@path q
+@path kday2/q
 
 </t>
 <t tx="zoomq.20080818231058.42">[desc]
@@ -5660,7 +5661,8 @@ c       = 邮件列表
 d       = 以上全有
 key		= d # 正确答案</t>
 <t tx="zoomq.20080818231058.44"></t>
-<t tx="zoomq.20080818232347.3"># 快速利用Karrigell 开发功能站点
+<t tx="zoomq.20080818232347.3">@path kday3/
+# 快速利用Karrigell 开发功能站点
 # Karrigell.ini 中有如下约定:
 # 如果Kariigell 运行在 D:\Karrigell\Karrigell-2.2\ 
 # 则其下应该有 karriweb\obp\KwDay1\ 这样的目录，以便安置实例  
@@ -5672,7 +5674,7 @@ jvf=%(base)s/karriweb/obp/js
 ...
 
 
-@path kday3/
+
 </t>
 <t tx="zoomq.20080818232347.4">## page was renamed from zhArticleTemplate
 ##language:zh
@@ -5745,7 +5747,7 @@ def addRadioList(self,name,desc,value,id=""):
 '''直接将昨天的展示函式修改一下子就应该好用的！'''
  * `def expage(dict):` 对应的修改为:
 {{{#!python
-def qpubish(dict):
+def qpublish(dict):
     exp = ""
     p = Karrigell_QuickForm('fm_kq','POST','#',dict.desc.desc)
     
@@ -5874,7 +5876,7 @@ self.JSvRules = []
 === 果然不出所料 ===
 '''仅仅追加少量代码就完成所想的客户端JS验证功能'''
 {{{
-def qpubish(dict):
+def qpublish(dict):
     ...
     ## 具体问题解析
     k.sort()
@@ -5931,7 +5933,7 @@ attachment:snap-KwDay3done.png
 </t>
 <t tx="zoomq.20080818232347.5"># 使用标准
 # 这个是Leo 的宏约定，让Leo 将以下的节点及时的保存到指定目录中
-@path q
+@path kday3/q
 
 </t>
 <t tx="zoomq.20080818232347.6">[desc]
@@ -6276,7 +6278,6 @@ INPUT.chkrd { background-color: transparent; border: 0px}
 ... 然后就瀑布样的该作什么就作什么了(^_^)
 """
 </t>
-<t tx="zoomq.20080818232347.15"></t>
 <t tx="zoomq.20080818232347.16">from Karrigell_QuickForm import Karrigell_QuickForm
 
 p = Karrigell_QuickForm('teste','POST','foo.py','Authentication')
@@ -6587,7 +6588,7 @@ tcode = time.strftime("%y%m%d%H%M%S", time.localtime())
 # 先复制一下子
 #shutil.copy2(cfgf,cfgf+".%s"%tcode)
 </t>
-<t tx="zoomq.20080818232347.37">def qpubish(dict):
+<t tx="zoomq.20080818232347.37">def qpublish(dict):
     """将dict 内容输出为回答问卷
     """
     exp = ""
@@ -6648,7 +6649,7 @@ print "&lt;div id='qpage'&gt;"
 #print p.export()
 print "&lt;div id='errorDiv'&gt;&lt;/div&gt;"
 
-print qpubish(qcfg)
+print qpublish(qcfg)
 print "&lt;/div&gt;"
 
 """
@@ -7324,7 +7325,9 @@ self.js_list.append(js_string)
 
 
 </t>
-<t tx="zoomq.20080818232601.3"># 快速利用Karrigell 开发功能站点
+<t tx="zoomq.20080818232601.3">@path kday4/
+
+# 快速利用Karrigell 开发功能站点
 # Karrigell.ini 中有如下约定:
 # 如果Kariigell 运行在 D:\Karrigell\Karrigell-2.2\ 
 # 则其下应该有 karriweb\obp\KwDay1\ 这样的目录，以便安置实例  
@@ -7337,212 +7340,9 @@ jvf=%(base)s/karriweb/obp/js
 
 
 </t>
-<t tx="zoomq.20080818232601.4">## page was renamed from zhArticleTemplate
-##language:zh
-#pragma section-numbers on
-
-::-- ZoomQuiet [[[DateTime(2005-12-11T04:45:50Z)]]]
-[[TableOfContents]]
-
-= K4日:KS =
-||attachment:snap-KwDay40-3Leo.png ||'''不爽直！使用新的KS 页面组织'''[[BR]]现在想来，你实现了三个小功能就用了7，8个文件……有些想念 CherryPy 的对象式网站发布了！||
-
-== lovely session ==
-'''学习一下子文档吧！'''
- * http://localhost/demo/ksTest.ks/index
- * {{{#!python
-so = Session()
-if not hasattr(so, 'x'):
-    so.x = 0
-def index():
-    print "x = %s" %so.x
-    print '&lt;br&gt;&lt;a href="increment"&gt;Increment&lt;/a&gt;'
-    print '&lt;br&gt;&lt;a href="decrement"&gt;Decrement&lt;/a&gt;'
-    print '&lt;br&gt;&lt;a href="reset"&gt;Reset&lt;/a&gt;'
-    
-def increment():
-    so.x = _private(so.x)
-    raise HTTP_REDIRECTION,"index"
-def decrement():
-    so.x -= 1
-    raise HTTP_REDIRECTION,"index"
-def reset():
-    so.x = 0
-    raise HTTP_REDIRECTION,"index"
-def _private(x):
-    """The function name begins with _ : internal function, 
-    can't be call by a url"""
-    return x+1
-    }}} 不是吧！！ 一个页面就作完了四种动作！完全是CherryPy 味的！！
-  * Session 完全是对象了，标准的KarriGell 内置对象!
-  * 又不是CherryPy 那样严格的对象属性，是文件级别的全局性变量，容易引用！
-    * 但是，还是要在优雅的Python 脚本中掺杂HTML 代码，不爽直！
-
-== HTMLTags ==
-'''函式化的HTML生成'''
- * http://localhost/doc/en/htmltags.htm
- * 唉呀呀！！还真的是心想事儿成！2.2 增加的新功能哪！
- {{{#!python
-stylesheet = LINK(rel="Stylesheet",href="doc.css")
-header = TITLE('Record collection')+stylesheet
-title = H1('My record collection')
-rows = Sum ([TR(TD(rec.title,Class="title")
-                +TD(rec.artist,Class="Artist")) 
-    for rec in records])
-table = TABLE(TR(TH('Title')+TH('Artist')) + rows)
-print HTML(HEAD(header) + BODY(title + table))
-}}} 可以将一个标准的HTML页面由几行 Py脚本自然生成！
- * 那未，只要结合 KS 和 HTMLTags 功能就可以快速实现想要的复杂展示功能了！还可以方便的复用！
- * 当然的使用["Leo"] 八股化你所有的.KS
- 
-attachment:snap-KwDay40.png
-
-  1. `&lt;&lt; page declarations &gt;&gt;` 同样是引用声明什么的
-  1. `&lt;&lt; htmlcode &gt;&gt;` 就是利用["Leo"]来快速复用的各种 HTML 代码
-  1. `&lt;&lt;ini&gt;&gt;` 初始化部分，就是各响应页面都要使用的变量准备
-  1. `@others` 包含以下各种 `def action():` 样定义的实际响应页面和`def _function():` 可以反复调用的不作为页面响应的普通函式声明
-  
-== 登录 ==
-'''从默许的index 自动导向 login 那'''
- * 在{{{#!python
-def index():
-    &lt;&lt; pagehead &gt;&gt;
-    
-    if sess.usr["name"]=="NULL":
-        raise HTTP_REDIRECTION,"login"
-    else:
-        pass
-}}} 照猫画虎, 使用`raise HTTP_REDIRECTION,"login"` 来根据是否有登录过来导向登响应
- * 当然的，要在 .KS 的 ini 初始化部分先声明会话容器:
-     {{{#!python
-# 使用 Session来记忆成员信息
-sess = Session()
-if not hasattr(sess, 'usr'):
-    sess.usr = {"name":"NULL"}
-    }}}在没有进行登录前，准备一个值为`NULL` 的`usr` 用户会话对象
- * 好了，实际的登录表单还是 [http://www.orionlab.net/karrigell_quickform/Karrigell_QuickForm.html KQF]来干:
-{{{#!python
-p = Karrigell_QuickForm('fm_login'
-                        ,'POST'
-                        ,'chkusr'
-                        ,"登录自学问卷")
-p.addHtmNode('text','uname'
-             ,"staff帐号"
-             ,{'size':40,'maxlength':8})
-p.addGroup(["submit","btn_submit","提交","btn"]
-           ,["reset","btn_reset","重写","btn"])
-p.addRule('uname','required'
-          ,"成员名是必须的!Login name is required!")
-p.display()
-}}} 非常简洁，标准
- * 进行有效性判别的处理也是个标准的KS 函式{{{#!python
-def chkusr(**args):
-    """检查用户登录情况
-    """    
-    print QUERY
-    sess.usr["name"] = QUERY["uname"]
-    if sess.usr["name"] in pmguys:
-        # pmguys 是个元组，预定义的有管理整理的成员帐号
-        sess.usr["pm"] = 1
-    print sess.usr
-    #raise HTTP_REDIRECTION,"index"
-}}}先别让页面自动跳走，看一看，是否随愿的将登录信息记录了？！
-
-attachment:snap-KwDay4sess.png 
-
- * 问卷的使用原则是，任何人都可以登录，问答,但是:
-  1. 只有有效的成员问答才会统计
-  1. 只有个别的成员才有管理/编辑问卷的权限
-  
- 
-== 多问卷选择 ==
-''' 有了登录后的用户信息,就可以根据不同的角色进行处理了'''
-=== fnmatch ===
- * 指定目录中某模式的所有文件的尋找…………
- * 有内置的处理模块哪！'''fnmatch'''
- * 配合统一设置进行搜索{{{#!python
-qcfglist = []
-for f in os.listdir(conf.qpage.qpath):
-    if fnmatch.fnmatch(f, '*.cfg'):
-        if ("__init__" in f):
-            pass
-        else:
-            qcfglist.append(f)
-print qcfglist
-}}} 就可以找出目录中所有以`.cfg`结尾的文件！
-  * conf 对象是新发布模式下的统一设置信息对象
-   * 因为，担心可能需要多个.KS 文件来组织网站，不想象原先那样滥用["Leo"]来复用信息了
-   * 所以，建立`@nosent questionnaire.cfg` 统一配置文件
-   * 这样，`conf = DictIni("questionnaire.cfg")` 一下子，就可以在所有.KS 页面中获取统一的站点设置了
-   
-=== 列表所有问卷 ===
-'''根据问卷的状态进行归类列表'''
-{{{#!python
-# 识别问卷发布情况::
-qdone = {}
-qdoing = {}
-qdesign = {}
-for p in qcfglist:
-    cfgp = DictIni(conf.qpage.qpath+p)
-    if 0==cfgp.desc.done:
-       qdesign[p]=cfgp
-    elif 1==cfgp.desc.done:
-       qdoing[p]=cfgp
-    elif 2==cfgp.desc.done:
-       qdone[p]=cfgp
-    else:
-        qdesign[p]=cfgp
-}}} 使用不同的字典容器先过滤一下子搜索出来的文件；
- * 然后使用类似的输出就好:
-{{{#!python
-print H4("问卷进行中::")
-print UL("".join([str(LI(
-             B(A(qdoing[i].desc.pname
-                 ,href="page?qpname=%s&amp;do=doing"%i.split(".")[-2])
-                 )+
-                 SUP(qdoing[i].desc.learn)+
-                 SUB(A("问答统计",href="stat?qp=%s"%i))
-                         )
-                        ) for i in qdoing.keys()
-                    ])
-                    )
-}}}     
-
-attachment:snap-KwDay4list.png
-
-== 小节 ==
- * 实际上，本日，你使用 .ks 体验了一把函式化的页面发布，成果就一个脚本'''index.ks'''
-  * 但是以前完成的`.pih` 依然好用，而你将趁兴将它们都重构为更加爽快的'''函式化页面发布'''
- * 而且，你忍不住对CSS进行了深入的定制，在输出代码的最简和页面表现丰富之间进行了有效的探索
- 
- 
- 
- 
-=== 明日任务 ===
-'''心情舒畅！快速的完成了更加简练的功能页面！'''
- * 但是，如何将编辑，回答，统计融合起来？
-  1. 点击进入不同问卷，可以回答/或是编辑
-  1. 点击编辑就直接编辑
-  1. 提交就成为新版本问卷
-  1. 问卷要有版本管理
-  1. 提交后,可以立即回到问答或是问卷集首页
-  1. 任何页面都有安全退出的链接
-  1. .... 呜乎哀哉,好象越作越多了,任务…………
- 
-== 实例下载 ==
-使用 [wiki:self/AllAboutSubversion SVN 下载]:
-    [wiki:selfsvn/zqlib/trunk/zqlib/tangle/zoomq/Karrigell/obpKWD/KwDay4/ KwDay4实例]
-
-== 讨论 ==
-[[Include(/Discuss)]]
-
-
-----
-返回 KarrigellWebDev -- 快速体验K开发
-</t>
 <t tx="zoomq.20080818232601.5"># 使用标准
 # 这个是Leo 的宏约定，让Leo 将以下的节点及时的保存到指定目录中
-@path q
+@path kday4/q
 
 </t>
 <t tx="zoomq.20080818232601.6">[desc]
@@ -8229,7 +8029,7 @@ p.display()
 3. 创建处理脚本 qdesign.py
 ... 然后就瀑布样的该作什么就作什么了(^_^)
 """
-@path ./</t>
+</t>
 <t tx="zoomq.20080818232601.37">from Karrigell_QuickForm import Karrigell_QuickForm
 
 p = Karrigell_QuickForm('teste','POST','foo.py','Authentication')
@@ -8821,36 +8621,36 @@ tcode = time.strftime("%y%m%d%H%M%S", time.localtime())
 # 先复制一下子
 #shutil.copy2(cfgf,cfgf+".%s"%tcode)
 </t>
-<t tx="zoomq.20080818232601.64">def qpubish(dict):
+<t tx="zoomq.20080818232601.64">def qpublish(dict):
     """将dict 内容输出为回答问卷
     """
     exp = ""
     p = Karrigell_QuickForm('fm_kq','POST','#',dict.desc.desc)
     exp += "&lt;h1&gt;%s&lt;sup&gt;学习资料::%s&lt;/sup&gt;&lt;/h1&gt;"%(dict.desc.pname
                                        ,dict.desc.learn)    
-    
+
     #exp += "&lt;H6&gt;返回%s&lt;/H6&gt;"%dict.desc.learn
     p.addElement('node','&lt;ul&gt;','')
     # 深入数据
     @others    
     p.addElement('node','&lt;/ul&gt;','')
-    
+
     # 无良的迁就……
     p.addJSValidation()
     p.saveJSRule("../js/validation-config.xml")
-    
+
     p.addGroup(["submit","btn_submit","提交","btn"]
                ,["reset","btn_reset","重写","btn"])
     exp += p.export()
-    
+
     return exp
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
 </t>
 <t tx="zoomq.20080818232601.65">"""
 p.addRadioList('cr_ask1'
@@ -8872,7 +8672,7 @@ for i in k:
             qli[q] = ask[q]
         else:
             pass
-    
+
     p.addRadioList("cr_ask%s"%i
                ,ask["question"]
                ,qli)
@@ -8887,7 +8687,7 @@ print "&lt;div id='qpage'&gt;"
 #print p.export()
 print "&lt;div id='errorDiv'&gt;&lt;/div&gt;"
 
-print qpubish(qcfg)
+print qpublish(qcfg)
 print "&lt;/div&gt;"
 
 """
@@ -8903,8 +8703,7 @@ p.addGroup(["submit","btn_submit","提交"]
 #p.display()
 """
 </t>
-<t tx="zoomq.20080818232601.67"># 按照约定，这样的扩展要部属到Karrigell 的根目录，所以使用相对路径回溯指向！
-@path ../../../</t>
+<t tx="zoomq.20080818232601.67"></t>
 <t tx="zoomq.20080818232601.68">
 &lt;&lt; Karrigell_QuickForm declarations &gt;&gt;
 
@@ -9558,7 +9357,8 @@ self.js_list.append(js_string)
 
 
 </t>
-<t tx="zoomq.20080818232601.221"># 快速利用Karrigell 开发功能站点
+<t tx="zoomq.20080818232601.221">@path kday6/
+# 快速利用Karrigell 开发功能站点
 # Karrigell.ini 中有如下约定:
 # 如果Kariigell 运行在 D:\Karrigell\Karrigell-2.2\ 
 # 则其下应该有 karriweb\obp\KwDay1\ 这样的目录，以便安置实例  
@@ -9571,228 +9371,9 @@ jvf=%(base)s/karriweb/obp/js
 
 
 </t>
-<t tx="zoomq.20080818232601.222">## page was renamed from zhArticleTemplate
-##language:zh
-#pragma section-numbers on
-::-- ZoomQuiet [[[DateTime(2005-12-11T04:51:41Z)]]]
-[[TableOfContents]]
-
-= K6日:统计！mm的 =
-'''快速扩展一个页面适应所有情况！'''
- * 此mm 非彼 mm 哪! 乃FreeMind 思维图谱文件 `.mm`
-== FreeMind的另类使用 ==
-'''要想进行问卷回答的统计,首先要有手段知道现在组织内成员信息,以便对应统计'''
- * 为什么想到了 FreeMind? 
-  * 以往使用DB,怎么样都要立成员表和组织表然后还有这那儿的对应选择关系什么的
-  * 还是 FreeMind 直观,操作也非常快捷,复制,移动太爽直了!
-  * 而且是XML的数据文件!
- * 曾经依照提供的`freemind.xsl`+`freemind.mm` 输出了加个xml头说明的自定 mm 文件
- 
-"attachment:snap-KwDay60.png
-
- * 哈哈哈!大致知道 FreeMind 的数据格式:
-     1. 所有节点是统一的 `&lt;node&gt;` 
-     1. 属性和值,全部是UTF8编码的字串
- * 所以,只要有简单的约定,就可以作为 Xpath 的过滤参数来理解真正的数据意义了
- * 以上的组织成员信息就是有个小小的约定:
-     1. 一级节点都是部门描述,中文
-     1. 二级节点是属性描述:
-         1. dept 说明部门的整体信息
-         1. staff 汇集成员信息,类似部门的节点组织
-         1. total 成员总数
-"attachment:snap-KwDay6mm.png
- * 这样就令 XSLT 有基础原则可以进行数据组织了
- * 同理,也可以让Python 快速理解了...
- 
-
-== ElementTree,当然的！ ==
-'''处理XML Python 有丰富的模块,你知道其中 ElementTree 最方便支持部分Xpath 的搜索'''
- * 其实从使用方面也是 ElementTree 最PythyonIc 了
- * `deptorg.py` mm专用理解脚本中:{{{#!python
-from elementtree import ElementTree
-print open(xmlFileName,"r").read()
-tree = ElementTree.parse(xmlFileName)
-elem = tree.getroot()
-dept = elem.findall("node/node")
-for d in dept:
-    print d
-    print LI(d.attrib["TEXT"].encode("utf8"))
-
-}}}
-
-
-  1. 引入 ElementTree
-  1. 处理XML为 ElementTree 对象
-  1. 找到根
-  1. 从根找到所有第二级的`&lt;node&gt;`节点对象列表
-  1. 已经可以通过 `.attrib["TEXT"]` 来获得内容了!
-
-"attachment:snap-KwDay61.png
- * 就使用 `findall()` 和 `attrib["TEXT"]` 便可以判定/获取足够的信息,输出成以上的页面从 mm 中!!!
- * 哈哈哈!具体的就看代码吧……
- 
-== Karrigell 的对象混合 ==
-'''但是！怎么样可以使用这种mm 的理解成果？'''
- * 麻烦在于 `ElementTree.parse(xml文件)` 要可以直接访问的文件名
- * 你不想在程序中包含太多系统的路径信息
-  1. 反复尝试，发现从相对路径偏移还是从URL 来访问都不稳定，也麻烦
-  1. 最简单的就是理解脚本和mm 文件在一起
- * 问题就来了，各种事务页面如何快捷直观的使用理解成果？
-  * 自然的，就想到了 `Include()` KarriGell 中到处都可以进行的基础操作 -- '''包含'''
-{{{Include("../xslmm/deptorg.py") 
-            ^
-            |
-            +- 因为是从index.ks/login 之类下级行动函式页面访问}}}
-            
-  * 有MoinMoin 的经验，你就想这样一来应该能将字典对象混人当前名称空间??
-   * 在专门mm 理解脚本-- '''deptorg.py''' 中 `print dir()`
-
-"attachment:snap-KwDay62.png
-
-   * 不会这么简单吧！你发现了 `index.ks` 事务页面中才有的对象 '''sess''' —— 对话容器
-   * 尝试的赋值一下子？{{{
-#deptorg.py 中最后..
-sess.usr["dept"]=deptall
-sess.usr["deptree"]=deptree
-}}}
-   * KAO！ 真的好用！ 在`index.ks/stat` 统计页面，包含 `deptorg.py` mm专用理解脚本 再打印 '''sess.usr''' 看一下子，唉呀呀！真的有了！
-
-"attachment:snap-KwDay63.png
-== 回答验证 ==
-'''进行回答统计前，有一个先决重构'''
- * 有效的答案是全部问题都回答了，不然的话统计很麻烦的说……
- * 但是曾经令你激动的 '''[http://www.amowa.net/jsvalidation/ JavaScript Validation Framework]''' 国人作品…… 忽然间再也不好用了？！
-  * 不得以，仔细看了一下子代码，才发现，有好几点是不能忍的:
-      1. 所有表单都要读取同一配置XML，不论访问者想回答哪个问卷，导致动态生成配置文件时有争用问题
-      1. 同样的原因，导致每次读取配置文件，可能要读入相对无用的几倍信息(别的表单的检验策略也被迫读取了)
-      1. {{{		...
-            try {
-			var prefix = ["MSXML2", "MSXML", "Microsoft", "MSXML3"];
-			for (var i = 0; i &lt; prefix.length; i++) {
-				//return new ActiveXObject(prefix[i] + ".DomDocument"); 
-				var obj = new ActiveXObject(prefix[i] + ".DomDocument"); 
-				if (obj == null || typeof(obj) == 'undefined') {
-					continue;
-				} else {
-					return obj;
-				}
-			}
-		} catch (e) {
-			//^_^
-			throw new Error("My God, What version of IE are you using? IE5&amp;+ is requiered.");
-		}
-}}}咔...'''BS'''!居然不能支持 FireFox 的,怎么以前成功的是灵异现象?!
-
- * 怕了!直接使用服务端的判定吧!
- * 创立 `bye()` 判别处理页面 并在失败时输出{{{
-&lt;input type="button"
-    value="点击返回重新回答"
-    class="btn"
-    onClick="history.back();"/&gt;
-    }}} 这样的JS 行动按钮, 快捷完成想要的完全问答检验处理
-    
-"attachment:snap-KwDay6bye.png
- * 好了基本可用了,只是这样一来,加重了服务端的压力,也难以进行页面的友好提醒...
-  * 嗯嗯,自古忠孝难全,先这么着,以后再想了....
- 
-== 统计汇报 ==
- * 接下来就简单了:
-     1. 所有人的回答输出为简单的文件，比如说： 每个题目的回答为一行
-     1. 套用问卷列表的技巧，可以搜索出对应问卷的所有回答文件
-     1. 批量读到列表中，和成员信息字典匹配一下子，就可以人性化的输出了
-{{{#!python
-ali = fnmatch.filter(os.listdir(conf.qpage.apath), '%s.*.aq'%qpname)
-aed = []
-for f in ali:
-    a = open(conf.qpage.apath+f,"r").read()
-    aed.append(f.split(".")[-2])
-done = []
-unknow = []
-for a in aed:
-    if a in sess.usr["dept"].keys():
-        done.append(a)
-    else:
-        unknow.append(a)
-}}}
- * 先要预备处理一下子，过滤出不知道的人
-  1. 明显的你约定回答文件的命名格式是 `问卷名.成员帐号名.aq`
-  1. 所以可以根据文件名快速整理出名单列表 `aed`
-  1. 然后，就有了已知合理成员回答列表 `done` 和 `unknow` 未知成员列表
-
-attachment:snap-KwDay6stat.png 
-
- * 最后就是个显示问题了:
-     1. 要有回答时间的信息?{{{
-fn = conf.qpage.apath+'%s.%s.aq'%(qpname,a)
-...
-time.strftime("%y/%m/%d %H:%M:%S",time.localtime(os.path.getmtime(fn)
-}}}
-     1. 要有 百分制 的成绩?{{{#!python
-def _grade(right,answer):
-    """根据问卷答案自动计算分数
-    """
-    grade = 0
-    for i in range(0,len(right)):
-        if right[i]==answer[i]:
-            grade +=1
-        else:
-            pass
-    return 100*(float(grade)/len(right))
-}}}
-     1. 唉呀呀??为什么不许怎么回答都是0分?
-      * 发现问题..字典的无序和回答的有序!间的矛盾
-     {{{
-print crtqp.ask.keys()
-crtright = [crtqp.ask[i]["key"] for i in crtqp.ask.keys()]
-print crtright
-}}}
-"attachment:snap-KwDay6dict.png 
-
-      * 知道症结就好修改了{{{#!python
-#字典排序技巧
-ak = crtqp.ask.keys()
-ak.sort()
-print ak
-crtright = [crtqp.ask[i]["key"] for i in ak]
-print crtright
-}}}
-
-"attachment:snap-KwDay6sort.png 
-
-     1. 要有总平均成绩?{{{
-#使用stat 列表收集所有有效成绩
-stat = []
-...
-stat.append(_grade(crtright,open(fn,"r").read().split()))
-...
-sum(stat)/len(stat)) 就出来了
-reduce(lambda a,b:a+b, stat)/len(stat) 更加cool
-}}}
- * 哈哈哈！！什么也难不住你！
-"attachment:snap-KwDay6done.png 
-
-
-== 事务测试 ==
-'''不用想什么黑/白盒；边界，点击就成！'''
- * 好了！所有功能都实现了，你现在非常成就感的一路点击一下子
- * 感觉哪里不好，随手就修正它！
- * 溜个几回，功能测试基本也就了了…………
-     
-== 实例下载 ==
-使用 [wiki:self/AllAboutSubversion SVN 下载]:
-    [wiki:selfsvn/zqlib/trunk/zqlib/tangle/zoomq/Karrigell/obpKWD/KwDay6/ KwDay6实例]
-
-
-== 讨论 ==
-[[Include(/Discuss)]]
-
-
-----
-返回 KarrigellWebDev -- 快速体验K开发
-</t>
 <t tx="zoomq.20080818232601.223"># 使用标准
 # 这个是Leo 的宏约定，让Leo 将以下的节点及时的保存到指定目录中
-@path q
+@path kday6/q
 
 </t>
 <t tx="zoomq.20080818232601.224">[desc]
@@ -9917,7 +9498,7 @@ key		= a # 正确答案
     &lt;!--
     &lt;script language="javascript" src="/k/js/validation-framework.js"&gt;&lt;/script&gt;
     --&gt;
-    
+
     &lt;/head&gt;
     &lt;body&gt;    
     &lt;div id='qpage'&gt;
@@ -9930,7 +9511,7 @@ htmfoot="""
     &lt;a href="http://wiki.woodpecker.org.cn/moin/ZoomQuiet"&gt;
     Zoom.Quiet&lt;/a&gt;
  powered by :
-     
+
  &lt;a href="http://python.org"&gt;
  Python&lt;/a&gt;
  ::
@@ -10121,12 +9702,12 @@ SELECT{WIDTH: 100%;
 	font-family: "Arial", "Helvetica", "sans-serif"; 
 	background-color: #8DB48D; 
 	border-width: 1px ;border-color: #CCCCCC;}
-	
+
 INPUT{ font-family: "Arial", "Helvetica";
     font-size: 14px;font-weight: light; color: #993300; 
 	background-color: transparent; 
 	border: 1px solid #838A9E;}
-	
+
 INPUT.btn { font-size: 13px; 
     font-weight: light; color: whitesmoke; 
 	background-color: #487858; 
@@ -10134,7 +9715,7 @@ INPUT.btn { font-size: 13px;
     border-color: #E0F3E0 #679265 #333333 #CCCCCC;
 	height: 20px;	
 	padding:0px 1em 2px 1em;}
-	
+
 INPUT.chkrd { background-color: transparent; border: 0px}
 </t>
 <t tx="zoomq.20080818232601.233">
@@ -10199,7 +9780,7 @@ INPUT.chkrd { background-color: transparent; border: 0px}
 .action A{
 	font-size: 12px;
 	color: #406040;
-	
+
 }
 .action A:hover{
 	font-size: 12px;
@@ -10223,7 +9804,7 @@ INPUT.chkrd { background-color: transparent; border: 0px}
 
 .Webdings{
 	font-family: "Webdings";
-	
+
 }
 </t>
 <t tx="zoomq.20080818232601.235">
@@ -10294,11 +9875,11 @@ qcfg = DictIni(cfgf)
     """
     # 八股化的页面函式组织... clone 统一的页头输出章节！
     &lt;&lt; pagehead &gt;&gt;
-    
+
     # 测试/印证外部专用处理页面对象的引入
     #
     #print sess.usr
-    
+
     if sess.usr["name"]=="NULL":
         raise HTTP_REDIRECTION,"login"
     else:
@@ -10309,7 +9890,7 @@ qcfg = DictIni(cfgf)
         print "&lt;DIV id='cntarea'&gt;"
         @others
         print "&lt;/DIV&gt;"
-    
+
     """快速设计CSS时可以方便的列印出主要页面元素来看效果
     print H1("H1")
     print H2("H2")
@@ -10318,7 +9899,7 @@ qcfg = DictIni(cfgf)
     print H5("H5")
     print H6("H6")
     """
-    
+
     # 八股化的页面函式组织... clone 统一的页脚输出章节！
     &lt;&lt; pagefoot &gt;&gt;
 
@@ -10419,7 +10000,7 @@ def login():
     &lt;&lt; pagehead &gt;&gt;    
     # 实际活动
     print H1("啄木鸟问卷 之 自学问卷集")
-    
+
     @others 
 
     &lt;&lt; pagefoot &gt;&gt;
@@ -10449,7 +10030,7 @@ p.display()
     """完成 login 时顺手就创立的页面
     """
     sess.close()
-    
+
     #sess.usr = {}
     #sess.usr["name"] ="NULL"
     #print QUERY
@@ -10486,28 +10067,29 @@ p.display()
     #print QUERY
     #base64.urlsafe_b64encode(pickle.dumps(obj))
     #pickle.loads(base64.urlsafe_b64decode(obj))
-    
+
     qcfg = DictIni(conf.qpage.qpath+qpname+".cfg")
-    
+
     if sess.usr["name"]=="NULL":
         raise HTTP_REDIRECTION,"login"
     else:
         sess.usr["qp"] = qpname
         # 051224 加入问卷状态
         sess.usr["do"] = do
-        
+
         &lt;&lt;导航&gt;&gt;
-        
+
         # 整理原问卷解析为标准函式
-        print _qpubish(qcfg,"bye",do,qpname)        
+        print _qpublish(qcfg,"bye",do,qpname)        
         """将dict 内容输出为回答问卷
             - dict 问卷设计字典
             - aim 提交目标
             - type 统计模式
             - qpname 问卷名
         """
-    
-    &lt;&lt; pagefoot &gt;&gt;</t>
+
+    &lt;&lt; pagefoot &gt;&gt;
+</t>
 <t tx="zoomq.20080818232601.253">print SPAN(A('退出', href="logout"),id="mana")
 print SPAN(A('首页', href="index"),id="mana")
 print SPAN(A("编辑管理问卷"
@@ -10516,7 +10098,7 @@ print SPAN(A("编辑管理问卷"
                         )
                 )
             ,id="mana")
-            
+
 </t>
 <t tx="zoomq.20080818232601.254">
 def stat(**args):
@@ -10533,7 +10115,8 @@ def stat(**args):
     print "&lt;/DIV&gt;"
     &lt;&lt; pagefoot &gt;&gt;
 
-    </t>
+
+</t>
 <t tx="zoomq.20080818232601.255">#print sess.usr
 crtqp = ""
 qpname = ""
@@ -10637,20 +10220,20 @@ def bye(**args):
     """
     &lt;&lt; pagehead &gt;&gt;
     print H1("%s"%(qcfg.desc.pname))
-    
+
     qk = QUERY.keys()
-    
+
     if "btn_submit" in qk:
         @others
-        
+
     else:
         raise HTTP_REDIRECTION,"index"
-        
+
     &lt;&lt; pagefoot &gt;&gt;
 
     #raise HTTP_REDIRECTION,"stat"
     #raise HTTP_REDIRECTION,"logout"
-    
+
 
 
 </t>
@@ -10679,7 +10262,7 @@ if 0==len(lost):
                           ,sess.usr["name"])
     open(answer,'w').write(as)
     ## 正常跳转到统计页面
-    
+
     raise HTTP_REDIRECTION,"stat"
 
 print BR()*2
@@ -10694,8 +10277,9 @@ print """&lt;h4&gt;&lt;input type="button"
 """
 
 
-  </t>
-<t tx="zoomq.20080818232601.262">def _qpubish(dict,aim,type,qpname):
+
+</t>
+<t tx="zoomq.20080818232601.262">def _qpublish(dict,aim,type,qpname):
     """将dict 内容输出为回答问卷
         - dict 问卷设计字典
         - aim 提交目标
@@ -10717,15 +10301,15 @@ print """&lt;h4&gt;&lt;input type="button"
     # 深入数据
     # 题目循环输出
     &lt;&lt;loopask&gt;&gt;
-    
+
     # 由于JVF 的浏览器兼容问题，先放弃！
     #p.addJSValidation()
     #p.saveJSRule("../js/validation-config.xml")
-    
+
     p.addElement('node','&lt;/ul&gt;&lt;/DIV&gt;','')
-    
+
     &lt;&lt;submit&gt;&gt;
-    
+
     exp += p.export()
     #exp += "&lt;h6&gt;自学资料: %s&lt;/h6&gt;"%(dict.desc.learn)
     exp += qptitle
@@ -10786,7 +10370,7 @@ for i in k:
                ,ask["question"]
                ,qli
                ,liq)
-            
+
     ## JVF 调试太复杂不用之！
     #p.addJSRule("cr_ask%s"%i,"问题%s "%i)
 
@@ -10806,17 +10390,18 @@ for i in k:
             # 默许没有回答的部分都是错的
             pass
             #grade +=1
-    
+
     return 100*(float(grade)/len(right))
 
-    
-    
-    
-    
 
 
-    
-    </t>
+
+
+
+
+
+
+</t>
 <t tx="zoomq.20080818232601.267">##基础宣言
 &lt;&lt; page declarations &gt;&gt;
 ## HTML 代码准备
@@ -11147,7 +10732,7 @@ else:
 
 </t>
 <t tx="zoomq.20080818232601.284"># 尝试使用专门脚本来解析理解mm 文件
-@path xslmm
+@path kday6/xslmm
 
 </t>
 <t tx="zoomq.20080818232601.285">@ $Id: obpKwd6.leo 325 2005-12-30 04:23:49Z  $
@@ -11697,7 +11282,8 @@ img.ilink {
 3. 创建处理脚本 qdesign.py
 ... 然后就瀑布样的该作什么就作什么了(^_^)
 """
-@path ./</t>
+
+</t>
 <t tx="zoomq.20080818232601.315">from Karrigell_QuickForm import Karrigell_QuickForm
 
 p = Karrigell_QuickForm('teste','POST','foo.py','Authentication')
@@ -12289,36 +11875,36 @@ tcode = time.strftime("%y%m%d%H%M%S", time.localtime())
 # 先复制一下子
 #shutil.copy2(cfgf,cfgf+".%s"%tcode)
 </t>
-<t tx="zoomq.20080818232601.342">def qpubish(dict):
+<t tx="zoomq.20080818232601.342">def qpublish(dict):
     """将dict 内容输出为回答问卷
     """
     exp = ""
     p = Karrigell_QuickForm('fm_kq','POST','#',dict.desc.desc)
     exp += "&lt;h1&gt;%s&lt;sup&gt;学习资料::%s&lt;/sup&gt;&lt;/h1&gt;"%(dict.desc.pname
                                        ,dict.desc.learn)    
-    
+
     #exp += "&lt;H6&gt;返回%s&lt;/H6&gt;"%dict.desc.learn
     p.addElement('node','&lt;ul&gt;','')
     # 深入数据
     @others    
     p.addElement('node','&lt;/ul&gt;','')
-    
+
     # 无良的迁就……
     p.addJSValidation()
     p.saveJSRule("../js/validation-config.xml")
-    
+
     p.addGroup(["submit","btn_submit","提交","btn"]
                ,["reset","btn_reset","重写","btn"])
     exp += p.export()
-    
+
     return exp
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
 </t>
 <t tx="zoomq.20080818232601.343">"""
 p.addRadioList('cr_ask1'
@@ -12340,7 +11926,7 @@ for i in k:
             qli[q] = ask[q]
         else:
             pass
-    
+
     p.addRadioList("cr_ask%s"%i
                ,ask["question"]
                ,qli)
@@ -12355,7 +11941,7 @@ print "&lt;div id='qpage'&gt;"
 #print p.export()
 print "&lt;div id='errorDiv'&gt;&lt;/div&gt;"
 
-print qpubish(qcfg)
+print qpublish(qcfg)
 print "&lt;/div&gt;"
 
 """
@@ -12371,8 +11957,8 @@ p.addGroup(["submit","btn_submit","提交"]
 #p.display()
 """
 </t>
-<t tx="zoomq.20080818232601.345"># 按照约定，这样的扩展要部属到Karrigell 的根目录，所以使用相对路径回溯指向！
-@path ../../../</t>
+<t tx="zoomq.20080818232601.345">
+</t>
 <t tx="zoomq.20080818232601.346">
 &lt;&lt; Karrigell_QuickForm declarations &gt;&gt;
 
@@ -13029,7 +12615,8 @@ self.js_list.append(js_string)
 
 
 </t>
-<t tx="zoomq.20080818233010.3"># 快速利用Karrigell 开发功能站点
+<t tx="zoomq.20080818233010.3">@path kday5/
+# 快速利用Karrigell 开发功能站点
 # Karrigell.ini 中有如下约定:
 # 如果Kariigell 运行在 D:\Karrigell\Karrigell-2.2\ 
 # 则其下应该有 karriweb\obp\KwDay1\ 这样的目录，以便安置实例  
@@ -13042,256 +12629,9 @@ jvf=%(base)s/karriweb/obp/js
 
 
 </t>
-<t tx="zoomq.20080818233010.4">## page was renamed from zhArticleTemplate
-##language:zh
-#pragma section-numbers on
-
-::-- ZoomQuiet [[[DateTime(2005-12-11T04:51:21Z)]]]
-[[TableOfContents]]
-= K5日:随时重构 =
-'''快速利用已有的所有技巧，重构功能实现'''
- * 让原先分散的.pih 们也整合到一个 '''mana.ks''' 事务页面中吧！
- 
-== 悠然 Leo ==
-{{{
-   Ctrl+`
-}}}从来没有如此让你放心过……
-
-"attachment:snap-KwDay50.png
-
- * 只要保证，所有.ks 中有 clone 的`&lt;&lt; htmlcode &gt;&gt;`
-  * 所有.ks 中的响应函式中有 clone 的`&lt;&lt; pagehead &gt;&gt;`及`&lt;&lt; pagefoot &gt;&gt;`
-  * 就等于随时控制了所有页面的外观！
-
-== 调整事务响应 ==
-'''将问卷的使用和管理拆分为专门的两个事务页面'''
- * `index.ks` 作为默许访问的页面是问卷回答/统计的使用事务页面
- * `mana.ks` 作为权限用户的问卷设计事务页面
- * 那未，首先，用户从`/index.ks/login` 登录后记录的信息，怎么样传递到 `mana.ks`
- 
-=== 页面间传递对象 ===
-'''当然的，你期望是完整的对象传递，而不用又要判别，记载……'''
- * 不是有 `pickle` 序列化模块嘛！
- * 尝试将对象序列化为字串作为页面间的参数捅过去就好哪！
-  * 打印当前的会话容器序列化字串看一看:{{{
-print pickle.dumps(sess.usr)
-}}}
-
-"attachment:snap-KwDay51.png
-
-  * 唉呀呀……有空格，以及其它符号的！一定会被误解为不同参数的……
-  * 找呀找呀，找朋友，找到一个`urlsafe_b64encode(s) ` 是 '''base64''' 模块中的
-  * OK 组织测试一下子:{{{#!python    
-v = base64.urlsafe_b64encode(pickle.dumps(sess.usr))
-print v
-print "&lt;br/&gt;"
-print pickle.loads(base64.urlsafe_b64decode(v))
-}}}
-
-"attachment:snap-KwDay52.png  
-
-  * 非常理想！就用之了！
-{{{#!python   
-print SPAN(A('&gt; 编辑管理问卷'
-        ,href="../mana.ks/edit?qp=%s&amp;obj=%s"%(
-            qpname
-            ,base64.urlsafe_b64encode(
-                pickle.dumps(sess.usr))
-                )
-            )
-        ,id="mana")
-}}} 在 问卷回答界面中追加一个编辑的链接就好
- * 注意:
-  1. 使用 `../mana.ks`  是因为 .ks 事务页面实际都是进一层的`*.ks/action`访问，所以要链接到另外的事务页面，要使用相对路径修正的
-  1. 对`&lt;A&gt;` 追加了一个 `id="mana"` 的属性是为了让CSS 击中，进行显示的处理,对应的CSS定义是:{{{
-SPAN#mana{border-bottom: 2px solid #778;
-    border-left: 2px solid #778;
-    float:right;color: #930; 
-    background-color: whitesmoke; padding: 2px;}
-}}}效果如下:
-
-"attachment:snap-KwDay5css.png  
-  
- * 当然的，应该只有权限用户才会看到此链接
- * 不过，开发阶段完全开放——反正要实现版本管理不用怕的说;-)
- 
- 
-== 重构编辑流程 ==
-'''当然的所谓 mana.ks 事务页面就是要代替以前使用7个文件完成的问卷编辑流程'''
- * 二话不说先将成功运行的 `index.ks` 节点 clone 成 `mana.ks` 然后快速的修剪
- * 将原先`qpage.py` 的 '''expage(dict)''' 重构为  `index.ks` 的 '''_qshow(dict,aim)'''
-  * 99% 的代码都不变，仅仅是传入的参数重新命名而已{{{#!python
-def _qshow(dict,aim):
-    """将dict 内容输出为回答问卷
-    """
-    exp = ""
-    p = Karrigell_QuickForm('fm_kq','POST',aim,dict.desc.desc)
-    p.addElement('node','&lt;ul&gt;','')
-    # 深入数据
-    qli = {}
-    k = [int(i) for i in dict.ask.keys()]
-    k.sort()
-    for i in k:
-        ask = dict.ask[str(i)]
-        qk = [j for j in ask.keys()]
-        qk.sort()
-        for q in qk:
-            if 1==len(q):
-                qli[q] = ask[q]
-            else:
-                pass
-        question = ask["question"]+"&lt;sup&gt;答案::%s&lt;/sup&gt;"%ask["key"]
-        ## 这里美化一下子，奇偶行使用不同的CSS来控制
-        if i%2 == 0:
-            p.addRadioList("cr_ask%s"%i
-                   ,question
-                   ,qli
-                   ,"even")
-        else:
-            p.addRadioList("cr_ask%s"%i
-                   ,question
-                   ,qli)
-        p.addJSRule("cr_ask%s"%i,"问题%s "%i)
-
-    p.addJSValidation()
-    p.saveJSRule("js/validation-config.xml")
-    p.addElement('node','&lt;/ul&gt;','')
-    p.addGroup(["submit","btn_submit","提交","btn"]
-               ,["reset","btn_reset","重写","btn"])
-    exp += p.export()   
-    return exp
-}}}
-
- * 同理，使用原先十分之一的时间，快速将一连串的 .pih 动态页面，改写为 .ks 事务页面
- * 只是为了增加版本管理的功能，追加了一个操作{{{
-# 先复制一下子
-shutil.copy2(qpage,qpage+".%s"%time.strftime("%y%m%d%H%M%S"
-                                             , time.localtime())
-             )
-}}}
-  * 使用 '''shutil'''高级文件处理模块，在问卷提交后，先复制一份历史版本
-  
-
-== 历史版本 ==
-'''习惯的Wiki的反悔模式，当然的也想自个儿弄一个'''
-
-"attachment:snap-KwDay53.png  
-
- * 几次小的尝试性修改，在 `/q` 中聚集了一批命名有模式可寻的问卷设计稿
- * 直接利用问卷列表的处理代码，小修改一下子，就成为历史版本列表的实现，归到{{{#!python
-def historic(**var):
-    &lt;&lt; pagehead &gt;&gt;
-    @others   
-    &lt;&lt; pagefoot &gt;&gt;
-}}}
- * 可以看到现在连事务页面中的具体请求也可以八股化了
-  1. `&lt;&lt; pagehead &gt;&gt;` 标准的页头 信息
-   * 不过是一个`print _htmhead("标题文字")` 将预定HTML 代码少量处理后输出的小函式
-  1. `@others`  包含所有具体行为的章节脚本
-  1. `&lt;&lt; pagefoot &gt;&gt;` 标准的页底 信息
-   * 更加简单的 `print htmfoot` 打印行为，将 `Powered by:...`什么的广告全都统一而已
-=== 关键代码 ===
-{{{#!python
-qnow = fnmatch.filter(os.listdir(conf.qpage.qpath)
-                       , '%s.cfg.*'%sess.usr["qp"])
-print "&lt;UL&gt;"
-qnow.reverse()
-for l in qnow:
-    s = l.split(".")
-    print LI(A("""%s 
-             &lt;sup&gt;%s/%s/%s %s:%s:%s 版本&lt;/sup&gt;"""%(s[0]
-             ,s[-1][:2]
-             ,s[-1][2:4]
-             ,s[-1][4:6]
-             ,s[-1][6:8]
-             ,s[-1][8:10]
-             ,s[-1][10:]
-             ),href="edit?his=%s"%s[-1]
-                )
-             )
-print "&lt;/UL&gt;"
-}}} 老技巧，使用 `fnmatch` 模块将吻合模式的文件搜索为一个列表对象
- * 现在的 模式:`'%s.cfg.*'%sess.usr["qp"]`
-  * 即，当然要看的问卷名+".cfg"+".其它什么的" 
-  * ".其它什么的"就是之前你随手复制了一下子先时定的{{{
-time.strftime("%y%m%d%H%M%S", time.localtime())
-}}} 时间字串
-  * 那未知道是 `年月日时分秒`  的组合，使用字串的切片操作，一下子就重新组织输出好了
-
-attachment:snap-KwDay54.png
-
- * 再随手加个链接，给个`?his=` 的历史版本标识
-
- * 回头修改一下子 {{{#!python
-def edit(**var):
-    #...
-    if "his" in QUERY.keys():
-        #进入历史版本编辑
-        qpage = "%s%s.cfg%s"%(conf.qpage.qpath
-                    ,sess.usr["qp"]
-                    ,"."+QUERY["his"])
-    else:        
-        qpage = "%s%s.cfg%s"%(conf.qpage.qpath
-                    ,sess.usr["qp"]
-                    ,"")
-    #...
-}}}  
-  * 作个小判定，令编辑处理，知道什么时候读要求的历史版本
-==== 进一步的 ====
-'''突然你想列出各版本的内容多少差异……'''
- * 搜索一下子手册，发现了 `os.stat()`{{{
-&lt;sub&gt;大小:%sb&lt;/sub&gt;
-...
-,os.stat(conf.qpage.qpath+l)
-}}}
-attachment:snap-KwDay5ST.png
-
-  * 返回元组有文件对象的: 
-   1. st_mode (protection bits), 
-   1. st_ino (inode number), 
-   1. st_dev (device), 
-   1. st_nlink (number of hard links), 
-   1. st_uid (user ID of owner), 
-   1. st_gid (group ID of owner), 
-   1. '''st_size''' (size of file, in bytes), 
-   1. st_atime (time of most recent access), 
-   1. st_mtime (time of most recent content modification), 
-   1. st_ctime (platform dependent; time of most recent metadata change on Unix, or the time of creation on Windows). 
-  * `ST_SIZE` 是我要的
-
-  * 但是具体是哪个？咳咳咳，看标识，只有两个是`L`长整,有变化的就倒数第四个,所以:{{{
-
-&lt;sub&gt;大小:%sb&lt;/sub&gt;
-...
-,os.stat(conf.qpage.qpath+l)[-4]
-}}}
-attachment:snap-KwDay5his.png
-
-
-=== 可变参数的意义 ===
- * 现在你可是对Python 函式的可变参数深以为然了
- * 本来按照PHP 的习惯，传递的页面参数自然会变成内存对象，
- * 但是在KarriGell 中如果不严格匹配
-"attachment:snap-KwDay5errorVar.png 这总是会出参数不匹配的错误
- * 有了万能的'''(**var)''' 声明，一切都总能兼容！
-
-== 明日任务 ==
-'''哇呀呀！没有想到再古怪的想象，KarriGell 都支持！接下来……'''
- * 就是要根据有效的成员信息来进行成绩的统计汇报了
-
-== 实例下载 ==
-使用 [wiki:self/AllAboutSubversion SVN 下载]:
-    [wiki:selfsvn/zqlib/trunk/zqlib/tangle/zoomq/Karrigell/obpKWD/KwDay5/ KwDay5实例]
-
-== 讨论 ==
-[[Include(/Discuss)]]
-
-
-----
-返回 KarrigellWebDev -- 快速体验K开发</t>
 <t tx="zoomq.20080818233010.5"># 使用标准
 # 这个是Leo 的宏约定，让Leo 将以下的节点及时的保存到指定目录中
-@path q
+@path kday5/q
 
 </t>
 <t tx="zoomq.20080818233010.6">[desc]
@@ -14551,7 +13891,7 @@ else:
 3. 创建处理脚本 qdesign.py
 ... 然后就瀑布样的该作什么就作什么了(^_^)
 """
-@path ./</t>
+</t>
 <t tx="zoomq.20080818233010.61">from Karrigell_QuickForm import Karrigell_QuickForm
 
 p = Karrigell_QuickForm('teste','POST','foo.py','Authentication')
@@ -15143,36 +14483,32 @@ tcode = time.strftime("%y%m%d%H%M%S", time.localtime())
 # 先复制一下子
 #shutil.copy2(cfgf,cfgf+".%s"%tcode)
 </t>
-<t tx="zoomq.20080818233010.88">def qpubish(dict):
+<t tx="zoomq.20080818233010.88">def qpublish(dict):
     """将dict 内容输出为回答问卷
     """
     exp = ""
     p = Karrigell_QuickForm('fm_kq','POST','#',dict.desc.desc)
     exp += "&lt;h1&gt;%s&lt;sup&gt;学习资料::%s&lt;/sup&gt;&lt;/h1&gt;"%(dict.desc.pname
                                        ,dict.desc.learn)    
-    
+
     #exp += "&lt;H6&gt;返回%s&lt;/H6&gt;"%dict.desc.learn
     p.addElement('node','&lt;ul&gt;','')
     # 深入数据
     @others    
     p.addElement('node','&lt;/ul&gt;','')
-    
+
     # 无良的迁就……
     p.addJSValidation()
     p.saveJSRule("../js/validation-config.xml")
-    
+
     p.addGroup(["submit","btn_submit","提交","btn"]
                ,["reset","btn_reset","重写","btn"])
     exp += p.export()
-    
+
     return exp
-    
-    
-    
-    
-    
-    
-    
+
+
+
 </t>
 <t tx="zoomq.20080818233010.89">"""
 p.addRadioList('cr_ask1'
@@ -15194,7 +14530,7 @@ for i in k:
             qli[q] = ask[q]
         else:
             pass
-    
+
     p.addRadioList("cr_ask%s"%i
                ,ask["question"]
                ,qli)
@@ -15209,7 +14545,7 @@ print "&lt;div id='qpage'&gt;"
 #print p.export()
 print "&lt;div id='errorDiv'&gt;&lt;/div&gt;"
 
-print qpubish(qcfg)
+print qpublish(qcfg)
 print "&lt;/div&gt;"
 
 """
@@ -15225,8 +14561,7 @@ p.addGroup(["submit","btn_submit","提交"]
 #p.display()
 """
 </t>
-<t tx="zoomq.20080818233010.91"># 按照约定，这样的扩展要部属到Karrigell 的根目录，所以使用相对路径回溯指向！
-@path ../../../</t>
+<t tx="zoomq.20080818233010.91"></t>
 <t tx="zoomq.20080818233010.92">
 &lt;&lt; Karrigell_QuickForm declarations &gt;&gt;
 

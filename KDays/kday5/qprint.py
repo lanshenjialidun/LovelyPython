@@ -1,4 +1,4 @@
-# $Id: qprint.py 325 2005-12-30 04:23:49Z  $
+# $Id: obpKwd5.leo 325 2005-12-30 04:23:49Z  $
 # qpage.py 快捷问卷模拟展示
 #!/usr/bin/env python
 # coding:utf-8
@@ -12,6 +12,7 @@ import sys,os,string,re
 
 from dict4ini import DictIni
 from Karrigell_QuickForm import Karrigell_QuickForm
+
 #初始化参数集中维护！
 ## 又一个，看来要重构！
 qpath = "q/"
@@ -24,14 +25,14 @@ tcode = time.strftime("%y%m%d%H%M%S", time.localtime())
 
 # 先复制一下子
 #shutil.copy2(cfgf,cfgf+".%s"%tcode)
-def qpubish(dict):
+def qpublish(dict):
     """将dict 内容输出为回答问卷
     """
     exp = ""
     p = Karrigell_QuickForm('fm_kq','POST','#',dict.desc.desc)
     exp += "<h1>%s<sup>学习资料::%s</sup></h1>"%(dict.desc.pname
                                        ,dict.desc.learn)    
-    
+
     #exp += "<H6>返回%s</H6>"%dict.desc.learn
     p.addElement('node','<ul>','')
     # 深入数据
@@ -55,30 +56,26 @@ def qpubish(dict):
                 qli[q] = ask[q]
             else:
                 pass
-        
+
         p.addRadioList("cr_ask%s"%i
                    ,ask["question"]
                    ,qli)
         p.addJSRule("cr_ask%s"%i,"问题%s "%i)
-    
+
     p.addElement('node','</ul>','')
-    
+
     # 无良的迁就……
     p.addJSValidation()
     p.saveJSRule("../js/validation-config.xml")
-    
+
     p.addGroup(["submit","btn_submit","提交","btn"]
                ,["reset","btn_reset","重写","btn"])
     exp += p.export()
-    
+
     return exp
-    
-    
-    
-    
-    
-    
-    
+
+
+
 
 #open(qpath+pubq,"w").write(QUERY["cfgfile"])
 #print dir()
@@ -88,7 +85,7 @@ print "<div id='qpage'>"
 #print p.export()
 print "<div id='errorDiv'></div>"
 
-print qpubish(qcfg)
+print qpublish(qcfg)
 print "</div>"
 
 """

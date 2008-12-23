@@ -21,11 +21,11 @@ def _htmhead(title):
     htm += title
     htm += """</title>
     <style>
-    /* $Id: questionnaire.leo,v 1.9 2005/12/13 03:43:43 zhouqi Exp $
+    /* $Id: obpKwds.leo 325 2005-12-30 04:23:49Z  $
     Karrigell 使用的CSS
     Django 颜色！*/
     /*esp for 问卷::自动居中！margin: 0 auto;*/
-    
+
     DIV#qpage{width: 700px;
         font-size: 12px;
         margin: 0 auto;}
@@ -40,7 +40,7 @@ def _htmhead(title):
         }
     LI UL#staff li{list-style-type :circle;}
     LI#even{BACKGROUND-COLOR: #EEF3F5;}
-    
+
     SPAN#mana {font-size: 12px;
         float:right;text-align : center; 
         BACKGROUND-COLOR: #930;
@@ -53,7 +53,8 @@ def _htmhead(title):
     SPAN#mana A:hover{BACKGROUND-COLOR: #E0FFB8;}
     DIV#errorMessage{font-size: 14px;color: #333;
         font-weight: bold;border: 0px solid #930;
-        BACKGROUND-COLOR: #94DA3A}    BODY{font-size: 10px; color: #333333; 
+        BACKGROUND-COLOR: #94DA3A}
+    BODY{font-size: 10px; color: #333333; 
         text-indent: 1em; 
         background-color: whitesmoke; 
         margin: .5em;    
@@ -68,11 +69,11 @@ def _htmhead(title):
     }
     P,UL,OL,DL,TABLE,TR,TH,TD,A,FONT {font-family: Tahoma,Arial,Helvetica}
     HR {font-size: 1px; color: #99CC99}
-    
+
     BODY A{color: #002000; text-decoration: none}
     A{font-size: 1em; }
     A:hover{color:#993300; text-decoration: underline;}
-    
+
     HR{
         margin: 0px;
     	padding: 0px;
@@ -132,7 +133,7 @@ def _htmhead(title):
         }
     H5 A{color: #FFE761; }	
     H5 A:hover{color: #FFE761; }	
-    
+
     H6{	font-size: 12px;	font-family: SimHei,Arial,Helvetica;
     	font-weight: lighter;
     	color: #FF6633;
@@ -141,8 +142,8 @@ def _htmhead(title):
         margin: 0px;
     	padding: 2px;
         }
-    
-    
+
+
     UL{ font-size: 13px;
     	color:#283E28;
     	list-style-position;
@@ -163,16 +164,16 @@ def _htmhead(title):
         }
     P A{}
     P A:hover{}
-    
+
     /*表单设计*/
-    
+
     TABLE { border-collapse: collapse ; font-size: 12px; color: #333333;}
-    
+
     FORM{
         margin: 0px;
     	padding: 0px;
         }
-    
+
     TEXTAREA { font-family: "Arial", "Helvetica";
         font-size: 14px; font-weight: light; color: #993300; 
     	background-color: transparent; 
@@ -183,12 +184,12 @@ def _htmhead(title):
     	font-family: "Arial", "Helvetica", "sans-serif"; 
     	background-color: #8DB48D; 
     	border-width: 1px ;border-color: #CCCCCC;}
-    	
+
     INPUT{ font-family: "Arial", "Helvetica";
         font-size: 14px;font-weight: light; color: #993300; 
     	background-color: transparent; 
     	border: 1px solid #838A9E;}
-    	
+
     INPUT.btn { font-size: 13px; 
         font-weight: light; color: whitesmoke; 
     	background-color: #487858; 
@@ -196,10 +197,10 @@ def _htmhead(title):
         border-color: #E0F3E0 #679265 #333333 #CCCCCC;
     	height: 20px;	
     	padding:0px 1em 2px 1em;}
-    	
+
     INPUT.chkrd { background-color: transparent; border: 0px}
     /*颜色准备*/
-    
+
     .deep0{
         color: #E0F3E0;
     	background-color: #002000;
@@ -218,18 +219,18 @@ def _htmhead(title):
         color: #E0F3E0;
         background-color: #314A31;
         }
-    
+
     .light0{
         color: #406040;
     	background-color: #FFFFFF;
     	margin:0px 1px 1px 1px;
     }
-    
+
     .light1{
         color: #406040;
         background-color: #E0F3E0;
         }
-    
+
     .light2{
         color: #002000;
         background-color: #FDEACC;
@@ -239,13 +240,13 @@ def _htmhead(title):
     .light2 A:hover
         {color: #FF6633;    }
     /*特殊效果*/
-    
+
     .odd  {
     	font-size: 13px;
     	text-align: center;
     	color:#333333;
     	background-color: #FDEACC;
-    
+
         }
     .odd A{
         font-size: 13px; text-align: center;
@@ -253,7 +254,7 @@ def _htmhead(title):
         background-color: #FDEACC;        
         }
     .odd A:hover{color:#333333;}   
-    
+
     .action {
     	font-size: 12px;
     	color:#E6E6E6;	
@@ -261,15 +262,15 @@ def _htmhead(title):
     .action A{
     	font-size: 12px;
     	color: #406040;
-    	
+
     }
     .action A:hover{
     	font-size: 12px;
     	color: #ffffff;
     	background-color: #CC0000;
     }
-    
-    
+
+
     .icon {
     	font-family: "Webdings";
     	font-size: 16px;
@@ -281,17 +282,18 @@ def _htmhead(title):
     	vertical-align: baseline;
     	cursor: hand;
     }
-    
-    
+
+
     .Webdings{
     	font-family: "Webdings";
-    	
+
     }
-    
-    </style>    <!--
+
+    </style>
+    <!--
     <script language="javascript" src="/k/js/validation-framework.js"></script>
     -->
-    
+
     </head>
     <body>    
     <div id='qpage'>
@@ -304,7 +306,7 @@ htmfoot="""
     <a href="http://wiki.woodpecker.org.cn/moin/ZoomQuiet">
     Zoom.Quiet</a>
  powered by :
-     
+
  <a href="http://python.org">
  Python</a>
  ::
@@ -342,18 +344,18 @@ def index():
     """首先实现的页面
     """
     # 八股化的页面函式组织... clone 统一的页头输出章节！
-    
+
     print _htmhead("CPyUG·啄木鸟社区·自学问卷管理 obpKwDays- Powered by Karrigell")
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
     # 测试/印证外部专用处理页面对象的引入
     #
     #print sess.usr
-    
+
     if sess.usr["name"]=="NULL":
         raise HTTP_REDIRECTION,"login"
     else:
@@ -394,11 +396,11 @@ def index():
                qdone[p]=cfgp
             else:
                 qdesign[p]=cfgp
-        
+
         #分别列表显示问卷
-        
+
         print H4("发表中的问卷::")
-        
+
         print UL("".join([str(LI(
          B(A(qdoing[i].desc.pname
              ,href="page?qpname=%s&do=doing"%i.split(".")[-2])
@@ -410,7 +412,7 @@ def index():
                     ) for i in qdoing.keys()
                 ])
                 ,id="qplist")
-        
+
         print H3("已发布的问卷::")
         print UL("".join([str(LI(
                     B(A(qdone[i].desc.pname
@@ -420,7 +422,8 @@ def index():
                                  )
                                 ) for i in qdone
                             ])
-                            )        
+                            )
+
         print H5("准备中的的问卷::")
         print UL("".join([str(LI(
                     B(A(qdesign[i].desc.pname
@@ -432,7 +435,7 @@ def index():
                             ])
                             )
         print "</DIV>"
-    
+
     """快速设计CSS时可以方便的列印出主要页面元素来看效果
     print H1("H1")
     print H2("H2")
@@ -441,13 +444,13 @@ def index():
     print H5("H5")
     print H6("H6")
     """
-    
+
     # 八股化的页面函式组织... clone 统一的页脚输出章节！
-    
+
     print htmfoot
-    
-    
-    
+
+
+
 
 
 
@@ -464,16 +467,16 @@ def login():
     """实际最先完成的页面
     """
     #print sess.usr
-    
+
     print _htmhead("CPyUG·啄木鸟社区·自学问卷管理 obpKwDays- Powered by Karrigell")
-    
-    
-    
-    
-    
+
+
+
+
+
     # 实际活动
     print H1("啄木鸟 之 自学问卷集")
-    
+
     p = Karrigell_QuickForm('fm_login'
                             ,'POST'
                             ,'chkusr'
@@ -483,17 +486,17 @@ def login():
                  ,{'size':40,'maxlength':37})
     p.addGroup(["submit","btn_submit","提交","btn"]
                ,["reset","btn_reset","重写","btn"])
-    
+
     p.addRule('uname','required'
               ,"成员名是必须的!Login name is required!")
     #p.addRule('password','required',"Password is required!")
     p.display()
 
-    
+
     print htmfoot
-    
-    
-    
+
+
+
     #print QUERY
     #raise HTTP_REDIRECTION,"index"
 
@@ -504,7 +507,7 @@ def logout():
     """完成 login 时顺手就创立的页面
     """
     sess.close()
-    
+
     #sess.usr = {}
     #sess.usr["name"] ="NULL"
     #print QUERY
@@ -527,13 +530,13 @@ def chkusr(**args):
 def page(qpname,do):
     """从原 mana.pih 重构过来 统一的问卷管理 .ks
     """
-    
+
     print _htmhead("CPyUG·啄木鸟社区·自学问卷管理 obpKwDays- Powered by Karrigell")
-    
-    
-    
-    
-    
+
+
+
+
+
     # 序列化对象以便页面间传递
     pisess = pickle.dumps(sess.usr)
     #print pisess
@@ -545,16 +548,16 @@ def page(qpname,do):
     #print QUERY
     #base64.urlsafe_b64encode(pickle.dumps(obj))
     #pickle.loads(base64.urlsafe_b64decode(obj))
-    
+
     qcfg = DictIni(conf.qpage.qpath+qpname+".cfg")
-    
+
     if sess.usr["name"]=="NULL":
         raise HTTP_REDIRECTION,"login"
     else:
         sess.usr["qp"] = qpname
         # 051224 加入问卷状态
         sess.usr["do"] = do
-        
+
         print SPAN(A('退出', href="logout"),id="mana")
         print SPAN(A('首页', href="index"),id="mana")
         print SPAN(A("编辑管理问卷"
@@ -563,33 +566,33 @@ def page(qpname,do):
                                 )
                         )
                     ,id="mana")
-                    
-        
+
+
         # 整理原问卷解析为标准函式
-        print _qpubish(qcfg,"bye",do,qpname)        
+        print _qpublish(qcfg,"bye",do,qpname)        
         """将dict 内容输出为回答问卷
             - dict 问卷设计字典
             - aim 提交目标
             - type 统计模式
             - qpname 问卷名
         """
-    
-    
+
+
     print htmfoot
-    
-    
-    
+
+
+
 
 def stat(**args):
     """平均成绩快速统计
     """
-    
+
     print _htmhead("CPyUG·啄木鸟社区·自学问卷管理 obpKwDays- Powered by Karrigell")
-    
-    
-    
-    
-    
+
+
+
+
+
     print SPAN(A('退 出', href="logout")
                ,id="mana")
     print SPAN(A('首 页', href="index")
@@ -607,7 +610,7 @@ def stat(**args):
     else:
         crtqp = conf.qpage.qpath+sess.usr["qp"]+".cfg"
         qpname = sess.usr["qp"]
-    
+
     # 准备好正确答案
     crtqp = DictIni(crtqp)
     # 发现问题..字典的无序和回答的有序!
@@ -618,10 +621,10 @@ def stat(**args):
     #print ak
     crtright = [crtqp.ask[i]["key"] for i in ak]
     #print crtright
-    
+
     # 包含mm 处理脚本,以引入组织成员信息
     Include("../xslmm/deptorg.py")    
-    
+
     ali = fnmatch.filter(os.listdir(conf.qpage.apath)
                            , '%s.*.aq'%qpname)
     aed = []
@@ -629,7 +632,7 @@ def stat(**args):
         a = open(conf.qpage.apath+f
                    ,"r").read()
         aed.append(f.split(".")[-2])
-    
+
     done = []       # 有效回答容器
     unknow = []     # 未知成员容器
     stat = []       # 总均成绩容器
@@ -640,7 +643,7 @@ def stat(**args):
             unknow.append(a)
     print H4("部门成员问答统计:<sup>以帐号字母顺序排列</sup>")
     print "<ul id='stat'>"
-    
+
     mem = sess.usr["dept"].keys()
     mem.sort()
     #print mem
@@ -665,10 +668,10 @@ def stat(**args):
             print LI(I(sess.usr["dept"][a])+
                        B("  未答")
                        )
-    
+
     print "</ul>"
-    
-    
+
+
     if len(stat)==0:
         pass
     else:
@@ -676,37 +679,38 @@ def stat(**args):
                                            ,sum(stat)/len(stat)))
     #reduce(lambda a,b:a+b, s)
     #print H5("%.2f%%"%(reduce(lambda a,b:a+b, stat)/len(stat)))
-    
-    
+
+
     if len(unknow)==0:
         pass
     else:
         print BR()+B("未知成员回答情况:")
         print UL(Sum([LI(i+"") for i in unknow])
                  ,id='stat')
-    
-    print "</DIV>"
-    
-    print htmfoot
-    
-    
-    
 
-    
+    print "</DIV>"
+
+    print htmfoot
+
+
+
+
+
+
 def bye(**args):
     """不使用客户端验证后替代的服务端检验页面
     """
-    
+
     print _htmhead("CPyUG·啄木鸟社区·自学问卷管理 obpKwDays- Powered by Karrigell")
-    
-    
-    
-    
-    
+
+
+
+
+
     print H1("%s"%(qcfg.desc.pname))
-    
+
     qk = QUERY.keys()
-    
+
     if "btn_submit" in qk:
         #print QUERY
         qp = DictIni(conf.qpage.qpath+sess.usr["qp"]+".cfg")
@@ -726,16 +730,16 @@ def bye(**args):
         for q in qli:
             if q not in a:
                 lost.append(q)
-        
+
         if 0==len(lost):
             answer = "%s%s.%s.aq"%(conf.qpage.apath
                                   ,sess.usr["qp"]#pubq.split(".")[-2]
                                   ,sess.usr["name"])
             open(answer,'w').write(as)
             ## 正常跳转到统计页面
-            
+
             raise HTTP_REDIRECTION,"stat"
-        
+
         print BR()*2
         print H4("没有回答完全！")
         for l in lost:
@@ -746,24 +750,25 @@ def bye(**args):
             onClick="history.back();"/>
         </h4>
         """
-        
-        
-                  
+
+
+
+
     else:
         raise HTTP_REDIRECTION,"index"
-        
-    
+
+
     print htmfoot
-    
-    
-    
+
+
+
 
     #raise HTTP_REDIRECTION,"stat"
     #raise HTTP_REDIRECTION,"logout"
-    
 
 
-def _qpubish(dict,aim,type,qpname):
+
+def _qpublish(dict,aim,type,qpname):
     """将dict 内容输出为回答问卷
         - dict 问卷设计字典
         - aim 提交目标
@@ -782,7 +787,7 @@ def _qpubish(dict,aim,type,qpname):
         aim="#"
     elif "design" == type:
         pass
-    
+
     p = Karrigell_QuickForm(qpname,'POST',aim,dict.desc.desc)
     exp += "<h1>%s</h1>"%(dict.desc.pname)
     exp += "<h6>自学资料: %s</h6>"%(dict.desc.learn)
@@ -824,18 +829,18 @@ def _qpubish(dict,aim,type,qpname):
                    ,ask["question"]
                    ,qli
                    ,liq)
-                
+
         ## JVF 调试太复杂不用之！
         #p.addJSRule("cr_ask%s"%i,"问题%s "%i)
-    
-    
-    
+
+
+
     # 由于JVF 的浏览器兼容问题，先放弃！
     #p.addJSValidation()
     #p.saveJSRule("../js/validation-config.xml")
-    
+
     p.addElement('node','</ul></DIV>','')
-    
+
     if "doing" == type:
         p.addGroup(["submit","btn_submit","提交","btn"]
                    ,["reset","btn_reset","重写","btn"])    
@@ -843,8 +848,8 @@ def _qpubish(dict,aim,type,qpname):
         pass
     elif "design" == type:
         pass
-    
-    
+
+
     exp += p.export()
     #exp += "<h6>自学资料: %s</h6>"%(dict.desc.learn)
     exp += qptitle
@@ -867,15 +872,16 @@ def _grade(right,answer):
             # 默许没有回答的部分都是错的
             pass
             #grade +=1
-    
+
     return 100*(float(grade)/len(right))
 
-    
-    
-    
-    
 
 
-    
-    
+
+
+
+
+
+
+
 

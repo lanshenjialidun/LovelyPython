@@ -1,6 +1,6 @@
 ##language:zh
 #pragma section-numbers off
-||'''status'''|| 正式 || ZoomQuiet|| 完成度:102% 响应编辑意见增补||
+||'''status'''|| 正式 || ZoomQuiet|| 完成度:103% 修订 Issue 1012 ||
 [[TableOfContents]]
 
 ##startInc
@@ -78,12 +78,12 @@ def addRadioList(self,name,desc,value,id=""):
 
 图 KDay3-3 在Leo 中仿制函式的情景
 
-attachment:kday3-leo-qpubish.png
+attachment:kday3-leo-qpublish.png
  * 昨天的`expage(dict)`只是将理解的.ini内容打印到页面中,今天小白只需要将输出的格式变成可以提交的表单就好,所以,可以复用很大一部分代码;
- * 简单的在Leo 中将`def expage(dict)`复制到对应文件并改名成`def qpubish(dict)`,在`askloop`逻辑单元前后追加点使用 `KQF` 的辅助代码,就成了,,,
+ * 简单的在Leo 中将`def expage(dict)`复制到对应文件并改名成`def qpublish(dict)`,在`askloop`逻辑单元前后追加点使用 `KQF` 的辅助代码,就成了,,,
 ##`def expage(dict):`
 {{{#!python
-def qpubish(dict):
+def qpublish(dict):
     exp = ""
     p = Karrigell_QuickForm('fm_kq','POST','#',dict.desc.desc)    
     p.addElement('node','<ul>','')
@@ -234,7 +234,7 @@ self.JSvRules = []
 '''仅仅追加少量代码就完成所想的客户端JS验证功能'''
 
 在原先问卷解析函式中,追加准备好的JVF 支持{{{
-def qpubish(dict):
+def qpublish(dict):
     ...
     ## 具体问题解析
     k.sort()

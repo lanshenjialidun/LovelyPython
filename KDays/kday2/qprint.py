@@ -26,7 +26,7 @@ tcode = time.strftime("%y%m%d%H%M%S", time.localtime())
 
 # 先复制一下子
 #shutil.copy2(cfgf,cfgf+".%s"%tcode)
-def qpubish(dict):
+def qpublish(dict):
     """将dict 内容输出为回答问卷
     """
     exp = ""
@@ -75,8 +75,6 @@ def qpubish(dict):
 
 
 
-
-
 #open(qpath+pubq,"w").write(QUERY["cfgfile"])
 #print dir()
 #print QUERY["cfgfile"]
@@ -88,7 +86,7 @@ print QUERY
 qcfg = DictIni(cfgf)
 print "<div id='qpage'>"
 #print p.export()
-print qpubish(qcfg)
+print qpublish(qcfg)
 print "</div>"
 
 """
