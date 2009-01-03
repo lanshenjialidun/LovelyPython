@@ -44,7 +44,7 @@
     轻便线程 MicroThread 可以在单线程中模拟出成百上千万 "看上去像是原生" 的线程, 且每秒可以完成百万级的调度, 正是我们想要的。Eurasia3 便是这种基于 Asynchronous IO 和 Stackless Python 轻便线程的框架, Eurasia3 隐藏了底层细节, 对用户而言 Eurasia3 看上去和传统框架其实并没有什么区别, 就像这样。
 
 {{{#!python
-from Eurasia.web import config, mainloop, Response
+from eurasia.web import config, mainloop, Response
 def controller(request):
     response = Response(request)
     response['Content-Type'] = 'text/plain'
@@ -119,10 +119,10 @@ function message(msg)
 </body>
 </html>'''
 
-import Eurasia
-from Eurasia.web import config, mainloop, Comet
+import eurasia
+from eurasia.web import config, mainloop, Comet
 
-sleep = Eurasia.modules['time'].sleep
+sleep = eurasia.modules['time'].sleep
 
 def controller(request):
     # 输出普通页面 (当 URL 不是 comet 时)
@@ -159,7 +159,7 @@ mainloop()
     这是一个伪命题, Eurasia3 并不是一种和 Django, 或者 Pylons、Zope 直接竞争的东西。它看上去要更底层一点, 更接近于 Twisted ── 其实 Eurasia3 同样可以用来开发 TCP 服务器。
 
 {{{#!python
-from Eurasia.web import config, mainloop
+from eurasia.web import config, mainloop
 def echo(sockfile):
     while True:
         data = sockfile.readline(1024)
