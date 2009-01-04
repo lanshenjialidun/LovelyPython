@@ -537,7 +537,7 @@ attachment:2008-10-14-google-python.png
   * Python 到 C: ctypes
    * 访问地址: http://python.net/crew/theller/ctypes/
    * 精巧地址: http://bit.ly/3yjAHy
-   * ctypes是一个Python 模块,使用他可以在Python 中创建和操作C语言的数据类型,这样可以在动态链接库中传递参数到C的函数中去;ctypes可以在windows、GNU/Linux等多个平台上使用,甚至支持Windows上的COM开发
+   * ctypes是一个Python 模块,使用他可以在Python 中创建和操作C语言的数据类型,这样可以在动态链接库中传递参数到C的函数中去;ctypes可以在Windows、GNU/Linux等多个平台上使用,甚至支持Windows上的COM开发
   * Python 到 Perl: PyPerl
    * 访问地址: http://wiki.python.org/moin/PyPerl  
    * 精巧地址: http://bit.ly/3vR3ET

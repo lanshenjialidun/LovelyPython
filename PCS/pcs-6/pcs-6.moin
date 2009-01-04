@@ -54,7 +54,7 @@ decode(...)
 
 `unicode`表示将某个字符串按照某个编码方式转换为一unicode对象，unicode是内部编码，世界上所有字符的统一编码集，即每个字符都有唯一的二进制表示，可以在[http://www.unicode.org/]上查到某个字符的unicode码。
 
-在Python 中，如果要正确显示中文字符，简单做法就是把字符串先转化为unicode，然后再由unicode 对象转化成任意其他你的系统可以显示你的编码。如果你的操作系统是GNU/Linux的，只能正确显示UTF-8，而你要显示的文本是从一个windows系统下过来的GB2312编码的，那么你要做的就是将GB2312转化成unicode,然后由unicode转化成UTF-8，就可以正确显示了。
+在Python 中，如果要正确显示中文字符，简单做法就是把字符串先转化为unicode，然后再由unicode 对象转化成任意其他你的系统可以显示你的编码。如果你的操作系统是GNU/Linux的，只能正确显示UTF-8，而你要显示的文本是从一个Windows系统下过来的GB2312编码的，那么你要做的就是将GB2312转化成unicode,然后由unicode转化成UTF-8，就可以正确显示了。
 {{{
 In [26]: f = open('test')
 

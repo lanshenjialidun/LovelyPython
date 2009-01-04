@@ -19,7 +19,7 @@ ActivePython是标准的Python发行版，在Windows，GNU/Linux ，Mac OS X等�
  * ActivePython官方下载: http://downloads.activestate.com/ActivePython/windows/2.5/ActivePython-2.5.2.2-win32-x86.msi
  * 精巧地址: http://bit.ly/3UaHr8
 
-(2) 双击安装文件，运行安装程序。该过程和很多软件在windows下的安装很类似，在这里就不描述了。主要注意的地方是在ActivePython安装时需选对Python路径（这表示事先得安装好Python），其他都可以默认。
+(2) 双击安装文件，运行安装程序。该过程和很多软件在Windows下的安装很类似，在这里就不描述了。主要注意的地方是在ActivePython安装时需选对Python路径（这表示事先得安装好Python），其他都可以默认。
 
 (3) 安装完毕。打开ActivePython的PythonWin，可以看到如下的界面：
 attachment:PCS3-1.png

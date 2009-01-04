@@ -101,9 +101,9 @@ hello_app 的第二个参数 start_response 是一个函数，web 应用在输�
 小白发现有几个模块可以用来处理 web 请求和响应，webob 就是其中之一。
 
 安装 webob 之前我们需要先安装 setuptools ，一个包管理的工具，该工具可以自动为我们搜索并下载想要的
-软件包。 在这个页面 http://pypi.python.org/pypi/setuptools ( 精巧地址: http://bit.ly/4fXVjD )下面，非windows平台可以下载 .egg 文件
+软件包。 在这个页面 http://pypi.python.org/pypi/setuptools ( 精巧地址: http://bit.ly/4fXVjD )下面，非Windows平台可以下载 .egg 文件
 ，然后修改权限直接执行之，或者下载源码包，解压后执行 python setup.py install ，
-windows平台的用户也可以直接下载 exe 后缀名的可执行安装程序，下载后直接运行就好了。
+Windows平台的用户也可以直接下载 exe 后缀名的可执行安装程序，下载后直接运行就好了。
 
 安装完 setuptools 后，安装 webob 就很简单了，打开一个命令行窗口，执行 easy_install webob ，
 setuptools 能够自动找到最新的版本并自动下载安装。当然，如果嫌它单线程的下载速度有点慢，你也
