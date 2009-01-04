@@ -25,7 +25,7 @@ PyCDC0.5 使用说明:
     walk 文件名    #指定光盘信息文件名，使用 "*.cdc"
     find 关键词    #遍历搜索目录中所有.cdc文件，输出含有关键词的行
     ?           # 查询
-    EOF         # 退出系统，也可以使用Crtl+D(Unix)|Ctrl+Z(dos/windows)
+    EOF         # 退出系统，也可以使用Crtl+D(Unix)|Ctrl+Z(Dos/Windows)
         
 (PyCDC)>?
 

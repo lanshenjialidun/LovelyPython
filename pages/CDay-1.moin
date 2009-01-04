@@ -227,7 +227,7 @@ def _smartcode(stream):
 /dev/sda1 /windows ntfs rw,nls=utf8,umask=007,gid=46 0 0
 /dev/scd0 /media/cdrom0 iso9660 ro,noexec,nosuid,nodev,user=zoomq 0 0
 ...
-}}} 观察默认的挂接光盘的行为和挂接 DOS 和 Windows 分区的情况,感觉是默认的挂接行为没有使用编码处理
+}}} 观察默认的挂接光盘的行为和挂接 Dos 和 Windows 分区的情况,感觉是默认的挂接行为没有使用编码处理
  * 那么通过改变挂接行为,应该可以改善读取不到正确文本的情况?!
 {{{
 #挂接成GBK
