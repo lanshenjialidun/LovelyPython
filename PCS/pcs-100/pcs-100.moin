@@ -105,7 +105,7 @@ echofilter(input, output, delay=0.7, atten=4)
 另一种写法，from Sound.Effects import * 会怎么样？ 理想情况下，可能期望会搜寻整个包目录，然后搜寻所有的模块并且一一导入。但是，在Mac以及Windows平台下，文件的名称大小写不一致，所以无法保证所有的模块都会被导入。所以唯一解决的方法就是包的作者提供一个明确索引给使用包的人。如果遵守该习惯的话，当使用包的人在导入的时候使用from Sound.Effects import *，就会查找包中的{{{__init__.py}}}中的{{{__all__}}}这个list变量，该变量就包含所有应该被导入进来的模块名称。身为包的作者有责任维护更新{{{__init__.py}}}。以{{{Sounds/Effects/__init__.py}}}为例：
 {{{#!python
  __all__ = ["echo", "surround", "reverse"]
-}}}表示当from Sound.Effects import * 时会import 这三个module。如果没有定义__all__，from Sound.Effects import *不会保证所有的子模块被导入。所以要么通过__init__.py，要么显式地import以保证子模块被导入。如下：
+}}}表示当from Sound.Effects import * 时会import 这三个module。如果没有定义`__all__`，from Sound.Effects import *不会保证所有的子模块被导入。所以要么通过`__init__.py`，要么显式地import以保证子模块被导入。如下：
 {{{#!python
 import Sound.Effects.echo
 import Sound.Effects.surround
