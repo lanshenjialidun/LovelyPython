@@ -158,7 +158,7 @@ JVF 可以从 http://cosoft.org.cn/projects/jsvalidation 获得;
 }}}
 
 === 迁就,先! ===
-为了与KarriGell 配合,当前需要:
+为了与Karrigell 配合,当前需要:
 
  1. 在配置文件中,追加声明`jvf=%(base)s/karriweb/questionnaire/js` 这样的专门虚拟目录发布,以便,其它各种应用也可以享受JVF 支持
  1. JVF 实际运行的 validation-framework.js 本身, 也要声明可访问的目录:`var ValidationRoot = "/jvf/";`
@@ -285,7 +285,7 @@ RESPONSE['Content-Type'] = "text/html; charset=utf-8"
 
 == 合理滥用Leo ==
 '''到现在页面都是白板!不能忍了!使用CSS!'''
- * 小白先不理会 KarriGell 的外部文件引用效率,决定简单些,直接将CSS,写入页面,反正有["Leo"]来维护
+ * 小白先不理会 Karrigell 的外部文件引用效率,决定简单些,直接将CSS,写入页面,反正有["Leo"]来维护
 
 图 KDay3-6 通过Leo 每个页面复用嵌入的css 定义
 

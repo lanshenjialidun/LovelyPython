@@ -14,7 +14,7 @@
  1. 可以提交包含问卷设计文本框的表单,并将内容保存到服务器上的指定目录中,完成问卷的更新;
 
 == 规划 ==
-行者 ‘Rockety’ 对KarriGell 的设置有很好的介绍
+行者 ‘Rockety’ 对Karrigell 的设置有很好的介绍
 {{{脚注::
 Rockety 的Karrigell 使用体验,
 访问地址:http://wiki.woodpecker.org.cn/moin/RocketyKarrigell
@@ -29,7 +29,7 @@ Rockety 的Karrigell 使用体验,
 q=%(base)s/KDays
 }}} 追加这一行设置行，这样一来，就可以通过
  http://localhost:8081/q/kday2/ 
- 来访问今天的开发成果了! 当然没有在 obp 目录中安置index.htm/index.pih 之类的默认首页 KarriGell 是不会让小白看到什么的说……
+ 来访问今天的开发成果了! 当然没有在 obp 目录中安置index.htm/index.pih 之类的默认首页 Karrigell 是不会让小白看到什么的说……
  
  * 简单点儿吧！{{{# 约定以下全局性变量
 qpath = "q/"

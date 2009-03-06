@@ -52,7 +52,7 @@ def _private(x):            # 不可URL访问的支持函式
     return x+1
     }}} 不是吧!! 一个页面就作完了四种动作!完全是CherryPy 味的!!
     
- * 可以确认 Session 完全是对象了,而且标准的KarriGell 内置对象!
+ * 可以确认 Session 完全是对象了,而且标准的Karrigell 内置对象!
   * 但是,还是要在优雅的Python 脚本中掺杂HTML 代码,不爽直!
 
 '''不过,相比使用 .pih和包含.py 的方式,使用 .ks 来进行页面组织,已经足够爽直了!'''
@@ -62,7 +62,7 @@ def _private(x):            # 不可URL访问的支持函式
 == HTMLTags ==
 '''小白猛然发现有函式化的HTML生成机制!'''
 
- * 同样在 KarriGell 内置文档中:
+ * 同样在 Karrigell 内置文档中:
   * http://localhost:8081/doc/en/htmltags.htm
  * 唉呀呀!!还真的是心想事儿成! 这是从从2.2 增加的新功能哪!
  {{{#!python
