@@ -44,12 +44,11 @@
     轻便线程 MicroThread 可以在单线程中模拟出成百上千万 "看上去像是原生" 的线程, 且每秒可以完成百万级的调度, 正是我们想要的。Eurasia3 便是这种基于 Asynchronous IO 和 Stackless Python 轻便线程的框架, Eurasia3 隐藏了底层细节, 对用户而言 Eurasia3 看上去和传统框架其实并没有什么区别, 就像这样。
 
 {{{#!python
-from eurasia.web import config, mainloop, Response
-def controller(request):
-    response = Response(request)
-    response['Content-Type'] = 'text/plain'
-    response.write('hello world!')
-    response.close()
+from eurasia.web import config, mainloop
+def controller(httpfile):
+    httpfile['Content-Type'] = 'text/plain'
+    httpfile.write('hello world!')
+    httpfile.close()
 
 config(controller=controller, port=8080)
 mainloop()
@@ -58,18 +57,18 @@ mainloop()
     Eurasia3 带有完备的 Web 开发支持, 除 Response 外还包含表单读取、文件上传、POST 报文读取等接口, 他们都简洁到可以一言以蔽之。
 
 {{{
-表单词典       = Form(request)
-文件句柄       = SimpleUpload(request)
-请求头部       = request['Http-Header']
-请求报文       = request.read(size) / request.readline(size)
+表单词典       = Form(httpfile)
+文件句柄       = SimpleUpload(httpfile)
+请求头部       = httpfile['Http-Header']
+请求报文       = httpfile.read(size) / httpfile.readline(size)
 }}}
 
-    Eurasia3 唯一需要用户自己处理的是 request.path, 即 URL。如何对待 URL, 是个见仁见智的问题, 甚至是许多框架的关键分歧。Eurasia3 采取了更为聪明灵活的策略, 不下定论, 把选择的权利交还给用户。不过这也让 Eurasia3 看上去似乎更像是一个底层框架。事实上 Eurasia3 项目已经模拟出了 CherryPy、Eurasia2 等框架, 以后无论是基于 Pylons、Quxiote 还是 Django 等框架的程序都可以运行在 Eurasia3 上, 并能在一个程序中混用多个框架。
+    Eurasia3 唯一需要用户自己处理的是 httpfile.path, 即 URL。如何对待 URL, 是个见仁见智的问题, 甚至是许多框架的关键分歧。Eurasia3 采取了更为聪明灵活的策略, 不下定论, 把选择的权利交还给用户。不过这也让 Eurasia3 看上去似乎更像是一个底层框架。事实上 Eurasia3 项目已经模拟出了 CherryPy、Eurasia2 等框架, 以后无论是基于 Pylons、Quxiote 还是 Django 等框架的程序都可以运行在 Eurasia3 上, 并能在一个程序中混用多个框架。
 
     然而最让 Eurasia3 感兴趣的还是去实现一个 Plone, 于是就有了 MissileDB 数据库。在 Eurasia3 中编写数据库应用就像是这个样子。
 
 {{{#!python
-from shelve2 import open, Persistent, BTree
+from eurasia.shelve2 import open, Persistent, BTree
 
 # 定义持久化对象 (Persistent) User, User 对象可以直接以对象形式保存在数据库中,
 # 不需要进行对象关系映射 (Object Relational Mapping), 这也是对象数据库的特点
@@ -82,14 +81,14 @@ class User(Persistent):
     def hello(self):
         print 'Hello Im %s, can I make friends with you?' %self.username
 
-db = open('test.fs', 'c')     # 创建并打开数据库 "test.fs"
-db['user'] = db.new(BTree)()  # 创建 BTree 结点 "user", 相当于在关系数据库中建表
-obj = db.new(User)('william', '******') # 创建一个 User 对象
-db['user']['william'] = obj   # 把 User 对象存入数据库
+db = open('test.fs', 'c')       # 创建并打开数据库 "test.fs"
+db['user'] = BTree()            # 创建 BTree 结点 "user", 相当于在关系数据库中建表
+obj = User('william', '******') # 创建一个 User 对象
+db['user']['william'] = obj     # 把 User 对象存入数据库
 db.close()
 
-db = open('test.fs')          # 重新打开数据库
-db['user']['william'].hello() # 访问数据库中的对象
+db = open('test.fs')            # 重新打开数据库
+db['user']['william'].hello()   # 访问数据库中的对象
 }}}
 
     基于 Eurasia3 能让你的应用获得数倍乃至数十倍的性能提升。但 Eurasia3 主要还是为高并发和长连接设计的, 所以在这方面的支持要自然得多。下面这个例子将向你展示 Eurasia3 如何与浏览器建立长连接, 并且进行长连接通信的过程。
@@ -124,14 +123,13 @@ from eurasia.web import config, mainloop, Comet
 
 sleep = eurasia.modules['time'].sleep
 
-def controller(request):
+def controller(httpfile):
     # 输出普通页面 (当 URL 不是 comet 时)
-    if request.path[-5:] != 'comet':
-        request.write(html)
-        request.close()
-        return
+    if httpfile.path[-5:] != 'comet':
+        httpfile.write(html)
+        return httpfile.close()
 
-    browser = Comet(request)
+    browser = Comet(httpfile)
     browser.begin()           # 开始和客户端之间的通讯
     browser.message('start')  # 使用原生 Python 代码直接调用浏览器端
                               # 名为 "message" 的 JavaScript 函数
