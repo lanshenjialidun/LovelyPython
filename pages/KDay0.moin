@@ -82,6 +82,9 @@ Leo是种极具个性的文学化编辑环境,
  1. 每日故事涉及的开发,基本上都是在 3.1415 小时之内就可以完成的 ;)
  1. 每日故事最后的独立章节~小结,是小白养成的好习惯:"及时清点成果或是问题,同时给明日的开发定出可行的目标;"
  1. 每日故事最后的额外章节~练习,是小白根据故事涉及的知识点/领域技术设计的一些问题,特此列出,是期望读者独立进行尝试,加强相关体验.
+  * 习题解答发布在图书维基: http://wiki.woodpecker.org.cn/moin/ObpLovelyPython/LpyAttAnswerKdays
+   * 精巧地址: http://bit.ly/axi7 
+   * 用SVN下载: http://openbookproject.googlecode.com/svn/trunk/LovelyPython/exercise/part2-KDays/
  
 == 目标 ==
 小白最终的开发目标,就是令"EasyPaper"工具能作到:
@@ -111,7 +114,7 @@ key		= a # 正确答案
 }}}
  * 文本支持注释,约定凡是 `#` 开头的行,忽略,不用作问卷生成
  
-= 练习 =
+== 练习 ==
 尝试运行 Karrigell 
 (下载地址:http://sourceforge.net/projects/karrigell
  精巧地址: http://bit.ly/1i7NyI). 
@@ -128,5 +131,4 @@ key		= a # 正确答案
 ----
 ::-- ZoomQuiet [[[DateTime(2005-12-10T11:49:22Z)]]]
 [[PageComment2]]
-
 

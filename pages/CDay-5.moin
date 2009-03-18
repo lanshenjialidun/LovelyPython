@@ -48,18 +48,22 @@
 {{{详细::
 邮件列表有古老的规范和礼节
 访问地址: http://www.woodpecker.org.cn/share/classes/050730-CPUG/usMaillist/
-精巧地址: http://bit.ly/43WKcR
+精简地址: http://bit.ly/43WKcR
 
 CPyUG社区有丰富的列表资源
 访问地址: http://wiki.woodpecker.org.cn/moin/CPUGres
-精巧地址: http://bit.ly/vrqUk
+精简地址: http://bit.ly/vrqUk
 
 }}}
 
  小结::
-   指每日故事最后的独立章节,将当日故事情节中涉及的知识点/领域技术 进行集中简述,以便读者明确要点;
+  指每日故事最后的独立章节,将当日故事情节中涉及的知识点/领域技术 进行集中简述,以便读者明确要点;
  练习::
-   指每日故事最后的额外章节,和故事内容可能没有关联的几个小实用问题,因为必须使用前述涉及的知识点/领域技术才可以解决,所以,特别列出,建议读者独立进行尝试,加强相关知识的体验.
+  指每日故事最后的额外章节,和故事内容可能没有关联的几个小实用问题,因为必须使用前述涉及的知识点/领域技术才可以解决,所以,特别列出,建议读者独立进行尝试,加强相关知识的体验.
+   * 习题解答发布在图书维基: http://wiki.woodpecker.org.cn/moin/ObpLovelyPython/LpyAttAnswerCdays
+   * 精巧地址: http://bit.ly/XzYIX 
+   * 用SVN下载: http://openbookproject.googlecode.com/svn/trunk/LovelyPython/exercise/part1-CDays/
+
    
 === 事件 ===
 
@@ -171,11 +175,11 @@ attachment:cday-5-hello-world-ipython.png
 仅仅就这两点,也仅此两点的需求,可以?如何?以及怎样通过Python 实现?小白和读者一同期待...
 
 
-= 小结 =
+== 小结 ==
 
 
 作为开始,今天小白决定使用Python 来解决光盘内容管理,这一实际问题;
-安装了Python 环境,运行了 "Hello World!" 实例.
+安装了python 环境,运行了 "Hello World!" 实例.
 
 OK!轻松的开始,但是,你知道,你同时也获得了免费的绝对强大的科学计算器嘛?
 
@@ -183,7 +187,7 @@ OK!轻松的开始,但是,你知道,你同时也获得了免费的绝对强大�
 == 练习 ==
 
  * (1) 计算今年是闰年嘛?判断闰年条件, 满足年份模400为0, 或者模4为0但模100不为0.
- * (2) 利用Python作为科学计算器.熟悉Python中的常用运算符,并分别求出:
+ * (2) 利用python作为科学计算器.熟悉Python中的常用运算符,并分别求出:
   1. `12*34+78-132/6`
   1. `(12*(34+78)-132)/6、(86/40)**5`
   并利用`math`模块进行数学计算,分别求出:
@@ -194,9 +198,9 @@ OK!轻松的开始,但是,你知道,你同时也获得了免费的绝对强大�
  * (3) 找出0~100之间的所有素数.
 
 
+
 ##endInc
 -- ZoomQuiet  [[DateTime(2007-02-20T06:12:54Z)]] 
 
 [[PageComment2(nosmiley=1, notify=1)]]
-
 

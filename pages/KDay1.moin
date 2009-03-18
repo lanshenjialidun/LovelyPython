@@ -202,7 +202,7 @@ kday1/
 `-- try.pih             第一个动态页面
 }}}
 
-= 练习 =
+== 练习 ==
     经过这一节的学习, 熟悉Karrigell.ini基本设置和基本环境部署后(可参考README.txt中), 创建一个自己的站点(mysite), 并依次实现以下功能: 
   * (0) 将Karrigell 站配置成发布到 localhost:8081 端口来
 
@@ -218,5 +218,4 @@ kday1/
 ----
 ::-- ZoomQuiet [[[DateTime(2005-12-10T11:49:22Z)]]]
 [[PageComment2]]
-
 
