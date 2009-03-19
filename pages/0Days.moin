@@ -1,0 +1,24 @@
+##language:zh
+#pragma section-numbers off
+##含有章节索引导航的 ZPyUG 文章通用模板
+[[TableOfContents]]
+## 默许导航,请保留
+[[Include(ZPyUGnav)]]
+
+
+
+
+##startInc
+= 实例故事 =
+~ `Realy Taste Storys`
+
+
+
+##endInc
+
+----
+'''反馈'''
+
+创建 by @USER@ [@TIME@]
+||<^>[[PageComment2]]||<^>[:/PageCommentData:PageCommentData]''||
+
