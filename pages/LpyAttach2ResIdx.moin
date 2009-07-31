@@ -472,7 +472,7 @@ attachment:2008-10-14-google-python.png
    1. PyQt
     * 访问地址: http://wiki.python.org/moin/PyQt
     * 精巧地址: http://bit.ly/3OKUnu
-    * 是商业化GUI框架 Qt 的Python 接口,可以完成非常美观的跨平台软件;QT就是实现了KDE环境的那个库,由一系列的模块组成,有qt, qtcanvas, qtgl,qtnetwork, qtsql, qttable, qtui and qtxml,包含有300个类和超过5750个的函数和方法. PyQt还支持一个叫qtext的模块,它包含一个QScintilla库. 该库是Scintillar编辑器类的Qt接口. 
+    * 是商业化GUI框架 Qt 的Python 接口,可以完成非常美观的跨平台软件;QT就是实现了KDE环境的那个库,由一系列的模块组成,有qt, qtcanvas, qtgl,qtnetwork, qtsql, qttable, qtui and qtxml,包含有300个类和超过5750个的函式和方法. PyQt还支持一个叫qtext的模块,它包含一个QScintilla库. 该库是Scintillar编辑器类的Qt接口. 
    1. PyGTK+
     * 访问地址: http://www.pygtk.org/
     * 是GTK+(http://www.gtk.org/ 基于C的跨平台GUI框架) 的Python 接口,用以快速使用Python 来创建基于GTK+ 的桌面图形界面;
@@ -523,7 +523,7 @@ attachment:2008-10-14-google-python.png
  常备::
   * C/C++ 到Python ,一般有两种基本模式:
    * `扩展`：最终用户运行Python 解译器程序,并导入用C++编写的Python "扩展模块".  想像一个C++写的库,给它一个Python 接口, 这样Python 程序员就可以使用它.  从Python 来看,这些模块就像是常规的Python 模块;
-   * `内嵌`：最终用户运行C++写的程序,反过来调用Python 解译器,就像调用一个库函数.  想像一下为现有的应用程序加入脚本能力;    
+   * `内嵌`：最终用户运行C++写的程序,反过来调用Python 解译器,就像调用一个库函式.  想像一下为现有的应用程序加入脚本能力;    
    1. Swig: 
     * 访问地址: http://www.swig.org
     * 是一个自动的扩展构造工具. 它读入注释的C/C++头文件,为Python ／tcl／perl等多种脚本语言产生wrap代码. SWIG可以包装大量C++特性到Python 的扩展模块中. 
@@ -537,7 +537,7 @@ attachment:2008-10-14-google-python.png
   * Python 到 C: ctypes
    * 访问地址: http://python.net/crew/theller/ctypes/
    * 精巧地址: http://bit.ly/3yjAHy
-   * ctypes是一个Python 模块,使用他可以在Python 中创建和操作C语言的数据类型,这样可以在动态链接库中传递参数到C的函数中去;ctypes可以在Windows、GNU/Linux等多个平台上使用,甚至支持Windows上的COM开发
+   * ctypes是一个Python 模块,使用他可以在Python 中创建和操作C语言的数据类型,这样可以在动态链接库中传递参数到C的函式中去;ctypes可以在Windows、GNU/Linux等多个平台上使用,甚至支持Windows上的COM开发
   * Python 到 Perl: PyPerl
    * 访问地址: http://wiki.python.org/moin/PyPerl  
    * 精巧地址: http://bit.ly/3vR3ET
@@ -756,4 +756,3 @@ Python 在各种行业,一直有经典的支持:
 
 创建 by -- ZoomQuiet [[[DateTime(2008-06-17T14:23:01Z)]]]
 ||<^>[[PageComment2]]||<^>[:/PageCommentData:PageCommentData]''||
-
