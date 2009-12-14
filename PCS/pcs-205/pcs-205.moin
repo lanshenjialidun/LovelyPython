@@ -77,4 +77,40 @@ print dir(s)
 {{{
 ['__add__', '__class__', '__contains__', '__delattr__', '__doc__', '__eq__', '__ge__', '__getattribute__', '__getitem__', '__getnewargs__', '__getslice__', '__gt__', '__hash__', '__init__', '__le__', '__len__', '__lt__', '__mod__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__rmod__', '__rmul__', '__setattr__', '__str__', 'capitalize', 'center', 'count', 'decode', 'encode', 'endswith', 'expandtabs', 'find', 'index', 'isalnum', 'isalpha', 'isdigit', 'islower', 'isspace', 'istitle', 'isupper', 'join', 'ljust', 'lower', 'lstrip', 'partition', 'replace', 'rfind', 'rindex', 'rjust', 'rpartition', 'rsplit', 'rstrip', 'split', 'splitlines', 'startswith', 'strip', 'swapcase', 'title', 'translate', 'upper', 'zfill']
 }}}
+
+
+=== range ===
+函数说明:range([start,] stop[, step]),根据start与stop指定的范围以及step设定的步长,生成一个数字序列
+
+range示例:
+{{{#!python
+>>> range(5)
+[0, 1, 2, 3, 4]
+>>> range(1,5)
+[1, 2, 3, 4]
+>>> range(0,6,2)
+[0, 2, 4]
+}}}
+
+
+=== xrange ===
+函数说明:用法与range完全相同,所不同的是生成的不是一个数组,而是一个生成器(http://www.python.org/dev/peps/pep-0255/).
+
+xrange示例:
+{{{#!python
+>>> xrange(5)
+xrange(5)
+>>> list(xrange(5))
+[0, 1, 2, 3, 4]
+>>> xrange(1,5)
+xrange(1, 5)
+>>> list(xrange(1,5))
+[1, 2, 3, 4]
+>>> xrange(0,6,2)
+xrange(0, 6, 2)
+>>> list(xrange(0,6,2))
+[0, 2, 4]
+}}}
+由上面的示例可以知道,要生成很大的数字序列的时候,用xrange会比range性能优很多,因为不需要一上来就开辟一块很大的内存空间.
+
 ##endInc
