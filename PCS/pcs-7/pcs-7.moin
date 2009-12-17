@@ -78,7 +78,7 @@
 {{{
 No:  import sys, os
 Yes: import sys
-        import os
+     import os
 }}}但是这样也是可以的：
 {{{#!python
 from types import StringType, ListType
